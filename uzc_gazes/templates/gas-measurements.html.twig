@@ -1,0 +1,24 @@
+{% import '@uzc_gazes/graph-macros.html.twig' as graphMacros %}
+{{ graphMacros.showTableLinks() }}
+{{ graphMacros.openModalButton("graph-modal", "Attēlot grafikā") }}
+{{ graphMacros.selectColumnsButton() }}
+<h3 class="w-100 text-center mt-3 fw-bold fs-3">Gāzes mērījumu datu tabula</h3>
+<table id="gas-measurements" class="table table-striped" style="width:100%">
+  <thead class="thead-dark">
+  <tr>
+    <th>Datums</th>
+    <th>ID Lauka nr.</th>
+    <th>Slejas nr.</th>
+    <th>Lauciņa nr.</th>
+    <th>Gredzens</th>
+    <th>GC Pozīcija</th>
+    <th>CH4</th>
+    <th>CO2</th>
+    <th>N20</th>
+    <th>CH4-C (mg C m-2 h-1) ar korekciju</th>
+    <th>CO2-C (mg C m-2 h-1) ar korekciju</th>
+    <th>N2O-N (mg N m-2 h-1) ar korekciju</th>
+  </tr>
+  </thead>
+</table>
+{{ graphMacros.modal("graph-modal", "data-table-graph") }}

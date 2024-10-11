@@ -1,0 +1,24 @@
+{% import '@uzc_gazes/graph-macros.html.twig' as graphMacros %}
+{{ graphMacros.showTableLinks() }}
+{{ graphMacros.openModalButton("graph-modal", "Attēlot grafikā") }}
+{{ graphMacros.selectColumnsButton() }}
+<h3 class="w-100 text-center mt-3 fw-bold fs-3">AREI Augsnes mērījumu datu tabula</h3>
+<table id="soil-sample-measurements" class="table table-striped" style="width:100%">
+  <thead class="thead-dark">
+  <tr>
+    <th>Datums</th>
+    <th>ID Lauka nr.</th>
+    <th>Slejas nr.</th>
+    <th>Lauciņa nr.</th>
+    <th>Dziļums/ horizonts (A 0-30, B 30-60)</th>
+    <th>Vid. pH H20</th>
+    <th>Vid. pH KCl</th>
+    <th>Vid. oksid. C, %</th>
+    <th>Vid. kopējais C, %</th>
+    <th>Vid. org. vielas, %</th>
+    <th>P2O5 vid, mg/kg</th>
+    <th>Vid. K2O, mg/kg</th>
+  </tr>
+  </thead>
+</table>
+{{ graphMacros.modal("graph-modal", "data-table-graph") }}

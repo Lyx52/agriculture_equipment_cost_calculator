@@ -1,0 +1,27 @@
+{% import '@uzc_gazes/graph-macros.html.twig' as graphMacros %}
+{{ graphMacros.showTableLinks() }}
+{{ graphMacros.openModalButton("graph-modal", "Attēlot grafikā") }}
+{{ graphMacros.selectColumnsButton() }}
+<h3 class="w-100 text-center mt-3 fw-bold fs-3">AREI Stendes mērījumu datu tabulu</h3>
+<table id="stende-parameters-all" class="table table-striped" style="width:100%">
+    <thead class="thead-dark">
+        <tr>
+            <th>Datums</th>
+            <th>ID Lauka nr.</th>
+            <th>Slejas nr.</th>
+            <th>Lauciņa nr.</th>
+            <th>Apstrādes tips</th>
+            <th>Apstrādes darbība (UZC)</th>
+            <th>AREI_Stende_[CO2] sek. (mg CO2 m-2 h-1)</th>
+            <th>AREI_Stende_Soil Temp.</th>
+            <th>AREI_Stende_Air temperature</th>
+            <th>AREI_Stende_Rainfall</th>
+            <th>AREI_Stende_Sun duration</th>
+            <th>AREI_Stende_Moisture (%)</th>
+            <th>AREI_Stende_Pressure (mb)</th>
+            <th>AREI_Stende_Pressure (kPa)</th>
+            <th>AREI_Stende_Error mode</th>
+        </tr>
+    </thead>
+</table>
+{{ graphMacros.modal("graph-modal", "data-table-graph") }}

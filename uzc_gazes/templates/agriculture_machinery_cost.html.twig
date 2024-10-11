@@ -1,0 +1,104 @@
+{% import '@uzc_gazes/graph-macros.html.twig' as graphMacros %}
+{{ graphMacros.beginModal("machinery-info-modal", "Tehnikas dati") }}
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="inputMachineryCategory">Tehnikas kategorija</label>
+            <select class="form-control" id="inputMachineryCategory">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputMachineryMark">Tehnikas marka</label>
+            <select class="form-control" id="inputMachineryMark">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputMachineryModel">Tehnikas modelis</label>
+            <select class="form-control" id="inputMachineryModel">
+            </select>
+        </div>
+        <div class="btn-group w-100">
+            <div class="form-group w-100" id="searchContainer">
+                <label for="inputSearchBar">Meklēt tehniku</label>
+                <input type="text" class="form-control" id="inputSearchBar" placeholder="Meklēt tehniku...">
+                <div id="searchSpinner" class="spinner-border search-spinner" role="status">
+                    <span class="sr-only hidden">Loading...</span>
+                </div>
+            </div>
+            <div id="searchResultContainer" class="dropdown-menu top-100 w-100" aria-labelledby="searchContainer">
+            </div>
+        </div>
+    </div>
+    <div id="tractorInfoContainer" class="col">
+        <a tabindex="-1" data-toggle="tooltip" data-placement="right" id="sourceTooltip" title="avots">
+            <span class="badge badge-secondary">Avots</span>
+        </a>
+        <div class="form-group">
+            <label for="inputMachineryPrice">Iepirkuma cena (EUR)</label>
+            <input type="number" class="form-control" id="inputMachineryPrice">
+        </div>
+        <div class="form-group">
+            <label for="inputMachineryEquipmentLevel">Mašīnas komplektācija</label>
+            <select class="form-control form-control-sm" id="inputMachineryEquipmentLevel">
+                <option value="base" selected>Bāzes</option>
+                <option value="medium">Vidējais</option>
+                <option value="premium">Premium</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputMachineryPower">Mašīnas jauda (kW)</label>
+            <input type="number" class="form-control" id="inputMachineryPower">
+        </div>
+        <div class="form-group">
+            <label for="inputMachineryWeight">Mašīnas masa (kg)</label>
+            <input type="number" class="form-control" id="inputMachineryWeight">
+        </div>
+    </div>
+</div>
+{{ graphMacros.endModal() }}
+
+<div class="container-fluid">
+    <div class="row-cols-2 row-cols-sm-1">
+        <div class="col card">
+            <div class="card-header">
+                <h1>Nolietojuma dati</h1>
+            </div>
+            <div class="card-body">
+                {{ graphMacros.openModalButton("machinery-info-modal", "Atvērt tehnikas datu ievadi") }}
+                <div class="form-group">
+                    <label for="inputMachineryMotorHours">Motorstundas, h</label>
+                    <input type="number" class="form-control" id="inputMachineryMotorHours">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Example select</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Example multiple select</label>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+datatables-lib:
+  version: 1.0.8
+  dependencies:
+    - core/jquery
+  css:
+    theme:
+      lib/datatables/css/datatables.min.css: {
+        minified: true,
+        preprocess: true
+      }
+      lib/jquery-ui/css/jquery-ui.min.css: {
+        minified: true,
+        preprocess: true
+      }
+      css/uzc_gazes.css: {
+        minified: false,
+        preprocess: false
+      }
+  js:
+    js/utils.js: {
+      minified: false,
+      preprocess: false
+    }
+    js/graphs/scatter.js: {
+      minified: false,
+      preprocess: false
+    }
+    js/graphs/bar.js: {
+      minified: false,
+      preprocess: false
+    }
+    js/graphs/pivot.js: {
+      minified: false,
+      preprocess: false
+    }
+    lib/datatables/js/datatables.min.js: {
+      minified: true,
+      preprocess: true
+    }
+    lib/plotly/js/plotly.min.js: {
+      minified: true,
+      preprocess: true
+    }
+    lib/momentjs/js/moment.js: {
+      minified: false,
+      preprocess: true
+    }
+    lib/jquery-ui/js/jquery-ui.min.js: {
+      minified: true,
+      preprocess: true
+    }
+    js/uzc_gazes.js: {
+      minified: false,
+      preprocess: false
+    }
+    js/agriculture_calculator.js: {
+      minified: false,
+      preprocess: false
+    }
+    
+    
+

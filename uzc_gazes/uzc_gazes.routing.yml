@@ -1,0 +1,87 @@
+uzc_gazes.soil_sample_measurements:
+  path: '/uzc_gazes/soil_sample_measurements/{content_type}/query'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\SoilSampleMeasurementController::query'
+    _title: 'SoilData'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.gas_measurements:
+  path: '/uzc_gazes/gas_measurements/{content_type}/query'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\GasMeasurementController::query'
+    _title: 'GasData'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.gas_measurements_lbtu:
+  path: '/uzc_gazes/gas_measurements_lbtu/{content_type}/query'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\GasMeasurementLBTUController::query'
+    _title: 'LBTU Gāzes mērījumi'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.stende_parameters_all:
+  path: '/uzc_gazes/stende_parameters_all/{content_type}/query'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\StendeParametersController::query'
+    _title: 'Stendes mērījumi'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.combined:
+  path: '/uzc_gazes/combined/{content_type}/query'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\CombinedController::query'
+    _title: 'Combined data'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.technical_equipment:
+    path: '/uzc_gazes/technical_equipment/{content_type}/query'
+    defaults:
+        _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::query'
+        _title: 'Technical equipment data'
+    requirements:
+        _user_is_logged_in: 'TRUE'
+uzc_gazes.technical_equipment_filters:
+  path: '/uzc_gazes/technical_equipment/filters'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::getEquipmentFilters'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.technical_equipment_metadata:
+  path: '/uzc_gazes/technical_equipment/{equipment_level}/{equipment_id}'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::getEquipmentMetadata'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.meteo_data:
+  path: '/uzc_gazes/meteo/{content_type}/query'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\MeteoController::query'
+    _title: 'Stende meteo data'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.static_data:
+    path: '/uzc_gazes/static/{json_file}'
+    defaults:
+        _controller: 'Drupal\uzc_gazes\Controller\StaticDataController::fetch'
+    requirements:
+        _user_is_logged_in: 'TRUE'
+uzc_gazes.calculator:
+    path: '/uzc_gazes/calculator/{calculator_type}'
+    defaults:
+        _controller: 'Drupal\uzc_gazes\Controller\CalculatorController::calculator'
+    requirements:
+        _user_is_logged_in: 'TRUE'
+uzc_gazes.upload_soil_measurements:
+  path: '/uzc_gazes/import_meteo_data'
+  defaults:
+    _form: 'Drupal\uzc_gazes\Form\ImportMeteoDataForm'
+    _title: 'Import Stende Meteo data'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.cost_calculator:
+  path: '/uzc_gazes/cost_calculator'
+  defaults:
+    _form: 'Drupal\uzc_gazes\Form\CostCalculatorForm'
+    _title: 'Calculator'
+  requirements:
+    _user_is_logged_in: 'TRUE'

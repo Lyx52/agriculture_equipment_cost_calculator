@@ -1,0 +1,16 @@
+DELETE FROM uzc_gazes.codifier WHERE parent_id IN (SELECT id FROM uzc_gazes.codifier WHERE code = 'categories');
+CALL uzc_gazes.create_codifier('categories', 'Kategorijas');
+CALL uzc_gazes.create_codifier('tractors', 'Traktori', 'categories');
+DELETE FROM uzc_gazes.codifier WHERE parent_id IN (SELECT id FROM uzc_gazes.codifier WHERE code = 'equipment_level');
+CALL uzc_gazes.create_codifier('equipment_level', 'Aprīkojuma līmenis');
+CALL uzc_gazes.create_codifier('base', 'Bāzes', 'equipment_level');
+CALL uzc_gazes.create_codifier('medium', 'Vidējais', 'equipment_level');
+CALL uzc_gazes.create_codifier('premium', 'Premium', 'equipment_level');
+DELETE FROM uzc_gazes.codifier WHERE parent_id IN (SELECT id FROM uzc_gazes.codifier WHERE code = 'value_types');
+CALL uzc_gazes.create_codifier('value_types', 'Vērtību tipi');
+CALL uzc_gazes.create_codifier('avg_price', 'Vidējā cena (EUR)', 'value_types');
+CALL uzc_gazes.create_codifier('avg_weight', 'Vidējā masa (kg)', 'value_types');
+CALL uzc_gazes.create_codifier('avg_power', 'Vidējā jauda (kW)', 'value_types');
+CALL uzc_gazes.create_codifier('power', 'Jauda (kW)', 'value_types');
+CALL uzc_gazes.create_codifier('weight', 'Masa (kg)', 'value_types');
+CALL uzc_gazes.create_codifier('source', 'Datu avoti', 'value_types');
