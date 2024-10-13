@@ -26,6 +26,18 @@ CREATE TABLE IF NOT EXISTS uzc_gazes.technical_equipment
 	sources JSONB NOT NULL
 );
 
+DROP TABLE uzc_gazes.macus_equipment_prices;
+CREATE TABLE IF NOT EXISTS uzc_gazes.macus_equipment_prices
+(
+    id serial NOT NULL PRIMARY KEY,
+	power_group varchar(100) NOT NULL,
+	year numeric(4, 0) NOT NULL,
+	listing_count numeric(5, 0) NOT NULL,
+	motor_hours_mean numeric(10, 2) NOT NULL,
+	price_mean numeric(10, 2) NOT NULL,
+	category_code varchar(200) NOT NULL
+);
+
 ALTER TABLE IF EXISTS uzc_gazes.codifier
     OWNER to drupal8;
 ALTER TABLE IF EXISTS uzc_gazes.technical_equipment
@@ -54,8 +66,29 @@ begin
 	END IF;
 end;$$;
 
-CREATE OR REPLACE VIEW uzc_gazes.v_technical_equipment_filters
- AS
+DROP VIEW uzc_gazes.v_equipment_categories;
+CREATE OR REPLACE VIEW uzc_gazes.v_equipment_categories AS
+SELECT DISTINCT t.category_code, t.sub_category_code, c.name AS category_name, sc.name AS sub_category_name FROM uzc_gazes.technical_equipment AS t
+LEFT JOIN uzc_gazes.codifier AS c ON c.code = t.category_code 
+LEFT JOIN uzc_gazes.codifier AS sc ON sc.code = t.sub_category_code 
+WHERE c.name IS NOT NULL AND sc.name IS NOT NULL
+
+DROP VIEW uzc_gazes.v_equipment_mark;
+CREATE OR REPLACE VIEW uzc_gazes.v_equipment_mark AS
+SELECT DISTINCT(mark) AS mark, t.category_code, t.sub_category_code 
+FROM uzc_gazes.technical_equipment AS t
+
+DROP VIEW uzc_gazes.v_equipment_mark_model;
+CREATE OR REPLACE VIEW uzc_gazes.v_equipmenv_equipment_mark_modelt_mark AS
+SELECT DISTINCT(t.model) AS model, t.mark, t.category_code, t.sub_category_code 
+FROM uzc_gazes.technical_equipment AS t
+
+CREATE OR REPLACE VIEW uzc_gazes.v_equipment_search AS
+SELECT t.id, CONCAT(t.mark, ' ', t.model, ' (', c.name, ')') AS full_name
+FROM uzc_gazes.technical_equipment AS t
+LEFT JOIN uzc_gazes.codifier AS c ON c.code = t.equipment_level_code
+
+CREATE OR REPLACE VIEW uzc_gazes.v_technical_equipment_filters AS
  SELECT tm.mark,
     tm.model,
     c.name AS category_name,
@@ -63,15 +96,3 @@ CREATE OR REPLACE VIEW uzc_gazes.v_technical_equipment_filters
    FROM uzc_gazes.technical_equipment tm
      LEFT JOIN uzc_gazes.codifier c ON c.code::text = tm.category_code::text
   ORDER BY tm.mark;
-
-DROP VIEW uzc_gazes.v_get_equipment_metadata;
-CREATE OR REPLACE VIEW uzc_gazes.v_get_equipment_metadata AS
-SELECT 
-	tm.technical_equipment_id AS equipment_id,
-	tm.equipment_level_code AS equipment_level,
-	tm.value_text AS "text",
-	tm.value_numeric AS "numeric",
-	c.code AS value_code, 
-	c.name AS value_name
-	FROM uzc_gazes.technical_equipment_metadata AS tm
-LEFT JOIN uzc_gazes.codifier AS c ON c.code = tm.code;
