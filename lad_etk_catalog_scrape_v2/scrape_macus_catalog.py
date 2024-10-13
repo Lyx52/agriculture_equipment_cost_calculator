@@ -72,21 +72,47 @@ if 'pages' in data:
     save_listings(unpaged)
 else:
     unpaged = data
-analytics = {}
-for listing in unpaged:
-    if 'motor_hours' not in listing:
-        continue
-    cleaned_model = clean_key(get_model(listing))
-    if cleaned_model not in analytics:
-        analytics[cleaned_model] = {
-            'data': {},
-            'model': get_model(listing)
-        }
 
-    analytics[cleaned_model]['data'][listing['motor_hours']] = listing['price']
-for key, value in analytics.items():
-    value['avg_price'] = sum(value['data'].values()) / len(value['data'])
-    value['avg_motor_hours'] = sum(value['data'].keys()) / len(value['data'])
-with open("macus_analytics.json", "w") as fp:
-    json.dump(analytics, fp, indent=4)
-    fp.close()
+
+def scrape_metadata(url):
+    result = {
+        'unsorted_metadata': {}
+    }
+    res = requests.get(url)
+    soup = BeautifulSoup(res.content, features="html.parser")
+    for row in soup.find_all('tr'):
+        name_cell = row.find('td', attrs={'class': 'name'})
+        if name_cell is None:
+            continue
+        
+        children = list(name_cell.children)
+        if len(children) < 2:
+            continue
+        name = clean_key(children[0])
+        if name == 'engine_power':
+            value = re.search('[0-9]+ hp', children[1].text)
+            if value is None:
+                continue
+            value = float(value[0].lower().replace('hp', '').strip())
+            result[name] = value 
+        elif name == 'brand__model':
+            result['model'] = children[1].text
+        elif name not in result['unsorted_metadata']:
+            try:
+                result['unsorted_metadata'][name] = children[1].text     
+            except:
+                continue
+    return result
+current = 1
+total = len(unpaged)
+for listing in unpaged:
+    print(f"Scraping {current}/{total}")
+    if 'metadata' not in listing:
+        url = listing['url']
+        listing['metadata'] = scrape_metadata(url)
+        if (current % 25) == 0:
+            print('Saving...')
+            save_listings(unpaged)
+        time.sleep(0.2 + (random.random() / 4))
+    current += 1
+save_listings(unpaged)

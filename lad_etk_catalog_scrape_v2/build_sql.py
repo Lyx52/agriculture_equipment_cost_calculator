@@ -7,7 +7,7 @@ def build_categories_script(fp, categories: dict, parent_code: str, parent_name:
         fp.write(f"CALL uzc_gazes.create_codifier('{key}', '{name}', '{parent_code}');\n")
 
 def build_tractor_script():
-    tractors = open_json('tractors_refined.json')
+    tractors = open_json('macus_data_fixed.json')
     with open("tractors.sql", "w", encoding="utf-8") as fp:
         fp.write("DELETE FROM uzc_gazes.technical_equipment WHERE category_code IN ('categories');\n")
         for mark, mark_data in tractors.items():
@@ -41,12 +41,8 @@ codifiers = {
     'value_types': {
         'name': 'Vērtību tipi',
         'values': {
-            'avg_price': 'Vidējā cena (EUR)',
-            'avg_weight': 'Vidējā masa (kg)',
-            'avg_power': 'Vidējā jauda (kW)',
             'power': 'Jauda (kW)',
             'weight': 'Masa (kg)',
-            'source': 'Datu avoti'
         }
     },
 }
@@ -54,4 +50,4 @@ codifiers = {
 with open('codifiers.sql', 'w', encoding='utf-8') as fp:
     for codifier_key, codifier_data in codifiers.items():
         build_categories_script(fp, codifier_data['values'], codifier_key, codifier_data['name'])
-build_tractor_script()
+# build_tractor_script()

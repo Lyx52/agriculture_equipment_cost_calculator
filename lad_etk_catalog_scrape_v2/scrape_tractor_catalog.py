@@ -23,45 +23,33 @@ def get_tractors(url) -> dict:
     res = requests.get(url)
     soup = BeautifulSoup(res.content, features="html.parser")
     table = soup.find('table', attrs={'class': 'tdMenu1'})
+    skipFirst = True
     for row in table.find_all('tr'):
-        links = row.find_all('a')
-        if len(links) <= 0:
-            continue 
-        link = links[0]
-        result[clean_key(link.text)] = {
-            'model': link.text,
-            'url': link['href']
+        if skipFirst:
+            skipFirst = False
+            continue
+        cells = row.find_all('td')
+        if len(cells) < 3:
+            continue
+        link = cells[0].find('a')
+        model_key = clean_key(link.text)
+        result[model_key] = {
+            'url': link['href'],
+            'model': link.text
         }
+        try:
+            power = re.search('[0-9]+ hp', cells[1].text)
+            if power is not None:
+                result[model_key]['power'] = power[0].replace('hp', '').strip()
+        except Exception as e:
+            print(e)
+        try:
+            if 'unknown' in cells[2].text.lower():
+                continue
+            result[model_key]['year_range'] = list(filter(lambda v: len(str(v)) >= 4, [int(y) if len(y) > 0 else 0 for y in cells[2].text.split('-')]))
+        except Exception as e:
+            print(e)
     return result
-scraped_keys = [
-    "fuel_tank",
-    "wheelbase",
-    "weight",
-    "front_tire",
-    "rear_tire",
-    "batteries",
-    "engine",
-    "drawbar_tested",
-    "pto_claimed",
-    "pto_tested",
-    "factory",
-    "chassis",
-    "steering",
-    "brakes",
-    "transmission",
-    "total_flow",
-    "rear_rpm",
-    "original_price",
-    "drawbar",
-    "clutch",
-    "engine_rpm",
-    "2wd_wheelbase",
-    "4wd_wheelbase",
-    "rear_lift",
-    "engine_gross",
-    "transmissions",
-    "engine_net"
-] 
 def get_tractor_metadata(url) -> dict:
     global keys
     result = {}
@@ -77,7 +65,7 @@ def get_tractor_metadata(url) -> dict:
                 cells = row.find_all('td')
                 if len(cells) >= 2:
                     cleaned_key = clean_key(cells[0].text).replace(':', '') 
-                    if len(cleaned_key) > 0 and cleaned_key in scraped_keys:
+                    if len(cleaned_key) > 0:
                         cell_data = cells[1].find(attrs={'class': 'tdMt'})
                         if cell_data is None:
                             value = cells[1].text.strip()
@@ -111,7 +99,6 @@ for mark, mark_data in data.items():
             print("Saving...")
             save_catalog(data)
     current += 1
-    
 save_catalog(data)
 
 for mark, mark_data in data.items():
@@ -124,13 +111,12 @@ for mark, mark_data in data.items():
         if 'metadata' not in model_data:
             has_scraped = True
             model_data['metadata'] = get_tractor_metadata(model_data['url'])
-            time.sleep(0.25 + (random.random() / 4))
+            time.sleep(0.2 + (random.random() / 8))
             if (current % 25) == 0:
                 print("Saving...")
                 save_catalog(data)
         current += 1
     if has_scraped:
         save_catalog(data)
-        time.sleep(random.random() * 5)
+        time.sleep(random.random() * 1.5)
 save_catalog(data)
-exit()
