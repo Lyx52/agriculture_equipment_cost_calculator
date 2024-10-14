@@ -1,4 +1,64 @@
 (($) => {
+    const operationTypes = [
+        'Kulšana',
+        'Aršana',
+        'Kultivēšana',
+        'Minerālmēslu-izkliedēšana',
+        'Sēja',
+        'Ecēšana',
+        'Smidzināšana',
+        'Rindstarpu-kultivēšana',
+        'Ūdens pievešana',
+        'Transportēšana',
+        'Lobīšana',
+        'Starpsēja',
+    ]
+    const fetchRemainingValue = async () => {
+        const res = await fetch('/uzc_gazes/static/data_remaining_value.json');
+        window.data_remaining_value = await res.json();
+    }
+    const fetchCapitalRecoveryValue = async () => {
+        const res = await fetch('/uzc_gazes/static/data_capital_recovery.json');
+        window.data_capital_recovery = await res.json();
+    }
+    const fetchCostOfRepairValue = async () => {
+        const res = await fetch('/uzc_gazes/static/data_cost_of_repair.json');
+        window.data_cost_of_repair = await res.json();
+    }
+    fetchRemainingValue();
+    fetchCapitalRecoveryValue();
+    fetchCostOfRepairValue();
+
+    const getRemainingValueCoefficient = (hp, years_old, motor_hours) => {
+        if (!window.data_remaining_value) return -1;
+        hp = Utils.getClosestValue(Object.keys(window.data_remaining_value), hp);
+        motor_hours = Utils.getClosestValue(Object.keys(window.data_remaining_value[hp]), motor_hours);
+        return window.data_remaining_value[hp][motor_hours][Math.min(19, Math.max(1, years_old - 1))];
+    }
+    const getRemainingValueCategoryCoefficient = (category, years_old, motor_hours = 0) => {
+        if (!window.data_remaining_value) return -1;
+        if (!Object.keys(window.data_remaining_value).includes(category)) return -1;
+        if (category === 'Kombains') {
+            motor_hours = Utils.getClosestValue(Object.keys(window.data_remaining_value[category]), motor_hours);
+            return window.data_remaining_value[category][motor_hours][Math.min(19, Math.max(1, years_old - 1))];
+        }
+        return window.data_remaining_value[category][Math.min(19, Math.max(1, years_old - 1))];
+    }
+    const getCapitalRecoveryValue = (years_old, percentage) => {
+        if (!window.data_capital_recovery) return -1;
+        const data = window.data_capital_recovery['years_minus_1'][Math.min(19, Math.max(1, years_old - 1))];
+
+        percentage = Utils.getClosestValue(Object.keys(data), percentage);
+        return data[percentage];
+    }
+    const getCostOfRepair = (machine_type, motor_hours) => {
+        if (!window.data_cost_of_repair) return -1;
+        if (Object.keys(window.data_cost_of_repair).includes(machine_type)) {
+            motor_hours = Utils.getClosestValue(Object.keys(window.data_cost_of_repair[machine_type]), motor_hours);
+            return window.data_cost_of_repair[machine_type][motor_hours] / 100;
+        }
+        return -1;
+    }
     const tractorInfoContainer = $("#tractorInfoContainer");
 
     // Input info
@@ -17,10 +77,20 @@
     const specificationContainer = $("#specificationContainer");
     inputMachineryModel.attr('disabled', true);
     const columns = [
+        {
+            data: null,
+            render: (data, type, row) => {
+                console.log('data', data);
+                console.log('row', row);
+                console.log('type', type);
+                const options = operationTypes.map(v => `<option value="${v}">${v}</option>`).join('');
+                return `<select class="form-control"><option>-- Izvēlēties --</option> ${options}</select>`;
+            }
+        },
         {data: 'technical_equipment_name'},
         {data: 'price'}
     ];
-    const table = new DataTable('#calcultions-table', {
+    const table = new DataTable('#calculations-table', {
         responsive: true,
         colReorder: true,
         layout: {
@@ -251,12 +321,19 @@
         'capacity_l': 'Tilpums, l',
         'capacity_m3': 'Tilpums, m3',
         'capacity_t': 'Tilpums, t',
-        'fuel_tank_l': 'Degvielas tvertnes tilpums, l'
+        'fuel_tank_l': 'Degvielas tvertnes tilpums, l',
+        'lift_kg': 'Uzkares celtspēja, kg',
+        'front_lift_kg': 'Priekšējās uzkares celtspēja, kg',
+        'pump_flow_l_min': 'Hidrosūkņa ražīgums, l/min',
+        'engine_cylinder_count': 'Dzinēja cilindru skaits',
+        'power_take_off': 'Jūgvārpstas jauda, kw',
+        'drawbar': 'Jūgstieņa jauda, kw'
     }
     const addSpecification = (field, value) => {
         let type = 'text';
         if (!isNaN(value)) {
             type = 'number';
+            value = value.toFixed(2);
         }
         let title = fields[field] ?? field;
         const elem = createInputElement(field, title, type, value);

@@ -24,6 +24,7 @@ replacements = {
     'ķ': 'k',
     'ž': 'z',
     'ņ': 'n',
+    '&': '',
     '\'': '',
     ' ': '_',
     '/': '_',
@@ -92,13 +93,18 @@ def convert_zs_to_kw(zs):
     return float(zs) * 0.7457
 
 class LadCatalog:
-    def __init__(self, json_file):
+    def __init__(self, json_file, marks):
+        self.marks = marks
         self.data = open_json(json_file)
         self.convert_categories = {
             'traktori': 'tractors',
             'sejas_un_stadama_tehnika': 'sowing_and_planting_machines',
             'augsnes_apstrades_tehnika_un_iekartas': 'tillage_machines',
-            'razas_novaksanas_tehnika': 'agricultural_harvesters'
+            'razas_novaksanas_tehnika': 'agricultural_harvesters',
+            'lopbaribas_sagatavosanas_tehnika': 'hay_and_forage_machines',
+            'meslosanas_un_augu_aizsardzibas_tehnika': 'fertilization_and_plant_protection_machines',
+            'kravu_transportesanas_tehnika': 'cargo_transportation_machines',
+            'sejumu_un_stadijumu_kopsanas_tehnika': 'sowing_and_plant_care_machines',
         }
         self.convert_sub_categories = {
             'lauksaimniecibas_traktors': 'agriculture_tractor',
@@ -108,7 +114,21 @@ class LadCatalog:
             'arkls': 'plough',
             'graudaugu_kombains': 'combine_harvester',
             'kartupelu_novaksanas_kombains': 'potato_harvester',
-            'mehaniskais_skirotajs': 'mechanical_sorter'
+            'mehaniskais_skirotajs': 'mechanical_sorter',
+            'plaujmasina': 'mowers',
+            'smidzinatajs': 'sprayer',
+            'skidrmeslu_cisterna': 'liquid_manure_tank',
+            'universalais_transportlidzeklis': 'universal_transport',
+            'specializetais_kravas_furgons': 'specialized_cargo_transport',
+            'piena_parvadasanas_tehnika': 'milk_cargo_transport',
+            'graudu_parvadasanas_tehnika': 'grain_cargo_transport',
+            'generators': 'generator',
+            'kultivators': 'cultivators',
+            'freze': 'mills',
+            'skeldotajs': 'chipper',
+            'rindstarpu_kultivators': 'row_cultivator',
+            'maurina_plaujmasina': 'grass_mower',
+            'kartupelu_vagotajs': 'potato_furrower'
         }
         self.specification_values = {
             'dzinejs_jauda_zs': lambda v: float(v) * 0.7457,
@@ -306,8 +326,8 @@ class LadCatalog:
                     model = self.convert_models[mark_key][model_key]
             
             if mark_key in self.convert_marks.keys():
-                mark_key = self.convert_marks[mark_key]
-
+                mark_key = clean_key(self.convert_marks[mark_key])
+            
             for value_key in self.convert_specification_key.keys():
                 if value_key in metadata:
                     if value_key in self.specification_values:
@@ -319,7 +339,7 @@ class LadCatalog:
                 
             catalog_item['category'] = category
             catalog_item['sub_category'] = sub_category
-            catalog_item['mark'] = mark
+            catalog_item['mark'] = self.marks[mark_key]
             catalog_item['model'] = model
             catalog_item['equipment_level'] = equipment_level
             catalog_item['price'] = price

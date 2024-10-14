@@ -1,4 +1,31 @@
 import json, codecs
+
+import json
+fp = open('remaining_value.csv', 'r', encoding='utf-8')
+lines = fp.readlines()[1:]
+fp.close()
+values = [[v.strip() for v in line.split(';')] for line in lines]
+categories = [v[0] for v in values]
+hours = [v[1] for v in values]
+values = [v[2:] for v in values]
+data = {}
+for line in range(len(values)):
+    for value, i in zip(values[line], range(len(values[line]))):
+        category, total_hours = categories[i], hours[i]
+        if (len(str(total_hours)) <= 0):
+            if category not in data:
+                data[category] = []
+            data[category].append(float(value) / 100.0)
+            continue
+        if category not in data:
+            data[category] = {}
+        if total_hours not in data[category]:
+            data[category][total_hours] = []
+        data[category][total_hours].append(float(value) / 100.0)
+fp = open('data_capital_recovery_tools.json', 'w', encoding='utf-8')
+json.dump(data, fp, indent=4)
+exit()
+
 def read_csv(file) -> dict:
     result = {}
     with open(file, "r", encoding="utf-8") as fp:

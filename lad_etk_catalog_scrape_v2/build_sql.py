@@ -1,7 +1,6 @@
 from utils import open_json, clean_key, save_json, avg, clean_currency
 import json
 def build_categories_data(fp, categories: dict, parent_code: str, parent_name: str):
-    fp.write(f"DELETE FROM uzc_gazes.codifier WHERE parent_id IN (SELECT id FROM uzc_gazes.codifier WHERE code = '{parent_code}');\n")
     fp.write(f"CALL uzc_gazes.create_codifier('{parent_code}', '{parent_name}');\n")
     for key, value in categories.items():
         if type(value) is dict:
@@ -28,7 +27,7 @@ def build_macus_data():
             for year in macus_data[group].keys():
                 item = macus_data[group][year]
                 fp.write(f"INSERT INTO uzc_gazes.macus_equipment_prices(power_group, year, listing_count, motor_hours_mean, price_mean, category_code) VALUES ('{group}', {year}, {item['listing_count']}, {item['motor_hours_mean']}, {item['price_mean']}, '{item['category']}');\n")
-        fp.close()
+        fp.close()\
 
 codifiers = {
     'categories': {
@@ -46,6 +45,44 @@ codifiers = {
                     'potato_harvester': 'Kartupeļu novākšanas kombains',
                     'combine_harvester': 'Graudaugu kombains'
                 },
+            },
+            'sowing_and_planting_machines': {
+                'name': 'Sējas un stādāmā tehnika',
+                'values': {
+                    'drills': 'Sējmašīna'
+                }
+            },
+            'tillage_machines': {
+                'name': 'Augsnes apstrādes tehnika un iekārtas',
+                'values': {
+                    'mills': 'Frēze',
+                    'plough': 'Arkls'
+                }
+            },
+            'hay_and_forage_machines': {
+                'name': 'Lopbarības sagatavošanas tehnika',
+                'values': {
+                    'mowers': 'Pļaujmašīna'
+                }
+            },
+            'fertilization_and_plant_protection_machines': {
+                'name': 'Mēslošanas un augu aizsardzības tehnika',
+                'values': {
+                    'sprayer': 'Smidzinātājs'
+                }
+            },
+            'cargo_transportation_machines': {
+                'name': 'Kravu transportēšanas tehnika',
+                'values': {
+                    'trailer': 'Piekabe'
+                }
+            },
+            'sowing_and_plant_care_machines': {
+                'name': 'Sējumu un stādījumu kopšanas tehnika',
+                'values': {
+                    'forage_harvester': 'Mulčeris',
+                    'grass_mower': 'Mauriņa pļaujmašīna'
+                }
             }
         }
     },
@@ -67,6 +104,7 @@ codifiers = {
 }
 
 with open('codifiers.sql', 'w', encoding='utf-8') as fp:
+    fp.write("TRUNCATE uzc_gazes.codifier;\n")
     for codifier_key, codifier_data in codifiers.items():
         build_categories_data(fp, codifier_data['values'], codifier_key, codifier_data['name'])
 build_macus_data()

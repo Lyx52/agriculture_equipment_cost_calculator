@@ -1,7 +1,20 @@
 from utils import open_json, clean_key, LadCatalog, save_json, TractorDataCatalog, clean_currency, MacusCatalog, first_or_default
 import os
+tractor_data_catalog = open_json('tractor_data_catalog.json')
+unique_marks = {}
+for item in tractor_data_catalog.values():
+    key = clean_key(item['mark'])
+    if key not in unique_marks:
+        unique_marks[key] = item['mark']
+
+lad_catalog = open_json('final.json')
+for item in lad_catalog:
+    key = clean_key(item['mark'])
+    if key not in unique_marks:
+        unique_marks[key] = item['mark']
+        
 if not os.path.exists('lad_catalog_new.json'):
-    catalog = LadCatalog('final.json')
+    catalog = LadCatalog('final.json', unique_marks)
     lad_catalog = catalog.build()
     save_json('lad_catalog_new.json', lad_catalog)
 else:
@@ -65,44 +78,4 @@ items = []
 for mark in catalog.keys():
     items.extend(catalog[mark])
 catalog = items
-save_json('tractors.json', catalog)
-#     lad_models = list(filter(lambda v: clean_key(v['mark']) == tractor_data_mark, catalog))
-#     if len(lad_models) > 0:
-#         print()
-#     # if filtered_item is None:
-#     #     print(f"{item['mark']}, {item['model']} => {tractor_data_mark}, {tractor_data_model}")
-
-# def filter_items(value, mark, model):
-#     return clean_key(value['mark']) == mark and clean_key(value['model']) == model
-# catalog = MacusCatalog('')
-
-# lad_mark_models = {}
-# for item in lad_catalog:
-#     lad_category = clean_key(item['category'])
-#     if lad_category not in convert_categories.keys():
-#         continue
-#     category = convert_categories[lad_category]
-#     mark = clean_key(item['mark'])
-#     model = clean_key(item['model'])
-#     if mark not in lad_mark_models:
-#         lad_mark_models[mark] = []
-#     lad_mark_models[mark].append(model)q
-
-# tractordata_catalog = open_json('tractor_data_catalog.json')
-# not_in_tractordata = list(filter(lambda k: k not in tractordata_catalog.keys(), [k for k in lad_mark_models.keys()]))
-# print(not_in_tractordata)
-# models_not_in_tractor_data = {}
-# for mark, models in lad_mark_models.items():
-#     if mark not in tractordata_catalog:
-#         continue
-#     tractor_data_models = tractordata_catalog[mark]['models'].keys()
-#     for model in models:
-        
-
-#         new_models = convert_mark_models[mark][model] if mark in convert_mark_models and model in convert_mark_models[mark] else tractor_data_models
-#         if mark not in models_not_in_tractor_data:
-#             models_not_in_tractor_data[mark] = []
-#         if model not in new_models:
-#             models_not_in_tractor_data[mark].append(model)
-
-# print(models_not_in_tractor_data)
+save_json('technical_equipment.json', catalog)

@@ -263,6 +263,17 @@
                 }
             })
         },
+        minBy: (values, key) => {
+            return values.reduce((res, v) => {
+                if (!(key in res) || res[key] > v[key]) {
+                    return v;
+                }
+                return res;
+            }, {});
+        },
+        getClosestValue: (values, value) => {
+            return Utils.minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
+        },
         takeEveryNthExtreme: (arr, everyX) => {
             return arr.reduce(([maxIdx, max, res], val, idx) => {
                 let floatVal = parseFloat(val);
