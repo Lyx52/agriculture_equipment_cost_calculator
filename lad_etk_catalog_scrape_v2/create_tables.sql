@@ -79,12 +79,23 @@ SELECT DISTINCT(mark) AS mark, t.category_code, t.sub_category_code
 FROM uzc_gazes.technical_equipment AS t
 
 DROP VIEW uzc_gazes.v_equipment_mark_model;
-CREATE OR REPLACE VIEW uzc_gazes.v_equipmenv_equipment_mark_modelt_mark AS
+CREATE OR REPLACE VIEW uzc_gazes.v_equipment_mark_model AS
 SELECT DISTINCT(t.model) AS model, t.mark, t.category_code, t.sub_category_code 
 FROM uzc_gazes.technical_equipment AS t
 
+DROP VIEW uzc_gazes.v_equipment_search;
 CREATE OR REPLACE VIEW uzc_gazes.v_equipment_search AS
-SELECT t.id, CONCAT(t.mark, ' ', t.model, ' (', c.name, ')') AS full_name
+SELECT 
+	t.id, 
+	CONCAT(t.mark, ' ', t.model, ' (', c.name, ')') AS full_name,
+	t.mark,
+	t.model,
+	t.price,
+	t.category_code,
+	t.sub_category_code,
+	t.equipment_level_code,
+	t.specification,
+	t.sources
 FROM uzc_gazes.technical_equipment AS t
 LEFT JOIN uzc_gazes.codifier AS c ON c.code = t.equipment_level_code
 

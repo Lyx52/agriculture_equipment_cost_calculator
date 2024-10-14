@@ -41,15 +41,9 @@ uzc_gazes.technical_equipment:
     requirements:
         _user_is_logged_in: 'TRUE'
 uzc_gazes.technical_equipment_filters:
-  path: '/uzc_gazes/technical_equipment/filters'
+  path: '/uzc_gazes/technical_equipment/filters/{equipment_filter}'
   defaults:
     _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::getEquipmentFilters'
-  requirements:
-    _user_is_logged_in: 'TRUE'
-uzc_gazes.technical_equipment_metadata:
-  path: '/uzc_gazes/technical_equipment/{equipment_level}/{equipment_id}'
-  defaults:
-    _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::getEquipmentMetadata'
   requirements:
     _user_is_logged_in: 'TRUE'
 uzc_gazes.meteo_data:

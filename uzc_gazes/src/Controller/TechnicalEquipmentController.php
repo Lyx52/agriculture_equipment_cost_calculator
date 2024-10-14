@@ -13,51 +13,61 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class TechnicalEquipmentController extends ControllerBase {
-  use FilterModelTrait;
-  private static array $ValidContentTypes = [
-    'json',
-    'form'
-  ];
+    use FilterModelTrait;
+    private static array $ValidContentTypes = [
+        'json',
+        'form'
+    ];
+    private static array $ValidFilterTypes = [
+        'category',
+        'mark',
+        'model'
+    ];
   /**
    * @param \Symfony\Component\HttpFoundation\Request $request
    * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatch
    *
-   * @return \Symfony\Component\HttpFoundation\Response
+   * @return array|\Symfony\Component\HttpFoundation\JsonResponse
    */
   public function query(Request $request, RouteMatchInterface $routeMatch) {
     $contentType = $routeMatch->getParameter('content_type');
     if (empty($contentType) || !in_array($contentType, self::$ValidContentTypes))
       throw new BadRequestHttpException("Invalid content type!");
 
+    if ($contentType == 'form') {
+        return \Drupal::formBuilder()->getForm(TechnicalEquipmentSearchForm::class);
+    }
+
     $filter = TechnicalEquipmentQueryFilter::fromRequest($request);
     $data = TechnicalEquipmentRepository::getRepository()->get($filter);
     return match ($contentType) {
       'json' => new JsonResponse($data),
-      'form' => \Drupal::formBuilder()->getForm(TechnicalEquipmentSearchForm::class),
-      default => [
-        '#theme' => 'combined-measurements',
-        '#attached' => [
-          'library' => ['uzc_gazes/datatables-lib']
-        ]
-      ]
+//      default => [
+//        '#theme' => 'combined-measurements',
+//        '#attached' => [
+//          'library' => ['uzc_gazes/datatables-lib']
+//        ]
+//      ]
     };
   }
-  public function getEquipmentMetadata(Request $request, RouteMatchInterface $routeMatch) {
-    $equipmentLevel = $routeMatch->getParameter('equipment_level');
-    $equipmentId = $routeMatch->getParameter('equipment_id');
-    $equipmentId = self::toValidInteger($equipmentId);
-    if (empty($equipmentId) || empty($equipmentLevel)) {
-      throw new BadRequestHttpException("Invalid equipment level or id!");
-    }
+  public function getEquipmentFilters(Request $request, RouteMatchInterface $routeMatch) {
+      $equipmentFilter = $routeMatch->getParameter('equipment_filter');
+      if (empty($equipmentFilter) || !in_array($equipmentFilter, self::$ValidFilterTypes))
+          throw new BadRequestHttpException("Invalid filter type!");
 
-    $metadata = TechnicalEquipmentRepository::getRepository()
-      ->getEquipmentMetadata($equipmentId, $equipmentLevel);
-
-    return new JsonResponse($metadata);
-  }
-  public function getEquipmentFilters() {
-    $filters = TechnicalEquipmentRepository::getRepository()->getFilters();
-
-    return new JsonResponse($filters);
+      $repository = TechnicalEquipmentRepository::getRepository();
+      $data = match ($equipmentFilter) {
+          'category' => $repository->getCategories(),
+          'mark' => $repository->getMarks(
+              $request->query->get('category') ?? null,
+                  $request->query->get('sub_category') ?? null
+          ),
+          'model' => $repository->getModels(
+              $request->query->get('mark') ?? null,
+              $request->query->get('category') ?? null,
+              $request->query->get('sub_category') ?? null
+          ),
+      };
+    return new JsonResponse($data);
   }
 }

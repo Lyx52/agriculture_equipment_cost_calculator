@@ -2,25 +2,42 @@
 {{ graphMacros.beginModal("machinery-info-modal", "Tehnikas dati") }}
 <div class="row">
     <div class="col">
-        <div class="form-group">
+        <div class="form-group select-with-spinner" id="inputMachineryCategoryGroup">
             <label for="inputMachineryCategory">Tehnikas kategorija</label>
-            <select class="form-control" id="inputMachineryCategory">
+            <select class="form-control" id="inputMachineryCategory" autocomplete="false">
             </select>
+            <div class="spinner-border" style="display: none;"  role="status">
+                <span class="sr-only hidden">Loading...</span>
+            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group select-with-spinner" id="inputMachinerySubCategoryGroup">
+            <label for="inputMachinerySubCategory">Tehnikas apakškategorija</label>
+            <select class="form-control" id="inputMachinerySubCategory" autocomplete="false">
+            </select>
+            <div class="spinner-border" style="display: none;"  role="status">
+                <span class="sr-only hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="form-group select-with-spinner" id="inputMachineryMarkGroup">
             <label for="inputMachineryMark">Tehnikas marka</label>
-            <select class="form-control" id="inputMachineryMark">
+            <select class="form-control" id="inputMachineryMark" autocomplete="false">
             </select>
+            <div class="spinner-border" style="display: none;"  role="status">
+                <span class="sr-only hidden">Loading...</span>
+            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group select-with-spinner" id="inputMachineryModelGroup">
             <label for="inputMachineryModel">Tehnikas modelis</label>
-            <select class="form-control" id="inputMachineryModel">
+            <select class="form-control" id="inputMachineryModel" autocomplete="false">
             </select>
+            <div class="spinner-border" style="display: none;" role="status">
+                <span class="sr-only hidden">Loading...</span>
+            </div>
         </div>
         <div class="btn-group w-100">
             <div class="form-group w-100" id="searchContainer">
                 <label for="inputSearchBar">Meklēt tehniku</label>
-                <input type="text" class="form-control" id="inputSearchBar" placeholder="Meklēt tehniku...">
+                <input type="text" class="form-control" id="inputSearchBar" placeholder="Meklēt tehniku..." autocomplete="false">
                 <div id="searchSpinner" class="spinner-border search-spinner" role="status">
                     <span class="sr-only hidden">Loading...</span>
                 </div>
@@ -34,6 +51,10 @@
             <span class="badge badge-secondary">Avots</span>
         </a>
         <div class="form-group">
+            <label for="inputMachineryName">Mašīnas marka un modelis</label>
+            <input type="text" class="form-control" id="inputMachineryName">
+        </div>
+        <div class="form-group">
             <label for="inputMachineryPrice">Iepirkuma cena (EUR)</label>
             <input type="number" class="form-control" id="inputMachineryPrice">
         </div>
@@ -45,60 +66,32 @@
                 <option value="premium">Premium</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="inputMachineryPower">Mašīnas jauda (kW)</label>
-            <input type="number" class="form-control" id="inputMachineryPower">
+        <div class="form-group mb-3">
+            <span class="fs-5 fw-lighter">Specifikācija</span>
         </div>
-        <div class="form-group">
-            <label for="inputMachineryWeight">Mašīnas masa (kg)</label>
-            <input type="number" class="form-control" id="inputMachineryWeight">
-        </div>
+        <span id="specificationContainer">
+        </span>
     </div>
+</div>
+<div class="d-flex flex-row w-100 mt-3">
+    <button id="addTechnicalEquipment" class="btn btn-success ms-auto">Pievienot</button>
 </div>
 {{ graphMacros.endModal() }}
 
 <div class="container-fluid">
-    <div class="row-cols-2 row-cols-sm-1">
-        <div class="col card">
-            <div class="card-header">
-                <h1>Nolietojuma dati</h1>
-            </div>
-            <div class="card-body">
-                {{ graphMacros.openModalButton("machinery-info-modal", "Atvērt tehnikas datu ievadi") }}
-                <div class="form-group">
-                    <label for="inputMachineryMotorHours">Motorstundas, h</label>
-                    <input type="number" class="form-control" id="inputMachineryMotorHours">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect2">Example multiple select</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
+    <div class="row row-cols-1">
+        <div class="col">
+            {{ graphMacros.openModalButton("machinery-info-modal", "Pievienot tehnikas vienību") }}
+        </div>
+        <div class="col">
+            <table id="calcultions-table" class="table table-striped" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Mašīnas nosaukums</th>
+                        <th>Mašīnas cena</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </div>
