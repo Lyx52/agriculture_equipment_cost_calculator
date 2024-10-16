@@ -1,64 +1,51 @@
 (($) => {
-    const operationTypes = [
-        'Kulšana',
-        'Aršana',
-        'Kultivēšana',
-        'Minerālmēslu-izkliedēšana',
-        'Sēja',
-        'Ecēšana',
-        'Smidzināšana',
-        'Rindstarpu-kultivēšana',
-        'Ūdens pievešana',
-        'Transportēšana',
-        'Lobīšana',
-        'Starpsēja',
-    ]
-    const fetchRemainingValue = async () => {
-        const res = await fetch('/uzc_gazes/static/data_remaining_value.json');
-        window.data_remaining_value = await res.json();
-    }
-    const fetchCapitalRecoveryValue = async () => {
-        const res = await fetch('/uzc_gazes/static/data_capital_recovery.json');
-        window.data_capital_recovery = await res.json();
-    }
-    const fetchCostOfRepairValue = async () => {
-        const res = await fetch('/uzc_gazes/static/data_cost_of_repair.json');
-        window.data_cost_of_repair = await res.json();
-    }
-    fetchRemainingValue();
-    fetchCapitalRecoveryValue();
-    fetchCostOfRepairValue();
-
-    const getRemainingValueCoefficient = (hp, years_old, motor_hours) => {
-        if (!window.data_remaining_value) return -1;
-        hp = Utils.getClosestValue(Object.keys(window.data_remaining_value), hp);
-        motor_hours = Utils.getClosestValue(Object.keys(window.data_remaining_value[hp]), motor_hours);
-        return window.data_remaining_value[hp][motor_hours][Math.min(19, Math.max(1, years_old - 1))];
-    }
-    const getRemainingValueCategoryCoefficient = (category, years_old, motor_hours = 0) => {
-        if (!window.data_remaining_value) return -1;
-        if (!Object.keys(window.data_remaining_value).includes(category)) return -1;
-        if (category === 'Kombains') {
-            motor_hours = Utils.getClosestValue(Object.keys(window.data_remaining_value[category]), motor_hours);
-            return window.data_remaining_value[category][motor_hours][Math.min(19, Math.max(1, years_old - 1))];
+    DataFetch.fetchStaticData();
+    const operationTypes = {
+        'threshing': 'Kulšana',
+        'ploughing': 'Aršana',
+        'cultivation': 'Kultivēšana',
+        'fertilizing': 'Minerālmēslu-izkliedēšana',
+        'sowing': 'Sēja',
+        'harrowing': 'Ecēšana',
+        'spraying': 'Smidzināšana',
+        'row_cultivation': 'Rindstarpu-kultivēšana',
+        'water_supply': 'Ūdens pievešana',
+        'transporting': 'Transportēšana',
+        'paring': 'Lobīšana',
+        'intermediate_sowing': 'Starpsēja',
+    };
+    const equipmentTypes = {
+        'tractor': 'Traktors',
+        'harvester': 'Kombains',
+        'plough': 'Arkls',
+        'soil_processing': 'Augsnes-apstrāde',
+        'planter': 'Stādītājs',
+        'seeder': 'Sējmašīna',
+        'sprayer': 'Smidzinātājs',
+        'mower': 'Pļaujmašīna',
+        'chipper': 'Smalcinātājs',
+        'press': 'Prese',
+        'hay_tedder': 'Ārdītājs',
+        'rake': 'Grābeklis',
+        'transport': 'Transportlīdzeklis',
+        'other': 'Cits'
+    };
+    const getEquipmentType = (sub_category_code) => {
+        switch (sub_category_code) {
+            case 'agriculture_tractor':
+                return 'tractor';
+            case 'mowers':
+                return 'mower';
+            case 'combine_harvester':
+                return 'harvester';
+            case 'sprayer':
+                return 'sprayer';
+            default: return 'other'
         }
-        return window.data_remaining_value[category][Math.min(19, Math.max(1, years_old - 1))];
     }
-    const getCapitalRecoveryValue = (years_old, percentage) => {
-        if (!window.data_capital_recovery) return -1;
-        const data = window.data_capital_recovery['years_minus_1'][Math.min(19, Math.max(1, years_old - 1))];
 
-        percentage = Utils.getClosestValue(Object.keys(data), percentage);
-        return data[percentage];
-    }
-    const getCostOfRepair = (machine_type, motor_hours) => {
-        if (!window.data_cost_of_repair) return -1;
-        if (Object.keys(window.data_cost_of_repair).includes(machine_type)) {
-            motor_hours = Utils.getClosestValue(Object.keys(window.data_cost_of_repair[machine_type]), motor_hours);
-            return window.data_cost_of_repair[machine_type][motor_hours] / 100;
-        }
-        return -1;
-    }
+
+
     const tractorInfoContainer = $("#tractorInfoContainer");
 
     // Input info
@@ -75,36 +62,84 @@
     const inputMachineryEquipmentLevel = $("#inputMachineryEquipmentLevel");
     const searchBar = $("#inputSearchBar");
     const specificationContainer = $("#specificationContainer");
+    const inputMachineryPowerOp = $("#inputMachineryPowerOp");
+    const inputMachineryPowerFilter = $("#inputMachineryPowerFilter");
+    const inputMachineryType = $("#inputMachineryType");
+
+    Utils.addOptions("#inputMachineryType",
+        Object.keys(equipmentTypes).map(k => ({value: k, text: equipmentTypes[k]})),
+        null,
+        'tractor'
+    );
     inputMachineryModel.attr('disabled', true);
-    const columns = [
-        {
-            data: null,
-            render: (data, type, row) => {
-                console.log('data', data);
-                console.log('row', row);
-                console.log('type', type);
-                const options = operationTypes.map(v => `<option value="${v}">${v}</option>`).join('');
-                return `<select class="form-control"><option>-- Izvēlēties --</option> ${options}</select>`;
+    const onInputChange = () => {
+        technicalEquipmentTable.draw();
+    }
+    const defineTextInputColumn = (dataName) => {
+        return {
+            data: dataName,
+            render: (data, type, row, meta) => {
+                return `<input type="text" data-row="${meta['row']}" data-key="${dataName}" name="tableInput" class="form-control" value="${data}">`;
             }
-        },
+        }
+    }
+    const defineNumericInputColumn = (dataName) => {
+        return {
+            data: dataName,
+            render: (data, type, row, meta) => {
+                return `<input type="number" data-row="${meta['row']}" data-key="${dataName}" name="tableInput" class="form-control" value="${data}">`;
+            }
+        }
+    }
+    const defineSelectColumn = (dataName, options) => {
+        const option_string = Object.keys(options).map(key => `<option value="${key}">${options[key]}</option>`).join('');
+        return {
+            data: dataName,
+            render: (data, type, row, meta) => {
+                return `<select class="form-control" data-row="${meta['row']}" data-key="${dataName}" name="tableInput"><option>Izvēleties</option>${option_string}</select>`;
+            }
+        }
+    }
+    const defineSumOfColumnsColumn = (fields) => {
+        return {
+            data: 'total_use_years',
+            render: (data, type, row, meta) => {
+                let total = 0;
+                for (const field of fields) {
+                    if (!isNaN(row[field])) total += row[field];
+                }
+                return total.toFixed(2);
+            }
+        }
+    }
+    const calculationsTableColumns = [
         {data: 'technical_equipment_name'},
-        {data: 'price'}
+        defineSelectColumn('field_operation', operationTypes),
+        {data: 'technical_equipment_rate'},
+        {data: 'price_of_fuel'},
+        {data: 'fuel_usage_coefficient'},
+        {data: 'total_cost_from_lubricants_rate'},
+        {data: 'employee_wage'},
+        {data: 'actual_working_hours'},
+        {data: 'total_cost_from_other_costs'},
+    ];
+    const technicalEquipmentTableColumns = [
+        defineTextInputColumn('technical_equipment_name'),
+        defineNumericInputColumn('price'),
+        defineNumericInputColumn('weight'),
+        defineNumericInputColumn('power'),
+        defineNumericInputColumn('required_power'),
+        defineNumericInputColumn('wear'),
+        defineNumericInputColumn('current_use_years'),
+        defineNumericInputColumn('remaining_use_years'),
+        defineNumericInputColumn('work_capacity'),
+        defineSumOfColumnsColumn(['current_use_years', 'remaining_use_years'])
     ];
     const table = new DataTable('#calculations-table', {
         responsive: true,
         colReorder: true,
-        layout: {
-            topStart: 'buttons'
-        },
-        buttons: {
-            name: 'primary',
-            buttons: ['copy', 'csv', 'excel']
-        },
-        columns: columns,
-        aLengthMenu: [
-            [10, 20, 50, 100],
-            [10, 20, 50, 100]
-        ],
+        columns: calculationsTableColumns,
+        ordering: false,
         language: {
             search: 'Meklēt: ',
             infoEmpty: '',
@@ -112,11 +147,28 @@
             loadingRecords: 'Dati tiek ielādēti, lūdzu uzgaidiet...',
             info: 'Rāda _START_ līdz _END_ ierakstam, no _TOTAL_ ierakstiem'
         },
-        sDom: '<"dt-row"Bf>t<"dt-row"i><"dt-row"lp>'
+        sDom: '<"dt-row"f>t'
     });
-    const addTableRow = (data) => {
-        table.row.add(data);
-        table.draw();
+    const technicalEquipmentTable = new DataTable('#technical-equipment-table', {
+        responsive: true,
+        colReorder: true,
+        columns: technicalEquipmentTableColumns,
+        ordering: false,
+        language: {
+            search: 'Meklēt: ',
+            infoEmpty: '',
+            lengthMenu: 'Parādīt _MENU_ ierakstus',
+            loadingRecords: 'Dati tiek ielādēti, lūdzu uzgaidiet...',
+            info: 'Rāda _START_ līdz _END_ ierakstam, no _TOTAL_ ierakstiem'
+        },
+        sDom: '<"dt-row"f>t'
+    });
+    // Disable errors
+    $.fn.dataTable.ext.errMode = 'none';
+    const addTableRow = (tableElement, data) => {
+        tableElement.row.add(data);
+        tableElement.draw();
+        addTableInputHandlers(tableElement);
     }
     const setIsLoadingSelect = (selectGroupId, isLoading) => {
       if (isLoading) {
@@ -135,6 +187,12 @@
       const selectedSubCategory = inputMachinerySubCategory.val();
       const selectedMark = inputMachineryMark.val();
       const selectedModel = inputMachineryModel.val();
+      const powerValue = inputMachineryPowerFilter.val();
+      const operationValue = inputMachineryPowerOp.val();
+      if (!isNaN(powerValue) && powerValue > 0) {
+          query.set('operation', operationValue);
+          query.set('power', powerValue);
+      }
       if (selectedCategory?.length > 0) {
         query.set('category', selectedCategory);
       }
@@ -349,6 +407,8 @@
         specification['equipment_level'] = inputMachineryEquipmentLevel.val();
         specification['price'] = inputMachineryPrice.val();
         specification['technical_equipment_name'] = inputMachineryName.val();
+        specification['type'] = inputMachineryType.val();
+        specification['id'] = Date.now();
         return specification;
     }
     const fillTechnicalMetadata = (technicalUnit) => {
@@ -359,6 +419,7 @@
         if (technicalUnit.price > 0) {
           inputMachineryPrice.val(technicalUnit.price);
         }
+        inputMachineryType.val(getEquipmentType(technicalUnit.sub_category_code))
         const specification = JSON.parse(technicalUnit.specification)
         for (const key of Object.keys(specification)) {
             addSpecification(key, specification[key]);
@@ -436,9 +497,26 @@
         const value = $(e.target).val();
         if (value?.length >= 2) searchEquipment();
     });
+    const addTableInputHandlers = (table) => {
+        $(`*[name='tableInput`, table.id).each(function () {
+            $(this).on('change', (e) => {
+                const target = $(e.target);
+                const value = $(target).val();
+                const row = $(target).attr('data-row');
+                const key = $(target).attr('data-key');
+                const data = table.row(row).data();
+                data[key] = value;
+                $(table.id).dataTable().fnUpdate(data, row, undefined, false);
+                console.log('changed', e, row, key, data);
+            })
+        });
+    }
     $('#addTechnicalEquipment').on('click', () => {
         const equipment = getSpecifications();
-        addTableRow(equipment);
+        console.log(equipment);
+        addTableRow(table, equipment);
+        addTableRow(technicalEquipmentTable, equipment);
+
         $('#machinery-info-modal').modal('hide');
     });
 })(jQuery);

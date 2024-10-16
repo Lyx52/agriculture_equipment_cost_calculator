@@ -16,6 +16,8 @@ class TechnicalEquipmentQueryFilter {
     public string|null $Model;
     public int|null $Start;
     public int|null $Length;
+    public int|null $Power;
+    public int|null $Operation;
 
   /**
    * @param string|null $SearchQuery
@@ -33,7 +35,9 @@ class TechnicalEquipmentQueryFilter {
         ?string $CategoryCode,
         ?string $SubCategoryCode,
         ?string $Mark,
-        ?string $Model
+        ?string $Model,
+        ?int $Power,
+        ?int $Operation
     ) {
         $this->SearchQuery = $SearchQuery;
         $this->Start = $Start;
@@ -42,6 +46,8 @@ class TechnicalEquipmentQueryFilter {
         $this->SubCategoryCode = $SubCategoryCode;
         $this->Mark = $Mark;
         $this->Model = $Model;
+        $this->Power = $Power;
+        $this->Operation = $Operation;
     }
 
     public static function fromRequest(Request $request): TechnicalEquipmentQueryFilter {
@@ -53,6 +59,8 @@ class TechnicalEquipmentQueryFilter {
             $request->query->get('sub_category') ?? '',
             $request->query->get('mark') ?? '',
             $request->query->get('model') ?? '',
+                self::toValidInteger($request->query->get('power')),
+                self::toValidInteger($request->query->get('operation')),
         );
     }
 
@@ -69,6 +77,16 @@ class TechnicalEquipmentQueryFilter {
         }
         if (!empty($this->Model)) {
           $query = $query->condition('model', $this->Model);
+        }
+        if ($this->Power > 0) {
+            switch ($this->Operation) {
+                case 0:
+                    $query = $query->condition('power', $this->Power, '>');
+                break;
+                case 1:
+                    $query = $query->condition('power', $this->Power, '<');
+                break;
+            }
         }
         if (empty($this->SearchQuery)) return $query;
         return $query->condition('full_name',  '%' . $this->SearchQuery . '%', 'ILIKE');

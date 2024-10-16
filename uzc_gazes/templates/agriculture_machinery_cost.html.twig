@@ -2,6 +2,17 @@
 {{ graphMacros.beginModal("machinery-info-modal", "Tehnikas dati") }}
 <div class="row">
     <div class="col">
+        <div class="form-group">
+            <label for="inputMachineryCategory">Tehnikas jauda, kw</label>
+            <div class="d-flex flex-row mb-3">
+                <select class="form-control mb-0 me-2" id="inputMachineryPowerOp">
+                    <option value="0">Vairāk nekā</option>
+                    <option value="1">Mazāk nekā</option>
+                </select>
+                <input class="form-control" id="inputMachineryPowerFilter" aria-describedby="powerKw"/>
+                <label id="powerKw" class="mt-auto mb-auto ms-2">kw</label>
+            </div>
+        </div>
         <div class="form-group select-with-spinner" id="inputMachineryCategoryGroup">
             <label for="inputMachineryCategory">Tehnikas kategorija</label>
             <select class="form-control" id="inputMachineryCategory" autocomplete="false">
@@ -59,6 +70,10 @@
             <input type="number" class="form-control" id="inputMachineryPrice">
         </div>
         <div class="form-group">
+            <label for="inputMachineryType">Mašīnas tips</label>
+            <select class="form-control form-control-sm" id="inputMachineryType"></select>
+        </div>
+        <div class="form-group">
             <label for="inputMachineryEquipmentLevel">Mašīnas komplektācija</label>
             <select class="form-control form-control-sm" id="inputMachineryEquipmentLevel">
                 <option value="base" selected>Bāzes</option>
@@ -78,19 +93,81 @@
 </div>
 {{ graphMacros.endModal() }}
 
-<div class="container-fluid">
+<div class="container-fluid mb-3">
     <div class="row row-cols-1">
         <div class="col">
             {{ graphMacros.openModalButton("machinery-info-modal", "Pievienot tehnikas vienību") }}
         </div>
         <div class="col">
-            <table id="calculations-table" class="table table-striped" style="width:100%">
+            <h1 class="fs-4 text-center fw-bold mt-3">Tehnikas vienības</h1>
+            <table id="technical-equipment-table" class="table table-striped w-100">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Mašīnas nosaukums</th>
+                    <th>Mašīnas cena, EUR</th>
+                    <th>Mašīnas masa, kg</th>
+                    <th>Mašīnas jauda, kw</th>
+                    <th>Nepieciešamā mašīnas jauda, kw</th>
+                    <th>Mašīnas nolietojums, h</th>
+                    <th>Ekspluatācijas laiks, gadi</th>
+                    <th>Atlikušais ekspluatācijas laiks, gadi</th>
+                    <th>Darba veiktspēja ha/h vai tonnas/h</th>
+                    <th>Kopējais ekspluatācijas laiks, gadi</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="col">
+            <h1 class="fs-4 text-center fw-bold mt-3">???</h1>
+            <table id="calculations-table" class="table table-striped w-100">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Darbības veids</th>
                         <th>Mašīnas nosaukums</th>
-                        <th>Mašīnas cena</th>
+                        <th>Darbības veids</th>
+                        <th>Procentu likme, %</th>
+                        <th>Degvielas cena, EUR/l</th>
+                        <th>Degvielas izmantošanas koef</th>
+                        <th>Smērvielu izmaksas no degvielas izmaksām, %</th>
+                        <th>Darbaspēka atalgojums stundā, EUR</th>
+                        <th>Faktiskās darba stundas[10 līdz 20 %], %</th>
+                        <th>Nodokļi, apdrošināšana un uzturēšana, %</th>
                     </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="col">
+            <h1 class="fs-4 text-center fw-bold mt-3">Īpašuma izmaksu novērtējums</h1>
+            <table id="calculations-table-2" class="table table-striped w-100">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Mašīnas nosaukums</th>
+                    <th>Darbības veids</th>
+                    <th>Procentu likme, %</th>
+                    <th>Degvielas cena, EUR/l</th>
+                    <th>Degvielas izmantošanas koef</th>
+                    <th>Smērvielu izmaksas no degvielas izmaksām, %</th>
+                    <th>Darbaspēka atalgojums stundā, EUR</th>
+                    <th>Faktiskās darba stundas[10 līdz 20 %], %</th>
+                    <th>Nodokļi, apdrošināšana un uzturēšana, %</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="col">
+            <h1 class="fs-4 text-center fw-bold mt-3">Ekspluatācijas izmaksu novērtējums</h1>
+            <table id="calculations-table-3" class="table table-striped w-100">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Mašīnas nosaukums</th>
+                    <th>Darbības veids</th>
+                    <th>Procentu likme, %</th>
+                    <th>Degvielas cena, EUR/l</th>
+                    <th>Degvielas izmantošanas koef</th>
+                    <th>Smērvielu izmaksas no degvielas izmaksām, %</th>
+                    <th>Darbaspēka atalgojums stundā, EUR</th>
+                    <th>Faktiskās darba stundas[10 līdz 20 %], %</th>
+                    <th>Nodokļi, apdrošināšana un uzturēšana, %</th>
+                </tr>
                 </thead>
             </table>
         </div>

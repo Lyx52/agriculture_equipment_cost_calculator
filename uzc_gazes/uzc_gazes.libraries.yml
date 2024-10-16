@@ -1,5 +1,5 @@
 datatables-lib:
-  version: 1.0.9
+  version: 1.0.10
   dependencies:
     - core/jquery
   css:
@@ -18,6 +18,14 @@ datatables-lib:
       }
   js:
     js/utils.js: {
+      minified: false,
+      preprocess: false
+    }
+    js/data_fetch.js: {
+      minified: false,
+      preprocess: false
+    }
+    js/calculator_utils.js: {
       minified: false,
       preprocess: false
     }

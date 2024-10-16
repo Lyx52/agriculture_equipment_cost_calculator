@@ -79,6 +79,7 @@ class TechnicalEquipmentRepository implements ContainerInjectionInterface {
                 'equipment_level_code' => $row->equipment_level_code,
                 'specification' => $row->specification,
                 'sources' => $row->sources,
+                'power' => $row->power,
             ];
         }
         return [

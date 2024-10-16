@@ -87,7 +87,11 @@ DROP VIEW uzc_gazes.v_equipment_search;
 CREATE OR REPLACE VIEW uzc_gazes.v_equipment_search AS
 SELECT 
 	t.id, 
-	CONCAT(t.mark, ' ', t.model, ' (', c.name, ')') AS full_name,
+	concat(t.mark, ' ', t.model, ' (', c.name, ') ',
+        CASE
+            WHEN (t.specification -> 'power'::text) IS NOT NULL THEN concat((t.specification -> 'power'::text)::numeric(10,2), ' kw')
+            ELSE ''::text
+        END) AS full_name,
 	t.mark,
 	t.model,
 	t.price,
@@ -95,7 +99,8 @@ SELECT
 	t.sub_category_code,
 	t.equipment_level_code,
 	t.specification,
-	t.sources
+	t.sources,
+	t.specification -> 'power' AS power
 FROM uzc_gazes.technical_equipment AS t
 LEFT JOIN uzc_gazes.codifier AS c ON c.code = t.equipment_level_code
 

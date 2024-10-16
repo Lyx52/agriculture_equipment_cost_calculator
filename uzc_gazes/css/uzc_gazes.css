@@ -90,3 +90,6 @@
 select.form-control {
   margin-bottom: 0.5rem;
 }
+#dateBlock select.form-control {
+  margin-bottom: 0 !important;
+}
