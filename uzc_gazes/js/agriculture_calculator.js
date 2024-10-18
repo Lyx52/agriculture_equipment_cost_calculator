@@ -44,8 +44,6 @@
         }
     }
 
-
-
     const tractorInfoContainer = $("#tractorInfoContainer");
 
     // Input info
@@ -79,7 +77,7 @@
         return {
             data: dataName,
             render: (data, type, row, meta) => {
-                return `<input type="text" data-row="${meta['row']}" data-key="${dataName}" name="tableInput" class="form-control" value="${data}">`;
+                return `<input type="text" data-row="${meta['row']}" data-col="${meta['col']}" data-key="${dataName}" name="tableInput" class="form-control" value="${data}">`;
             }
         }
     }
@@ -87,7 +85,7 @@
         return {
             data: dataName,
             render: (data, type, row, meta) => {
-                return `<input type="number" data-row="${meta['row']}" data-key="${dataName}" name="tableInput" class="form-control" value="${data}">`;
+                return `<input type="number" data-row="${meta['row']}" data-col="${meta['col']}" data-key="${dataName}" name="tableInput" class="form-control" value="${data}">`;
             }
         }
     }
@@ -96,7 +94,7 @@
         return {
             data: dataName,
             render: (data, type, row, meta) => {
-                return `<select class="form-control" data-row="${meta['row']}" data-key="${dataName}" name="tableInput"><option>Izvēleties</option>${option_string}</select>`;
+                return `<select class="form-control" data-row="${meta['row']}" data-col="${meta['col']}" data-key="${dataName}" name="tableInput"><option>Izvēleties</option>${option_string}</select>`;
             }
         }
     }
@@ -136,6 +134,9 @@
         defineSumOfColumnsColumn(['current_use_years', 'remaining_use_years'])
     ];
     const table = new DataTable('#calculations-table', {
+        rowCallback: function (row, data) {
+            console.log(row, data);
+        },
         responsive: true,
         colReorder: true,
         columns: calculationsTableColumns,
@@ -149,7 +150,21 @@
         },
         sDom: '<"dt-row"f>t'
     });
+    const onInputChanged = (tableElement, e) => {
+        const target = $(e.target);
+        const value = target.val();
+        const row = target.attr('data-row');
+        const key = target.attr('data-key');
+        console.log(tableElement.rows(row).data())
+    }
+    table.on('draw.dt', function () {
+        console.log('drawn')
+        $(this).find('input').on('change', (e) => onInputChanged(table, e))
+    });
     const technicalEquipmentTable = new DataTable('#technical-equipment-table', {
+        rowCallback: function (row, data) {
+            console.log(row, data);
+        },
         responsive: true,
         colReorder: true,
         columns: technicalEquipmentTableColumns,
@@ -163,12 +178,15 @@
         },
         sDom: '<"dt-row"f>t'
     });
+    technicalEquipmentTable.on('draw.dt', function () {
+        console.log('drawn')
+        $(this).find('input').on('change', (e) => onInputChanged(technicalEquipmentTable, e))
+    });
     // Disable errors
     $.fn.dataTable.ext.errMode = 'none';
     const addTableRow = (tableElement, data) => {
         tableElement.row.add(data);
-        tableElement.draw();
-        addTableInputHandlers(tableElement);
+        tableElement.draw(false);
     }
     const setIsLoadingSelect = (selectGroupId, isLoading) => {
       if (isLoading) {

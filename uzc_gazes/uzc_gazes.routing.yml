@@ -45,7 +45,9 @@ uzc_gazes.technical_equipment_filters:
   defaults:
     _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::getEquipmentFilters'
   requirements:
-    _user_is_logged_in: 'TRUE'
+    _permission: 'access content'
+  options:
+    no_cache: true
 uzc_gazes.meteo_data:
   path: '/uzc_gazes/meteo/{content_type}/query'
   defaults:
@@ -56,15 +58,17 @@ uzc_gazes.meteo_data:
 uzc_gazes.static_data:
     path: '/uzc_gazes/static/{json_file}'
     defaults:
-        _controller: 'Drupal\uzc_gazes\Controller\StaticDataController::fetch'
+      _controller: 'Drupal\uzc_gazes\Controller\StaticDataController::fetch'
     requirements:
-        _user_is_logged_in: 'TRUE'
+      _permission: 'access content'
+    options:
+      no_cache: true
 uzc_gazes.calculator:
     path: '/uzc_gazes/calculator/{calculator_type}'
     defaults:
-        _controller: 'Drupal\uzc_gazes\Controller\CalculatorController::calculator'
+      _controller: 'Drupal\uzc_gazes\Controller\CalculatorController::calculator'
     requirements:
-        _user_is_logged_in: 'TRUE'
+      _user_is_logged_in: 'TRUE'
 uzc_gazes.upload_soil_measurements:
   path: '/uzc_gazes/import_meteo_data'
   defaults:
