@@ -1,0 +1,42 @@
+export interface IEquipmentInformation {
+    id: string;
+    fullEquipmentName: string;
+    mark: string;
+    model: string;
+    price: number|undefined;
+    hoursOfUse: number|undefined;
+    currentHoursOfUse: number|undefined;
+    currentUseYears: number|undefined;
+    remainingUseYears: number|undefined;
+    equipmentType: string;
+    equipmentLevelCode: string;
+    categoryCode: string;
+    subCategoryCode: string;
+    specification: any;
+    mainInfo: any;
+    sources: string[];
+
+    getTotalUseYears(): number;
+    getHorsePower(): number;
+    getRemainingValue(): number;
+    getRemainingValueEUR(): number;
+    getCapitalRecoveryValue(): number;
+    getTotalCapitalRecovery(): number;
+    getTotalOtherCosts(): number;
+    getEquipmentRate(): number;
+    getTotalCostFromOtherCosts(): number;
+    getTotalLifetimeHours(): number;
+    getCostOfRepairCurrent(): number;
+    getTotalCostOfRepair(): number;
+    getAccumulatedRepairs(): number;
+    getReplacementPrice(): number;
+    getCurrentHoursOfUse(): number;
+    getFuelUsage(): number;
+    getTotalFuelCosts(): number;
+    getLubricantsUseCosts(): number;
+    getEmployeeWageCosts(): number;
+    getAverageRepairCosts(): number;
+    getPropertyCosts(): number;
+    getTotalCostFromLubricantsRate(): number;
+    getActualWorkingHours(): number;
+}

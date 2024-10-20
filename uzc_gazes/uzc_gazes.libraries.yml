@@ -1,17 +1,17 @@
 agriculture-calculator-lib:
-  version: 1.0.0
+  version: 1.0.2
   dependencies:
     - core/jquery
   css:
     theme:
       vue/index.css: {
         minified: true,
-        preprocess: false
+        preprocess: true
       }
   js:
     vue/index.js: {
       minified: true,
-      preprocess: false,
+      preprocess: true,
       type: module
     }
 datatables-lib:

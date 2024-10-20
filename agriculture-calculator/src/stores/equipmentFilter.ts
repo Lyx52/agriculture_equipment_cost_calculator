@@ -1,16 +1,23 @@
 import { defineStore } from 'pinia';
 import type {IEquipmentFilter} from "@/stores/interfaces/IEquipmentFilter";
 import type {IOption} from "@/stores/interfaces/IOption";
+import type {IResponse} from "@/stores/interfaces/IResponse";
+import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
 export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
     state: (): IEquipmentFilter => {
         return {
             powerFilterMoreThan: false,
-            power: -1,
+            filterFrom: 0,
+            filterTo: 100,
+            power: undefined,
             isLoading: false,
             categoryOptions: [],
             allSubCategoryOptions: [],
             equipmentMarkOptions: [],
-            equipmentModelOptions: []
+            equipmentModelOptions: [],
+            filteredEquipment: [],
+            searchText: '',
+            showSearchDropdown: false
         }
     },
     actions: {
@@ -20,20 +27,42 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             this.selectedModel = undefined;
             this.equipmentModelOptions = [];
             await this.fetchMark();
+            await this.fetchByFilters();
+            this.showSearchDropdown = true;
         },
         async onSubCategoryChange() {
             this.selectedMark = undefined;
             this.selectedModel = undefined;
             this.equipmentModelOptions = [];
             await this.fetchMark();
+            await this.fetchByFilters();
+            this.showSearchDropdown = true;
         },
         async onMarkChange() {
             this.selectedModel = undefined;
             this.equipmentModelOptions = [];
             await this.fetchModels();
+            await this.fetchByFilters();
+            this.showSearchDropdown = true;
         },
         async onModelChange() {
-
+            await this.fetchByFilters();
+            this.showSearchDropdown = true;
+        },
+        async onSearchDropdownClick() {
+            this.showSearchDropdown = true;
+            await this.fetchByFilters();
+        },
+        async onSearchDropdownScroll(e: any) {
+            let itemsFromTop = Math.floor(e.target.scrollTop / 24);
+            if ((this.filterTo - itemsFromTop) <= 50) {
+                this.filterTo += 100;
+                await this.fetchByFilters();
+            }
+        },
+        async onPowerFilterMoreThan() {
+            this.powerFilterMoreThan = !this.powerFilterMoreThan;
+            await this.fetchByFilters();
         },
         async fetchEquipmentCategories() {
             this.isLoading = true;
@@ -56,15 +85,15 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
                 this.categoryOptions = Object.keys(this.categories).map(k => ({
                     text: this.categories[k],
                     value: k,
-                } as IOption));
+                } as IOption<any>));
                 this.allSubCategoryOptions = Object.values(this.subCategories).reduce((result: any, item: any) => {
                     result.push(...Object.keys(item).map(k => ({
                         text: item[k],
                         value: k,
-                    } as IOption)));
+                    } as IOption<any>)));
 
                     return result;
-                }, []) as IOption[];
+                }, []) as IOption<any>[];
             } finally {
                 this.isLoading = false;
             }
@@ -92,23 +121,40 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             } finally {
                 this.isLoading = false;
             }
-        }
+        },
+        async fetchByFilters() {
+            const params = this.getFilterQuery;
+            params.set('from', this.filterFrom.toString());
+            params.set('to', this.filterTo.toString());
+            console.log(this.searchText);
+            if (this.searchText.length >= 2) {
+                params.set('search', this.searchText);
+            }
+            this.isLoading = true;
+            try {
+                const res = await fetch(`/uzc_gazes/technical_equipment/json/query?${params.toString()}`)
+                const content: IResponse<IEquipmentInformation> = await res.json();
+                this.filteredEquipment = content.data;
+            } finally {
+                this.isLoading = false;
+            }
+        },
     },
     getters: {
-        filteredSubCategories(state: IEquipmentFilter): IOption[] {
+        filteredSubCategories(state: IEquipmentFilter): IOption<any>[] {
             if (state.selectedCategory) {
                 let items = state.subCategories[state.selectedCategory];
                 return Object.keys(items).map(k => ({
                     text: items[k],
                     value: k,
-                } as IOption));
+                } as IOption<any>));
             }
             return state.allSubCategoryOptions;
         },
         getFilterQuery(state: IEquipmentFilter): URLSearchParams {
             const query = new URLSearchParams();
             if (state.power && state.power > 0) {
-                query.set('operation', state.powerFilterMoreThan ? '1' : '0');
+                query.set('operation', state.powerFilterMoreThan ? '0' : '1');
                 query.set('power', state.power.toString());
             }
             if (state.selectedCategory) {
@@ -123,6 +169,7 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             if (state.selectedModel) {
                 query.set('model', state.selectedModel);
             }
+
             return query;
         }
     },

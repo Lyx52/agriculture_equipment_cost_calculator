@@ -70,24 +70,24 @@ class TechnicalEquipmentRepository implements ContainerInjectionInterface {
         foreach ($data as $row) {
             $result[] = (object)[
                 'id' => $row->id,
-                'full_name' => $row->full_name,
+                'fullEquipmentName' => $row->full_name,
                 'mark' => $row->mark,
                 'model' => $row->model,
                 'price' => $row->price,
-                'category_code' => $row->category_code,
-                'sub_category_code' => $row->sub_category_code,
-                'equipment_level_code' => $row->equipment_level_code,
-                'specification' => $row->specification,
-                'sources' => $row->sources,
+                'categoryCode' => $row->category_code,
+                'subCategoryCode' => $row->sub_category_code,
+                'equipmentLevelCode' => $row->equipment_level_code,
+                'specification' => json_decode($row->specification),
+                'sources' => json_decode($row->sources),
                 'power' => $row->power,
             ];
         }
         return [
             'data' => $result,
-            'recordsTotal' => $totalCount,
-            'recordsFiltered' => $totalCountFiltered,
+            'recordsTotal' => intval($totalCount),
+            'recordsFiltered' => intval($totalCountFiltered),
             'start' => $filter->Start ?? 0,
-            'length' => $filter->Length ?? $totalCount,
+            'length' => intval($filter->Length ?? $totalCount),
             'draw' => $filter->DrawParam ?? 0
         ];
     }

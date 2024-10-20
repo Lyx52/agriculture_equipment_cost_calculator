@@ -1,5 +1,5 @@
-export interface IOption {
-    value?: any;
+export interface IOption<TValue> {
+    value?: TValue;
     text: string;
     disabled?: boolean;
 }

@@ -4,6 +4,6 @@ export interface IBSpinningSelectProps {
     id: string;
     title?: string;
     label?: string;
-    options: IOption[];
+    options: IOption<any>[];
     isSpinning: boolean;
 }
