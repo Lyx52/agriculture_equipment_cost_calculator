@@ -4,12 +4,12 @@ agriculture-calculator-lib:
     - core/jquery
   css:
     theme:
-      vue/index.css: {
+      js/agriculture_calculator/index.css: {
         minified: true,
         preprocess: true
       }
   js:
-    vue/index.js: {
+    js/agriculture_calculator/index.js: {
       minified: true,
       preprocess: true,
       type: module

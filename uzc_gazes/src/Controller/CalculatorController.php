@@ -27,9 +27,9 @@ class CalculatorController extends ControllerBase {
             throw new BadRequestHttpException("Invalid calculator type!");
         return [
             '#theme' => $calculatorType,
-//            '#attached' => [
-//                'library' => ['uzc_gazes/agriculture-calculator-lib']
-//            ]
+            '#attached' => [
+                'library' => ['uzc_gazes/agriculture-calculator-lib']
+            ]
         ];
     }
 }
