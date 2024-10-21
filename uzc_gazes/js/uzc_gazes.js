@@ -91,7 +91,14 @@
     Plotly.newPlot('data-table-graph', data, layout, config);
     Plotly.Plots.resize('data-table-graph');
   }
-  const createTableIfExists = (id, columns, ajaxUrl, defaultGraphGrouping = '') => {
+  const graphTypes = {
+    scatter: 'Līniju (Scatter)',
+    bar: 'Stabiņu (Bar)',
+    bar_and_scatter: 'Stabiņu un Līniju (Bar & Scatter)',
+    pivot_charts: 'Testa grafiks'
+  }
+  const createTableIfExists = (id, columns, ajaxUrl, defaultGraphGrouping = '', availableGraphs = ['bar', 'bar_and_scatter', 'scatter', 'pivot_charts']) => {
+
     const tableElement = $(id);
     if (!tableElement.length) return;
     const table = new DataTable(id, {
@@ -122,10 +129,10 @@
       },
       sDom: '<"dt-row"Bf>t<"dt-row"i><"dt-row"lp>'
     });
-    
+
     // Show aggregation type when theres bar graph
     Utils.showOnCondition("#aggregationTypeContainer", "#inputGraphType", (ie) => {
-      return ['bar', 'bar_and_scatter'].includes(ie.val()) 
+      return ['bar', 'bar_and_scatter'].includes(ie.val())
     });
 
     Utils.showOnCondition("#inputGroupByContainer", "#inputGraphType", (ie) => {
@@ -140,21 +147,22 @@
     tableElement.on('draw.dt', function () {
       if (graphLoaded) return;
       graphLoaded = true;
+      Utils.addOptions('#inputGraphType', availableGraphs.map(k => ({value: k, text: graphTypes[k]})));
 
       const columns = Utils.getTableColumnDefinitions(table);
       const groupingColumnFields = getGroupingColumns();
       const graphSelectColumns = columns
-        .filter((c) => c.field !== 'timestamp' && !groupingColumnFields.includes(c.field) && c.field != null);
+          .filter((c) => c.field !== 'timestamp' && !groupingColumnFields.includes(c.field) && c.field != null);
       const dateTimeColumn = columns.filter((c) => c.field === 'timestamp');
       const groupingColumns = columns.filter((c) => groupingColumnFields.includes(c.field));
       const defaultGroupingColumn = defaultGraphGrouping ? groupingColumns.find((gc) => gc.field === defaultGraphGrouping)?.index : -1;
       Utils.addOptions("#inputGroupBy",
-        groupingColumns.map((c) => ({ value: c.index, text: c.title })),
-        { value: -1, text: 'Nav' },
-        defaultGroupingColumn ?? -1
+          groupingColumns.map((c) => ({value: c.index, text: c.title})),
+          {value: -1, text: 'Nav'},
+          defaultGroupingColumn ?? -1
       );
-      Utils.addOptions("#graphSelectColumn1", graphSelectColumns.map((c) => ({ value: c.index, text: c.title })));
-      Utils.buildColumnSelect("#selectableXColumn", groupingColumns.map((c) => ({ value: c.index, text: c.title })));
+      Utils.addOptions("#graphSelectColumn1", graphSelectColumns.map((c) => ({value: c.index, text: c.title})));
+      Utils.buildColumnSelect("#selectableXColumn", groupingColumns.map((c) => ({value: c.index, text: c.title})));
 
       // Add table column buttons
       const tableColumnDropdownContainer = $("#table-column-dropdown-container");
@@ -169,7 +177,7 @@
       });
 
       // Add click listeners
-      $.each($('button[name="btn-disable-column"]'), function(i, btn) {
+      $.each($('button[name="btn-disable-column"]'), function (i, btn) {
         const button = $(btn);
         button.on('click', () => {
           const tableColumn = table.column(button.val());
@@ -198,7 +206,7 @@
 
       $("#addSelectContainer").on('click', () => {
         const containers = getCurrentContainers();
-        const currentMaxId = Utils.maxArrayValue(containers.map((e) => parseInt(e.id.replace("graphSelectContainer",""))));
+        const currentMaxId = Utils.maxArrayValue(containers.map((e) => parseInt(e.id.replace("graphSelectContainer", ""))));
         const lastContainer = $(`#graphSelectContainer${currentMaxId}`);
         const containerClone = lastContainer.clone();
         containerClone.attr('id', `graphSelectContainer${currentMaxId + 1}`);
@@ -210,15 +218,15 @@
       $("#resetSelectContainers").on('click', () => {
         const containers = getCurrentContainers();
         containers
-          .filter((c) => c.id !== "graphSelectContainer1")
-          .forEach((c) => c.remove());
+            .filter((c) => c.id !== "graphSelectContainer1")
+            .forEach((c) => c.remove());
         downloadCsv.hide();
       });
     });
   }
 
 
-  $(function() {
+  $(function () {
     DataTable.datetime(Utils.DATE_FORMAT);
     /**
      Soil sample data table
@@ -335,14 +343,19 @@
         formatAsDate: true,
         render: (data, type, row) => Utils.timestampToDate(data['timestamp'])
       },
-      {data: 'temp_c'},
-      {data: 'relative_humidity'},
-      {data: 'rain_day_mm'},
-      {data: 'rain_rate_mm_per_hr'},
-      {data: 'solar_radiation'},
-      {data: 'wind_ms'},
-      {data: 'wind_degrees'}
-    ], '/uzc_gazes/meteo/json/query');
+      {data: 'temp_last_c'},
+      {data: 'moist_soil_last_mm_1'},
+      {data: 'moist_soil_last_mm_2'},
+      {data: 'humidity'},
+      {data: 'bar'},
+      {data: 'wind_speed_ms'},
+      {data: 'thsw_index'},
+      {data: 'solar_rad'},
+      {data: 'dew_point_c'},
+      {data: 'heat_index_c'},
+      {data: 'wet_bulb_c'},
+      {data: 'wind_chill_c'}
+    ], '/uzc_gazes/meteo/json/query', '', ['bar', 'bar_and_scatter', 'scatter']);
 
     /**
      Soil sample data table

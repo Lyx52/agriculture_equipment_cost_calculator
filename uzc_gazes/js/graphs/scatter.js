@@ -2,7 +2,7 @@
     const { Utils } = window;
     window.Scatter = {
         createPlot: (table, xColumns, yColumns, dataFilter = null, movingAverageWindow = null, groupingColumn = -1, aggregateType = null) => {
-            let [data, filteredData] = Utils.createGraphData(table, yColumns, Utils.defaultXAxisSelector, dataFilter, movingAverageWindow, [groupingColumn], {
+            let [data, filteredData] = Utils.createGraphData(table, yColumns, Utils.defaultXAxisSelector, dataFilter, movingAverageWindow, groupingColumn >= 0 ? [groupingColumn] : [], {
                 type: 'scatter'
             });
             Utils.CURRENT_GRAPH_DATA = data;

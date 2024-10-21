@@ -1,7 +1,4 @@
 services:
-  uzc_gazes.lbtu_meteo_repository:
-    class: Drupal\uzc_gazes\LbtuMeteoRepository
-    arguments: [ '@http_client' ]
   uzc_gazes.meteo_repository:
     class: Drupal\uzc_gazes\MeteoRepository
     arguments: [ ]
@@ -23,9 +20,3 @@ services:
   uzc_gazes.technical_equipment_repository:
       class: Drupal\uzc_gazes\TechnicalEquipmentRepository
       arguments: [ ]
-  uzc_gazes.batch_stende_meteo_import:
-    class: Drupal\uzc_gazes\Batch\BatchStendeMeteoImport
-    arguments: [ ]
-  uzc_gazes.static_data_repository:
-      class: Drupal\uzc_gazes\StaticDataRepository
-      arguments: [ '@module_handler' ]

@@ -29,18 +29,13 @@ class MeteoRepository implements ContainerInjectionInterface {
 
   /**
    * @param \Drupal\uzc_gazes\Model\QueryFilter $filter
-   *
-   * @return \Drupal\uzc_gazes\Model\StendeMeteoData[]
    */
   public function get(QueryFilter $filter): array {
-    $query = $this->connection->select('stende_meteo', 'sm')->fields('sm');
+    $query = $this->connection->select('v_stende_meteo_data', 'sm')->fields('sm');
     $query = $filter->fillDbQuery($query, 'sm');
     $totalCount = $query->countQuery()->execute()->fetchField();
-    $result = [];
     $query->range($filter->Start ?? 0, $filter->Length ?? $totalCount);
-    foreach ($query->execute() as $row) {
-      $result[] = StendeMeteoData::fromObject($row);
-    }
+    $result = $query->execute()->fetchAll();
     return [
       'data' => $result,
       'recordsTotal' => $totalCount,
@@ -52,29 +47,10 @@ class MeteoRepository implements ContainerInjectionInterface {
   }
   public function totalCount() {
     return $this->connection
-      ->select('stende_meteo', 'sm')
+      ->select('v_stende_meteo_data', 'sm')
       ->fields('sm')
       ->countQuery()
       ->execute()
       ->fetchField();
-  }
-  public function trunctate() {
-    $this->connection->truncate('stende_meteo')->execute();
-  }
-
-  public function add(object $entity) {
-    $this->connection->insert('stende_meteo')
-      ->fields([
-        'timestamp' => $entity->timestamp,
-        'temp_c' => $entity->temp_c,
-        'relative_humidity' => $entity->relative_humidity,
-        'rain_day_mm' => $entity->rain_day_mm,
-        'rain_rate_mm_per_hr' => $entity->rain_rate_mm_per_hr,
-        'solar_radiation' => $entity->solar_radiation,
-        'wind_mph' => $entity->wind_mph,
-        'wind_ms' => $entity->wind_ms,
-        'wind_degrees' => $entity->wind_degrees
-      ])
-      ->execute();
   }
 }

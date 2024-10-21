@@ -1,8 +1,8 @@
 
 (($) => {
     window.Utils = {
-        DATE_FORMAT: "DD/MM/YYYY hh:mm:ss",
-        DATE_SHORT_FORMAT: "DD/MM/YYYY",
+        DATE_FORMAT: "DD.MM.YYYY hh:mm:ss",
+        DATE_SHORT_FORMAT: "DD.MM.YYYY",
         CURRENT_GRAPH_DATA: [],
         defaultColors:  [
             '#1f77b4',  // muted blue

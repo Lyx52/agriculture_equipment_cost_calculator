@@ -6,7 +6,7 @@
         formatRowAsShortDate: (row) => BarGraph.formatAsShortDate(row["timestamp"]),
         formatAsShortDate: (timestamp) => moment.unix(timestamp).format(Utils.DATE_SHORT_FORMAT),
         createPlot: (table, xColumns, yColumns, dataFilter = null, movingAverageWindow = null, groupingColumn = -1, aggregateType = null) => {
-            let [data, filteredData] = Utils.createGraphData(table, yColumns, BarGraph.formatRowAsShortDate, dataFilter, movingAverageWindow, [groupingColumn], {
+            let [data, filteredData] = Utils.createGraphData(table, yColumns, BarGraph.formatRowAsShortDate, dataFilter, movingAverageWindow, groupingColumn >= 0 ? [groupingColumn] : [], {
                 type: 'bar'
             }, aggregateType ?? 'avg');
 

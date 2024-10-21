@@ -15,7 +15,7 @@ agriculture-calculator-lib:
       type: module
     }
 datatables-lib:
-  version: 1.0.11
+  version: 1.0.13
   dependencies:
     - core/jquery
   css:
@@ -34,14 +34,6 @@ datatables-lib:
       }
   js:
     js/utils.js: {
-      minified: false,
-      preprocess: false
-    }
-    js/data_fetch.js: {
-      minified: false,
-      preprocess: false
-    }
-    js/calculator_utils.js: {
       minified: false,
       preprocess: false
     }
@@ -74,10 +66,6 @@ datatables-lib:
       preprocess: true
     }
     js/uzc_gazes.js: {
-      minified: false,
-      preprocess: false
-    }
-    js/agriculture_calculator.js: {
       minified: false,
       preprocess: false
     }
