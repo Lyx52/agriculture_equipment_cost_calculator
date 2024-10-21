@@ -1,29 +1,14 @@
 <template>
-  <Bar :data="data" :options="options" />
+    <UzcChartModal />
 </template>
 
 <script lang="ts">
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-} from 'chart.js'
-import { Bar } from 'vue-chartjs'
-import * as chartConfig from './chartConfig.js'
+import UzcChartModal from "@/components/UzcChartModal.vue";
+import {defineComponent} from "vue";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+export default defineComponent({
+    components: {UzcChartModal}
+})
 
-export default {
-  name: 'App',
-  components: {
-    Bar
-  },
-  data() {
-    return chartConfig
-  }
-}
+
 </script>

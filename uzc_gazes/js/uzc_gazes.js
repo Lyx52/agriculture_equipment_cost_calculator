@@ -145,6 +145,7 @@
 
     let graphLoaded = false;
     tableElement.on('draw.dt', function () {
+      window.FULL_TABLE_DATA = table.data().toArray();
       if (graphLoaded) return;
       graphLoaded = true;
       Utils.addOptions('#inputGraphType', availableGraphs.map(k => ({value: k, text: graphTypes[k]})));
