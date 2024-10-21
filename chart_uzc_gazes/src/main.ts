@@ -10,4 +10,4 @@ import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 const app = createApp(App)
 app.use(createPinia());
 app.use(createBootstrap());
-app.mount('#app');
+app.mount('#uzcChartsApp');

@@ -1,2 +1,2 @@
-copy /b dist\assets\index-*.js ..\uzc_gazes\vue\index.js
-copy /b dist\assets\index-*.css ..\uzc_gazes\vue\index.css
+copy /b dist\assets\index-*.js ..\uzc_gazes\js\agriculture_calculator\index.js
+copy /b dist\assets\index-*.css ..\uzc_gazes\js\agriculture_calculator\index.css

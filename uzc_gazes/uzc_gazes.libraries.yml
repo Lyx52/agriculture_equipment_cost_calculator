@@ -12,7 +12,27 @@ agriculture-calculator-lib:
     js/agriculture_calculator/index.js: {
       minified: true,
       preprocess: true,
-      type: module
+      attributes: {
+        type: module
+      }
+    }
+uzc-chart-lib:
+  version: 1.0.0
+  dependencies:
+    - core/jquery
+  css:
+    theme:
+      js/uzc_gazes_chart/index.css: {
+        minified: true,
+        preprocess: true
+      }
+  js:
+    js/uzc_gazes_chart/index.js: {
+      minified: true,
+      preprocess: true,
+      attributes: {
+        type: module
+      }
     }
 datatables-lib:
   version: 1.0.13

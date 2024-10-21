@@ -35,7 +35,7 @@ class StendeParametersController extends ControllerBase {
       default => [
         '#theme' => 'stende-parameters-all',
         '#attached' => [
-          'library' => ['uzc_gazes/datatables-lib']
+            'library' => ['uzc_gazes/datatables-lib', 'uzc_gazes/uzc-chart-lib']
         ]
       ]
     };

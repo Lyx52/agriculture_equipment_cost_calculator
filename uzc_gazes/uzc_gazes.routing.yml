@@ -55,14 +55,6 @@ uzc_gazes.meteo_data:
     _title: 'Stende meteo data'
   requirements:
     _user_is_logged_in: 'TRUE'
-uzc_gazes.static_data:
-    path: '/uzc_gazes/static/{json_file}'
-    defaults:
-      _controller: 'Drupal\uzc_gazes\Controller\StaticDataController::fetch'
-    requirements:
-      _permission: 'access content'
-    options:
-      no_cache: true
 uzc_gazes.calculator:
     path: '/uzc_gazes/calculator/{calculator_type}'
     defaults:

@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check \"build-only {@}\" -- && npm run copy-to-uzc",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force"
+    "type-check": "vue-tsc --build --force",
+    "copy-to-uzc": "copy /b dist\\assets\\index-*.js ..\\uzc_gazes\\js\\uzc_gazes_chart\\index.js && copy /b dist\\assets\\index-*.css ..\\uzc_gazes\\js\\uzc_gazes_chart\\index.css"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",

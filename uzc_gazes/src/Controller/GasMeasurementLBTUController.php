@@ -34,7 +34,7 @@ class GasMeasurementLBTUController extends ControllerBase {
       default => [
         '#theme' => 'gas-measurements-lbtu',
         '#attached' => [
-          'library' => ['uzc_gazes/datatables-lib']
+          'library' => ['uzc_gazes/datatables-lib', 'uzc_gazes/uzc-chart-lib']
         ]
       ]
     };
