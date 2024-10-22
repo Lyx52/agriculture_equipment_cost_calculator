@@ -27,12 +27,41 @@ export const ChartDataColumns = {
     vid_wind_degrees: "Meteo Vid. vēja virziens",
     min_wind_degrees: "Meteo Min. vēja virziens",
     max_wind_degrees: "Meteo Max. vēja virziens"
-}
+} as Record<string, string>;
 export const ChartGroupingColumns = {
-    date: "Datums",
     id_field_nr: "ID Lauka nr.",
     vertical_field_nr: "Slejas nr.",
     horizontal_field_nr: "Lauciņa nr.",
     operation_type: "Apstrādes veids",
     operation: "Apstrādes operācija (UZC)",
+} as Record<string, string>;
+export const ChartColumns = Object.fromEntries([
+    ...Object.entries(ChartGroupingColumns),
+    ...Object.entries(ChartDataColumns)
+]) as Record<string, string>;
+export interface ITest {
+    test: string;
+    test2: number;
+}
+export const groupBy = <T, K extends keyof any>(data: T[], getKey: (item: T) => K) =>  {
+    return data.reduce((result, item) => {
+        const group = getKey(item);
+        if (!result[group]) {
+            result[group] = [];
+        }
+        result[group].push(item);
+        return result;
+    }, {} as Record<K, T[]>);
 };
+export const sum = <T>(data: T[], getValue: (item: T) => number|undefined|null): number => {
+    const filtered = data.filter(v => getValue(v));
+    return filtered.reduce((result, item) => {
+        return result + Number(getValue(item));
+    }, 0)
+}
+export const avg = <T>(data: T[], getValue: (item: T) => number|undefined|null): number => {
+    const filtered = data.filter(v => getValue(v));
+    return filtered.reduce((result, item) => {
+        return result + Number(getValue(item));
+    }, 0) / filtered.length;
+}

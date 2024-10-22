@@ -5,13 +5,13 @@ agriculture-calculator-lib:
   css:
     theme:
       js/agriculture_calculator/index.css: {
-        minified: true,
-        preprocess: true
+        minified: false,
+        preprocess: false
       }
   js:
     js/agriculture_calculator/index.js: {
-      minified: true,
-      preprocess: true,
+      minified: false,
+      preprocess: false,
       attributes: {
         type: module
       }
@@ -23,13 +23,13 @@ uzc-chart-lib:
   css:
     theme:
       js/uzc_gazes_chart/index.css: {
-        minified: true,
-        preprocess: true
+        minified: false,
+        preprocess: false
       }
   js:
     js/uzc_gazes_chart/index.js: {
-      minified: true,
-      preprocess: true,
+      minified: false,
+      preprocess: false,
       attributes: {
         type: module
       }

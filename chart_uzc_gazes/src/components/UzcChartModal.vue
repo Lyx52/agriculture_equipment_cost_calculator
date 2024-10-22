@@ -3,38 +3,56 @@
     <BButton @click="showModal = !showModal"> Attēlot grafikā (Jauns) </BButton>
         <BModal class="modal-xl" v-model="showModal" :hideFooter="true">
             <div class="container-fluid">
-                <div id="dateBlock" class="row row-cols-2 mb-3">
+                <div class="row row-cols-2 mb-3">
                     <div class="col mt-3">
-                        <div class="input-group mt-auto">
-                            <span class="input-group-text" id="dt-from">No</span>
-                            <input id="inputDateFrom" type="date" class="form-control" aria-label="No" aria-describedby="dt-from">
-                        </div>
+                      <div class="input-group mt-auto">
+                        <span class="input-group-text" id="dateLabelFrom">Līdz</span>
+                        <BFormInput
+                            type="date"
+                            id="dateFrom"
+                            @change="chartStateStore.buildChart"
+                            v-model="chartStateStore.dateFrom"
+                            aria-label="No"
+                            aria-describedby="dateLabelFrom"
+                        />
+                      </div>
                     </div>
                     <div class="col mt-3">
                         <div class="input-group mt-auto">
-                            <span class="input-group-text" id="dt-to">Līdz</span>
-                            <input id="inputDateTo" type="date" class="form-control" aria-label="Līdz" aria-describedby="dt-to">
+                            <span class="input-group-text" id="dateLabelTo">Līdz</span>
+                            <BFormInput
+                                type="date"
+                                id="dateTo"
+                                @change="chartStateStore.buildChart"
+                                v-model="chartStateStore.dateTo"
+                                aria-label="Līdz"
+                                aria-describedby="dateLabelTo"
+                            />
                         </div>
                     </div>
                     <div id="inputGroupByContainer" class="col mt-3">
                         <div class="input-group mt-auto">
                             <span class="input-group-text" id="groupBy">Grupēt pēc</span>
-                            <select id="inputGroupBy" class="form-control" aria-label="Grupēt pēc" aria-describedby="groupBy">
-                            </select>
+                            <BFormSelect
+                                v-model="chartStateStore.groupBy"
+                                @change="chartStateStore.buildChart"
+                                :options="chartStateStore.getGroupingTableColumns"
+                                aria-label="Grupēt pēc"
+                                aria-describedby="groupBy"
+                            />
                         </div>
-                    </div>
-                    <div id="selectableXColumnContainer" class="col mt-3" style="display: none;">
-                        <span class="input-group-text" id="groupBy">Grupēt pēc X kolonnām</span>
-                        <ol id="selectableXColumn">
-                        </ol>
                     </div>
 
                     <div class="col mt-3">
                         <div class="input-group mt-auto">
                             <span class="input-group-text" id="graphType">Grafika tips</span>
-                            <select id="inputGraphType" class="form-control" aria-label="Grafika tips" aria-describedby="graphType">
-
-                            </select>
+                            <BFormSelect
+                                v-model="chartStateStore.chartType"
+                                @change="chartStateStore.buildChart"
+                                :options="chartStateStore.getChartTypes"
+                                aria-label="Grafika tips"
+                                aria-describedby="graphType"
+                            />
                         </div>
                     </div>
                     <div class="col mt-3" id="aggregationTypeContainer" style="display: none;">
@@ -77,12 +95,11 @@
                         <button id="downloadCsv" class="btn btn-success ms-3 mt-2 mt-md-auto">Lejupielādēt</button>
                         <button id="resetSelectContainers" class="btn btn-danger d-flex ms-3 mt-2 mt-md-auto">Attiestatīt</button>
                         <button id="addSelectContainer" class="btn btn-success d-flex ms-3 mt-2 mt-md-auto">Pievienot</button>
-                        <button id="drawGraph" class="btn btn-secondary d-flex ms-3 mt-2 mt-md-auto">Radīt</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <Bar :data="data" :options="options" />
+                      <DynamicChart />
                     </div>
                 </div>
             </div>
@@ -92,24 +109,26 @@
 
 <script setup lang="ts">
 import {
-    Chart as ChartJS,
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement
 } from 'chart.js'
-import { Bar } from 'vue-chartjs'
 import {BModal, BButton, BFormGroup, BFormInput, BDropdown, BDropdownItem, BBadge, BPopover, BFormSelect} from "bootstrap-vue-next";
-import {ref} from "vue";
-import {  data, options } from '@/chartConfig'
-
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
-
+import {defineComponent, onMounted, ref, toRefs} from "vue";
+import {useChartStateStore} from "@/stores/chartState";
+import DynamicChart from "@/components/DynamicChart.vue";
+const chartStateStore = useChartStateStore();
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, PointElement, LineElement)
 const showModal = ref<boolean>(false);
-
+onMounted(async () => {
+  await chartStateStore.fetchTableData('combined');
+});
 </script>
 
 <style scoped>

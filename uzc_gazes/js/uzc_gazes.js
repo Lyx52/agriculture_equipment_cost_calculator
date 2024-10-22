@@ -145,7 +145,12 @@
 
     let graphLoaded = false;
     tableElement.on('draw.dt', function () {
-      window.FULL_TABLE_DATA = table.data().toArray();
+      window.FULL_TABLE_DATA = table.data().toArray().map(v => ({
+        ...v,
+        date: moment.unix(v['timestamp']).format(Utils.DATE_SHORT_FORMAT)
+      }));
+      window.TABLE_COLUMNS = table.columns().dataSrc().toArray();
+      window.TABLE_COLUMNS[0] = 'date';
       if (graphLoaded) return;
       graphLoaded = true;
       Utils.addOptions('#inputGraphType', availableGraphs.map(k => ({value: k, text: graphTypes[k]})));
@@ -324,15 +329,22 @@
       { data: 'vid_organic_material' },
       { data: 'vid_p2o5_mg_kg' },
       { data: 'vid_k2o_mg_kg' },
-      { data: 'vid_temp_c' },
-      { data: 'vid_relative_humidity' },
-      { data: 'vid_rain_day_mm' },
-      { data: 'vid_rain_rate_mm_per_hr' },
-      { data: 'vid_solar_radiation' },
-      { data: 'vid_wind_ms' },
-      { data: 'vid_wind_degrees' },
-      { data: 'min_wind_degrees' },
-      { data: 'max_wind_degrees' }
+      {data: 'vid_temp_last_c'},
+      {data: 'vid_moist_soil_last_mm_1',
+        render: (data, type, row) => data ?? ''
+      },
+      {data: 'vid_moist_soil_last_mm_2',
+        render: (data, type, row) => data ?? ''
+      },
+      {data: 'vid_humidity'},
+      {data: 'vid_bar'},
+      {data: 'vid_wind_speed_ms'},
+      {data: 'vid_thsw_index'},
+      {data: 'vid_solar_rad'},
+      {data: 'vid_dew_point_c'},
+      {data: 'vid_heat_index_c'},
+      {data: 'vid_wet_bulb_c'},
+      {data: 'vid_wind_chill_c'}
     ], '/uzc_gazes/combined/json/query', 'id_field_nr');
 
     /**
