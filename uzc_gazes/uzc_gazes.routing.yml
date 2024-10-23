@@ -55,23 +55,16 @@ uzc_gazes.meteo_data:
     _title: 'Stende meteo data'
   requirements:
     _user_is_logged_in: 'TRUE'
+uzc_gazes.agrihort_meteo_data:
+  path: '/uzc_gazes/agrihort_meteo/{content_type}/query'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\AgrihortMeteoController::query'
+    _title: 'Agrihort meteo data'
+  requirements:
+    _user_is_logged_in: 'TRUE'
 uzc_gazes.calculator:
     path: '/uzc_gazes/calculator/{calculator_type}'
     defaults:
       _controller: 'Drupal\uzc_gazes\Controller\CalculatorController::calculator'
     requirements:
       _user_is_logged_in: 'TRUE'
-uzc_gazes.upload_soil_measurements:
-  path: '/uzc_gazes/import_meteo_data'
-  defaults:
-    _form: 'Drupal\uzc_gazes\Form\ImportMeteoDataForm'
-    _title: 'Import Stende Meteo data'
-  requirements:
-    _user_is_logged_in: 'TRUE'
-uzc_gazes.cost_calculator:
-  path: '/uzc_gazes/cost_calculator'
-  defaults:
-    _form: 'Drupal\uzc_gazes\Form\CostCalculatorForm'
-    _title: 'Calculator'
-  requirements:
-    _user_is_logged_in: 'TRUE'

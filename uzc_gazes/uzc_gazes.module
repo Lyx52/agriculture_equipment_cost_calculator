@@ -30,5 +30,8 @@ function uzc_gazes_theme()
         'agriculture_machinery_cost' => [
             'template' => 'agriculture_machinery_cost',
         ],
+        'agrihort-meteo' => [
+            'template' => 'agrihort-meteo',
+        ],
     ];
 }

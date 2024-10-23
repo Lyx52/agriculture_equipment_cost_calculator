@@ -1,5 +1,5 @@
 agriculture-calculator-lib:
-  version: 1.0.2
+  version: 1.0.3
   dependencies:
     - core/jquery
   css:
@@ -17,7 +17,7 @@ agriculture-calculator-lib:
       }
     }
 uzc-chart-lib:
-  version: 1.0.0
+  version: 1.0.1
   dependencies:
     - core/jquery
   css:
@@ -35,7 +35,7 @@ uzc-chart-lib:
       }
     }
 datatables-lib:
-  version: 1.0.13
+  version: 1.0.15
   dependencies:
     - core/jquery
   css:

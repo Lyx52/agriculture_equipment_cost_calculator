@@ -10,22 +10,28 @@ use Drupal\uzc_gazes\Traits\FilterModelTrait;
 use Symfony\Component\HttpFoundation\Request;
 
 class QueryFilter {
-  use FilterModelTrait;
-  public int|null $TimestampFrom;
-  public int|null $TimestampTo;
+    use FilterModelTrait;
+    public int|null $TimestampFrom;
+    public int|null $TimestampTo;
+    public int|null $Start;
+    public int|null $Length;
 
   /**
    * @param int|null $TimestampFrom
    * @param int|null $TimestampTo
    */
-  public function __construct(?int $TimestampFrom, ?int $TimestampTo) {
+  public function __construct(?int $TimestampFrom, ?int $TimestampTo, ?int $Start, ?int $Length) {
     $this->TimestampFrom = $TimestampFrom;
     $this->TimestampTo = $TimestampTo;
+    $this->Start = $Start;
+    $this->Length = $Length;
   }
   public static function fromRequest(Request $request): QueryFilter {
     return new QueryFilter(
-      self::toValidTimestamp($request->query->get('from')),
-      self::toValidTimestamp($request->query->get('to'))
+        self::toValidTimestamp($request->query->get('from')),
+        self::toValidTimestamp($request->query->get('to')),
+        self::toValidInteger($request->query->get('start')),
+        self::toValidInteger($request->query->get('length')),
     );
   }
 

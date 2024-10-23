@@ -329,6 +329,7 @@
       { data: 'vid_organic_material' },
       { data: 'vid_p2o5_mg_kg' },
       { data: 'vid_k2o_mg_kg' },
+
       {data: 'vid_temp_last_c'},
       {data: 'vid_moist_soil_last_mm_1',
         render: (data, type, row) => data ?? ''
@@ -344,7 +345,12 @@
       {data: 'vid_dew_point_c'},
       {data: 'vid_heat_index_c'},
       {data: 'vid_wet_bulb_c'},
-      {data: 'vid_wind_chill_c'}
+      {data: 'vid_wind_chill_c'},
+
+      {data: 'vid_agrihort_soil_temperature'},
+      {data: 'vid_agrihort_surface_temperature'},
+      {data: 'vid_agrihort_air_temperature'},
+      {data: 'vid_agrihort_vol_moisture'}
     ], '/uzc_gazes/combined/json/query', 'id_field_nr');
 
     /**
@@ -369,6 +375,25 @@
       {data: 'wet_bulb_c'},
       {data: 'wind_chill_c'}
     ], '/uzc_gazes/meteo/json/query', '', ['bar', 'bar_and_scatter', 'scatter']);
+
+    /**
+     Meteo data table
+     */
+    createTableIfExists('#agrihort-meteo', [
+      {
+        data: null,
+        formatAsDate: true,
+        render: (data, type, row) => Utils.timestampToDate(data['timestamp'])
+      },
+      {data: 'id_field_nr'},
+      {data: 'vertical_field_nr'},
+      {data: 'horizontal_field_nr'},
+      {data: 'soil_temperature'},
+      {data: 'surface_temperature'},
+      {data: 'air_temperature'},
+      {data: 'vol_moisture'}
+    ], '/uzc_gazes/agrihort_meteo/json/query', '', ['bar', 'bar_and_scatter', 'scatter']);
+
 
     /**
      Soil sample data table

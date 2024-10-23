@@ -1,4 +1,7 @@
 services:
+  uzc_gazes.agrihort_meteo:
+    class: Drupal\uzc_gazes\AgrihortMeteoRepository
+    arguments: [ ]
   uzc_gazes.meteo_repository:
     class: Drupal\uzc_gazes\MeteoRepository
     arguments: [ ]
