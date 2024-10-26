@@ -32,7 +32,7 @@ uzc_gazes.combined:
     _controller: 'Drupal\uzc_gazes\Controller\CombinedController::query'
     _title: 'Combined data'
   requirements:
-    _user_is_logged_in: 'TRUE'
+    _permission: 'access content'
 uzc_gazes.technical_equipment:
     path: '/uzc_gazes/technical_equipment/{content_type}/query'
     defaults:
