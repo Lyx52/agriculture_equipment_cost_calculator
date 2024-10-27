@@ -95,9 +95,10 @@
     scatter: 'Līniju (Scatter)',
     bar: 'Stabiņu (Bar)',
     bar_and_scatter: 'Stabiņu un Līniju (Bar & Scatter)',
-    pivot_charts: 'Testa grafiks'
+    pivot_charts: 'Testa grafiks',
+    pivot_table: 'Pivot table'
   }
-  const createTableIfExists = (id, columns, ajaxUrl, defaultGraphGrouping = '', availableGraphs = ['bar', 'bar_and_scatter', 'scatter', 'pivot_charts']) => {
+  const createTableIfExists = (id, columns, ajaxUrl, defaultGraphGrouping = '', availableGraphs = ['bar', 'bar_and_scatter', 'scatter', 'pivot_charts', 'pivot_table']) => {
 
     const tableElement = $(id);
     if (!tableElement.length) return;
@@ -142,7 +143,27 @@
     Utils.showOnCondition("#selectableXColumnContainer", "#inputGraphType", (ie) => {
       return ['pivot_charts'].includes(ie.val())
     });
-
+    Utils.showOnCondition("#uzcPivotCharts", "#inputGraphType", (ie) => {
+      return ['pivot_table'].includes(ie.val())
+    });
+    Utils.showOnCondition("#graphSelectColumn1", "#inputGraphType", (ie) => {
+      return !['pivot_table'].includes(ie.val())
+    });
+    Utils.showOnCondition("#downloadCsv", "#inputGraphType", (ie) => {
+      return !['pivot_table'].includes(ie.val())
+    });
+    Utils.showOnCondition("#resetSelectContainers", "#inputGraphType", (ie) => {
+      return !['pivot_table'].includes(ie.val())
+    });
+    Utils.showOnCondition("#addSelectContainer", "#inputGraphType", (ie) => {
+      return !['pivot_table'].includes(ie.val())
+    });
+    Utils.showOnCondition("#drawGraph", "#inputGraphType", (ie) => {
+      return !['pivot_table'].includes(ie.val())
+    });
+    Utils.showOnCondition("#movingAverageContainer", "#inputGraphType", (ie) => {
+      return !['pivot_table'].includes(ie.val())
+    });
     let graphLoaded = false;
     tableElement.on('draw.dt', function () {
       window.FULL_TABLE_DATA = table.data().toArray().map(v => ({
@@ -220,7 +241,6 @@
         downloadCsv.hide();
         lastContainer.parent().append(containerClone);
       });
-
       $("#resetSelectContainers").on('click', () => {
         const containers = getCurrentContainers();
         containers
@@ -228,6 +248,45 @@
             .forEach((c) => c.remove());
         downloadCsv.hide();
       });
+      let cols = table.columns().titles().toArray().slice(1);
+      $.pivotData = [
+        ['timestamp', ...columns.slice(1).map(v => v.title)],
+        ...table.rows().data().toArray().map(v => [v['timestamp'], ...columns.slice(1).map(k => v[k.field])])
+      ];
+      $("#uzcPivotCharts").pivotUI(
+            $.pivotData, {
+            derivedAttributes: {
+              "Datums": function (record) {
+                  return Utils.timestampToDate(record['timestamp']);
+              },
+              "Operācija bez datuma": function (record) {
+                if (record['Apstrādes operācija (UZC)']) return record['Apstrādes operācija (UZC)'].split(' ')[0];
+                return '';
+              }
+            },
+            renderers: $.extend(
+                $.pivotUtilities.renderers,
+                $.pivotUtilities.export_renderers,
+                $.pivotUtilities.plotly_renderers
+            ),
+            rendererOptions: {
+              plotly: {
+                font: {size: 14},
+                autoshift: true,
+                automargin: true,
+                margin: {
+                  autoexpand: true,
+                  b: 200
+                },
+                height: 1024,
+                width: 1024,
+                responsive: true
+              },
+              plotlyConfig: {
+                responsive: true
+              }
+            }
+          });
     });
   }
 

@@ -254,12 +254,12 @@
                 return res;
             }, []);
         },
-        showOnCondition: (elemId, inputElemId, condition = (ie) => true) => {
+        showOnCondition: (elemSelector, inputElemId, condition = (ie) => true) => {
             $(inputElemId).on("change", () => {
                 if (condition($(inputElemId))) {
-                    $(elemId).show();
+                    $(elemSelector).show();
                 } else {
-                    $(elemId).hide();
+                    $(elemSelector).hide();
                 }
             })
         },

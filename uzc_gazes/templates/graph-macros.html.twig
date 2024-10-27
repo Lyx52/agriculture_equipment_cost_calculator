@@ -18,7 +18,7 @@
 {% endmacro %}
 {% macro modal(id, graphId) %}
   <div class="modal fade" id="{{ id }}" tabindex="-1" aria-labelledby="graphModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="graphModalLabel">Attēlot grafikā</h5>
@@ -82,7 +82,7 @@
               </div>
             </div>
             <div class="col mt-auto d-flex flex-column flex-md-row">
-              <div class="form-group mt-2 mt-md-auto ms-auto">
+              <div class="form-group mt-2 mt-md-auto ms-auto" id="movingAverageContainer">
                 <label for="movingAverage">Slīdošais vidējais (SMA)</label>
                 <select id="movingAverage" class="form-select">
                   <option value="-1">Nav</option>
@@ -97,12 +97,13 @@
                 </select>
               </div>
               <button id="downloadCsv" class="btn btn-success ms-3 mt-2 mt-md-auto">Lejupielādēt</button>
-              <button id="resetSelectContainers" class="btn btn-danger d-flex ms-3 mt-2 mt-md-auto">Attiestatīt</button>
-              <button id="addSelectContainer" class="btn btn-success d-flex ms-3 mt-2 mt-md-auto">Pievienot</button>
-              <button id="drawGraph" class="btn btn-secondary d-flex ms-3 mt-2 mt-md-auto">Radīt</button>
+              <button id="resetSelectContainers" class="btn btn-danger ms-3 mt-2 mt-md-auto">Attiestatīt</button>
+              <button id="addSelectContainer" class="btn btn-success ms-3 mt-2 mt-md-auto">Pievienot</button>
+              <button id="drawGraph" class="btn btn-secondary ms-3 mt-2 mt-md-auto">Radīt</button>
             </div>
           </div>
           <div class="w-100" id="{{ graphId }}"></div>
+          <div id="uzcPivotCharts" style="display: none"></div>
         </div>
       </div>
     </div>

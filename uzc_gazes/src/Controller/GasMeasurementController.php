@@ -32,8 +32,9 @@ class GasMeasurementController extends ControllerBase {
       'json' => new JsonResponse($data),
       default => [
         '#theme' => 'gas-measurements',
-        '#attached' => [['uzc_gazes/uzc-chart-lib', 'uzc_gazes/datatables-lib']
-        ]
+      '#attached' => [
+          'library' => ['uzc_gazes/uzc-chart-lib', 'uzc_gazes/uzc-pivot-lib', 'uzc_gazes/datatables-lib']
+      ]
       ]
     };
   }

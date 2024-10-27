@@ -24,8 +24,21 @@ export const DefaultChartColorsHex = [
     "#F0E68C", // Khaki
     "#E6E6FA" // Lavender
 ];
+
+export const getChartColors = (count: number): string[] => {
+    let colors = [];
+    for (let i = 0; i < count; i++) {
+        colors.push(DefaultChartColorsHex[i]);
+    }
+    return colors;
+}
+
+export type ChartType = 'Bar' | 'Line' | 'PolarArea' | 'Doughnut' | 'Pie' | 'BarAndLine';
 export const ChartTypes = {
-    'bar': 'Stabiņu',
-    'bar_and_line': 'Stabiņu un līniju',
-    'line': 'Līniju'
-} as Record<string, string>
+    'Bar': 'Stabiņu',
+    'Line': 'Līniju',
+    'BarAndLine': 'Stabiņu un Līniju',
+    'PolarArea': 'Area',
+    'Doughnut': 'Sektoru',
+    'Pie': 'Sektoru (Pilns)'
+} as Record<ChartType, string>;

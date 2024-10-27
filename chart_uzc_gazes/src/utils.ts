@@ -1,3 +1,6 @@
+import moment from "moment/moment";
+import type {ITableRow} from "@/interfaces/ITableRow";
+
 export const ChartDataColumns = {
     co2_mg_sec_after_calibration: "AREI_Stende_[CO2] sek. (mg CO2 m-2 h-1)",
     soil_temp: "AREI_Stende_Soil Temp.",
@@ -18,15 +21,22 @@ export const ChartDataColumns = {
     vid_organic_material: "AREI Vid. org. vielas, %",
     vid_p2o5_mg_kg: "AREI P2O5 vid, mg/kg",
     vid_k2o_mg_kg: "AREI Vid. K2O, mg/kg",
-    vid_temp_c: "Meteo Vid. temp C",
-    vid_relative_humidity: "Meteo Vid. rel. mitr",
-    vid_rain_day_mm: "Meteo Vid. lietus MM",
-    vid_rain_rate_mm_per_hr: "Meteo Vid. lietus MM/h",
-    vid_solar_radiation: "Meteo Vid. saules radiācija",
-    vid_wind_ms: "Meteo Vid. vējšs m/s",
-    vid_wind_degrees: "Meteo Vid. vēja virziens",
-    min_wind_degrees: "Meteo Min. vēja virziens",
-    max_wind_degrees: "Meteo Max. vēja virziens"
+    vid_temp_last_c: "Meteo Vid. Temp C",
+    vid_moist_soil_last_mm_1: "Meteo Vid. Augsnes mitrums (1)",
+    vid_moist_soil_last_mm_2: "Meteo Vid. Augsnes mitrums (2)",
+    vid_humidity: "Meteo Vid. Relatīvais mitrums",
+    vid_bar: "Meteo Vid. Gaisa spiediens, bārs",
+    vid_wind_speed_ms: "Meteo Vid. Vējšs m/s",
+    vid_thsw_index: "Meteo Vid. THSW Indekss",
+    vid_solar_rad: "Meteo Vid. Saules radiācija",
+    vid_dew_point_c: "Meteo Vid. Rasas punkts, C",
+    vid_heat_index_c: "Meteo Vid. Siltuma indekss, C",
+    vid_wet_bulb_c: "Meteo Vid. Wet Bulb, C",
+    vid_wind_chill_c: "Meteo Vid. Wind chill, C",
+    vid_agrihort_soil_temperature: "Agrihorts Augsnes temperatūra -6cm, C",
+    vid_agrihort_surface_temperature: "Agrihorts Virszemes temperatūra, C",
+    vid_agrihort_air_temperature: "Agrihorts Gaisa temperatūra +12cm, C",
+    vid_agrihort_vol_moisture: "Agrihorts Mitrums",
 } as Record<string, string>;
 export const ChartGroupingColumns = {
     id_field_nr: "ID Lauka nr.",
@@ -35,14 +45,20 @@ export const ChartGroupingColumns = {
     operation_type: "Apstrādes veids",
     operation: "Apstrādes operācija (UZC)",
 } as Record<string, string>;
+
 export const ChartColumns = Object.fromEntries([
     ...Object.entries(ChartGroupingColumns),
     ...Object.entries(ChartDataColumns)
 ]) as Record<string, string>;
-export interface ITest {
-    test: string;
-    test2: number;
-}
+
+
+export const unique = <T>(data: T[]) => {
+    return data.reduce((res, val) => {
+        if (!res.includes(val)) res.push(val);
+        return res;
+    }, [] as T[]);
+};
+
 export const groupBy = <T, K extends keyof any>(data: T[], getKey: (item: T) => K) =>  {
     return data.reduce((result, item) => {
         const group = getKey(item);
@@ -59,9 +75,49 @@ export const sum = <T>(data: T[], getValue: (item: T) => number|undefined|null):
         return result + Number(getValue(item));
     }, 0)
 }
+
 export const avg = <T>(data: T[], getValue: (item: T) => number|undefined|null): number => {
     const filtered = data.filter(v => getValue(v));
     return filtered.reduce((result, item) => {
         return result + Number(getValue(item));
     }, 0) / filtered.length;
+}
+
+export const min = <T>(data: T[], getValue: (item: T) => number|undefined|null): number => {
+    const filtered = data.filter(v => getValue(v)).map(v => Number(getValue(v)));
+    return Math.min(...filtered);
+}
+
+export const max = <T>(data: T[], getValue: (item: T) => number|undefined|null): number => {
+    const filtered = data.filter(v => getValue(v)).map(v => Number(getValue(v)));
+    return Math.max(...filtered);
+}
+
+export type ChartAggregationType = 'avg' | 'sum' | 'min' | 'max';
+export const ChartAggregationTypes = {
+    'avg': 'Vidējais',
+    'sum': 'Summa',
+    'min': 'Minimālais',
+    'max': 'Maksimālais'
+} as Record<ChartAggregationType, string>;
+
+export const ChartAggregationFunctions = {
+    'avg': avg,
+    'sum': sum,
+    'min': min,
+    'max': max
+} as Record<ChartAggregationType, <T>(data: T[], getValue: (item: T) => (number | undefined | null)) => number>;
+
+export const getDateCategory = (row: ITableRow) => {
+    return moment.unix(row.timestamp).format('DD.MM.YYYY');
+}
+export const getCurrentTable = (): string => {
+    if (document.getElementById('stende-parameters-all')) return 'stende_parameters_all';
+    if (document.getElementById('agrihort-meteo')) return 'agrihort_meteo';
+    if (document.getElementById('stende-meteo-data')) return 'meteo';
+    if (document.getElementById('combined-measurements')) return 'combined';
+    if (document.getElementById('gas-measurements-lbtu')) return 'gas_measurements_lbtu';
+    if (document.getElementById('gas-measurements')) return 'gas_measurements';
+    if (document.getElementById('soil-sample-measurements')) return 'soil_sample_measurements';
+    return 'combined';
 }

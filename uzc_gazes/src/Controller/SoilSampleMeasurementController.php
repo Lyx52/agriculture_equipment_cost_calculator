@@ -33,7 +33,7 @@ class SoilSampleMeasurementController extends ControllerBase {
       default => [
         '#theme' => 'soil-sample-measurements',
         '#attached' => [
-            'library' => ['uzc_gazes/uzc-chart-lib', 'uzc_gazes/datatables-lib']
+          'library' => ['uzc_gazes/uzc-chart-lib', 'uzc_gazes/uzc-pivot-lib', 'uzc_gazes/datatables-lib']
         ]
       ]
     };

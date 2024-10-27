@@ -35,7 +35,7 @@ class AgrihortMeteoController extends ControllerBase {
       default => [
         '#theme' => 'agrihort-meteo',
         '#attached' => [
-            'library' => ['uzc_gazes/uzc-chart-lib', 'uzc_gazes/datatables-lib']
+          'library' => ['uzc_gazes/uzc-chart-lib', 'uzc_gazes/uzc-pivot-lib', 'uzc_gazes/datatables-lib']
         ]
       ]
     };

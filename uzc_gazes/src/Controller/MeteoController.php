@@ -33,7 +33,7 @@ class MeteoController extends ControllerBase {
       default => [
         '#theme' => 'meteo-data',
         '#attached' => [
-            'library' => ['uzc_gazes/uzc-chart-lib', 'uzc_gazes/datatables-lib']
+          'library' => ['uzc_gazes/uzc-chart-lib', 'uzc_gazes/uzc-pivot-lib', 'uzc_gazes/datatables-lib']
         ]
       ]
     };

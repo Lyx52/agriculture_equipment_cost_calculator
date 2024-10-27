@@ -1,4 +1,7 @@
-export interface ITableRow {
+export type TableRowType = {
+    [key: string]: any;
+}
+export interface ITableRow extends TableRowType {
     id_field_nr: string;
     timestamp: number;
     lbtu_timestamp?: number;

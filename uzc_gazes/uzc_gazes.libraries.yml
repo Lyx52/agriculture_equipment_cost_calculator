@@ -17,22 +17,65 @@ agriculture-calculator-lib:
       }
     }
 uzc-chart-lib:
-  version: 1.0.1
+  version: 1.0.6
   dependencies:
     - core/jquery
   css:
     theme:
       js/uzc_gazes_chart/index.css: {
-        minified: false,
-        preprocess: false
+        minified: true,
+        preprocess: true
       }
   js:
     js/uzc_gazes_chart/index.js: {
-      minified: false,
+      minified: true,
       preprocess: false,
       attributes: {
         type: module
       }
+    }
+uzc-pivot-lib:
+  version: 1.0.2
+  dependencies:
+    - core/jquery
+  css:
+    theme:
+      lib/pivot/css/pivot.min.css: {
+        minified: true,
+        preprocess: true
+      }
+      lib/jquery-ui/css/jquery-ui.min.css: {
+        minified: true,
+        preprocess: true
+      }
+  js:
+    js/bootstrap.js: {
+      minified: false,
+      preprocess: false
+    }
+    lib/plotly/js/plotly.min.js: {
+      minified: true,
+      preprocess: true
+    }
+    lib/jquery-ui/js/jquery-ui.min.js: {
+      minified: true,
+      preprocess: true
+    }
+    lib/pivot/js/pivot.js: {
+      minified: false,
+      preprocess: false
+    }
+    lib/pivot/js/renderers/export_renderers.min.js: {
+      minified: true,
+      preprocess: false
+    }
+    lib/pivot/js/renderers/plotly_renderers.js: {
+      minified: false,
+      preprocess: false
+    }
+    lib/pivot/js/tips_data.min.js: {
+      minified: true,
+      preprocess: false
     }
 datatables-lib:
   version: 1.0.15
@@ -41,10 +84,6 @@ datatables-lib:
   css:
     theme:
       lib/datatables/css/datatables.min.css: {
-        minified: true,
-        preprocess: true
-      }
-      lib/jquery-ui/css/jquery-ui.min.css: {
         minified: true,
         preprocess: true
       }
@@ -73,16 +112,8 @@ datatables-lib:
       minified: true,
       preprocess: true
     }
-    lib/plotly/js/plotly.min.js: {
-      minified: true,
-      preprocess: true
-    }
     lib/momentjs/js/moment.js: {
       minified: false,
-      preprocess: true
-    }
-    lib/jquery-ui/js/jquery-ui.min.js: {
-      minified: true,
       preprocess: true
     }
     js/uzc_gazes.js: {
