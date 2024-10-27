@@ -33,12 +33,9 @@ export const getChartColors = (count: number): string[] => {
     return colors;
 }
 
-export type ChartType = 'Bar' | 'Line' | 'PolarArea' | 'Doughnut' | 'Pie' | 'BarAndLine';
+export type ChartType = 'Bar' | 'Line' | 'BarAndLine';
 export const ChartTypes = {
     'Bar': 'Stabiņu',
     'Line': 'Līniju',
-    'BarAndLine': 'Stabiņu un Līniju',
-    'PolarArea': 'Area',
-    'Doughnut': 'Sektoru',
-    'Pie': 'Sektoru (Pilns)'
+    'BarAndLine': 'Stabiņu un Līniju'
 } as Record<ChartType, string>;

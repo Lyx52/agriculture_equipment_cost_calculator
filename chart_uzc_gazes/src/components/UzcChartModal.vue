@@ -1,6 +1,6 @@
 <template>
     <div>
-    <BButton @click="showModal = !showModal"> Attēlot grafikā (Jauns) </BButton>
+    <BButton @click="showModal = !showModal"> Attēlot grafikā (Jaunā versija) </BButton>
         <BWorkflowModal :is-spinning="chartStateStore.isLoading" v-model="showModal">
             <div class="row row-cols-2 mb-3">
                 <div class="col mt-3">

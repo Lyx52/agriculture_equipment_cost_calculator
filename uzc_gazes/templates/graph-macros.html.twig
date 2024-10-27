@@ -1,10 +1,10 @@
 {% macro openModalButton(target, text) %}
-  <button id="open-graph-modal" type="button" class="btn btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#{{ target }}">
-    {{ text }}
-  </button>
-{% endmacro %}
-{% macro addUzcChartsApp() %}
-    <div id="uzcChartsApp"></div>
+    <div class="d-flex flex-row gap-3 mt-3">
+        <button id="open-graph-modal" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#{{ target }}">
+            {{ text }}
+        </button>
+        <div id="uzcChartsApp"></div>
+    </div>
 {% endmacro %}
 {% macro selectColumnsButton() %}
 <div class="btn-group mt-3">
