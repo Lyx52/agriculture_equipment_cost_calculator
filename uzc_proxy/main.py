@@ -1,4 +1,4 @@
-import requests, flask
+import requests
 
 from bottle import route, run, template, response, json_dumps
 def apply_cors():

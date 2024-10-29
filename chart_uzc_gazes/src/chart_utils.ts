@@ -32,10 +32,8 @@ export const getChartColors = (count: number): string[] => {
     }
     return colors;
 }
-
-export type ChartType = 'Bar' | 'Line' | 'BarAndLine';
+export type ChartType = 'bar' | 'line';
 export const ChartTypes = {
-    'Bar': 'Stabiņu',
-    'Line': 'Līniju',
-    'BarAndLine': 'Stabiņu un Līniju'
-} as Record<ChartType, string>;
+    'bar': 'Stabiņu',
+    'line': 'Līniju'
+} as Record<ChartType, string>

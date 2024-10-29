@@ -1,8 +1,11 @@
 <template>
     <div class="chart-container mt-2">
         <div class="ms-auto d-flex flex-row gap-2">
-            <BButton variant="secondary" @click="hideLabels">
-                Paslēpt/Parādīt datu vienības
+            <BButton :class="{
+                'btn-success': chartStateStore.chartData.dataHidden,
+                'btn-danger': !chartStateStore.chartData.dataHidden
+            }" @click="onClickHideCharts">
+                {{ chartStateStore.chartData.dataHidden ? 'Parādīt' : 'Paslēpt' }} datus
             </BButton>
             <BButton variant="secondary" @click="resetZoom">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-gear" viewBox="0 0 16 16">
@@ -11,24 +14,10 @@
                 </svg>
             </BButton>
         </div>
-
         <Bar
-            ref="chartBar"
-            v-if="chartStateStore.chartType === 'Bar'"
+            ref="chartRef"
             :options="options"
-            :data="dataBar"
-        />
-        <Bar
-            ref="chartBarAndLine"
-            v-if="chartStateStore.chartType === 'BarAndLine'"
-            :options="options"
-            :data="dataBarAndLine"
-        />
-        <Line
-            ref="chartLine"
-            v-if="chartStateStore.chartType === 'Line'"
-            :options="options"
-            :data="dataLine"
+            :data="data"
         />
     </div>
 </template>
@@ -45,7 +34,7 @@ import {
     CategoryScale,
     LinearScale,
     ArcElement,
-    RadialLinearScale, type ChartData
+    RadialLinearScale, type ChartData, LineController, BarController
 } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 ChartJS.register(
@@ -58,44 +47,26 @@ ChartJS.register(
     LinearScale,
     LineElement,
     PointElement,
+    LineController,
+    BarController,
     CategoryScale,
     LinearScale,
     ArcElement,
     RadialLinearScale,
 );
-import {Bar, Line, Doughnut, Pie, Scatter, PolarArea, type ChartComponentRef} from "vue-chartjs";
+import {Bar, Line, type ChartComponentRef} from "vue-chartjs";
 import {useChartStateStore} from "@/stores/chartState";
 import {ref, toRefs, useTemplateRef, watch} from "vue";
 import {BButton} from "bootstrap-vue-next";
 
-const dataBar = ref<ChartData<'bar'>>({
+const data = ref<ChartData<'bar'>>({
     datasets: []
 });
-const dataBarAndLine = ref<ChartData<'bar'>>({
-    datasets: []
-});
-const dataLine = ref<ChartData<'line'>>({
-    datasets: []
-});
-const chartRefs = [
-    useTemplateRef<ChartComponentRef>('chartLine'),
-    useTemplateRef<ChartComponentRef>('chartBar'),
-    useTemplateRef<ChartComponentRef>('chartBarAndLine')
-]
+const chartRef = useTemplateRef<ChartComponentRef>('chartRef');
 const resetZoom = () => {
-    for (const chartRef of chartRefs) {
-        if (chartRef?.value?.chart) chartRef?.value?.chart.resetZoom()
-    }
-}
-const hideLabels = () => {
-    for (const chartRef of chartRefs) {
-        if (chartRef?.value?.chart) {
-            chartRef?.value?.chart.data.datasets.forEach(function(ds: any) {
-                ds.hidden = !ds.hidden;
-            });
-            chartRef?.value?.chart.update();
-        }
-    }
+  if (chartRef?.value?.chart) {
+      chartRef?.value?.chart.resetZoom();
+  }
 }
 const options = {
     responsive: true,
@@ -130,35 +101,30 @@ const options = {
 } as any;
 const chartStateStore = useChartStateStore();
 const {
-    chartData,
-    chartType
+    chartData
 } = toRefs(chartStateStore);
 watch(chartData, () => {
-    switch (chartType.value) {
-        case 'Bar': {
-            dataBar.value = {
-                labels: chartData.value.labels,
-                datasets: chartData.value.datasets
-            }
-        }
-            break;
-        case 'BarAndLine': {
-            dataBarAndLine.value = {
-                labels: chartData.value.labels,
-                datasets: chartData.value.datasets
-            }
-        }
-            break;
-        case 'Line': {
-            dataLine.value = {
-                labels: chartData.value.labels,
-                datasets: chartData.value.datasets
-            }
-        }
-            break;
-    }
+    updateCharts()
 })
-
+const onClickHideCharts = () => {
+    chartData.value.dataHidden = !chartData.value.dataHidden;
+    updateCharts();
+}
+const updateCharts = () => {
+    data.value = {
+        labels: chartData.value.labels,
+        datasets: chartData.value.datasets
+    }
+    setAllDatasetVisibility(!chartData.value.dataHidden);
+}
+const setAllDatasetVisibility = (visibility: boolean) => {
+    if (chartRef?.value?.chart) {
+        for (let i = 0; i < chartRef.value.chart.data.datasets.length; i++) {
+            chartRef.value.chart.setDatasetVisibility(i, visibility);
+        }
+        chartRef.value.chart.update();
+    }
+}
 </script>
 
 <style scoped>

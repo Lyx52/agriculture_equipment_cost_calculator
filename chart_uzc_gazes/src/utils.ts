@@ -85,6 +85,7 @@ export const avg = <T>(data: T[], getValue: (item: T) => number|undefined|null):
 
 export const min = <T>(data: T[], getValue: (item: T) => number|undefined|null): number => {
     const filtered = data.filter(v => getValue(v)).map(v => Number(getValue(v)));
+
     return Math.min(...filtered);
 }
 
@@ -108,8 +109,8 @@ export const ChartAggregationFunctions = {
     'max': max
 } as Record<ChartAggregationType, <T>(data: T[], getValue: (item: T) => (number | undefined | null)) => number>;
 
-export const getDateCategory = (row: ITableRow) => {
-    return moment.unix(row.timestamp).format('DD.MM.YYYY');
+export const getDateCategory = (timestamp: number) => {
+    return moment.unix(timestamp).format('DD.MM.YYYY');
 }
 export const getCurrentTable = (): string => {
     if (document.getElementById('stende-parameters-all')) return 'stende_parameters_all';
@@ -120,4 +121,28 @@ export const getCurrentTable = (): string => {
     if (document.getElementById('gas-measurements')) return 'gas_measurements';
     if (document.getElementById('soil-sample-measurements')) return 'soil_sample_measurements';
     return 'combined';
+}
+
+export const downloadBlob = (blob: Blob, filename: string) => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename || 'download';
+
+    const clickHandler = () => {
+        setTimeout(() => {
+            URL.revokeObjectURL(url);
+            removeEventListener('click', clickHandler);
+        }, 150);
+    };
+
+    a.addEventListener('click', clickHandler, false);
+
+    return a;
+}
+
+export const downloadCsv = (lines: string[], filename: string) => {
+    const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
+    const downloadLink = downloadBlob(blob, `${filename}.csv`);
+    downloadLink.click();
 }

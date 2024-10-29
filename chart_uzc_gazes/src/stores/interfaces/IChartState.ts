@@ -9,11 +9,11 @@ export interface IChartState {
     dateFrom?: string;
     dateTo?: string;
     groupBy: TableColumn;
-    chartType: ChartType;
-    chartAggregation: ChartAggregationType;
     chartData: IChartProps;
     chartColumns: IChartColumn[];
     selectedChartColumn: string;
+    selectedChartType: ChartType;
+    selectedChartAggregation: ChartAggregationType;
     tableData: ITableRow[];
     tableColumns: string[];
     isLoading: boolean;
