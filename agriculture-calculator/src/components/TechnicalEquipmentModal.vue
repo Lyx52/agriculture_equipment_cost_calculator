@@ -28,7 +28,6 @@ import TechnicalEquipmentInformationForm from "@/components/TechnicalEquipmentIn
 const emit = defineEmits(['onEquipmentAdded']);
 
 const model = defineModel<boolean>();
-const equipmentInformationStore =
 const onAddEquipment = () => {
     model.value = false;
     // emit('onEquipmentAdded', equipmentInformationStore.getEquipment);

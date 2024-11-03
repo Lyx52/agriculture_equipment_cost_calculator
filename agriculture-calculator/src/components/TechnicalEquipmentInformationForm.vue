@@ -42,6 +42,36 @@
         >
             <BFormSelect id="inputMachineryEquipmentLevel" v-model="equipmentInformationStore.equipmentLevelCode" :options="equipmentLevelTypes" />
         </BFormGroup>
+        <BFormGroup
+            label="Mašīnas jauda, kw"
+            label-for="inputMachineryPower"
+        >
+            <BFormInput
+                type="number"
+                id="inputMachineryPower"
+                v-model="equipmentInformationStore.specification.power" trim
+            />
+        </BFormGroup>
+        <BFormGroup
+            label="Mašīnas svars, kg"
+            label-for="inputMachineryWeight"
+        >
+            <BFormInput
+                type="number"
+                id="inputMachineryWeight"
+                v-model="equipmentInformationStore.specification.power" trim
+            />
+        </BFormGroup>
+        <BFormGroup
+            label="Jūgvārpstas jauda/ kw"
+            label-for="inputMachineryPTOPower"
+        >
+            <BFormInput
+                type="number"
+                id="inputMachineryPTOPower"
+                v-model="equipmentInformationStore.specification.lift_kg" trim
+            />
+        </BFormGroup>
     </div>
 </template>
 <script setup lang="ts">

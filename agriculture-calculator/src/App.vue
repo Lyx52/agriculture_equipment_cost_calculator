@@ -27,7 +27,6 @@ const onEquipmentAdded = (item: IEquipmentInformation) => {
       </div>
       <div class="row">
           <div class="col">
-<!--            <TechnicalEquipmentModal @onEquipmentAdded="onEquipmentAdded" />-->
             <EquipmentInformationTable />
           </div>
       </div>
