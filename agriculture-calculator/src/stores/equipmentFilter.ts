@@ -17,7 +17,8 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             equipmentModelOptions: [],
             filteredEquipment: [],
             searchText: '',
-            showSearchDropdown: false
+            showSearchDropdown: false,
+            limitCategoriesTo: []
         }
     },
     actions: {
@@ -67,8 +68,12 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
         async fetchEquipmentCategories() {
             this.isLoading = true;
             try {
-                const res = await fetch(`/uzc_gazes/technical_equipment/filters/category`);
-                const content = await res.json();
+                const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/filters/category`);
+                let content = await res.json();
+
+                if (this.limitCategoriesTo.length) {
+                    content = content.filter((c: any) => this.limitCategoriesTo.includes(c.category_code))
+                }
 
                 this.categories = content.reduce((result: any, item: any) => {
                     result[item.category_code] = item.category_name;
@@ -103,7 +108,7 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             this.selectedModel = undefined;
             this.selectedMark = undefined;
             try {
-                const res = await fetch(`/uzc_gazes/technical_equipment/filters/mark?${this.getFilterQuery.toString()}`);
+                const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/filters/mark?${this.getFilterQuery.toString()}`);
                 const content = await res.json();
 
                 this.equipmentMarkOptions = content.map((v: {mark: string}) => ({value: v.mark, text: v.mark}));
@@ -114,7 +119,7 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
         async fetchModels() {
             this.isLoading = true;
             try {
-                const res = await fetch(`/uzc_gazes/technical_equipment/filters/model?${this.getFilterQuery.toString()}`);
+                const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/filters/model?${this.getFilterQuery.toString()}`);
                 const content = await res.json();
 
                 this.equipmentModelOptions = content.map((v: {model: string}) => ({value: v.model, text: v.model}));
@@ -126,13 +131,12 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             const params = this.getFilterQuery;
             params.set('from', this.filterFrom.toString());
             params.set('to', this.filterTo.toString());
-            console.log(this.searchText);
             if (this.searchText.length >= 2) {
                 params.set('search', this.searchText);
             }
             this.isLoading = true;
             try {
-                const res = await fetch(`/uzc_gazes/technical_equipment/json/query?${params.toString()}`)
+                const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/json/query?${params.toString()}`)
                 const content: IResponse<IEquipmentInformation> = await res.json();
                 this.filteredEquipment = content.data;
             } finally {
@@ -150,6 +154,10 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
                 } as IOption<any>));
             }
             return state.allSubCategoryOptions;
+        },
+        hasPowerFilter(state: IEquipmentFilter): boolean {
+            return state.limitCategoriesTo.includes('tractors') ||
+                state.limitCategoriesTo.includes('agricultural_harvesters');
         },
         getFilterQuery(state: IEquipmentFilter): URLSearchParams {
             const query = new URLSearchParams();
