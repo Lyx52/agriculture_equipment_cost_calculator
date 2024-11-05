@@ -17,7 +17,7 @@ agriculture-calculator-lib:
       }
     }
 uzc-chart-lib:
-  version: 1.0.12
+  version: 1.0.13
   dependencies:
     - core/jquery
   css:

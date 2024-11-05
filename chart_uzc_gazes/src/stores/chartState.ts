@@ -183,7 +183,7 @@ export const useChartStateStore = defineStore('chartState', {
         async fetchTableData(table: string) {
             this.isLoading = true;
             try {
-                const res = await fetch(`http://localhost:8888/uzc_gazes/${table}/json/query`);
+                const res = await fetch(`/uzc_gazes/${table}/json/query`);
                 const content = await res.json();
                 this.tableData = content.data as ITableRow[];
                 if (this.tableData.length > 0) {
