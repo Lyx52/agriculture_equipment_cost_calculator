@@ -179,6 +179,10 @@ export const useChartStateStore = defineStore('chartState', {
 
             return tree;
         },
+        updateGrouping(grouping: IGrouping) {
+            grouping.filteredValues = [];
+            this.buildChart();
+        },
         buildChart() {
             let data = this.tableData;
             if (!this.groupBy.length) return;

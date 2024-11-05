@@ -59,7 +59,7 @@
                         <BInputGroup class="mt-1" prepend="Grupēt pēc">
                             <BFormSelect
                                 v-model="grouping.groupedBy"
-                                @change="chartStateStore.buildChart"
+                                @change="chartStateStore.updateGrouping(grouping)"
                                 :options="chartStateStore.getGroupingTableColumns"
                                 aria-label="Grupēt pēc"
                                 aria-describedby="groupBy"
