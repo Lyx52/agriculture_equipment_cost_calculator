@@ -1,3 +1,5 @@
+import type {Chart, ChartTypeRegistry} from "chart.js";
+
 export const defaultOptions = {
     responsive: true,
     maintainAspectRatio: false
@@ -32,8 +34,27 @@ export const getChartColors = (count: number): string[] => {
     }
     return colors;
 }
-export type ChartType = 'bar' | 'line';
+export type ChartType = 'bar' | 'line' | 'datalabel';
 export const ChartTypes = {
     'bar': 'Stabiņu',
-    'line': 'Līniju'
+    'line': 'Līniju',
+    'datalabel': 'Datu etiķetes'
 } as Record<ChartType, string>
+
+export const getScaleUnderPoint = (x: number, y: number, chart: Chart) => {
+    const scales = chart.scales;
+    const scaleIds = Object.keys(scales);
+    for (let i = 0; i < scaleIds.length; i++) {
+        const scale = scales[scaleIds[i]];
+        if (y >= scale.top && y <= scale.bottom && x >= scale.left && x <= scale.right) {
+            return scale;
+        }
+    }
+    return null;
+}
+export const getDatasetType = (type: ChartType): string => {
+    switch (type) {
+        case ChartTypes.line: return 'line';
+        default: return 'bar'
+    }
+}

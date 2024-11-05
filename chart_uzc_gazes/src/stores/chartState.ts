@@ -11,10 +11,10 @@ import {
     ChartDataColumns,
     ChartGroupingColumns, downloadCsv,
     getDateCategory,
-    groupBy,
+    groupBy, pluck,
     unique
 } from "@/utils";
-import {type ChartType, ChartTypes, DefaultChartColorsHex} from "@/chart_utils";
+import {type ChartType, ChartTypes, DefaultChartColorsHex, getDatasetType} from "@/chart_utils";
 import type {IChartColumn} from "@/stores/interfaces/IChartColumn";
 import type {IChartDataset} from "@/stores/interfaces/IChartDataset";
 
@@ -23,7 +23,10 @@ export const useChartStateStore = defineStore('chartState', {
         return {
             dateFrom: '',
             dateTo: '',
-            groupBy: 'id_field_nr',
+            groupBy: {
+                groupedBy: 'id_field_nr',
+                filteredValues: []
+            },
             selectedChartColumn: Object.keys(ChartDataColumns)[0],
             chartColumns: [],
             tableData: [],
@@ -32,6 +35,7 @@ export const useChartStateStore = defineStore('chartState', {
             chartData: {
                 datasets: [],
                 labels: [],
+                dataLabels: [],
                 dataHidden: false
             },
             selectedChartType: 'bar',
@@ -52,7 +56,7 @@ export const useChartStateStore = defineStore('chartState', {
 
             let columns = [
                 'Datums',
-                ChartGroupingColumns[this.groupBy],
+                ChartGroupingColumns[this.groupBy.groupedBy],
                 'Agregācija',
                 ChartDataColumns[dataset.dataColumnKey]
             ];
@@ -82,8 +86,15 @@ export const useChartStateStore = defineStore('chartState', {
             this.chartData = {
                 ...this.chartData,
                 labels: [],
-                datasets: []
+                datasets: [],
+                dataLabels: []
             }
+        },
+        pushChartDataLabels(dataLabels: any[]) {
+            this.chartData = {
+              ...this.chartData,
+              dataLabels: dataLabels
+          }
         },
         pushChartDataset(dataset: IChartDataset): void {
             this.chartData = {
@@ -118,36 +129,61 @@ export const useChartStateStore = defineStore('chartState', {
             this.resetChartDatasets();
 
             const categories = unique(data.map(row => row.timestamp).sort().map(getDateCategory));
-            const groups = groupBy<ITableRow, any>(data, (row) => row[this.groupBy]);
+            const groups = groupBy<ITableRow, any>(data, (row) => row[this.groupBy.groupedBy]);
             this.setChartLabels(categories);
 
             for (const [key, group] of Object.entries(groups)) {
+                if (this.groupBy.filteredValues.length && !this.groupBy.filteredValues.includes(key)) continue;
                 const valuesGroups = groupBy<ITableRow, string>(group, (row) => getDateCategory(row.timestamp));
                 for (const { columnKey, chartType, chartAggregation, uniqueId } of this.chartColumns) {
-                    let groupingData = Object.fromEntries(categories.map(c => ([c, 0])));
 
-                    for (const [categoryKey, valueGroup] of Object.entries(valuesGroups)) {
-                        groupingData[categoryKey] = ChartAggregationFunctions[chartAggregation]<ITableRow>(valueGroup, (row) => row[columnKey]);
+                    switch (chartType) {
+                        case 'datalabel': {
+                            let groupingData = {} as Record<string, string>;
+                            for (const [categoryKey, valueGroup] of Object.entries(valuesGroups)) {
+                                groupingData[categoryKey] = valueGroup?.length ? valueGroup[0][columnKey] : '';
+                            }
+                            this.pushChartDataLabels(Object.values(groupingData as any));
+                        } break;
+                        default: {
+                            let groupingData = Object.fromEntries(categories.map(c => ([c, 0])));
+
+                            for (const [categoryKey, valueGroup] of Object.entries(valuesGroups)) {
+                                groupingData[categoryKey] = ChartAggregationFunctions[chartAggregation]<ITableRow>(valueGroup, (row) => row[columnKey]);
+                            }
+
+                            const color = this.getNextDatasetColor;
+                            this.pushChartDataset({
+                                data: Object.values(groupingData as any),
+                                label: `${key} ${chartAggregation}(${ChartDataColumns[columnKey]})`,
+                                backgroundColor: color,
+                                borderColor: color,
+                                type: getDatasetType(chartType),
+                                chartType: chartType,
+                                aggregationType: chartAggregation,
+                                dataGroupingKey: key,
+                                dataColumnKey: columnKey,
+                                datasetId: uniqueId
+                            });
+                        } break;
                     }
-                    const color = this.getNextDatasetColor;
-                    this.pushChartDataset({
-                        data: Object.values(groupingData as any),
-                        label: `${key} ${chartAggregation}(${ChartDataColumns[columnKey]})`,
-                        backgroundColor: color,
-                        borderColor: color,
-                        type: chartType,
-                        aggregationType: chartAggregation,
-                        dataGroupingKey: key,
-                        dataColumnKey: columnKey,
-                        datasetId: uniqueId
-                    });
+
                 }
             }
+        },
+        filterGroupedByValue(value: any) {
+            if (this.groupBy.filteredValues.includes(value)) {
+                this.groupBy.filteredValues = this.groupBy.filteredValues.filter(v => v !== value);
+            } else {
+                this.groupBy.filteredValues.push(value);
+            }
+
+            this.buildChart();
         },
         async fetchTableData(table: string) {
             this.isLoading = true;
             try {
-                const res = await fetch(`/uzc_gazes/${table}/json/query`);
+                const res = await fetch(`http://localhost:8888/uzc_gazes/${table}/json/query`);
                 const content = await res.json();
                 this.tableData = content.data as ITableRow[];
                 if (this.tableData.length > 0) {
@@ -175,6 +211,12 @@ export const useChartStateStore = defineStore('chartState', {
             return state.tableColumns
                 .filter(c => Object.keys(ChartGroupingColumns).includes(c))
                 .map(c => ({value: c, text: ChartGroupingColumns[c]} as IOption<string>));
+        },
+        getGroupedByValues(state: IChartState): any[] {
+            return unique(state.tableData.map(item => item[this.groupBy.groupedBy]));
+        },
+        getIsFilteredByGroupedValue(state: IChartState): any[] {
+            return unique(state.tableData.map(item => item[this.groupBy.groupedBy]));
         },
         getDataColumns(state: IChartState): IOption<string>[] {
             return Object.keys(ChartDataColumns)

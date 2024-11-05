@@ -34,11 +34,12 @@ import {
     CategoryScale,
     LinearScale,
     ArcElement,
-    RadialLinearScale, type ChartData, LineController, BarController
+    RadialLinearScale, type ChartData, LineController, BarController, Chart
 } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 ChartJS.register(
     zoomPlugin,
+    LabelPlugin,
     Title,
     Tooltip,
     Legend,
@@ -52,15 +53,16 @@ ChartJS.register(
     CategoryScale,
     LinearScale,
     ArcElement,
-    RadialLinearScale,
+    RadialLinearScale
 );
 import {Bar, Line, type ChartComponentRef} from "vue-chartjs";
 import {useChartStateStore} from "@/stores/chartState";
 import {ref, toRefs, useTemplateRef, watch} from "vue";
 import {BButton} from "bootstrap-vue-next";
-
+import LabelPlugin from "@/plugins/LabelPlugin";
 const data = ref<ChartData<'bar'>>({
-    datasets: []
+    datasets: [],
+    dataLabels: []
 });
 const chartRef = useTemplateRef<ChartComponentRef>('chartRef');
 const resetZoom = () => {
@@ -113,12 +115,14 @@ const onClickHideCharts = () => {
 const updateCharts = () => {
     data.value = {
         labels: chartData.value.labels,
-        datasets: chartData.value.datasets
+        datasets: chartData.value.datasets,
+        dataLabels: chartData.value.dataLabels
     }
-    setAllDatasetVisibility(!chartData.value.dataHidden);
+    setAllDatasetVisibility(!chartData.value.dataHidden, chartData.value.dataLabels);
 }
-const setAllDatasetVisibility = (visibility: boolean) => {
+const setAllDatasetVisibility = (visibility: boolean, dataLabels: any[]) => {
     if (chartRef?.value?.chart) {
+        chartRef.value.chart.data.dataLabels = dataLabels;
         for (let i = 0; i < chartRef.value.chart.data.datasets.length; i++) {
             chartRef.value.chart.setDatasetVisibility(i, visibility);
         }

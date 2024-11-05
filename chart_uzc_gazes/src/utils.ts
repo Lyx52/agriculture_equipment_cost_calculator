@@ -37,6 +37,11 @@ export const ChartDataColumns = {
     vid_agrihort_surface_temperature: "Agrihorts Virszemes temperatūra, C",
     vid_agrihort_air_temperature: "Agrihorts Gaisa temperatūra +12cm, C",
     vid_agrihort_vol_moisture: "Agrihorts Mitrums",
+    id_field_nr: "ID Lauka nr.",
+    vertical_field_nr: "Slejas nr.",
+    horizontal_field_nr: "Lauciņa nr.",
+    operation_type: "Apstrādes veids",
+    operation: "Apstrādes operācija (UZC)"
 } as Record<string, string>;
 export const ChartGroupingColumns = {
     id_field_nr: "ID Lauka nr.",
@@ -58,7 +63,9 @@ export const unique = <T>(data: T[]) => {
         return res;
     }, [] as T[]);
 };
-
+export const last = <T>(data: T[]): T|null => {
+    return data?.length ? data[data.length - 1] : null
+}
 export const groupBy = <T, K extends keyof any>(data: T[], getKey: (item: T) => K) =>  {
     return data.reduce((result, item) => {
         const group = getKey(item);
@@ -69,6 +76,9 @@ export const groupBy = <T, K extends keyof any>(data: T[], getKey: (item: T) => 
         return result;
     }, {} as Record<K, T[]>);
 };
+export const pluck = <T>(data: T[], getValue: (item: T) => any): any[] => {
+    return data.map((item) => getValue(item));
+}
 export const sum = <T>(data: T[], getValue: (item: T) => number|undefined|null): number => {
     const filtered = data.filter(v => getValue(v));
     return filtered.reduce((result, item) => {
