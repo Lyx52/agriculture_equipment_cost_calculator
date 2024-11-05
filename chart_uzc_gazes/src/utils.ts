@@ -1,5 +1,4 @@
 import moment from "moment/moment";
-import type {ITableRow} from "@/interfaces/ITableRow";
 
 export const ChartDataColumns = {
     co2_mg_sec_after_calibration: "AREI_Stende_[CO2] sek. (mg CO2 m-2 h-1)",
@@ -36,12 +35,7 @@ export const ChartDataColumns = {
     vid_agrihort_soil_temperature: "Agrihorts Augsnes temperatūra -6cm, C",
     vid_agrihort_surface_temperature: "Agrihorts Virszemes temperatūra, C",
     vid_agrihort_air_temperature: "Agrihorts Gaisa temperatūra +12cm, C",
-    vid_agrihort_vol_moisture: "Agrihorts Mitrums",
-    id_field_nr: "ID Lauka nr.",
-    vertical_field_nr: "Slejas nr.",
-    horizontal_field_nr: "Lauciņa nr.",
-    operation_type: "Apstrādes veids",
-    operation: "Apstrādes operācija (UZC)"
+    vid_agrihort_vol_moisture: "Agrihorts Mitrums"
 } as Record<string, string>;
 export const ChartGroupingColumns = {
     id_field_nr: "ID Lauka nr.",

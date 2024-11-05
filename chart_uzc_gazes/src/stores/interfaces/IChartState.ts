@@ -19,5 +19,4 @@ export interface IChartState {
     tableData: ITableRow[];
     tableColumns: string[];
     isLoading: boolean;
-    extraOptions: any;
 }

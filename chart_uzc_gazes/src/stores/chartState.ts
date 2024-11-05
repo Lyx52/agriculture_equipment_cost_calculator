@@ -14,7 +14,7 @@ import {
     groupBy,
     unique
 } from "@/utils";
-import {type ChartType, ChartTypes, DefaultChartColorsHex} from "@/chart_utils";
+import {type ChartType, ChartTypes} from "@/chart_utils";
 import type {IChartColumn} from "@/stores/interfaces/IChartColumn";
 import type {IChartDataset} from "@/stores/interfaces/IChartDataset";
 import type {IGrouping} from "@/stores/interfaces/IGrouping";
@@ -39,8 +39,7 @@ export const useChartStateStore = defineStore('chartState', {
                 dataHidden: false
             },
             selectedChartType: 'bar',
-            selectedChartAggregation: 'avg',
-            extraOptions: {}
+            selectedChartAggregation: 'avg'
         }
     },
     actions: {
@@ -104,7 +103,6 @@ export const useChartStateStore = defineStore('chartState', {
                 labels: [],
                 datasets: []
             }
-            this.extraOptions = {}
         },
         pushChartDataset(dataset: IChartDataset): void {
             this.chartData = {
@@ -112,8 +110,7 @@ export const useChartStateStore = defineStore('chartState', {
                 datasets: [
                     ...this.chartData.datasets,
                     {
-                        ...dataset,
-                        backgroundColor: dataset.backgroundColor ?? this.getNextDatasetColor,
+                        ...dataset
                     }
                 ]
             }
@@ -196,35 +193,24 @@ export const useChartStateStore = defineStore('chartState', {
 
             this.resetChartDatasets();
             if (this.groupBy.length > 1) {
-                this.extraOptions = {
-                    ...this.extraOptions,
-                    scales: {
-                        ...this.extraOptions.scales,
-                        x: {
-                            type: 'hierarchical'
-                        },
-                    }
-                }
                 let addedLabels = false;
                 for (const column of this.chartColumns) {
-                    const datasetTree = this.buildGroupings(data.sort((a, b) => a.timestamp - b.timestamp), Array.of({
+                    const groupBy = Array.of({
                         groupedBy: 'date',
                         filteredValues: [],
                         uniqueId: '-'
-                    }, ...this.groupBy).reverse(), column);
-
-                    const color = this.getNextDatasetColor;
+                    }, ...this.groupBy).reverse();
+                    const datasetTree = this.buildGroupings(data.sort((a, b) => a.timestamp - b.timestamp), groupBy, column);
+                    if (datasetTree.children.length <= 0) continue;
                     if (!addedLabels) {
                         const labelTree = this.simplifyDatasetLabelTree(this.buildLabels(datasetTree as IChartDatasetTreeValue)) as IChartLabel;
                         this.pushLabels(labelTree.children);
-                        console.log(labelTree);
+                        addedLabels = true;
                     }
                     const simpleDatasetTree = this.simplifyDatasetTree(datasetTree as IChartDatasetTreeValue) as IChartDatasetTreeValue;
                     const dataset = {
                         tree: simpleDatasetTree.children as any[],
                         label: `${column.chartAggregation}(${ChartDataColumns[column.columnKey]})`,
-                        backgroundColor: color,
-                        borderColor: color,
                         type: column.chartType,
                         aggregationType: column.chartAggregation,
                         dataColumnKey: column.columnKey,
@@ -239,34 +225,6 @@ export const useChartStateStore = defineStore('chartState', {
             const categories = unique(data.map(row => row.timestamp).sort().map(getDateCategory));
             const groups = groupBy<ITableRow, any>(data, (row) => row[groupedBy.groupedBy]);
             this.setChartLabels(categories);
-            // this.extraOptions = {
-            //     ...this.extraOptions,
-            //     plugins: {
-            //         ...this.extraOptions.plugins,
-            //         zoom: {
-            //             pan: {
-            //                 enabled: true,
-            //                 mode: 'xy',
-            //                 modifierKey: 'ctrl',
-            //             },
-            //             zoom: {
-            //                 mode: 'xy',
-            //                 wheel: {
-            //                     enabled: true,
-            //                 },
-            //                 pinch: {
-            //                     enabled: true,
-            //                 },
-            //                 drag: {
-            //                     enabled: true,
-            //                     borderColor: 'rgb(54, 162, 235)',
-            //                     borderWidth: 1,
-            //                     backgroundColor: 'rgba(54, 162, 235, 0.3)',
-            //                 },
-            //             },
-            //         },
-            //     },
-            // }
             for (const [key, group] of Object.entries(groups)) {
                 if (groupedBy.filteredValues.length && !groupedBy.filteredValues.includes(key)) continue;
 
@@ -278,17 +236,14 @@ export const useChartStateStore = defineStore('chartState', {
                         groupingData[categoryKey] = ChartAggregationFunctions[chartAggregation]<ITableRow>(valueGroup, (row) => row[columnKey]);
                     }
 
-                    const color = this.getNextDatasetColor;
                     this.pushChartDataset({
-                        data: Object.values(groupingData as any),
+                        data: [],
                         label: `${key} ${chartAggregation}(${ChartDataColumns[columnKey]})`,
-                        backgroundColor: color,
-                        borderColor: color,
                         type: chartType,
                         aggregationType: chartAggregation,
                         dataColumnKey: columnKey,
                         datasetId: uniqueId,
-                        tree: []
+                        tree: Object.values(groupingData as any)
                     });
                 }
             }
@@ -305,7 +260,7 @@ export const useChartStateStore = defineStore('chartState', {
         async fetchTableData(table: string) {
             this.isLoading = true;
             try {
-                const res = await fetch(`http://localhost:8888/uzc_gazes/${table}/json/query`);
+                const res = await fetch(`/uzc_gazes/${table}/json/query`);
                 const content = await res.json();
                 this.tableData = content.data as ITableRow[];
                 if (this.tableData.length > 0) {
@@ -325,9 +280,6 @@ export const useChartStateStore = defineStore('chartState', {
         }
     },
     getters: {
-        getNextDatasetColor(state: IChartState): string {
-          return DefaultChartColorsHex[Math.min(DefaultChartColorsHex.length - 1, Math.max(0, state.chartData.datasets.length))];
-        },
         getAllTableColumns(state: IChartState): IOption<string>[] {
             return state.tableColumns.map(c => ({ value: c, text: ChartColumns[c] } as IOption<string>));
         },

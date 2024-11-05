@@ -1,12 +1,6 @@
 <template>
     <div class="chart-container mt-2">
         <div class="ms-auto d-flex flex-row gap-2">
-            <BButton :class="{
-                'btn-success': chartStateStore.chartData.dataHidden,
-                'btn-danger': !chartStateStore.chartData.dataHidden
-            }" @click="onClickHideCharts">
-                {{ chartStateStore.chartData.dataHidden ? 'Parādīt' : 'Paslēpt' }} datus
-            </BButton>
             <BButton variant="secondary" @click="resetZoom">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-gear" viewBox="0 0 16 16">
                     <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708z"/>
@@ -37,12 +31,10 @@ import {
     RadialLinearScale,
     LineController,
     BarController,
-    Chart,
     type ChartData,
-    type ChartOptions,
-    type ChartMeta,
-    type ChartConfiguration
+    type ChartOptions
 } from 'chart.js';
+import AutoColors from 'chartjs-plugin-autocolors';
 import { HierarchicalScale } from 'chartjs-plugin-hierarchical';
 import ZoomPlugin from 'chartjs-plugin-zoom';
 ChartJS.register(
@@ -62,7 +54,8 @@ ChartJS.register(
     LinearScale,
     ArcElement,
     RadialLinearScale,
-    HierarchicalScale
+    HierarchicalScale,
+    AutoColors
 );
 import {Bar, Line, type ChartComponentRef} from "vue-chartjs";
 import {useChartStateStore} from "@/stores/chartState";
@@ -80,8 +73,7 @@ const resetZoom = () => {
       chartRef?.value?.chart.resetZoom();
   }
 }
-
-const options = ref<ChartOptions<'bar'>>({
+const options = {
     responsive: true,
     maintainAspectRatio: false,
     layout: {
@@ -90,34 +82,28 @@ const options = ref<ChartOptions<'bar'>>({
             bottom: 200,
         }
     },
-});
+    scales: {
+        x: {
+            type: 'hierarchical'
+        },
+    },
+    plugins: {
+        autocolors: {
+            enabled: true
+        }
+    }
+} as ChartOptions<'bar'>
 const chartStateStore = useChartStateStore();
 const {
-    chartData,
-    extraOptions
+    chartData
 } = toRefs(chartStateStore);
 watch(chartData, () => {
     updateCharts()
 })
-const onClickHideCharts = () => {
-    chartData.value.dataHidden = !chartData.value.dataHidden;
-    updateCharts();
-}
 const updateCharts = () => {
     data.value = {
         labels: chartData.value.labels,
         datasets: chartData.value.datasets
-    }
-    options.value = {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: {
-            padding: {
-                // add more space at the bottom for the hierarchy
-                bottom: 200,
-            }
-        },
-        ...extraOptions.value
     }
     setAllDatasetVisibility(!chartData.value.dataHidden);
 }
