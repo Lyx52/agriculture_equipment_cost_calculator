@@ -9,13 +9,15 @@ export type TableColumn = string & keyof ITableRow;
 export interface IChartState {
     dateFrom?: string;
     dateTo?: string;
-    groupBy: IGrouping;
+    groupBy: IGrouping[];
     chartData: IChartProps;
     chartColumns: IChartColumn[];
     selectedChartColumn: string;
     selectedChartType: ChartType;
     selectedChartAggregation: ChartAggregationType;
+    selectedGroupedBy: TableColumn;
     tableData: ITableRow[];
     tableColumns: string[];
     isLoading: boolean;
+    extraOptions: any;
 }

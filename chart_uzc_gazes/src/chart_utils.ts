@@ -34,11 +34,10 @@ export const getChartColors = (count: number): string[] => {
     }
     return colors;
 }
-export type ChartType = 'bar' | 'line' | 'datalabel';
+export type ChartType = 'bar' | 'line';
 export const ChartTypes = {
     'bar': 'Stabiņu',
-    'line': 'Līniju',
-    'datalabel': 'Datu etiķetes'
+    'line': 'Līniju'
 } as Record<ChartType, string>
 
 export const getScaleUnderPoint = (x: number, y: number, chart: Chart) => {
@@ -51,10 +50,4 @@ export const getScaleUnderPoint = (x: number, y: number, chart: Chart) => {
         }
     }
     return null;
-}
-export const getDatasetType = (type: ChartType): string => {
-    switch (type) {
-        case ChartTypes.line: return 'line';
-        default: return 'bar'
-    }
 }

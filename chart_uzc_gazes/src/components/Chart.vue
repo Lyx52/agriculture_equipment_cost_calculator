@@ -34,11 +34,19 @@ import {
     CategoryScale,
     LinearScale,
     ArcElement,
-    RadialLinearScale, type ChartData, LineController, BarController, Chart
+    RadialLinearScale,
+    LineController,
+    BarController,
+    Chart,
+    type ChartData,
+    type ChartOptions,
+    type ChartMeta,
+    type ChartConfiguration
 } from 'chart.js';
-import zoomPlugin from 'chartjs-plugin-zoom';
+import { HierarchicalScale } from 'chartjs-plugin-hierarchical';
+import ZoomPlugin from 'chartjs-plugin-zoom';
 ChartJS.register(
-    zoomPlugin,
+    ZoomPlugin,
     LabelPlugin,
     Title,
     Tooltip,
@@ -53,16 +61,18 @@ ChartJS.register(
     CategoryScale,
     LinearScale,
     ArcElement,
-    RadialLinearScale
+    RadialLinearScale,
+    HierarchicalScale
 );
 import {Bar, Line, type ChartComponentRef} from "vue-chartjs";
 import {useChartStateStore} from "@/stores/chartState";
 import {ref, toRefs, useTemplateRef, watch} from "vue";
 import {BButton} from "bootstrap-vue-next";
 import LabelPlugin from "@/plugins/LabelPlugin";
+
+
 const data = ref<ChartData<'bar'>>({
     datasets: [],
-    dataLabels: []
 });
 const chartRef = useTemplateRef<ChartComponentRef>('chartRef');
 const resetZoom = () => {
@@ -70,40 +80,21 @@ const resetZoom = () => {
       chartRef?.value?.chart.resetZoom();
   }
 }
-const options = {
+
+const options = ref<ChartOptions<'bar'>>({
     responsive: true,
     maintainAspectRatio: false,
     layout: {
-        autoPadding: true
+        padding: {
+            // add more space at the bottom for the hierarchy
+            bottom: 200,
+        }
     },
-    plugins: {
-        zoom: {
-            pan: {
-                enabled: true,
-                mode: 'xy',
-                modifierKey: 'ctrl',
-            },
-            zoom: {
-                mode: 'xy',
-                wheel: {
-                    enabled: true,
-                },
-                pinch: {
-                    enabled: true,
-                },
-                drag: {
-                    enabled: true,
-                    borderColor: 'rgb(54, 162, 235)',
-                    borderWidth: 1,
-                    backgroundColor: 'rgba(54, 162, 235, 0.3)',
-                },
-            },
-        },
-    },
-} as any;
+});
 const chartStateStore = useChartStateStore();
 const {
-    chartData
+    chartData,
+    extraOptions
 } = toRefs(chartStateStore);
 watch(chartData, () => {
     updateCharts()
@@ -115,14 +106,23 @@ const onClickHideCharts = () => {
 const updateCharts = () => {
     data.value = {
         labels: chartData.value.labels,
-        datasets: chartData.value.datasets,
-        dataLabels: chartData.value.dataLabels
+        datasets: chartData.value.datasets
     }
-    setAllDatasetVisibility(!chartData.value.dataHidden, chartData.value.dataLabels);
+    options.value = {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+            padding: {
+                // add more space at the bottom for the hierarchy
+                bottom: 200,
+            }
+        },
+        ...extraOptions.value
+    }
+    setAllDatasetVisibility(!chartData.value.dataHidden);
 }
-const setAllDatasetVisibility = (visibility: boolean, dataLabels: any[]) => {
+const setAllDatasetVisibility = (visibility: boolean) => {
     if (chartRef?.value?.chart) {
-        chartRef.value.chart.data.dataLabels = dataLabels;
         for (let i = 0; i < chartRef.value.chart.data.datasets.length; i++) {
             chartRef.value.chart.setDatasetVisibility(i, visibility);
         }

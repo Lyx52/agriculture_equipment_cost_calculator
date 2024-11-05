@@ -1,6 +1,5 @@
 export interface IChartProps {
-    labels: string[]|string[][];
+    labels: unknown[];
     datasets: any[];
-    dataLabels: any[];
     dataHidden: boolean;
 }

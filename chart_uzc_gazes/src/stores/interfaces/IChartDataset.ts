@@ -1,15 +1,14 @@
 import type {ChartAggregationType} from "@/utils";
 import type {ChartType} from "@/chart_utils";
+import type {IChartDatasetTreeValue} from "@/stores/interfaces/IChartDatasetTreeValue";
 export interface IChartDataset {
     label?: string;
     data: number[];
-    dataLabels?: any[];
+    tree: IChartDatasetTreeValue|number[];
     backgroundColor?: string|string[];
     borderColor?: string|string[];
-    type: string;
-    chartType: ChartType;
+    type: ChartType;
     aggregationType: ChartAggregationType;
-    dataGroupingKey: string;
     dataColumnKey: string;
     datasetId: string;
 }

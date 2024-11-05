@@ -57,7 +57,7 @@ export const ChartColumns = Object.fromEntries([
 ]) as Record<string, string>;
 
 
-export const unique = <T>(data: T[]) => {
+export const unique = <T>(data: T[]): T[] => {
     return data.reduce((res, val) => {
         if (!res.includes(val)) res.push(val);
         return res;
@@ -66,7 +66,7 @@ export const unique = <T>(data: T[]) => {
 export const last = <T>(data: T[]): T|null => {
     return data?.length ? data[data.length - 1] : null
 }
-export const groupBy = <T, K extends keyof any>(data: T[], getKey: (item: T) => K) =>  {
+export const groupBy = <T, K extends keyof any>(data: T[], getKey: (item: T) => K): Record<K, T[]> =>  {
     return data.reduce((result, item) => {
         const group = getKey(item);
         if (!result[group]) {

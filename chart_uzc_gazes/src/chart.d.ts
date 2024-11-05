@@ -1,11 +1,3 @@
 import type {ChartType, DefaultDataPoint} from "chart.js/dist/types";
+import type {IChartDataLabels} from "@/stores/interfaces/IChartDataLabels";
 
-declare module 'chart.js' {
-    interface ChartData<
-        TType extends ChartType = ChartType,
-        TData = DefaultDataPoint<TType>,
-        TLabel = unknown
-    > {
-        dataLabels: any[];
-    }
-}
