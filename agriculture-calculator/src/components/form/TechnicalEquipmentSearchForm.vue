@@ -1,6 +1,8 @@
 <template>
     <div class="d-flex flex-column w-100">
-        <div class="form-group">
+        <div class="form-group"
+             v-if="props.equipmentTypes.includes('tractors') || props.equipmentTypes.includes('agricultural_harvesters')"
+        >
             <label for="inputMachineryCategory">Tehnikas jauda, kw</label>
             <div class="d-flex flex-row mb-3">
                 <BButton
@@ -26,8 +28,9 @@
             @change="filterStore.onCategoryChange"
             :is-spinning="filterStore.isLoading"
             :options="filterStore.categoryOptions"
-            v-model="filterStore.selectedCategory"
+            :value="filterStore.selectedCategory"
         />
+        {{ filterStore.selectedCategory }}
         <BSpinningSelect
             id="inputMachinerySubCategory"
             label="Tehnikas apakškategorija"
@@ -35,6 +38,7 @@
             :is-spinning="filterStore.isLoading"
             :options="filterStore.filteredSubCategories"
             v-model="filterStore.selectedSubCategory"
+            :disabled="!props.equipmentTypes.includes('tractors')"
         />
         <BSpinningSelect
             id="inputMachineryMark"
@@ -82,28 +86,30 @@ import {BButton, BFormInput} from "bootstrap-vue-next";
 import BSpinningSelect from "@/components/BSpinningSelect.vue";
 import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
 import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
-import {onMounted} from "vue";
+import {onMounted, ref, toRefs, watch} from "vue";
 import type {ITechnicalEquipmentSearchFormProps} from "@/stores/interfaces/props/ITechnicalEquipmentSearchFormProps";
+import type {IOption} from "@/stores/interfaces/IOption";
 const props = defineProps<ITechnicalEquipmentSearchFormProps>();
 const filterStore = useEquipmentFilterStore();
-onMounted(async() => {
-    filterStore.equipmentTypes = props?.equipmentTypes ?? [];
-    await filterStore.fetchEquipmentCategories();
-})
-
 const emit = defineEmits(["onEquipmentSelected"])
-
 const onClickEquipment = (item: IEquipmentInformation) => {
     emit("onEquipmentSelected", item);
-    filterStore.$patch({
-        showSearchDropdown: false,
-        searchText: '',
-        selectedModel: '',
-        selectedMark: '',
-        selectedCategory: '',
-        selectedSubCategory: ''
-    });
+    // filterStore.$patch({
+    //     showSearchDropdown: false,
+    //     searchText: '',
+    //     selectedModel: '',
+    //     selectedMark: '',
+    //     selectedCategory: '',
+    //     selectedSubCategory: ''
+    // });
 }
+const {
+    currentSearchFormIndex,
+    selectedCategory
+} = toRefs(filterStore);
+watch(currentSearchFormIndex, () => {
+    filterStore.onChangeForms();
+})
 </script>
 
 <style scoped>

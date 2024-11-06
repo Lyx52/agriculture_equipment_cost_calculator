@@ -20,5 +20,6 @@ export interface IEquipmentFilter {
     categories?: any;
     subCategories?: any;
     showSearchDropdown: boolean;
-    equipmentTypes: string[];
+    currentSearchFormIndex: number;
+    showSearchModal: boolean;
 }

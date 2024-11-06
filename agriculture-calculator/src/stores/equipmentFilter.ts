@@ -15,13 +15,43 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             allSubCategoryOptions: [],
             equipmentMarkOptions: [],
             equipmentModelOptions: [],
+            subCategories: [],
             filteredEquipment: [],
             searchText: '',
             showSearchDropdown: false,
-            limitCategoriesTo: []
+            currentSearchFormIndex: -1,
+            showSearchModal: false
         }
     },
     actions: {
+        resetFilters() {
+            this.selectedCategory = undefined;
+            this.selectedSubCategory = undefined;
+            this.selectedMark = undefined;
+            this.selectedModel = undefined;
+            this.equipmentModelOptions = [];
+            this.equipmentModelOptions = [];
+            this.showSearchDropdown = false;
+        },
+        showModal() {
+            this.showSearchModal = true;
+        },
+        closeModal() {
+            this.showSearchModal = false;
+        },
+        onChangeForms() {
+            switch (this.currentSearchFormIndex) {
+                case 0: {
+                    this.selectedCategory = 'tractors';
+                } break;
+                case 1: {
+                    console.log('combines')
+                } break;
+                default: {
+                    console.log('else')
+                }
+            }
+        },
         async onCategoryChange() {
             this.selectedSubCategory = undefined;
             this.selectedMark = undefined;
@@ -70,10 +100,6 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             try {
                 const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/filters/category`);
                 let content = await res.json();
-
-                if (this.limitCategoriesTo.length) {
-                    content = content.filter((c: any) => this.limitCategoriesTo.includes(c.category_code))
-                }
 
                 this.categories = content.reduce((result: any, item: any) => {
                     result[item.category_code] = item.category_name;
@@ -146,6 +172,8 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
     },
     getters: {
         filteredSubCategories(state: IEquipmentFilter): IOption<any>[] {
+            if (state.subCategories.length <= 0) return [];
+
             if (state.selectedCategory) {
                 let items = state.subCategories[state.selectedCategory];
                 return Object.keys(items).map(k => ({

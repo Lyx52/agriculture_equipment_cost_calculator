@@ -47,6 +47,7 @@
         <BFormGroup
             label="Mašīnas jauda, kw"
             label-for="inputMachineryPower"
+            v-if="['tractors', 'agricultural_harvesters'].includes(equipmentInformationStore.categoryCode)"
         >
             <BFormInput
                 type="number"
@@ -64,18 +65,6 @@
                 type="number"
                 id="inputMachineryWeight"
                 v-model="equipmentInformationStore.specification.power" trim
-                step="0.01"
-                min="0.00"
-            />
-        </BFormGroup>
-        <BFormGroup
-            label="Jūgvārpstas jauda/ kw"
-            label-for="inputMachineryPTOPower"
-        >
-            <BFormInput
-                type="number"
-                id="inputMachineryPTOPower"
-                v-model="equipmentInformationStore.specification.lift_kg" trim
                 step="0.01"
                 min="0.00"
             />
