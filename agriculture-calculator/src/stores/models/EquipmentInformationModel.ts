@@ -3,10 +3,9 @@ import {getRemainingEquipmentValue} from "@/stores/constants/RemainingEquipmentV
 import {getCapitalRecoveryValue} from "@/stores/constants/CapitalRecoveryValue";
 import {getCostOfRepairValue} from "@/stores/constants/CostOfRepairValue";
 import type {IDataSourceLink} from "@/stores/interfaces/IDataSourceLink";
-
+import { v4 as uuid } from 'uuid';
 export class EquipmentInformationModel implements IEquipmentInformation {
     categoryCode: string;
-    currentHoursOfUse: number | undefined;
     currentUseYears: number | undefined;
     equipmentLevelCode: string;
     fullEquipmentName: string;
@@ -20,10 +19,9 @@ export class EquipmentInformationModel implements IEquipmentInformation {
     sources: string[];
     specification: any;
     subCategoryCode: string;
-
-    constructor(categoryCode: string, currentHoursOfUse: number | undefined, currentUseYears: number | undefined, equipmentLevelCode: string, fullEquipmentName: string, hoursOfUse: number | undefined, id: string, mainInfo: any, mark: string, model: string, price: number | undefined, remainingUseYears: number | undefined, sources: string[], specification: any, subCategoryCode: string) {
+    uniqueId: string;
+    constructor(categoryCode: string, currentUseYears: number | undefined, equipmentLevelCode: string, fullEquipmentName: string, hoursOfUse: number | undefined, id: string, mainInfo: any, mark: string, model: string, price: number | undefined, remainingUseYears: number | undefined, sources: string[], specification: any, subCategoryCode: string) {
         this.categoryCode = categoryCode;
-        this.currentHoursOfUse = currentHoursOfUse;
         this.currentUseYears = currentUseYears;
         this.equipmentLevelCode = equipmentLevelCode;
         this.fullEquipmentName = fullEquipmentName;
@@ -37,6 +35,7 @@ export class EquipmentInformationModel implements IEquipmentInformation {
         this.sources = sources;
         this.specification = specification;
         this.subCategoryCode = subCategoryCode;
+        this.uniqueId = uuid();
     }
     getHorsePower() {
         // 1 kw = 1.3596216173 hp
@@ -50,9 +49,6 @@ export class EquipmentInformationModel implements IEquipmentInformation {
     }
     getReplacementPrice() {
         return Number(this.mainInfo.replacementPrice ?? 0);
-    }
-    getCurrentHoursOfUse() {
-        return Number(this.currentHoursOfUse ?? 0)
     }
     getActualWorkingHours() {
         return Number(this.mainInfo.actualWorkingHours ?? 0) / 100;
@@ -108,6 +104,12 @@ export class EquipmentInformationModel implements IEquipmentInformation {
     }
     getPropertyCosts() {
         return ((this.getTotalOtherCosts() + this.getTotalCapitalRecovery()) / Number(this.hoursOfUse ?? 1))
+    }
+    getTotalEquipmentUseYears() {
+        return Number(this.currentUseYears ?? 0) + Number(this.remainingUseYears ?? 0);
+    }
+    getCurrentHoursOfUse() {
+        return Number(this.currentUseYears ?? 0) * Number(this.hoursOfUse ?? 0);
     }
     dataSources(): IDataSourceLink[] {
         return this.sources.map(((url: string) => ({

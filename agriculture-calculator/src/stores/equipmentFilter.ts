@@ -155,10 +155,6 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             }
             return state.allSubCategoryOptions;
         },
-        hasPowerFilter(state: IEquipmentFilter): boolean {
-            return state.limitCategoriesTo.includes('tractors') ||
-                state.limitCategoriesTo.includes('agricultural_harvesters');
-        },
         getFilterQuery(state: IEquipmentFilter): URLSearchParams {
             const query = new URLSearchParams();
             if (state.power && state.power > 0) {

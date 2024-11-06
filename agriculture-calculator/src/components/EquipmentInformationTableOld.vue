@@ -1,4 +1,4 @@
-<script setup lang="ts">
+ <script setup lang="ts">
     import { BTableSimple, BThead, BTr, BTh, BTbody, BTd, BFormInput, BFormSelect } from "bootstrap-vue-next";
     import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
     const equipmentCollectionStore = useEquipmentCollectionStore();

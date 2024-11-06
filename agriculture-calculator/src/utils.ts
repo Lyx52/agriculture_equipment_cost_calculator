@@ -1,4 +1,3 @@
-import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
 import type {IOption} from "@/stores/interfaces/IOption";
 
 export function minBy(values: any[], key: any): any {
@@ -12,24 +11,6 @@ export function minBy(values: any[], key: any): any {
 export function getClosestValue(values: any[], value: any) {
     return minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
 }
-export const defaultEquipmentState = {
-    id: '',
-    fullEquipmentName: '',
-    mark: '',
-    model: '',
-    price: undefined,
-    equipmentLevelCode: 'base',
-    categoryCode: '',
-    subCategoryCode: '',
-    specification: {},
-    sources: [],
-    currentUseYears: undefined,
-    remainingUseYears: undefined,
-    hoursOfUse: undefined,
-    currentHoursOfUse: undefined,
-    mainInfo: {}
-} as IEquipmentInformation;
-
 export const EquipmentTypesOptions: IOption<string>[] = [
     { value: 'tractor_2x4', text: 'Traktors 2x4'},
     { value: 'tractor_4x4', text: 'Traktors 4x4'},
@@ -46,6 +27,23 @@ export const EquipmentTypesOptions: IOption<string>[] = [
     { value: 'transport', text: 'Transportlīdzeklis' },
     { value: 'other', text: 'Cits' },
 ];
+
+export const EquipmentTypes = {
+    'tractor_2x4': 'Traktors 2x4',
+    'tractor_4x4': 'Traktors 4x4',
+    'harvester': 'Kombains',
+    'plough': 'Arkls',
+    'planter': 'Stādītājs',
+    'seeder': 'Sējmašīna',
+    'sprayer': 'Smidzinātājs',
+    'mower': 'Pļaujmašīna',
+    'chipper': 'Smalcinātājs',
+    'press': 'Prese',
+    'hay_tedder': 'Ārdītājs',
+    'rake': 'Grābeklis',
+    'transport': 'Transportlīdzeklis',
+    'other': 'Cits'
+}
 
 export const EquipmentLevelTypeOptions: IOption<string>[] = [
     { value: 'base', text: 'Bāzes' },

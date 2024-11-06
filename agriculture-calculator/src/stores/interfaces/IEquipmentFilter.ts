@@ -20,5 +20,5 @@ export interface IEquipmentFilter {
     categories?: any;
     subCategories?: any;
     showSearchDropdown: boolean;
-    limitCategoriesTo: string[];
+    equipmentTypes: string[];
 }

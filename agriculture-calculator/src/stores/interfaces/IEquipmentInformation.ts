@@ -5,7 +5,6 @@ export interface IEquipmentInformation {
     model: string;
     price: number|undefined;
     hoursOfUse: number|undefined;
-    currentHoursOfUse: number|undefined;
     currentUseYears: number|undefined;
     remainingUseYears: number|undefined;
     equipmentLevelCode: string;

@@ -34,13 +34,15 @@
                 type="number"
                 id="inputMachineryPrice"
                 v-model="equipmentInformationStore.price" trim
+                step="0.01"
+                min="0.00"
             />
         </BFormGroup>
         <BFormGroup
             label="Mašīnas komplektācija"
             label-for="inputMachineryEquipmentLevel"
         >
-            <BFormSelect id="inputMachineryEquipmentLevel" v-model="equipmentInformationStore.equipmentLevelCode" :options="equipmentLevelTypes" />
+            <BFormSelect id="inputMachineryEquipmentLevel" v-model="equipmentInformationStore.equipmentLevelCode" :options="EquipmentLevelTypeOptions" />
         </BFormGroup>
         <BFormGroup
             label="Mašīnas jauda, kw"
@@ -50,6 +52,8 @@
                 type="number"
                 id="inputMachineryPower"
                 v-model="equipmentInformationStore.specification.power" trim
+                step="0.01"
+                min="0.00"
             />
         </BFormGroup>
         <BFormGroup
@@ -60,6 +64,8 @@
                 type="number"
                 id="inputMachineryWeight"
                 v-model="equipmentInformationStore.specification.power" trim
+                step="0.01"
+                min="0.00"
             />
         </BFormGroup>
         <BFormGroup
@@ -70,6 +76,8 @@
                 type="number"
                 id="inputMachineryPTOPower"
                 v-model="equipmentInformationStore.specification.lift_kg" trim
+                step="0.01"
+                min="0.00"
             />
         </BFormGroup>
     </div>
@@ -78,9 +86,12 @@
 
 import {BBadge, BFormGroup, BFormInput, BFormSelect, BPopover} from "bootstrap-vue-next";
 import {useEquipmentInformationStore} from "@/stores/equipmentInformation";
+import {EquipmentLevelTypeOptions} from "@/utils";
 const equipmentInformationStore = useEquipmentInformationStore();
 
 </script>
 <style scoped>
-
+    .cursor-pointer {
+        cursor: pointer;
+    }
 </style>

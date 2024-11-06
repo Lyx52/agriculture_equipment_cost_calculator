@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex flex-column w-100">
-        <div class="form-group" v-if="filterStore.hasPowerFilter">
+        <div class="form-group">
             <label for="inputMachineryCategory">Tehnikas jauda, kw</label>
             <div class="d-flex flex-row mb-3">
                 <BButton
@@ -87,7 +87,7 @@ import type {ITechnicalEquipmentSearchFormProps} from "@/stores/interfaces/props
 const props = defineProps<ITechnicalEquipmentSearchFormProps>();
 const filterStore = useEquipmentFilterStore();
 onMounted(async() => {
-    filterStore.limitCategoriesTo = props?.limitCategoriesTo ?? [];
+    filterStore.equipmentTypes = props?.equipmentTypes ?? [];
     await filterStore.fetchEquipmentCategories();
 })
 
