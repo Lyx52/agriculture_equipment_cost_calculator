@@ -30,8 +30,9 @@
                             <div class="tab-pane" :class="{
                                 active: currentTab == 0
                             }" id="tractorsPane" role="tabpanel">
+
                                 <EquipmentInformationTable
-                                    :equipment-types="['tractors']"
+                                    :equipment-types="currentEquipmentFilter"
                                     title="Traktortehnika"
                                     :search-form-index="0"
                                 />
@@ -61,8 +62,8 @@
         </div>
         <TechnicalEquipmentModal
           v-model="equipmentFilterStore.showSearchModal"
-          :equipment-types="props.equipmentTypes"
-          :search-form-index="props.searchFormIndex"
+          :equipment-types="currentEquipmentFilter"
+          :search-form-index="currentTab"
         />
     </div>
 </template>
@@ -70,14 +71,39 @@
 <script setup lang="ts">
 import PropertyInformation from "@/components/PropertyInformation.vue";
 import EquipmentInformationTable from "@/components/table/EquipmentInformationTable.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import TechnicalEquipmentModal from "@/components/modal/TechnicalEquipmentModal.vue";
 import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
 const currentTab = ref<number>(0);
-const switchTo = (tab: number) => {
+const currentEquipmentFilter = ref<string[]>(['tractors']);
+const equipmentFilterStore = useEquipmentFilterStore();
+onMounted(async () => {
+    await equipmentFilterStore.fetchEquipmentCategories();
+})
+const switchTo = async (tab: number) => {
+    equipmentFilterStore.resetFilter();
+    switch (tab) {
+        case 0: {
+            currentEquipmentFilter.value = ['tractors'];
+            equipmentFilterStore.selectedCategory = 'tractors';
+            equipmentFilterStore.selectedSubCategory = 'agriculture_tractor';
+            await equipmentFilterStore.fetchMark();
+            console.log(equipmentFilterStore.selectedSubCategory);
+        } break;
+        case 1: {
+            currentEquipmentFilter.value = ['agricultural_harvesters'];
+            equipmentFilterStore.selectedCategory = 'agricultural_harvesters';
+            equipmentFilterStore.selectedSubCategory = '';
+        } break;
+        case 2: {
+            currentEquipmentFilter.value = ['sowing_and_plant_care_machines'];
+            equipmentFilterStore.selectedCategory = '';
+            equipmentFilterStore.selectedSubCategory = '';
+        } break;
+    }
     currentTab.value = tab;
 }
-const equipmentFilterStore = useEquipmentFilterStore();
+
 
 </script>
 

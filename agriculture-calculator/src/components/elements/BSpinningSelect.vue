@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import {BFormGroup, BFormSelect, BSpinner} from "bootstrap-vue-next";
 import type {IBSpinningSelectProps} from "@/stores/interfaces/props/IBSpinningSelectProps";
-import {ref} from "vue";
-
 defineProps<IBSpinningSelectProps>();
 const model = defineModel();
-const selectedValue = ref(null);
-function onSelectChange() {
-    model.value = selectedValue.value;
-}
+
 </script>
 
 <template>
@@ -17,8 +12,7 @@ function onSelectChange() {
         <div class="d-flex flex-nowrap">
             <BFormSelect
                 :id="id"
-                v-model="selectedValue"
-                @change="onSelectChange"
+                v-model="model"
                 :options="options"
                 :disabled="isSpinning" />
             <BSpinner class="ms-2 my-auto" small v-if="isSpinning" />

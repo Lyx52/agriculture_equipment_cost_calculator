@@ -19,41 +19,42 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             filteredEquipment: [],
             searchText: '',
             showSearchDropdown: false,
-            currentSearchFormIndex: -1,
-            showSearchModal: false
+            showSearchModal: false,
+            selectedCategory: 'tractors',
+            selectedSubCategory: 'agriculture_tractor',
+            filteredEquipmentCategories: ['tractors']
         }
     },
     actions: {
-        resetFilters() {
-            this.selectedCategory = undefined;
-            this.selectedSubCategory = undefined;
-            this.selectedMark = undefined;
-            this.selectedModel = undefined;
-            this.equipmentModelOptions = [];
-            this.equipmentModelOptions = [];
+        resetFilter() {
+            this.showSearchDropdown = false;
+            this.searchText = '';
+            this.selectedModel = '';
+            this.selectedMark = '';
+            this.showSearchModal = false;
             this.showSearchDropdown = false;
         },
-        showModal() {
-            this.showSearchModal = true;
-        },
-        closeModal() {
-            this.showSearchModal = false;
-        },
-        onChangeForms() {
-            switch (this.currentSearchFormIndex) {
+        async setDefaults(currentTab: number) {
+            switch (currentTab) {
                 case 0: {
+                    this.filteredEquipmentCategories = ['tractors'];
+                    this.selectedSubCategory = 'agriculture_tractor';
                     this.selectedCategory = 'tractors';
                 } break;
                 case 1: {
-                    console.log('combines')
+                    this.filteredEquipmentCategories = ['agricultural_harvesters'];
+                    this.selectedCategory = 'agricultural_harvesters';
+                    this.selectedSubCategory = '';
                 } break;
-                default: {
-                    console.log('else')
-                }
+                case 2: {
+                    this.filteredEquipmentCategories= ['sowing_and_plant_care_machines'];
+                    this.selectedCategory = '';
+                    this.selectedSubCategory = '';
+                } break;
             }
+            await this.fetchMark();
         },
         async onCategoryChange() {
-            this.selectedSubCategory = undefined;
             this.selectedMark = undefined;
             this.selectedModel = undefined;
             this.equipmentModelOptions = [];

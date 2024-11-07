@@ -4,7 +4,7 @@
             <BButton
                 variant="success"
                 class="mw-fit-content"
-                @click="showEquipmentSearchForm = true"
+                @click="equipmentFilterStore.showSearchModal = true"
             >
                 Pievienot tehnikas vienību
             </BButton>
@@ -130,16 +130,16 @@
         type TableFieldRaw
     } from "bootstrap-vue-next";
     import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
-    import TechnicalEquipmentModal from "@/components/modal/TechnicalEquipmentModal.vue";
     import {computed, onMounted, ref} from "vue";
     import type {
         ITechnicalEquipmentInformationProps
     } from "@/stores/interfaces/props/ITechnicalEquipmentInformationProps";
     import {EquipmentTypes} from "@/utils";
     import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
+    import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
     const sortBy = ref<BTableSortBy[]>([]);
     const equipmentCollectionStore = useEquipmentCollectionStore();
-    const showEquipmentSearchForm = ref<boolean>(false);
+    const equipmentFilterStore = useEquipmentFilterStore();
     const props = defineProps<ITechnicalEquipmentInformationProps>();
     const isEditMode = ref<boolean>(false);
 

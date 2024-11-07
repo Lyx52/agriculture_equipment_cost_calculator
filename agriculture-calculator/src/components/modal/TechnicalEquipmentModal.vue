@@ -47,17 +47,13 @@ const onEquipmentSelected = async (item: IEquipmentInformation) => {
     equipmentInformationStore.$patch({
         ...item
     });
-    equipmentFilterStore.$reset();
 }
 const onClose = () => {
-    equipmentFilterStore.$reset();
+    equipmentFilterStore.resetFilter();
     equipmentInformationStore.$reset();
 }
 const onShow = async () => {
-    await equipmentFilterStore.fetchEquipmentCategories();
-    equipmentFilterStore.$patch({
-        currentSearchFormIndex: props.searchFormIndex
-    })
+    await equipmentFilterStore.setDefaults(props.searchFormIndex);
 }
 </script>
 
