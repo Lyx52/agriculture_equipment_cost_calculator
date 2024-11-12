@@ -1,10 +1,11 @@
 from enum import Enum
-import json
+from utils import open_json, clean_key
 class EquipmentModelMetadata(Enum):
     Weight = "weight",
     Wheelbase = "wheelbase",
     Length = 'length',
     PtoPowerKw = "pto_power_kw",
+    DrawbarPowerKw = 'drawbar_power_kw',
     EnginePowerKw = "engine_power_kw",
     EngineCylinders = "engine_cylinders",
     EngineDisplacement = "engine_displacement",
@@ -13,6 +14,7 @@ class EquipmentModelMetadata(Enum):
     HydraulicPumpFlowCapacity = 'hydrolic_pump_flow',
     MaxSpeed = 'max_speed',
     LiftCapacity = 'lift_capacity',
+    FrontLiftCapacity = 'front_lift_capacity',
     Powertrain = 'powertrain',
     RequiredPowerKw = 'required_power_kw',
     WorkingWidth = 'working_width',
@@ -48,13 +50,15 @@ class EquipmentCategory(Enum):
 
 class EquipmentModel:
     specification: dict
-    category: str
+    category: EquipmentCategory
     equipment_level_code: EquipmentLevelCode
     price: float
     sources: list[str]
     manufacturer: str
     model: str
-    def __init__(self, manufacturer: str, model: str, category: str, equipment_level_code: EquipmentLevelCode, price: float, specification: dict, sources: list[str]):
+    manufacturer_key: str
+    model_key: str
+    def __init__(self, manufacturer: str, model: str, category: EquipmentCategory, equipment_level_code: EquipmentLevelCode, price: float, specification: dict, sources: list[str]):
         self.specification = specification
         self.category = category
         self.equipment_level_code = equipment_level_code
@@ -62,7 +66,9 @@ class EquipmentModel:
         self.sources = sources
         self.manufacturer = manufacturer
         self.model = model
-    
+        self.manufacturer_key = clean_key(manufacturer)
+        self.model_key = clean_key(model)
+
     def toDict(self) -> dict:
         return {
             "category": str(self.category.value[0]),
@@ -71,5 +77,7 @@ class EquipmentModel:
             "sources": self.sources,
             "price": self.price,
             "equipment_level_code":  str(self.equipment_level_code.value),
-            "specification": self.specification
+            "specification": self.specification,
+            "model_key": self.model_key,
+            "manufacturer_key": self.manufacturer_key
         }
