@@ -13,7 +13,17 @@ class EquipmentModelMetadata(Enum):
     HydraulicPumpFlowCapacity = 'hydrolic_pump_flow',
     MaxSpeed = 'max_speed',
     LiftCapacity = 'lift_capacity',
-    Powertrain = 'powertrain'
+    Powertrain = 'powertrain',
+    RequiredPowerKw = 'required_power_kw',
+    WorkingWidth = 'working_width',
+    WorkingWidthMin = 'working_width_min',
+    BaseEquipmentWidth = 'base_equipment_width',
+    BaleWidth = 'bale_width',
+    BaleDiameter = 'bale_diameter',
+    DiscDiameter = 'disc_diameter',
+    WorkCapacityL = 'work_capacity_l',
+    WorkCapacityKg = 'work_capacity_kg',
+    MaxFieldSpeed = 'max_field_speed'
 
 class EquipmentLevelCode(Enum):
     Base = "base"
@@ -22,7 +32,7 @@ class EquipmentLevelCode(Enum):
 
 class EquipmentCategory(Enum):
     Tractor = "tractor",
-    Harvester = "harvester",
+    Combine = "combine",
     Plough = "plough",
     Harrow = "harrow",
     Planter = "planter",
@@ -32,7 +42,6 @@ class EquipmentCategory(Enum):
     Chipper = "chipper",
     Cultivator = "cultivator",
     BalerPress = "baler_press",
-    HayTedder = "hay_tedder",
     Rake = "rake",
     Sprayer = "sprayer",
     Other = "other"

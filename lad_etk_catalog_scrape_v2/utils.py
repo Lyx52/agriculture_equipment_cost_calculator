@@ -2,12 +2,12 @@ import os, json, requests, re
 def open_json(file):
     data = {}
     if os.path.exists(file):
-        with open(file, 'r') as fp:
+        with open(file, 'r', encoding="UTF-8") as fp:
             data = json.load(fp)
             fp.close()
     return data
 def save_json(file, data):
-    with open(file, 'w') as fp:
+    with open(file, 'w', encoding="UTF-8") as fp:
         json.dump(data, fp, indent=4)
         fp.close()
 def avg(data):
