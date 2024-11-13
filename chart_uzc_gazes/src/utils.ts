@@ -1,4 +1,5 @@
 import moment from "moment/moment";
+import type {IOption} from "@/stores/interfaces/IOption";
 
 export const ChartDataColumns = {
     co2_mg_sec_after_calibration: "AREI_Stende_[CO2] sek. (mg CO2 m-2 h-1)",
@@ -113,9 +114,28 @@ export const ChartAggregationFunctions = {
     'max': max
 } as Record<ChartAggregationType, <T>(data: T[], getValue: (item: T) => (number | undefined | null)) => number>;
 
+export type DateCategoryGrouping = 'date' | 'month' | 'year';
+export const DateGroupingTypeOptions = [
+    { value: 'date', text: 'Pa dienām' },
+    { value: 'month', text: 'Pa mēnešiem' },
+    { value: 'year', text: 'Pa gadiem' },
+] as IOption<DateCategoryGrouping>[]
+
 export const getDateCategory = (timestamp: number) => {
     return moment.unix(timestamp).format('DD.MM.YYYY');
 }
+export const getMonthCategory = (timestamp: number) => {
+    return moment.unix(timestamp).format('MM.YYYY');
+}
+export const getYearCategory = (timestamp: number) => {
+    return moment.unix(timestamp).format('YYYY');
+}
+export const DateGroupingFunction = {
+    'date': getDateCategory,
+    'month': getMonthCategory,
+    'year': getYearCategory
+} as Record<DateCategoryGrouping, (timestamp: number) => string>
+
 export const getCurrentTable = (): string => {
     if (document.getElementById('stende-parameters-all')) return 'stende_parameters_all';
     if (document.getElementById('agrihort-meteo')) return 'agrihort_meteo';

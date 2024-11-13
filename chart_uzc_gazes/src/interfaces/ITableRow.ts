@@ -38,4 +38,6 @@ export interface ITableRow extends TableRowType {
     min_wind_degrees?: number;
     max_wind_degrees?: number;
     date: string;
+    month: string;
+    year: string;
 }

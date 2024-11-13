@@ -9,7 +9,6 @@ export const ChartTypes = {
     'bar': 'Stabiņu',
     'line': 'Līniju'
 } as Record<ChartType, string>
-
 export const getScaleUnderPoint = (x: number, y: number, chart: Chart) => {
     const scales = chart.scales;
     const scaleIds = Object.keys(scales);

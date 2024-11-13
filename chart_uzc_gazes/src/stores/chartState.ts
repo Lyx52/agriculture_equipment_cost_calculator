@@ -9,8 +9,8 @@ import {
     ChartAggregationTypes,
     ChartColumns,
     ChartDataColumns,
-    ChartGroupingColumns, downloadCsv,
-    getDateCategory,
+    ChartGroupingColumns, DateGroupingFunction, downloadCsv,
+    getDateCategory, getMonthCategory, getYearCategory,
     groupBy,
     unique
 } from "@/utils";
@@ -33,6 +33,8 @@ export const useChartStateStore = defineStore('chartState', {
             tableData: [],
             tableColumns: [],
             isLoading: false,
+            dateCategoryGrouping: 'date',
+            filteredDateCategories: [],
             chartData: {
                 datasets: [],
                 labels: [],
@@ -200,8 +202,8 @@ export const useChartStateStore = defineStore('chartState', {
                 let addedLabels = false;
                 for (const column of this.chartColumns) {
                     const groupBy = Array.of({
-                        groupedBy: 'date',
-                        filteredValues: [],
+                        groupedBy: this.dateCategoryGrouping,
+                        filteredValues: this.filteredDateCategories,
                         uniqueId: '-'
                     }, ...this.groupBy).reverse();
                     const datasetTree = this.buildGroupings(data.sort((a, b) => a.timestamp - b.timestamp), groupBy, column);
@@ -226,13 +228,16 @@ export const useChartStateStore = defineStore('chartState', {
                 return;
             }
             const groupedBy = this.groupBy[0];
-            const categories = unique(data.map(row => row.timestamp).sort().map(getDateCategory));
+            let categories = unique(data.map(row => row.timestamp).sort().map(DateGroupingFunction[this.dateCategoryGrouping]));
+            if (this.filteredDateCategories.length > 0) {
+                categories = categories.filter(c => this.filteredDateCategories.includes(c));
+            }
             const groups = groupBy<ITableRow, any>(data, (row) => row[groupedBy.groupedBy]);
             this.setChartLabels(categories);
             for (const [key, group] of Object.entries(groups)) {
                 if (groupedBy.filteredValues.length && !groupedBy.filteredValues.includes(key)) continue;
 
-                const valuesGroups = groupBy<ITableRow, string>(group, (row) => row.date);
+                const valuesGroups = groupBy<ITableRow, string>(group, (row) => row[this.dateCategoryGrouping]);
                 for (const { columnKey, chartType, chartAggregation, uniqueId } of this.chartColumns) {
                     let groupingData = Object.fromEntries(categories.map(c => ([c, 0])));
 
@@ -261,6 +266,15 @@ export const useChartStateStore = defineStore('chartState', {
 
             this.buildChart();
         },
+        filterGroupedByDate(value: any) {
+            if (this.filteredDateCategories.includes(value)) {
+                this.filteredDateCategories = this.filteredDateCategories.filter(v => v !== value);
+            } else {
+                this.filteredDateCategories.push(value);
+            }
+
+            this.buildChart();
+        },
         async fetchTableData(table: string) {
             this.isLoading = true;
             try {
@@ -272,7 +286,9 @@ export const useChartStateStore = defineStore('chartState', {
                 }
                 this.tableData = this.tableData.map(row => ({
                     ...row,
-                    date: getDateCategory(row.timestamp)
+                    date: getDateCategory(row.timestamp),
+                    month: getMonthCategory(row.timestamp),
+                    year: getYearCategory(row.timestamp)
                 }))
                 this.buildChart();
             } finally {
@@ -281,6 +297,17 @@ export const useChartStateStore = defineStore('chartState', {
         },
         getGroupedByValues(grouping: IGrouping): any[] {
             return unique(this.tableData.map(item => item[grouping.groupedBy]));
+        },
+        getGroupedByDate(): string[] {
+            return unique(this.tableData.sort().map(item => item[this.dateCategoryGrouping]))
+        },
+        onChangeDateGroupingType() {
+            this.filteredDateCategories = [];
+            this.buildChart();
+        },
+        onChangeDateRangeFilter() {
+            this.filteredDateCategories = [];
+            this.buildChart();
         }
     },
     getters: {

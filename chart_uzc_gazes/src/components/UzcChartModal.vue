@@ -9,7 +9,7 @@
                     <BFormInput
                         type="date"
                         id="dateFrom"
-                        @change="chartStateStore.buildChart"
+                        @change="chartStateStore.onChangeDateRangeFilter"
                         v-model="chartStateStore.dateFrom"
                         aria-label="No"
                         aria-describedby="dateLabelFrom"
@@ -22,13 +22,43 @@
                         <BFormInput
                             type="date"
                             id="dateTo"
-                            @change="chartStateStore.buildChart"
+                            @change="chartStateStore.onChangeDateRangeFilter"
                             v-model="chartStateStore.dateTo"
                             aria-label="Līdz"
                             aria-describedby="dateLabelTo"
                         />
                     </div>
                 </div>
+            </div>
+            <div class="row row-cols-1 mt-1">
+                <BInputGroup class="mt-1" prepend="Datumu grupēt pēc">
+                    <BFormSelect
+                        v-model="chartStateStore.dateCategoryGrouping"
+                        :options="DateGroupingTypeOptions"
+                        @change="chartStateStore.onChangeDateGroupingType"
+                        aria-label="Datumu grupēt pēc"
+                        aria-describedby="groupBy"
+                    />
+                    <template #append>
+                        <BDropdown text="Dropdown with divider" auto-close="outside">
+                            <template #button-content>
+                                <svg v-if="chartStateStore.filteredDateCategories.length <= 0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                                </svg>
+                                <svg v-if="chartStateStore.filteredDateCategories.length > 0"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"/>
+                                </svg>
+                            </template>
+                            <BDropdownItemButton
+                                :active="chartStateStore.filteredDateCategories.includes(groupedByDate)"
+                                v-for="groupedByDate in chartStateStore.getGroupedByDate()"
+                                @click="chartStateStore.filterGroupedByDate(groupedByDate)"
+                            >
+                                {{ groupedByDate }}
+                            </BDropdownItemButton>
+                        </BDropdown>
+                    </template>
+                </BInputGroup>
             </div>
             <div class="row row-cols-1 mt-1">
                 <div class="col">
@@ -190,7 +220,7 @@ import {onMounted, ref} from "vue";
 import {useChartStateStore} from "@/stores/chartState";
 import BWorkflowModal from "@/components/BWorkflowModal.vue";
 import BarChart from "@/components/Chart.vue";
-import {getCurrentTable} from "@/utils";
+import {getCurrentTable, DateGroupingTypeOptions} from "@/utils";
 
 const chartStateStore = useChartStateStore();
 const showModal = ref<boolean>(false);
