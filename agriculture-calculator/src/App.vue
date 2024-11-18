@@ -60,6 +60,15 @@
                 </div>
             </div>
         </div>
+      <div class="row mt-3">
+          <div class="col">
+              <div class="card">
+                  <div class="card-body">
+                        <CostCalculatorTable />
+                  </div>
+              </div>
+          </div>
+      </div>
         <TechnicalEquipmentModal
           v-model="equipmentFilterStore.showSearchModal"
           :equipment-types="currentEquipmentFilter"
@@ -74,6 +83,7 @@ import EquipmentInformationTable from "@/components/table/EquipmentInformationTa
 import {onMounted, ref} from "vue";
 import TechnicalEquipmentModal from "@/components/modal/TechnicalEquipmentModal.vue";
 import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
+import CostCalculatorTable from "@/components/form/CostCalculatorTable.vue";
 const currentTab = ref<number>(0);
 const currentEquipmentFilter = ref<string[]>(['tractors']);
 const equipmentFilterStore = useEquipmentFilterStore();

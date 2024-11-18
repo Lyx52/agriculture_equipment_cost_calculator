@@ -7,7 +7,7 @@
             </BButton>
             <TechnicalEquipmentInformationForm />
         </div>
-        <TechnicalEquipmentModal v-model="showModal" @onEquipmentAdded="onEquipmentAdded" />
+        <TechnicalEquipmentModal v-model="showModal" @onEquipmentAdded="onEquipmentAdded"  equipment-types="" search-form-index=""/>
     </div>
 </template>
 
@@ -16,10 +16,9 @@
     import type {
         ITechnicalEquipmentInformationProps
     } from "@/stores/interfaces/props/ITechnicalEquipmentInformationProps";
-    import TechnicalEquipmentModal from "@/components/TechnicalEquipmentModal.vue";
     import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
     import {ref} from "vue";
-    import TechnicalEquipmentInformationForm from "@/components/TechnicalEquipmentInformationForm.vue";
+    import TechnicalEquipmentInformationForm from "@/components/form/TechnicalEquipmentInformationForm.vue";
 
     defineProps<ITechnicalEquipmentInformationProps>();
     const showModal = ref<boolean>(false);
