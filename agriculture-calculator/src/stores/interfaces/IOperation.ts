@@ -1,8 +1,9 @@
 import type {OperationType} from "@/stores/constants/OperationTypes";
 import type {EquipmentType} from "@/stores/constants/EquipmentTypes";
+import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 
-export interface ICostCalculation {
+export interface IOperation {
     operation: OperationType;
-    equipmentType: EquipmentType;
+    equipment: EquipmentInformationModel[];
     uniqueId: string;
 }

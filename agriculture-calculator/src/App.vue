@@ -83,7 +83,7 @@ import EquipmentInformationTable from "@/components/table/EquipmentInformationTa
 import {onMounted, ref} from "vue";
 import TechnicalEquipmentModal from "@/components/modal/TechnicalEquipmentModal.vue";
 import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
-import CostCalculatorTable from "@/components/form/CostCalculatorTable.vue";
+import CostCalculatorTable from "@/components/form/OperationsTable.vue";
 const currentTab = ref<number>(0);
 const currentEquipmentFilter = ref<string[]>(['tractors']);
 const equipmentFilterStore = useEquipmentFilterStore();
