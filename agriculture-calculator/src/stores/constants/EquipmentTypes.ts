@@ -1,5 +1,4 @@
 import type {IOption} from "@/stores/interfaces/IOption";
-import {Operations} from "@/stores/constants/OperationTypes";
 
 export type EquipmentType =
     'tractor' |
@@ -26,7 +25,25 @@ export const EquipmentTypes = {
     'barrel': 'Muca',
     'semitrailer': 'Puspiekabe',
 } as Record<EquipmentType, string>;
-
+export type EquipmentTypeCategory = 'tractor' | 'combine' | 'tractor_equipment';
+export const EquipmentTypesToCategories = {
+    'tractor': 'tractor',
+    'combine': 'combine',
+    'plough': 'tractor_equipment',
+    'cultivator':  'tractor_equipment',
+    'fertilizer_spreader':'tractor_equipment',
+    'drill': 'tractor_equipment',
+    'harrow': 'tractor_equipment',
+    'sprayer': 'tractor_equipment',
+    'row_cultivator': 'tractor_equipment',
+    'barrel': 'tractor_equipment',
+    'semitrailer': 'tractor_equipment',
+} as Record<EquipmentType, EquipmentTypeCategory>;
+export const EquipmentTypeCategories = {
+    'tractor': 'Traktortehnika',
+    'combine': 'Kombaini',
+    'tractor_equipment': 'Traktortehnikas aprīkojums',
+} as Record<EquipmentTypeCategory, string>
 export const EquipmentTypeOptions = Object.keys(EquipmentTypes)
     .map(equipmentType => ({
         text: EquipmentTypes[equipmentType as EquipmentType],

@@ -6,13 +6,13 @@
         >
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-sm-2">
-                    <div class="col">
-                        <TechnicalEquipmentSearchForm
-                            @on-equipment-selected="onEquipmentSelected"
-                            :equipment-types="props.equipmentTypes"
-                            ref="searchForm"
-                        />
-                    </div>
+<!--                    <div class="col">-->
+<!--                        <TechnicalEquipmentSearchForm-->
+<!--                            @on-equipment-selected="onEquipmentSelected"-->
+<!--                            :equipment-types="props.equipmentTypes"-->
+<!--                            ref="searchForm"-->
+<!--                        />-->
+<!--                    </div>-->
                     <div class="col">
                         <TechnicalEquipmentInformationForm />
                     </div>
@@ -34,11 +34,12 @@ import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformat
 import TechnicalEquipmentInformationForm from "@/components/form/TechnicalEquipmentInformationForm.vue";
 import type {ITechnicalEquipmentModalProps} from "@/stores/interfaces/props/ITechnicalEquipmentModalProps";
 import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
+
 const model = defineModel<boolean>();
 const props = defineProps<ITechnicalEquipmentModalProps>()
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const equipmentInformationStore = useEquipmentInformationStore();
-const equipmentFilterStore = useEquipmentFilterStore();
+const equipmentFilterStore = useEquipmentFilterStore(props.equipmentFilterId);
 const onAddEquipment = () => {
     model.value = false;
     equipmentCollectionStore.pushItem(equipmentInformationStore.equipmentModel);

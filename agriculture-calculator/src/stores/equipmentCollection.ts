@@ -2,6 +2,11 @@ import {defineStore} from "pinia";
 import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import type {TableItem} from "bootstrap-vue-next";
+import {
+    type EquipmentType,
+    type EquipmentTypeCategory,
+    EquipmentTypesToCategories
+} from "@/stores/constants/EquipmentTypes";
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     state: (): { items: EquipmentInformationModel[] } => {
@@ -16,8 +21,8 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         removeItem(itemId: string) {
             this.items = this.items.filter(i => i.uniqueId !== itemId);
         },
-        getEquipmentByTypes(equipmentTypes: string[]): TableItem<EquipmentInformationModel>[] {
-            return this.items.filter(e => equipmentTypes.includes(e.categoryCode))
+        getEquipmentByTypeCategory(equipmentTypeCategory: EquipmentTypeCategory): TableItem<EquipmentInformationModel>[] {
+            return this.items.filter(e => EquipmentTypesToCategories[e.equipmentType] === equipmentTypeCategory)
         }
     }
 });

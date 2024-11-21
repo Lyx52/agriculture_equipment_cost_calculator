@@ -3,7 +3,7 @@ import type {IEquipmentFilter} from "@/stores/interfaces/IEquipmentFilter";
 import type {IOption} from "@/stores/interfaces/IOption";
 import type {IResponse} from "@/stores/interfaces/IResponse";
 import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
-export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
+export const useEquipmentFilterStore = (storeId: string) => defineStore(`equipmentFilter__${storeId}`,  {
     state: (): IEquipmentFilter => {
         return {
             powerFilterMoreThan: false,
@@ -206,4 +206,4 @@ export const useEquipmentFilterStore = defineStore('equipmentFilter',  {
             return query;
         }
     },
-})
+})();

@@ -1,4 +1,6 @@
+import type {EquipmentTypeCategory} from "@/stores/constants/EquipmentTypes";
+
 export interface ITechnicalEquipmentModalProps {
-    equipmentTypes: string[];
-    searchFormIndex: number;
+    equipmentTypeCategory: EquipmentTypeCategory;
+    equipmentFilterId: string;
 }

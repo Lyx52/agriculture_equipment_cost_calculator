@@ -4,8 +4,9 @@ import {getCapitalRecoveryValue} from "@/stores/constants/CapitalRecoveryValue";
 import {getCostOfRepairValue} from "@/stores/constants/CostOfRepairValue";
 import type {IDataSourceLink} from "@/stores/interfaces/IDataSourceLink";
 import { v4 as uuid } from 'uuid';
+import type {EquipmentType} from "@/stores/constants/EquipmentTypes";
 export class EquipmentInformationModel implements IEquipmentInformation {
-    categoryCode: string;
+    equipmentType: EquipmentType;
     currentUseYears: number | undefined;
     equipmentLevelCode: string;
     fullEquipmentName: string;
@@ -18,23 +19,21 @@ export class EquipmentInformationModel implements IEquipmentInformation {
     remainingUseYears: number | undefined;
     sources: string[];
     specification: any;
-    subCategoryCode: string;
     uniqueId: string;
-    constructor(categoryCode: string, currentUseYears: number | undefined, equipmentLevelCode: string, fullEquipmentName: string, hoursOfUse: number | undefined, id: string, mainInfo: any, mark: string, model: string, price: number | undefined, remainingUseYears: number | undefined, sources: string[], specification: any, subCategoryCode: string) {
-        this.categoryCode = categoryCode;
-        this.currentUseYears = currentUseYears;
-        this.equipmentLevelCode = equipmentLevelCode;
-        this.fullEquipmentName = fullEquipmentName;
-        this.hoursOfUse = hoursOfUse;
-        this.id = id;
-        this.mainInfo = mainInfo;
-        this.mark = mark;
-        this.model = model;
-        this.price = price;
-        this.remainingUseYears = remainingUseYears;
-        this.sources = sources;
-        this.specification = specification;
-        this.subCategoryCode = subCategoryCode;
+    constructor(equipmentInformation: IEquipmentInformation) {
+        this.equipmentType = equipmentInformation.equipmentType;
+        this.currentUseYears = equipmentInformation.currentUseYears;
+        this.equipmentLevelCode = equipmentInformation.equipmentLevelCode;
+        this.fullEquipmentName = equipmentInformation.fullEquipmentName;
+        this.hoursOfUse = equipmentInformation.hoursOfUse;
+        this.id = equipmentInformation.id;
+        this.mainInfo = equipmentInformation.mainInfo;
+        this.mark = equipmentInformation.mark;
+        this.model = equipmentInformation.model;
+        this.price = equipmentInformation.price;
+        this.remainingUseYears = equipmentInformation.remainingUseYears;
+        this.sources = equipmentInformation.sources;
+        this.specification = equipmentInformation.specification;
         this.uniqueId = uuid();
     }
     getHorsePower() {
@@ -116,18 +115,5 @@ export class EquipmentInformationModel implements IEquipmentInformation {
             href: url,
             text: new URL(url).host
         })));
-    }
-    get equipmentType() {
-        switch (this.subCategoryCode) {
-            case 'agriculture_tractor':
-                return 'tractor_2x4';
-            case 'mowers':
-                return 'mower';
-            case 'combine_harvester':
-                return 'harvester';
-            case 'sprayer':
-                return 'sprayer';
-            default: return 'other'
-        }
     }
 }

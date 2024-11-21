@@ -14,7 +14,7 @@
             <BTable
                 v-model:sort-by="sortBy"
                 :sort-internal="true"
-                :items="equipmentCollectionStore.getEquipmentByTypes(props.equipmentTypes)"
+                :items="equipmentCollectionStore.getEquipmentByTypeCategory(props.equipmentTypeCategory)"
                 :fields="tableFields"
                 responsive
                 small
@@ -117,6 +117,11 @@
                 </template>
             </BTable>
         </div>
+        <TechnicalEquipmentModal
+            v-model="equipmentFilterStore.showSearchModal"
+            :equipment-filter-id="equipmentFilterId"
+            :equipmentTypeCategory="props.equipmentTypeCategory"
+        />
     </div>
 </template>
 
@@ -130,40 +135,44 @@
         type TableFieldRaw
     } from "bootstrap-vue-next";
     import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
-    import {computed, onMounted, ref} from "vue";
+    import {computed, ref} from "vue";
+    import {v4 as uuid} from 'uuid';
     import type {
         ITechnicalEquipmentInformationProps
     } from "@/stores/interfaces/props/ITechnicalEquipmentInformationProps";
-    import {EquipmentTypes} from "@/utils";
     import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
     import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
+    import TechnicalEquipmentModal from "@/components/modal/TechnicalEquipmentModal.vue";
+    import {EquipmentTypes} from "@/stores/constants/EquipmentTypes";
+
     const sortBy = ref<BTableSortBy[]>([]);
+    const equipmentFilterId = uuid();
     const equipmentCollectionStore = useEquipmentCollectionStore();
-    const equipmentFilterStore = useEquipmentFilterStore();
+    const equipmentFilterStore = useEquipmentFilterStore(equipmentFilterId);
     const props = defineProps<ITechnicalEquipmentInformationProps>();
     const isEditMode = ref<boolean>(false);
 
     const tableFields = computed(() => {
         let addedFields: any = {};
-        for (const type of props.equipmentTypes) {
-            if (['tractors', 'agricultural_harvesters'].includes(type)) {
-                addedFields['specification.power'] = {
-                    key: 'specification.power',
-                    label: 'Jauda, kw',
-                    sortable: true,
-                    sortDirection: 'desc',
-                    class: "align-middle text-center"
-                }
-            } else {
-                addedFields['specification.required_power'] = {
-                    key: 'specification.required_power',
-                    label: 'Nepieciešamā jauda, kw',
-                    sortable: true,
-                    sortDirection: 'desc',
-                    class: "align-middle text-center"
-                }
-            }
-        }
+        // for (const type of props.equipmentTypes) {
+        //     if (['tractors', 'agricultural_harvesters'].includes(type)) {
+        //         addedFields['specification.power'] = {
+        //             key: 'specification.power',
+        //             label: 'Jauda, kw',
+        //             sortable: true,
+        //             sortDirection: 'desc',
+        //             class: "align-middle text-center"
+        //         }
+        //     } else {
+        //         addedFields['specification.required_power'] = {
+        //             key: 'specification.required_power',
+        //             label: 'Nepieciešamā jauda, kw',
+        //             sortable: true,
+        //             sortDirection: 'desc',
+        //             class: "align-middle text-center"
+        //         }
+        //     }
+        // }
         const baseFields: Exclude<TableFieldRaw<EquipmentInformationModel>, string>[] = [
             {
                 key: 'equipmentType',

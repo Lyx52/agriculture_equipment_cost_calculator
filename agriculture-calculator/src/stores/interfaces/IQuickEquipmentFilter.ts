@@ -5,5 +5,9 @@ export interface IQuickEquipmentFilter {
     selectedItem: EquipmentInformationModel|undefined;
     searchText: string;
     filteredCategory: EquipmentType[];
+    filteredEquipment: EquipmentInformationModel[];
     showDropdown: boolean;
+    filterFrom: number;
+    filterTo: number;
+    isLoading: boolean;
 }

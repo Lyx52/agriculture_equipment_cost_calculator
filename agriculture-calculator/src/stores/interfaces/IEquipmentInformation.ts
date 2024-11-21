@@ -1,3 +1,5 @@
+import type {EquipmentType} from "@/stores/constants/EquipmentTypes";
+
 export interface IEquipmentInformation {
     id: string;
     fullEquipmentName: string;
@@ -8,8 +10,7 @@ export interface IEquipmentInformation {
     currentUseYears: number|undefined;
     remainingUseYears: number|undefined;
     equipmentLevelCode: string;
-    categoryCode: string;
-    subCategoryCode: string;
+    equipmentType: EquipmentType;
     specification: any;
     mainInfo: any;
     sources: string[];

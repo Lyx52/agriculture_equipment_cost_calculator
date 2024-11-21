@@ -20,24 +20,32 @@
             aria-expanded="false"
             v-if="filterStore.showDropdown"
             autofocus
+            @input="filterStore.fetchByFilters"
         />
         <ul
-            class="dropdown-menu short-dropdown mw-fit-content"
+            class="dropdown-menu short-dropdown w-100 mw-fit-content"
             :class="{ show: filterStore.showDropdown }"
             @scroll="filterStore.onSearchDropdownScroll"
         >
-            <li>Test</li>
-            <li v-for="item in equipmentCollectionStore.items" class="item-height">
-                <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
-                    {{ item.fullEquipmentName }}
-                </a>
-            </li>
-            <BDropdownDivider />
-            <li v-for="item in filterStore.filteredEquipment" class="item-height">
-                <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
-                    {{ item.fullEquipmentName }}
-                </a>
-            </li>
+            <BOverlay
+                :show="filterStore.isLoading"
+                spinner-variant="primary"
+                spinner-small
+            >
+                <li><span class="ms-3">Esošā tehnika</span></li>
+                <li v-for="item in equipmentCollectionStore.items" class="item-height">
+                    <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
+                        {{ item.fullEquipmentName }}
+                    </a>
+                </li>
+                <BDropdownDivider />
+                <li><span class="ms-3">Pievienot jaunu tehniku</span></li>
+                <li v-for="item in filterStore.filteredEquipment" class="item-height">
+                    <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
+                        {{ item.fullEquipmentName }}
+                    </a>
+                </li>
+            </BOverlay>
         </ul>
     </div>
 </template>
@@ -46,14 +54,22 @@
 import {
     BFormInput,
     BButton,
-    BDropdownDivider
+    BDropdownDivider,
+    BSpinner,
+    BOverlay
 } from "bootstrap-vue-next";
 import {v4 as uuid} from 'uuid';
 import {useQuickEquipmentFilterStore} from "@/stores/quickEquipmentFilter";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
+import {onMounted} from "vue";
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const filterStore = useQuickEquipmentFilterStore(uuid());
+
+onMounted(async () => {
+    await filterStore.fetchByFilters();
+})
+
 const onClickEquipment = (selected: EquipmentInformationModel) => {
     console.log(selected);
     filterStore.setSelectedEquipment(selected);
@@ -61,6 +77,11 @@ const onClickEquipment = (selected: EquipmentInformationModel) => {
 </script>
 
 <style scoped>
+    .short-dropdown {
+        width: fit-content;
+        max-height: 250px;
+        overflow-y: auto;
+    }
     .item-height {
         height: 24px !important;
     }

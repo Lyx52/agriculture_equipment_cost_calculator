@@ -13,8 +13,7 @@ export const useEquipmentInformationStore = defineStore('equipmentInformation',{
             model: '',
             price: undefined,
             equipmentLevelCode: 'base',
-            categoryCode: '',
-            subCategoryCode: '',
+            equipmentType: 'tractor',
             specification: {},
             sources: [],
             currentUseYears: undefined,
@@ -31,22 +30,7 @@ export const useEquipmentInformationStore = defineStore('equipmentInformation',{
             })));
         },
         equipmentModel(): EquipmentInformationModel {
-            return new EquipmentInformationModel(
-                this.categoryCode,
-                this.currentUseYears,
-                this.equipmentLevelCode,
-                this.fullEquipmentName,
-                this.hoursOfUse,
-                this.id,
-                this.mainInfo,
-                this.mark,
-                this.model,
-                this.price,
-                this.remainingUseYears,
-                this.sources,
-                this.specification,
-                this.subCategoryCode,
-            );
+            return new EquipmentInformationModel(this);
         }
     }
 });
