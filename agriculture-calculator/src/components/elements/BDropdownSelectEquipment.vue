@@ -36,7 +36,7 @@
                 spinner-small
             >
                 <li><span class="ms-3">Esošā tehnika</span></li>
-                <li v-for="item in equipmentCollectionStore.items" class="item-height">
+                <li v-for="item in equipmentCollectionStore.getEquipmentByTypeCategoryAndOperation(props.equipmentTypeCategory, props.operationType)" class="item-height">
                     <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
                         {{ item.fullEquipmentName }}
                     </a>
@@ -64,10 +64,11 @@ import {v4 as uuid} from 'uuid';
 import {useQuickEquipmentFilterStore} from "@/stores/quickEquipmentFilter";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
-import {onMounted, useTemplateRef} from "vue";
+import {onMounted, useTemplateRef, watch} from "vue";
 import {onClickOutside} from "@vueuse/core";
 import type {IBDropdownSelectEquipmentProps} from "@/stores/interfaces/props/IBDropdownSelectEquipmentProps";
-import {getEquipmentTypesByCategory} from "@/stores/constants/EquipmentTypes";
+import {type EquipmentTypeCategory, getEquipmentTypesByCategory} from "@/stores/constants/EquipmentTypes";
+import {getEquipmentSubTypesByOperation, type OperationType} from "@/stores/constants/OperationTypes";
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const filterStore = useQuickEquipmentFilterStore(uuid());
 const floating = useTemplateRef<HTMLElement>('_floating');
@@ -75,18 +76,28 @@ const button = useTemplateRef<HTMLElement>('_button');
 const searchBar = useTemplateRef<HTMLElement>('_search_bar');
 const model = defineModel<EquipmentInformationModel>()
 const props = defineProps<IBDropdownSelectEquipmentProps>();
-const emits = defineEmits(["onEquipmentSelected"])
+const emits = defineEmits(["onEquipmentSelected"]);
+
+watch(() => props.operationType, async (newOperation, oldOperation) => {
+    model.value = undefined;
+    filterStore.$reset();
+    await onChangeOperation(newOperation, props.equipmentTypeCategory);
+})
 onClickOutside(floating, () => {
     filterStore.showDropdown = false;
 }, {ignore: [button, searchBar]});
 
+
 onMounted(async () => {
+    await onChangeOperation(props.operationType, props.equipmentTypeCategory);
+});
+const onChangeOperation = async (operationType: OperationType, equipmentTypeCategory: EquipmentTypeCategory) => {
     filterStore.$patch({
-        filteredEquipmentTypes: getEquipmentTypesByCategory(props.equipmentTypeCategory)
+        filteredEquipmentTypes: getEquipmentTypesByCategory(equipmentTypeCategory),
+        filteredEquipmentSubTypes: getEquipmentSubTypesByOperation(equipmentTypeCategory, operationType)
     });
     await filterStore.fetchByFilters();
-})
-
+}
 const onClickEquipment = (selected: EquipmentInformationModel) => {
     filterStore.setSelectedEquipment(selected);
     model.value = selected;

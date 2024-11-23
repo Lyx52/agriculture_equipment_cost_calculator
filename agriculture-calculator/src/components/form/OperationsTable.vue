@@ -18,17 +18,19 @@
                             :options="OperationOptions"
                         />
                     </BTd>
-                    <BTd v-if="!isCombineOperation(row.operation)">
+                    <BTd v-if="!['threshing', 'digging'].includes(row.operation)">
                         <BDropdownSelectEquipment
                             v-model="row.tractor"
                             equipment-type-category="tractor"
+                            :operation-type="row.operation"
                             @on-equipment-selected="onEquipmentSelected"
                         />
                     </BTd>
-                    <BTd v-if="!isCombineOperation(row.operation)">
+                    <BTd v-if="!['threshing', 'digging'].includes(row.operation)">
                         <BDropdownSelectEquipment
                             v-model="row.equipment"
                             equipment-type-category="tractor_equipment"
+                            :operation-type="row.operation"
                             @on-equipment-selected="onEquipmentSelected"
                         />
                     </BTd>
@@ -36,12 +38,13 @@
                         <BDropdownSelectEquipment
                             v-model="row.combine"
                             equipment-type-category="combine"
+                            :operation-type="row.operation"
                             @on-equipment-selected="onEquipmentSelected"
                         />
                     </BTd>
                 </BTr>
                 <BTr>
-                    <BTd colspan="2">
+                    <BTd colspan="3">
                         <BButton variant="success" size="sm" @click="addOperation">Pievienot</BButton>
                     </BTd>
                 </BTr>
@@ -62,12 +65,13 @@ import {
 } from "bootstrap-vue-next";
 import type {IOperation} from "@/stores/interfaces/IOperation";
 import {useOperationCollectionStore} from "@/stores/operationCollection";
-import {isCombineOperation, OperationOptions} from "@/stores/constants/OperationTypes";
+import {OperationOptions} from "@/stores/constants/OperationTypes";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import BDropdownSelectEquipment from "@/components/elements/BDropdownSelectEquipment.vue";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
 const operationCollectionStore = useOperationCollectionStore();
 const equipmentCollectionStore = useEquipmentCollectionStore();
+
 const addOperation = () => {
     operationCollectionStore.pushItem({
         operation: 'ploughing'

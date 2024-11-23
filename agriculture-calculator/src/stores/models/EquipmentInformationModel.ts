@@ -4,14 +4,15 @@ import {getCapitalRecoveryValue} from "@/stores/constants/CapitalRecoveryValue";
 import {getCostOfRepairValue} from "@/stores/constants/CostOfRepairValue";
 import type {IDataSourceLink} from "@/stores/interfaces/IDataSourceLink";
 import { v4 as uuid } from 'uuid';
-import type {EquipmentType} from "@/stores/constants/EquipmentTypes";
-export class EquipmentInformationModel implements IEquipmentInformation {
+import type {EquipmentSubType, EquipmentType} from "@/stores/constants/EquipmentTypes";
+import {EquipmentLevelTypes} from "@/stores/constants/EquipmentTypes";
+export class EquipmentInformationModel {
     equipmentType: EquipmentType;
+    equipmentSubType: EquipmentSubType;
     currentUseYears: number | undefined;
     equipmentLevelCode: string;
     fullEquipmentName: string;
     hoursOfUse: number | undefined;
-    id: string;
     mainInfo: any;
     mark: string;
     model: string;
@@ -21,17 +22,19 @@ export class EquipmentInformationModel implements IEquipmentInformation {
     specification: any;
     uniqueId: string;
     constructor(equipmentInformation: IEquipmentInformation) {
-        this.equipmentType = equipmentInformation.equipmentType;
-        this.currentUseYears = equipmentInformation.currentUseYears;
-        this.equipmentLevelCode = equipmentInformation.equipmentLevelCode;
-        this.fullEquipmentName = equipmentInformation.fullEquipmentName;
-        this.hoursOfUse = equipmentInformation.hoursOfUse;
-        this.id = equipmentInformation.id;
-        this.mainInfo = equipmentInformation.mainInfo;
+        this.equipmentType = equipmentInformation.category_code;
+        this.equipmentSubType = equipmentInformation.sub_category_code;
+        this.currentUseYears = 0;
+        this.equipmentLevelCode = equipmentInformation.equipment_level_code;
+        this.fullEquipmentName = `${equipmentInformation.mark} ${equipmentInformation.model} (${EquipmentLevelTypes[equipmentInformation.equipment_level_code]})`;
+        if (equipmentInformation.specification['engine_power_kw']) {
+            this.fullEquipmentName += ` ${equipmentInformation.specification['engine_power_kw']} kw`
+        }
+        this.mainInfo = {};
         this.mark = equipmentInformation.mark;
         this.model = equipmentInformation.model;
         this.price = equipmentInformation.price;
-        this.remainingUseYears = equipmentInformation.remainingUseYears;
+        this.remainingUseYears = 0;
         this.sources = equipmentInformation.sources;
         this.specification = equipmentInformation.specification;
         this.uniqueId = uuid();

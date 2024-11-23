@@ -162,7 +162,7 @@ def from_ritchiespecs(manufacturer: str, category: str, sub_category: str, addit
                     print(f"Does not have metric value {subparam}")
         for key, value in additional_specifications.items():
             specs[key] = value
-    return EquipmentModel(manufacturer, model_data['model'], category.value[0], sub_category, EquipmentLevelCode.Base.value, -1, specs, [f"https://www.ritchiespecs.com/model/{model_data['slug']}"])
+    return EquipmentModel(manufacturer.replace("\\'", ""), model_data['model'].replace("\\'", ""), category, sub_category, EquipmentLevelCode.Base.value, -1, specs, [f"https://www.ritchiespecs.com/model/{model_data['slug']}"])
 
 def get_ritchiespecs() -> list[EquipmentModel]:
     items = []
@@ -180,11 +180,11 @@ def get_ritchiespecs() -> list[EquipmentModel]:
                 match category:
                     case '2wd_tractor':
                         additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
-                        common_category = EquipmentCategory.Tractor
+                        common_category = 'tractor'
                         common_sub_category = 'tractor_4x2'
                     case '4wd_tractor':
                         additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
-                        common_category = EquipmentCategory.Tractor
+                        common_category = 'tractor'
                         common_sub_category = 'tractor_4x4'
                     # case 'mfwd_tractor':
                     #     additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
@@ -192,18 +192,25 @@ def get_ritchiespecs() -> list[EquipmentModel]:
                     # case 'utility_tractor':
                     #     additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
                     #     common_category = EquipmentCategory.Tractor
-                    # case 'air_drill':
-                    #     common_category = EquipmentCategory.Seeder
-                    # case 'baler':
-                    #     common_category = EquipmentCategory.BalerPress
-                    # case 'combine':
-                    #     common_category = EquipmentCategory.Combine
-                    # case 'cultivator':
-                    #     common_category = EquipmentCategory.Cultivator
+                    case 'air_drill':
+                        common_category = 'sowing_and_planting_equipment'
+                        common_sub_category = 'seed_drill'   
+                    case 'baler':
+                        common_category = 'feed_preperation_equipment'
+                        common_sub_category = 'balling_press'   
+                        # Todo: any way to determine between packing/balling presses???
+                    case 'combine':
+                        common_category = 'feed_preperation_equipment'
+                        common_sub_category = 'combine'
+                    case 'cultivator':
+                        common_category = 'soil_cultivation_equipment'
+                        common_sub_category = 'cultivator'   
+                        # Todo: any way to determine row cultivators???
                     # case 'disc':
                     #     common_category = EquipmentCategory.Disc   
-                    # case 'harrow':
-                    #     common_category = EquipmentCategory.Harrow    
+                    case 'harrow':
+                        common_category = 'soil_cultivation_equipment'
+                        common_sub_category = 'harrow'   
                     # case 'sprayer':
                     #     common_category = EquipmentCategory.Sprayer 
                     # case 'swather':
@@ -212,6 +219,6 @@ def get_ritchiespecs() -> list[EquipmentModel]:
                         continue
                         raise Exception(f"Unknown category {category}")
 
-                items.append(from_ritchiespecs(manufacturer, common_category, common_sub_category, additional_specs, model_data).toDict())
+                items.append(from_ritchiespecs(manufacturer.replace("'", ""), common_category, common_sub_category, additional_specs, model_data).toDict())
     return items
 save_json('ritchiespecs_data.json', get_ritchiespecs())

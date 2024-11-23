@@ -59,10 +59,10 @@ class TechnicalEquipmentQueryFilter {
     public function fillDbQuery(SelectInterface $query, $tableAlias = null): SelectInterface
     {
         if (!empty($this->CategoryCode)) {
-          $query = $query->condition('category_code', $this->CategoryCode);
+          $query = $query->condition('category_code', explode(',', $this->CategoryCode), 'IN');
         }
         if (!empty($this->SubCategoryCode)) {
-          $query = $query->condition('sub_category_code', $this->SubCategoryCode);
+          $query = $query->condition('sub_category_code', explode(',', $this->SubCategoryCode), 'IN');
         }
         if (!empty($this->Mark)) {
           $query = $query->condition('mark', $this->Mark);
@@ -71,6 +71,6 @@ class TechnicalEquipmentQueryFilter {
           $query = $query->condition('model', $this->Model);
         }
         if (empty($this->SearchQuery)) return $query;
-        return $query->condition('full_name',  '%' . $this->SearchQuery . '%', 'ILIKE');
+        return $query->condition("full_name",  '%' . $this->SearchQuery . '%', 'ILIKE');
     }
 }

@@ -262,8 +262,8 @@ def from_tractordata(manufacturer: str, model_data: dict) -> EquipmentModel:
     clean_mark = clean_key(manufacturer)
     if clean_mark in convert_marks.keys():
         manufacturer = convert_marks[clean_mark]
-    sub_category = EquipmentSubCategory.Tractor4x4 if EquipmentModelMetadata.Powertrain.value[0] in specs and specs[EquipmentModelMetadata.Powertrain.value[0]] == '4x4' else EquipmentSubCategory.Tractor4x2
-    return EquipmentModel(manufacturer, model_data['model'], EquipmentCategory.Tractor.value[0], sub_category.value[0], EquipmentLevelCode.Base.value, -1, specs, [model_data['url']])
+    sub_category = 'tractor_4x4' if EquipmentModelMetadata.Powertrain.value[0] in specs and specs[EquipmentModelMetadata.Powertrain.value[0]] == '4x4' else 'tractor_4x2'
+    return EquipmentModel(manufacturer, model_data['model'], 'tractor', sub_category, EquipmentLevelCode.Base.value, -1, specs, [model_data['url']])
 
 def get_tractordata_catalog() -> list[EquipmentModel]:
     items = []

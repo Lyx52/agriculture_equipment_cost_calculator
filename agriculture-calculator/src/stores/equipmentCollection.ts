@@ -6,6 +6,8 @@ import {
     type EquipmentTypeCategory,
     EquipmentTypesToCategories
 } from "@/stores/constants/EquipmentTypes";
+import type {OperationType} from "@/stores/constants/OperationTypes";
+import {EquipmentSubTypesToOperations, getEquipmentSubTypesByOperation} from "@/stores/constants/OperationTypes";
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     state: (): { items: EquipmentInformationModel[] } => {
@@ -23,8 +25,12 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
             this.items = this.items.filter(i => i.uniqueId !== itemId);
         },
         getEquipmentByTypeCategory(equipmentTypeCategory: EquipmentTypeCategory): TableItem<EquipmentInformationModel>[] {
-            console.log(equipmentTypeCategory, this.items)
             return this.items.filter(e => EquipmentTypesToCategories[e.equipmentType] === equipmentTypeCategory)
-        }
+        },
+        getEquipmentByTypeCategoryAndOperation(equipmentTypeCategory: EquipmentTypeCategory, operationType: OperationType): TableItem<EquipmentInformationModel>[] {
+            return this.items
+                .filter(e => EquipmentTypesToCategories[e.equipmentType] === equipmentTypeCategory)
+                .filter(e => getEquipmentSubTypesByOperation(equipmentTypeCategory, operationType).includes(e.equipmentSubType))
+        },
     }
 });

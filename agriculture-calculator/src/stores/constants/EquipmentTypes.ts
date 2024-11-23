@@ -2,42 +2,55 @@ import type {IOption} from "@/stores/interfaces/IOption";
 
 export type EquipmentType =
     'tractor' |
-    'combine' |
+    'harvesting_equipment' |
+    'soil_cultivation_equipment' |
+    'feed_preperation_equipment' |
+    'sowing_and_planting_equipment';
+
+export type EquipmentSubType =
+    'tractor_4x2' |
+    'tractor_4x4' |
     'plough' |
-    'cultivator' |
-    'fertilizer_spreader' |
-    'seed_drill' |
     'harrow' |
-    'sprayer' |
+    'combine' |
+    'potato_combine' |
+    'cultivator' |
     'row_cultivator' |
-    'barrel' |
-    'semitrailer';
+    'packing_press' |
+    'balling_press' |
+    'seed_drill' |
+    'planter';
+
 export const EquipmentTypes = {
     'tractor': 'Traktors',
-    'combine': 'Kombains',
-    'plough': 'Arkls',
-    'cultivator':  'Kultivators',
-    'fertilizer_spreader':'Minerālmēslu izkliedētētājs',
-    'seed_drill': 'Sējmašīna',
-    'harrow': 'Ecēšas',
-    'sprayer': 'Smidzinātājs',
-    'row_cultivator': 'Rindstarpu kultivators',
-    'barrel': 'Muca',
-    'semitrailer': 'Puspiekabe',
+    'harvesting_equipment': 'Ražas novākšanas tehnika',
+    'soil_cultivation_equipment': 'Augsnes apstrādes tehnika',
+    'feed_preperation_equipment': 'Lopbarības sagatavošanas tehnika',
+    'sowing_and_planting_equipment': 'Sējas un stādāmā tehnika'
 } as Record<EquipmentType, string>;
+
+export const EquipmentSubTypes = {
+    'tractor_4x2': 'Traktors 4x2',
+    'tractor_4x4': 'Traktors 4x4',
+    'plough': 'Arkls',
+    'harrow': 'Ecēšas',
+    'combine': 'Kombains',
+    'potato_combine': 'Kartupeļu kombains',
+    'cultivator': 'Lauku kultivators',
+    'row_cultivator': 'Rindstarpu kultivators',
+    'packing_press': 'Ķīpu prese',
+    'balling_press': 'Rituļu prese',
+    'seed_drill': 'Sējmašīna',
+    'planter': 'Stādītājs'
+} as Record<EquipmentSubType, string>;
+
 export type EquipmentTypeCategory = 'tractor' | 'combine' | 'tractor_equipment';
 export const EquipmentTypesToCategories = {
     'tractor': 'tractor',
-    'combine': 'combine',
-    'plough': 'tractor_equipment',
-    'cultivator':  'tractor_equipment',
-    'fertilizer_spreader':'tractor_equipment',
-    'seed_drill': 'tractor_equipment',
-    'harrow': 'tractor_equipment',
-    'sprayer': 'tractor_equipment',
-    'row_cultivator': 'tractor_equipment',
-    'barrel': 'tractor_equipment',
-    'semitrailer': 'tractor_equipment',
+    'harvesting_equipment': 'combine',
+    'soil_cultivation_equipment': 'tractor_equipment',
+    'feed_preperation_equipment': 'tractor_equipment',
+    'sowing_and_planting_equipment': 'tractor_equipment',
 } as Record<EquipmentType, EquipmentTypeCategory>;
 
 export const getEquipmentTypesByCategory = (equipmentTypeCategory: EquipmentTypeCategory): EquipmentType[] => {
@@ -51,8 +64,20 @@ export const EquipmentTypeCategories = {
     'combine': 'Kombaini',
     'tractor_equipment': 'Traktortehnikas aprīkojums',
 } as Record<EquipmentTypeCategory, string>
+
 export const EquipmentTypeOptions = Object.keys(EquipmentTypes)
     .map(equipmentType => ({
         text: EquipmentTypes[equipmentType as EquipmentType],
         value: equipmentType
     })) as IOption<EquipmentType>[];
+
+export type EquipmentLevelType =
+    'base' |
+    'medium' |
+    'premium';
+
+export const EquipmentLevelTypes = {
+    'base': 'Bāzes',
+    'medium': 'Vidējs',
+    'premium': 'Premium'
+} as Record<EquipmentLevelType, string>

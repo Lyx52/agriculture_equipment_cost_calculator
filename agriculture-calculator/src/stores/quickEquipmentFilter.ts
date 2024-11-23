@@ -10,6 +10,7 @@ export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`qu
             searchText: '',
             selectedItem: undefined,
             filteredEquipmentTypes: ['tractor'],
+            filteredEquipmentSubTypes: ['tractor_4x2', 'tractor_4x4'],
             showDropdown: false,
             filteredEquipment: [],
             filterTo: 100,
@@ -31,7 +32,8 @@ export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`qu
         },
         async fetchByFilters() {
             const params = new URLSearchParams();
-           // params.set('category', this.filteredCategory.join(','));
+            params.set('category', this.filteredEquipmentTypes.join(','));
+            params.set('sub_category', this.filteredEquipmentSubTypes.join(','));
             params.set('from', this.filterFrom.toString());
             params.set('to', this.filterTo.toString());
             if (this.searchText.length >= 2) {

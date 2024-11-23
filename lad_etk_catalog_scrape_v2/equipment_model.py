@@ -22,6 +22,7 @@ class EquipmentModelMetadata(Enum):
     BaseEquipmentWidth = 'base_equipment_width',
     BaleWidth = 'bale_width',
     BaleDiameter = 'bale_diameter',
+    BaleHeight = 'bale_height',
     DiscDiameter = 'disc_diameter',
     WorkCapacityL = 'work_capacity_l',
     WorkCapacityKg = 'work_capacity_kg',
@@ -34,22 +35,19 @@ class EquipmentLevelCode(Enum):
 
 class EquipmentCategory(Enum):
     Tractor = "tractor",
-    Combine = "combine",
-    Plough = "plough",
-    Harrow = "harrow",
-    SeedDrill = "seed_drill",
-    Seeder = "seeder",
-    Mower = "mower",
-    Disc = "disc",
-    Chipper = "chipper",
-    Cultivator = "cultivator",
-    BalerPress = "baler_press",
-    Rake = "rake",
-    Sprayer = "sprayer",
-    Other = "other"
+    SoilCultivationEquipment = "soil_cultivation_equipment",
+    FeedPreperationEquipment = "feed_preperation_equipment"
+
 class EquipmentSubCategory(Enum):
     Tractor4x2 = "tractor_4x2",
-    Tractor4x4 = "tractor_4x4"
+    Tractor4x4 = "tractor_4x4",
+    Plough = "plough",
+    Harrow = "harrow",
+    Combine = "combine",
+    Cultivator = "cultivator",
+    RowCultivator = "row_cultivator"
+    PackingPress = 'packing_press',
+    BallingPress = 'balling_press'
 
 class EquipmentModel:
     specification: dict

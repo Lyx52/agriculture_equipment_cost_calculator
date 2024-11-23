@@ -30,20 +30,10 @@ ALTER TABLE IF EXISTS uzc_gazes.technical_equipment
 ALTER TABLE IF EXISTS uzc_gazes.macus_equipment_prices
     OWNER to drupal8;
 
-
+DROP VIEW IF EXISTS uzc_gazes.v_equipment_search;
 CREATE OR REPLACE VIEW uzc_gazes.v_equipment_search AS
 SELECT 
-	t.id, 
-	concat(t.mark, ' ', t.model, 
-		CASE
-			WHEN t.equipment_level_code LIKE 'medium' THEN ' (Vidējs) '
-			WHEN t.equipment_level_code LIKE 'premium' THEN ' (Premium) '
-			ELSE ' (Bāzes) '
-		END,
-        CASE
-            WHEN (t.specification -> 'engine_power_kw'::text) IS NOT NULL THEN concat((t.specification -> 'engine_power_kw'::text)::numeric(10,2), ' kw')
-            ELSE ''::text
-        END) AS full_name,
+	CONCAT(t.mark, '', t.model) as full_name,
 	t.mark,
 	t.model,
 	t.price,
@@ -51,6 +41,5 @@ SELECT
 	t.sub_category_code,
 	t.equipment_level_code,
 	t.specification,
-	t.sources,
-	t.specification -> 'engine_power_kw' AS power
+	t.sources
 FROM uzc_gazes.technical_equipment AS t

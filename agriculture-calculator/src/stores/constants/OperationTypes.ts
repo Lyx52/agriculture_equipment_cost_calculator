@@ -1,4 +1,5 @@
 import type {IOption} from "@/stores/interfaces/IOption";
+import type {EquipmentSubType, EquipmentType, EquipmentTypeCategory} from "@/stores/constants/EquipmentTypes";
 
 export type OperationType =
     'threshing' |
@@ -9,20 +10,20 @@ export type OperationType =
     'harrowing' |
     'spraying' |
     'row_cultivation' |
-    'transporting_water' |
-    'transporting';
+    'baling' |
+    'digging';
 
 export const Operations = {
     'threshing': 'Kulšana',
+    'digging': 'Izrakšana',
     'ploughing': 'Aršana',
     'cultivating': 'Kultivēšana',
     'fertilizer_spreading': 'Minerālmēslu izkliedēšana',
     'sowing': 'Sēja',
     'harrowing': 'Ecēšana',
-    'spraying': 'Smidzināšana',
+    // 'spraying': 'Smidzināšana', // TODO
     'row_cultivation': 'Rindstarpu kultivēšana',
-    'transporting_water': 'Ūdens pievešana',
-    'transporting': 'Transportēšana'
+    'baling': 'Siena presēšana'
 } as Record<OperationType, string>
 
 export const OperationOptions = Object.keys(Operations)
@@ -31,8 +32,23 @@ export const OperationOptions = Object.keys(Operations)
         value: operationType
     })) as IOption<OperationType>[];
 
-export const isCombineOperation = (operation: OperationType): boolean => {
-    return [
-        'threshing'
-    ].includes(operation);
-}
+export const EquipmentSubTypesToOperations = {
+    'harrow': 'harrowing',
+    'combine': 'threshing',
+    'potato_combine': 'digging',
+    'plough': 'ploughing',
+    'cultivator': 'cultivating',
+    'row_cultivator': 'row_cultivation',
+    'packing_press': 'baling',
+    'balling_press': 'baling',
+    'seed_drill': 'sowing',
+    'planter': 'sowing'
+} as Record<EquipmentSubType, OperationType>;
+
+export const getEquipmentSubTypesByOperation = (equipmentTypeCategory: EquipmentTypeCategory, operationType: OperationType): EquipmentSubType[] => {
+    if (equipmentTypeCategory === 'tractor') {
+        return ['tractor_4x2', 'tractor_4x4'];
+    }
+    return Object.keys(EquipmentSubTypesToOperations)
+        .filter(e => EquipmentSubTypesToOperations[e as EquipmentSubType] === operationType) as EquipmentSubType[];
+};
