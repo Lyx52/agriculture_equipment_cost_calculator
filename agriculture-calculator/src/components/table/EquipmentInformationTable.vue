@@ -8,7 +8,7 @@
             >
                 Pievienot tehnikas vienību
             </BButton>
-            <span class="fs-5 w-100 text-center">{{ props.title }}</span>
+            <span class="fs-5 w-100 text-center">{{ EquipmentTypeCategories[props.equipmentTypeCategory] }}</span>
         </div>
         <div class="d-flex">
             <BTable
@@ -117,11 +117,11 @@
                 </template>
             </BTable>
         </div>
-        <TechnicalEquipmentModal
-            v-model="equipmentFilterStore.showSearchModal"
-            :equipment-filter-id="equipmentFilterId"
-            :equipmentTypeCategory="props.equipmentTypeCategory"
-        />
+<!--        <TechnicalEquipmentModal-->
+<!--            v-model="equipmentFilterStore.showSearchModal"-->
+<!--            :equipment-filter-id="equipmentFilterId"-->
+<!--            :equipmentTypeCategory="props.equipmentTypeCategory"-->
+<!--        />-->
     </div>
 </template>
 
@@ -143,7 +143,7 @@
     import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
     import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
     import TechnicalEquipmentModal from "@/components/modal/TechnicalEquipmentModal.vue";
-    import {EquipmentTypes} from "@/stores/constants/EquipmentTypes";
+    import {EquipmentTypeCategories, EquipmentTypes} from "@/stores/constants/EquipmentTypes";
 
     const sortBy = ref<BTableSortBy[]>([]);
     const equipmentFilterId = uuid();

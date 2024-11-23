@@ -53,9 +53,6 @@ const onClose = () => {
     equipmentFilterStore.resetFilter();
     equipmentInformationStore.$reset();
 }
-const onShow = async () => {
-    await equipmentFilterStore.setDefaults(props.searchFormIndex);
-}
 </script>
 
 <style scoped>

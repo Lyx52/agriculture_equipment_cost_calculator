@@ -39,7 +39,7 @@ export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`qu
             }
             this.isLoading = true;
             try {
-                const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/json/query?${params.toString()}`)
+                const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/query?${params.toString()}`)
                 const content: IResponse<IEquipmentInformation> = await res.json();
                 this.filteredEquipment = content.data.map(e => new EquipmentInformationModel(e));
             } finally {

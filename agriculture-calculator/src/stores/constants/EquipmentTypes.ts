@@ -6,7 +6,7 @@ export type EquipmentType =
     'plough' |
     'cultivator' |
     'fertilizer_spreader' |
-    'drill' |
+    'seed_drill' |
     'harrow' |
     'sprayer' |
     'row_cultivator' |
@@ -18,7 +18,7 @@ export const EquipmentTypes = {
     'plough': 'Arkls',
     'cultivator':  'Kultivators',
     'fertilizer_spreader':'Minerālmēslu izkliedētētājs',
-    'drill': 'Sējmašīna',
+    'seed_drill': 'Sējmašīna',
     'harrow': 'Ecēšas',
     'sprayer': 'Smidzinātājs',
     'row_cultivator': 'Rindstarpu kultivators',
@@ -32,7 +32,7 @@ export const EquipmentTypesToCategories = {
     'plough': 'tractor_equipment',
     'cultivator':  'tractor_equipment',
     'fertilizer_spreader':'tractor_equipment',
-    'drill': 'tractor_equipment',
+    'seed_drill': 'tractor_equipment',
     'harrow': 'tractor_equipment',
     'sprayer': 'tractor_equipment',
     'row_cultivator': 'tractor_equipment',

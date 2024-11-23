@@ -21,14 +21,12 @@
                                 v-for="category in Object.keys(EquipmentTypeCategories)"
                                 class="tab-pane"
                                 :class="{
-                                    active: currentTab == category
+                                    active: currentTab === category
                                 }"
                                 role="tabpanel"
                             >
                                 <EquipmentInformationTable
-                                    :equipment-types="['tractors']"
-                                    title="Traktortehnika"
-                                    :search-form-index="0"
+                                    :equipment-type-category="category as EquipmentTypeCategory"
                                 />
                             </div>
                         </div>

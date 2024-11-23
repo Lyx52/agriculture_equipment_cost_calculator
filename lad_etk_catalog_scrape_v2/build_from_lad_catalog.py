@@ -1,27 +1,27 @@
-from equipment_model import EquipmentModelMetadata, EquipmentModel, EquipmentLevelCode, EquipmentCategory
+from equipment_model import EquipmentModelMetadata, EquipmentModel, EquipmentLevelCode, EquipmentCategory, EquipmentSubCategory
 from utils import open_json, save_json, clean_key, clean_value, convert_zs_to_kw
 import os, re
 common_categories_convert = {
     "Lauksaimniecības traktors": EquipmentCategory.Tractor,
-    "Diski": EquipmentCategory.Disc,
-    "Ecēšas": EquipmentCategory.Harrow,
-    "Arkls": EquipmentCategory.Plough,
-    "Smidzinātājs": EquipmentCategory.Sprayer,
-    "Organisko mēslu izkliedētājs": EquipmentCategory.Sprayer,
-    "Šķidrmēslu cisterna": EquipmentCategory.Sprayer,
-    "Sējmašīna": EquipmentCategory.Seeder,
-    "Sīksēklu sējmašīna": EquipmentCategory.Seeder,
-    "Pļaujmašīna": EquipmentCategory.Mower,
-    "Dārzeņu stādāmā mašīna": EquipmentCategory.Planter,
-    "Graudaugu kombains": EquipmentCategory.Combine,
-    "Ogu novākšans kombains": EquipmentCategory.Combine,
-    "Dārzeņu novākšanas kombains": EquipmentCategory.Combine,
-    "Rindstarpu kultivators": EquipmentCategory.Cultivator,
-    "Kultivators": EquipmentCategory.Cultivator,
-    "Rugaines kultivators": EquipmentCategory.Cultivator,
-    "Rituļu prese": EquipmentCategory.BalerPress,
-    "Dziļirdinātājs": EquipmentCategory.Plough,
-    "Minerālmēslu un kaļķa izkliedētājs": EquipmentCategory.Sprayer
+    # "Diski": EquipmentCategory.Disc,
+    # "Ecēšas": EquipmentCategory.Harrow,
+    # "Arkls": EquipmentCategory.Plough,
+    # "Smidzinātājs": EquipmentCategory.Sprayer,
+    # "Organisko mēslu izkliedētājs": EquipmentCategory.Sprayer,
+    # "Šķidrmēslu cisterna": EquipmentCategory.Sprayer,
+    # "Sējmašīna": EquipmentCategory.Seeder,
+    # "Sīksēklu sējmašīna": EquipmentCategory.Seeder,
+    # "Pļaujmašīna": EquipmentCategory.Mower,
+    # "Dārzeņu stādāmā mašīna": EquipmentCategory.Planter,
+    # "Graudaugu kombains": EquipmentCategory.Combine,
+    # "Ogu novākšans kombains": EquipmentCategory.Combine,
+    # "Dārzeņu novākšanas kombains": EquipmentCategory.Combine,
+    # "Rindstarpu kultivators": EquipmentCategory.Cultivator,
+    # "Kultivators": EquipmentCategory.Cultivator,
+    # "Rugaines kultivators": EquipmentCategory.Cultivator,
+    # "Rituļu prese": EquipmentCategory.BalerPress,
+    # "Dziļirdinātājs": EquipmentCategory.Plough,
+    # "Minerālmēslu un kaļķa izkliedētājs": EquipmentCategory.Sprayer
 }
 common_equipment_level_convert = {
     "Premium": EquipmentLevelCode.Premium,
@@ -32,6 +32,7 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
     specs = {}
     source = ""
     category = ""
+    sub_category = ""
     manufacturer = ""
     model = ""
     equipment_level_code = EquipmentLevelCode.Base
@@ -94,6 +95,8 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
                 equipment_level_code = common_equipment_level_convert[value]
             case 'aprikojuma_apraksts':
                 #print(list(map(lambda v: v.strip(), value.split(','))))
+                if EquipmentModelMetadata.Powertrain.value[0] not in specs:
+                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4' if '4WD' in value or '4x4' in value else '4x2'
                 continue
             case 'cena_bez_pvn_eur':
                 price = float(value)
@@ -104,7 +107,7 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
             case 'ritenu_formula':
                 match value:
                     case 'kāpurķēžu':
-                        specs[EquipmentModelMetadata.Powertrain.value[0]] = 'crawler'
+                        specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
                     case _:
                         raise Exception(f"Unknown power train {value}")
             case 'hidrosukna_razigums_l_min':
@@ -173,8 +176,9 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
                 continue
             case _:
                 raise Exception(f"Unknown spec key {cleaned_key} -> {value}")
-                
-    return EquipmentModel(manufacturer, model, category, equipment_level_code, price, specs, [source])
+    if category == EquipmentCategory.Tractor:
+        sub_category = EquipmentSubCategory.Tractor4x4 if specs[EquipmentModelMetadata.Powertrain.value[0]] == '4x4' else EquipmentSubCategory.Tractor4x2
+    return EquipmentModel(manufacturer, model, category.value[0], sub_category.value, equipment_level_code.value, price, specs, [source])
 
 def get_lad_catalog() -> list[EquipmentModel]:
     items = []

@@ -37,7 +37,7 @@ class EquipmentCategory(Enum):
     Combine = "combine",
     Plough = "plough",
     Harrow = "harrow",
-    Planter = "planter",
+    SeedDrill = "seed_drill",
     Seeder = "seeder",
     Mower = "mower",
     Disc = "disc",
@@ -47,20 +47,25 @@ class EquipmentCategory(Enum):
     Rake = "rake",
     Sprayer = "sprayer",
     Other = "other"
+class EquipmentSubCategory(Enum):
+    Tractor4x2 = "tractor_4x2",
+    Tractor4x4 = "tractor_4x4"
 
 class EquipmentModel:
     specification: dict
-    category: EquipmentCategory
-    equipment_level_code: EquipmentLevelCode
+    category: str
+    sub_category: str
+    equipment_level_code: str
     price: float
     sources: list[str]
     manufacturer: str
     model: str
     manufacturer_key: str
     model_key: str
-    def __init__(self, manufacturer: str, model: str, category: EquipmentCategory, equipment_level_code: EquipmentLevelCode, price: float, specification: dict, sources: list[str]):
+    def __init__(self, manufacturer: str, model: str, category: str, sub_category: str, equipment_level_code: str, price: float, specification: dict, sources: list[str]):
         self.specification = specification
         self.category = category
+        self.sub_category = sub_category
         self.equipment_level_code = equipment_level_code
         self.price = price
         self.sources = sources
@@ -71,12 +76,13 @@ class EquipmentModel:
 
     def toDict(self) -> dict:
         return {
-            "category": str(self.category.value[0]),
+            "category": str(self.category),
+            "sub_category": str(self.sub_category),
             "manufacturer": str(self.manufacturer),
             "model": str(self.model),
             "sources": self.sources,
             "price": self.price,
-            "equipment_level_code":  str(self.equipment_level_code.value),
+            "equipment_level_code":  str(self.equipment_level_code),
             "specification": self.specification,
             "model_key": self.model_key,
             "manufacturer_key": self.manufacturer_key

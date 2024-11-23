@@ -1,4 +1,4 @@
-from equipment_model import EquipmentModelMetadata, EquipmentModel, EquipmentLevelCode, EquipmentCategory
+from equipment_model import EquipmentModelMetadata, EquipmentModel, EquipmentLevelCode, EquipmentCategory, EquipmentSubCategory
 from utils import open_json, save_json, clean_key, clean_value, convert_zs_to_kw, avg
 import os, re
 convert_marks = {
@@ -191,31 +191,16 @@ def from_tractordata(manufacturer: str, model_data: dict) -> EquipmentModel:
                 if '4x2' in value.lower() or '2x4' in value.lower():
                     specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
                     continue
-                if '1wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
-                    continue
                 if '2wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
-                    continue
-                if '3wd' in value.lower():
                     specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
                     continue
                 if '4wd' in value.lower():
                     specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
                     continue
-                if '6wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
-                    continue
-                if '8wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
-                    continue
                 if 'crawler' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = 'crawler'
+                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
                     continue
-                if 'half-track' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = 'crawler'
-                    continue
-                raise Exception(f"Unknown drive {key} {value}")
+                continue
             case 'chassis':
                 if '4x4' in value.lower():
                     specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
@@ -223,31 +208,16 @@ def from_tractordata(manufacturer: str, model_data: dict) -> EquipmentModel:
                 if '4x2' in value.lower() or '2x4' in value.lower():
                     specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
                     continue
-                if '1wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
-                    continue
                 if '2wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
-                    continue
-                if '3wd' in value.lower():
                     specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
                     continue
                 if '4wd' in value.lower():
                     specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
                     continue
-                if '6wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
-                    continue
-                if '8wd' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
-                    continue
                 if 'crawler' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = 'crawler'
+                    specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
                     continue
-                if 'half-track' in value.lower():
-                    specs[EquipmentModelMetadata.Powertrain.value[0]] = 'crawler'
-                    continue
-                raise Exception(f"Unknown powertrain {value}")
+                continue
             case _:
                 if 'fuel_tank' in key:
                     if value['unit'] != 'l':
@@ -292,7 +262,8 @@ def from_tractordata(manufacturer: str, model_data: dict) -> EquipmentModel:
     clean_mark = clean_key(manufacturer)
     if clean_mark in convert_marks.keys():
         manufacturer = convert_marks[clean_mark]
-    return EquipmentModel(manufacturer, model_data['model'], EquipmentCategory.Tractor, EquipmentLevelCode.Base, -1, specs, [model_data['url']])
+    sub_category = EquipmentSubCategory.Tractor4x4 if EquipmentModelMetadata.Powertrain.value[0] in specs and specs[EquipmentModelMetadata.Powertrain.value[0]] == '4x4' else EquipmentSubCategory.Tractor4x2
+    return EquipmentModel(manufacturer, model_data['model'], EquipmentCategory.Tractor.value[0], sub_category.value[0], EquipmentLevelCode.Base.value, -1, specs, [model_data['url']])
 
 def get_tractordata_catalog() -> list[EquipmentModel]:
     items = []

@@ -27,9 +27,9 @@ def index(table):
     return json_dumps(data)
 filter_cache = {}
 
-@route('/uzc_gazes/technical_equipment/filters/<filter>')
-def filters(filter):
-    url = f"https://www.uzc.lbtu.lv/lv/uzc_gazes/technical_equipment/filters/{filter}?{request.urlparts.query}"
+@route('/uzc_gazes/technical_equipment/query')
+def query():
+    url = f"https://www.uzc.lbtu.lv/lv/uzc_gazes/technical_equipment/query?{request.urlparts.query}"
     if url in filter_cache:
         data = filter_cache[url]
     else:

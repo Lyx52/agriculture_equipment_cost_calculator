@@ -23,6 +23,7 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
             this.items = this.items.filter(i => i.uniqueId !== itemId);
         },
         getEquipmentByTypeCategory(equipmentTypeCategory: EquipmentTypeCategory): TableItem<EquipmentInformationModel>[] {
+            console.log(equipmentTypeCategory, this.items)
             return this.items.filter(e => EquipmentTypesToCategories[e.equipmentType] === equipmentTypeCategory)
         }
     }
