@@ -34,20 +34,12 @@ uzc_gazes.combined:
   requirements:
     _permission: 'access content'
 uzc_gazes.technical_equipment:
-    path: '/uzc_gazes/technical_equipment/{content_type}/query'
+    path: '/uzc_gazes/technical_equipment/query'
     defaults:
         _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::query'
         _title: 'Technical equipment data'
     requirements:
-        _user_is_logged_in: 'TRUE'
-uzc_gazes.technical_equipment_filters:
-  path: '/uzc_gazes/technical_equipment/filters/{equipment_filter}'
-  defaults:
-    _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::getEquipmentFilters'
-  requirements:
-    _permission: 'access content'
-  options:
-    no_cache: true
+      _permission: 'access content'
 uzc_gazes.meteo_data:
   path: '/uzc_gazes/meteo/{content_type}/query'
   defaults:
@@ -62,9 +54,3 @@ uzc_gazes.agrihort_meteo_data:
     _title: 'Agrihort meteo data'
   requirements:
     _user_is_logged_in: 'TRUE'
-uzc_gazes.calculator:
-    path: '/uzc_gazes/calculator/{calculator_type}'
-    defaults:
-      _controller: 'Drupal\uzc_gazes\Controller\CalculatorController::calculator'
-    requirements:
-      _user_is_logged_in: 'TRUE'

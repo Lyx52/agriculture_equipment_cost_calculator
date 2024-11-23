@@ -26,34 +26,6 @@ class TechnicalEquipmentRepository implements ContainerInjectionInterface {
     public static function getRepository() : object {
         return \Drupal::getContainer()->get('uzc_gazes.technical_equipment_repository');
     }
-
-    public function getCategories(): array {
-        $query = $this->connection->select('v_equipment_categories', 'f')->fields('f');
-        return $query->execute()->fetchAll();
-    }
-    public function getMarks(string $category = null, string $subCategory = null): array {
-        $query = $this->connection->select('v_equipment_mark', 'f')->fields('f');
-        if (!empty($category)) {
-            $query->condition('category_code', $category);
-        }
-        if (!empty($subCategory)) {
-            $query->condition('sub_category_code', $subCategory);
-        }
-        return $query->execute()->fetchAll();
-    }
-    public function getModels(string $mark = null, string $category = null, string $subCategory = null): array {
-        $query = $this->connection->select('v_equipment_mark_model', 'f')->fields('f');
-        if (!empty($category)) {
-            $query->condition('category_code', $category);
-        }
-        if (!empty($subCategory)) {
-            $query->condition('sub_category_code', $subCategory);
-        }
-        if (!empty($mark)) {
-            $query->condition('mark', $mark);
-        }
-        return $query->execute()->fetchAll();
-    }
     /**
     * @param \Drupal\uzc_gazes\Model\TechnicalEquipmentQueryFilter $filter
     * @return array
@@ -63,27 +35,10 @@ class TechnicalEquipmentRepository implements ContainerInjectionInterface {
         $totalCount = $query->countQuery()->execute()->fetchField();
         $query = $filter->fillDbQuery($query, 't');
         $totalCountFiltered = $query->countQuery()->execute()->fetchField();
-        $result = [];
         $query->range($filter->Start ?? 0, $filter->Length ?? $totalCount);
         $data = $query->execute()->fetchAll();
-
-        foreach ($data as $row) {
-            $result[] = (object)[
-                'id' => $row->id,
-                'fullEquipmentName' => $row->full_name,
-                'mark' => $row->mark,
-                'model' => $row->model,
-                'price' => $row->price,
-                'categoryCode' => $row->category_code,
-                'subCategoryCode' => $row->sub_category_code,
-                'equipmentLevelCode' => $row->equipment_level_code,
-                'specification' => json_decode($row->specification),
-                'sources' => json_decode($row->sources),
-                'power' => $row->power,
-            ];
-        }
         return [
-            'data' => $result,
+            'data' => $data,
             'recordsTotal' => intval($totalCount),
             'recordsFiltered' => intval($totalCountFiltered),
             'start' => $filter->Start ?? 0,
