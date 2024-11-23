@@ -1,5 +1,4 @@
 import {defineStore} from "pinia";
-import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import type {TableItem} from "bootstrap-vue-next";
 import {
@@ -16,6 +15,8 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     },
     actions: {
         pushItem(item: EquipmentInformationModel) {
+            if (this.items.some(e => e.uniqueId === item.uniqueId))
+                return;
             this.items.push(item);
         },
         removeItem(itemId: string) {

@@ -18,14 +18,26 @@
                             :options="OperationOptions"
                         />
                     </BTd>
-                    <BTd v-if="row.operation === 'ploughing'">
-                        <BDropdownSelectEquipment />
+                    <BTd v-if="!isCombineOperation(row.operation)">
+                        <BDropdownSelectEquipment
+                            v-model="row.tractor"
+                            equipment-type-category="tractor"
+                            @on-equipment-selected="onEquipmentSelected"
+                        />
                     </BTd>
-                    <BTd v-if="row.operation === 'ploughing'">
-                        <BDropdownSelectEquipment />
+                    <BTd v-if="!isCombineOperation(row.operation)">
+                        <BDropdownSelectEquipment
+                            v-model="row.equipment"
+                            equipment-type-category="tractor_equipment"
+                            @on-equipment-selected="onEquipmentSelected"
+                        />
                     </BTd>
                     <BTd v-else colspan="2">
-                        <BDropdownSelectEquipment />
+                        <BDropdownSelectEquipment
+                            v-model="row.combine"
+                            equipment-type-category="combine"
+                            @on-equipment-selected="onEquipmentSelected"
+                        />
                     </BTd>
                 </BTr>
                 <BTr>
@@ -50,15 +62,19 @@ import {
 } from "bootstrap-vue-next";
 import type {IOperation} from "@/stores/interfaces/IOperation";
 import {useOperationCollectionStore} from "@/stores/operationCollection";
-import {OperationOptions} from "@/stores/constants/OperationTypes";
+import {isCombineOperation, OperationOptions} from "@/stores/constants/OperationTypes";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import BDropdownSelectEquipment from "@/components/elements/BDropdownSelectEquipment.vue";
+import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
 const operationCollectionStore = useOperationCollectionStore();
+const equipmentCollectionStore = useEquipmentCollectionStore();
 const addOperation = () => {
     operationCollectionStore.pushItem({
-        operation: 'ploughing',
-        equipment: [] as EquipmentInformationModel[]
+        operation: 'ploughing'
     } as IOperation);
+}
+const onEquipmentSelected = (item: EquipmentInformationModel) => {
+    equipmentCollectionStore.pushItem(item);
 }
 </script>
 <style scoped>

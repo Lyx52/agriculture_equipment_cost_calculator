@@ -39,6 +39,13 @@ export const EquipmentTypesToCategories = {
     'barrel': 'tractor_equipment',
     'semitrailer': 'tractor_equipment',
 } as Record<EquipmentType, EquipmentTypeCategory>;
+
+export const getEquipmentTypesByCategory = (equipmentTypeCategory: EquipmentTypeCategory): EquipmentType[] => {
+    return Object
+        .keys(EquipmentTypesToCategories)
+        .filter(c => EquipmentTypesToCategories[c as EquipmentType] === equipmentTypeCategory) as EquipmentType[];
+}
+
 export const EquipmentTypeCategories = {
     'tractor': 'Traktortehnika',
     'combine': 'Kombaini',

@@ -30,3 +30,9 @@ export const OperationOptions = Object.keys(Operations)
         text: Operations[operationType as OperationType],
         value: operationType
     })) as IOption<OperationType>[];
+
+export const isCombineOperation = (operation: OperationType): boolean => {
+    return [
+        'threshing'
+    ].includes(operation);
+}

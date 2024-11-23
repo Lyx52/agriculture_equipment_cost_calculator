@@ -5,6 +5,7 @@
             class="w-100"
             @click="filterStore.showDropdown = true"
             v-if="!filterStore.showDropdown"
+            ref="_button"
         >
             <div class="d-flex">
                 <span class="ms-auto me-auto">{{ filterStore.selectedItem?.fullEquipmentName ?? '--Izvēlēties--' }}</span>
@@ -21,11 +22,13 @@
             v-if="filterStore.showDropdown"
             autofocus
             @input="filterStore.fetchByFilters"
+            ref="_search_bar"
         />
         <ul
             class="dropdown-menu short-dropdown w-100 mw-fit-content"
             :class="{ show: filterStore.showDropdown }"
             @scroll="filterStore.onSearchDropdownScroll"
+            ref="_floating"
         >
             <BOverlay
                 :show="filterStore.isLoading"
@@ -55,24 +58,39 @@ import {
     BFormInput,
     BButton,
     BDropdownDivider,
-    BSpinner,
     BOverlay
 } from "bootstrap-vue-next";
 import {v4 as uuid} from 'uuid';
 import {useQuickEquipmentFilterStore} from "@/stores/quickEquipmentFilter";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
-import {onMounted} from "vue";
+import {onMounted, useTemplateRef} from "vue";
+import {onClickOutside} from "@vueuse/core";
+import type {IBDropdownSelectEquipmentProps} from "@/stores/interfaces/props/IBDropdownSelectEquipmentProps";
+import {getEquipmentTypesByCategory} from "@/stores/constants/EquipmentTypes";
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const filterStore = useQuickEquipmentFilterStore(uuid());
+const floating = useTemplateRef<HTMLElement>('_floating');
+const button = useTemplateRef<HTMLElement>('_button');
+const searchBar = useTemplateRef<HTMLElement>('_search_bar');
+const model = defineModel<EquipmentInformationModel>()
+const props = defineProps<IBDropdownSelectEquipmentProps>();
+const emits = defineEmits(["onEquipmentSelected"])
+onClickOutside(floating, () => {
+    filterStore.showDropdown = false;
+}, {ignore: [button, searchBar]});
 
 onMounted(async () => {
+    filterStore.$patch({
+        filteredEquipmentTypes: getEquipmentTypesByCategory(props.equipmentTypeCategory)
+    });
     await filterStore.fetchByFilters();
 })
 
 const onClickEquipment = (selected: EquipmentInformationModel) => {
-    console.log(selected);
     filterStore.setSelectedEquipment(selected);
+    model.value = selected;
+    emits("onEquipmentSelected", selected);
 }
 </script>
 

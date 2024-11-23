@@ -5,11 +5,15 @@ import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformati
 
 export class OperationModel implements IOperation {
     operation: OperationType;
-    equipment: EquipmentInformationModel[];
+    equipment?: EquipmentInformationModel;
+    combine?: EquipmentInformationModel;
+    tractor?: EquipmentInformationModel;
     uniqueId: string;
     constructor(item: IOperation) {
         this.operation = item.operation;
         this.equipment = item.equipment;
+        this.tractor = item.tractor;
+        this.combine = item.combine;
         this.uniqueId = uuid();
     }
 }

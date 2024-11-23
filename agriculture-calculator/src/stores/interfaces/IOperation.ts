@@ -4,6 +4,8 @@ import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformati
 
 export interface IOperation {
     operation: OperationType;
-    equipment: EquipmentInformationModel[];
+    tractor?: EquipmentInformationModel;
+    combine?: EquipmentInformationModel;
+    equipment?: EquipmentInformationModel;
     uniqueId: string;
 }

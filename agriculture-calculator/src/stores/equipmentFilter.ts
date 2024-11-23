@@ -34,26 +34,6 @@ export const useEquipmentFilterStore = (storeId: string) => defineStore(`equipme
             this.showSearchModal = false;
             this.showSearchDropdown = false;
         },
-        async setDefaults(currentTab: number) {
-            switch (currentTab) {
-                case 0: {
-                    this.filteredEquipmentCategories = ['tractors'];
-                    this.selectedSubCategory = 'agriculture_tractor';
-                    this.selectedCategory = 'tractors';
-                } break;
-                case 1: {
-                    this.filteredEquipmentCategories = ['agricultural_harvesters'];
-                    this.selectedCategory = 'agricultural_harvesters';
-                    this.selectedSubCategory = '';
-                } break;
-                case 2: {
-                    this.filteredEquipmentCategories= ['sowing_and_plant_care_machines'];
-                    this.selectedCategory = '';
-                    this.selectedSubCategory = '';
-                } break;
-            }
-            await this.fetchMark();
-        },
         async onCategoryChange() {
             this.selectedMark = undefined;
             this.selectedModel = undefined;

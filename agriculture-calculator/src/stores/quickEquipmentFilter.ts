@@ -9,7 +9,7 @@ export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`qu
         return {
             searchText: '',
             selectedItem: undefined,
-            filteredCategory: ['tractor'],
+            filteredEquipmentTypes: ['tractor'],
             showDropdown: false,
             filteredEquipment: [],
             filterTo: 100,
