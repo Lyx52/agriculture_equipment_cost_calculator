@@ -6,7 +6,16 @@
             <div class="row">
                 <div class="col">
                     <BInputGroup prepend="Apstrādājamā platība" append="ha">
-                        <BFormInput v-model="propertyInformationStore.propertyHectares" id="propertySizeHectares" type="number" />
+                        <BNumericFormInput
+                            v-model="propertyInformationStore.propertyHectares"
+                            id="propertySizeHectares"
+                        />
+                    </BInputGroup>
+                    <BInputGroup prepend="Degvielas cena, EUR" append="l/EUR">
+                        <BNumericFormInput
+                            v-model="propertyInformationStore.fuelPrice"
+                           id="fuelPriceEur"
+                        />
                     </BInputGroup>
                 </div>
             </div>
@@ -16,6 +25,7 @@
 <script setup lang="ts">
     import {BFormFloatingLabel, BFormInput, BInputGroup} from 'bootstrap-vue-next'
     import {usePropertyInformationStore} from "@/stores/propertyInformation";
+    import BNumericFormInput from "@/components/elements/BNumericFormInput.vue";
 
     const propertyInformationStore = usePropertyInformationStore()
 </script>

@@ -5,7 +5,8 @@ import type {IPropertyInformation} from "@/stores/interfaces/IPropertyInformatio
 export const usePropertyInformationStore = defineStore('propertyInformation', {
     state: (): IPropertyInformation => {
         return {
-            propertyHectares: 100
+            propertyHectares: 100,
+            fuelPrice: 0.81
         }
     },
 });
