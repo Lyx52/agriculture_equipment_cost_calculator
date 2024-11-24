@@ -1,0 +1,1 @@
+export type PowerTrainType = '4x2' | '4x4';

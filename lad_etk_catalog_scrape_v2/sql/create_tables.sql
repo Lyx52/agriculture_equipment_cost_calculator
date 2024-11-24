@@ -41,5 +41,6 @@ SELECT
 	t.sub_category_code,
 	t.equipment_level_code,
 	t.specification,
-	t.sources
+	t.sources,
+	t.specification -> 'engine_power_kw' as "power"
 FROM uzc_gazes.technical_equipment AS t

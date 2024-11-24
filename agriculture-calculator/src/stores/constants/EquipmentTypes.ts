@@ -53,6 +53,21 @@ export const EquipmentTypesToCategories = {
     'sowing_and_planting_equipment': 'tractor_equipment',
 } as Record<EquipmentType, EquipmentTypeCategory>;
 
+export const EquipmentSubTypeToEquipmentTypes = {
+    'tractor_4x2': 'tractor',
+    'tractor_4x4': 'tractor',
+    'plough': 'soil_cultivation_equipment',
+    'harrow': 'soil_cultivation_equipment',
+    'combine': 'harvesting_equipment',
+    'potato_combine': 'harvesting_equipment',
+    'cultivator': 'soil_cultivation_equipment',
+    'row_cultivator': 'soil_cultivation_equipment',
+    'packing_press': 'feed_preperation_equipment',
+    'balling_press': 'feed_preperation_equipment',
+    'seed_drill': 'sowing_and_planting_equipment',
+    'planter': 'sowing_and_planting_equipment'
+} as Record<EquipmentSubType, EquipmentType>;
+
 export const getEquipmentTypesByCategory = (equipmentTypeCategory: EquipmentTypeCategory): EquipmentType[] => {
     return Object
         .keys(EquipmentTypesToCategories)
@@ -70,6 +85,23 @@ export const EquipmentTypeOptions = Object.keys(EquipmentTypes)
         text: EquipmentTypes[equipmentType as EquipmentType],
         value: equipmentType
     })) as IOption<EquipmentType>[];
+
+export const EquipmentSubTypeOptions = Object.keys(EquipmentSubTypes)
+    .map(equipmentType => ({
+        text: EquipmentSubTypes[equipmentType as EquipmentSubType],
+        value: equipmentType
+    })) as IOption<EquipmentSubType>[];
+
+export const getEquipmentTypeOptionsByCategory = (equipmentTypeCategory: EquipmentTypeCategory|undefined): IOption<EquipmentType>[] => {
+    if (!equipmentTypeCategory) return [];
+    return EquipmentTypeOptions.filter(o => EquipmentTypesToCategories[o.value as EquipmentType] === equipmentTypeCategory)
+}
+
+export const getEquipmentSubTypeOptionsByEquipmentType = (equipmentType: EquipmentType|undefined): IOption<EquipmentSubType>[] => {
+    if (!equipmentType) return [];
+    return EquipmentSubTypeOptions
+        .filter(o => EquipmentSubTypeToEquipmentTypes[o.value as EquipmentSubType] === equipmentType)
+}
 
 export type EquipmentLevelType =
     'base' |

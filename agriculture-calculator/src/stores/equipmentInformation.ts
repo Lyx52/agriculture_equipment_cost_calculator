@@ -5,7 +5,7 @@ import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformat
 
 
 export const useEquipmentInformationStore = defineStore('equipmentInformation',{
-    state: (): IEquipmentInformation => {
+    state: (): any => {
         return {
             id: '',
             fullEquipmentName: '',
@@ -20,7 +20,7 @@ export const useEquipmentInformationStore = defineStore('equipmentInformation',{
             remainingUseYears: undefined,
             hoursOfUse: undefined,
             mainInfo: {}
-        } as IEquipmentInformation;
+        } as any;
     },
     getters: {
         dataSources(): IDataSourceLink[] {

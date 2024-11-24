@@ -8,6 +8,12 @@ export function minBy(values: any[], key: any): any {
         return res;
     }, {});
 }
+export const unique = <T>(data: T[]): T[] => {
+    return data.reduce((res, val) => {
+        if (!res.includes(val)) res.push(val);
+        return res;
+    }, [] as T[]);
+};
 export function getClosestValue(values: any[], value: any) {
     return minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
 }

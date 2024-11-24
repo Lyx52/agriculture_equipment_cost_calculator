@@ -32,7 +32,6 @@
         >
             <BOverlay
                 :show="filterStore.isLoading"
-                spinner-variant="primary"
                 spinner-small
             >
                 <li><span class="ms-3">Esošā tehnika</span></li>

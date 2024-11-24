@@ -6,6 +6,7 @@ import type {IDataSourceLink} from "@/stores/interfaces/IDataSourceLink";
 import { v4 as uuid } from 'uuid';
 import type {EquipmentSubType, EquipmentType} from "@/stores/constants/EquipmentTypes";
 import {EquipmentLevelTypes} from "@/stores/constants/EquipmentTypes";
+import type {IEquipmentSpecification} from "@/stores/interfaces/IEquipmentSpecification";
 export class EquipmentInformationModel {
     equipmentType: EquipmentType;
     equipmentSubType: EquipmentSubType;
@@ -19,7 +20,7 @@ export class EquipmentInformationModel {
     price: number | undefined;
     remainingUseYears: number | undefined;
     sources: string[];
-    specification: any;
+    specification: IEquipmentSpecification;
     uniqueId: string;
     constructor(equipmentInformation: IEquipmentInformation) {
         this.equipmentType = equipmentInformation.category_code;
@@ -27,21 +28,22 @@ export class EquipmentInformationModel {
         this.currentUseYears = 0;
         this.equipmentLevelCode = equipmentInformation.equipment_level_code;
         this.fullEquipmentName = `${equipmentInformation.mark} ${equipmentInformation.model} (${EquipmentLevelTypes[equipmentInformation.equipment_level_code]})`;
-        if (equipmentInformation.specification['engine_power_kw']) {
-            this.fullEquipmentName += ` ${equipmentInformation.specification['engine_power_kw']} kw`
+        this.specification = JSON.parse(equipmentInformation.specification);
+        if (this.specification.engine_power_kw) {
+            this.fullEquipmentName += ` ${this.specification.engine_power_kw.toFixed(2)} kw`
         }
         this.mainInfo = {};
         this.mark = equipmentInformation.mark;
         this.model = equipmentInformation.model;
         this.price = equipmentInformation.price;
         this.remainingUseYears = 0;
-        this.sources = equipmentInformation.sources;
-        this.specification = equipmentInformation.specification;
+        this.sources = JSON.parse(equipmentInformation.sources);
+
         this.uniqueId = uuid();
     }
     getHorsePower() {
         // 1 kw = 1.3596216173 hp
-        return (this.specification?.power ?? 0) * 1.3596216173;
+        return (this.specification.engine_power_kw ?? 0) * 1.3596216173;
     }
     getTotalUseYears() {
         return Number(this.currentUseYears ?? 0) + Number(this.remainingUseYears ?? 0);

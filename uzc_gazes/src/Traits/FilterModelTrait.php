@@ -17,4 +17,8 @@ trait FilterModelTrait {
         if (!isset($param) || !is_numeric($param)) return null;
         return intval($param);
     }
+    private static function toValidFloat(string|null $param): float|null {
+      if (!isset($param) || !is_numeric($param)) return null;
+      return floatval($param);
+    }
 }

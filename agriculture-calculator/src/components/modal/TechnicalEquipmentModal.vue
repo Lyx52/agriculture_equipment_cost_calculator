@@ -1,26 +1,26 @@
 <template>
     <div class="greetings">
-        <BModal class="modal-xl" v-model="model" :hideFooter="true"
-                @hide="onClose"
-                @show="onShow"
+        <BModal class="modal-xl" v-model="model"
+            @hide="onClose"
         >
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-sm-2">
-<!--                    <div class="col">-->
-<!--                        <TechnicalEquipmentSearchForm-->
-<!--                            @on-equipment-selected="onEquipmentSelected"-->
-<!--                            :equipment-types="props.equipmentTypes"-->
-<!--                            ref="searchForm"-->
-<!--                        />-->
-<!--                    </div>-->
                     <div class="col">
-                        <TechnicalEquipmentInformationForm />
+                        <TechnicalEquipmentSearchForm
+                            :equipment-type-category="props.equipmentTypeCategory"
+                            :equipment-filter-store-id="equipmentFilterStoreId"
+                        />
                     </div>
+<!--                    <div class="col">-->
+<!--                        <TechnicalEquipmentInformationForm />-->
+<!--                    </div>-->
                 </div>
             </div>
-            <div class="d-flex flex-row w-100 mt-3">
-                <BButton @click="onAddEquipment" class="btn-success ms-auto">Pievienot</BButton>
-            </div>
+            <template #footer>
+                <div class="d-flex flex-row w-100">
+                    <BButton @click="onAddEquipment" class="btn-success ms-auto">Pievienot</BButton>
+                </div>
+            </template>
         </BModal>
     </div>
 </template>
@@ -30,27 +30,25 @@ import {BModal, BButton} from "bootstrap-vue-next";
 import TechnicalEquipmentSearchForm from "@/components/form/TechnicalEquipmentSearchForm.vue";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
 import {useEquipmentInformationStore} from "@/stores/equipmentInformation";
-import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
-import TechnicalEquipmentInformationForm from "@/components/form/TechnicalEquipmentInformationForm.vue";
 import type {ITechnicalEquipmentModalProps} from "@/stores/interfaces/props/ITechnicalEquipmentModalProps";
-import {useEquipmentFilterStore} from "@/stores/equipmentFilter";
+import {v4 as uuid} from 'uuid';
+import {useQuickEquipmentFilterStore} from "@/stores/quickEquipmentFilter";
 
 const model = defineModel<boolean>();
 const props = defineProps<ITechnicalEquipmentModalProps>()
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const equipmentInformationStore = useEquipmentInformationStore();
-const equipmentFilterStore = useEquipmentFilterStore(props.equipmentFilterId);
+
+const equipmentFilterStoreId = uuid();
+const equipmentFilterStore = useQuickEquipmentFilterStore(equipmentFilterStoreId);
+
 const onAddEquipment = () => {
     model.value = false;
     equipmentCollectionStore.pushItem(equipmentInformationStore.equipmentModel);
 }
-const onEquipmentSelected = async (item: IEquipmentInformation) => {
-    equipmentInformationStore.$patch({
-        ...item
-    });
-}
+
 const onClose = () => {
-    equipmentFilterStore.resetFilter();
+    equipmentFilterStore.$reset();
     equipmentInformationStore.$reset();
 }
 </script>

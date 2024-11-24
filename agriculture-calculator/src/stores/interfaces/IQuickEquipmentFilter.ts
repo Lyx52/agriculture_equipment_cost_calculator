@@ -7,6 +7,10 @@ export interface IQuickEquipmentFilter {
     filteredEquipmentTypes: EquipmentType[];
     filteredEquipmentSubTypes: EquipmentSubType[];
     filteredEquipment: EquipmentInformationModel[];
+    filteredMark: string|undefined;
+    filteredModel: string|undefined;
+    filteredPower: number|undefined;
+    filteredPowerIsMoreThan: boolean;
     showDropdown: boolean;
     filterFrom: number;
     filterTo: number;
