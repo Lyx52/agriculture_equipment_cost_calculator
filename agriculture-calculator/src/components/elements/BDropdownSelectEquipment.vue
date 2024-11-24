@@ -34,14 +34,14 @@
                 :show="filterStore.isLoading"
                 spinner-small
             >
-                <li><span class="ms-3">Esošā tehnika</span></li>
+                <li><span class="ms-3 text-center fw-bold">Esošā tehnika</span></li>
                 <li v-for="item in equipmentCollectionStore.getEquipmentByTypeCategoryAndOperation(props.equipmentTypeCategory, props.operationType)" class="item-height">
                     <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
                         {{ item.fullEquipmentName }}
                     </a>
                 </li>
                 <BDropdownDivider />
-                <li><span class="ms-3">Pievienot jaunu tehniku</span></li>
+                <li><span class="ms-3 text-center fw-bold">Pievienot jaunu tehniku</span></li>
                 <li v-for="item in filterStore.filteredEquipment" class="item-height">
                     <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
                         {{ item.fullEquipmentName }}
@@ -64,7 +64,7 @@ import {useQuickEquipmentFilterStore} from "@/stores/quickEquipmentFilter";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
 import {onMounted, useTemplateRef, watch} from "vue";
-import {onClickOutside} from "@vueuse/core";
+import {onClickOutside, watchArray} from "@vueuse/core";
 import type {IBDropdownSelectEquipmentProps} from "@/stores/interfaces/props/IBDropdownSelectEquipmentProps";
 import {type EquipmentTypeCategory, getEquipmentTypesByCategory} from "@/stores/constants/EquipmentTypes";
 import {getEquipmentSubTypesByOperation, type OperationType} from "@/stores/constants/OperationTypes";
@@ -81,12 +81,19 @@ watch(() => props.operationType, async (newOperation, oldOperation) => {
     model.value = undefined;
     filterStore.$reset();
     await onChangeOperation(newOperation, props.equipmentTypeCategory);
-})
+});
+
 onClickOutside(floating, () => {
     filterStore.showDropdown = false;
 }, {ignore: [button, searchBar]});
 
-
+equipmentCollectionStore.collectionEmitter.on('item_removed', (itemId: string) => {
+    if (filterStore.selectedItem?.uniqueId === itemId) {
+        filterStore.$patch({
+            selectedItem: undefined
+        });
+    }
+})
 onMounted(async () => {
     await onChangeOperation(props.operationType, props.equipmentTypeCategory);
 });

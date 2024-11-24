@@ -5,32 +5,18 @@ import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformat
 
 
 export const useEquipmentInformationStore = defineStore('equipmentInformation',{
-    state: (): any => {
+    state: (): { equipmentModel: EquipmentInformationModel } => {
         return {
-            id: '',
-            fullEquipmentName: '',
-            mark: '',
-            model: '',
-            price: undefined,
-            equipmentLevelCode: 'base',
-            equipmentType: 'tractor',
-            specification: {},
-            sources: [],
-            currentUseYears: undefined,
-            remainingUseYears: undefined,
-            hoursOfUse: undefined,
-            mainInfo: {}
-        } as any;
-    },
-    getters: {
-        dataSources(): IDataSourceLink[] {
-            return this.sources.map(((url: string) => ({
-                href: url,
-                text: new URL(url).host
-            })));
-        },
-        equipmentModel(): EquipmentInformationModel {
-            return new EquipmentInformationModel(this);
-        }
+            equipmentModel: new EquipmentInformationModel({
+                mark: "",
+                model: "",
+                price: 0,
+                sources: "[]",
+                specification: "{}",
+                equipment_level_code: 'base',
+                category_code: 'tractor',
+                sub_category_code: 'tractor_4x2'
+            })
+        };
     }
 });

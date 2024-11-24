@@ -9,11 +9,12 @@
                         <TechnicalEquipmentSearchForm
                             :equipment-type-category="props.equipmentTypeCategory"
                             :equipment-filter-store-id="equipmentFilterStoreId"
+                            @on-equipment-selected="onEquipmentSelected"
                         />
                     </div>
-<!--                    <div class="col">-->
+                    <div class="col">
 <!--                        <TechnicalEquipmentInformationForm />-->
-<!--                    </div>-->
+                    </div>
                 </div>
             </div>
             <template #footer>
@@ -33,6 +34,8 @@ import {useEquipmentInformationStore} from "@/stores/equipmentInformation";
 import type {ITechnicalEquipmentModalProps} from "@/stores/interfaces/props/ITechnicalEquipmentModalProps";
 import {v4 as uuid} from 'uuid';
 import {useQuickEquipmentFilterStore} from "@/stores/quickEquipmentFilter";
+import TechnicalEquipmentInformationForm from "@/components/form/TechnicalEquipmentInformationForm.vue";
+import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 
 const model = defineModel<boolean>();
 const props = defineProps<ITechnicalEquipmentModalProps>()
@@ -46,7 +49,11 @@ const onAddEquipment = () => {
     model.value = false;
     equipmentCollectionStore.pushItem(equipmentInformationStore.equipmentModel);
 }
-
+const onEquipmentSelected = (item: EquipmentInformationModel) => {
+    equipmentInformationStore.$patch({
+        equipmentModel: item,
+    });
+}
 const onClose = () => {
     equipmentFilterStore.$reset();
     equipmentInformationStore.$reset();

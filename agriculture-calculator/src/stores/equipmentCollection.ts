@@ -1,17 +1,21 @@
 import {defineStore} from "pinia";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
-import type {TableItem} from "bootstrap-vue-next";
 import {
     type EquipmentTypeCategory,
     EquipmentTypesToCategories
 } from "@/stores/constants/EquipmentTypes";
 import type {OperationType} from "@/stores/constants/OperationTypes";
 import {getEquipmentSubTypesByOperation} from "@/stores/constants/OperationTypes";
+import {TinyEmitter} from "tiny-emitter";
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
-    state: (): { items: EquipmentInformationModel[] } => {
+    state: (): {
+        items: EquipmentInformationModel[],
+        collectionEmitter: TinyEmitter
+    } => {
         return {
-            items: []
+            items: [],
+            collectionEmitter: new TinyEmitter()
         }
     },
     actions: {
@@ -21,6 +25,7 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
             this.items.push(item);
         },
         removeItem(itemId: string) {
+            this.collectionEmitter.emit('item_removed', itemId);
             this.items = this.items.filter(i => i.uniqueId !== itemId);
         },
         getEquipmentByTypeCategory(equipmentTypeCategory: EquipmentTypeCategory): EquipmentInformationModel[] {

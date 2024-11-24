@@ -7,25 +7,24 @@ import { v4 as uuid } from 'uuid';
 import type {EquipmentSubType, EquipmentType} from "@/stores/constants/EquipmentTypes";
 import {EquipmentLevelTypes} from "@/stores/constants/EquipmentTypes";
 import type {IEquipmentSpecification} from "@/stores/interfaces/IEquipmentSpecification";
+import type {IEquipmentUsageInformation} from "@/stores/interfaces/IEquipmentUsageInformation";
 export class EquipmentInformationModel {
     equipmentType: EquipmentType;
     equipmentSubType: EquipmentSubType;
-    currentUseYears: number | undefined;
     equipmentLevelCode: string;
     fullEquipmentName: string;
-    hoursOfUse: number | undefined;
     mainInfo: any;
     mark: string;
     model: string;
+    initialPrice: number | undefined;
     price: number | undefined;
-    remainingUseYears: number | undefined;
     sources: string[];
+    usageInformation: IEquipmentUsageInformation;
     specification: IEquipmentSpecification;
     uniqueId: string;
     constructor(equipmentInformation: IEquipmentInformation) {
         this.equipmentType = equipmentInformation.category_code;
         this.equipmentSubType = equipmentInformation.sub_category_code;
-        this.currentUseYears = 0;
         this.equipmentLevelCode = equipmentInformation.equipment_level_code;
         this.fullEquipmentName = `${equipmentInformation.mark} ${equipmentInformation.model} (${EquipmentLevelTypes[equipmentInformation.equipment_level_code]})`;
         this.specification = JSON.parse(equipmentInformation.specification);
@@ -35,21 +34,22 @@ export class EquipmentInformationModel {
         this.mainInfo = {};
         this.mark = equipmentInformation.mark;
         this.model = equipmentInformation.model;
+        this.initialPrice = equipmentInformation.price;
         this.price = equipmentInformation.price;
-        this.remainingUseYears = 0;
         this.sources = JSON.parse(equipmentInformation.sources);
-
+        this.usageInformation = {
+            remainingUseYears: 15,
+            currentUseYears: 0,
+            averageHoursPerYear: 300,
+        }
         this.uniqueId = uuid();
     }
     getHorsePower() {
         // 1 kw = 1.3596216173 hp
         return (this.specification.engine_power_kw ?? 0) * 1.3596216173;
     }
-    getTotalUseYears() {
-        return Number(this.currentUseYears ?? 0) + Number(this.remainingUseYears ?? 0);
-    }
     getRemainingValue() {
-        return getRemainingEquipmentValue(this.getHorsePower(), Number(this.hoursOfUse ?? 0), this.getTotalUseYears());
+        return getRemainingEquipmentValue(this.getHorsePower(), this.usageInformation.averageHoursPerYear, this.totalUsageYears);
     }
     getReplacementPrice() {
         return Number(this.mainInfo.replacementPrice ?? 0);
@@ -61,14 +61,14 @@ export class EquipmentInformationModel {
         return this.getRemainingValue() * this.getReplacementPrice();
     }
     getCapitalRecoveryValue() {
-        return getCapitalRecoveryValue(this.getEquipmentRate(), Number(this.remainingUseYears ?? 0));
+        return getCapitalRecoveryValue(this.getEquipmentRate(), this.usageInformation.remainingUseYears);
     }
     getTotalCapitalRecovery() {
-        return ((Number(this.price ?? 0) - this.getRemainingValueEUR()) * this.getCapitalRecoveryValue()) +
+        return ((Number(this.initialPrice ?? 0) - this.getRemainingValueEUR()) * this.getCapitalRecoveryValue()) +
             (this.getEquipmentRate() * this.getRemainingValueEUR());
     }
     getTotalOtherCosts() {
-        return ((this.getRemainingValueEUR() + Number(this.price ?? 0)) / 2) * this.getTotalCostFromOtherCosts();
+        return ((this.getRemainingValueEUR() + Number(this.initialPrice ?? 0)) / 2) * this.getTotalCostFromOtherCosts();
     }
     getEquipmentRate() {
         return Number(this.mainInfo.rate ?? 0) / 100;
@@ -76,17 +76,15 @@ export class EquipmentInformationModel {
     getTotalCostFromOtherCosts() {
         return Number(this.mainInfo.totalCostFromOtherCosts ?? 0) / 100;
     }
-    getTotalLifetimeHours() {
-        return (Number(this.hoursOfUse ?? 0) * Number(this.remainingUseYears ?? 0)) + this.getCurrentHoursOfUse();
-    }
+
     getTotalCostFromLubricantsRate() {
         return Number(this.mainInfo.totalCostFromLubricantsRate ?? 0) / 100;
     }
     getCostOfRepairCurrent() {
-        return getCostOfRepairValue(this.equipmentType, this.getCurrentHoursOfUse());
+        return getCostOfRepairValue(this.equipmentType, this.totalUsageHours);
     }
     getTotalCostOfRepair() {
-        return getCostOfRepairValue(this.equipmentType, this.getTotalLifetimeHours());
+        return getCostOfRepairValue(this.equipmentType, this.totalLifetimeHours);
     }
     getAccumulatedRepairs() {
         return ((this.getTotalCostOfRepair() - this.getCostOfRepairCurrent()) / 100) * this.getReplacementPrice();
@@ -104,18 +102,21 @@ export class EquipmentInformationModel {
         return (Number(this.mainInfo.employeeWage ?? 0) * this.getActualWorkingHours()) + Number(this.mainInfo.employeeWage ?? 0);
     }
     getAverageRepairCosts() {
-        return this.getAccumulatedRepairs() / Math.max(1, this.getTotalLifetimeHours() - this.getCurrentHoursOfUse());
+        return this.getAccumulatedRepairs() / Math.max(1, this.totalLifetimeHours - this.totalUsageHours);
     }
     getPropertyCosts() {
-        return ((this.getTotalOtherCosts() + this.getTotalCapitalRecovery()) / Number(this.hoursOfUse ?? 1))
+        return ((this.getTotalOtherCosts() + this.getTotalCapitalRecovery()) / this.usageInformation.averageHoursPerYear)
     }
-    getTotalEquipmentUseYears() {
-        return Number(this.currentUseYears ?? 0) + Number(this.remainingUseYears ?? 0);
+    get totalUsageHours(): number {
+        return this.usageInformation.averageHoursPerYear * this.usageInformation.currentUseYears;
     }
-    getCurrentHoursOfUse() {
-        return Number(this.currentUseYears ?? 0) * Number(this.hoursOfUse ?? 0);
+    get totalLifetimeHours(): number {
+        return (this.usageInformation.averageHoursPerYear * this.usageInformation.remainingUseYears) + this.totalUsageHours;
     }
-    dataSources(): IDataSourceLink[] {
+    get totalUsageYears(): number {
+        return this.usageInformation.currentUseYears + this.usageInformation.remainingUseYears;
+    }
+    get dataSources(): IDataSourceLink[] {
         return this.sources.map(((url: string) => ({
             href: url,
             text: new URL(url).host
