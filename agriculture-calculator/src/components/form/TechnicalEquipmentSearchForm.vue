@@ -84,7 +84,7 @@
                         spinner-small
                     >
                         <li v-for="item in filterStore.filteredEquipment" class="item-height">
-                            <a class="dropdown-item" href="#" @click="onClickEquipment(item)">
+                            <a class="dropdown-item" @click="onClickEquipment(item)">
                                 {{ item.fullEquipmentName }}
                             </a>
                         </li>
