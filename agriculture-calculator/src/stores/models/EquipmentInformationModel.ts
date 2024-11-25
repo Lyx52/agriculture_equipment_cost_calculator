@@ -1,13 +1,12 @@
 import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
-import {getRemainingEquipmentValue} from "@/stores/constants/RemainingEquipmentValue";
-import {getCapitalRecoveryValue} from "@/stores/constants/CapitalRecoveryValue";
-import {getCostOfRepairValue} from "@/stores/constants/CostOfRepairValue";
+import {getRemainingTractorValue, getCombineRemainingValue, getTractorEquipmentRemainingValue} from "@/stores/constants/RemainingEquipmentValue";
 import type {IDataSourceLink} from "@/stores/interfaces/IDataSourceLink";
 import { v4 as uuid } from 'uuid';
 import type {EquipmentSubType, EquipmentType} from "@/stores/constants/EquipmentTypes";
 import {EquipmentLevelTypes} from "@/stores/constants/EquipmentTypes";
 import type {IEquipmentSpecification} from "@/stores/interfaces/IEquipmentSpecification";
 import type {IEquipmentUsageInformation} from "@/stores/interfaces/IEquipmentUsageInformation";
+import {getCapitalRecoveryValue} from "@/stores/constants/CapitalRecoveryValue";
 export class EquipmentInformationModel {
     equipmentType: EquipmentType;
     equipmentSubType: EquipmentSubType;
@@ -16,8 +15,9 @@ export class EquipmentInformationModel {
     mainInfo: any;
     mark: string;
     model: string;
-    initialPrice: number | undefined;
-    price: number | undefined;
+    initialPrice: number;
+    price: number;
+    lubricationCostPercentage: number;
     sources: string[];
     usageInformation: IEquipmentUsageInformation;
     specification: IEquipmentSpecification;
@@ -34,8 +34,9 @@ export class EquipmentInformationModel {
         this.mainInfo = {};
         this.mark = equipmentInformation.mark;
         this.model = equipmentInformation.model;
-        this.initialPrice = equipmentInformation.price;
-        this.price = equipmentInformation.price;
+        this.initialPrice = parseFloat(equipmentInformation.price ?? 0);
+        this.price = parseFloat(equipmentInformation.price ?? 0);
+        this.lubricationCostPercentage = 15.0;
         this.sources = JSON.parse(equipmentInformation.sources);
         this.usageInformation = {
             remainingUseYears: 15,
@@ -44,68 +45,24 @@ export class EquipmentInformationModel {
         }
         this.uniqueId = uuid();
     }
-    getHorsePower() {
+    getCapitalRecoveryCoefficientValue(interestRate: number): number {
+        return getCapitalRecoveryValue(interestRate, this.usageInformation.remainingUseYears);
+    }
+    getCapitalRecoveryValue(interestRate: number): number {
+        return Number(this.depreciationValue * this.getCapitalRecoveryCoefficientValue(interestRate)) + Number((interestRate / 100) * this.remainingValue);
+    }
+    getTaxesAndInsuranceCostValue(taxesAndInsuranceRate: number): number {
+        return ((this.price + this.remainingValue) / 2) * (taxesAndInsuranceRate / 100);
+    }
+    getTotalEquipmentCostValue(interestRate: number, taxesAndInsuranceRate: number): number {
+        return this.getCapitalRecoveryValue(interestRate) + this.getTaxesAndInsuranceCostValue(taxesAndInsuranceRate);
+    }
+    getTotalEquipmentCostValuePerHour(interestRate: number, taxesAndInsuranceRate: number): number {
+        return (this.getCapitalRecoveryValue(interestRate) + this.getTaxesAndInsuranceCostValue(taxesAndInsuranceRate)) / this.usageInformation.averageHoursPerYear;
+    }
+    get horsePower() {
         // 1 kw = 1.3596216173 hp
         return (this.specification.engine_power_kw ?? 0) * 1.3596216173;
-    }
-    getRemainingValue() {
-        return getRemainingEquipmentValue(this.getHorsePower(), this.usageInformation.averageHoursPerYear, this.totalUsageYears);
-    }
-    getReplacementPrice() {
-        return Number(this.mainInfo.replacementPrice ?? 0);
-    }
-    getActualWorkingHours() {
-        return Number(this.mainInfo.actualWorkingHours ?? 0) / 100;
-    }
-    getRemainingValueEUR() {
-        return this.getRemainingValue() * this.getReplacementPrice();
-    }
-    getCapitalRecoveryValue() {
-        return getCapitalRecoveryValue(this.getEquipmentRate(), this.usageInformation.remainingUseYears);
-    }
-    getTotalCapitalRecovery() {
-        return ((Number(this.initialPrice ?? 0) - this.getRemainingValueEUR()) * this.getCapitalRecoveryValue()) +
-            (this.getEquipmentRate() * this.getRemainingValueEUR());
-    }
-    getTotalOtherCosts() {
-        return ((this.getRemainingValueEUR() + Number(this.initialPrice ?? 0)) / 2) * this.getTotalCostFromOtherCosts();
-    }
-    getEquipmentRate() {
-        return Number(this.mainInfo.rate ?? 0) / 100;
-    }
-    getTotalCostFromOtherCosts() {
-        return Number(this.mainInfo.totalCostFromOtherCosts ?? 0) / 100;
-    }
-
-    getTotalCostFromLubricantsRate() {
-        return Number(this.mainInfo.totalCostFromLubricantsRate ?? 0) / 100;
-    }
-    getCostOfRepairCurrent() {
-        return getCostOfRepairValue(this.equipmentType, this.totalUsageHours);
-    }
-    getTotalCostOfRepair() {
-        return getCostOfRepairValue(this.equipmentType, this.totalLifetimeHours);
-    }
-    getAccumulatedRepairs() {
-        return ((this.getTotalCostOfRepair() - this.getCostOfRepairCurrent()) / 100) * this.getReplacementPrice();
-    }
-    getFuelUsage() {
-        return this.getHorsePower() * Number(this.mainInfo.fuelUsageCoefficient ?? 0);
-    }
-    getTotalFuelCosts() {
-        return this.getFuelUsage() * Number(this.mainInfo.fuelPrice ?? 0);
-    }
-    getLubricantsUseCosts() {
-        return this.getTotalFuelCosts() * this.getTotalCostFromLubricantsRate();
-    }
-    getEmployeeWageCosts() {
-        return (Number(this.mainInfo.employeeWage ?? 0) * this.getActualWorkingHours()) + Number(this.mainInfo.employeeWage ?? 0);
-    }
-    getAverageRepairCosts() {
-        return this.getAccumulatedRepairs() / Math.max(1, this.totalLifetimeHours - this.totalUsageHours);
-    }
-    getPropertyCosts() {
-        return ((this.getTotalOtherCosts() + this.getTotalCapitalRecovery()) / this.usageInformation.averageHoursPerYear)
     }
     get totalUsageHours(): number {
         return this.usageInformation.averageHoursPerYear * this.usageInformation.currentUseYears;
@@ -115,6 +72,25 @@ export class EquipmentInformationModel {
     }
     get totalUsageYears(): number {
         return this.usageInformation.currentUseYears + this.usageInformation.remainingUseYears;
+    }
+    get remainingValueCoefficient(): number {
+        switch (this.equipmentType) {
+            case "tractor": {
+                return getRemainingTractorValue(this.horsePower, this.usageInformation.averageHoursPerYear, this.totalUsageYears);
+            }
+            case 'harvesting_equipment': {
+                return getCombineRemainingValue(this.usageInformation.averageHoursPerYear, this.totalUsageYears);
+            }
+            default: {
+                return getTractorEquipmentRemainingValue(this.equipmentSubType, this.totalUsageYears);
+            }
+        }
+    }
+    get remainingValue(): number {
+        return this.remainingValueCoefficient * this.initialPrice;
+    }
+    get depreciationValue(): number {
+        return this.price - this.remainingValue;
     }
     get dataSources(): IDataSourceLink[] {
         return this.sources.map(((url: string) => ({

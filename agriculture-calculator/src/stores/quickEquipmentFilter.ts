@@ -72,10 +72,6 @@ export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`qu
             if (this.filteredModel && !skipMarkAndModel) {
                 params.set('model', this.filteredModel);
             }
-            if (this.filteredPower) {
-                params.set('power', this.filteredPower?.toString());
-                params.set('is_more_than', this.filteredPowerIsMoreThan ? '1' : '0');
-            }
             params.set('from', this.filterFrom.toString());
             params.set('to', this.filterTo.toString());
             if (this.searchText.length >= 2) {
@@ -83,9 +79,16 @@ export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`qu
             }
             this.isLoading = true;
             try {
-                const res = await fetch(`http://localhost:8888/uzc_gazes/technical_equipment/query?${params.toString()}`)
+                const res = await fetch(`/uzc_gazes/technical_equipment/query?${params.toString()}`)
                 const content: IResponse<IEquipmentInformation> = await res.json();
                 this.filteredEquipment = content.data.map(e => new EquipmentInformationModel(e));
+                if (this.filteredPower) {
+                    if (this.filteredPowerIsMoreThan) {
+                        this.filteredEquipment = this.filteredEquipment.filter(e => e.specification.engine_power_kw > this.filteredPower!);
+                    } else {
+                        this.filteredEquipment = this.filteredEquipment.filter(e => e.specification.engine_power_kw < this.filteredPower!);
+                    }
+                }
             } finally {
                 this.isLoading = false;
             }

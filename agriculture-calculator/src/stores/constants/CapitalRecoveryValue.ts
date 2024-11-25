@@ -1,9 +1,9 @@
 import {getClosestValue} from "@/utils";
 
-export function getCapitalRecoveryValue(equipmentRate: number, ageInYears: number): number {
+export function getCapitalRecoveryValue(interestRate: number, ageInYears: number): number {
     const data = CapitalRecoveryValue as any;
     const targetAgeInYears = Math.max(1, Math.min(19, Math.floor(ageInYears) - 1));
-    const targetEquipmentRate = getClosestValue(Object.keys(data[targetAgeInYears]).map(v => Number(v)), equipmentRate);
+    const targetEquipmentRate = getClosestValue(Object.keys(data[targetAgeInYears]).map(v => Number(v)), interestRate);
     return data[targetAgeInYears][targetEquipmentRate];
 }
 

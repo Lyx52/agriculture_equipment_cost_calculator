@@ -10,7 +10,7 @@ export const useEquipmentInformationStore = defineStore('equipmentInformation',{
             equipmentModel: new EquipmentInformationModel({
                 mark: "",
                 model: "",
-                price: 0,
+                price: '0',
                 sources: "[]",
                 specification: "{}",
                 equipment_level_code: 'base',

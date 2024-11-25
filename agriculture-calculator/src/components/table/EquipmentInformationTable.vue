@@ -17,11 +17,14 @@
                         <BTh>Tehnikas vienība</BTh>
                         <BTh>Marka</BTh>
                         <BTh>Modelis</BTh>
+                        <BTh>Cena (Jaunai), EUR</BTh>
+                        <BTh>Cena (Pašreizējā), EUR</BTh>
                         <BTh v-if="isTractor || isCombine">Jauda, kw</BTh>
                         <BTh>Nolietojums, gadi</BTh>
                         <BTh>Ekonomiskais izmantošanas laiks, gadi</BTh>
                         <BTh>Kopējais ekspluatācijas laiks, gadi</BTh>
                         <BTh>Darba stundas gadā, h</BTh>
+                        <BTh v-if="isTractor || isCombine">Smērvielu izmaksas no degv. izmaksām, %</BTh>
                         <BTh>&nbsp;</BTh>
                     </BTr>
                 </BThead>
@@ -35,6 +38,16 @@
                         </BTd>
                         <BTd>
                             {{ row.model }}
+                        </BTd>
+                        <BTd>
+                            <BNumericFormInput
+                                v-model="row.initialPrice"
+                            ></BNumericFormInput>
+                        </BTd>
+                        <BTd>
+                            <BNumericFormInput
+                                v-model="row.price"
+                            ></BNumericFormInput>
                         </BTd>
                         <BTd v-if="isTractor || isCombine">
                             <BNumericFormInput
@@ -57,6 +70,11 @@
                         <BTd>
                             <BNumericFormInput
                                 v-model="row.usageInformation.averageHoursPerYear"
+                            ></BNumericFormInput>
+                        </BTd>
+                        <BTd v-if="isTractor || isCombine">
+                            <BNumericFormInput
+                                v-model="row.lubricationCostPercentage"
                             ></BNumericFormInput>
                         </BTd>
                         <BTd>

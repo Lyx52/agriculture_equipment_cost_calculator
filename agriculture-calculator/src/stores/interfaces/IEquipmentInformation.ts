@@ -3,7 +3,7 @@ import type {EquipmentLevelType, EquipmentSubType, EquipmentType} from "@/stores
 export interface IEquipmentInformation {
     mark: string;
     model: string;
-    price: number;
+    price: string;
     category_code: EquipmentType;
     sub_category_code: EquipmentSubType;
     equipment_level_code: EquipmentLevelType;

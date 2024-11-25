@@ -40,6 +40,13 @@ uzc_gazes.technical_equipment:
         _title: 'Technical equipment data'
     requirements:
       _permission: 'access content'
+uzc_gazes.technical_equipment_macus_data:
+  path: '/uzc_gazes/technical_equipment/macus'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\TechnicalEquipmentController::macusData'
+    _title: 'Technical equipment macus data'
+  requirements:
+    _permission: 'access content'
 uzc_gazes.meteo_data:
   path: '/uzc_gazes/meteo/{content_type}/query'
   defaults:
@@ -52,5 +59,11 @@ uzc_gazes.agrihort_meteo_data:
   defaults:
     _controller: 'Drupal\uzc_gazes\Controller\AgrihortMeteoController::query'
     _title: 'Agrihort meteo data'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+uzc_gazes.calculator:
+  path: '/uzc_gazes/calculator/{calculator_type}'
+  defaults:
+    _controller: 'Drupal\uzc_gazes\Controller\CalculatorController::calculator'
   requirements:
     _user_is_logged_in: 'TRUE'

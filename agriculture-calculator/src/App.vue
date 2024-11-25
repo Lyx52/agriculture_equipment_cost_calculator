@@ -43,15 +43,31 @@
               </div>
           </div>
       </div>
+      <div class="row mt-3">
+          <div class="col">
+              <BAccordion free>
+                  <BAccordionItem title="Īpašuma izmaksu novērtējums, EUR" visible>
+                      <PropertyCostEstimationTable />
+                  </BAccordionItem>
+                  <BAccordionItem title="Ekspluatācijas izmaksu novērtējums">
+                      <OperationCostEstimationTable />
+                  </BAccordionItem>
+              </BAccordion>
+
+          </div>
+      </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import PropertyInformation from "@/components/PropertyInformation.vue";
+import {BAccordion, BAccordionItem} from 'bootstrap-vue-next'
+import PropertyInformation from "@/components/GeneralInformation.vue";
 import EquipmentInformationTable from "@/components/table/EquipmentInformationTable.vue";
 import {ref} from "vue";
 import CostCalculatorTable from "@/components/form/OperationsTable.vue";
 import {EquipmentTypeCategories, type EquipmentTypeCategory} from "@/stores/constants/EquipmentTypes";
+import PropertyCostEstimationTable from "@/components/form/PropertyCostEstimationTable.vue";
+import OperationCostEstimationTable from "@/components/form/OperationCostEstimationTable.vue";
 const currentTab = ref<EquipmentTypeCategory>('tractor');
 
 const switchTo = (tabCategory: EquipmentTypeCategory) => {

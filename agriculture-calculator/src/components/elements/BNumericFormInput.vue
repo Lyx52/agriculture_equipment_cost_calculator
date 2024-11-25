@@ -14,6 +14,7 @@
     <BFormInput
         type="number"
         v-model="inputValue"
+        min="0.00"
         @change="onValueChange"
     >
     </BFormInput>

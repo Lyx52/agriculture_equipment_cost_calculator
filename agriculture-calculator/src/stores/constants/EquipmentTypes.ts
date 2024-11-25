@@ -19,7 +19,8 @@ export type EquipmentSubType =
     'packing_press' |
     'balling_press' |
     'seed_drill' |
-    'planter';
+    'planter' |
+    'other';
 
 export const EquipmentTypes = {
     'tractor': 'Traktors',

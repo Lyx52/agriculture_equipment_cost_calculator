@@ -16,8 +16,6 @@ class TechnicalEquipmentQueryFilter {
     public string|null $Model;
     public int|null $Start;
     public int|null $Length;
-    public float|null $Power;
-    public int $IsMoreThan;
   /**
    * @param string|null $SearchQuery
    * @param int|null $Start
@@ -34,9 +32,7 @@ class TechnicalEquipmentQueryFilter {
         ?string $CategoryCode,
         ?string $SubCategoryCode,
         ?string $Mark,
-        ?string $Model,
-        ?float $Power,
-        int $IsMoreThan
+        ?string $Model
     ) {
         $this->SearchQuery = $SearchQuery;
         $this->Start = $Start;
@@ -45,8 +41,6 @@ class TechnicalEquipmentQueryFilter {
         $this->SubCategoryCode = $SubCategoryCode;
         $this->Mark = $Mark;
         $this->Model = $Model;
-        $this->Power = $Power;
-        $this->IsMoreThan = $IsMoreThan;
     }
 
     public static function fromRequest(Request $request): TechnicalEquipmentQueryFilter {
@@ -57,9 +51,7 @@ class TechnicalEquipmentQueryFilter {
             $request->query->get('category') ?? '',
             $request->query->get('sub_category') ?? '',
             $request->query->get('mark') ?? '',
-            $request->query->get('model') ?? '',
-            self::toValidFloat($request->query->get('power')),
-            self::toValidInteger($request->query->get('is_more_than')) ?? 1,
+            $request->query->get('model') ?? ''
         );
     }
 
@@ -76,13 +68,6 @@ class TechnicalEquipmentQueryFilter {
         }
         if (!empty($this->Model)) {
           $query = $query->condition('model', $this->Model);
-        }
-        if (!empty($this->Power)) {
-          if ($this->IsMoreThan == 1) {
-            $query = $query->condition('power', $this->Power, '>');
-          } else {
-            $query = $query->condition('power', $this->Power, '<');
-          }
         }
         if (empty($this->SearchQuery)) return $query;
         return $query->condition("full_name",  '%' . $this->SearchQuery . '%', 'ILIKE');

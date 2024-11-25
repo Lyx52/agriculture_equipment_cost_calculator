@@ -30,4 +30,15 @@ class TechnicalEquipmentController extends ControllerBase {
     $data = TechnicalEquipmentRepository::getRepository()->get($filter);
     return new JsonResponse($data);
   }
+  /**
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatch
+   *
+   * @return array|\Symfony\Component\HttpFoundation\JsonResponse
+   */
+  public function macusData(Request $request) {
+    $filter = TechnicalEquipmentQueryFilter::fromRequest($request);
+    $data = TechnicalEquipmentRepository::getRepository()->getMacusData($filter);
+    return new JsonResponse($data);
+  }
 }
