@@ -33,7 +33,7 @@ import {
     BTh,
 } from "bootstrap-vue-next";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
-import {useGeneralInformationStore} from "@/stores/propertyInformation";
+import {useGeneralInformationStore} from "@/stores/generalInformation";
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const generalInformationStore = useGeneralInformationStore();
 </script>

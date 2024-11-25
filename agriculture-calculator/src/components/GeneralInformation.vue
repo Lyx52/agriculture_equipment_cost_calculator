@@ -1,15 +1,9 @@
 <template>
-    <div class="card">
-        <div class="card-body d-flex flex-column shadow">
+    <div class="card shadow">
+        <div class="card-body d-flex flex-column">
             <h5 class="card-title">Lauksaimniecības tehnikas pamatinformācija</h5>
             <div class="row">
                 <div class="col">
-                    <BInputGroup prepend="Apstrādājamā platība" append="ha">
-                        <BNumericFormInput
-                            v-model="generalInformationStore.propertyHectares"
-                            id="propertySizeHectares"
-                        />
-                    </BInputGroup>
                     <BInputGroup class="mt-3" prepend="Degvielas cena" append="l/EUR">
                         <BNumericFormInput
                             v-model="generalInformationStore.fuelPrice"
@@ -47,7 +41,7 @@
 </template>
 <script setup lang="ts">
     import {BInputGroup} from 'bootstrap-vue-next'
-    import {useGeneralInformationStore} from "@/stores/propertyInformation";
+    import {useGeneralInformationStore} from "@/stores/generalInformation";
     import BNumericFormInput from "@/components/elements/BNumericFormInput.vue";
 
     const generalInformationStore = useGeneralInformationStore()

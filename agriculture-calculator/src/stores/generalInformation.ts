@@ -4,8 +4,7 @@ import type {IPropertyInformation} from "@/stores/interfaces/IPropertyInformatio
 export const useGeneralInformationStore = defineStore('generalInformation', {
     state: (): IPropertyInformation => {
         return {
-            propertyHectares: 100,
-            fuelPrice: 0.81,
+            fuelPrice: 0.80,
             employeeWage: 15.0,
             actualWorkingHours: 10.0,
             interestRate: 5.0,

@@ -13,7 +13,12 @@
                 <BTr v-for="row in operationCollectionStore.rows">
                     <BTd>
                         <BFormSelect
-                            id="inputMachineryEquipmentLevel"
+                            v-model="row.farmland"
+                            :options="farmlandCollectionStore.itemOptions"
+                        />
+                    </BTd>
+                    <BTd>
+                        <BFormSelect
                             v-model="row.operation"
                             :options="OperationOptions"
                         />
@@ -69,8 +74,10 @@ import {OperationOptions} from "@/stores/constants/OperationTypes";
 import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import BDropdownSelectEquipment from "@/components/elements/BDropdownSelectEquipment.vue";
 import {useEquipmentCollectionStore} from "@/stores/equipmentCollection";
+import {useFarmlandCollectionStore} from "@/stores/farmlandCollection";
 const operationCollectionStore = useOperationCollectionStore();
 const equipmentCollectionStore = useEquipmentCollectionStore();
+const farmlandCollectionStore = useFarmlandCollectionStore();
 
 const addOperation = () => {
     operationCollectionStore.pushItem({
