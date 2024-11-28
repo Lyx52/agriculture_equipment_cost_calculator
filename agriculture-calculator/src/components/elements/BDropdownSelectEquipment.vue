@@ -36,14 +36,14 @@
             >
                 <li><span class="ms-3 text-center fw-bold">Esošā tehnika</span></li>
                 <li v-for="item in equipmentCollectionStore.getEquipmentByTypeCategoryAndOperation(props.equipmentTypeCategory, props.operationType)" class="item-height">
-                    <a class="dropdown-item" @click="onClickEquipment(item)">
+                    <a class="dropdown-item cursor-pointer" @click="onClickEquipment(item)">
                         {{ item.fullEquipmentName }}
                     </a>
                 </li>
                 <BDropdownDivider />
                 <li><span class="ms-3 text-center fw-bold">Pievienot jaunu tehniku</span></li>
                 <li v-for="item in filterStore.filteredEquipment" class="item-height">
-                    <a class="dropdown-item" @click="onClickEquipment(item)">
+                    <a class="dropdown-item cursor-pointer" @click="onClickEquipment(item)">
                         {{ item.fullEquipmentName }}
                     </a>
                 </li>

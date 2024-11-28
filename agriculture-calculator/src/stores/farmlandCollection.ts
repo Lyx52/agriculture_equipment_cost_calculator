@@ -9,7 +9,7 @@ import {getEquipmentSubTypesByOperation} from "@/stores/constants/OperationTypes
 import {TinyEmitter} from "tiny-emitter";
 import type {IFarmland} from "@/stores/interfaces/IFarmland";
 import type {IOption} from "@/stores/interfaces/IOption";
-import {Crops} from "@/stores/constants/CropTypes";
+import {CropCalendarHarvest, CropCalendarPlant, Crops} from "@/stores/constants/CropTypes";
 
 export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
     state: (): {
@@ -27,6 +27,16 @@ export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
         },
         removeItem(itemId: string) {
             this.items = this.items.filter(i => i.uniqueId !== itemId);
+        },
+        updateCropCalendar(itemId: string) {
+            const farmLand = this.items.find(i => i.uniqueId === itemId)    ;
+            if (!farmLand) return;
+            farmLand.plantingInterval = {
+                ...CropCalendarPlant[farmLand.cropType]
+            };
+            farmLand.harvestingInterval = {
+                ...CropCalendarHarvest[farmLand.cropType]
+            };
         }
     },
     getters: {

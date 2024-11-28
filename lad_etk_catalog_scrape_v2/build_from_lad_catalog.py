@@ -1,5 +1,5 @@
 from equipment_model import EquipmentModelMetadata, EquipmentModel, EquipmentLevelCode, EquipmentCategory, EquipmentSubCategory
-from utils import open_json, save_json, clean_key, clean_value, convert_zs_to_kw
+from utils import open_json, save_json, clean_key, clean_value, convert_zs_to_kw, normalize_text
 import os, re
 common_categories_convert = {
     "Lauksaimniecības traktors": 'tractor',
@@ -49,6 +49,10 @@ common_equipment_level_convert = {
     "Premium": EquipmentLevelCode.Premium,
     "Vidējais": EquipmentLevelCode.Medium,
     "Bāzes": EquipmentLevelCode.Base
+}
+combine_manufacturers = {
+    'ls tractor': 'LS',
+    'ls mtron': 'LS',
 }
 def from_lad_catalog(model_data: dict) -> EquipmentModel:
     specs = {}
@@ -266,6 +270,7 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
                 raise Exception(f"Unknown spec key {cleaned_key} -> {value}")
     if category == 'tractor':
         sub_category = 'tractor_4x4' if specs[EquipmentModelMetadata.Powertrain.value[0]] == '4x4' else 'tractor_4x2'
+    manufacturer = manufacturer.replace("'", "") if normalize_text(manufacturer) not in combine_manufacturers.keys() else combine_manufacturers[normalize_text(manufacturer)]
     return EquipmentModel(manufacturer.replace("'", ""), model.replace("'", ""), category, sub_category, equipment_level_code.value, price, specs, [source])
 
 def get_lad_catalog() -> list[EquipmentModel]:

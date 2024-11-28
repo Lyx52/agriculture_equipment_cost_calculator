@@ -19,6 +19,7 @@
                         <BTh>Modelis</BTh>
                         <BTh>Cena (Jaunai), EUR</BTh>
                         <BTh>Cena (Pašreizējā), EUR</BTh>
+                        <BTh v-if="isEquipment">Nepieciešamā jauda, kw</BTh>
                         <BTh v-if="isTractor || isCombine">Jauda, kw</BTh>
                         <BTh>Nolietojums, gadi</BTh>
                         <BTh>Ekonomiskais izmantošanas laiks, gadi</BTh>
@@ -52,6 +53,11 @@
                         <BTd v-if="isTractor || isCombine">
                             <BNumericFormInput
                                 v-model="row.specification.engine_power_kw"
+                            ></BNumericFormInput>
+                        </BTd>
+                        <BTd v-if="isEquipment">
+                            <BNumericFormInput
+                                v-model="row.specification.required_power_kw"
                             ></BNumericFormInput>
                         </BTd>
                         <BTd>

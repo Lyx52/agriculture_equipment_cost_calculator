@@ -71,6 +71,12 @@ def convert_to_eur(value, currency_code: str, date: str):
     
     return round(current_rates[key] * float(value), 2)
 
+def normalize_text(text):
+    text = text.lower()  # Convert to lowercase
+    text = re.sub(r'[^\w\s]', '', text)  # Remove special characters
+    text = re.sub(r'\s+', ' ', text).strip()  # Remove extra spaces
+    return text
+
 def clean_currency(value):
     numerics = re.findall('([0-9,]+)', value)
     year_match = re.search('(19[0-9]{2})|(20[0-9]{2})', value)

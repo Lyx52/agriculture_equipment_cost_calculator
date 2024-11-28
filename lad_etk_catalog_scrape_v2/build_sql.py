@@ -16,7 +16,7 @@ def build_macus_data():
             for year in macus_data[group].keys():
                 item = macus_data[group][year]
                 fp.write(f"INSERT INTO uzc_gazes.macus_equipment_prices(power_group, year, listing_count, motor_hours_mean, price_mean, category_code) VALUES ('{group}', {year}, {item['listing_count']}, {item['motor_hours_mean']}, {item['price_mean']}, '{item['category']}');\n")
-        fp.close()\
+        fp.close()
 
 build_macus_data()
 build_equipment_data()

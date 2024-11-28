@@ -5,7 +5,7 @@ import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformat
 import {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
 import {unique} from "@/utils";
 import type {IOption} from "@/stores/interfaces/IOption";
-
+export const DEVELOPMENT_MODE = false;
 export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`quickEquipmentFilter__${storeId}`, {
     state: (): IQuickEquipmentFilter => {
         return {
@@ -79,7 +79,7 @@ export const useQuickEquipmentFilterStore = (storeId: string) => defineStore(`qu
             }
             this.isLoading = true;
             try {
-                const res = await fetch(`/uzc_gazes/technical_equipment/query?${params.toString()}`)
+                const res = await fetch(`${DEVELOPMENT_MODE ? 'http://localhost:8888' : ''}/uzc_gazes/technical_equipment/query?${params.toString()}`)
                 const content: IResponse<IEquipmentInformation> = await res.json();
                 this.filteredEquipment = content.data.map(e => new EquipmentInformationModel(e));
                 if (this.filteredPower) {

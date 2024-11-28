@@ -2595,7 +2595,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS TRACTOR",
+        "manufacturer": "LS",
         "model": "MT3.50",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11415&page=33"
@@ -2610,7 +2610,7 @@
             "lift_capacity": 1320.0
         },
         "model_key": "mt350",
-        "manufacturer_key": "ls_tractor"
+        "manufacturer_key": "ls"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -2746,7 +2746,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS TRACTOR",
+        "manufacturer": "LS",
         "model": "MT3.50",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11439&page=33"
@@ -2761,7 +2761,7 @@
             "lift_capacity": 1320.0
         },
         "model_key": "mt350",
-        "manufacturer_key": "ls_tractor"
+        "manufacturer_key": "ls"
     },
     {
         "category": "tractor",
@@ -4183,7 +4183,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS TRACTOR",
+        "manufacturer": "LS",
         "model": "PLUS 100 P/S",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11288&page=44"
@@ -4198,7 +4198,7 @@
             "lift_capacity": 3800.0
         },
         "model_key": "plus_100_p_s",
-        "manufacturer_key": "ls_tractor"
+        "manufacturer_key": "ls"
     },
     {
         "category": "tractor",
@@ -6572,7 +6572,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS TRACTOR",
+        "manufacturer": "LS",
         "model": "XP 101 P/S",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11886&page=66"
@@ -6587,7 +6587,7 @@
             "lift_capacity": 3800.0
         },
         "model_key": "xp_101_p_s",
-        "manufacturer_key": "ls_tractor"
+        "manufacturer_key": "ls"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -9361,7 +9361,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS MTRON",
+        "manufacturer": "LS",
         "model": "XU 6168",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12931&page=90"
@@ -9376,7 +9376,7 @@
             "lift_capacity": 1850.0
         },
         "model_key": "xu_6168",
-        "manufacturer_key": "ls_mtron"
+        "manufacturer_key": "ls"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -10453,7 +10453,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS TRACTOR",
+        "manufacturer": "LS",
         "model": "PLUS 100 P/S",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12165&page=102"
@@ -10468,7 +10468,7 @@
             "lift_capacity": 3800.0
         },
         "model_key": "plus_100_p_s",
-        "manufacturer_key": "ls_tractor"
+        "manufacturer_key": "ls"
     },
     {
         "category": "feed_preperation_equipment",
@@ -10610,7 +10610,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS MTRON",
+        "manufacturer": "LS",
         "model": "XU 6158",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12590&page=103"
@@ -10625,7 +10625,7 @@
             "lift_capacity": 1850.0
         },
         "model_key": "xu_6158",
-        "manufacturer_key": "ls_mtron"
+        "manufacturer_key": "ls"
     },
     {
         "category": "tractor",
@@ -12295,7 +12295,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS TRACTOR",
+        "manufacturer": "LS",
         "model": "XP 101 P/S",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13417&page=120"
@@ -12310,7 +12310,7 @@
             "lift_capacity": 3800.0
         },
         "model_key": "xp_101_p_s",
-        "manufacturer_key": "ls_tractor"
+        "manufacturer_key": "ls"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -12731,7 +12731,7 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS MTRON",
+        "manufacturer": "LS",
         "model": "XU 6158",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13613&page=128"
@@ -12746,12 +12746,12 @@
             "lift_capacity": 1850.0
         },
         "model_key": "xu_6158",
-        "manufacturer_key": "ls_mtron"
+        "manufacturer_key": "ls"
     },
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
-        "manufacturer": "LS MTRON",
+        "manufacturer": "LS",
         "model": "MT 3,50",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13611&page=128"
@@ -12766,7 +12766,7 @@
             "lift_capacity": 1320.0
         },
         "model_key": "mt_350",
-        "manufacturer_key": "ls_mtron"
+        "manufacturer_key": "ls"
     },
     {
         "category": "sowing_and_planting_equipment",
