@@ -124,8 +124,13 @@ def sentence_transformer_fuzzy_similarity(model: SentenceTransformer, a: str, b:
 def get_full_model_name(equipmentModel: EquipmentModel) -> str:
     return f"{equipmentModel['manufacturer']} {equipmentModel['model']}"
 
-def models_similar(model: SentenceTransformer, equipmentA: EquipmentModel, equipmentB: EquipmentModel, threshold: float = 0.90) -> bool:
+def models_similar(equipmentA: EquipmentModel, equipmentB: EquipmentModel, threshold: float = 0.90) -> bool:
+    if equipmentA['category'] != equipmentB['category']:
+        return False
+    if equipmentA['sub_category'] != equipmentB['sub_category']:
+        return False
+    
     # Todo: Must use more information to better match, models are not enough
-    similarity = sentence_transformer_fuzzy_similarity(model, get_full_model_name(equipmentA), get_full_model_name(equipmentB))
-
+    similarity = rapidfuzz_similarity(get_full_model_name(equipmentA), get_full_model_name(equipmentB))
+    
     return similarity >= threshold

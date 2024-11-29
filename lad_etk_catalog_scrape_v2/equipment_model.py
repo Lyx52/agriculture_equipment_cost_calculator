@@ -1,5 +1,4 @@
 from enum import Enum
-from utils import open_json, clean_key
 class EquipmentModelMetadata(Enum):
     Weight = "weight",
     Wheelbase = "wheelbase",
@@ -48,6 +47,38 @@ class EquipmentSubCategory(Enum):
     RowCultivator = "row_cultivator"
     PackingPress = 'packing_press',
     BallingPress = 'balling_press'
+replacements = {
+    'ā': 'a',
+    'ē': 'e',
+    'č': 'c',
+    'ī': 'i',
+    'ļ': 'l',
+    'š': 's',
+    'ū': 'u',
+    'ģ': 'g',
+    'ķ': 'k',
+    'ž': 'z',
+    'ņ': 'n',
+    '&': '',
+    '\'': '',
+    ' ': '_',
+    '/': '_',
+    ',': '',
+    '.': '',
+    '-': '',
+    '"': '',
+    '(': '',
+    ')': '',
+    '%': 'prc'
+}
+def clean_key(key: str) -> str:
+    result = str(key).lower()
+    for r in replacements:
+        if r in result:
+            result = result.replace(r, replacements[r])
+        if '__' in result:
+            result = result.replace('__', '_')
+    return result.strip()
 
 class EquipmentModel:
     specification: dict

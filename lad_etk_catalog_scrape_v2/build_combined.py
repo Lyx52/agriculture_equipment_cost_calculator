@@ -1,52 +1,60 @@
-from utils import open_json, clean_key, save_json, normalize_text, sentence_transformer_fuzzy_similarity, rapidfuzz_similarity
-combined = open_json('lad_catalog_data.json')
+from utils import open_json, save_json, models_similar
+lad_data = open_json('lad_catalog_data.json')
 tractor_data = open_json('tractordata_catalog.json')
-not_matching = []
-matching = 0
+ritchiespecs_data = open_json('ritchiespecs_data.json')
+
+def build_combined(items_left, items_right):
+    built_items = []
+    for left_item in items_left:
+        for index in range(len(items_right)):
+            right_item = items_right[index]
+            if models_similar(left_item, right_item):
+                left_item['specification'] = {
+                    **right_item['specification'],
+                    **left_item['specification']
+                }
+                left_item['sources'].extend(right_item['sources'])
+                if right_item['equipment_level_code'] == left_item['equipment_level_code']:
+                    del items_right[index]
+                break
+        built_items.append(left_item)
+    built_items.extend(items_right)
+    return built_items
+
+combined = build_combined(lad_data, tractor_data)
+combined = build_combined(combined, ritchiespecs_data)
+
+required_specification_keys_by_category = {
+    'tractor': [
+        'weight',
+        'engine_power_kw'
+    ],
+    'sowing_and_planting_equipment': [
+        'required_power_kw',
+        'working_width'
+    ],
+    'soil_cultivation_equipment': [
+        'required_power_kw',
+        'working_width'
+    ],
+    'feed_preperation_equipment': [
+        'required_power_kw',
+    ],
+    'harvesting_equipment': [
+        'weight',
+        'engine_power_kw'
+    ]
+}
+filtered = []
 for item in combined:
-    if item['category'] != 'tractor':
+    if 'price' not in item or item['price'] <= 0:
         continue
-    was_matched = False
-    for tractordata in tractor_data:
-        if tractordata['category'] != 'tractor':
-            continue
-        if str(tractordata['manufacturer_key']) != str(item['manufacturer_key']):
-            continue
-        if str(tractordata['model_key']) != str(item['model_key']):
-            continue
-        was_matched = True
-    if not was_matched:
-        not_matching.append(f"{item['manufacturer']} {item['model']}")
-    else: 
-        matching += 1
-print(len(not_matching), matching)
-save_json('not_matching.json', not_matching)
-
-from sentence_transformers import SentenceTransformer, util
-model = SentenceTransformer('all-MiniLM-L6-v2')
-
-combined = open_json('lad_catalog_data.json')
-tractor_data = open_json('tractordata_catalog.json')
-not_matching = []
-matching = []
-
-for item in combined:
-    if item['category'] != 'tractor':
-        continue
-    for tractordata in tractor_data:
-        if tractordata['category'] != 'tractor':
-            continue
-        similarity = rapidfuzz_similarity(f"{tractordata['manufacturer']} {tractordata['model']}", f"{item['manufacturer']} {item['model']}")
-        #print(f"{tractordata['manufacturer']} {tractordata['model']}", f"{item['manufacturer']} {item['model']}", similarity)
-        if (similarity > 0.95):
-            matching.append(
-                ''.join([f"{tractordata['manufacturer']} {tractordata['model']}", f"{item['manufacturer']} {item['model']}", str(similarity)])
-            )
+    has_required = True
+    for required_key in required_specification_keys_by_category[item['category']]:
+        if required_key not in item['specification']:
+            has_required = False
             break
-save_json('matching.json', matching)
-# # items_tractordata = open_json('tractordata_catalog.json')
-# # combined_lad_tractordata = build_combined(items_lad, items_tractordata)
-# # items_ritchiespecs = open_json('ritchiespecs_data.json')
-# # combined = build_combined(combined_lad_tractordata, items_ritchiespecs)
-# print(f"Built in total {len(combined)} items...")
-# save_json('combined_data.json', combined)
+    if has_required:
+        filtered.append(item)
+print(f"Built in total {len(filtered)} items...")
+save_json('combined_data.json', filtered)

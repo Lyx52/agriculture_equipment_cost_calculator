@@ -271,6 +271,8 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
     if category == 'tractor':
         sub_category = 'tractor_4x4' if specs[EquipmentModelMetadata.Powertrain.value[0]] == '4x4' else 'tractor_4x2'
     manufacturer = manufacturer.replace("'", "") if normalize_text(manufacturer) not in combine_manufacturers.keys() else combine_manufacturers[normalize_text(manufacturer)]
+    if 'powertrain' in specs and category != 'tractor':
+        del specs['powertrain']
     return EquipmentModel(manufacturer.replace("'", ""), model.replace("'", ""), category, sub_category, equipment_level_code.value, price, specs, [source])
 
 def get_lad_catalog() -> list[EquipmentModel]:
