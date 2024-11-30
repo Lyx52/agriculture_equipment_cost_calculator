@@ -2,7 +2,7 @@ from utils import open_json, save_json, models_similar
 lad_data = open_json('lad_catalog_data.json')
 tractor_data = open_json('tractordata_catalog.json')
 ritchiespecs_data = open_json('ritchiespecs_data.json')
-
+lectura_spec_data = open_json('lectura_specs_catalog_data.json')
 def build_combined(items_left, items_right):
     built_items = []
     for left_item in items_left:
@@ -23,6 +23,8 @@ def build_combined(items_left, items_right):
 
 combined = build_combined(lad_data, tractor_data)
 combined = build_combined(combined, ritchiespecs_data)
+combined = build_combined(combined, lectura_spec_data)
+
 
 required_specification_keys_by_category = {
     'tractor': [

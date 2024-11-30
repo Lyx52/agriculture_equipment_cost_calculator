@@ -127,8 +127,6 @@ def get_full_model_name(equipmentModel: EquipmentModel) -> str:
 def models_similar(equipmentA: EquipmentModel, equipmentB: EquipmentModel, threshold: float = 0.90) -> bool:
     if equipmentA['category'] != equipmentB['category']:
         return False
-    if equipmentA['sub_category'] != equipmentB['sub_category']:
-        return False
     
     # Todo: Must use more information to better match, models are not enough
     similarity = rapidfuzz_similarity(get_full_model_name(equipmentA), get_full_model_name(equipmentB))

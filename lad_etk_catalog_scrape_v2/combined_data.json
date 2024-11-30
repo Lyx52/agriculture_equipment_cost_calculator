@@ -7,20 +7,22 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=2474&page=1",
             "https://www.tractordata.com/farm-tractors/010/7/3/10739-fendt-312-vario.html",
-            "https://www.ritchiespecs.com/model/fendt-312-vario-4wd-tractor"
+            "https://www.ritchiespecs.com/model/fendt-312-vario-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-fendt/412-vario-1041240"
         ],
         "price": 150500.0,
         "equipment_level_code": "premium",
         "specification": {
+            "engine_power_kw": 92.4668,
+            "model_series": "400 Vario",
             "length": 4.15,
             "wheelbase": 2.34,
+            "max_speed": 40.0,
+            "weight": 4350.0,
             "powertrain": "4x4",
             "engine_cylinders": 4,
-            "engine_power_kw": 92.4668,
             "engine_displacement": 4.1,
             "fuel_capacity": 210.1,
-            "weight": 4350.0,
-            "max_speed": 40.0,
             "hydrolic_pump_flow": 158.0,
             "lift_capacity": 8045.0,
             "front_lift_capacity": 2996.0
@@ -207,6 +209,33 @@
         },
         "model_key": "fdd4000",
         "manufacturer_key": "irtem"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 4.75 S",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10500&page=9",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-new-holland/t-4-75-1158263"
+        ],
+        "price": 43800.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 55.9275,
+            "model_series": "T4",
+            "length": 4.05,
+            "wheelbase": 2.17,
+            "max_speed": 40.0,
+            "weight": 4019.9999999999995,
+            "engine_displacement": 3.4,
+            "powertrain": "4x4",
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 47.0,
+            "lift_capacity": 3000.0
+        },
+        "model_key": "t_475_s",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -484,14 +513,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 6.3 GX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10732&page=16"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10732&page=16",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 62730.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 260.995,
             "working_width": 5.9,
-            "weight": 6500.0
+            "wheelbase": 3.0,
+            "weight": 6500.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 260.995
         },
         "model_key": "terrano_63_gx",
         "manufacturer_key": "horsch"
@@ -549,6 +582,37 @@
         },
         "model_key": "der_original_striegel_12",
         "manufacturer_key": "hatzenbichler"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "CASE",
+        "model": "FARMALL 75 A",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10614&page=16",
+            "https://www.tractordata.com/farm-tractors/011/0/7/11073-caseih-farmall-75a.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/2wd-tractors-case-ih/farmall-75-a-11695628"
+        ],
+        "price": 50000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 55.9275,
+            "model_series": "Farmall",
+            "length": 3.856,
+            "wheelbase": 2.07,
+            "max_speed": 40.0,
+            "weight": 2824.97328036,
+            "engine_displacement": 2.93,
+            "engine_torque": 1400.0,
+            "engine_cylinders": 3,
+            "pto_power_kw": 44.7,
+            "fuel_capacity": 82.1,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 66.0,
+            "lift_capacity": 3000.0
+        },
+        "model_key": "farmall_75_a",
+        "manufacturer_key": "case"
     },
     {
         "category": "tractor",
@@ -943,19 +1007,23 @@
         "model": "M5112",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10599&page=19",
-            "https://www.tractordata.com/farm-tractors/010/1/1/10113-kubota-m5111.html"
+            "https://www.tractordata.com/farm-tractors/010/1/1/10113-kubota-m5111.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-kubota/m5111-1161887"
         ],
         "price": 53900.0,
         "equipment_level_code": "base",
         "specification": {
             "engine_power_kw": 84.2641,
+            "model_series": "M5001",
+            "length": 4.045,
+            "wheelbase": 2.25,
+            "max_speed": 40.0,
+            "weight": 3420.0,
+            "engine_cylinders": 4,
             "fuel_capacity": 104.8,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 89.0,
-            "lift_capacity": 4100.0,
-            "wheelbase": 2.25,
-            "weight": 3420.0,
-            "engine_cylinders": 4
+            "lift_capacity": 4100.0
         },
         "model_key": "m5112",
         "manufacturer_key": "kubota"
@@ -966,14 +1034,17 @@
         "manufacturer": "HORSCH",
         "model": "CRUISER 12 XL",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10733&page=19"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10733&page=19",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/cruiser-5-xl-1155032"
         ],
         "price": 152210.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 372.85,
             "working_width": 12.0,
-            "weight": 10500.0
+            "wheelbase": 2.95,
+            "weight": 10500.0,
+            "number_of_tines": 33.0,
+            "required_power_kw": 372.85
         },
         "model_key": "cruiser_12_xl",
         "manufacturer_key": "horsch"
@@ -1239,15 +1310,20 @@
         "manufacturer": "CLAAS",
         "model": "QUADRANT 5300 FC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10901&page=22"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10901&page=22",
+            "https://www.ritchiespecs.com/model/claas-quadrant-5300-fc-baler",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/square-balers-claas/quadrant-3300-fc-1159339"
         ],
         "price": 290575.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 223.71,
-            "working_width": 2.35,
             "bale_width": 1.2,
-            "bale_height": 3.0
+            "bale_height": 3.0,
+            "weight": 11990.0,
+            "length": 8.86,
+            "wheelbase": 2.76,
+            "working_width": 2.35
         },
         "model_key": "quadrant_5300_fc",
         "manufacturer_key": "claas"
@@ -1344,6 +1420,26 @@
         "manufacturer_key": "kverneland"
     },
     {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "KUHN",
+        "model": "VARI-CHALLENGER OL 8",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10952&page=23",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-kuhn/vari-challenger-ol-8e-nsh-11760898"
+        ],
+        "price": 90389.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 4.4,
+            "weight": 6972.0,
+            "number_of_furrows": 8.0,
+            "required_power_kw": 268.452
+        },
+        "model_key": "varichallenger_ol_8",
+        "manufacturer_key": "kuhn"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "HORSCH",
@@ -1432,6 +1528,26 @@
         },
         "model_key": "spirit_st600c",
         "manufacturer_key": "vaderstad"
+    },
+    {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "REGENT",
+        "model": "EUROSTAR 120M",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11140&page=25",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-regent/eurostar-120-k-1155882"
+        ],
+        "price": 15900.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 1.64,
+            "weight": 1620.0,
+            "number_of_furrows": 4.0,
+            "required_power_kw": 104.39800000000001
+        },
+        "model_key": "eurostar_120m",
+        "manufacturer_key": "regent"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -1818,22 +1934,25 @@
         "model": "6120M",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11376&page=31",
-            "https://www.tractordata.com/farm-tractors/001/5/5/1556-john-deere-3120.html",
-            "https://www.ritchiespecs.com/model/john-deere-9120-4wd-tractor"
+            "https://www.tractordata.com/farm-tractors/000/0/4/43-john-deere-620.html",
+            "https://www.ritchiespecs.com/model/john-deere-6420-2wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/2wd-tractors-john-deere/6205-1011285"
         ],
         "price": 143700.0,
         "equipment_level_code": "medium",
         "specification": {
-            "length": 6.95,
-            "wheelbase": 1.72,
+            "engine_power_kw": 89.48400000000001,
+            "weight": 2870.78610973,
+            "wheelbase": 2.28,
             "powertrain": "4x4",
             "engine_cylinders": 4,
-            "engine_power_kw": 89.48400000000001,
-            "engine_displacement": 8.1,
-            "fuel_capacity": 51.1,
-            "weight": 1360.0,
+            "pto_power_kw": 35.8,
+            "engine_torque": 442.0,
+            "engine_displacement": 4.6,
             "lift_capacity": 5700.0,
-            "hydrolic_pump_flow": 80.0
+            "hydrolic_pump_flow": 80.0,
+            "fuel_capacity": 77.6,
+            "drawbar_power_kw": 33.4
         },
         "model_key": "6120m",
         "manufacturer_key": "john_deere"
@@ -1845,24 +1964,28 @@
         "model": "6130M",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11377&page=31",
-            "https://www.tractordata.com/farm-tractors/005/7/9/5799-john-deere-6130d.html",
-            "https://www.ritchiespecs.com/model/john-deere-8630-4wd-tractor"
+            "https://www.tractordata.com/farm-tractors/000/0/5/51-john-deere-630.html",
+            "https://www.ritchiespecs.com/model/john-deere-6120-2wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6430-1046705"
         ],
         "price": 155650.0,
         "equipment_level_code": "medium",
         "specification": {
-            "length": 5.67,
-            "wheelbase": 2.34,
+            "engine_power_kw": 96.941,
+            "model_series": "6030",
+            "length": 4.29,
+            "wheelbase": 2.28,
+            "max_speed": 40.0,
+            "weight": 2657.0,
             "powertrain": "4x4",
             "engine_cylinders": 4,
-            "engine_power_kw": 96.941,
-            "pto_power_kw": 81.8,
-            "engine_displacement": 10.1,
-            "weight": 4229.74885025,
-            "fuel_capacity": 157.8,
+            "pto_power_kw": 35.8,
+            "engine_torque": 313.2,
+            "engine_displacement": 4.6,
+            "lift_capacity": 6400.0,
             "hydrolic_pump_flow": 114.0,
-            "drawbar_power_kw": 68.4,
-            "lift_capacity": 6400.0
+            "fuel_capacity": 77.6,
+            "drawbar_power_kw": 33.4
         },
         "model_key": "6130m",
         "manufacturer_key": "john_deere"
@@ -1873,17 +1996,50 @@
         "manufacturer": "KUHN",
         "model": "CULTIMER L 350",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11378&page=31"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11378&page=31",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-kuhn/cultimer-350-1158905"
         ],
         "price": 33369.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 134.226,
             "working_width": 3.5,
-            "weight": 2481.0
+            "wheelbase": 3.5,
+            "weight": 2481.0,
+            "number_of_tines": 11.0,
+            "number_of_discs": 9.0,
+            "required_power_kw": 134.226
         },
         "model_key": "cultimer_l_350",
         "manufacturer_key": "kuhn"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "STEYR",
+        "model": "MULTI 4120",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11395&page=32",
+            "https://www.tractordata.com/farm-tractors/009/1/8/9180-steyr-4100-multi.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-steyr/4120-multi-11754773"
+        ],
+        "price": 120800.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "engine_power_kw": 87.2469,
+            "model_series": "Multi",
+            "length": 4.197,
+            "wheelbase": 2.1,
+            "max_speed": 40.0,
+            "weight": 4450.0,
+            "engine_displacement": 3.4,
+            "engine_torque": 1300.0,
+            "engine_cylinders": 4,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 80.0,
+            "lift_capacity": 4100.0
+        },
+        "model_key": "multi_4120",
+        "manufacturer_key": "steyr"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -1902,6 +2058,35 @@
         },
         "model_key": "pronto_6_dc",
         "manufacturer_key": "horsch"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "STEYR",
+        "model": "MULTI 4120",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11407&page=32",
+            "https://www.tractordata.com/farm-tractors/009/1/8/9180-steyr-4100-multi.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-steyr/4120-multi-11754773"
+        ],
+        "price": 114000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 87.2469,
+            "model_series": "Multi",
+            "length": 4.197,
+            "wheelbase": 2.1,
+            "max_speed": 40.0,
+            "weight": 4450.0,
+            "engine_displacement": 3.4,
+            "engine_torque": 1300.0,
+            "engine_cylinders": 4,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 80.0,
+            "lift_capacity": 4100.0
+        },
+        "model_key": "multi_4120",
+        "manufacturer_key": "steyr"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -1971,14 +2156,16 @@
         "manufacturer": "KVERNELAND",
         "model": "CTC 420",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11417&page=33"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11417&page=33",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-kverneland/ctc-420-11687744"
         ],
         "price": 65000.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 223.71,
             "working_width": 4.0,
-            "weight": 3800.0
+            "weight": 3800.0,
+            "number_of_tines": 19.0,
+            "required_power_kw": 223.71
         },
         "model_key": "ctc_420",
         "manufacturer_key": "kverneland"
@@ -1989,14 +2176,17 @@
         "manufacturer": "KVERNELAND",
         "model": "ENDURO 3500",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11419&page=33"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11419&page=33",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-kverneland/enduro-3000-11738969"
         ],
         "price": 25000.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 201.339,
             "working_width": 3.5,
-            "weight": 2600.0
+            "wheelbase": 3.0,
+            "weight": 2600.0,
+            "number_of_tines": 10.0,
+            "required_power_kw": 201.339
         },
         "model_key": "enduro_3500",
         "manufacturer_key": "kverneland"
@@ -2087,23 +2277,22 @@
         "model": "3038E",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11442&page=34",
-            "https://www.tractordata.com/farm-tractors/010/2/3/10236-john-deere-3038r.html",
-            "https://www.ritchiespecs.com/model/john-deere-5303-4wd-tractor"
+            "https://www.tractordata.com/farm-tractors/004/8/2/4826-john-deere-303.html",
+            "https://www.ritchiespecs.com/model/john-deere-5303-2wd-tractor"
         ],
         "price": 31600.0,
         "equipment_level_code": "medium",
         "specification": {
+            "wheelbase": 1.88,
+            "powertrain": "4x4",
             "engine_cylinders": 3,
             "engine_power_kw": 272.9262,
-            "pto_power_kw": 22.4,
+            "pto_power_kw": 41.1,
             "engine_displacement": 3.0,
-            "powertrain": "4x4",
-            "weight": 1549.92512829,
-            "fuel_capacity": 45.0,
-            "hydrolic_pump_flow": 35.2,
+            "fuel_capacity": 62.1,
             "lift_capacity": 615.0,
-            "front_lift_capacity": 1102.0,
-            "wheelbase": 1.72
+            "weight": 1740.0,
+            "hydrolic_pump_flow": 35.2
         },
         "model_key": "3038e",
         "manufacturer_key": "john_deere"
@@ -2434,6 +2623,26 @@
     },
     {
         "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "UNIA",
+        "model": "IBIS VARIO 4 H",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11498&page=36",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-unia/ibis-vario-4-11687163"
+        ],
+        "price": 22440.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "working_width": 0.5,
+            "weight": 1680.0,
+            "number_of_furrows": 4.0,
+            "required_power_kw": 119.31200000000001
+        },
+        "model_key": "ibis_vario_4_h",
+        "manufacturer_key": "unia"
+    },
+    {
+        "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "UNIA",
         "model": "AKCENT 12",
@@ -2485,6 +2694,34 @@
         },
         "model_key": "primera_dmc_90002c",
         "manufacturer_key": "amazone"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "STEYR",
+        "model": "KOMPAKT 4100",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11507&page=37",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-steyr/kompakt-4100-ps-11754752"
+        ],
+        "price": 108000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 74.57000000000001,
+            "model_series": "Kompakt",
+            "length": 4.241,
+            "wheelbase": 1.923,
+            "max_speed": 40.0,
+            "weight": 3600.0,
+            "engine_displacement": 3.4,
+            "engine_torque": 1300.0,
+            "engine_cylinders": 4,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 60.0,
+            "lift_capacity": 4000.0
+        },
+        "model_key": "kompakt_4100",
+        "manufacturer_key": "steyr"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -2769,6 +3006,36 @@
         },
         "model_key": "kasi_300",
         "manufacturer_key": "agrokalina"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "5125 GS",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11603&page=40",
+            "https://www.tractordata.com/farm-tractors/010/2/2/10228-deutz-fahr-5125.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/5125-11682912"
+        ],
+        "price": 78000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 89.48400000000001,
+            "model_series": "5",
+            "length": 4.145,
+            "wheelbase": 2.36,
+            "max_speed": 40.0,
+            "weight": 4500.0,
+            "engine_displacement": 3.849,
+            "engine_cylinders": 4,
+            "fuel_capacity": 135.1,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 90.0,
+            "lift_capacity": 5410.0,
+            "front_lift_capacity": 2100.0
+        },
+        "model_key": "5125_gs",
+        "manufacturer_key": "deutzfahr"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -3066,14 +3333,17 @@
         "manufacturer": "AMAZONE",
         "model": "CENIUS 4003 SUPER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11604&page=43"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11604&page=43",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-amazone/cenius-4003-2-super-11696138"
         ],
         "price": 42100.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 119.31200000000001,
             "working_width": 4.0,
-            "weight": 2402.0
+            "wheelbase": 3.0,
+            "weight": 2402.0,
+            "number_of_tines": 14.0,
+            "required_power_kw": 119.31200000000001
         },
         "model_key": "cenius_4003_super",
         "manufacturer_key": "amazone"
@@ -3169,6 +3439,26 @@
         "manufacturer_key": "amazone"
     },
     {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "UNIA",
+        "model": "IBIS LS 4+",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11685&page=44",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-unia/ibis-l-s-4-1-11687122"
+        ],
+        "price": 15450.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "working_width": 0.45,
+            "weight": 1440.0,
+            "number_of_furrows": 5.0,
+            "required_power_kw": 96.941
+        },
+        "model_key": "ibis_ls_4+",
+        "manufacturer_key": "unia"
+    },
+    {
         "category": "tractor",
         "sub_category": "tractor_4x4",
         "manufacturer": "CASE",
@@ -3254,14 +3544,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 4 MT",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11699&page=45"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11699&page=45",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-6-mt-1155031"
         ],
         "price": 72890.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 186.425,
             "working_width": 4.4,
-            "weight": 6730.0
+            "wheelbase": 3.0,
+            "weight": 6730.0,
+            "number_of_tines": 15.0,
+            "number_of_discs": 48.0,
+            "required_power_kw": 186.425
         },
         "model_key": "terrano_4_mt",
         "manufacturer_key": "horsch"
@@ -3398,14 +3692,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 4 FX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11725&page=48"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11725&page=48",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 34430.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 186.425,
             "working_width": 4.0,
-            "weight": 2200.0
+            "wheelbase": 3.0,
+            "weight": 2200.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 186.425
         },
         "model_key": "terrano_4_fx",
         "manufacturer_key": "horsch"
@@ -3490,19 +3788,23 @@
         "model": "209 P VARIO",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10882&page=49",
-            "https://www.tractordata.com/farm-tractors/010/8/4/10841-fendt-209-vario.html"
+            "https://www.tractordata.com/farm-tractors/010/8/4/10841-fendt-209-vario.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-fendt/209-v-vario-1130589"
         ],
         "price": 145000.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 67.8587,
+            "model_series": "200 Vario",
+            "length": 3.59,
+            "wheelbase": 2.29,
+            "max_speed": 40.0,
+            "weight": 3870.0,
             "fuel_capacity": 124.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 119.0,
             "lift_capacity": 3134.0,
             "front_lift_capacity": 2490.0,
-            "wheelbase": 2.29,
-            "weight": 3870.0,
             "engine_cylinders": 3
         },
         "model_key": "209_p_vario",
@@ -3543,6 +3845,30 @@
         },
         "model_key": "activagro_60_h",
         "manufacturer_key": "rolmako"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
+        "model": "5-120",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11791&page=50",
+            "https://www.tractordata.com/farm-tractors/004/1/6/4160-landini-50.html"
+        ],
+        "price": 58750.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 85.0098,
+            "fuel_capacity": 85.9,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 62.0,
+            "lift_capacity": 4500.0,
+            "wheelbase": 2.11,
+            "weight": 2910.475442105,
+            "engine_cylinders": 4
+        },
+        "model_key": "5120",
+        "manufacturer_key": "landini"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -3641,23 +3967,27 @@
         "model": "6175M",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11807&page=51",
-            "https://www.tractordata.com/farm-tractors/008/9/9/8990-john-deere-6175m.html",
-            "https://www.ritchiespecs.com/model/john-deere-6155m-4wd-tractor"
+            "https://www.tractordata.com/farm-tractors/004/9/9/4995-john-deere-1750.html",
+            "https://www.ritchiespecs.com/model/john-deere-6715-2wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6105mc-11681313"
         ],
         "price": 178960.0,
         "equipment_level_code": "medium",
         "specification": {
-            "wheelbase": 2.79,
-            "powertrain": "4x4",
-            "engine_displacement": 6.8,
             "engine_power_kw": 130.4975,
-            "pto_power_kw": 124.8,
-            "drawbar_power_kw": 104.7,
-            "fuel_capacity": 321.7,
-            "hydrolic_pump_flow": 114.0,
+            "model_series": "6MC",
+            "length": 4.72,
+            "wheelbase": 2.04,
+            "max_speed": 40.0,
+            "weight": 2721.0,
+            "engine_displacement": 6.8,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
+            "pto_power_kw": 80.1,
+            "engine_torque": 1016.9,
             "lift_capacity": 9050.0,
-            "weight": 7105.0,
-            "engine_cylinders": 6
+            "hydrolic_pump_flow": 114.0,
+            "fuel_capacity": 78.0
         },
         "model_key": "6175m",
         "manufacturer_key": "john_deere"
@@ -3683,6 +4013,30 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
+        "model": "5-120",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11814&page=51",
+            "https://www.tractordata.com/farm-tractors/004/1/6/4160-landini-50.html"
+        ],
+        "price": 55300.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 85.0098,
+            "fuel_capacity": 85.9,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 62.0,
+            "lift_capacity": 4500.0,
+            "wheelbase": 2.11,
+            "weight": 2910.475442105,
+            "engine_cylinders": 4
+        },
+        "model_key": "5120",
+        "manufacturer_key": "landini"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "KIOTI",
         "model": "CS2510H",
         "sources": [
@@ -3703,6 +4057,31 @@
             "engine_cylinders": 3
         },
         "model_key": "cs2510h",
+        "manufacturer_key": "kioti"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "CS2520H",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11714&page=52",
+            "https://www.tractordata.com/farm-tractors/011/2/2/11222-kioti-cs2520.html"
+        ],
+        "price": 14880.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 18.642500000000002,
+            "pto_power_kw": 13.8,
+            "fuel_capacity": 25.4,
+            "hydrolic_pump_flow": 26.4,
+            "lift_capacity": 715.0,
+            "wheelbase": 1.39,
+            "weight": 704.0,
+            "powertrain": "4x4",
+            "engine_cylinders": 3
+        },
+        "model_key": "cs2520h",
         "manufacturer_key": "kioti"
     },
     {
@@ -3835,6 +4214,26 @@
         "manufacturer_key": "kvickfinn"
     },
     {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "UNIA",
+        "model": "IBIS XXLS 4",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11844&page=54",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-unia/ibis-xxl-4-1-1040103"
+        ],
+        "price": 18900.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "working_width": 2.5,
+            "weight": 1600.0,
+            "number_of_furrows": 5.0,
+            "required_power_kw": 119.31200000000001
+        },
+        "model_key": "ibis_xxls_4",
+        "manufacturer_key": "unia"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "AMAZONE",
@@ -3859,19 +4258,23 @@
         "model": "6135C",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11599&page=55",
-            "https://www.tractordata.com/farm-tractors/002/1/3/2130-deutz-fahr-615.html"
+            "https://www.tractordata.com/farm-tractors/002/1/3/2130-deutz-fahr-615.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/6115-c-11760664"
         ],
         "price": 88000.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 101.4152,
+            "model_series": "6",
+            "max_speed": 40.0,
+            "engine_displacement": 3.62,
+            "engine_cylinders": 4,
             "fuel_capacity": 260.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 90.0,
             "lift_capacity": 7000.0,
             "wheelbase": 2.64,
-            "weight": 5010.0,
-            "engine_cylinders": 4
+            "weight": 5010.0
         },
         "model_key": "6135c",
         "manufacturer_key": "deutzfahr"
@@ -3883,23 +4286,25 @@
         "model": "6155M",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11867&page=55",
-            "https://www.tractordata.com/farm-tractors/004/0/5/4052-john-deere-3155.html",
-            "https://www.ritchiespecs.com/model/john-deere-6155m-4wd-tractor"
+            "https://www.tractordata.com/farm-tractors/000/1/2/128-john-deere-655.html",
+            "https://www.ritchiespecs.com/model/john-deere-6715-2wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6155j-11762633"
         ],
         "price": 166350.0,
         "equipment_level_code": "premium",
         "specification": {
-            "wheelbase": 2.58,
-            "powertrain": "4x4",
-            "engine_displacement": 6.8,
-            "pto_power_kw": 71.6,
-            "drawbar_power_kw": 61.1,
-            "fuel_capacity": 173.0,
-            "hydrolic_pump_flow": 114.0,
-            "lift_capacity": 7650.0,
-            "weight": 4960.03256595,
             "engine_power_kw": 115.5835,
-            "engine_cylinders": 6
+            "model_series": "6J",
+            "engine_displacement": 6.8,
+            "engine_cylinders": 6,
+            "wheelbase": 1.29,
+            "powertrain": "4x4",
+            "pto_power_kw": 7.9,
+            "engine_torque": 1016.9,
+            "weight": 725.747792,
+            "lift_capacity": 7650.0,
+            "hydrolic_pump_flow": 114.0,
+            "fuel_capacity": 15.1
         },
         "model_key": "6155m",
         "manufacturer_key": "john_deere"
@@ -4135,21 +4540,24 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11950&page=57",
             "https://www.tractordata.com/farm-tractors/010/0/4/10041-claas-axion-800.html",
-            "https://www.ritchiespecs.com/model/claas-axion-880-4wd-tractor"
+            "https://www.ritchiespecs.com/model/claas-axion-880-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-claas/axion-850-11739530"
         ],
         "price": 133000.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 143.92010000000002,
-            "pto_power_kw": 15.0,
-            "engine_displacement": 6.7,
-            "powertrain": "4x4",
-            "weight": 8299.0,
-            "fuel_capacity": 455.0,
+            "model_series": "Axion",
+            "length": 5.72,
             "max_speed": 50.0,
+            "weight": 8299.0,
+            "engine_displacement": 6.7,
+            "engine_cylinders": 6,
+            "pto_power_kw": 15.0,
+            "powertrain": "4x4",
+            "fuel_capacity": 455.0,
             "hydrolic_pump_flow": 110.0,
             "wheelbase": 2.97,
-            "engine_cylinders": 6,
             "lift_capacity": 9500.0
         },
         "model_key": "axion_800",
@@ -4197,14 +4605,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 5.4 GX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11935&page=58"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11935&page=58",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-4-fx-1041789"
         ],
         "price": 70020.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 260.995,
             "working_width": 4.9,
-            "weight": 6200.0
+            "wheelbase": 3.0,
+            "weight": 6200.0,
+            "number_of_tines": 13.0,
+            "number_of_discs": 10.0,
+            "required_power_kw": 260.995
         },
         "model_key": "terrano_54_gx",
         "manufacturer_key": "horsch"
@@ -4266,24 +4678,52 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "VALTRA",
+        "model": "Q225",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11975&page=58",
+            "https://www.tractordata.com/farm-tractors/011/2/7/11273-valtra-q225.html"
+        ],
+        "price": 195000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "fuel_capacity": 430.0,
+            "hydrolic_pump_flow": 200.0,
+            "lift_capacity": 10000.0,
+            "front_lift_capacity": 4282.0,
+            "wheelbase": 3.05,
+            "weight": 9200.0,
+            "engine_power_kw": 177.47660000000002,
+            "powertrain": "4x4",
+            "engine_cylinders": 6
+        },
+        "model_key": "q225",
+        "manufacturer_key": "valtra"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "STEYR",
         "model": "KOMPAKT 4080",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11509&page=59",
-            "https://www.ritchiespecs.com/model/steyr-485-kompakt-4wd-tractor"
+            "https://www.ritchiespecs.com/model/steyr-485-kompakt-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/2wd-tractors-steyr/948-kompakt-1014669"
         ],
         "price": 86000.0,
         "equipment_level_code": "base",
         "specification": {
+            "engine_power_kw": 59.656000000000006,
+            "model_series": "900",
+            "max_speed": 30.0,
+            "weight": 3050.0,
             "length": 3.568,
             "wheelbase": 2.185,
             "powertrain": "4x4",
             "engine_cylinders": 4,
             "engine_displacement": 4.5,
-            "weight": 3050.0,
             "fuel_capacity": 90.0,
             "hydrolic_pump_flow": 60.0,
-            "engine_power_kw": 59.656000000000006,
             "lift_capacity": 4000.0
         },
         "model_key": "kompakt_4080",
@@ -4297,11 +4737,13 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12009&page=59",
             "https://www.tractordata.com/farm-tractors/009/1/4/9149-steyr-6115-profi.html",
-            "https://www.ritchiespecs.com/model/steyr-6140-profi-4wd-tractor"
+            "https://www.ritchiespecs.com/model/steyr-6140-profi-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-steyr/6115-profi-1027325"
         ],
         "price": 150500.0,
         "equipment_level_code": "medium",
         "specification": {
+            "model_series": "Profi",
             "length": 4.532,
             "wheelbase": 2.65,
             "powertrain": "4x4",
@@ -4326,21 +4768,26 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12013&page=59",
             "https://www.tractordata.com/farm-tractors/011/2/4/11241-john-deere-6r-145.html",
-            "https://www.ritchiespecs.com/model/john-deere-6215r-4wd-tractor"
+            "https://www.ritchiespecs.com/model/john-deere-6215r-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6r-175-11759590"
         ],
         "price": 231420.0,
         "equipment_level_code": "medium",
         "specification": {
-            "wheelbase": 2.76,
-            "powertrain": "4x4",
-            "engine_displacement": 6.9,
             "engine_power_kw": 160.3255,
+            "model_series": "6R",
+            "length": 2.55,
+            "wheelbase": 2.76,
+            "max_speed": 40.0,
+            "weight": 6900.0,
+            "engine_displacement": 6.9,
+            "engine_torque": 1600.0,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
             "pto_power_kw": 84.3,
             "hydrolic_pump_flow": 155.0,
             "lift_capacity": 9550.0,
-            "front_lift_capacity": 3299.0,
-            "weight": 6900.0,
-            "engine_cylinders": 6
+            "front_lift_capacity": 3299.0
         },
         "model_key": "6r_215",
         "manufacturer_key": "john_deere"
@@ -4352,19 +4799,23 @@
         "model": "PROFI 6150 CVT",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12012&page=60",
-            "https://www.tractordata.com/farm-tractors/009/1/6/9160-steyr-4110-profi-cvt.html"
+            "https://www.tractordata.com/farm-tractors/009/1/6/9160-steyr-4110-profi-cvt.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-steyr/cvt-6185-profi-1135358"
         ],
         "price": 161500.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 111.855,
+            "model_series": "CVT",
+            "length": 5.017,
+            "wheelbase": 2.4,
+            "max_speed": 40.0,
+            "weight": 4990.0,
             "fuel_capacity": 174.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 150.0,
             "lift_capacity": 7864.0,
             "front_lift_capacity": 3099.0,
-            "wheelbase": 2.4,
-            "weight": 4990.0,
             "engine_cylinders": 6
         },
         "model_key": "profi_6150_cvt",
@@ -4430,14 +4881,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 6.3 GX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12035&page=61"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12035&page=61",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 83900.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 290.82300000000004,
             "working_width": 5.9,
-            "weight": 7200.0
+            "wheelbase": 3.0,
+            "weight": 7200.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 290.82300000000004
         },
         "model_key": "terrano_63_gx",
         "manufacturer_key": "horsch"
@@ -4700,14 +5155,18 @@
         "manufacturer": "KUHN",
         "model": "CULTIMER L 5000",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12110&page=63"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12110&page=63",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-kuhn/cultimer-500-1158907"
         ],
         "price": 63000.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 260.995,
             "working_width": 5.0,
-            "weight": 5055.0
+            "wheelbase": 3.0,
+            "weight": 5055.0,
+            "number_of_tines": 16.0,
+            "number_of_discs": 12.0,
+            "required_power_kw": 260.995
         },
         "model_key": "cultimer_l_5000",
         "manufacturer_key": "kuhn"
@@ -4790,14 +5249,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 6.4 GX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12144&page=64"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12144&page=64",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-4-fx-1041789"
         ],
         "price": 69400.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 290.82300000000004,
             "working_width": 5.9,
-            "weight": 8000.0
+            "wheelbase": 3.0,
+            "weight": 8000.0,
+            "number_of_tines": 13.0,
+            "number_of_discs": 10.0,
+            "required_power_kw": 290.82300000000004
         },
         "model_key": "terrano_64_gx",
         "manufacturer_key": "horsch"
@@ -4822,18 +5285,41 @@
     },
     {
         "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "KUHN",
+        "model": "VARI-LEADER 8",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12152&page=65",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-kuhn/vari-leader-8-t-11760903"
+        ],
+        "price": 79000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 4.4,
+            "weight": 4660.0,
+            "number_of_furrows": 8.0,
+            "required_power_kw": 268.452
+        },
+        "model_key": "varileader_8",
+        "manufacturer_key": "kuhn"
+    },
+    {
+        "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "HORSCH",
         "model": "CRUISER 7 XL",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12153&page=65"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12153&page=65",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/cruiser-5-xl-1155032"
         ],
         "price": 96290.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 395.221,
             "working_width": 7.49,
-            "weight": 8300.0
+            "wheelbase": 2.95,
+            "weight": 8300.0,
+            "number_of_tines": 33.0,
+            "required_power_kw": 395.221
         },
         "model_key": "cruiser_7_xl",
         "manufacturer_key": "horsch"
@@ -4973,6 +5459,34 @@
         "manufacturer_key": "case"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "STEYR",
+        "model": "ABSOLUT 6200 CVT",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12201&page=66",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-steyr/6240-absolut-cvt-11746597"
+        ],
+        "price": 188500.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 149.14000000000001,
+            "model_series": "Absolut CVT",
+            "length": 5.467,
+            "wheelbase": 2.06,
+            "max_speed": 40.0,
+            "weight": 6950.0,
+            "engine_displacement": 6.7,
+            "engine_torque": 1500.0,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 170.0,
+            "lift_capacity": 10463.0
+        },
+        "model_key": "absolut_6200_cvt",
+        "manufacturer_key": "steyr"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "ROLMAKO",
@@ -5015,21 +5529,26 @@
         "model": "M7153",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12157&page=67",
-            "https://www.tractordata.com/farm-tractors/008/0/8/8082-kubota-m7131.html"
+            "https://www.tractordata.com/farm-tractors/008/0/8/8082-kubota-m7131.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-kubota/m7151-1162529"
         ],
         "price": 107500.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 111.855,
+            "model_series": "M7001",
+            "length": 4.77,
+            "wheelbase": 2.71,
+            "max_speed": 40.0,
+            "weight": 6847.0,
+            "engine_displacement": 6.124,
+            "engine_cylinders": 4,
             "pto_power_kw": 94.1,
             "drawbar_power_kw": 76.7,
             "fuel_capacity": 329.3,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
-            "lift_capacity": 9400.0,
-            "wheelbase": 2.71,
-            "weight": 6847.0,
-            "engine_cylinders": 4
+            "lift_capacity": 9400.0
         },
         "model_key": "m7153",
         "manufacturer_key": "kubota"
@@ -5149,14 +5668,18 @@
         "manufacturer": "DALBO",
         "model": "TRIMAX 300",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11762&page=68"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11762&page=68",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-dal-bo/tri-max-300-1130779"
         ],
         "price": 22900.0,
         "equipment_level_code": "base",
         "specification": {
-            "required_power_kw": 119.31200000000001,
             "working_width": 3.0,
-            "weight": 2050.0
+            "wheelbase": 3.0,
+            "weight": 2050.0,
+            "number_of_tines": 11.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 119.31200000000001
         },
         "model_key": "trimax_300",
         "manufacturer_key": "dalbo"
@@ -5306,6 +5829,31 @@
         "manufacturer_key": "agromasz"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "CLAAS",
+        "model": "ARION 660 CMATIC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11819&page=70",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-claas/arion-640-cmatic-1159282"
+        ],
+        "price": 175000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "engine_power_kw": 145.41150000000002,
+            "model_series": "Arion",
+            "length": 5.16,
+            "max_speed": 50.0,
+            "weight": 6300.0,
+            "powertrain": "4x4",
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 150.0,
+            "lift_capacity": 8000.0
+        },
+        "model_key": "arion_660_cmatic",
+        "manufacturer_key": "claas"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "UNIA",
@@ -5419,14 +5967,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/500 KUA",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12329&page=71"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12329&page=71",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-500-kua-11722439"
         ],
         "price": 74800.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 260.995,
             "working_width": 5.0,
-            "weight": 4697.0
+            "wheelbase": 3.0,
+            "weight": 4697.0,
+            "number_of_tines": 18.0,
+            "number_of_discs": 6.0,
+            "required_power_kw": 260.995
         },
         "model_key": "karat_10_500_kua",
         "manufacturer_key": "lemken"
@@ -5437,14 +5989,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/400 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12333&page=71"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12333&page=71",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-400-u-11722425"
         ],
         "price": 54200.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 149.14000000000001,
             "working_width": 4.0,
-            "weight": 2000.0
+            "wheelbase": 4.0,
+            "weight": 2000.0,
+            "number_of_tines": 14.0,
+            "number_of_discs": 4.0,
+            "required_power_kw": 149.14000000000001
         },
         "model_key": "karat_10_400_u",
         "manufacturer_key": "lemken"
@@ -5486,6 +6042,30 @@
         "manufacturer_key": "agromasz"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
+        "model": "5-085",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12342&page=71",
+            "https://www.tractordata.com/farm-tractors/004/1/6/4164-landini-85.html"
+        ],
+        "price": 51500.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 55.9275,
+            "fuel_capacity": 85.9,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 56.0,
+            "lift_capacity": 4200.0,
+            "wheelbase": 2.31,
+            "weight": 3500.599115475,
+            "engine_cylinders": 4
+        },
+        "model_key": "5085",
+        "manufacturer_key": "landini"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "BEDNAR",
@@ -5509,14 +6089,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 5.3 GX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12352&page=72"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12352&page=72",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 59900.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 298.28000000000003,
             "working_width": 4.9,
-            "weight": 6900.0
+            "wheelbase": 3.0,
+            "weight": 6900.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 298.28000000000003
         },
         "model_key": "terrano_53_gx",
         "manufacturer_key": "horsch"
@@ -5635,14 +6219,18 @@
         "manufacturer": "AGRISEM",
         "model": "AGROMULCH GOLD 7,5",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11811&page=73"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11811&page=73",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-agrisem/agromulch-4-00-gold-1167222"
         ],
         "price": 92977.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 372.85,
             "working_width": 7.5,
-            "weight": 9335.0
+            "wheelbase": 3.0,
+            "weight": 9335.0,
+            "number_of_tines": 13.0,
+            "number_of_discs": 12.0,
+            "required_power_kw": 372.85
         },
         "model_key": "agromulch_gold_75",
         "manufacturer_key": "agrisem"
@@ -5745,14 +6333,18 @@
         "manufacturer": "KUHN",
         "model": "CULTIMER L 4000",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12386&page=74"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12386&page=74",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-kuhn/cultimer-l-4000-nsm-1158908"
         ],
         "price": 52800.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 208.79600000000002,
             "working_width": 4.0,
-            "weight": 4643.0
+            "wheelbase": 2.82,
+            "weight": 4643.0,
+            "number_of_tines": 13.0,
+            "number_of_discs": 10.0,
+            "required_power_kw": 208.79600000000002
         },
         "model_key": "cultimer_l_4000",
         "manufacturer_key": "kuhn"
@@ -5854,23 +6446,27 @@
         "model": "6195M",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12426&page=75",
-            "https://www.tractordata.com/farm-tractors/008/9/9/8990-john-deere-6175m.html",
-            "https://www.ritchiespecs.com/model/john-deere-6155m-4wd-tractor"
+            "https://www.tractordata.com/farm-tractors/004/9/9/4997-john-deere-1950.html",
+            "https://www.ritchiespecs.com/model/john-deere-6715-2wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6105mc-11681313"
         ],
         "price": 192215.0,
         "equipment_level_code": "premium",
         "specification": {
-            "wheelbase": 2.79,
-            "powertrain": "4x4",
-            "engine_displacement": 6.8,
             "engine_power_kw": 145.41150000000002,
-            "pto_power_kw": 124.8,
-            "drawbar_power_kw": 104.7,
-            "fuel_capacity": 321.7,
-            "hydrolic_pump_flow": 155.0,
+            "model_series": "6MC",
+            "length": 4.72,
+            "wheelbase": 2.15,
+            "max_speed": 40.0,
+            "weight": 2867.384166955,
+            "engine_displacement": 6.8,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
+            "pto_power_kw": 80.1,
+            "engine_torque": 1016.9,
             "lift_capacity": 9050.0,
-            "weight": 7105.0,
-            "engine_cylinders": 6
+            "hydrolic_pump_flow": 155.0,
+            "fuel_capacity": 71.9
         },
         "model_key": "6195m",
         "manufacturer_key": "john_deere"
@@ -5927,20 +6523,23 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12439&page=76",
             "https://www.tractordata.com/farm-tractors/006/5/6/6562-claas-arion-410.html",
-            "https://www.ritchiespecs.com/model/claas-arion-520-4wd-tractor"
+            "https://www.ritchiespecs.com/model/claas-arion-520-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-claas/arion-410-1159290"
         ],
         "price": 90000.0,
         "equipment_level_code": "premium",
         "specification": {
+            "engine_power_kw": 73.07860000000001,
+            "model_series": "Arion",
             "length": 4.889,
+            "max_speed": 50.0,
+            "weight": 4799.0,
+            "engine_torque": 405.0,
+            "engine_cylinders": 4,
             "wheelbase": 2.56,
             "powertrain": "4x4",
-            "engine_cylinders": 4,
-            "engine_power_kw": 73.07860000000001,
             "engine_displacement": 4.6,
-            "weight": 4799.0,
             "fuel_capacity": 174.9,
-            "max_speed": 50.0,
             "hydrolic_pump_flow": 110.0,
             "lift_capacity": 4500.0
         },
@@ -5953,14 +6552,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 3 FX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12438&page=76"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12438&page=76",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 23500.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 149.14000000000001,
             "working_width": 3.0,
-            "weight": 1900.0
+            "wheelbase": 3.0,
+            "weight": 1900.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 149.14000000000001
         },
         "model_key": "terrano_3_fx",
         "manufacturer_key": "horsch"
@@ -6044,21 +6647,27 @@
         "model": "T7.190 SW",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12472&page=76",
-            "https://www.tractordata.com/farm-tractors/009/4/5/9453-new-holland-t7190.html"
+            "https://www.tractordata.com/farm-tractors/009/4/5/9453-new-holland-t7190.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-new-holland/t7-190-1162070"
         ],
         "price": 142000.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 130.4975,
+            "model_series": "T7",
+            "length": 4.672,
+            "wheelbase": 2.87,
+            "max_speed": 50.0,
+            "weight": 5949.997913475,
+            "engine_displacement": 6.75,
+            "engine_torque": 1500.0,
+            "engine_cylinders": 6,
             "pto_power_kw": 105.6,
             "drawbar_power_kw": 75.4,
             "fuel_capacity": 329.3,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
-            "lift_capacity": 8257.0,
-            "wheelbase": 2.87,
-            "weight": 5949.997913475,
-            "engine_cylinders": 6
+            "lift_capacity": 8257.0
         },
         "model_key": "t7190_sw",
         "manufacturer_key": "new_holland"
@@ -6089,21 +6698,26 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12082&page=77",
             "https://www.tractordata.com/farm-tractors/011/2/4/11240-john-deere-6r-140.html",
-            "https://www.ritchiespecs.com/model/john-deere-6145r-4wd-tractor"
+            "https://www.ritchiespecs.com/model/john-deere-6145r-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6r-175-11759590"
         ],
         "price": 212000.0,
         "equipment_level_code": "premium",
         "specification": {
-            "wheelbase": 2.59,
-            "powertrain": "4x4",
-            "engine_displacement": 6.9,
             "engine_power_kw": 108.12650000000001,
+            "model_series": "6R",
+            "length": 2.55,
+            "wheelbase": 2.59,
+            "max_speed": 40.0,
+            "weight": 6199.0,
+            "engine_displacement": 6.9,
+            "engine_torque": 1600.0,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
             "pto_power_kw": 82.0,
             "hydrolic_pump_flow": 114.0,
             "lift_capacity": 8100.0,
-            "front_lift_capacity": 3299.0,
-            "weight": 6199.0,
-            "engine_cylinders": 6
+            "front_lift_capacity": 3299.0
         },
         "model_key": "6r_145",
         "manufacturer_key": "john_deere"
@@ -6152,21 +6766,26 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12502&page=77",
             "https://www.tractordata.com/farm-tractors/011/2/4/11241-john-deere-6r-145.html",
-            "https://www.ritchiespecs.com/model/john-deere-6155r-4wd-tractor"
+            "https://www.ritchiespecs.com/model/john-deere-6155r-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6r-175-11759590"
         ],
         "price": 185540.0,
         "equipment_level_code": "base",
         "specification": {
-            "wheelbase": 2.76,
-            "powertrain": "4x4",
-            "engine_displacement": 6.9,
             "engine_power_kw": 115.5835,
+            "model_series": "6R",
+            "length": 2.55,
+            "wheelbase": 2.76,
+            "max_speed": 40.0,
+            "weight": 6900.0,
+            "engine_displacement": 6.9,
+            "engine_torque": 1600.0,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
             "pto_power_kw": 84.3,
             "hydrolic_pump_flow": 114.0,
             "lift_capacity": 8100.0,
-            "front_lift_capacity": 3299.0,
-            "weight": 6900.0,
-            "engine_cylinders": 6
+            "front_lift_capacity": 3299.0
         },
         "model_key": "6r_155",
         "manufacturer_key": "john_deere"
@@ -6178,20 +6797,25 @@
         "model": "6R 250",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12514&page=77",
-            "https://www.tractordata.com/farm-tractors/011/2/3/11238-john-deere-6r-120.html"
+            "https://www.tractordata.com/farm-tractors/011/2/3/11238-john-deere-6r-120.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/7250r-11682582"
         ],
         "price": 264455.0,
         "equipment_level_code": "premium",
         "specification": {
             "engine_power_kw": 186.425,
+            "model_series": "7R",
+            "length": 5.278,
+            "wheelbase": 2.59,
+            "max_speed": 50.0,
+            "weight": 6100.0,
+            "engine_displacement": 6.8,
+            "engine_cylinders": 6,
             "pto_power_kw": 67.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 160.0,
             "lift_capacity": 10400.0,
-            "front_lift_capacity": 3299.0,
-            "wheelbase": 2.59,
-            "weight": 6100.0,
-            "engine_cylinders": 6
+            "front_lift_capacity": 3299.0
         },
         "model_key": "6r_250",
         "manufacturer_key": "john_deere"
@@ -6256,14 +6880,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/600 KUA",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12582&page=80"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12582&page=80",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-600-kua-11722440"
         ],
         "price": 93000.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 313.194,
             "working_width": 6.0,
-            "weight": 5261.0
+            "wheelbase": 3.0,
+            "weight": 5261.0,
+            "number_of_tines": 21.0,
+            "number_of_discs": 7.0,
+            "required_power_kw": 313.194
         },
         "model_key": "karat_10_600_kua",
         "manufacturer_key": "lemken"
@@ -6511,20 +7139,20 @@
         "model": "718 VARIO",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12654&page=82",
-            "https://www.tractordata.com/farm-tractors/008/8/7/8879-fendt-1038-vario.html"
+            "https://www.tractordata.com/farm-tractors/011/4/4/11441-fendt-618-vario.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-fendt/716-vario-1011715"
         ],
         "price": 195000.0,
         "equipment_level_code": "premium",
         "specification": {
             "engine_power_kw": 134.9717,
-            "drawbar_power_kw": 235.7,
-            "pto_power_kw": 274.9,
-            "fuel_capacity": 799.8,
-            "powertrain": "4x4",
+            "model_series": "700 Vario",
+            "length": 4.65,
+            "wheelbase": 2.57,
+            "max_speed": 50.0,
+            "weight": 7580.0,
             "hydrolic_pump_flow": 152.0,
-            "front_lift_capacity": 5697.0,
-            "wheelbase": 3.29,
-            "weight": 14000.0,
+            "powertrain": "4x4",
             "engine_cylinders": 6,
             "lift_capacity": 10564.0
         },
@@ -6532,19 +7160,47 @@
         "manufacturer_key": "fendt"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "VALTRA",
+        "model": "Q265",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12658&page=83",
+            "https://www.tractordata.com/farm-tractors/011/2/7/11273-valtra-q225.html"
+        ],
+        "price": 200000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "fuel_capacity": 430.0,
+            "hydrolic_pump_flow": 200.0,
+            "lift_capacity": 10000.0,
+            "front_lift_capacity": 4282.0,
+            "wheelbase": 3.05,
+            "weight": 9200.0,
+            "engine_power_kw": 206.5589,
+            "powertrain": "4x4",
+            "engine_cylinders": 6
+        },
+        "model_key": "q265",
+        "manufacturer_key": "valtra"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/350 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12665&page=83"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12665&page=83",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-10-350-11778123"
         ],
         "price": 26000.0,
         "equipment_level_code": "base",
         "specification": {
-            "required_power_kw": 130.4975,
             "working_width": 3.5,
-            "weight": 1370.0
+            "weight": 1370.0,
+            "number_of_tines": 11.0,
+            "number_of_discs": 3.0,
+            "required_power_kw": 130.4975
         },
         "model_key": "karat_10_350_u",
         "manufacturer_key": "lemken"
@@ -6555,14 +7211,17 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/350 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12668&page=83"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12668&page=83",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-10-300-u-11778125"
         ],
         "price": 31000.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 130.4975,
             "working_width": 3.5,
-            "weight": 1370.0
+            "weight": 1370.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 3.0,
+            "required_power_kw": 130.4975
         },
         "model_key": "karat_10_350_u",
         "manufacturer_key": "lemken"
@@ -6573,14 +7232,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/600 KUA",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12671&page=83"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12671&page=83",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-600-kua-11722440"
         ],
         "price": 75000.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 313.194,
             "working_width": 6.0,
-            "weight": 5261.0
+            "wheelbase": 3.0,
+            "weight": 5261.0,
+            "number_of_tines": 21.0,
+            "number_of_discs": 7.0,
+            "required_power_kw": 313.194
         },
         "model_key": "karat_10_600_kua",
         "manufacturer_key": "lemken"
@@ -6607,23 +7270,53 @@
         "category": "tractor",
         "sub_category": "tractor_4x4",
         "manufacturer": "LANDINI",
+        "model": "5-085",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11745&page=84",
+            "https://www.tractordata.com/farm-tractors/004/1/6/4164-landini-85.html"
+        ],
+        "price": 43900.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 55.9275,
+            "fuel_capacity": 85.9,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 50.0,
+            "lift_capacity": 4200.0,
+            "wheelbase": 2.31,
+            "weight": 3500.599115475,
+            "engine_cylinders": 4
+        },
+        "model_key": "5085",
+        "manufacturer_key": "landini"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
         "model": "4-070",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11751&page=84",
-            "https://www.tractordata.com/farm-tractors/008/3/5/8357-landini-4-060.html"
+            "https://www.tractordata.com/farm-tractors/008/3/5/8357-landini-4-060.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-landini/4-060-11746501"
         ],
         "price": 36400.0,
         "equipment_level_code": "base",
         "specification": {
             "engine_power_kw": 50.7076,
+            "model_series": "4",
+            "length": 4.182,
+            "wheelbase": 2.1,
+            "max_speed": 40.0,
+            "weight": 3064.0164593500003,
+            "engine_displacement": 2.5,
+            "engine_torque": 1400.0,
+            "engine_cylinders": 4,
             "pto_power_kw": 38.0,
             "fuel_capacity": 89.7,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 52.0,
-            "lift_capacity": 3000.0,
-            "wheelbase": 2.1,
-            "weight": 3064.0164593500003,
-            "engine_cylinders": 4
+            "lift_capacity": 3000.0
         },
         "model_key": "4070",
         "manufacturer_key": "landini"
@@ -6634,14 +7327,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 3.5 FX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12731&page=85"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12731&page=85",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 27600.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 164.054,
             "working_width": 3.5,
-            "weight": 2190.0
+            "wheelbase": 3.0,
+            "weight": 2190.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 164.054
         },
         "model_key": "terrano_35_fx",
         "manufacturer_key": "horsch"
@@ -6689,20 +7386,27 @@
         "model": "M6-142",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12723&page=86",
-            "https://www.tractordata.com/farm-tractors/010/9/1/10917-kubota-m6121.html"
+            "https://www.tractordata.com/farm-tractors/008/5/1/8516-kubota-m6-141.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-kubota/m6121-11710206"
         ],
         "price": 93400.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 105.88940000000001,
-            "fuel_capacity": 330.1,
-            "powertrain": "4x4",
+            "model_series": "M6001",
+            "length": 4.77,
+            "wheelbase": 2.68,
+            "max_speed": 50.0,
+            "weight": 5035.1021031850005,
+            "engine_displacement": 6.124,
+            "engine_torque": 1500.0,
+            "engine_cylinders": 4,
+            "fuel_capacity": 190.0,
             "hydrolic_pump_flow": 115.0,
             "lift_capacity": 7000.0,
-            "front_lift_capacity": 3900.0,
-            "wheelbase": 2.72,
-            "weight": 6900.0,
-            "engine_cylinders": 4
+            "pto_power_kw": 94.4,
+            "drawbar_power_kw": 79.1,
+            "powertrain": "4x4"
         },
         "model_key": "m6142",
         "manufacturer_key": "kubota"
@@ -6733,21 +7437,26 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12744&page=86",
             "https://www.tractordata.com/farm-tractors/011/2/4/11242-john-deere-6r-155.html",
-            "https://www.ritchiespecs.com/model/john-deere-6175r-4wd-tractor"
+            "https://www.ritchiespecs.com/model/john-deere-6175r-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6r-195-11759591"
         ],
         "price": 221305.0,
         "equipment_level_code": "premium",
         "specification": {
-            "wheelbase": 2.76,
-            "powertrain": "4x4",
-            "engine_displacement": 6.9,
             "engine_power_kw": 130.4975,
+            "model_series": "6R",
+            "length": 2.55,
+            "wheelbase": 2.76,
+            "max_speed": 40.0,
+            "weight": 7100.0,
+            "engine_displacement": 6.9,
+            "engine_torque": 1600.0,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
             "pto_power_kw": 91.0,
             "hydrolic_pump_flow": 155.0,
             "lift_capacity": 9550.0,
-            "front_lift_capacity": 3299.0,
-            "weight": 7100.0,
-            "engine_cylinders": 6
+            "front_lift_capacity": 3299.0
         },
         "model_key": "6r_175",
         "manufacturer_key": "john_deere"
@@ -6806,20 +7515,24 @@
         "model": "5-110",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12761&page=87",
-            "https://www.tractordata.com/farm-tractors/006/5/4/6541-landini-5-110h.html"
+            "https://www.tractordata.com/farm-tractors/006/5/4/6541-landini-5-110h.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-landini/5-110-d-1164321"
         ],
         "price": 51380.0,
         "equipment_level_code": "base",
         "specification": {
             "engine_power_kw": 76.0614,
+            "model_series": "5",
+            "length": 4.26,
+            "wheelbase": 2.33,
+            "max_speed": 40.0,
+            "weight": 3642.0,
             "pto_power_kw": 64.5,
             "fuel_capacity": 102.2,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 62.0,
             "lift_capacity": 4500.0,
             "front_lift_capacity": 1796.0,
-            "wheelbase": 2.33,
-            "weight": 3642.0,
             "engine_cylinders": 4
         },
         "model_key": "5110",
@@ -6918,24 +7631,56 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "7250 AGROTRON TTV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12856&page=89",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/7220-agrotron-st-1158941"
+        ],
+        "price": 175000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 176.73090000000002,
+            "model_series": "7",
+            "length": 5.01,
+            "wheelbase": 2.55,
+            "max_speed": 50.0,
+            "weight": 8250.0,
+            "powertrain": "4x4",
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 160.0,
+            "lift_capacity": 10000.0
+        },
+        "model_key": "7250_agrotron_ttv",
+        "manufacturer_key": "deutzfahr"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "JOHN DEERE",
         "model": "6R 165",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12883&page=89",
-            "https://www.tractordata.com/farm-tractors/011/2/4/11242-john-deere-6r-155.html"
+            "https://www.tractordata.com/farm-tractors/011/2/4/11242-john-deere-6r-155.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6r-195-11759591"
         ],
         "price": 203460.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 123.04050000000001,
+            "model_series": "6R",
+            "length": 2.55,
+            "wheelbase": 2.76,
+            "max_speed": 40.0,
+            "weight": 7100.0,
+            "engine_displacement": 6.8,
+            "engine_torque": 1600.0,
+            "engine_cylinders": 6,
             "pto_power_kw": 91.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 155.0,
             "lift_capacity": 8100.0,
-            "front_lift_capacity": 3299.0,
-            "wheelbase": 2.76,
-            "weight": 7100.0,
-            "engine_cylinders": 6
+            "front_lift_capacity": 3299.0
         },
         "model_key": "6r_165",
         "manufacturer_key": "john_deere"
@@ -6947,19 +7692,23 @@
         "model": "6170 AGROTRON",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12885&page=89",
-            "https://www.tractordata.com/farm-tractors/002/1/4/2140-deutz-fahr-agrotron-80.html"
+            "https://www.tractordata.com/farm-tractors/002/1/4/2140-deutz-fahr-agrotron-80.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/6165-agrotron-11682901"
         ],
         "price": 130000.0,
         "equipment_level_code": "base",
         "specification": {
             "engine_power_kw": 121.54910000000001,
+            "model_series": "Agrotron",
+            "max_speed": 40.0,
+            "engine_displacement": 6.057,
+            "engine_cylinders": 6,
             "fuel_capacity": 190.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 120.0,
             "lift_capacity": 6200.0,
             "wheelbase": 2.42,
-            "weight": 3970.0,
-            "engine_cylinders": 6
+            "weight": 3970.0
         },
         "model_key": "6170_agrotron",
         "manufacturer_key": "deutzfahr"
@@ -7007,19 +7756,25 @@
         "model": "FORTERRA CL 140",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12944&page=91",
-            "https://www.tractordata.com/farm-tractors/009/3/7/9372-zetor-forterra-140.html"
+            "https://www.tractordata.com/farm-tractors/009/3/7/9372-zetor-forterra-140.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-zetor/forterra-cl-120-11728932"
         ],
         "price": 84500.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 101.4152,
+            "model_series": "Forterra",
+            "length": 5.1,
+            "wheelbase": 2.48,
+            "max_speed": 40.0,
+            "weight": 4660.0,
+            "engine_displacement": 4.156,
+            "engine_torque": 507.3,
+            "engine_cylinders": 4,
             "fuel_capacity": 172.6,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 70.0,
-            "lift_capacity": 7700.0,
-            "wheelbase": 2.48,
-            "weight": 4660.0,
-            "engine_cylinders": 4
+            "lift_capacity": 7700.0
         },
         "model_key": "forterra_cl_140",
         "manufacturer_key": "zetor"
@@ -7077,6 +7832,26 @@
         },
         "model_key": "pneumaticstar_pro_sti_600",
         "manufacturer_key": "einboeck"
+    },
+    {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "KUHN",
+        "model": "VARI-MASTER 153 6",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12963&page=91",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-kuhn/vari-master-152-t-6-1130382"
+        ],
+        "price": 40965.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 3.0,
+            "weight": 2250.0,
+            "number_of_furrows": 6.0,
+            "required_power_kw": 201.339
+        },
+        "model_key": "varimaster_153_6",
+        "manufacturer_key": "kuhn"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -7282,14 +8057,18 @@
         "manufacturer": "LEMKEN",
         "model": "KRISTALL 9/300 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12272&page=92"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12272&page=92",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/kristall-9-350-u-11722450"
         ],
         "price": 23000.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 100.6695,
             "working_width": 3.0,
-            "weight": 1043.0
+            "wheelbase": 3.5,
+            "weight": 1043.0,
+            "number_of_tines": 7.0,
+            "number_of_discs": 3.0,
+            "required_power_kw": 100.6695
         },
         "model_key": "kristall_9_300_u",
         "manufacturer_key": "lemken"
@@ -7394,24 +8173,58 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "CASE",
+        "model": "MAXXUM 115",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13066&page=94",
+            "https://www.tractordata.com/farm-tractors/005/6/2/5625-caseih-maxxum-115.html",
+            "https://www.ritchiespecs.com/model/case-ih-maxxum-115-2wd-tractor"
+        ],
+        "price": 115000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "wheelbase": 2.65,
+            "powertrain": "4x4",
+            "engine_cylinders": 4,
+            "engine_power_kw": 86.5012,
+            "pto_power_kw": 83.1,
+            "engine_displacement": 6.8,
+            "weight": 4618.931103710001,
+            "fuel_capacity": 249.8,
+            "lift_capacity": 7864.0,
+            "hydrolic_pump_flow": 121.0,
+            "drawbar_power_kw": 69.6
+        },
+        "model_key": "maxxum_115",
+        "manufacturer_key": "case"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "JOHN DEERE",
         "model": "1026R",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13077&page=94",
-            "https://www.tractordata.com/farm-tractors/011/2/3/11237-john-deere-6r-110.html"
+            "https://www.tractordata.com/farm-tractors/011/2/3/11237-john-deere-6r-110.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6r-140-11759584"
         ],
         "price": 30500.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 137.9545,
+            "model_series": "6R",
+            "length": 4.54,
+            "wheelbase": 2.59,
+            "max_speed": 40.0,
+            "weight": 6000.0,
+            "engine_displacement": 4.5,
+            "engine_torque": 1600.0,
+            "engine_cylinders": 3,
             "pto_power_kw": 61.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 24.0,
             "lift_capacity": 525.0,
-            "front_lift_capacity": 3299.0,
-            "wheelbase": 2.59,
-            "weight": 6000.0,
-            "engine_cylinders": 3
+            "front_lift_capacity": 3299.0
         },
         "model_key": "1026r",
         "manufacturer_key": "john_deere"
@@ -7453,19 +8266,76 @@
         "manufacturer_key": "kuhn"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
+        "model": "6-135H",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11709&page=97",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-landini/6-135-11709311"
+        ],
+        "price": 66500.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 94.7039,
+            "model_series": "6",
+            "length": 4.188,
+            "wheelbase": 1.677,
+            "max_speed": 40.0,
+            "weight": 5000.0,
+            "engine_displacement": 4.5,
+            "engine_torque": 1500.0,
+            "engine_cylinders": 4,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 110.0,
+            "lift_capacity": 6000.0
+        },
+        "model_key": "6135h",
+        "manufacturer_key": "landini"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "HX9010PC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12142&page=97",
+            "https://www.tractordata.com/farm-tractors/011/4/2/11423-kioti-hx9010.html"
+        ],
+        "price": 60900.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "fuel_capacity": 168.8,
+            "hydrolic_pump_flow": 121.0,
+            "lift_capacity": 4410.0,
+            "wheelbase": 2.41,
+            "weight": 4640.0,
+            "engine_power_kw": 67.113,
+            "pto_power_kw": 52.2,
+            "powertrain": "4x4",
+            "engine_cylinders": 4
+        },
+        "model_key": "hx9010pc",
+        "manufacturer_key": "kioti"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "HORSCH",
         "model": "TIGER 4 MT",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12228&page=97"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12228&page=97",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/tiger-5-mt-1041780"
         ],
         "price": 75640.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 275.909,
             "working_width": 4.0,
-            "weight": 5600.0
+            "wheelbase": 3.0,
+            "weight": 5600.0,
+            "number_of_tines": 11.0,
+            "number_of_discs": 24.0,
+            "required_power_kw": 275.909
         },
         "model_key": "tiger_4_mt",
         "manufacturer_key": "horsch"
@@ -7494,14 +8364,17 @@
         "manufacturer": "MASCHIO",
         "model": "GRATOR 600",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12466&page=98"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12466&page=98",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-maschio/grator-300-11777324"
         ],
         "price": 24490.0,
         "equipment_level_code": "base",
         "specification": {
-            "required_power_kw": 126.769,
             "working_width": 6.0,
-            "weight": 2600.0
+            "wheelbase": 3.0,
+            "weight": 2600.0,
+            "number_of_tines": 29.0,
+            "required_power_kw": 126.769
         },
         "model_key": "grator_600",
         "manufacturer_key": "maschio"
@@ -7568,22 +8441,24 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12508&page=98",
             "https://www.tractordata.com/farm-tractors/011/2/3/11238-john-deere-6r-120.html",
-            "https://www.ritchiespecs.com/model/john-deere-7230r-4wd-tractor"
+            "https://www.ritchiespecs.com/model/john-deere-7230r-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/7230r-11682581"
         ],
         "price": 256700.0,
         "equipment_level_code": "premium",
         "specification": {
+            "engine_power_kw": 171.511,
+            "model_series": "7R",
             "length": 2.92608,
             "wheelbase": 2.59,
-            "powertrain": "4x4",
-            "engine_cylinders": 6,
-            "engine_power_kw": 171.511,
-            "pto_power_kw": 67.9,
-            "engine_displacement": 9.0,
+            "max_speed": 40.0,
             "weight": 6100.0,
+            "engine_displacement": 9.0,
+            "engine_cylinders": 6,
+            "powertrain": "4x4",
+            "pto_power_kw": 67.9,
             "fuel_capacity": 522.4,
             "lift_capacity": 10400.0,
-            "max_speed": 40.0,
             "hydrolic_pump_flow": 160.0,
             "front_lift_capacity": 3299.0
         },
@@ -7607,6 +8482,26 @@
         },
         "model_key": "pneumaticstar_1200_sti",
         "manufacturer_key": "einboeck"
+    },
+    {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "KUHN",
+        "model": "VARI-MASTER 123 5",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12538&page=99",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-kuhn/vari-master-122-t-5-1130366"
+        ],
+        "price": 34690.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 2.5,
+            "weight": 1855.0,
+            "number_of_furrows": 5.0,
+            "required_power_kw": 130.4975
+        },
+        "model_key": "varimaster_123_5",
+        "manufacturer_key": "kuhn"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -7652,20 +8547,22 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12556&page=99",
             "https://www.tractordata.com/farm-tractors/006/5/6/6562-claas-arion-410.html",
-            "https://www.ritchiespecs.com/model/claas-arion-520-4wd-tractor"
+            "https://www.ritchiespecs.com/model/claas-arion-520-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-claas/arion-550-1149450"
         ],
         "price": 95000.0,
         "equipment_level_code": "medium",
         "specification": {
+            "engine_power_kw": 97.6867,
+            "model_series": "Arion",
             "length": 4.889,
+            "max_speed": 50.0,
+            "weight": 4799.0,
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_cylinders": 4,
-            "engine_power_kw": 97.6867,
             "engine_displacement": 4.6,
-            "weight": 4799.0,
             "fuel_capacity": 174.9,
-            "max_speed": 50.0,
             "hydrolic_pump_flow": 100.0,
             "lift_capacity": 5750.0
         },
@@ -7843,25 +8740,55 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "CASE",
+        "model": "MAXXUM 125",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12872&page=103",
+            "https://www.tractordata.com/farm-tractors/005/6/2/5627-caseih-maxxum-125.html",
+            "https://www.ritchiespecs.com/model/case-ih-maxxum-125-2wd-tractor"
+        ],
+        "price": 110000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "wheelbase": 2.65,
+            "powertrain": "4x4",
+            "engine_cylinders": 4,
+            "engine_power_kw": 93.2125,
+            "pto_power_kw": 91.4,
+            "engine_displacement": 6.8,
+            "weight": 4929.64187716,
+            "fuel_capacity": 249.8,
+            "lift_capacity": 7864.0,
+            "hydrolic_pump_flow": 121.0,
+            "drawbar_power_kw": 67.8
+        },
+        "model_key": "maxxum_125",
+        "manufacturer_key": "case"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "CLAAS",
         "model": "ARION 450",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12851&page=103",
             "https://www.tractordata.com/farm-tractors/006/5/6/6562-claas-arion-410.html",
-            "https://www.ritchiespecs.com/model/claas-arion-520-4wd-tractor"
+            "https://www.ritchiespecs.com/model/claas-arion-520-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-claas/arion-550-1149450"
         ],
         "price": 120000.0,
         "equipment_level_code": "premium",
         "specification": {
+            "engine_power_kw": 97.6867,
+            "model_series": "Arion",
             "length": 4.889,
+            "max_speed": 50.0,
+            "weight": 4799.0,
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_cylinders": 4,
-            "engine_power_kw": 97.6867,
             "engine_displacement": 4.6,
-            "weight": 4799.0,
             "fuel_capacity": 174.9,
-            "max_speed": 50.0,
             "hydrolic_pump_flow": 110.0,
             "lift_capacity": 5750.0
         },
@@ -7894,20 +8821,23 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12912&page=105",
             "https://www.tractordata.com/farm-tractors/006/5/6/6562-claas-arion-410.html",
-            "https://www.ritchiespecs.com/model/claas-arion-540-4wd-tractor"
+            "https://www.ritchiespecs.com/model/claas-arion-540-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-claas/arion-410-1159290"
         ],
         "price": 115000.0,
         "equipment_level_code": "premium",
         "specification": {
+            "engine_power_kw": 90.22970000000001,
+            "model_series": "Arion",
             "length": 4.889,
+            "max_speed": 50.0,
+            "weight": 4799.0,
+            "engine_torque": 405.0,
+            "engine_cylinders": 4,
             "wheelbase": 2.56,
             "powertrain": "4x4",
-            "engine_cylinders": 4,
-            "engine_power_kw": 90.22970000000001,
             "engine_displacement": 4.6,
-            "weight": 4799.0,
             "fuel_capacity": 174.9,
-            "max_speed": 50.0,
             "hydrolic_pump_flow": 100.0,
             "lift_capacity": 5750.0
         },
@@ -8160,6 +9090,26 @@
     },
     {
         "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "KUHN",
+        "model": "MASTER 103",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13212&page=109",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-kuhn/master-103-2e-11775169"
+        ],
+        "price": 17265.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 0.762,
+            "weight": 900.0,
+            "number_of_furrows": 2.0,
+            "required_power_kw": 67.113
+        },
+        "model_key": "master_103",
+        "manufacturer_key": "kuhn"
+    },
+    {
+        "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "UNIA",
         "model": "CROSS S 3",
@@ -8304,6 +9254,46 @@
     },
     {
         "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "AMAZONE",
+        "model": "CAYROS XS 5",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13234&page=112",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-amazone/cayros-xs-4-1050-11729825"
+        ],
+        "price": 43300.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 1.92,
+            "weight": 1980.0,
+            "number_of_furrows": 4.0,
+            "required_power_kw": 193.882
+        },
+        "model_key": "cayros_xs_5",
+        "manufacturer_key": "amazone"
+    },
+    {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "AMAZONE",
+        "model": "CAYROS XMS 5",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13233&page=113",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-amazone/cayros-xms-4-850-11729789"
+        ],
+        "price": 40100.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 1.76,
+            "weight": 1530.0,
+            "number_of_furrows": 4.0,
+            "required_power_kw": 149.14000000000001
+        },
+        "model_key": "cayros_xms_5",
+        "manufacturer_key": "amazone"
+    },
+    {
+        "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "AMAZONE",
         "model": "CENIUS 7003-2TX",
@@ -8340,18 +9330,41 @@
     },
     {
         "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "AMAZONE",
+        "model": "CAYROS XMS 4+1",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11161&page=114",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-amazone/cayros-xs-4-1050-11729825"
+        ],
+        "price": 45112.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "working_width": 1.92,
+            "weight": 1550.0,
+            "number_of_furrows": 4.0,
+            "required_power_kw": 149.14000000000001
+        },
+        "model_key": "cayros_xms_4+1",
+        "manufacturer_key": "amazone"
+    },
+    {
+        "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "AMAZONE",
         "model": "CENIO 3000 SUPER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12888&page=114"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12888&page=114",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-amazone/cenio-3000-super-11745771"
         ],
         "price": 26300.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 78.2985,
             "working_width": 3.0,
-            "weight": 1515.0
+            "wheelbase": 3.0,
+            "weight": 1515.0,
+            "number_of_tines": 10.0,
+            "required_power_kw": 78.2985
         },
         "model_key": "cenio_3000_super",
         "manufacturer_key": "amazone"
@@ -8378,26 +9391,139 @@
         "category": "tractor",
         "sub_category": "tractor_4x4",
         "manufacturer": "NEW HOLLAND",
+        "model": "T5.120 EC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12862&page=116",
+            "https://www.tractordata.com/farm-tractors/001/0/3/1036-new-holland-t5120.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-new-holland/t5-110-dc-11733844"
+        ],
+        "price": 80000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 87.2469,
+            "model_series": "T5",
+            "length": 4.2,
+            "wheelbase": 2.48,
+            "max_speed": 40.0,
+            "weight": 5499.0,
+            "engine_displacement": 4.5,
+            "engine_torque": 1300.0,
+            "engine_cylinders": 4,
+            "fuel_capacity": 179.8,
+            "hydrolic_pump_flow": 84.0,
+            "lift_capacity": 5420.0,
+            "powertrain": "4x4"
+        },
+        "model_key": "t5120_ec",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
         "model": "BOOMER 50",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13329&page=116",
-            "https://www.tractordata.com/farm-tractors/006/3/3/6338-new-holland-boomer-8n.html"
+            "https://www.tractordata.com/farm-tractors/006/3/3/6338-new-holland-boomer-8n.html",
+            "https://www.ritchiespecs.com/model/new-holland-boomer-50-t4b-2wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-new-holland/boomer-55-11767658"
         ],
         "price": 33900.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 37.285000000000004,
-            "pto_power_kw": 29.8,
-            "fuel_capacity": 49.2,
-            "powertrain": "4x4",
-            "hydrolic_pump_flow": 31.2,
-            "lift_capacity": 1250.0,
-            "wheelbase": 1.86,
+            "model_series": "Boomer",
+            "length": 3.25,
+            "max_speed": 24.31,
             "weight": 1705.0,
-            "engine_cylinders": 3
+            "engine_displacement": 1.9,
+            "engine_cylinders": 3,
+            "wheelbase": 1.86,
+            "powertrain": "4x4",
+            "fuel_capacity": 49.2,
+            "pto_power_kw": 29.8,
+            "hydrolic_pump_flow": 31.2,
+            "lift_capacity": 1250.0
         },
         "model_key": "boomer_50",
         "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "5125 GS",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13331&page=116",
+            "https://www.tractordata.com/farm-tractors/010/2/2/10228-deutz-fahr-5125.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/5125-11682912"
+        ],
+        "price": 85000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 89.48400000000001,
+            "model_series": "5",
+            "length": 4.145,
+            "wheelbase": 2.36,
+            "max_speed": 40.0,
+            "weight": 4500.0,
+            "engine_displacement": 3.849,
+            "engine_cylinders": 4,
+            "fuel_capacity": 135.1,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 55.0,
+            "lift_capacity": 5410.0,
+            "front_lift_capacity": 2100.0
+        },
+        "model_key": "5125_gs",
+        "manufacturer_key": "deutzfahr"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "5080 DF ECOLINE",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13341&page=116",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/5080-df-keyline-11760589"
+        ],
+        "price": 60000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 55.1818,
+            "model_series": "5",
+            "length": 3.43,
+            "wheelbase": 2.24,
+            "max_speed": 40.0,
+            "weight": 3200.0,
+            "engine_displacement": 2.887,
+            "engine_cylinders": 3,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 54.0,
+            "lift_capacity": 2800.0
+        },
+        "model_key": "5080_df_ecoline",
+        "manufacturer_key": "deutzfahr"
+    },
+    {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "KUHN",
+        "model": "MASTER 103 4 NSH",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13354&page=117",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-kuhn/master-102-nsh-4-1130334"
+        ],
+        "price": 19100.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 1.6,
+            "weight": 1170.0,
+            "number_of_furrows": 4.0,
+            "required_power_kw": 89.48400000000001
+        },
+        "model_key": "master_103_4_nsh",
+        "manufacturer_key": "kuhn"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -8405,14 +9531,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/400 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13349&page=117"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13349&page=117",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-400-u-11722425"
         ],
         "price": 42800.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 149.14000000000001,
             "working_width": 4.0,
-            "weight": 2000.0
+            "wheelbase": 4.0,
+            "weight": 2000.0,
+            "number_of_tines": 14.0,
+            "number_of_discs": 4.0,
+            "required_power_kw": 149.14000000000001
         },
         "model_key": "karat_10_400_u",
         "manufacturer_key": "lemken"
@@ -8424,22 +9554,80 @@
         "model": "5115 GS",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13373&page=117",
-            "https://www.tractordata.com/farm-tractors/010/2/2/10227-deutz-fahr-5115.html"
+            "https://www.tractordata.com/farm-tractors/010/2/2/10227-deutz-fahr-5115.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/5115-11682910"
         ],
         "price": 63000.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 82.027,
+            "model_series": "5",
+            "length": 4.145,
+            "wheelbase": 2.36,
+            "max_speed": 40.0,
+            "weight": 4500.0,
+            "engine_displacement": 3.62,
+            "engine_cylinders": 4,
             "fuel_capacity": 135.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 90.0,
             "lift_capacity": 3600.0,
-            "front_lift_capacity": 2100.0,
-            "wheelbase": 2.36,
-            "weight": 4500.0,
-            "engine_cylinders": 4
+            "front_lift_capacity": 2100.0
         },
         "model_key": "5115_gs",
+        "manufacturer_key": "deutzfahr"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "FARMTRAC",
+        "model": "26",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13385&page=118",
+            "https://www.tractordata.com/farm-tractors/006/1/0/6104-farmtrac-60.html"
+        ],
+        "price": 9900.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 17.8968,
+            "pto_power_kw": 33.3,
+            "powertrain": "4x4",
+            "fuel_capacity": 49.2,
+            "hydrolic_pump_flow": 19.3,
+            "lift_capacity": 800.0,
+            "wheelbase": 2.09,
+            "weight": 2049.0,
+            "engine_cylinders": 3
+        },
+        "model_key": "26",
+        "manufacturer_key": "farmtrac"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "3060",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13395&page=118",
+            "https://www.tractordata.com/farm-tractors/002/1/3/2134-deutz-fahr-60.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/3050-11741703"
+        ],
+        "price": 42000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 43.996300000000005,
+            "model_series": "3",
+            "max_speed": 30.0,
+            "engine_displacement": 2.2,
+            "engine_cylinders": 4,
+            "fuel_capacity": 90.1,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 31.0,
+            "lift_capacity": 1200.0,
+            "wheelbase": 2.16,
+            "weight": 2550.0
+        },
+        "model_key": "3060",
         "manufacturer_key": "deutzfahr"
     },
     {
@@ -8449,19 +9637,26 @@
         "model": "M4073",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13406&page=118",
-            "https://www.tractordata.com/farm-tractors/010/9/0/10907-kubota-m4063.html"
+            "https://www.tractordata.com/farm-tractors/010/3/3/10335-kubota-m4-071.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-kubota/m4073-11758687"
         ],
         "price": 59300.0,
         "equipment_level_code": "premium",
         "specification": {
             "engine_power_kw": 55.1818,
+            "model_series": "M4003",
+            "length": 3.7,
+            "wheelbase": 2.13,
+            "max_speed": 30.0,
+            "weight": 2712.4823726,
+            "engine_displacement": 3.331,
+            "engine_torque": 1400.0,
+            "engine_cylinders": 4,
             "fuel_capacity": 90.1,
-            "powertrain": "4x4",
             "hydrolic_pump_flow": 88.0,
             "lift_capacity": 2500.0,
-            "wheelbase": 2.13,
-            "weight": 2805.0152160800003,
-            "engine_cylinders": 4
+            "pto_power_kw": 44.7,
+            "powertrain": "4x4"
         },
         "model_key": "m4073",
         "manufacturer_key": "kubota"
@@ -8491,19 +9686,23 @@
         "model": "516 VARIO",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13411&page=119",
-            "https://www.tractordata.com/farm-tractors/010/8/0/10806-fendt-512-vario.html"
+            "https://www.tractordata.com/farm-tractors/010/8/0/10806-fendt-512-vario.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-fendt/716-vario-1011715"
         ],
         "price": 200000.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 121.54910000000001,
+            "model_series": "700 Vario",
+            "length": 4.65,
+            "wheelbase": 2.56,
+            "max_speed": 50.0,
+            "weight": 6050.0,
             "fuel_capacity": 297.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
             "lift_capacity": 7890.0,
             "front_lift_capacity": 3420.0,
-            "wheelbase": 2.56,
-            "weight": 6050.0,
             "engine_cylinders": 4
         },
         "model_key": "516_vario",
@@ -8588,19 +9787,23 @@
         "model": "514 VARIO",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13452&page=121",
-            "https://www.tractordata.com/farm-tractors/010/7/5/10752-fendt-314-vario.html"
+            "https://www.tractordata.com/farm-tractors/010/7/5/10752-fendt-314-vario.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-fendt/714-vario-1041657"
         ],
         "price": 99850.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 111.855,
+            "model_series": "700 Vario",
+            "length": 4.65,
+            "wheelbase": 2.42,
+            "max_speed": 50.0,
+            "weight": 5010.0,
             "fuel_capacity": 210.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
             "lift_capacity": 7890.0,
             "front_lift_capacity": 3129.0,
-            "wheelbase": 2.42,
-            "weight": 5010.0,
             "engine_cylinders": 4
         },
         "model_key": "514_vario",
@@ -8721,17 +9924,48 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 4.3 GX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13570&page=126"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13570&page=126",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 53720.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 130.4975,
             "working_width": 4.0,
-            "weight": 5700.0
+            "wheelbase": 3.0,
+            "weight": 5700.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 130.4975
         },
         "model_key": "terrano_43_gx",
         "manufacturer_key": "horsch"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "5090 DS",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13577&page=127",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/5090-df-ls-11682916"
+        ],
+        "price": 68000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 64.1302,
+            "model_series": "5DF",
+            "length": 4.1,
+            "wheelbase": 2.341,
+            "max_speed": 40.0,
+            "weight": 3620.0,
+            "engine_displacement": 2.887,
+            "engine_cylinders": 3,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 68.0,
+            "lift_capacity": 2600.0
+        },
+        "model_key": "5090_ds",
+        "manufacturer_key": "deutzfahr"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -8750,6 +9984,26 @@
         },
         "model_key": "topstrigle_800",
         "manufacturer_key": "heva"
+    },
+    {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "UNIA",
+        "model": "IBIS XMS 3+",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13620&page=128",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-unia/ibis-xl-s-3-1040100"
+        ],
+        "price": 15980.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 1.44,
+            "weight": 1460.0,
+            "number_of_furrows": 3.0,
+            "required_power_kw": 104.39800000000001
+        },
+        "model_key": "ibis_xms_3+",
+        "manufacturer_key": "unia"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -8804,6 +10058,26 @@
         },
         "model_key": "d9_3000_special",
         "manufacturer_key": "amazone"
+    },
+    {
+        "category": "soil_cultivation_equipment",
+        "sub_category": "plough",
+        "manufacturer": "UNIA",
+        "model": "IBIS LS 3+",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13669&page=130",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/ploughs-unia/ibis-ms-3-1142062"
+        ],
+        "price": 13345.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "working_width": 1.26,
+            "weight": 1120.0,
+            "number_of_furrows": 3.0,
+            "required_power_kw": 67.113
+        },
+        "model_key": "ibis_ls_3+",
+        "manufacturer_key": "unia"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -8885,18 +10159,22 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13698&page=131",
             "https://www.tractordata.com/farm-tractors/003/5/2/3521-landini-mistral-55.html",
-            "https://www.ritchiespecs.com/model/landini-mistral-55-4wd-tractor"
+            "https://www.ritchiespecs.com/model/landini-mistral-55-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-landini/mistral-2-055-11754841"
         ],
         "price": 34500.0,
         "equipment_level_code": "medium",
         "specification": {
+            "engine_power_kw": 36.539300000000004,
+            "model_series": "Mistral",
             "length": 3.3,
             "wheelbase": 1.7,
-            "powertrain": "4x4",
-            "engine_cylinders": 3,
-            "engine_power_kw": 36.539300000000004,
-            "pto_power_kw": 37.3,
+            "max_speed": 30.0,
             "engine_displacement": 2.0,
+            "engine_torque": 1200.0,
+            "engine_cylinders": 3,
+            "powertrain": "4x4",
+            "pto_power_kw": 37.3,
             "weight": 1476.0,
             "fuel_capacity": 40.1,
             "hydrolic_pump_flow": 35.0,
@@ -8931,20 +10209,26 @@
         "model": "4-070",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13720&page=132",
-            "https://www.tractordata.com/farm-tractors/008/3/5/8358-landini-4-070.html"
+            "https://www.tractordata.com/farm-tractors/008/3/5/8358-landini-4-070.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-landini/4-100-1164370"
         ],
         "price": 49700.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 50.7076,
+            "model_series": "4",
+            "length": 4.33,
+            "wheelbase": 2.1,
+            "max_speed": 40.0,
+            "weight": 3064.0164593500003,
+            "engine_displacement": 2.9,
+            "engine_torque": 397.0,
+            "engine_cylinders": 4,
             "pto_power_kw": 42.5,
             "fuel_capacity": 89.7,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 52.0,
-            "lift_capacity": 3000.0,
-            "wheelbase": 2.1,
-            "weight": 3064.0164593500003,
-            "engine_cylinders": 4
+            "lift_capacity": 3000.0
         },
         "model_key": "4070",
         "manufacturer_key": "landini"
@@ -8986,6 +10270,31 @@
         "manufacturer_key": "bomet"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "L2-552",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13748&page=134",
+            "https://www.tractordata.com/farm-tractors/008/1/6/8169-kubota-l1-255.html"
+        ],
+        "price": 44200.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 41.0135,
+            "pto_power_kw": 17.9,
+            "fuel_capacity": 29.1,
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 53.8,
+            "lift_capacity": 1750.0,
+            "wheelbase": 1.54,
+            "weight": 1050.06633655,
+            "engine_cylinders": 4
+        },
+        "model_key": "l2552",
+        "manufacturer_key": "kubota"
+    },
+    {
         "category": "feed_preperation_equipment",
         "sub_category": "balling_press",
         "manufacturer": "KRONE",
@@ -9003,6 +10312,31 @@
         },
         "model_key": "bellima_f130",
         "manufacturer_key": "krone"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "CX2510H",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=324&page=134",
+            "https://www.tractordata.com/farm-tractors/011/4/1/11416-kioti-cx2510.html"
+        ],
+        "price": 12990.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "fuel_capacity": 25.0,
+            "hydrolic_pump_flow": 42.9,
+            "lift_capacity": 739.0,
+            "wheelbase": 1.34,
+            "weight": 1159.38209772,
+            "engine_power_kw": 18.642500000000002,
+            "pto_power_kw": 14.0,
+            "powertrain": "4x4",
+            "engine_cylinders": 3
+        },
+        "model_key": "cx2510h",
+        "manufacturer_key": "kioti"
     },
     {
         "category": "feed_preperation_equipment",
@@ -9273,6 +10607,31 @@
         "manufacturer_key": "case_ih"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "CLAAS",
+        "model": "ARION 630 CMATIC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14131&page=147",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-claas/arion-640-cmatic-1159282"
+        ],
+        "price": 162000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 116.3292,
+            "model_series": "Arion",
+            "length": 5.16,
+            "max_speed": 50.0,
+            "weight": 6300.0,
+            "powertrain": "4x4",
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 150.0,
+            "lift_capacity": 6900.0
+        },
+        "model_key": "arion_630_cmatic",
+        "manufacturer_key": "claas"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "JAR-MET",
@@ -9296,14 +10655,17 @@
         "manufacturer": "KVERNELAND",
         "model": "ENDURO 3500",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14174&page=149"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14174&page=149",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-kverneland/enduro-3000-11738969"
         ],
         "price": 35000.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 201.339,
             "working_width": 3.5,
-            "weight": 3000.0
+            "wheelbase": 3.0,
+            "weight": 3000.0,
+            "number_of_tines": 10.0,
+            "required_power_kw": 201.339
         },
         "model_key": "enduro_3500",
         "manufacturer_key": "kverneland"
@@ -9857,19 +11219,25 @@
         "model": "PROXIMA 110 CL",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14383&page=159",
-            "https://www.tractordata.com/farm-tractors/009/2/9/9291-zetor-proxima-100cl.html"
+            "https://www.tractordata.com/farm-tractors/009/2/9/9291-zetor-proxima-100cl.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-zetor/proxima-cl-80-11728922"
         ],
         "price": 61500.0,
         "equipment_level_code": "medium",
         "specification": {
             "engine_power_kw": 78.2985,
+            "model_series": "Proxima",
+            "length": 4.71,
+            "wheelbase": 2.3,
+            "max_speed": 40.0,
+            "weight": 4545.0,
+            "engine_displacement": 4.156,
+            "engine_torque": 315.8,
+            "engine_cylinders": 4,
             "fuel_capacity": 149.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 60.0,
-            "lift_capacity": 4600.0,
-            "wheelbase": 2.3,
-            "weight": 4545.0,
-            "engine_cylinders": 4
+            "lift_capacity": 4600.0
         },
         "model_key": "proxima_110_cl",
         "manufacturer_key": "zetor"
@@ -10115,14 +11483,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/300 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14266&page=164"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14266&page=164",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-300-u-11722423"
         ],
         "price": 28000.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 134.226,
             "working_width": 3.0,
-            "weight": 970.0
+            "wheelbase": 3.0,
+            "weight": 970.0,
+            "number_of_tines": 11.0,
+            "number_of_discs": 3.0,
+            "required_power_kw": 134.226
         },
         "model_key": "karat_10_300_u",
         "manufacturer_key": "lemken"
@@ -10133,14 +11505,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/300 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14556&page=164"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14556&page=164",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-300-u-11722423"
         ],
         "price": 28400.0,
         "equipment_level_code": "base",
         "specification": {
-            "required_power_kw": 111.855,
             "working_width": 3.0,
-            "weight": 1900.0
+            "wheelbase": 3.0,
+            "weight": 1900.0,
+            "number_of_tines": 11.0,
+            "number_of_discs": 3.0,
+            "required_power_kw": 111.855
         },
         "model_key": "karat_10_300_u",
         "manufacturer_key": "lemken"
@@ -10151,14 +11527,18 @@
         "manufacturer": "HORSCH",
         "model": "TERRANO 4.3 GX",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14553&page=164"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14553&page=164",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-horsch/terrano-3-fx-1038746"
         ],
         "price": 71000.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 201.339,
             "working_width": 4.0,
-            "weight": 5700.0
+            "wheelbase": 3.0,
+            "weight": 5700.0,
+            "number_of_tines": 10.0,
+            "number_of_discs": 8.0,
+            "required_power_kw": 201.339
         },
         "model_key": "terrano_43_gx",
         "manufacturer_key": "horsch"
@@ -10187,14 +11567,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/400 U",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14573&page=165"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14573&page=165",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-400-u-11722425"
         ],
         "price": 32000.0,
         "equipment_level_code": "base",
         "specification": {
-            "required_power_kw": 149.14000000000001,
             "working_width": 4.0,
-            "weight": 2000.0
+            "wheelbase": 4.0,
+            "weight": 2000.0,
+            "number_of_tines": 14.0,
+            "number_of_discs": 4.0,
+            "required_power_kw": 149.14000000000001
         },
         "model_key": "karat_10_400_u",
         "manufacturer_key": "lemken"
@@ -10674,14 +12058,18 @@
         "manufacturer": "LEMKEN",
         "model": "KARAT 10/400 KUA",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14723&page=173"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14723&page=173",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-lemken/karat-9-400-kua-11722438"
         ],
         "price": 63500.0,
         "equipment_level_code": "medium",
         "specification": {
-            "required_power_kw": 208.79600000000002,
             "working_width": 4.0,
-            "weight": 5500.0
+            "wheelbase": 3.0,
+            "weight": 5500.0,
+            "number_of_tines": 14.0,
+            "number_of_discs": 5.0,
+            "required_power_kw": 208.79600000000002
         },
         "model_key": "karat_10_400_kua",
         "manufacturer_key": "lemken"
@@ -11091,19 +12479,23 @@
         "model": "933 VARIO",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15038&page=186",
-            "https://www.tractordata.com/farm-tractors/010/7/4/10744-fendt-313-vario.html"
+            "https://www.tractordata.com/farm-tractors/010/7/4/10744-fendt-313-vario.html",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-fendt/933-vario-1041212"
         ],
         "price": 300000.0,
         "equipment_level_code": "premium",
         "specification": {
             "engine_power_kw": 243.09820000000002,
+            "model_series": "900 Vario",
+            "length": 5.66,
+            "wheelbase": 2.34,
+            "max_speed": 60.0,
+            "weight": 4450.0,
             "fuel_capacity": 194.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 220.0,
             "lift_capacity": 12410.0,
             "front_lift_capacity": 3079.0,
-            "wheelbase": 2.34,
-            "weight": 4450.0,
             "engine_cylinders": 6
         },
         "model_key": "933_vario",
@@ -11393,20 +12785,22 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15329&page=198",
             "https://www.tractordata.com/farm-tractors/010/8/4/10843-fendt-211-vario.html",
-            "https://www.ritchiespecs.com/model/fendt-312-vario-4wd-tractor"
+            "https://www.ritchiespecs.com/model/fendt-312-vario-4wd-tractor",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/2wd-tractors-fendt/310-vario-1033298"
         ],
         "price": 135000.0,
         "equipment_level_code": "medium",
         "specification": {
+            "engine_power_kw": 74.57000000000001,
+            "model_series": "300 Vario",
             "length": 4.15,
             "wheelbase": 2.29,
+            "max_speed": 40.0,
+            "weight": 3929.0,
             "powertrain": "4x4",
             "engine_cylinders": 4,
-            "engine_power_kw": 74.57000000000001,
             "engine_displacement": 4.1,
             "fuel_capacity": 124.9,
-            "weight": 3929.0,
-            "max_speed": 40.0,
             "hydrolic_pump_flow": 110.0,
             "lift_capacity": 5960.0,
             "front_lift_capacity": 2490.0
@@ -11585,14 +12979,17 @@
         "manufacturer": "KVERNELAND",
         "model": "ENDURO 3000",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15440&page=202"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15440&page=202",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/cultivators-kverneland/enduro-4000-f-11738976"
         ],
         "price": 30000.0,
         "equipment_level_code": "premium",
         "specification": {
-            "required_power_kw": 178.96800000000002,
             "working_width": 3.0,
-            "weight": 2200.0
+            "wheelbase": 3.0,
+            "weight": 2200.0,
+            "number_of_tines": 14.0,
+            "required_power_kw": 178.96800000000002
         },
         "model_key": "enduro_3000",
         "manufacturer_key": "kverneland"

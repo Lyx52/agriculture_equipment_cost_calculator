@@ -26,6 +26,12 @@ class EquipmentModelMetadata(Enum):
     WorkCapacityL = 'work_capacity_l',
     WorkCapacityKg = 'work_capacity_kg',
     MaxFieldSpeed = 'max_field_speed'
+    ModelSeries = "model_series",
+    NumberOfTines = "number_of_tines"
+    NumberOfDiscs = "number_of_discs"
+    NumberOfFurrows = "number_of_furrows"
+    FirstYear = "first_year"
+    LastYear = "last_year"
 
 class EquipmentLevelCode(Enum):
     Base = "base"

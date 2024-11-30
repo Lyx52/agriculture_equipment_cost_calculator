@@ -4,14 +4,13 @@ from selenium.webdriver.common.by import By
 import json, math, time, os, random
 from utils import clean_key, open_json, save_json, normalize_text, rapidfuzz_similarity
 from bs4 import BeautifulSoup, Tag, NavigableString
-driver = webdriver.Chrome()
 def get_lecture_specs_list(driver: Chrome, category: int, page: int) -> dict:
     driver.get(f"https://www.lectura-specs.com/en/xhr/models?data[lang]=1&data[category]={category}&data[filter][year][from]=1990&data[filter][year][to]=2024&data[page]={page}")
     preElement = driver.find_element(By.TAG_NAME, 'pre')
     return json.loads(preElement.text)
 sub_categories = {
     984763: 'tractor_4x2',
-    984764: 'tractor_4x4',
+    # 984764: 'tractor_4x4',
     986441: 'plough',
     986402: 'cultivator',
     985652: 'packing_press',
@@ -26,7 +25,7 @@ def save_raw(category_code, page, res):
         fp.close()
 
 def get_specification_table(driver: Chrome, url: str) -> NavigableString|Tag:
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(1)
     driver.get(f"https://www.lectura-specs.com{url}")
     driver.find_element(By.CLASS_NAME, "c-term-list")
     soup = BeautifulSoup(driver.page_source, features="html.parser")
@@ -48,7 +47,8 @@ def get_specification_table(driver: Chrome, url: str) -> NavigableString|Tag:
 scraped_item_data = {}
 if os.path.exists("data/lectura_specs/raw/tables.json"):
     scraped_item_data = open_json("data/lectura_specs/raw/tables.json")
-driver.quit()
+
+
 lad_catalog = open_json("lad_catalog_data.json")
 wanted_manufacturers = list(set([clean_key(item['manufacturer']) for item in lad_catalog]))
 for category_id, key in sub_categories.items():
@@ -74,9 +74,9 @@ for category_id, key in sub_categories.items():
                 except Exception as e:
                     print(e)
                     continue
-                time.sleep(1.0 + random.random() / 4)
-            if (current % 25) == 0:
+            if (current % 10) == 0:
                 save_json("data/lectura_specs/raw/tables.json", scraped_item_data)
             print(f"{json_file}, {current}/{total}...")
             current += 1
 save_json("data/lectura_specs/raw/tables.json", scraped_item_data)
+
