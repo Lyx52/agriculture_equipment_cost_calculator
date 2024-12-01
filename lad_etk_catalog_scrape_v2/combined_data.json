@@ -292,6 +292,7 @@
             "working_width": 6.0,
             "length": 10.05,
             "wheelbase": 3.0,
+            "number_of_plowshares": 34.0,
             "work_capacity_l": 3000.0,
             "required_power_kw": 298.28000000000003,
             "weight": 9430.0,
@@ -687,6 +688,7 @@
             "working_width": 3.0,
             "length": 10.05,
             "wheelbase": 3.0,
+            "number_of_plowshares": 34.0,
             "work_capacity_l": 1400.0,
             "required_power_kw": 160.3255,
             "weight": 9430.0,
@@ -927,6 +929,7 @@
             "working_width": 4.0,
             "length": 8.3,
             "wheelbase": 3.0,
+            "number_of_plowshares": 52.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 134.226,
             "weight": 8570.0,
@@ -1005,6 +1008,7 @@
             "working_width": 8.0,
             "length": 8.2,
             "wheelbase": 3.0,
+            "number_of_plowshares": 40.0,
             "work_capacity_l": 3000.0,
             "required_power_kw": 223.71,
             "weight": 6470.0,
@@ -1029,6 +1033,7 @@
             "working_width": 6.0,
             "length": 9.9,
             "wheelbase": 2.95,
+            "number_of_plowshares": 40.0,
             "work_capacity_l": 2000.0,
             "required_power_kw": 186.425,
             "weight": 7880.0,
@@ -1338,6 +1343,7 @@
             "working_width": 4.0,
             "length": 10.05,
             "wheelbase": 3.0,
+            "number_of_plowshares": 34.0,
             "work_capacity_l": 3000.0,
             "required_power_kw": 260.995,
             "weight": 9430.0,
@@ -1523,6 +1529,7 @@
             "working_width": 6.0,
             "length": 8.2,
             "wheelbase": 3.0,
+            "number_of_plowshares": 40.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 186.425,
             "weight": 6470.0,
@@ -1765,6 +1772,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 104.39800000000001,
             "weight": 3100.0,
@@ -1787,6 +1795,7 @@
         "equipment_level_code": "base",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 89.48400000000001,
             "weight": 2500.0,
@@ -1827,6 +1836,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 300.0,
             "required_power_kw": 89.48400000000001,
             "weight": 1900.0,
@@ -1923,6 +1933,7 @@
             "working_width": 4.0,
             "length": 6.4,
             "wheelbase": 3.0,
+            "number_of_plowshares": 20.0,
             "work_capacity_l": 2400.0,
             "required_power_kw": 149.14000000000001,
             "weight": 3355.0,
@@ -2159,6 +2170,7 @@
             "working_width": 6.0,
             "length": 6.4,
             "wheelbase": 3.0,
+            "number_of_plowshares": 20.0,
             "work_capacity_l": 3000.0,
             "required_power_kw": 186.425,
             "weight": 3355.0,
@@ -2659,6 +2671,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 104.39800000000001,
             "weight": 3100.0,
@@ -2681,6 +2694,7 @@
         "equipment_level_code": "base",
         "specification": {
             "working_width": 4.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 104.39800000000001,
             "weight": 3100.0,
@@ -2799,6 +2813,7 @@
             "working_width": 9.0,
             "length": 6.4,
             "wheelbase": 3.0,
+            "number_of_plowshares": 20.0,
             "work_capacity_l": 3000.0,
             "required_power_kw": 260.995,
             "weight": 3355.0,
@@ -2822,6 +2837,7 @@
         "specification": {
             "working_width": 9.0,
             "wheelbase": 4.725,
+            "number_of_plowshares": 48.0,
             "work_capacity_l": 1050.0,
             "required_power_kw": 238.62400000000002,
             "weight": 8500.0,
@@ -2875,6 +2891,7 @@
         "specification": {
             "working_width": 6.0,
             "wheelbase": 4.725,
+            "number_of_plowshares": 48.0,
             "work_capacity_l": 1450.0,
             "required_power_kw": 134.226,
             "weight": 8500.0,
@@ -3129,6 +3146,7 @@
             "working_width": 6.0,
             "length": 7.8,
             "wheelbase": 3.0,
+            "number_of_plowshares": 20.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 149.14000000000001,
             "weight": 3700.0,
@@ -3539,14 +3557,19 @@
         "manufacturer": "UNIA",
         "model": "AMBER 3000/3",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11676&page=44"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11676&page=44",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-900-3-1163128"
         ],
         "price": 56950.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 24.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 104.39800000000001,
-            "work_capacity_l": 0.0
+            "weight": 1750.0,
+            "first_year": "2015",
+            "last_year": "2024"
         },
         "model_key": "amber_3000_3",
         "manufacturer_key": "unia"
@@ -3566,6 +3589,7 @@
             "working_width": 4.0,
             "length": 2.35,
             "wheelbase": 3.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
             "weight": 5644.0,
@@ -4011,6 +4035,7 @@
             "working_width": 6.0,
             "length": 8.2,
             "wheelbase": 3.0,
+            "number_of_plowshares": 26.0,
             "work_capacity_l": 2750.0,
             "required_power_kw": 201.339,
             "weight": 5500.0,
@@ -4095,6 +4120,7 @@
             "working_width": 4.0,
             "length": 8.2,
             "wheelbase": 3.0,
+            "number_of_plowshares": 26.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 119.31200000000001,
             "weight": 5500.0,
@@ -4456,6 +4482,7 @@
         "specification": {
             "working_width": 6.0,
             "wheelbase": 4.725,
+            "number_of_plowshares": 48.0,
             "work_capacity_l": 1450.0,
             "required_power_kw": 134.226,
             "weight": 8500.0,
@@ -5186,6 +5213,7 @@
             "working_width": 4.0,
             "length": 2.35,
             "wheelbase": 3.0,
+            "number_of_plowshares": 18.0,
             "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
             "weight": 3682.0,
@@ -5388,6 +5416,7 @@
         "equipment_level_code": "base",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 1000.0,
             "required_power_kw": 104.39800000000001,
             "weight": 1900.0,
@@ -5474,6 +5503,36 @@
         },
         "model_key": "weeder_hd_1200",
         "manufacturer_key": "heva"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "STEYR",
+        "model": "IMPULS 6165 CVT",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12119&page=63",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-steyr/6175-impuls-cvt-11733638"
+        ],
+        "price": 175000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 123.04050000000001,
+            "model_series": "Impuls CVT",
+            "length": 5.24,
+            "wheelbase": 2.06,
+            "max_speed": 40.0,
+            "weight": 6480.0,
+            "engine_displacement": 6.726,
+            "engine_torque": 1500.0,
+            "engine_cylinders": 6,
+            "first_year": "2020",
+            "last_year": "2024",
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 160.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "impuls_6165_cvt",
+        "manufacturer_key": "steyr"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -5568,6 +5627,7 @@
             "working_width": 3.0,
             "length": 7.8,
             "wheelbase": 3.0,
+            "number_of_plowshares": 20.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 74.57000000000001,
             "weight": 3700.0,
@@ -5692,6 +5752,7 @@
             "working_width": 6.0,
             "length": 8.2,
             "wheelbase": 3.0,
+            "number_of_plowshares": 26.0,
             "work_capacity_l": 2750.0,
             "required_power_kw": 193.882,
             "weight": 5500.0,
@@ -6698,6 +6759,7 @@
             "working_width": 4.0,
             "length": 8.2,
             "wheelbase": 3.0,
+            "number_of_plowshares": 26.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 119.31200000000001,
             "weight": 5500.0,
@@ -6758,6 +6820,7 @@
             "working_width": 6.0,
             "length": 8.2,
             "wheelbase": 3.0,
+            "number_of_plowshares": 26.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 149.14000000000001,
             "weight": 5500.0,
@@ -7195,6 +7258,7 @@
             "working_width": 3.0,
             "length": 2.4,
             "wheelbase": 3.0,
+            "number_of_plowshares": 4.0,
             "work_capacity_l": 0.0,
             "weight": 1251.0,
             "first_year": "2016",
@@ -7385,6 +7449,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.5,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 1050.0,
             "required_power_kw": 96.941,
             "weight": 5600.0,
@@ -7462,6 +7527,7 @@
         "specification": {
             "working_width": 3.0,
             "wheelbase": 3.0,
+            "number_of_plowshares": 20.0,
             "work_capacity_l": 1600.0,
             "weight": 1301.0,
             "first_year": "2019",
@@ -7654,6 +7720,7 @@
             "working_width": 4.0,
             "length": 2.35,
             "wheelbase": 3.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
             "weight": 5644.0,
@@ -8012,6 +8079,7 @@
         "equipment_level_code": "base",
         "specification": {
             "working_width": 4.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 400.0,
             "required_power_kw": 104.39800000000001,
             "weight": 3300.0,
@@ -8388,14 +8456,21 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 6000 R SH",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12979&page=92"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12979&page=92",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-6000-r-11704109"
         ],
         "price": 160000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 8.9,
+            "wheelbase": 3.0,
+            "number_of_plowshares": 40.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 149.14000000000001,
-            "work_capacity_l": 0.0
+            "weight": 8000.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_6000_r_sh",
         "manufacturer_key": "kuhn"
@@ -8693,6 +8768,7 @@
             "working_width": 4.0,
             "length": 9.0,
             "wheelbase": 3.0,
+            "number_of_plowshares": 13.0,
             "work_capacity_l": 1600.0,
             "required_power_kw": 134.226,
             "weight": 6000.0,
@@ -8983,6 +9059,7 @@
             "working_width": 6.0,
             "length": 8.7,
             "wheelbase": 3.0,
+            "number_of_plowshares": 48.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 238.62400000000002,
             "weight": 8915.0,
@@ -9701,6 +9778,7 @@
         "specification": {
             "working_width": 3.0,
             "wheelbase": 3.03,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 0.0,
             "weight": 964.0,
             "first_year": "2015",
@@ -10556,6 +10634,7 @@
         "specification": {
             "working_width": 3.0,
             "wheelbase": 3.0,
+            "number_of_plowshares": 25.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
             "weight": 1150.0,
@@ -10578,6 +10657,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 25.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
             "weight": 630.0,
@@ -10622,6 +10702,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 25.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 44.742000000000004,
             "weight": 710.0,
@@ -11298,6 +11379,7 @@
         "equipment_level_code": "base",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 25.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
             "weight": 815.0,
@@ -11436,6 +11518,7 @@
             "working_width": 3.0,
             "length": 6.4,
             "wheelbase": 3.0,
+            "number_of_plowshares": 20.0,
             "work_capacity_l": 2200.0,
             "required_power_kw": 111.855,
             "weight": 3355.0,
@@ -11566,6 +11649,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 400.0,
             "required_power_kw": 104.39800000000001,
             "weight": 3250.0,
@@ -11581,14 +11665,19 @@
         "manufacturer": "UNIA",
         "model": "AMBER 900/3",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14321&page=155"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14321&page=155",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-900-3-1163128"
         ],
         "price": 32300.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 24.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 89.48400000000001,
-            "work_capacity_l": 0.0
+            "weight": 1750.0,
+            "first_year": "2015",
+            "last_year": "2024"
         },
         "model_key": "amber_900_3",
         "manufacturer_key": "unia"
@@ -11660,6 +11749,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 25.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 44.742000000000004,
             "weight": 710.0,
@@ -11764,6 +11854,7 @@
             "working_width": 6.0,
             "length": 6.1,
             "wheelbase": 3.0,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 260.995,
             "weight": 4500.0,
@@ -11975,6 +12066,7 @@
             "working_width": 9.0,
             "length": 8.1,
             "wheelbase": 3.0,
+            "number_of_plowshares": 12.0,
             "work_capacity_l": 70.0,
             "required_power_kw": 149.14000000000001,
             "weight": 5850.0,
@@ -12311,6 +12403,7 @@
         "specification": {
             "working_width": 12.0,
             "wheelbase": 4.725,
+            "number_of_plowshares": 64.0,
             "work_capacity_l": 6500.0,
             "required_power_kw": 372.85,
             "weight": 15000.0,
@@ -12334,6 +12427,7 @@
         "specification": {
             "working_width": 9.0,
             "wheelbase": 3.225,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 6500.0,
             "required_power_kw": 298.28000000000003,
             "weight": 8559.0,
@@ -12430,6 +12524,7 @@
             "working_width": 6.0,
             "length": 8.5,
             "wheelbase": 3.0,
+            "number_of_plowshares": 36.0,
             "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
             "weight": 8357.0,
@@ -12454,6 +12549,7 @@
             "working_width": 4.0,
             "length": 2.35,
             "wheelbase": 3.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
             "weight": 5644.0,
@@ -12478,6 +12574,7 @@
             "working_width": 3.0,
             "length": 2.4,
             "wheelbase": 3.0,
+            "number_of_plowshares": 4.0,
             "work_capacity_l": 0.0,
             "weight": 1251.0,
             "first_year": "2016",
@@ -12590,6 +12687,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "number_of_plowshares": 48.0,
             "work_capacity_l": 0.0,
             "first_year": "2010",
             "last_year": "2014",
@@ -12690,6 +12788,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 32.0,
             "work_capacity_l": 0.0,
             "weight": 1018.0,
             "first_year": "2023",
@@ -12712,6 +12811,7 @@
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 0.0,
             "weight": 927.0,
             "first_year": "2023",
@@ -12972,6 +13072,7 @@
         "specification": {
             "working_width": 3.0,
             "wheelbase": 3.0,
+            "number_of_plowshares": 24.0,
             "work_capacity_l": 0.0,
             "weight": 790.0,
             "first_year": "2019",
@@ -13048,6 +13149,7 @@
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 3.0,
+            "number_of_plowshares": 25.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
             "weight": 630.0,
@@ -13148,6 +13250,35 @@
         "manufacturer_key": "einbock"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "DK4520HS",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14902&page=181",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-kioti/dk4520-11773017"
+        ],
+        "price": 18210.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 33.5565,
+            "model_series": "DK",
+            "length": 3.157,
+            "wheelbase": 1.596,
+            "max_speed": 26.9,
+            "weight": 1530.0,
+            "engine_displacement": 1.826,
+            "engine_cylinders": 3,
+            "first_year": "2023",
+            "last_year": "2024",
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 60.2,
+            "lift_capacity": 1717.0
+        },
+        "model_key": "dk4520hs",
+        "manufacturer_key": "kioti"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "DZIEKAN",
@@ -13231,6 +13362,35 @@
         },
         "model_key": "933_vario",
         "manufacturer_key": "fendt"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "DK4520H",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15098&page=188",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-kioti/dk4520-11773017"
+        ],
+        "price": 27650.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 33.5565,
+            "model_series": "DK",
+            "length": 3.157,
+            "wheelbase": 1.596,
+            "max_speed": 26.9,
+            "weight": 1530.0,
+            "engine_displacement": 1.826,
+            "engine_cylinders": 3,
+            "first_year": "2023",
+            "last_year": "2024",
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 62.4,
+            "lift_capacity": 1717.0
+        },
+        "model_key": "dk4520h",
+        "manufacturer_key": "kioti"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -13325,6 +13485,7 @@
             "working_width": 6.0,
             "length": 2.35,
             "wheelbase": 3.0,
+            "number_of_plowshares": 18.0,
             "work_capacity_l": 0.0,
             "required_power_kw": 164.054,
             "weight": 3682.0,

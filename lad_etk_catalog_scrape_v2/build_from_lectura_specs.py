@@ -118,6 +118,8 @@ for url, item in lectura_specs_data.items():
             case 'Tank capacity':
                 value = value.replace('\xa0l', '')
                 specifications['work_capacity_l'] = float(value)
+            case 'No. of Plowshares':
+                specifications['number_of_plowshares'] = float(value)
             case _:            
                 if name not in unknown_parameters:
                     unknown_parameters[name] = value    
