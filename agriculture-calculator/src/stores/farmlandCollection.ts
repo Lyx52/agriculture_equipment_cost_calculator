@@ -9,14 +9,16 @@ import {getEquipmentSubTypesByOperation} from "@/stores/constants/OperationTypes
 import {TinyEmitter} from "tiny-emitter";
 import type {IFarmland} from "@/stores/interfaces/IFarmland";
 import type {IOption} from "@/stores/interfaces/IOption";
-import {CropCalendarHarvest, CropCalendarPlant, Crops} from "@/stores/constants/CropTypes";
+import {CropCalendarHarvest, CropCalendarPlant, Crops, LadCropsToCropType} from "@/stores/constants/CropTypes";
+import type {IFarmlandCollection} from "@/stores/interfaces/IFarmlandCollection";
+import type {ISelectedMapField} from "@/stores/interfaces/ISelectedMapField";
+import {v4 as uuid} from "uuid";
 
 export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
-    state: (): {
-        items: IFarmland[]
-    } => {
+    state: (): IFarmlandCollection => {
         return {
-            items: []
+            items: [],
+            showMapModal: false
         }
     },
     actions: {
@@ -27,6 +29,21 @@ export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
         },
         removeItem(itemId: string) {
             this.items = this.items.filter(i => i.uniqueId !== itemId);
+        },
+        onFarmlandSelected(field: ISelectedMapField) {
+            let cropType = Object.keys(LadCropsToCropType).includes(field.productCode ?? '') ? LadCropsToCropType[field.productCode!] : 'spring_wheat';
+
+            this.pushItem({
+                uniqueId: uuid(),
+                area: field.area,
+                cropType: cropType,
+                plantingInterval: {
+                    ...CropCalendarPlant[cropType]
+                },
+                harvestingInterval: {
+                    ...CropCalendarHarvest[cropType]
+                }
+            } as IFarmland);
         },
         updateCropCalendar(itemId: string) {
             const farmLand = this.items.find(i => i.uniqueId === itemId)    ;
@@ -40,7 +57,7 @@ export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
         }
     },
     getters: {
-        itemOptions(state: { items: IFarmland[] }): IOption<IFarmland>[] {
+        itemOptions(state: IFarmlandCollection): IOption<IFarmland>[] {
             return state.items.map(i => ({
                 value: i,
                 text: `${Crops[i.cropType]} ${i.area?.toFixed(2) ?? 0} ha`

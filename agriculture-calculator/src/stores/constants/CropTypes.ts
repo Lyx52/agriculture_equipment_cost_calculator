@@ -9,6 +9,11 @@ export const Crops = {
     'spring_barley': 'Mieži, pavasara',
     'winter_barley': 'Miezi, ziemas'
 } as Record<CropType, string>;
+
+export const LadCropsToCropType = {
+    '112': 'winter_wheat'
+} as Record<string, CropType>;
+
 export interface IDateInterval {
     from: string,
     to: string

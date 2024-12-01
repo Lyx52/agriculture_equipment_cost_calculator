@@ -76,6 +76,7 @@ import {EquipmentTypeCategories, type EquipmentTypeCategory} from "@/stores/cons
 import PropertyCostEstimationTable from "@/components/form/PropertyCostEstimationTable.vue";
 import OperationCostEstimationTable from "@/components/form/OperationCostEstimationTable.vue";
 import UsedFarmlandTable from "@/components/form/UsedFarmlandTable.vue";
+import Map from '@/components/modal/FarmlandMapModal.vue';
 const currentTab = ref<EquipmentTypeCategory>('tractor');
 
 const switchTo = (tabCategory: EquipmentTypeCategory) => {
