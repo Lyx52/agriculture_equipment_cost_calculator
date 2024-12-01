@@ -7,7 +7,9 @@ sub_category_to_category = {
     'tractor_4x4': 'tractor',
     'plough': 'soil_cultivation_equipment',
     'cultivator': 'soil_cultivation_equipment',
-    'packing_press': 'feed_preperation_equipment'
+    'packing_press': 'feed_preperation_equipment',
+    'balling_press': 'feed_preperation_equipment',
+    'seed_drill': 'sowing_and_planting_equipment'
 }
 
 models = []
@@ -27,6 +29,12 @@ for url, item in lectura_specs_data.items():
             case 'Engine power':
                 specifications['engine_power_kw'] = float(value.replace('\xa0kW', ''))
             case 'Weight':
+                if 'kg' in value:
+                    value = value.replace('\xa0kg', '')
+                    if '/' in value:
+                        value = value.split('/')[1]
+                    specifications['weight'] = float(value)
+                    continue
                 value = value.replace('\xa0t', '')
                 if '/' in value:
                     value = value.split('/')[1]
@@ -35,7 +43,13 @@ for url, item in lectura_specs_data.items():
                 specifications['max_speed'] = float(value.replace('\xa0km/h', ''))
             case 'Engine':
                 specifications['engine_power_kw'] = convert_zs_to_kw(float(value.replace('hp', '')))
+            case 'Engine (net)':
+                specifications['engine_power_kw'] = convert_zs_to_kw(float(value.replace('hp', '')))
+            case 'Engine (gross)':
+                specifications['engine_power_kw'] = convert_zs_to_kw(float(value.replace('hp', '')))
             case 'PTO (claimed':
+                specifications['pto_power_kw'] = convert_zs_to_kw(float(value.replace('hp', '')))
+            case 'PTO (claimed)':
                 specifications['pto_power_kw'] = convert_zs_to_kw(float(value.replace('hp', '')))
             case 'PTO (tested':
                 specifications['pto_power_kw'] = convert_zs_to_kw(float(value.replace('hp', '')))
@@ -48,10 +62,14 @@ for url, item in lectura_specs_data.items():
             case 'Displacement':
                 specifications['engine_displacement'] = float(value.replace('\xa0l', ''))
             case 'Transport length':
-                specifications['length'] = float(value.replace('\xa0m', ''))
+                value = value.replace('\xa0m', '')
+                value = value.replace(',', '.')
+
+                specifications['length'] = float(value)
             case 'Transport width':
                 value = value.replace('\xa0m', '')
-            
+                value = value.replace(',', '.')
+
                 if '/' in value:
                     value = value.split('/')[1]
                 if '-' in value:
@@ -91,6 +109,15 @@ for url, item in lectura_specs_data.items():
                 if '-' in value:
                     value = value.split('-')[1]
                 specifications['bale_height'] = float(value)
+            case 'Bale-Ø  from-to':
+                value = value.replace('\xa0m', '')
+                value = value.replace(',', '.')
+                if '-' in value:
+                    value = value.split('-')[1]
+                specifications['bale_diameter'] = float(value)
+            case 'Tank capacity':
+                value = value.replace('\xa0l', '')
+                specifications['work_capacity_l'] = float(value)
             case _:            
                 if name not in unknown_parameters:
                     unknown_parameters[name] = value    

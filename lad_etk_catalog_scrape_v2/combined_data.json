@@ -19,6 +19,8 @@
             "wheelbase": 2.34,
             "max_speed": 40.0,
             "weight": 4350.0,
+            "first_year": "2007",
+            "last_year": "2013",
             "powertrain": "4x4",
             "engine_cylinders": 4,
             "engine_displacement": 4.1,
@@ -229,6 +231,8 @@
             "max_speed": 40.0,
             "weight": 4019.9999999999995,
             "engine_displacement": 3.4,
+            "first_year": "2014",
+            "last_year": "2017",
             "powertrain": "4x4",
             "engine_cylinders": 3,
             "hydrolic_pump_flow": 47.0,
@@ -279,14 +283,20 @@
         "manufacturer": "HORSCH",
         "model": "FOCUS 6 TD",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10546&page=13"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10546&page=13",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/focus-6-td-1135225"
         ],
         "price": 204000.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 6.0,
+            "length": 10.05,
+            "wheelbase": 3.0,
+            "work_capacity_l": 3000.0,
             "required_power_kw": 298.28000000000003,
-            "work_capacity_l": 3000.0
+            "weight": 9430.0,
+            "first_year": "2010",
+            "last_year": "2016"
         },
         "model_key": "focus_6_td",
         "manufacturer_key": "horsch"
@@ -524,7 +534,9 @@
             "weight": 6500.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 260.995
+            "required_power_kw": 260.995,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_63_gx",
         "manufacturer_key": "horsch"
@@ -605,6 +617,8 @@
             "engine_displacement": 2.93,
             "engine_torque": 1400.0,
             "engine_cylinders": 3,
+            "first_year": "2017",
+            "last_year": "2020",
             "pto_power_kw": 44.7,
             "fuel_capacity": 82.1,
             "powertrain": "4x4",
@@ -664,14 +678,20 @@
         "manufacturer": "HORSCH",
         "model": "FOCUS 3 TD",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10755&page=16"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10755&page=16",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/focus-6-td-1135225"
         ],
         "price": 115100.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "length": 10.05,
+            "wheelbase": 3.0,
+            "work_capacity_l": 1400.0,
             "required_power_kw": 160.3255,
-            "work_capacity_l": 1400.0
+            "weight": 9430.0,
+            "first_year": "2010",
+            "last_year": "2016"
         },
         "model_key": "focus_3_td",
         "manufacturer_key": "horsch"
@@ -898,14 +918,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 4 DC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10784&page=18"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10784&page=18",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-7-dc-1135309"
         ],
         "price": 87220.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 4.0,
+            "length": 8.3,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 134.226,
-            "work_capacity_l": 0.0
+            "weight": 8570.0,
+            "first_year": "2008",
+            "last_year": "2016"
         },
         "model_key": "pronto_4_dc",
         "manufacturer_key": "horsch"
@@ -970,14 +996,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 8 DC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10795&page=19"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10795&page=19",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-6-dc-1041818"
         ],
         "price": 162000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 8.0,
+            "length": 8.2,
+            "wheelbase": 3.0,
+            "work_capacity_l": 3000.0,
             "required_power_kw": 223.71,
-            "work_capacity_l": 3000.0
+            "weight": 6470.0,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "pronto_8_dc",
         "manufacturer_key": "horsch"
@@ -988,14 +1020,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 6 AS",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10794&page=19"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10794&page=19",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-6-as-1041823"
         ],
         "price": 167400.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 9.9,
+            "wheelbase": 2.95,
+            "work_capacity_l": 2000.0,
             "required_power_kw": 186.425,
-            "work_capacity_l": 2000.0
+            "weight": 7880.0,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "pronto_6_as",
         "manufacturer_key": "horsch"
@@ -1020,6 +1058,8 @@
             "max_speed": 40.0,
             "weight": 3420.0,
             "engine_cylinders": 4,
+            "first_year": "2015",
+            "last_year": "2018",
             "fuel_capacity": 104.8,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 89.0,
@@ -1044,7 +1084,9 @@
             "wheelbase": 2.95,
             "weight": 10500.0,
             "number_of_tines": 33.0,
-            "required_power_kw": 372.85
+            "required_power_kw": 372.85,
+            "first_year": "2013",
+            "last_year": "2016"
         },
         "model_key": "cruiser_12_xl",
         "manufacturer_key": "horsch"
@@ -1055,15 +1097,18 @@
         "manufacturer": "JOHN DEERE",
         "model": "C441R",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10812&page=19"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10812&page=19",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-john-deere/c451r-11700544"
         ],
         "price": 111620.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 149.14000000000001,
-            "working_width": 2.2,
+            "bale_diameter": 1.35,
             "bale_width": 1.21,
-            "bale_diameter": 1.35
+            "first_year": "2018",
+            "last_year": "2018",
+            "working_width": 2.2
         },
         "model_key": "c441r",
         "manufacturer_key": "john_deere"
@@ -1074,15 +1119,21 @@
         "manufacturer": "JOHN DEERE",
         "model": "F441M",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10819&page=20"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10819&page=20",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-john-deere/f441m-1168540"
         ],
         "price": 49000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 111.855,
-            "working_width": 2.2,
+            "bale_diameter": 1.35,
             "bale_width": 1.21,
-            "bale_diameter": 1.35
+            "length": 4.8,
+            "wheelbase": 2.55,
+            "model_series": "F",
+            "first_year": "2016",
+            "last_year": "2024",
+            "working_width": 2.2
         },
         "model_key": "f441m",
         "manufacturer_key": "john_deere"
@@ -1093,15 +1144,19 @@
         "manufacturer": "JOHN DEERE",
         "model": "V461M",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10821&page=20"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10821&page=20",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-john-deere/v461r-11687899"
         ],
         "price": 58300.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 149.14000000000001,
-            "working_width": 2.2,
+            "bale_diameter": 1.85,
             "bale_width": 1.21,
-            "bale_diameter": 1.85
+            "model_series": "V",
+            "first_year": "2017",
+            "last_year": "2024",
+            "working_width": 2.2
         },
         "model_key": "v461m",
         "manufacturer_key": "john_deere"
@@ -1274,14 +1329,20 @@
         "manufacturer": "HORSCH",
         "model": "FOCUS 4 TD",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10811&page=21"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10811&page=21",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/focus-6-td-1135225"
         ],
         "price": 143260.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "length": 10.05,
+            "wheelbase": 3.0,
+            "work_capacity_l": 3000.0,
             "required_power_kw": 260.995,
-            "work_capacity_l": 3000.0
+            "weight": 9430.0,
+            "first_year": "2010",
+            "last_year": "2016"
         },
         "model_key": "focus_4_td",
         "manufacturer_key": "horsch"
@@ -1323,6 +1384,8 @@
             "weight": 11990.0,
             "length": 8.86,
             "wheelbase": 2.76,
+            "first_year": "2014",
+            "last_year": "2017",
             "working_width": 2.35
         },
         "model_key": "quadrant_5300_fc",
@@ -1370,15 +1433,19 @@
         "manufacturer": "JOHN DEERE",
         "model": "V461M",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10820&page=22"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10820&page=22",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-john-deere/v461r-11687899"
         ],
         "price": 55100.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 149.14000000000001,
-            "working_width": 2.2,
+            "bale_diameter": 1.85,
             "bale_width": 1.21,
-            "bale_diameter": 1.85
+            "model_series": "V",
+            "first_year": "2017",
+            "last_year": "2024",
+            "working_width": 2.2
         },
         "model_key": "v461m",
         "manufacturer_key": "john_deere"
@@ -1434,7 +1501,9 @@
             "working_width": 4.4,
             "weight": 6972.0,
             "number_of_furrows": 8.0,
-            "required_power_kw": 268.452
+            "required_power_kw": 268.452,
+            "first_year": "2022",
+            "last_year": "2024"
         },
         "model_key": "varichallenger_ol_8",
         "manufacturer_key": "kuhn"
@@ -1445,14 +1514,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 6 DC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10964&page=23"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10964&page=23",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-6-dc-1041818"
         ],
         "price": 122190.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 6.0,
+            "length": 8.2,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 186.425,
-            "work_capacity_l": 0.0
+            "weight": 6470.0,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "pronto_6_dc",
         "manufacturer_key": "horsch"
@@ -1544,7 +1619,9 @@
             "working_width": 1.64,
             "weight": 1620.0,
             "number_of_furrows": 4.0,
-            "required_power_kw": 104.39800000000001
+            "required_power_kw": 104.39800000000001,
+            "first_year": "2007",
+            "last_year": "2017"
         },
         "model_key": "eurostar_120m",
         "manufacturer_key": "regent"
@@ -1681,14 +1758,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 1200/4",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10961&page=27"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10961&page=27",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-1200-4-1163129"
         ],
         "price": 44700.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 104.39800000000001,
-            "work_capacity_l": 0.0
+            "weight": 3100.0,
+            "first_year": "2015",
+            "last_year": "2024"
         },
         "model_key": "amber_1200_4",
         "manufacturer_key": "unia"
@@ -1699,14 +1780,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 900/3",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11186&page=27"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11186&page=27",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-3000-3-1163130"
         ],
         "price": 26095.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 89.48400000000001,
-            "work_capacity_l": 0.0
+            "weight": 2500.0,
+            "first_year": "2015",
+            "last_year": "2024"
         },
         "model_key": "amber_900_3",
         "manufacturer_key": "unia"
@@ -1735,14 +1820,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 900/3 DUPLO",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11213&page=27"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11213&page=27",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-900-3-duplo-11687272"
         ],
         "price": 31960.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 300.0,
             "required_power_kw": 89.48400000000001,
-            "work_capacity_l": 300.0
+            "weight": 1900.0,
+            "first_year": "2017",
+            "last_year": "2024"
         },
         "model_key": "amber_900_3_duplo",
         "manufacturer_key": "unia"
@@ -1825,14 +1914,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 4 DC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11331&page=29"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11331&page=29",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-3-dc-1041822"
         ],
         "price": 119000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "length": 6.4,
+            "wheelbase": 3.0,
+            "work_capacity_l": 2400.0,
             "required_power_kw": 149.14000000000001,
-            "work_capacity_l": 2400.0
+            "weight": 3355.0,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "pronto_4_dc",
         "manufacturer_key": "horsch"
@@ -1943,6 +2038,8 @@
         "specification": {
             "engine_power_kw": 89.48400000000001,
             "weight": 2870.78610973,
+            "first_year": "2001",
+            "last_year": "2002",
             "wheelbase": 2.28,
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -1977,6 +2074,8 @@
             "wheelbase": 2.28,
             "max_speed": 40.0,
             "weight": 2657.0,
+            "first_year": "2008",
+            "last_year": "2014",
             "powertrain": "4x4",
             "engine_cylinders": 4,
             "pto_power_kw": 35.8,
@@ -2007,7 +2106,9 @@
             "weight": 2481.0,
             "number_of_tines": 11.0,
             "number_of_discs": 9.0,
-            "required_power_kw": 134.226
+            "required_power_kw": 134.226,
+            "first_year": "2013",
+            "last_year": "2015"
         },
         "model_key": "cultimer_l_350",
         "manufacturer_key": "kuhn"
@@ -2034,6 +2135,8 @@
             "engine_displacement": 3.4,
             "engine_torque": 1300.0,
             "engine_cylinders": 4,
+            "first_year": "2021",
+            "last_year": "2023",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 80.0,
             "lift_capacity": 4100.0
@@ -2047,14 +2150,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 6 DC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11004&page=32"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11004&page=32",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-3-dc-1041822"
         ],
         "price": 152440.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 6.4,
+            "wheelbase": 3.0,
+            "work_capacity_l": 3000.0,
             "required_power_kw": 186.425,
-            "work_capacity_l": 3000.0
+            "weight": 3355.0,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "pronto_6_dc",
         "manufacturer_key": "horsch"
@@ -2081,6 +2190,8 @@
             "engine_displacement": 3.4,
             "engine_torque": 1300.0,
             "engine_cylinders": 4,
+            "first_year": "2021",
+            "last_year": "2023",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 80.0,
             "lift_capacity": 4100.0
@@ -2165,7 +2276,9 @@
             "working_width": 4.0,
             "weight": 3800.0,
             "number_of_tines": 19.0,
-            "required_power_kw": 223.71
+            "required_power_kw": 223.71,
+            "first_year": "2017",
+            "last_year": "2020"
         },
         "model_key": "ctc_420",
         "manufacturer_key": "kverneland"
@@ -2186,7 +2299,9 @@
             "wheelbase": 3.0,
             "weight": 2600.0,
             "number_of_tines": 10.0,
-            "required_power_kw": 201.339
+            "required_power_kw": 201.339,
+            "first_year": "2020",
+            "last_year": "2024"
         },
         "model_key": "enduro_3500",
         "manufacturer_key": "kverneland"
@@ -2537,14 +2652,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 1200/4",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11480&page=36"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11480&page=36",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-1200-4-1163129"
         ],
         "price": 39900.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 104.39800000000001,
-            "work_capacity_l": 0.0
+            "weight": 3100.0,
+            "first_year": "2015",
+            "last_year": "2024"
         },
         "model_key": "amber_1200_4",
         "manufacturer_key": "unia"
@@ -2555,14 +2674,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 1200/4",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11492&page=36"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11492&page=36",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-1200-4-1163129"
         ],
         "price": 34900.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 4.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 104.39800000000001,
-            "work_capacity_l": 0.0
+            "weight": 3100.0,
+            "first_year": "2015",
+            "last_year": "2024"
         },
         "model_key": "amber_1200_4",
         "manufacturer_key": "unia"
@@ -2636,7 +2759,9 @@
             "working_width": 0.5,
             "weight": 1680.0,
             "number_of_furrows": 4.0,
-            "required_power_kw": 119.31200000000001
+            "required_power_kw": 119.31200000000001,
+            "first_year": "2017",
+            "last_year": "2024"
         },
         "model_key": "ibis_vario_4_h",
         "manufacturer_key": "unia"
@@ -2665,14 +2790,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 9 DC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11506&page=36"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11506&page=36",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-3-dc-1041822"
         ],
         "price": 175700.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 9.0,
+            "length": 6.4,
+            "wheelbase": 3.0,
+            "work_capacity_l": 3000.0,
             "required_power_kw": 260.995,
-            "work_capacity_l": 3000.0
+            "weight": 3355.0,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "pronto_9_dc",
         "manufacturer_key": "horsch"
@@ -2683,14 +2814,19 @@
         "manufacturer": "AMAZONE",
         "model": "PRIMERA DMC 9000-2C",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11201&page=36"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11201&page=36",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/primera-dmc-9000-1164003"
         ],
         "price": 220100.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 9.0,
+            "wheelbase": 4.725,
+            "work_capacity_l": 1050.0,
             "required_power_kw": 238.62400000000002,
-            "work_capacity_l": 1050.0
+            "weight": 8500.0,
+            "first_year": "2015",
+            "last_year": "2017"
         },
         "model_key": "primera_dmc_90002c",
         "manufacturer_key": "amazone"
@@ -2716,6 +2852,8 @@
             "engine_displacement": 3.4,
             "engine_torque": 1300.0,
             "engine_cylinders": 4,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 60.0,
             "lift_capacity": 4000.0
@@ -2729,14 +2867,19 @@
         "manufacturer": "AMAZONE",
         "model": "PRIMERA DMC 6000-2C",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11195&page=37"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11195&page=37",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/primera-dmc-9000-1164003"
         ],
         "price": 185300.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 6.0,
+            "wheelbase": 4.725,
+            "work_capacity_l": 1450.0,
             "required_power_kw": 134.226,
-            "work_capacity_l": 1450.0
+            "weight": 8500.0,
+            "first_year": "2015",
+            "last_year": "2017"
         },
         "model_key": "primera_dmc_60002c",
         "manufacturer_key": "amazone"
@@ -2977,14 +3120,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 6000R",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11598&page=40"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11598&page=40",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-3000-11704107"
         ],
         "price": 157130.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 7.8,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 149.14000000000001,
-            "work_capacity_l": 0.0
+            "weight": 3700.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_6000r",
         "manufacturer_key": "kuhn"
@@ -3028,6 +3177,8 @@
             "weight": 4500.0,
             "engine_displacement": 3.849,
             "engine_cylinders": 4,
+            "first_year": "2017",
+            "last_year": "2024",
             "fuel_capacity": 135.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 90.0,
@@ -3061,15 +3212,22 @@
         "manufacturer": "KUHN",
         "model": "FB 2130",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11621&page=41"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11621&page=41",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-kuhn/fb-2135-1130258"
         ],
         "price": 47700.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 67.113,
-            "working_width": 2.3,
+            "bale_diameter": 1.25,
             "bale_width": 1.22,
-            "bale_diameter": 1.25
+            "weight": 2995.0,
+            "length": 6.44,
+            "wheelbase": 2.99,
+            "model_series": "FB",
+            "first_year": "2004",
+            "last_year": "2014",
+            "working_width": 2.3
         },
         "model_key": "fb_2130",
         "manufacturer_key": "kuhn"
@@ -3278,15 +3436,22 @@
         "manufacturer": "MASSEY FERGUSON",
         "model": "RB 4180V XTRA",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11651&page=42"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11651&page=42",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-massey-ferguson/rb-4180v-xtra-11695666"
         ],
         "price": 67500.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 74.57000000000001,
-            "working_width": 2.25,
+            "bale_diameter": 1.8,
             "bale_width": 1.23,
-            "bale_diameter": 1.8
+            "weight": 4070.0000000000005,
+            "length": 5.1,
+            "wheelbase": 2.8,
+            "model_series": "RB V",
+            "first_year": "2018",
+            "last_year": "2024",
+            "working_width": 2.25
         },
         "model_key": "rb_4180v_xtra",
         "manufacturer_key": "massey_ferguson"
@@ -3343,7 +3508,9 @@
             "wheelbase": 3.0,
             "weight": 2402.0,
             "number_of_tines": 14.0,
-            "required_power_kw": 119.31200000000001
+            "required_power_kw": 119.31200000000001,
+            "first_year": "2015",
+            "last_year": "2022"
         },
         "model_key": "cenius_4003_super",
         "manufacturer_key": "amazone"
@@ -3390,14 +3557,20 @@
         "manufacturer": "AMAZONE",
         "model": "CIRRUS 4003-CC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11680&page=44"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11680&page=44",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/cirrus-4002-1155865"
         ],
         "price": 157300.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 4.0,
+            "length": 2.35,
+            "wheelbase": 3.0,
+            "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
-            "work_capacity_l": 1600.0
+            "weight": 5644.0,
+            "first_year": "2013",
+            "last_year": "2015"
         },
         "model_key": "cirrus_4003cc",
         "manufacturer_key": "amazone"
@@ -3453,6 +3626,8 @@
             "working_width": 0.45,
             "weight": 1440.0,
             "number_of_furrows": 5.0,
+            "first_year": "2017",
+            "last_year": "2024",
             "required_power_kw": 96.941
         },
         "model_key": "ibis_ls_4+",
@@ -3555,7 +3730,9 @@
             "weight": 6730.0,
             "number_of_tines": 15.0,
             "number_of_discs": 48.0,
-            "required_power_kw": 186.425
+            "required_power_kw": 186.425,
+            "first_year": "2013",
+            "last_year": "2016"
         },
         "model_key": "terrano_4_mt",
         "manufacturer_key": "horsch"
@@ -3703,7 +3880,9 @@
             "weight": 2200.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 186.425
+            "required_power_kw": 186.425,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_4_fx",
         "manufacturer_key": "horsch"
@@ -3714,15 +3893,20 @@
         "manufacturer": "NEW HOLLAND",
         "model": "RB 125 ROLL BALER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11510&page=49"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11510&page=49",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-new-holland/roll-baler-125-11728980"
         ],
         "price": 45000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 74.57000000000001,
-            "working_width": 2.3,
+            "bale_diameter": 1.25,
             "bale_width": 1.25,
-            "bale_diameter": 1.25
+            "weight": 3715.0,
+            "model_series": "Roll Baller",
+            "first_year": "2019",
+            "last_year": "2022",
+            "working_width": 2.3
         },
         "model_key": "rb_125_roll_baler",
         "manufacturer_key": "new_holland"
@@ -3800,6 +3984,8 @@
             "wheelbase": 2.29,
             "max_speed": 40.0,
             "weight": 3870.0,
+            "first_year": "2009",
+            "last_year": "2017",
             "fuel_capacity": 124.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 119.0,
@@ -3816,14 +4002,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 6000 RC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11572&page=50"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11572&page=50",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-4000-r-11704108"
         ],
         "price": 183955.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 8.2,
+            "wheelbase": 3.0,
+            "work_capacity_l": 2750.0,
             "required_power_kw": 201.339,
-            "work_capacity_l": 2750.0
+            "weight": 5500.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_6000_rc",
         "manufacturer_key": "kuhn"
@@ -3894,14 +4086,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 4000 R",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11795&page=51"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11795&page=51",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-4000-r-11704108"
         ],
         "price": 121900.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "length": 8.2,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 119.31200000000001,
-            "work_capacity_l": 0.0
+            "weight": 5500.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_4000_r",
         "manufacturer_key": "kuhn"
@@ -3982,6 +4180,8 @@
             "weight": 2721.0,
             "engine_displacement": 6.8,
             "engine_cylinders": 6,
+            "first_year": "2017",
+            "last_year": "2020",
             "powertrain": "4x4",
             "pto_power_kw": 80.1,
             "engine_torque": 1016.9,
@@ -4128,15 +4328,22 @@
         "manufacturer": "NEW HOLLAND",
         "model": "RB 125 ROTOR CUTTER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11511&page=52"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11511&page=52",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-new-holland/roll-bar-125-rotor-cutter-11767745"
         ],
         "price": 31000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 67.113,
-            "working_width": 2.0,
+            "bale_diameter": 1.25,
             "bale_width": 1.25,
-            "bale_diameter": 1.25
+            "weight": 2800.0,
+            "length": 3.95,
+            "wheelbase": 2.69,
+            "model_series": "Roll-Bar",
+            "first_year": "2022",
+            "last_year": "2024",
+            "working_width": 2.0
         },
         "model_key": "rb_125_rotor_cutter",
         "manufacturer_key": "new_holland"
@@ -4228,6 +4435,8 @@
             "working_width": 2.5,
             "weight": 1600.0,
             "number_of_furrows": 5.0,
+            "first_year": "2007",
+            "last_year": "2024",
             "required_power_kw": 119.31200000000001
         },
         "model_key": "ibis_xxls_4",
@@ -4239,14 +4448,19 @@
         "manufacturer": "AMAZONE",
         "model": "PRIMERA DMC 6000-2C",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11198&page=55"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11198&page=55",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/primera-dmc-9000-1164003"
         ],
         "price": 126200.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 6.0,
+            "wheelbase": 4.725,
+            "work_capacity_l": 1450.0,
             "required_power_kw": 134.226,
-            "work_capacity_l": 1450.0
+            "weight": 8500.0,
+            "first_year": "2015",
+            "last_year": "2017"
         },
         "model_key": "primera_dmc_60002c",
         "manufacturer_key": "amazone"
@@ -4269,6 +4483,8 @@
             "max_speed": 40.0,
             "engine_displacement": 3.62,
             "engine_cylinders": 4,
+            "first_year": "2021",
+            "last_year": "2024",
             "fuel_capacity": 260.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 90.0,
@@ -4297,6 +4513,8 @@
             "model_series": "6J",
             "engine_displacement": 6.8,
             "engine_cylinders": 6,
+            "first_year": "2022",
+            "last_year": "2024",
             "wheelbase": 1.29,
             "powertrain": "4x4",
             "pto_power_kw": 7.9,
@@ -4315,15 +4533,20 @@
         "manufacturer": "KRONE",
         "model": "FORTIMA F 1250 MC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11868&page=55"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11868&page=55",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/fortima-f-1250-mc-1154386"
         ],
         "price": 40000.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 52.199000000000005,
-            "working_width": 2.05,
+            "bale_diameter": 1.25,
             "bale_width": 1.2,
-            "bale_diameter": 1.25
+            "length": 4.2,
+            "wheelbase": 2.57,
+            "first_year": "2014",
+            "last_year": "2018",
+            "working_width": 2.05
         },
         "model_key": "fortima_f_1250_mc",
         "manufacturer_key": "krone"
@@ -4334,15 +4557,21 @@
         "manufacturer": "KRONE",
         "model": "FORTIMA V 1500 MC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11875&page=55"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11875&page=55",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/fortima-v-1800-mc-11709687"
         ],
         "price": 54000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 59.656000000000006,
-            "working_width": 2.05,
+            "bale_diameter": 1.5,
             "bale_width": 1.2,
-            "bale_diameter": 1.5
+            "length": 4.86,
+            "wheelbase": 2.57,
+            "model_series": "Fortima",
+            "first_year": "2018",
+            "last_year": "2022",
+            "working_width": 2.05
         },
         "model_key": "fortima_v_1500_mc",
         "manufacturer_key": "krone"
@@ -4353,15 +4582,21 @@
         "manufacturer": "KRONE",
         "model": "FORTIMA V 1800 MC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11880&page=55"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11880&page=55",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/fortima-v-1800-mc-11709687"
         ],
         "price": 58000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 59.656000000000006,
-            "working_width": 2.05,
+            "bale_diameter": 1.8,
             "bale_width": 1.2,
-            "bale_diameter": 1.8
+            "length": 4.86,
+            "wheelbase": 2.57,
+            "model_series": "Fortima",
+            "first_year": "2018",
+            "last_year": "2022",
+            "working_width": 2.05
         },
         "model_key": "fortima_v_1800_mc",
         "manufacturer_key": "krone"
@@ -4372,15 +4607,21 @@
         "manufacturer": "KRONE",
         "model": "COMPRIMA F 125 XC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11883&page=55"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11883&page=55",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/comprima-f-125-1130655"
         ],
         "price": 46700.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 52.199000000000005,
-            "working_width": 2.15,
+            "bale_diameter": 1.25,
             "bale_width": 1.2,
-            "bale_diameter": 1.25
+            "length": 4.7,
+            "wheelbase": 2.61,
+            "model_series": "Comprima",
+            "first_year": "2007",
+            "last_year": "2024",
+            "working_width": 2.15
         },
         "model_key": "comprima_f_125_xc",
         "manufacturer_key": "krone"
@@ -4391,15 +4632,21 @@
         "manufacturer": "KRONE",
         "model": "COMPRIMA V 150 XC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11889&page=55"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11889&page=55",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/comprima-v-150-xc-plus-11729033"
         ],
         "price": 65000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 67.113,
-            "working_width": 2.15,
+            "bale_diameter": 1.5,
             "bale_width": 1.2,
-            "bale_diameter": 1.5
+            "length": 5.0,
+            "wheelbase": 2.61,
+            "model_series": "Comprima",
+            "first_year": "2019",
+            "last_year": "2024",
+            "working_width": 2.15
         },
         "model_key": "comprima_v_150_xc",
         "manufacturer_key": "krone"
@@ -4410,15 +4657,21 @@
         "manufacturer": "KRONE",
         "model": "VARIPACK V 165",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11898&page=56"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11898&page=56",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/varipack-v-190-11741525"
         ],
         "price": 50000.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 67.113,
-            "working_width": 2.15,
+            "bale_diameter": 1.65,
             "bale_width": 1.2,
-            "bale_diameter": 1.65
+            "length": 5.0,
+            "wheelbase": 2.54,
+            "model_series": "VariPack",
+            "first_year": "2020",
+            "last_year": "2024",
+            "working_width": 2.15
         },
         "model_key": "varipack_v_165",
         "manufacturer_key": "krone"
@@ -4501,15 +4754,22 @@
         "manufacturer": "MASSEY FERGUSON",
         "model": "RB 3130 F CLASSIC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11948&page=57"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11948&page=57",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-massey-ferguson/rb-3130f-classic-11703961"
         ],
         "price": 42800.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 52.199000000000005,
-            "working_width": 2.0,
+            "bale_diameter": 1.25,
             "bale_width": 1.23,
-            "bale_diameter": 1.25
+            "weight": 3000.0,
+            "length": 4.3,
+            "wheelbase": 2.7,
+            "model_series": "RB F",
+            "first_year": "2018",
+            "last_year": "2024",
+            "working_width": 2.0
         },
         "model_key": "rb_3130_f_classic",
         "manufacturer_key": "massey_ferguson"
@@ -4553,6 +4813,8 @@
             "weight": 8299.0,
             "engine_displacement": 6.7,
             "engine_cylinders": 6,
+            "first_year": "2020",
+            "last_year": "2024",
             "pto_power_kw": 15.0,
             "powertrain": "4x4",
             "fuel_capacity": 455.0,
@@ -4616,7 +4878,9 @@
             "weight": 6200.0,
             "number_of_tines": 13.0,
             "number_of_discs": 10.0,
-            "required_power_kw": 260.995
+            "required_power_kw": 260.995,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_54_gx",
         "manufacturer_key": "horsch"
@@ -4717,6 +4981,8 @@
             "model_series": "900",
             "max_speed": 30.0,
             "weight": 3050.0,
+            "first_year": "1996",
+            "last_year": "1997",
             "length": 3.568,
             "wheelbase": 2.185,
             "powertrain": "4x4",
@@ -4744,6 +5010,8 @@
         "equipment_level_code": "medium",
         "specification": {
             "model_series": "Profi",
+            "first_year": "2003",
+            "last_year": "2006",
             "length": 4.532,
             "wheelbase": 2.65,
             "powertrain": "4x4",
@@ -4783,6 +5051,8 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 84.3,
             "hydrolic_pump_flow": 155.0,
@@ -4811,6 +5081,8 @@
             "wheelbase": 2.4,
             "max_speed": 40.0,
             "weight": 4990.0,
+            "first_year": "2010",
+            "last_year": "2013",
             "fuel_capacity": 174.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 150.0,
@@ -4892,7 +5164,9 @@
             "weight": 7200.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 290.82300000000004
+            "required_power_kw": 290.82300000000004,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_63_gx",
         "manufacturer_key": "horsch"
@@ -4903,14 +5177,20 @@
         "manufacturer": "AMAZONE",
         "model": "CIRRUS 4003-2C",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11679&page=61"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11679&page=61",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/cirrus-3002-1155861"
         ],
         "price": 161800.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 4.0,
+            "length": 2.35,
+            "wheelbase": 3.0,
+            "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
-            "work_capacity_l": 1600.0
+            "weight": 3682.0,
+            "first_year": "2013",
+            "last_year": "2015"
         },
         "model_key": "cirrus_40032c",
         "manufacturer_key": "amazone"
@@ -5101,14 +5381,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 3000/3 DUPLO",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12095&page=62"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12095&page=62",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-900-3-duplo-11687272"
         ],
         "price": 36900.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 1000.0,
             "required_power_kw": 104.39800000000001,
-            "work_capacity_l": 1000.0
+            "weight": 1900.0,
+            "first_year": "2017",
+            "last_year": "2024"
         },
         "model_key": "amber_3000_3_duplo",
         "manufacturer_key": "unia"
@@ -5166,7 +5450,9 @@
             "weight": 5055.0,
             "number_of_tines": 16.0,
             "number_of_discs": 12.0,
-            "required_power_kw": 260.995
+            "required_power_kw": 260.995,
+            "first_year": "2013",
+            "last_year": "2015"
         },
         "model_key": "cultimer_l_5000",
         "manufacturer_key": "kuhn"
@@ -5260,7 +5546,9 @@
             "weight": 8000.0,
             "number_of_tines": 13.0,
             "number_of_discs": 10.0,
-            "required_power_kw": 290.82300000000004
+            "required_power_kw": 290.82300000000004,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_64_gx",
         "manufacturer_key": "horsch"
@@ -5271,14 +5559,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 3000",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12146&page=65"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12146&page=65",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-3000-11704107"
         ],
         "price": 92500.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "length": 7.8,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 74.57000000000001,
-            "work_capacity_l": 0.0
+            "weight": 3700.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_3000",
         "manufacturer_key": "kuhn"
@@ -5298,7 +5592,9 @@
             "working_width": 4.4,
             "weight": 4660.0,
             "number_of_furrows": 8.0,
-            "required_power_kw": 268.452
+            "required_power_kw": 268.452,
+            "first_year": "2013",
+            "last_year": "2024"
         },
         "model_key": "varileader_8",
         "manufacturer_key": "kuhn"
@@ -5319,7 +5615,9 @@
             "wheelbase": 2.95,
             "weight": 8300.0,
             "number_of_tines": 33.0,
-            "required_power_kw": 395.221
+            "required_power_kw": 395.221,
+            "first_year": "2013",
+            "last_year": "2016"
         },
         "model_key": "cruiser_7_xl",
         "manufacturer_key": "horsch"
@@ -5385,14 +5683,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 6000 RC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12172&page=65"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12172&page=65",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-4000-r-11704108"
         ],
         "price": 184680.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 6.0,
+            "length": 8.2,
+            "wheelbase": 3.0,
+            "work_capacity_l": 2750.0,
             "required_power_kw": 193.882,
-            "work_capacity_l": 2750.0
+            "weight": 5500.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_6000_rc",
         "manufacturer_key": "kuhn"
@@ -5479,6 +5783,8 @@
             "engine_displacement": 6.7,
             "engine_torque": 1500.0,
             "engine_cylinders": 6,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 170.0,
             "lift_capacity": 10463.0
@@ -5543,6 +5849,8 @@
             "weight": 6847.0,
             "engine_displacement": 6.124,
             "engine_cylinders": 4,
+            "first_year": "2015",
+            "last_year": "2018",
             "pto_power_kw": 94.1,
             "drawbar_power_kw": 76.7,
             "fuel_capacity": 329.3,
@@ -5679,6 +5987,8 @@
             "weight": 2050.0,
             "number_of_tines": 11.0,
             "number_of_discs": 8.0,
+            "first_year": "2009",
+            "last_year": "2015",
             "required_power_kw": 119.31200000000001
         },
         "model_key": "trimax_300",
@@ -5845,6 +6155,8 @@
             "length": 5.16,
             "max_speed": 50.0,
             "weight": 6300.0,
+            "first_year": "2014",
+            "last_year": "2017",
             "powertrain": "4x4",
             "engine_cylinders": 6,
             "hydrolic_pump_flow": 150.0,
@@ -5978,7 +6290,9 @@
             "weight": 4697.0,
             "number_of_tines": 18.0,
             "number_of_discs": 6.0,
-            "required_power_kw": 260.995
+            "required_power_kw": 260.995,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_500_kua",
         "manufacturer_key": "lemken"
@@ -6000,7 +6314,9 @@
             "weight": 2000.0,
             "number_of_tines": 14.0,
             "number_of_discs": 4.0,
-            "required_power_kw": 149.14000000000001
+            "required_power_kw": 149.14000000000001,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_400_u",
         "manufacturer_key": "lemken"
@@ -6100,7 +6416,9 @@
             "weight": 6900.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 298.28000000000003
+            "required_power_kw": 298.28000000000003,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_53_gx",
         "manufacturer_key": "horsch"
@@ -6230,7 +6548,9 @@
             "weight": 9335.0,
             "number_of_tines": 13.0,
             "number_of_discs": 12.0,
-            "required_power_kw": 372.85
+            "required_power_kw": 372.85,
+            "first_year": "2015",
+            "last_year": "2017"
         },
         "model_key": "agromulch_gold_75",
         "manufacturer_key": "agrisem"
@@ -6277,15 +6597,22 @@
         "manufacturer": "KUHN",
         "model": "VB 3165",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12371&page=73"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12371&page=73",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-kuhn/vb-3185-11687067"
         ],
         "price": 60655.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 75.3157,
-            "working_width": 230.0,
+            "bale_diameter": 1.6,
             "bale_width": 1.2,
-            "bale_diameter": 1.6
+            "weight": 3052.5,
+            "length": 4.02,
+            "wheelbase": 2.46,
+            "model_series": "VB",
+            "first_year": "2017",
+            "last_year": "2023",
+            "working_width": 230.0
         },
         "model_key": "vb_3165",
         "manufacturer_key": "kuhn"
@@ -6296,15 +6623,20 @@
         "manufacturer": "KRONE",
         "model": "COMPRIMA V 180 XC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12373&page=73"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12373&page=73",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/comprima-v-210-xc-1149403"
         ],
         "price": 68500.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 74.57000000000001,
-            "working_width": 2.15,
+            "bale_diameter": 1.8,
             "bale_width": 1.2,
-            "bale_diameter": 1.8
+            "length": 5.53,
+            "wheelbase": 2.61,
+            "first_year": "2012",
+            "last_year": "2021",
+            "working_width": 2.15
         },
         "model_key": "comprima_v_180_xc",
         "manufacturer_key": "krone"
@@ -6344,7 +6676,9 @@
             "weight": 4643.0,
             "number_of_tines": 13.0,
             "number_of_discs": 10.0,
-            "required_power_kw": 208.79600000000002
+            "required_power_kw": 208.79600000000002,
+            "first_year": "2013",
+            "last_year": "2024"
         },
         "model_key": "cultimer_l_4000",
         "manufacturer_key": "kuhn"
@@ -6355,14 +6689,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 4000R",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12392&page=74"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12392&page=74",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-4000-r-11704108"
         ],
         "price": 121900.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "length": 8.2,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 119.31200000000001,
-            "work_capacity_l": 0.0
+            "weight": 5500.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_4000r",
         "manufacturer_key": "kuhn"
@@ -6409,14 +6749,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 6000 R",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12418&page=75"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12418&page=75",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-4000-r-11704108"
         ],
         "price": 157000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 8.2,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 149.14000000000001,
-            "work_capacity_l": 0.0
+            "weight": 5500.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_6000_r",
         "manufacturer_key": "kuhn"
@@ -6461,6 +6807,8 @@
             "weight": 2867.384166955,
             "engine_displacement": 6.8,
             "engine_cylinders": 6,
+            "first_year": "2017",
+            "last_year": "2020",
             "powertrain": "4x4",
             "pto_power_kw": 80.1,
             "engine_torque": 1016.9,
@@ -6536,6 +6884,8 @@
             "weight": 4799.0,
             "engine_torque": 405.0,
             "engine_cylinders": 4,
+            "first_year": "2014",
+            "last_year": "2021",
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_displacement": 4.6,
@@ -6563,7 +6913,9 @@
             "weight": 1900.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 149.14000000000001
+            "required_power_kw": 149.14000000000001,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_3_fx",
         "manufacturer_key": "horsch"
@@ -6662,6 +7014,8 @@
             "engine_displacement": 6.75,
             "engine_torque": 1500.0,
             "engine_cylinders": 6,
+            "first_year": "2015",
+            "last_year": "2020",
             "pto_power_kw": 105.6,
             "drawbar_power_kw": 75.4,
             "fuel_capacity": 329.3,
@@ -6713,6 +7067,8 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 82.0,
             "hydrolic_pump_flow": 114.0,
@@ -6781,6 +7137,8 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 84.3,
             "hydrolic_pump_flow": 114.0,
@@ -6811,6 +7169,8 @@
             "weight": 6100.0,
             "engine_displacement": 6.8,
             "engine_cylinders": 6,
+            "first_year": "2017",
+            "last_year": "2020",
             "pto_power_kw": 67.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 160.0,
@@ -6826,14 +7186,20 @@
         "manufacturer": "AMAZONE",
         "model": "D9 3000 SUPER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12509&page=77"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12509&page=77",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/ed-3000-c-super-1167857"
         ],
         "price": 20000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
-            "required_power_kw": 59.656000000000006,
-            "work_capacity_l": 0.0
+            "length": 2.4,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
+            "weight": 1251.0,
+            "first_year": "2016",
+            "last_year": "2020",
+            "required_power_kw": 59.656000000000006
         },
         "model_key": "d9_3000_super",
         "manufacturer_key": "amazone"
@@ -6891,7 +7257,9 @@
             "weight": 5261.0,
             "number_of_tines": 21.0,
             "number_of_discs": 7.0,
-            "required_power_kw": 313.194
+            "required_power_kw": 313.194,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_600_kua",
         "manufacturer_key": "lemken"
@@ -7010,14 +7378,18 @@
         "manufacturer": "AMAZONE",
         "model": "PRIMERA DMC 4500 C",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11189&page=81"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11189&page=81",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/primera-dmc-4500-1164002"
         ],
         "price": 103500.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.5,
+            "work_capacity_l": 1050.0,
             "required_power_kw": 96.941,
-            "work_capacity_l": 1050.0
+            "weight": 5600.0,
+            "first_year": "2015",
+            "last_year": "2017"
         },
         "model_key": "primera_dmc_4500_c",
         "manufacturer_key": "amazone"
@@ -7082,14 +7454,19 @@
         "manufacturer": "AMAZONE",
         "model": "CENTAYA 3000 SUPER +FT",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12425&page=82"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12425&page=82",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/centaya-3000-super-rotec-11729548"
         ],
         "price": 103900.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
-            "required_power_kw": 82.027,
-            "work_capacity_l": 1600.0
+            "wheelbase": 3.0,
+            "work_capacity_l": 1600.0,
+            "weight": 1301.0,
+            "first_year": "2019",
+            "last_year": "2024",
+            "required_power_kw": 82.027
         },
         "model_key": "centaya_3000_super_+ft",
         "manufacturer_key": "amazone"
@@ -7101,15 +7478,21 @@
         "model": "VARIANT 560 RF",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12634&page=82",
-            "https://www.ritchiespecs.com/model/claas-variant-460-fr-baler"
+            "https://www.ritchiespecs.com/model/claas-variant-460-fr-baler",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-claas/variant-380-rf-1141600"
         ],
         "price": 52045.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 82.027,
-            "working_width": 2.1,
+            "bale_diameter": 1.6,
             "bale_width": 1.2,
-            "bale_diameter": 1.6
+            "weight": 2670.0,
+            "length": 4.68,
+            "wheelbase": 2.66,
+            "first_year": "2011",
+            "last_year": "2012",
+            "working_width": 2.1
         },
         "model_key": "variant_560_rf",
         "manufacturer_key": "claas"
@@ -7151,6 +7534,8 @@
             "wheelbase": 2.57,
             "max_speed": 50.0,
             "weight": 7580.0,
+            "first_year": "1998",
+            "last_year": "2006",
             "hydrolic_pump_flow": 152.0,
             "powertrain": "4x4",
             "engine_cylinders": 6,
@@ -7200,7 +7585,9 @@
             "weight": 1370.0,
             "number_of_tines": 11.0,
             "number_of_discs": 3.0,
-            "required_power_kw": 130.4975
+            "required_power_kw": 130.4975,
+            "first_year": "2023",
+            "last_year": "2024"
         },
         "model_key": "karat_10_350_u",
         "manufacturer_key": "lemken"
@@ -7221,7 +7608,9 @@
             "weight": 1370.0,
             "number_of_tines": 10.0,
             "number_of_discs": 3.0,
-            "required_power_kw": 130.4975
+            "required_power_kw": 130.4975,
+            "first_year": "2023",
+            "last_year": "2024"
         },
         "model_key": "karat_10_350_u",
         "manufacturer_key": "lemken"
@@ -7243,7 +7632,9 @@
             "weight": 5261.0,
             "number_of_tines": 21.0,
             "number_of_discs": 7.0,
-            "required_power_kw": 313.194
+            "required_power_kw": 313.194,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_600_kua",
         "manufacturer_key": "lemken"
@@ -7254,14 +7645,20 @@
         "manufacturer": "AMAZONE",
         "model": "CIRRUS 4003-2CC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12202&page=83"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12202&page=83",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/cirrus-4002-1155865"
         ],
         "price": 173500.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 4.0,
+            "length": 2.35,
+            "wheelbase": 3.0,
+            "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
-            "work_capacity_l": 1600.0
+            "weight": 5644.0,
+            "first_year": "2013",
+            "last_year": "2015"
         },
         "model_key": "cirrus_40032cc",
         "manufacturer_key": "amazone"
@@ -7312,6 +7709,8 @@
             "engine_displacement": 2.5,
             "engine_torque": 1400.0,
             "engine_cylinders": 4,
+            "first_year": "2021",
+            "last_year": "2024",
             "pto_power_kw": 38.0,
             "fuel_capacity": 89.7,
             "powertrain": "4x4",
@@ -7338,7 +7737,9 @@
             "weight": 2190.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 164.054
+            "required_power_kw": 164.054,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_35_fx",
         "manufacturer_key": "horsch"
@@ -7401,6 +7802,8 @@
             "engine_displacement": 6.124,
             "engine_torque": 1500.0,
             "engine_cylinders": 4,
+            "first_year": "2018",
+            "last_year": "2021",
             "fuel_capacity": 190.0,
             "hydrolic_pump_flow": 115.0,
             "lift_capacity": 7000.0,
@@ -7452,6 +7855,8 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 91.0,
             "hydrolic_pump_flow": 155.0,
@@ -7527,6 +7932,8 @@
             "wheelbase": 2.33,
             "max_speed": 40.0,
             "weight": 3642.0,
+            "first_year": "2014",
+            "last_year": "2016",
             "pto_power_kw": 64.5,
             "fuel_capacity": 102.2,
             "powertrain": "4x4",
@@ -7598,14 +8005,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 1200/4 DUPLO",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12803&page=88"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12803&page=88",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-1200-4-duplo-11687273"
         ],
         "price": 34340.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 4.0,
+            "work_capacity_l": 400.0,
             "required_power_kw": 104.39800000000001,
-            "work_capacity_l": 400.0
+            "weight": 3300.0,
+            "first_year": "2017",
+            "last_year": "2024"
         },
         "model_key": "amber_1200_4_duplo",
         "manufacturer_key": "unia"
@@ -7646,6 +8057,8 @@
             "wheelbase": 2.55,
             "max_speed": 50.0,
             "weight": 8250.0,
+            "first_year": "2014",
+            "last_year": "2016",
             "powertrain": "4x4",
             "engine_cylinders": 6,
             "hydrolic_pump_flow": 160.0,
@@ -7676,6 +8089,8 @@
             "engine_displacement": 6.8,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
+            "first_year": "2021",
+            "last_year": "2024",
             "pto_power_kw": 91.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 155.0,
@@ -7703,6 +8118,8 @@
             "max_speed": 40.0,
             "engine_displacement": 6.057,
             "engine_cylinders": 6,
+            "first_year": "2017",
+            "last_year": "2021",
             "fuel_capacity": 190.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 120.0,
@@ -7771,6 +8188,8 @@
             "engine_displacement": 4.156,
             "engine_torque": 507.3,
             "engine_cylinders": 4,
+            "first_year": "2018",
+            "last_year": "2021",
             "fuel_capacity": 172.6,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 70.0,
@@ -7848,7 +8267,9 @@
             "working_width": 3.0,
             "weight": 2250.0,
             "number_of_furrows": 6.0,
-            "required_power_kw": 201.339
+            "required_power_kw": 201.339,
+            "first_year": "2007",
+            "last_year": "2014"
         },
         "model_key": "varimaster_153_6",
         "manufacturer_key": "kuhn"
@@ -8068,7 +8489,9 @@
             "weight": 1043.0,
             "number_of_tines": 7.0,
             "number_of_discs": 3.0,
-            "required_power_kw": 100.6695
+            "required_power_kw": 100.6695,
+            "first_year": "2017",
+            "last_year": "2024"
         },
         "model_key": "kristall_9_300_u",
         "manufacturer_key": "lemken"
@@ -8079,15 +8502,21 @@
         "manufacturer": "KRONE",
         "model": "COMPRIMA CF 155 XC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12258&page=93"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12258&page=93",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/comprima-cf-155-xc-1130663"
         ],
         "price": 105000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 89.48400000000001,
-            "working_width": 2.15,
+            "bale_diameter": 1.5,
             "bale_width": 1.2,
-            "bale_diameter": 1.5
+            "length": 6.58,
+            "wheelbase": 2.96,
+            "model_series": "Comprima",
+            "first_year": "2007",
+            "last_year": "2024",
+            "working_width": 2.15
         },
         "model_key": "comprima_cf_155_xc",
         "manufacturer_key": "krone"
@@ -8220,6 +8649,8 @@
             "engine_displacement": 4.5,
             "engine_torque": 1600.0,
             "engine_cylinders": 3,
+            "first_year": "2021",
+            "last_year": "2024",
             "pto_power_kw": 61.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 24.0,
@@ -8253,14 +8684,20 @@
         "manufacturer": "KUHN",
         "model": "ESPRO 4000 RC SH",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13204&page=96"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13204&page=96",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-kuhn/espro-4000-rc-11704111"
         ],
         "price": 158400.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "length": 9.0,
+            "wheelbase": 3.0,
+            "work_capacity_l": 1600.0,
             "required_power_kw": 134.226,
-            "work_capacity_l": 1600.0
+            "weight": 6000.0,
+            "first_year": "2018",
+            "last_year": "2024"
         },
         "model_key": "espro_4000_rc_sh",
         "manufacturer_key": "kuhn"
@@ -8286,6 +8723,8 @@
             "engine_displacement": 4.5,
             "engine_torque": 1500.0,
             "engine_cylinders": 4,
+            "first_year": "2018",
+            "last_year": "2021",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
             "lift_capacity": 6000.0
@@ -8335,7 +8774,9 @@
             "weight": 5600.0,
             "number_of_tines": 11.0,
             "number_of_discs": 24.0,
-            "required_power_kw": 275.909
+            "required_power_kw": 275.909,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "tiger_4_mt",
         "manufacturer_key": "horsch"
@@ -8374,7 +8815,9 @@
             "wheelbase": 3.0,
             "weight": 2600.0,
             "number_of_tines": 29.0,
-            "required_power_kw": 126.769
+            "required_power_kw": 126.769,
+            "first_year": "2019",
+            "last_year": "2024"
         },
         "model_key": "grator_600",
         "manufacturer_key": "maschio"
@@ -8455,6 +8898,8 @@
             "weight": 6100.0,
             "engine_displacement": 9.0,
             "engine_cylinders": 6,
+            "first_year": "2017",
+            "last_year": "2020",
             "powertrain": "4x4",
             "pto_power_kw": 67.9,
             "fuel_capacity": 522.4,
@@ -8498,7 +8943,9 @@
             "working_width": 2.5,
             "weight": 1855.0,
             "number_of_furrows": 5.0,
-            "required_power_kw": 130.4975
+            "required_power_kw": 130.4975,
+            "first_year": "2007",
+            "last_year": "2014"
         },
         "model_key": "varimaster_123_5",
         "manufacturer_key": "kuhn"
@@ -8527,14 +8974,20 @@
         "manufacturer": "LEMKEN",
         "model": "SOLITAIR 9/600",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12464&page=99"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12464&page=99",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-lemken/solitair-dt-600-11778381"
         ],
         "price": 150000.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 6.0,
+            "length": 8.7,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 238.62400000000002,
-            "work_capacity_l": 0.0
+            "weight": 8915.0,
+            "first_year": "2023",
+            "last_year": "2024"
         },
         "model_key": "solitair_9_600",
         "manufacturer_key": "lemken"
@@ -8558,6 +9011,8 @@
             "length": 4.889,
             "max_speed": 50.0,
             "weight": 4799.0,
+            "first_year": "2012",
+            "last_year": "2017",
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -8650,15 +9105,18 @@
         "model": "ROLLANT 540 RC",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12600&page=102",
-            "https://www.ritchiespecs.com/model/claas-rollant-340-fr-baler"
+            "https://www.ritchiespecs.com/model/claas-rollant-340-fr-baler",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-claas/rollant-250-rc-1023904"
         ],
         "price": 52000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 153.6142,
-            "working_width": 2.1,
+            "bale_diameter": 1.25,
             "bale_width": 1.2,
-            "bale_diameter": 1.25
+            "first_year": "1998",
+            "last_year": "2008",
+            "working_width": 2.1
         },
         "model_key": "rollant_540_rc",
         "manufacturer_key": "claas"
@@ -8724,15 +9182,22 @@
         "model": "ROLLANT 455 UNIWRAP",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12854&page=103",
-            "https://www.ritchiespecs.com/model/claas-rollant-455-uniwrap-baler"
+            "https://www.ritchiespecs.com/model/claas-rollant-455-uniwrap-baler",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-claas/rollant-454-rc-uniwrap-1159342"
         ],
         "price": 103005.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 93.2125,
-            "working_width": 2.1,
+            "bale_diameter": 1.35,
             "bale_width": 1.2,
-            "bale_diameter": 1.35
+            "weight": 5500.0,
+            "length": 4.25,
+            "wheelbase": 2.955,
+            "model_series": "Rollant",
+            "first_year": "2014",
+            "last_year": "2024",
+            "working_width": 2.1
         },
         "model_key": "rollant_455_uniwrap",
         "manufacturer_key": "claas"
@@ -8784,6 +9249,8 @@
             "length": 4.889,
             "max_speed": 50.0,
             "weight": 4799.0,
+            "first_year": "2012",
+            "last_year": "2017",
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -8834,6 +9301,8 @@
             "weight": 4799.0,
             "engine_torque": 405.0,
             "engine_cylinders": 4,
+            "first_year": "2014",
+            "last_year": "2021",
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_displacement": 4.6,
@@ -9103,7 +9572,9 @@
             "working_width": 0.762,
             "weight": 900.0,
             "number_of_furrows": 2.0,
-            "required_power_kw": 67.113
+            "required_power_kw": 67.113,
+            "first_year": "2023",
+            "last_year": "2024"
         },
         "model_key": "master_103",
         "manufacturer_key": "kuhn"
@@ -9222,14 +9693,19 @@
         "manufacturer": "AMAZONE",
         "model": "AD 3000 SUPER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12798&page=111"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12798&page=111",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/ad-p-3000-super-ws-1164010"
         ],
         "price": 20600.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
-            "required_power_kw": 82.027,
-            "work_capacity_l": 0.0
+            "wheelbase": 3.03,
+            "work_capacity_l": 0.0,
+            "weight": 964.0,
+            "first_year": "2015",
+            "last_year": "2017",
+            "required_power_kw": 82.027
         },
         "model_key": "ad_3000_super",
         "manufacturer_key": "amazone"
@@ -9267,7 +9743,9 @@
             "working_width": 1.92,
             "weight": 1980.0,
             "number_of_furrows": 4.0,
-            "required_power_kw": 193.882
+            "required_power_kw": 193.882,
+            "first_year": "2019",
+            "last_year": "2022"
         },
         "model_key": "cayros_xs_5",
         "manufacturer_key": "amazone"
@@ -9287,7 +9765,9 @@
             "working_width": 1.76,
             "weight": 1530.0,
             "number_of_furrows": 4.0,
-            "required_power_kw": 149.14000000000001
+            "required_power_kw": 149.14000000000001,
+            "first_year": "2019",
+            "last_year": "2022"
         },
         "model_key": "cayros_xms_5",
         "manufacturer_key": "amazone"
@@ -9343,7 +9823,9 @@
             "working_width": 1.92,
             "weight": 1550.0,
             "number_of_furrows": 4.0,
-            "required_power_kw": 149.14000000000001
+            "required_power_kw": 149.14000000000001,
+            "first_year": "2019",
+            "last_year": "2022"
         },
         "model_key": "cayros_xms_4+1",
         "manufacturer_key": "amazone"
@@ -9364,7 +9846,9 @@
             "wheelbase": 3.0,
             "weight": 1515.0,
             "number_of_tines": 10.0,
-            "required_power_kw": 78.2985
+            "required_power_kw": 78.2985,
+            "first_year": "2020",
+            "last_year": "2021"
         },
         "model_key": "cenio_3000_super",
         "manufacturer_key": "amazone"
@@ -9409,6 +9893,8 @@
             "engine_displacement": 4.5,
             "engine_torque": 1300.0,
             "engine_cylinders": 4,
+            "first_year": "2019",
+            "last_year": "2024",
             "fuel_capacity": 179.8,
             "hydrolic_pump_flow": 84.0,
             "lift_capacity": 5420.0,
@@ -9438,6 +9924,8 @@
             "weight": 1705.0,
             "engine_displacement": 1.9,
             "engine_cylinders": 3,
+            "first_year": "2022",
+            "last_year": "2024",
             "wheelbase": 1.86,
             "powertrain": "4x4",
             "fuel_capacity": 49.2,
@@ -9469,6 +9957,8 @@
             "weight": 4500.0,
             "engine_displacement": 3.849,
             "engine_cylinders": 4,
+            "first_year": "2017",
+            "last_year": "2024",
             "fuel_capacity": 135.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 55.0,
@@ -9498,6 +9988,8 @@
             "weight": 3200.0,
             "engine_displacement": 2.887,
             "engine_cylinders": 3,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 54.0,
             "lift_capacity": 2800.0
@@ -9520,7 +10012,9 @@
             "working_width": 1.6,
             "weight": 1170.0,
             "number_of_furrows": 4.0,
-            "required_power_kw": 89.48400000000001
+            "required_power_kw": 89.48400000000001,
+            "first_year": "2007",
+            "last_year": "2013"
         },
         "model_key": "master_103_4_nsh",
         "manufacturer_key": "kuhn"
@@ -9542,7 +10036,9 @@
             "weight": 2000.0,
             "number_of_tines": 14.0,
             "number_of_discs": 4.0,
-            "required_power_kw": 149.14000000000001
+            "required_power_kw": 149.14000000000001,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_400_u",
         "manufacturer_key": "lemken"
@@ -9568,6 +10064,8 @@
             "weight": 4500.0,
             "engine_displacement": 3.62,
             "engine_cylinders": 4,
+            "first_year": "2017",
+            "last_year": "2024",
             "fuel_capacity": 135.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 90.0,
@@ -9620,6 +10118,8 @@
             "max_speed": 30.0,
             "engine_displacement": 2.2,
             "engine_cylinders": 4,
+            "first_year": "2020",
+            "last_year": "2024",
             "fuel_capacity": 90.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 31.0,
@@ -9652,6 +10152,8 @@
             "engine_displacement": 3.331,
             "engine_torque": 1400.0,
             "engine_cylinders": 4,
+            "first_year": "2021",
+            "last_year": "2024",
             "fuel_capacity": 90.1,
             "hydrolic_pump_flow": 88.0,
             "lift_capacity": 2500.0,
@@ -9698,6 +10200,8 @@
             "wheelbase": 2.56,
             "max_speed": 50.0,
             "weight": 6050.0,
+            "first_year": "1998",
+            "last_year": "2006",
             "fuel_capacity": 297.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
@@ -9799,6 +10303,8 @@
             "wheelbase": 2.42,
             "max_speed": 50.0,
             "weight": 5010.0,
+            "first_year": "2006",
+            "last_year": "2013",
             "fuel_capacity": 210.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
@@ -9905,15 +10411,22 @@
         "manufacturer": "FENDT",
         "model": "ROTANA 180V",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13482&page=125"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13482&page=125",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-fendt/rotana-180-v-11733707"
         ],
         "price": 45000.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 119.31200000000001,
-            "working_width": 2.25,
+            "bale_diameter": 1.8,
             "bale_width": 1.23,
-            "bale_diameter": 1.8
+            "weight": 4200.0,
+            "length": 5.1,
+            "wheelbase": 2.7,
+            "model_series": "Rotana V",
+            "first_year": "2018",
+            "last_year": "2024",
+            "working_width": 2.25
         },
         "model_key": "rotana_180v",
         "manufacturer_key": "fendt"
@@ -9935,7 +10448,9 @@
             "weight": 5700.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 130.4975
+            "required_power_kw": 130.4975,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_43_gx",
         "manufacturer_key": "horsch"
@@ -9960,6 +10475,8 @@
             "weight": 3620.0,
             "engine_displacement": 2.887,
             "engine_cylinders": 3,
+            "first_year": "2017",
+            "last_year": "2024",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 68.0,
             "lift_capacity": 2600.0
@@ -10000,7 +10517,9 @@
             "working_width": 1.44,
             "weight": 1460.0,
             "number_of_furrows": 3.0,
-            "required_power_kw": 104.39800000000001
+            "required_power_kw": 104.39800000000001,
+            "first_year": "2007",
+            "last_year": "2017"
         },
         "model_key": "ibis_xms_3+",
         "manufacturer_key": "unia"
@@ -10029,14 +10548,19 @@
         "manufacturer": "UNIA",
         "model": "POLONEZ 550/3D PREMIUM",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13674&page=130"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13674&page=130",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/polonez-550-3-d-premium-11757823"
         ],
         "price": 18000.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 3.0,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
-            "work_capacity_l": 0.0
+            "weight": 1150.0,
+            "first_year": "2020",
+            "last_year": "2024"
         },
         "model_key": "polonez_550_3d_premium",
         "manufacturer_key": "unia"
@@ -10047,14 +10571,18 @@
         "manufacturer": "AMAZONE",
         "model": "D9 3000 SPECIAL",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13679&page=130"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13679&page=130",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/d9-3000-special-ws-1136292"
         ],
         "price": 15200.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
-            "work_capacity_l": 0.0
+            "weight": 630.0,
+            "first_year": "2010",
+            "last_year": "2020"
         },
         "model_key": "d9_3000_special",
         "manufacturer_key": "amazone"
@@ -10074,7 +10602,9 @@
             "working_width": 1.26,
             "weight": 1120.0,
             "number_of_furrows": 3.0,
-            "required_power_kw": 67.113
+            "required_power_kw": 67.113,
+            "first_year": "2007",
+            "last_year": "2012"
         },
         "model_key": "ibis_ls_3+",
         "manufacturer_key": "unia"
@@ -10085,14 +10615,18 @@
         "manufacturer": "UNIA",
         "model": "POZNANIAK 510/3",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13670&page=131"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13670&page=131",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/poznaniak-550-3-1163111"
         ],
         "price": 15130.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 44.742000000000004,
-            "work_capacity_l": 0.0
+            "weight": 710.0,
+            "first_year": "2015",
+            "last_year": "2021"
         },
         "model_key": "poznaniak_510_3",
         "manufacturer_key": "unia"
@@ -10173,6 +10707,8 @@
             "engine_displacement": 2.0,
             "engine_torque": 1200.0,
             "engine_cylinders": 3,
+            "first_year": "2021",
+            "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 37.3,
             "weight": 1476.0,
@@ -10224,6 +10760,8 @@
             "engine_displacement": 2.9,
             "engine_torque": 397.0,
             "engine_cylinders": 4,
+            "first_year": "2014",
+            "last_year": "2018",
             "pto_power_kw": 42.5,
             "fuel_capacity": 89.7,
             "powertrain": "4x4",
@@ -10344,15 +10882,22 @@
         "manufacturer": "FENDT",
         "model": "ROTANA 130 F",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13853&page=137"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13853&page=137",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-fendt/rotana-130-f-11709949"
         ],
         "price": 45000.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 82.027,
-            "working_width": 1.23,
+            "bale_diameter": 1.25,
             "bale_width": 1.23,
-            "bale_diameter": 1.25
+            "weight": 3400.0,
+            "length": 4.5,
+            "wheelbase": 2.7,
+            "model_series": "Rotana F",
+            "first_year": "2018",
+            "last_year": "2024",
+            "working_width": 1.23
         },
         "model_key": "rotana_130_f",
         "manufacturer_key": "fendt"
@@ -10537,15 +11082,21 @@
         "manufacturer": "MCHALE",
         "model": "FUSION 4 PLUS",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13663&page=143"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13663&page=143",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-mchale/fusion-4-plus-11768687"
         ],
         "price": 112000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 74.57000000000001,
-            "working_width": 2.1,
+            "bale_diameter": 1.25,
             "bale_width": 1.23,
-            "bale_diameter": 1.25
+            "weight": 5950.0,
+            "length": 5.8,
+            "wheelbase": 2.76,
+            "first_year": "2022",
+            "last_year": "2024",
+            "working_width": 2.1
         },
         "model_key": "fusion_4_plus",
         "manufacturer_key": "mchale"
@@ -10593,15 +11144,21 @@
         "manufacturer": "CASE IH",
         "model": "RB 344",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14079&page=146"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14079&page=146",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-case-ih/rb-544-1155765"
         ],
         "price": 34000.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 82.027,
-            "working_width": 2.1,
+            "bale_diameter": 1.25,
             "bale_width": 1.2,
-            "bale_diameter": 1.25
+            "weight": 3060.0,
+            "length": 4.13,
+            "wheelbase": 2.63,
+            "first_year": "2013",
+            "last_year": "2015",
+            "working_width": 2.1
         },
         "model_key": "rb_344",
         "manufacturer_key": "case_ih"
@@ -10623,6 +11180,8 @@
             "length": 5.16,
             "max_speed": 50.0,
             "weight": 6300.0,
+            "first_year": "2014",
+            "last_year": "2017",
             "powertrain": "4x4",
             "engine_cylinders": 6,
             "hydrolic_pump_flow": 150.0,
@@ -10665,7 +11224,9 @@
             "wheelbase": 3.0,
             "weight": 3000.0,
             "number_of_tines": 10.0,
-            "required_power_kw": 201.339
+            "required_power_kw": 201.339,
+            "first_year": "2020",
+            "last_year": "2024"
         },
         "model_key": "enduro_3500",
         "manufacturer_key": "kverneland"
@@ -10730,14 +11291,18 @@
         "manufacturer": "UNIA",
         "model": "POLONEZ 550/3 D",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14217&page=152"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14217&page=152",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/polonez-550-3-d-1040072"
         ],
         "price": 13330.0,
         "equipment_level_code": "base",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
-            "work_capacity_l": 0.0
+            "weight": 815.0,
+            "first_year": "2007",
+            "last_year": "2015"
         },
         "model_key": "polonez_550_3_d",
         "manufacturer_key": "unia"
@@ -10784,14 +11349,20 @@
         "manufacturer": "MCHALE",
         "model": "FUSION 4 PLUS",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14258&page=153"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14258&page=153",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-mchale/fusion-4-plus-11768687"
         ],
         "price": 112000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 74.57000000000001,
+            "bale_diameter": 1.25,
             "bale_width": 1.23,
-            "bale_diameter": 1.25
+            "weight": 5950.0,
+            "length": 5.8,
+            "wheelbase": 2.76,
+            "first_year": "2022",
+            "last_year": "2024"
         },
         "model_key": "fusion_4_plus",
         "manufacturer_key": "mchale"
@@ -10856,14 +11427,20 @@
         "manufacturer": "HORSCH",
         "model": "PRONTO 3 DC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14277&page=154"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14277&page=154",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/pronto-3-dc-1041822"
         ],
         "price": 74080.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "length": 6.4,
+            "wheelbase": 3.0,
+            "work_capacity_l": 2200.0,
             "required_power_kw": 111.855,
-            "work_capacity_l": 2200.0
+            "weight": 3355.0,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "pronto_3_dc",
         "manufacturer_key": "horsch"
@@ -10982,14 +11559,18 @@
         "manufacturer": "UNIA",
         "model": "AMBER 1200/4 DUPLO",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14318&page=155"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14318&page=155",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/amber-3500-4-duplo-11687276"
         ],
         "price": 42200.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "work_capacity_l": 400.0,
             "required_power_kw": 104.39800000000001,
-            "work_capacity_l": 400.0
+            "weight": 3250.0,
+            "first_year": "2017",
+            "last_year": "2024"
         },
         "model_key": "amber_1200_4_duplo",
         "manufacturer_key": "unia"
@@ -11072,14 +11653,18 @@
         "manufacturer": "UNIA",
         "model": "POZNANIAK 510/3",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14287&page=156"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14287&page=156",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-unia/poznaniak-550-3-1163111"
         ],
         "price": 9520.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 44.742000000000004,
-            "work_capacity_l": 0.0
+            "weight": 710.0,
+            "first_year": "2015",
+            "last_year": "2021"
         },
         "model_key": "poznaniak_510_3",
         "manufacturer_key": "unia"
@@ -11108,15 +11693,22 @@
         "manufacturer": "KUHN",
         "model": "I-BIO+",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14387&page=157"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14387&page=157",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-kuhn/i-bio-1167959"
         ],
         "price": 92485.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 96.941,
-            "working_width": 2.3,
+            "bale_diameter": 1.25,
             "bale_width": 1.22,
-            "bale_diameter": 1.25
+            "weight": 3500.0,
+            "length": 4.5,
+            "wheelbase": 2.7,
+            "model_series": "i-BIO",
+            "first_year": "2016",
+            "last_year": "2024",
+            "working_width": 2.3
         },
         "model_key": "ibio+",
         "manufacturer_key": "kuhn"
@@ -11163,14 +11755,20 @@
         "manufacturer": "JOHN DEERE",
         "model": "750A",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14362&page=157"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14362&page=157",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-john-deere/750a-1134714"
         ],
         "price": 169200.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 6.1,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 260.995,
-            "work_capacity_l": 0.0
+            "weight": 4500.0,
+            "first_year": "2010",
+            "last_year": "2024"
         },
         "model_key": "750a",
         "manufacturer_key": "john_deere"
@@ -11181,15 +11779,20 @@
         "manufacturer": "NEW HOLLAND",
         "model": "PRO-BELT 165 SUPERFEED",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14392&page=158"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14392&page=158",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-new-holland/pro-belt-165-superfeed-11771103"
         ],
         "price": 52000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 89.48400000000001,
-            "working_width": 2.3,
+            "bale_diameter": 1.65,
             "bale_width": 1.2,
-            "bale_diameter": 1.65
+            "length": 4.87,
+            "wheelbase": 2.74,
+            "first_year": "2022",
+            "last_year": "2024",
+            "working_width": 2.3
         },
         "model_key": "probelt_165_superfeed",
         "manufacturer_key": "new_holland"
@@ -11234,6 +11837,8 @@
             "engine_displacement": 4.156,
             "engine_torque": 315.8,
             "engine_cylinders": 4,
+            "first_year": "2018",
+            "last_year": "2022",
             "fuel_capacity": 149.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 60.0,
@@ -11284,15 +11889,19 @@
         "manufacturer": "JOHN DEERE",
         "model": "V451M",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14391&page=159"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14391&page=159",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-john-deere/v451r-11700543"
         ],
         "price": 57000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 111.855,
-            "working_width": 220.0,
+            "bale_diameter": 1.65,
             "bale_width": 1.21,
-            "bale_diameter": 1.65
+            "model_series": "V",
+            "first_year": "2018",
+            "last_year": "2024",
+            "working_width": 220.0
         },
         "model_key": "v451m",
         "manufacturer_key": "john_deere"
@@ -11354,6 +11963,30 @@
     {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
+        "manufacturer": "HORSCH",
+        "model": "MAESTRO 12 RV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14460&page=160",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-horsch/maestro-12-rc-1041804"
+        ],
+        "price": 107320.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "working_width": 9.0,
+            "length": 8.1,
+            "wheelbase": 3.0,
+            "work_capacity_l": 70.0,
+            "required_power_kw": 149.14000000000001,
+            "weight": 5850.0,
+            "first_year": "2005",
+            "last_year": "2012"
+        },
+        "model_key": "maestro_12_rv",
+        "manufacturer_key": "horsch"
+    },
+    {
+        "category": "sowing_and_planting_equipment",
+        "sub_category": "seed_drill",
         "manufacturer": "CZAJKOWSKI",
         "model": "ST450 PS12R",
         "sources": [
@@ -11375,14 +12008,20 @@
         "manufacturer": "KRONE",
         "model": "COMPRIMA CV 150 XC PLUS",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14381&page=161"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14381&page=161",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/comprima-v-150-xc-plus-11729033"
         ],
         "price": 115000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 96.941,
+            "bale_diameter": 1.5,
             "bale_width": 1.2,
-            "bale_diameter": 1.5
+            "length": 5.0,
+            "wheelbase": 2.61,
+            "model_series": "Comprima",
+            "first_year": "2019",
+            "last_year": "2024"
         },
         "model_key": "comprima_cv_150_xc_plus",
         "manufacturer_key": "krone"
@@ -11494,7 +12133,9 @@
             "weight": 970.0,
             "number_of_tines": 11.0,
             "number_of_discs": 3.0,
-            "required_power_kw": 134.226
+            "required_power_kw": 134.226,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_300_u",
         "manufacturer_key": "lemken"
@@ -11516,7 +12157,9 @@
             "weight": 1900.0,
             "number_of_tines": 11.0,
             "number_of_discs": 3.0,
-            "required_power_kw": 111.855
+            "required_power_kw": 111.855,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_300_u",
         "manufacturer_key": "lemken"
@@ -11538,7 +12181,9 @@
             "weight": 5700.0,
             "number_of_tines": 10.0,
             "number_of_discs": 8.0,
-            "required_power_kw": 201.339
+            "required_power_kw": 201.339,
+            "first_year": "2005",
+            "last_year": "2016"
         },
         "model_key": "terrano_43_gx",
         "manufacturer_key": "horsch"
@@ -11549,14 +12194,20 @@
         "manufacturer": "MCHALE",
         "model": "FUSION 4",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14403&page=165"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14403&page=165",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-mchale/fusion-4-11768685"
         ],
         "price": 98000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 74.57000000000001,
+            "bale_diameter": 1.25,
             "bale_width": 1.23,
-            "bale_diameter": 1.25
+            "weight": 5800.0,
+            "length": 5.8,
+            "wheelbase": 2.76,
+            "first_year": "2022",
+            "last_year": "2024"
         },
         "model_key": "fusion_4",
         "manufacturer_key": "mchale"
@@ -11578,7 +12229,9 @@
             "weight": 2000.0,
             "number_of_tines": 14.0,
             "number_of_discs": 4.0,
-            "required_power_kw": 149.14000000000001
+            "required_power_kw": 149.14000000000001,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_400_u",
         "manufacturer_key": "lemken"
@@ -11607,15 +12260,21 @@
         "manufacturer": "CASE IH",
         "model": "RB 455",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14577&page=165"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14577&page=165",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-case-ih/rb-455-rc-1155761"
         ],
         "price": 47000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 82.027,
-            "working_width": 2.2,
+            "bale_diameter": 1.5,
             "bale_width": 1.25,
-            "bale_diameter": 1.5
+            "weight": 3530.0,
+            "length": 4.47,
+            "wheelbase": 2.59,
+            "first_year": "2013",
+            "last_year": "2015",
+            "working_width": 2.2
         },
         "model_key": "rb_455",
         "manufacturer_key": "case_ih"
@@ -11644,14 +12303,19 @@
         "manufacturer": "AMAZONE",
         "model": "PRIMERA DMC 12001-2C",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14589&page=165"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14589&page=165",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/primera-dmc-12000-1164004"
         ],
         "price": 255000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 12.0,
+            "wheelbase": 4.725,
+            "work_capacity_l": 6500.0,
             "required_power_kw": 372.85,
-            "work_capacity_l": 6500.0
+            "weight": 15000.0,
+            "first_year": "2015",
+            "last_year": "2017"
         },
         "model_key": "primera_dmc_120012c",
         "manufacturer_key": "amazone"
@@ -11662,14 +12326,19 @@
         "manufacturer": "AMAZONE",
         "model": "PRIMERA DMC 9001-2C",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14592&page=165"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14592&page=165",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/primera-dmc-6000-2-1164006"
         ],
         "price": 220000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 9.0,
+            "wheelbase": 3.225,
+            "work_capacity_l": 6500.0,
             "required_power_kw": 298.28000000000003,
-            "work_capacity_l": 6500.0
+            "weight": 8559.0,
+            "first_year": "2015",
+            "last_year": "2022"
         },
         "model_key": "primera_dmc_90012c",
         "manufacturer_key": "amazone"
@@ -11752,14 +12421,20 @@
         "manufacturer": "AMAZONE",
         "model": "CIRRUS 6003-2CC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14448&page=167"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14448&page=167",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/cirrus-6003-2c-rotec-1163957"
         ],
         "price": 159400.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 6.0,
+            "length": 8.5,
+            "wheelbase": 3.0,
+            "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
-            "work_capacity_l": 1600.0
+            "weight": 8357.0,
+            "first_year": "2015",
+            "last_year": "2024"
         },
         "model_key": "cirrus_60032cc",
         "manufacturer_key": "amazone"
@@ -11770,14 +12445,20 @@
         "manufacturer": "AMAZONE",
         "model": "CIRRUS 4003-2CC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11678&page=167"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11678&page=167",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/cirrus-4002-1155865"
         ],
         "price": 121000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
+            "length": 2.35,
+            "wheelbase": 3.0,
+            "work_capacity_l": 1600.0,
             "required_power_kw": 164.054,
-            "work_capacity_l": 1600.0
+            "weight": 5644.0,
+            "first_year": "2013",
+            "last_year": "2015"
         },
         "model_key": "cirrus_40032cc",
         "manufacturer_key": "amazone"
@@ -11788,14 +12469,20 @@
         "manufacturer": "AMAZONE",
         "model": "D9 3000 SUPER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14447&page=167"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14447&page=167",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/ed-3000-c-super-1167857"
         ],
         "price": 23400.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 3.0,
-            "required_power_kw": 59.656000000000006,
-            "work_capacity_l": 0.0
+            "length": 2.4,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
+            "weight": 1251.0,
+            "first_year": "2016",
+            "last_year": "2020",
+            "required_power_kw": 59.656000000000006
         },
         "model_key": "d9_3000_super",
         "manufacturer_key": "amazone"
@@ -11896,14 +12583,17 @@
         "manufacturer": "AMAZONE",
         "model": "D9 4000 SUPER",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11157&page=170"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11157&page=170",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/d9-6000-super-1136306"
         ],
         "price": 24500.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 4.0,
-            "required_power_kw": 59.656000000000006,
-            "work_capacity_l": 0.0
+            "work_capacity_l": 0.0,
+            "first_year": "2010",
+            "last_year": "2014",
+            "required_power_kw": 59.656000000000006
         },
         "model_key": "d9_4000_super",
         "manufacturer_key": "amazone"
@@ -11968,14 +12658,21 @@
         "manufacturer": "KUHN",
         "model": "VBP 3260",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14717&page=172"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14717&page=172",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-kuhn/vb-3260-11780917"
         ],
         "price": 124420.0,
         "equipment_level_code": "base",
         "specification": {
             "required_power_kw": 104.39800000000001,
+            "bale_diameter": 16.0,
             "bale_width": 1.2,
-            "bale_diameter": 16.0
+            "weight": 3040.0,
+            "length": 4.02,
+            "wheelbase": 2.63,
+            "model_series": "VB",
+            "first_year": "2024",
+            "last_year": "2024"
         },
         "model_key": "vbp_3260",
         "manufacturer_key": "kuhn"
@@ -11986,14 +12683,18 @@
         "manufacturer": "LEMKEN",
         "model": "SOLITAIR 8/300",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14569&page=172"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14569&page=172",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-lemken/solitair-8-400-11778350"
         ],
         "price": 59700.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
-            "required_power_kw": 156.597,
-            "work_capacity_l": 0.0
+            "work_capacity_l": 0.0,
+            "weight": 1018.0,
+            "first_year": "2023",
+            "last_year": "2024",
+            "required_power_kw": 156.597
         },
         "model_key": "solitair_8_300",
         "manufacturer_key": "lemken"
@@ -12004,14 +12705,18 @@
         "manufacturer": "LEMKEN",
         "model": "SAPHIR 9/300",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14611&page=172"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14611&page=172",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-lemken/saphir-9-300-11778344"
         ],
         "price": 50700.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
-            "required_power_kw": 156.597,
-            "work_capacity_l": 0.0
+            "work_capacity_l": 0.0,
+            "weight": 927.0,
+            "first_year": "2023",
+            "last_year": "2024",
+            "required_power_kw": 156.597
         },
         "model_key": "saphir_9_300",
         "manufacturer_key": "lemken"
@@ -12069,7 +12774,9 @@
             "weight": 5500.0,
             "number_of_tines": 14.0,
             "number_of_discs": 5.0,
-            "required_power_kw": 208.79600000000002
+            "required_power_kw": 208.79600000000002,
+            "first_year": "2017",
+            "last_year": "2023"
         },
         "model_key": "karat_10_400_kua",
         "manufacturer_key": "lemken"
@@ -12098,15 +12805,21 @@
         "manufacturer": "KRONE",
         "model": "COMPRIMA F 155 XC",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14721&page=174"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14721&page=174",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-krone/comprima-f-125-xc-1130656"
         ],
         "price": 56000.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 52.199000000000005,
-            "working_width": 2.15,
+            "bale_diameter": 1.5,
             "bale_width": 1.2,
-            "bale_diameter": 1.5
+            "length": 4.7,
+            "wheelbase": 2.61,
+            "model_series": "Comprima",
+            "first_year": "2007",
+            "last_year": "2024",
+            "working_width": 2.15
         },
         "model_key": "comprima_f_155_xc",
         "manufacturer_key": "krone"
@@ -12117,15 +12830,22 @@
         "manufacturer": "KUHN",
         "model": "VB 3260",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14760&page=175"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14760&page=175",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-kuhn/vb-2160-1130267"
         ],
         "price": 57195.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 93.9582,
-            "working_width": 2.3,
+            "bale_diameter": 1.6,
             "bale_width": 1.2,
-            "bale_diameter": 1.6
+            "weight": 2490.0,
+            "length": 4.02,
+            "wheelbase": 2.46,
+            "model_series": "VB",
+            "first_year": "2004",
+            "last_year": "2014",
+            "working_width": 2.3
         },
         "model_key": "vb_3260",
         "manufacturer_key": "kuhn"
@@ -12244,14 +12964,19 @@
         "manufacturer": "AMAZONE",
         "model": "CATAYA 3000 SPECIAL",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14784&page=178"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14784&page=178",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/cataya-3000-special-ws-11745790"
         ],
         "price": 42000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 3.0,
-            "required_power_kw": 96.941,
-            "work_capacity_l": 0.0
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
+            "weight": 790.0,
+            "first_year": "2019",
+            "last_year": "2024",
+            "required_power_kw": 96.941
         },
         "model_key": "cataya_3000_special",
         "manufacturer_key": "amazone"
@@ -12316,14 +13041,18 @@
         "manufacturer": "AMAZONE",
         "model": "D9 3000 SPECIAL",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14484&page=179"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14484&page=179",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/d9-3000-special-ws-1136292"
         ],
         "price": 18800.0,
         "equipment_level_code": "premium",
         "specification": {
             "working_width": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 59.656000000000006,
-            "work_capacity_l": 0.0
+            "weight": 630.0,
+            "first_year": "2010",
+            "last_year": "2020"
         },
         "model_key": "d9_3000_special",
         "manufacturer_key": "amazone"
@@ -12491,6 +13220,8 @@
             "wheelbase": 2.34,
             "max_speed": 60.0,
             "weight": 4450.0,
+            "first_year": "2006",
+            "last_year": "2010",
             "fuel_capacity": 194.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 220.0,
@@ -12585,14 +13316,20 @@
         "manufacturer": "AMAZONE",
         "model": "CIRRUS 6003-2",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15140&page=190"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15140&page=190",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/sowing-machines-amazone/cirrus-3002-1155861"
         ],
         "price": 140000.0,
         "equipment_level_code": "medium",
         "specification": {
             "working_width": 6.0,
+            "length": 2.35,
+            "wheelbase": 3.0,
+            "work_capacity_l": 0.0,
             "required_power_kw": 164.054,
-            "work_capacity_l": 0.0
+            "weight": 3682.0,
+            "first_year": "2013",
+            "last_year": "2015"
         },
         "model_key": "cirrus_60032",
         "manufacturer_key": "amazone"
@@ -12797,6 +13534,8 @@
             "wheelbase": 2.29,
             "max_speed": 40.0,
             "weight": 3929.0,
+            "first_year": "2006",
+            "last_year": "2013",
             "powertrain": "4x4",
             "engine_cylinders": 4,
             "engine_displacement": 4.1,
@@ -12814,15 +13553,21 @@
         "manufacturer": "KUHN",
         "model": "FB 3125",
         "sources": [
-            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15313&page=199"
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15313&page=199",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-kuhn/fb-3135-1162621"
         ],
         "price": 48375.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 67.113,
-            "working_width": 2.3,
+            "bale_diameter": 1.25,
             "bale_width": 1.22,
-            "bale_diameter": 1.25
+            "length": 4.13,
+            "wheelbase": 2.5,
+            "model_series": "FB",
+            "first_year": "2015",
+            "last_year": "2024",
+            "working_width": 2.3
         },
         "model_key": "fb_3125",
         "manufacturer_key": "kuhn"
@@ -12960,15 +13705,18 @@
         "model": "ROLLANT 520 RC",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15428&page=202",
-            "https://www.ritchiespecs.com/model/claas-rollant-340-rc-baler"
+            "https://www.ritchiespecs.com/model/claas-rollant-340-rc-baler",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/round-balers-claas/rollant-250-rc-1023904"
         ],
         "price": 43660.0,
         "equipment_level_code": "medium",
         "specification": {
             "required_power_kw": 82.027,
-            "working_width": 2.1,
+            "bale_diameter": 1.25,
             "bale_width": 1.2,
-            "bale_diameter": 1.25
+            "first_year": "1998",
+            "last_year": "2008",
+            "working_width": 2.1
         },
         "model_key": "rollant_520_rc",
         "manufacturer_key": "claas"
@@ -12989,7 +13737,9 @@
             "wheelbase": 3.0,
             "weight": 2200.0,
             "number_of_tines": 14.0,
-            "required_power_kw": 178.96800000000002
+            "required_power_kw": 178.96800000000002,
+            "first_year": "2020",
+            "last_year": "2024"
         },
         "model_key": "enduro_3000",
         "manufacturer_key": "kverneland"
