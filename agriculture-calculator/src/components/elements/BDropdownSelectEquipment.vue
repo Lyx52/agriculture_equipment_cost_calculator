@@ -6,6 +6,9 @@
             @click="filterStore.showDropdown = true"
             v-if="!filterStore.showDropdown"
             ref="_button"
+            :class="{
+               'btn-danger': !props.isValid
+            }"
         >
             <div class="d-flex">
                 <span class="ms-auto me-auto">{{ filterStore.selectedItem?.fullEquipmentName ?? '--Izvēlēties--' }}</span>

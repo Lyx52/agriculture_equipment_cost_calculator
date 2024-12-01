@@ -71,11 +71,11 @@ import {BAccordion, BAccordionItem} from 'bootstrap-vue-next'
 import GeneralInformation from "@/components/GeneralInformation.vue";
 import EquipmentInformationTable from "@/components/table/EquipmentInformationTable.vue";
 import {ref} from "vue";
-import OperationsTable from "@/components/form/OperationsTable.vue";
+import OperationsTable from "@/components/table/OperationsTable.vue";
 import {EquipmentTypeCategories, type EquipmentTypeCategory} from "@/stores/constants/EquipmentTypes";
-import PropertyCostEstimationTable from "@/components/form/PropertyCostEstimationTable.vue";
-import OperationCostEstimationTable from "@/components/form/OperationCostEstimationTable.vue";
-import UsedFarmlandTable from "@/components/form/UsedFarmlandTable.vue";
+import PropertyCostEstimationTable from "@/components/table/PropertyCostEstimationTable.vue";
+import OperationCostEstimationTable from "@/components/table/OperationCostEstimationTable.vue";
+import UsedFarmlandTable from "@/components/table/UsedFarmlandTable.vue";
 import Map from '@/components/modal/FarmlandMapModal.vue';
 const currentTab = ref<EquipmentTypeCategory>('tractor');
 

@@ -30,7 +30,6 @@ import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import {onMounted, ref} from "vue";
 import WMSLayer from "@arcgis/core/layers/WMSLayer";
-import WFSLayer from "@arcgis/core/layers/WFSLayer";
 import * as identify from "@arcgis/core/rest/identify";
 import IdentifyParameters from "@arcgis/core/rest/support/IdentifyParameters";
 import IdentifyResult from "@arcgis/core/rest/support/IdentifyResult";
@@ -47,11 +46,14 @@ const onFieldAdded = () => {
     emits('onFieldAdded', selectedFeatureResponse.value);
     model.value = false;
 }
+
 import esriConfig from '@arcgis/core/config';
-esriConfig.assetsPath = 'https://www.uzc.lbtu.lv/modules/custom/uzc_gazes/js/agriculture_calculator/assets';
+if (!import.meta.env.DEV) {
+    esriConfig.assetsPath = 'https://www.uzc.lbtu.lv/modules/custom/uzc_gazes/js/agriculture_calculator/assets';
+}
 
 const farmFieldLayerWMS = new WMSLayer({
-    url: 'https://karte.lad.gov.lv/arcgis/services/lauku_bloki/MapServer/WMSServer',
+    url: `${esriConfig.assetsPath ? '' : 'https://karte.lad.gov.lv'}/arcgis/services/lauku_bloki/MapServer/WMSServer`,
     sublayers: [
         {
             name: '0'

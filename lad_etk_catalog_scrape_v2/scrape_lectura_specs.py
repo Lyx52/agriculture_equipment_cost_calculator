@@ -10,7 +10,7 @@ def get_lecture_specs_list(driver: Chrome, category: int, page: int) -> dict:
     return json.loads(preElement.text)
 sub_categories = {
     984763: 'tractor_4x2',
-    # 984764: 'tractor_4x4',
+    984764: 'tractor_4x4',
     986441: 'plough',
     986402: 'cultivator',
     985652: 'packing_press',

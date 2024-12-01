@@ -30,7 +30,7 @@ export const useMacusDataStore = defineStore('macusDataStore', {
         async fetchData() {
             this.isLoading = true;
             try {
-                const res = await fetch(`/uzc_gazes/technical_equipment/macus`)
+                const res = await fetch(`${import.meta.env.DEV ? 'http://localhost:8888' : ''}}/uzc_gazes/technical_equipment/macus`)
                 const content: IResponse<IMacusData> = await res.json();
                 this.data = content.data;
             } finally {

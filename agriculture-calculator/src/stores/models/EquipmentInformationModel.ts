@@ -7,6 +7,7 @@ import {EquipmentLevelTypes} from "@/stores/constants/EquipmentTypes";
 import type {IEquipmentSpecification} from "@/stores/interfaces/IEquipmentSpecification";
 import type {IEquipmentUsageInformation} from "@/stores/interfaces/IEquipmentUsageInformation";
 import {getCapitalRecoveryValue} from "@/stores/constants/CapitalRecoveryValue";
+import {getCostOfRepairValue} from "@/stores/constants/CostOfRepairValue";
 export class EquipmentInformationModel {
     equipmentType: EquipmentType;
     equipmentSubType: EquipmentSubType;
@@ -45,6 +46,12 @@ export class EquipmentInformationModel {
         }
         this.uniqueId = uuid();
     }
+
+    hasRequiredSpecifications(specifications: string[]) {
+        let specificationKeys = Object.keys(this.specification);
+        return specifications.every((s) => specificationKeys.includes(s));
+    }
+
     getCapitalRecoveryCoefficientValue(interestRate: number): number {
         return getCapitalRecoveryValue(interestRate, this.usageInformation.remainingUseYears);
     }
@@ -91,6 +98,18 @@ export class EquipmentInformationModel {
     }
     get depreciationValue(): number {
         return this.price - this.remainingValue;
+    }
+    get currentCostOfRepairCoefficient(): number {
+        return getCostOfRepairValue(this.totalUsageHours, this.equipmentSubType);
+    }
+    get totalCostOfRepairCoefficient(): number {
+        return getCostOfRepairValue(this.totalLifetimeHours, this.equipmentSubType);
+    }
+    get currentCostOfRepair(): number {
+        return (this.totalCostOfRepairCoefficient - this.currentCostOfRepairCoefficient) * this.initialPrice;
+    }
+    get averageCostOfRepairPerHour(): number {
+        return this.currentCostOfRepair / (this.totalLifetimeHours - this.totalUsageHours);
     }
     get dataSources(): IDataSourceLink[] {
         return this.sources.map(((url: string) => ({

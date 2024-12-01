@@ -1,5 +1,5 @@
 agriculture-calculator-lib:
-  version: 1.0.8
+  version: 1.0.11
   dependencies:
     - core/jquery
   css:
