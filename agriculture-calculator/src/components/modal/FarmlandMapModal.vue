@@ -53,7 +53,7 @@ if (!import.meta.env.DEV) {
 }
 
 const farmFieldLayerWMS = new WMSLayer({
-    url: `${esriConfig.assetsPath ? '' : 'https://karte.lad.gov.lv'}/arcgis/services/lauku_bloki/MapServer/WMSServer`,
+    url: `${import.meta.env.DEV ? '' : 'https://karte.lad.gov.lv'}/arcgis/services/lauku_bloki/MapServer/WMSServer`,
     sublayers: [
         {
             name: '0'

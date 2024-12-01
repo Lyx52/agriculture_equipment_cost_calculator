@@ -10,12 +10,13 @@ def get_lecture_specs_list(driver: Chrome, category: int, page: int) -> dict:
     return json.loads(preElement.text)
 sub_categories = {
     984763: 'tractor_4x2',
-    984764: 'tractor_4x4',
+    #984764: 'tractor_4x4',
     986441: 'plough',
     986402: 'cultivator',
     985652: 'packing_press',
     985594: 'balling_press',
-    986403: 'seed_drill'
+    986403: 'seed_drill',
+    985586: 'combine',
 }
 def save_raw(category_code, page, res):
     if not os.path.exists(f"data/lectura_specs/raw/{category_code}"):
@@ -32,18 +33,19 @@ def get_specification_table(driver: Chrome, url: str) -> NavigableString|Tag:
     termList = soup.find("div", attrs={'class': 'c-term-list'})
     return termList.prettify()
 
-
-# for category_id, key in sub_categories.items():
-#     res = get_lecture_specs_list(driver, category_id, 1)
-#     save_raw(key, 1, res)
-#     pages = math.ceil(int(res['count']) / 32)
-#     time.sleep(0.5)
-#     for page in range(2, pages + 1):
-#         if not os.path.exists(f"data/lectura_specs/raw/{key}/page_{page}.json"):
-#             res = get_lecture_specs_list(driver, category_id, page)
-#             save_raw(key, page, res)
-#             time.sleep(0.5 + random.random() / 4)
-#         print(f"{key} pages ({page}/{pages})")
+driver = webdriver.Chrome()
+for category_id, key in sub_categories.items():
+    res = get_lecture_specs_list(driver, category_id, 1)
+    save_raw(key, 1, res)
+    pages = math.ceil(int(res['count']) / 32)
+    time.sleep(0.5)
+    for page in range(2, pages + 1):
+        if not os.path.exists(f"data/lectura_specs/raw/{key}/page_{page}.json"):
+            res = get_lecture_specs_list(driver, category_id, page)
+            save_raw(key, page, res)
+            time.sleep(0.5 + random.random() / 4)
+        print(f"{key} pages ({page}/{pages})")
+driver.quit()
 scraped_item_data = {}
 if os.path.exists("data/lectura_specs/raw/tables.json"):
     scraped_item_data = open_json("data/lectura_specs/raw/tables.json")
