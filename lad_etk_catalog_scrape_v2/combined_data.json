@@ -19,7 +19,7 @@
             "wheelbase": 2.34,
             "max_speed": 40.0,
             "weight": 4350.0,
-            "first_year": "2007",
+            "first_year": 2006,
             "last_year": "2013",
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -85,6 +85,26 @@
         },
         "model_key": "tforce_650_32",
         "manufacturer_key": "novag"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "MASSEY FERGUSON",
+        "model": "8S.265 D7 EXCLUSIVE",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=6200&page=2"
+        ],
+        "price": 189900.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 206.5589,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 205.0,
+            "lift_capacity": 10000.0
+        },
+        "model_key": "8s265_d7_exclusive",
+        "manufacturer_key": "massey_ferguson"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -276,6 +296,46 @@
         },
         "model_key": "cultus_cs_350",
         "manufacturer_key": "vaderstad"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "9340",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10538&page=11"
+        ],
+        "price": 408460.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 235.6412,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 210.0,
+            "lift_capacity": 12000.0
+        },
+        "model_key": "9340",
+        "manufacturer_key": "deutzfahr"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 5.120 EC STAGE V NEW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10566&page=11"
+        ],
+        "price": 65500.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 87.2469,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 84.0,
+            "lift_capacity": 5200.0
+        },
+        "model_key": "t_5120_ec_stage_v_new",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -501,6 +561,46 @@
         "manufacturer_key": "kurt"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 5.11O STAGEV DC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10699&page=14"
+        ],
+        "price": 65000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 82.027,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 64.0,
+            "lift_capacity": 4400.0
+        },
+        "model_key": "t_511o_stagev_dc",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 5.120 EC STAGE V MY22",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10728&page=15"
+        ],
+        "price": 79000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 87.2469,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 84.0,
+            "lift_capacity": 5200.0
+        },
+        "model_key": "t_5120_ec_stage_v_my22",
+        "manufacturer_key": "new_holland"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "HORSCH",
@@ -618,7 +718,7 @@
             "engine_displacement": 2.93,
             "engine_torque": 1400.0,
             "engine_cylinders": 3,
-            "first_year": "2017",
+            "first_year": 2019,
             "last_year": "2020",
             "pto_power_kw": 44.7,
             "fuel_capacity": 82.1,
@@ -641,6 +741,8 @@
         "price": 380000.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 2011,
+            "last_year": 2011,
             "engine_power_kw": 378.0699,
             "drawbar_power_kw": 306.5,
             "pto_power_kw": 378.8,
@@ -751,6 +853,26 @@
         },
         "model_key": "cultiplus_4000",
         "manufacturer_key": "tume"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 90 CRDI 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10761&page=17"
+        ],
+        "price": 42700.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 65.6216,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 45.0,
+            "lift_capacity": 3000.0
+        },
+        "model_key": "solis_90_crdi_4wd",
+        "manufacturer_key": "sonalika"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -1046,6 +1168,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 5.100 S STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=10801&page=19"
+        ],
+        "price": 50000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 75.3157,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 64.0,
+            "lift_capacity": 3000.0
+        },
+        "model_key": "t_5100_s_stage_v",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "KUBOTA",
         "model": "M5112",
         "sources": [
@@ -1063,8 +1205,8 @@
             "max_speed": 40.0,
             "weight": 3420.0,
             "engine_cylinders": 4,
-            "first_year": "2015",
-            "last_year": "2018",
+            "first_year": 2016,
+            "last_year": 2016,
             "fuel_capacity": 104.8,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 89.0,
@@ -2049,8 +2191,8 @@
         "specification": {
             "engine_power_kw": 89.48400000000001,
             "weight": 2870.78610973,
-            "first_year": "2001",
-            "last_year": "2002",
+            "first_year": 1956,
+            "last_year": 1956,
             "wheelbase": 2.28,
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -2085,8 +2227,8 @@
             "wheelbase": 2.28,
             "max_speed": 40.0,
             "weight": 2657.0,
-            "first_year": "2008",
-            "last_year": "2014",
+            "first_year": 1958,
+            "last_year": 1958,
             "powertrain": "4x4",
             "engine_cylinders": 4,
             "pto_power_kw": 35.8,
@@ -2146,7 +2288,7 @@
             "engine_displacement": 3.4,
             "engine_torque": 1300.0,
             "engine_cylinders": 4,
-            "first_year": "2021",
+            "first_year": 2016,
             "last_year": "2023",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 80.0,
@@ -2154,6 +2296,51 @@
         },
         "model_key": "multi_4120",
         "manufacturer_key": "steyr"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "CX 5.80",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11397&page=32",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/combine-harvesters-new-holland/cx-8080-1046147"
+        ],
+        "price": 220000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 192.3906,
+            "model_series": "CX8",
+            "work_capacity_l": 8300.0,
+            "working_width": 6.1,
+            "weight": 15500.0,
+            "length": 9.07,
+            "wheelbase": 3.47,
+            "first_year": "2007",
+            "last_year": "2011"
+        },
+        "model_key": "cx_580",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.190 CLASSIC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11401&page=32"
+        ],
+        "price": 120000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 130.4975,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "t_7190_classic",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -2202,7 +2389,7 @@
             "engine_displacement": 3.4,
             "engine_torque": 1300.0,
             "engine_cylinders": 4,
-            "first_year": "2021",
+            "first_year": 2016,
             "last_year": "2023",
             "powertrain": "4x4",
             "hydrolic_pump_flow": 80.0,
@@ -2260,6 +2447,7 @@
         "price": 22900.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 2018,
             "engine_power_kw": 37.285000000000004,
             "pto_power_kw": 31.7,
             "fuel_capacity": 51.9,
@@ -2384,6 +2572,7 @@
         "price": 18500.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 2018,
             "engine_power_kw": 37.285000000000004,
             "pto_power_kw": 31.7,
             "fuel_capacity": 51.9,
@@ -2418,6 +2607,8 @@
             "engine_displacement": 3.0,
             "fuel_capacity": 62.1,
             "lift_capacity": 615.0,
+            "first_year": 1963,
+            "last_year": 1963,
             "weight": 1740.0,
             "hydrolic_pump_flow": 35.2
         },
@@ -2495,6 +2686,24 @@
         },
         "model_key": "eforte_300",
         "manufacturer_key": "multiva"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "FENDT",
+        "model": "5255L",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11448&page=34"
+        ],
+        "price": 180000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "engine_power_kw": 193.882,
+            "working_width": 6.0,
+            "work_capacity_l": 8600.0
+        },
+        "model_key": "5255l",
+        "manufacturer_key": "fendt"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -2585,6 +2794,28 @@
         },
         "model_key": "kos_premium_3",
         "manufacturer_key": "unia"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "TC 5.70",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11458&page=35",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/combine-harvesters-new-holland/tc-56-1023486"
+        ],
+        "price": 165000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 130.4975,
+            "model_series": "TC",
+            "work_capacity_l": 5200.0,
+            "working_width": 5.18,
+            "first_year": "1998",
+            "last_year": "2003"
+        },
+        "model_key": "tc_570",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -2913,6 +3144,8 @@
         "price": 135000.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 2008,
+            "last_year": 2008,
             "engine_power_kw": 104.39800000000001,
             "pto_power_kw": 102.5,
             "drawbar_power_kw": 74.5,
@@ -3000,6 +3233,26 @@
         "manufacturer_key": "pottinger"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "L-382",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11553&page=38"
+        ],
+        "price": 21900.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 28.3366,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 45.5,
+            "lift_capacity": 906.0
+        },
+        "model_key": "l382",
+        "manufacturer_key": "kubota"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "POTTINGER",
@@ -3029,6 +3282,8 @@
         "price": 32600.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 1988,
+            "last_year": 1988,
             "engine_power_kw": 28.3366,
             "pto_power_kw": 22.0,
             "powertrain": "4x4",
@@ -3114,6 +3369,26 @@
         "manufacturer_key": "amazone"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "DK6020C",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11570&page=39"
+        ],
+        "price": 30630.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 43.2506,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 62.4,
+            "lift_capacity": 1717.0
+        },
+        "model_key": "dk6020c",
+        "manufacturer_key": "kioti"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "row_cultivator",
         "manufacturer": "JAGODA",
@@ -3195,7 +3470,7 @@
             "weight": 4500.0,
             "engine_displacement": 3.849,
             "engine_cylinders": 4,
-            "first_year": "2017",
+            "first_year": 2017,
             "last_year": "2024",
             "fuel_capacity": 135.1,
             "powertrain": "4x4",
@@ -3449,6 +3724,66 @@
         "manufacturer_key": "pottinger"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 6.180 EC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11374&page=41"
+        ],
+        "price": 102000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 123.04050000000001,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 121.0,
+            "lift_capacity": 7864.0
+        },
+        "model_key": "t_6180_ec",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 6.160 EC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11371&page=42"
+        ],
+        "price": 97000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 111.855,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 121.0,
+            "lift_capacity": 7864.0
+        },
+        "model_key": "t_6160_ec",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 6.155 EC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11370&page=42"
+        ],
+        "price": 93000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 104.39800000000001,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 121.0,
+            "lift_capacity": 7864.0
+        },
+        "model_key": "t_6155_ec",
+        "manufacturer_key": "new_holland"
+    },
+    {
         "category": "feed_preperation_equipment",
         "sub_category": "balling_press",
         "manufacturer": "MASSEY FERGUSON",
@@ -3473,6 +3808,62 @@
         },
         "model_key": "rb_4180v_xtra",
         "manufacturer_key": "massey_ferguson"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 6.145 EC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11369&page=43"
+        ],
+        "price": 91000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 97.6867,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 121.0,
+            "lift_capacity": 7864.0
+        },
+        "model_key": "t_6145_ec",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "CX 6.80 STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11342&page=43"
+        ],
+        "price": 250000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 233.4041,
+            "working_width": 6.1,
+            "work_capacity_l": 9300.0
+        },
+        "model_key": "cx_680_stage_v",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "TC 5.90 STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11340&page=43"
+        ],
+        "price": 205000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 192.3906,
+            "working_width": 5.48,
+            "work_capacity_l": 6400.0
+        },
+        "model_key": "tc_590_stagev",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -3660,6 +4051,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "PLUS 100 P/S",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11288&page=44"
+        ],
+        "price": 37000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 72.33290000000001,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 59.4,
+            "lift_capacity": 3800.0
+        },
+        "model_key": "plus_100_p_s",
+        "manufacturer_key": "ls"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "CASE",
         "model": "PUMA 140",
         "sources": [
@@ -3669,6 +4080,8 @@
         "price": 110000.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 2008,
+            "last_year": 2008,
             "engine_power_kw": 104.39800000000001,
             "pto_power_kw": 102.5,
             "drawbar_power_kw": 74.5,
@@ -3936,6 +4349,26 @@
         "manufacturer_key": "new_holland"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.175 AC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11545&page=49"
+        ],
+        "price": 138000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 119.31200000000001,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 160.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "t_7175_ac",
+        "manufacturer_key": "new_holland"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "ROLMAKO",
@@ -3952,6 +4385,26 @@
         },
         "model_key": "spring_expert_90_m",
         "manufacturer_key": "rolmako"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.260 SW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11521&page=49"
+        ],
+        "price": 146000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 178.96800000000002,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 120.0,
+            "lift_capacity": 10463.0
+        },
+        "model_key": "t_7260_sw",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -4008,7 +4461,7 @@
             "wheelbase": 2.29,
             "max_speed": 40.0,
             "weight": 3870.0,
-            "first_year": "2009",
+            "first_year": 2010,
             "last_year": "2017",
             "fuel_capacity": 124.9,
             "powertrain": "4x4",
@@ -4066,6 +4519,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.210 CLASSIC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11784&page=50"
+        ],
+        "price": 125000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 141.683,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "t_7210_classic",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "LANDINI",
         "model": "5-120",
         "sources": [
@@ -4075,6 +4548,8 @@
         "price": 58750.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 1992,
+            "last_year": 1992,
             "engine_power_kw": 85.0098,
             "fuel_capacity": 85.9,
             "powertrain": "4x4",
@@ -4206,8 +4681,8 @@
             "weight": 2721.0,
             "engine_displacement": 6.8,
             "engine_cylinders": 6,
-            "first_year": "2017",
-            "last_year": "2020",
+            "first_year": 1987,
+            "last_year": 1987,
             "powertrain": "4x4",
             "pto_power_kw": 80.1,
             "engine_torque": 1016.9,
@@ -4248,6 +4723,8 @@
         "price": 55300.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 1992,
+            "last_year": 1992,
             "engine_power_kw": 85.0098,
             "fuel_capacity": 85.9,
             "powertrain": "4x4",
@@ -4272,6 +4749,7 @@
         "price": 14800.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 2016,
             "engine_power_kw": 18.642500000000002,
             "pto_power_kw": 14.5,
             "fuel_capacity": 25.4,
@@ -4297,6 +4775,7 @@
         "price": 14880.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 2020,
             "engine_power_kw": 18.642500000000002,
             "pto_power_kw": 13.8,
             "fuel_capacity": 25.4,
@@ -4375,6 +4854,24 @@
         "manufacturer_key": "new_holland"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "CX 5.90 STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11336&page=52"
+        ],
+        "price": 230000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 233.4041,
+            "working_width": 6.1,
+            "work_capacity_l": 8300.0
+        },
+        "model_key": "cx_590_stagev",
+        "manufacturer_key": "new_holland"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "AMAZONE",
@@ -4409,6 +4906,26 @@
         },
         "model_key": "p_510_4",
         "manufacturer_key": "jarmet"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "CASE",
+        "model": "OPTUM 250",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11835&page=52"
+        ],
+        "price": 238000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 186.425,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 165.0,
+            "lift_capacity": 11058.0
+        },
+        "model_key": "optum_250",
+        "manufacturer_key": "case"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -4510,8 +5027,8 @@
             "max_speed": 40.0,
             "engine_displacement": 3.62,
             "engine_cylinders": 4,
-            "first_year": "2021",
-            "last_year": "2024",
+            "first_year": 1995,
+            "last_year": 1995,
             "fuel_capacity": 260.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 90.0,
@@ -4540,8 +5057,8 @@
             "model_series": "6J",
             "engine_displacement": 6.8,
             "engine_cylinders": 6,
-            "first_year": "2022",
-            "last_year": "2024",
+            "first_year": 1986,
+            "last_year": 1986,
             "wheelbase": 1.29,
             "powertrain": "4x4",
             "pto_power_kw": 7.9,
@@ -4840,8 +5357,8 @@
             "weight": 8299.0,
             "engine_displacement": 6.7,
             "engine_cylinders": 6,
-            "first_year": "2020",
-            "last_year": "2024",
+            "first_year": 2014,
+            "last_year": 2014,
             "pto_power_kw": 15.0,
             "powertrain": "4x4",
             "fuel_capacity": 455.0,
@@ -4978,6 +5495,7 @@
         "price": 195000.0,
         "equipment_level_code": "premium",
         "specification": {
+            "first_year": 2022,
             "fuel_capacity": 430.0,
             "hydrolic_pump_flow": 200.0,
             "lift_capacity": 10000.0,
@@ -5037,8 +5555,8 @@
         "equipment_level_code": "medium",
         "specification": {
             "model_series": "Profi",
-            "first_year": "2003",
-            "last_year": "2006",
+            "first_year": 2007,
+            "last_year": 2007,
             "length": 4.532,
             "wheelbase": 2.65,
             "powertrain": "4x4",
@@ -5078,7 +5596,7 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
-            "first_year": "2021",
+            "first_year": 2022,
             "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 84.3,
@@ -5108,8 +5626,8 @@
             "wheelbase": 2.4,
             "max_speed": 40.0,
             "weight": 4990.0,
-            "first_year": "2010",
-            "last_year": "2013",
+            "first_year": 2012,
+            "last_year": 2012,
             "fuel_capacity": 174.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 150.0,
@@ -5314,6 +5832,24 @@
         "manufacturer_key": "agromasz"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "SAMPO",
+        "model": "COMIA C12-4WD 5.7P",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11834&page=62"
+        ],
+        "price": 232960.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 228.9299,
+            "working_width": 5.7,
+            "work_capacity_l": 7600.0
+        },
+        "model_key": "comia_c124wd_57p",
+        "manufacturer_key": "sampo"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "BEDNAR",
@@ -5366,6 +5902,29 @@
         },
         "model_key": "rezult_75_m_professional",
         "manufacturer_key": "mzuri"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CASE IH",
+        "model": "AF7150",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11794&page=62",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/combine-harvesters-case-ih/af10-11786898"
+        ],
+        "price": 306000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 343.022,
+            "model_series": "AF",
+            "work_capacity_l": 10570.0,
+            "weight": 25509.0,
+            "first_year": "2024",
+            "last_year": "2024",
+            "working_width": 7.6
+        },
+        "model_key": "af7150",
+        "manufacturer_key": "case_ih"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -5571,6 +6130,98 @@
         "manufacturer_key": "agromasz"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "STEYR",
+        "model": "IMPULS 6175 CVT",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12126&page=64"
+        ],
+        "price": 185500.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 134.226,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 160.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "impuls_6175_cvt",
+        "manufacturer_key": "steyr"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "TRION 520 V560",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12129&page=64"
+        ],
+        "price": 280700.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 192.3906,
+            "working_width": 5.6,
+            "work_capacity_l": 8000.0
+        },
+        "model_key": "trion_520_v560",
+        "manufacturer_key": "claas"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "TRION 520 V620",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12131&page=64"
+        ],
+        "price": 295460.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 192.3906,
+            "working_width": 6.2,
+            "work_capacity_l": 8000.0
+        },
+        "model_key": "trion_520_v620",
+        "manufacturer_key": "claas"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "TRION 650 CONVIO 770 FLEX",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12133&page=64"
+        ],
+        "price": 351317.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "engine_power_kw": 263.9778,
+            "working_width": 7.7,
+            "work_capacity_l": 10500.0
+        },
+        "model_key": "trion_650_convio_770_flex",
+        "manufacturer_key": "claas"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "LEXION 6800 V930",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12136&page=64"
+        ],
+        "price": 449790.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 344.5134,
+            "working_width": 9.3,
+            "work_capacity_l": 11000.0
+        },
+        "model_key": "lexion_6800_v930",
+        "manufacturer_key": "claas"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "UNIA",
@@ -5738,6 +6389,24 @@
         "manufacturer_key": "quivogne"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "JOHN DEERE",
+        "model": "S780 9,15 FLEX TRACK",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12169&page=65"
+        ],
+        "price": 545148.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "engine_power_kw": 407.8979,
+            "working_width": 9.15,
+            "work_capacity_l": 14100.0
+        },
+        "model_key": "s780_915_flex_track",
+        "manufacturer_key": "john_deere"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "KUHN",
@@ -5761,6 +6430,32 @@
         },
         "model_key": "espro_6000_rc",
         "manufacturer_key": "kuhn"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "6175 AGROTRON TTV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11743&page=66",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-deutz-fahr/6140-4-agrotron-ttv-1155386"
+        ],
+        "price": 266010.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 126.0233,
+            "model_series": "Agrotron",
+            "max_speed": 50.0,
+            "engine_displacement": 4.038,
+            "engine_cylinders": 6,
+            "first_year": "2013",
+            "last_year": "2017",
+            "powertrain": "4x4",
+            "hydrolic_pump_flow": 120.0,
+            "lift_capacity": 9200.0
+        },
+        "model_key": "6175_agrotron_ttv",
+        "manufacturer_key": "deutzfahr"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -5810,6 +6505,7 @@
         "price": 182000.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 2011,
             "engine_power_kw": 137.9545,
             "pto_power_kw": 139.8,
             "powertrain": "4x4",
@@ -5852,6 +6548,26 @@
         },
         "model_key": "absolut_6200_cvt",
         "manufacturer_key": "steyr"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "XP 101 P/S",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11886&page=66"
+        ],
+        "price": 41000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 75.3157,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 59.4,
+            "lift_capacity": 3800.0
+        },
+        "model_key": "xp_101_p_s",
+        "manufacturer_key": "ls"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -5910,7 +6626,7 @@
             "weight": 6847.0,
             "engine_displacement": 6.124,
             "engine_cylinders": 4,
-            "first_year": "2015",
+            "first_year": 2015,
             "last_year": "2018",
             "pto_power_kw": 94.1,
             "drawbar_power_kw": 76.7,
@@ -5978,6 +6694,30 @@
         "manufacturer_key": "fendt"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "DEUTZ-FAHR",
+        "model": "C 6205 TS",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11593&page=68",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/combine-harvesters-deutz-fahr/c-6205-ts-1163579"
+        ],
+        "price": 215000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 186.425,
+            "model_series": "C6000",
+            "work_capacity_l": 7000.0,
+            "working_width": 6.3,
+            "weight": 10050.0,
+            "length": 3.89,
+            "first_year": "2015",
+            "last_year": "2018"
+        },
+        "model_key": "c_6205_ts",
+        "manufacturer_key": "deutzfahr"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "VADERSTAD",
@@ -6012,6 +6752,26 @@
         },
         "model_key": "vario_530_750",
         "manufacturer_key": "kockerling"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.230 CLASSIC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12238&page=68"
+        ],
+        "price": 145000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 152.8685,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 120.0,
+            "lift_capacity": 10463.0
+        },
+        "model_key": "t_7230_classic",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -6227,6 +6987,26 @@
         "manufacturer_key": "claas"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 5.90 S",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12306&page=70"
+        ],
+        "price": 54000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 67.113,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 64.0,
+            "lift_capacity": 4400.0
+        },
+        "model_key": "t_590_s",
+        "manufacturer_key": "new_holland"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "UNIA",
@@ -6430,6 +7210,8 @@
         "price": 51500.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 1992,
+            "last_year": 1992,
             "engine_power_kw": 55.9275,
             "fuel_capacity": 85.9,
             "powertrain": "4x4",
@@ -6788,6 +7570,24 @@
         "manufacturer_key": "vaderstad"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "TRION 520 V560",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12405&page=74"
+        ],
+        "price": 309010.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "engine_power_kw": 192.3906,
+            "working_width": 5.6,
+            "work_capacity_l": 8000.0
+        },
+        "model_key": "trion_520_v560",
+        "manufacturer_key": "claas"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "HORSCH",
@@ -6849,6 +7649,24 @@
         "manufacturer_key": "mzuri"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "SAMPO",
+        "model": "COMIA C8-4WD 5.1P",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12203&page=75"
+        ],
+        "price": 195000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 156.597,
+            "working_width": 5.1,
+            "work_capacity_l": 5400.0
+        },
+        "model_key": "comia_c84wd_51p",
+        "manufacturer_key": "sampo"
+    },
+    {
         "category": "tractor",
         "sub_category": "tractor_4x4",
         "manufacturer": "JOHN DEERE",
@@ -6870,8 +7688,8 @@
             "weight": 2867.384166955,
             "engine_displacement": 6.8,
             "engine_cylinders": 6,
-            "first_year": "2017",
-            "last_year": "2020",
+            "first_year": 1988,
+            "last_year": 1988,
             "powertrain": "4x4",
             "pto_power_kw": 80.1,
             "engine_torque": 1016.9,
@@ -6912,6 +7730,7 @@
         "price": 110000.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 2014,
             "engine_power_kw": 123.04050000000001,
             "pto_power_kw": 113.5,
             "drawbar_power_kw": 81.6,
@@ -6947,8 +7766,8 @@
             "weight": 4799.0,
             "engine_torque": 405.0,
             "engine_cylinders": 4,
-            "first_year": "2014",
-            "last_year": "2021",
+            "first_year": 2009,
+            "last_year": 2009,
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_displacement": 4.6,
@@ -7077,8 +7896,8 @@
             "engine_displacement": 6.75,
             "engine_torque": 1500.0,
             "engine_cylinders": 6,
-            "first_year": "2015",
-            "last_year": "2020",
+            "first_year": 2014,
+            "last_year": 2014,
             "pto_power_kw": 105.6,
             "drawbar_power_kw": 75.4,
             "fuel_capacity": 329.3,
@@ -7130,7 +7949,7 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
-            "first_year": "2021",
+            "first_year": 2022,
             "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 82.0,
@@ -7200,7 +8019,7 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
-            "first_year": "2021",
+            "first_year": 2022,
             "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 84.3,
@@ -7219,6 +8038,7 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12514&page=77",
             "https://www.tractordata.com/farm-tractors/011/2/3/11238-john-deere-6r-120.html",
+            "https://www.ritchiespecs.com/model/john-deere-7250r-mfwd-tractor",
             "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/7250r-11682582"
         ],
         "price": 264455.0,
@@ -7230,12 +8050,12 @@
             "wheelbase": 2.59,
             "max_speed": 50.0,
             "weight": 6100.0,
-            "engine_displacement": 6.8,
+            "engine_displacement": 6.9,
             "engine_cylinders": 6,
-            "first_year": "2017",
+            "first_year": 2022,
             "last_year": "2020",
-            "pto_power_kw": 67.9,
             "powertrain": "4x4",
+            "pto_power_kw": 67.9,
             "hydrolic_pump_flow": 160.0,
             "lift_capacity": 10400.0,
             "front_lift_capacity": 3299.0
@@ -7287,6 +8107,46 @@
         "manufacturer_key": "rolmako"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M5082 NARROW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12069&page=80"
+        ],
+        "price": 59000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 64.8759,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 92.5,
+            "lift_capacity": 2300.0
+        },
+        "model_key": "m5082_narrow",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M5092 NARROW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12159&page=80"
+        ],
+        "price": 61000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 71.5872,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 92.5,
+            "lift_capacity": 2300.0
+        },
+        "model_key": "m5092_narrow",
+        "manufacturer_key": "kubota"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "FARMET",
@@ -7303,6 +8163,26 @@
         },
         "model_key": "falcon_4fix_pro_fert",
         "manufacturer_key": "farmet"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M5102 NARROW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12160&page=80"
+        ],
+        "price": 63000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 79.0442,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 92.5,
+            "lift_capacity": 2300.0
+        },
+        "model_key": "m5102_narrow",
+        "manufacturer_key": "kubota"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -7564,6 +8444,46 @@
         "manufacturer_key": "claas"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "L2-522 NAGLAK",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12046&page=82"
+        ],
+        "price": 41900.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 38.7764,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 53.8,
+            "lift_capacity": 1750.0
+        },
+        "model_key": "l2522_naglak",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 50 STAGE V 4 WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12635&page=82"
+        ],
+        "price": 26500.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 37.285000000000004,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 45.0,
+            "lift_capacity": 2500.0
+        },
+        "model_key": "solis_50_stage_v_4_wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "BEDNAR",
@@ -7600,7 +8520,7 @@
             "wheelbase": 2.57,
             "max_speed": 50.0,
             "weight": 7580.0,
-            "first_year": "1998",
+            "first_year": 2023,
             "last_year": "2006",
             "hydrolic_pump_flow": 152.0,
             "powertrain": "4x4",
@@ -7622,6 +8542,7 @@
         "price": 200000.0,
         "equipment_level_code": "premium",
         "specification": {
+            "first_year": 2022,
             "fuel_capacity": 430.0,
             "hydrolic_pump_flow": 200.0,
             "lift_capacity": 10000.0,
@@ -7733,6 +8654,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 HST 4WD (CAB)",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12672&page=84"
+        ],
+        "price": 14900.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 16.5,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_hst_4wd_cab",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "LANDINI",
         "model": "5-085",
         "sources": [
@@ -7742,6 +8683,8 @@
         "price": 43900.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 1992,
+            "last_year": 1992,
             "engine_power_kw": 55.9275,
             "fuel_capacity": 85.9,
             "powertrain": "4x4",
@@ -7776,8 +8719,8 @@
             "engine_displacement": 2.5,
             "engine_torque": 1400.0,
             "engine_cylinders": 4,
-            "first_year": "2021",
-            "last_year": "2024",
+            "first_year": 2014,
+            "last_year": 2014,
             "pto_power_kw": 38.0,
             "fuel_capacity": 89.7,
             "powertrain": "4x4",
@@ -7786,6 +8729,24 @@
         },
         "model_key": "4070",
         "manufacturer_key": "landini"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "TRION 720 TT V620",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12683&page=84"
+        ],
+        "price": 353752.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 273.6719,
+            "working_width": 6.2,
+            "work_capacity_l": 10500.0
+        },
+        "model_key": "trion_720_tt_v620",
+        "manufacturer_key": "claas"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -7869,7 +8830,7 @@
             "engine_displacement": 6.124,
             "engine_torque": 1500.0,
             "engine_cylinders": 4,
-            "first_year": "2018",
+            "first_year": 2015,
             "last_year": "2021",
             "fuel_capacity": 190.0,
             "hydrolic_pump_flow": 115.0,
@@ -7922,7 +8883,7 @@
             "engine_displacement": 6.9,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
-            "first_year": "2021",
+            "first_year": 2022,
             "last_year": "2024",
             "powertrain": "4x4",
             "pto_power_kw": 91.0,
@@ -7957,7 +8918,8 @@
             "fuel_capacity": 26.9,
             "lift_capacity": 310.0,
             "max_speed": 13.1,
-            "hydrolic_pump_flow": 24.0
+            "hydrolic_pump_flow": 24.0,
+            "first_year": 2018
         },
         "model_key": "bx231",
         "manufacturer_key": "kubota"
@@ -7983,6 +8945,46 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "B2261 ROPS",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12727&page=86"
+        ],
+        "price": 30100.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 19.3882,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 33.1,
+            "lift_capacity": 970.0
+        },
+        "model_key": "b2261_rops",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
+        "model": "5-120",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12760&page=86"
+        ],
+        "price": 64800.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 85.0098,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 62.0,
+            "lift_capacity": 4500.0
+        },
+        "model_key": "5120",
+        "manufacturer_key": "landini"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "LANDINI",
         "model": "5-110",
         "sources": [
@@ -7999,8 +9001,8 @@
             "wheelbase": 2.33,
             "max_speed": 40.0,
             "weight": 3642.0,
-            "first_year": "2014",
-            "last_year": "2016",
+            "first_year": 2010,
+            "last_year": 2010,
             "pto_power_kw": 64.5,
             "fuel_capacity": 102.2,
             "powertrain": "4x4",
@@ -8065,6 +9067,26 @@
         },
         "model_key": "striegel_pro_pn_7500",
         "manufacturer_key": "bednar"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 90N 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12793&page=87"
+        ],
+        "price": 38700.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 65.6216,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 45.0,
+            "lift_capacity": 2500.0
+        },
+        "model_key": "solis_90n_4wd",
+        "manufacturer_key": "sonalika"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -8157,7 +9179,7 @@
             "engine_displacement": 6.8,
             "engine_torque": 1600.0,
             "engine_cylinders": 6,
-            "first_year": "2021",
+            "first_year": 2022,
             "last_year": "2024",
             "pto_power_kw": 91.0,
             "powertrain": "4x4",
@@ -8186,8 +9208,8 @@
             "max_speed": 40.0,
             "engine_displacement": 6.057,
             "engine_cylinders": 6,
-            "first_year": "2017",
-            "last_year": "2021",
+            "first_year": 1997,
+            "last_year": 1997,
             "fuel_capacity": 190.0,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 120.0,
@@ -8215,6 +9237,86 @@
         },
         "model_key": "versatill_vo_7500_profi",
         "manufacturer_key": "bednar"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 9+9 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12916&page=90"
+        ],
+        "price": 10300.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 17.8,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_9+9_4wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 9+9 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12920&page=90"
+        ],
+        "price": 17850.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 17.8,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_9+9_4wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 90 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12928&page=90"
+        ],
+        "price": 49150.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 65.6216,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 45.0,
+            "lift_capacity": 3500.0
+        },
+        "model_key": "solis_90_4wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "XU 6168",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12931&page=90"
+        ],
+        "price": 28000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 50.7076,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 37.5,
+            "lift_capacity": 1850.0
+        },
+        "model_key": "xu_6168",
+        "manufacturer_key": "ls"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -8256,7 +9358,7 @@
             "engine_displacement": 4.156,
             "engine_torque": 507.3,
             "engine_cylinders": 4,
-            "first_year": "2018",
+            "first_year": 2012,
             "last_year": "2021",
             "fuel_capacity": 172.6,
             "powertrain": "4x4",
@@ -8697,9 +9799,30 @@
             "fuel_capacity": 249.8,
             "lift_capacity": 7864.0,
             "hydrolic_pump_flow": 121.0,
+            "first_year": 2007,
             "drawbar_power_kw": 69.6
         },
         "model_key": "maxxum_115",
+        "manufacturer_key": "case"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "CASE",
+        "model": "PUMA 140",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13072&page=94"
+        ],
+        "price": 115000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 104.39800000000001,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 110.0,
+            "lift_capacity": 8647.0
+        },
+        "model_key": "puma_140",
         "manufacturer_key": "case"
     },
     {
@@ -8710,6 +9833,7 @@
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13077&page=94",
             "https://www.tractordata.com/farm-tractors/011/2/3/11237-john-deere-6r-110.html",
+            "https://www.ritchiespecs.com/model/john-deere-1025r-utility-tractor",
             "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-john-deere/6r-140-11759584"
         ],
         "price": 30500.0,
@@ -8721,13 +9845,13 @@
             "wheelbase": 2.59,
             "max_speed": 40.0,
             "weight": 6000.0,
-            "engine_displacement": 4.5,
+            "engine_displacement": 1.3,
             "engine_torque": 1600.0,
             "engine_cylinders": 3,
-            "first_year": "2021",
+            "first_year": 2022,
             "last_year": "2024",
-            "pto_power_kw": 61.9,
             "powertrain": "4x4",
+            "pto_power_kw": 61.9,
             "hydrolic_pump_flow": 24.0,
             "lift_capacity": 525.0,
             "front_lift_capacity": 3299.0
@@ -8811,6 +9935,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
+        "model": "6-155 RS ROBO - SIX",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11702&page=97"
+        ],
+        "price": 82600.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 115.5835,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 114.0,
+            "lift_capacity": 7200.0
+        },
+        "model_key": "6155_rs_robo_six",
+        "manufacturer_key": "landini"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "KIOTI",
         "model": "HX9010PC",
         "sources": [
@@ -8820,6 +9964,7 @@
         "price": 60900.0,
         "equipment_level_code": "premium",
         "specification": {
+            "first_year": 2021,
             "fuel_capacity": 168.8,
             "hydrolic_pump_flow": 121.0,
             "lift_capacity": 4410.0,
@@ -8974,7 +10119,7 @@
             "weight": 6100.0,
             "engine_displacement": 9.0,
             "engine_cylinders": 6,
-            "first_year": "2017",
+            "first_year": 2022,
             "last_year": "2020",
             "powertrain": "4x4",
             "pto_power_kw": 67.9,
@@ -9088,8 +10233,8 @@
             "length": 4.889,
             "max_speed": 50.0,
             "weight": 4799.0,
-            "first_year": "2012",
-            "last_year": "2017",
+            "first_year": 2009,
+            "last_year": 2009,
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -9158,6 +10303,26 @@
         "manufacturer_key": "mchale"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LANDINI",
+        "model": "5-100 ACTIVE STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=11740&page=100"
+        ],
+        "price": 52900.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 70.8415,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 62.0,
+            "lift_capacity": 4500.0
+        },
+        "model_key": "5100_active_stage_v",
+        "manufacturer_key": "landini"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "WEAVING MACHINERY",
@@ -9174,6 +10339,66 @@
         },
         "model_key": "gd3001t",
         "manufacturer_key": "weaving_machinery"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M5112 NARROW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12161&page=101"
+        ],
+        "price": 63900.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 85.7555,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 92.5,
+            "lift_capacity": 2300.0
+        },
+        "model_key": "m5112_narrow",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.175 CLASSIC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12017&page=101"
+        ],
+        "price": 110000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 119.31200000000001,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "t_7175_classic",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "PLUS 100 P/S",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12165&page=102"
+        ],
+        "price": 43000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 72.33290000000001,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 59.4,
+            "lift_capacity": 3800.0
+        },
+        "model_key": "plus_100_p_s",
+        "manufacturer_key": "ls"
     },
     {
         "category": "feed_preperation_equipment",
@@ -9233,6 +10458,26 @@
         },
         "model_key": "kasi_400",
         "manufacturer_key": "agrokalina"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M5112 NARROW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12589&page=103"
+        ],
+        "price": 73800.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 85.7555,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 92.5,
+            "lift_capacity": 2300.0
+        },
+        "model_key": "m5112_narrow",
+        "manufacturer_key": "kubota"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -9302,10 +10547,31 @@
             "fuel_capacity": 249.8,
             "lift_capacity": 7864.0,
             "hydrolic_pump_flow": 121.0,
+            "first_year": 2007,
             "drawbar_power_kw": 67.8
         },
         "model_key": "maxxum_125",
         "manufacturer_key": "case"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "XU 6158",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12590&page=103"
+        ],
+        "price": 35500.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 43.2506,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 37.0,
+            "lift_capacity": 1850.0
+        },
+        "model_key": "xu_6158",
+        "manufacturer_key": "ls"
     },
     {
         "category": "tractor",
@@ -9326,8 +10592,8 @@
             "length": 4.889,
             "max_speed": 50.0,
             "weight": 4799.0,
-            "first_year": "2012",
-            "last_year": "2017",
+            "first_year": 2009,
+            "last_year": 2009,
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -9338,6 +10604,26 @@
         },
         "model_key": "arion_450",
         "manufacturer_key": "claas"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "DK6020C",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12766&page=104"
+        ],
+        "price": 28505.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 43.2506,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 62.4,
+            "lift_capacity": 1417.0
+        },
+        "model_key": "dk6020c",
+        "manufacturer_key": "kioti"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -9378,8 +10664,8 @@
             "weight": 4799.0,
             "engine_torque": 405.0,
             "engine_cylinders": 4,
-            "first_year": "2014",
-            "last_year": "2021",
+            "first_year": 2009,
+            "last_year": 2009,
             "wheelbase": 2.56,
             "powertrain": "4x4",
             "engine_displacement": 4.6,
@@ -9461,6 +10747,46 @@
         },
         "model_key": "weeder_hd_1500",
         "manufacturer_key": "heva"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 90N 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12861&page=106"
+        ],
+        "price": 44100.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 65.6216,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 45.0,
+            "lift_capacity": 2500.0
+        },
+        "model_key": "solis_90n_4wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 9+9 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12914&page=106"
+        ],
+        "price": 16500.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 17.8,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_9+9_4wd",
+        "manufacturer_key": "sonalika"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -9575,6 +10901,44 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13144&page=107"
+        ],
+        "price": 9450.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 14.0,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_4wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "C320 V620",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13132&page=107"
+        ],
+        "price": 228710.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 172.2567,
+            "working_width": 6.2,
+            "work_capacity_l": 6500.0
+        },
+        "model_key": "c320_v620",
+        "manufacturer_key": "claas"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "CASE",
         "model": "PUMA 240",
         "sources": [
@@ -9584,6 +10948,7 @@
         "price": 199000.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 2014,
             "engine_power_kw": 178.96800000000002,
             "pto_power_kw": 170.5,
             "drawbar_power_kw": 129.2,
@@ -9657,6 +11022,24 @@
         "manufacturer_key": "kuhn"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "SAMPO",
+        "model": "COMIA C12 + 6.3P",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13159&page=110"
+        ],
+        "price": 230440.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 228.9299,
+            "working_width": 6.3,
+            "work_capacity_l": 7600.0
+        },
+        "model_key": "comia_c12_+_63p",
+        "manufacturer_key": "sampo"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "UNIA",
@@ -9693,6 +11076,67 @@
         "manufacturer_key": "unia"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "FENDT",
+        "model": "5255 L MCS",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13069&page=110",
+            "https://www.lectura-specs.com/en/model/agricultural-machinery/combine-harvesters-fendt/5255-l-mcs-1168529"
+        ],
+        "price": 198000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 193.882,
+            "model_series": "L",
+            "work_capacity_l": 8600.0,
+            "working_width": 6.0,
+            "weight": 13100.0,
+            "engine_displacement": 7.4,
+            "engine_cylinders": 6.0,
+            "first_year": "2016",
+            "last_year": "2021"
+        },
+        "model_key": "5255_l_mcs",
+        "manufacturer_key": "fendt"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "C 320 E5 MAXI C560",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13218&page=110"
+        ],
+        "price": 226175.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 172.2567,
+            "working_width": 5.6,
+            "work_capacity_l": 6500.0
+        },
+        "model_key": "c_320_e5_maxi_c560",
+        "manufacturer_key": "claas"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "C 320 E5 CLASSIC C620",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13199&page=110"
+        ],
+        "price": 199525.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 172.2567,
+            "working_width": 6.2,
+            "work_capacity_l": 6500.0
+        },
+        "model_key": "c_320_e5_classic_c620",
+        "manufacturer_key": "claas"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "EINBOECK",
@@ -9727,6 +11171,49 @@
         },
         "model_key": "taifun_400_rp47",
         "manufacturer_key": "einboeck"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M5102",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12593&page=111",
+            "https://www.tractordata.com/farm-tractors/010/9/0/10909-kubota-m5092.html"
+        ],
+        "price": 73000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "first_year": 2021,
+            "fuel_capacity": 104.8,
+            "powertrain": "4x4",
+            "engine_power_kw": 79.0442,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 92.5,
+            "lift_capacity": 2300.0
+        },
+        "model_key": "m5102",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M7173 KVT",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13133&page=111"
+        ],
+        "price": 131400.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 126.769,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 110.0,
+            "lift_capacity": 9400.0
+        },
+        "model_key": "m7173_kvt",
+        "manufacturer_key": "kubota"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -9805,6 +11292,24 @@
         },
         "model_key": "vitu",
         "manufacturer_key": "kockerling"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "CR 10.90 STAGE V TRACK",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13282&page=112"
+        ],
+        "price": 730000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "engine_power_kw": 521.99,
+            "working_width": 12.5,
+            "work_capacity_l": 14500.0
+        },
+        "model_key": "cr_1090_stage_v_track",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -9953,10 +11458,31 @@
         "category": "tractor",
         "sub_category": "tractor_4x4",
         "manufacturer": "NEW HOLLAND",
+        "model": "T 7.175 CLASSIC STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13315&page=115"
+        ],
+        "price": 98000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 119.31200000000001,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "t_7175_classic_stage_v",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
         "model": "T5.120 EC",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=12862&page=116",
             "https://www.tractordata.com/farm-tractors/001/0/3/1036-new-holland-t5120.html",
+            "https://www.ritchiespecs.com/model/new-holland-t5-120-mfwd-tractor",
             "https://www.lectura-specs.com/en/model/agricultural-machinery/4wd-tractors-new-holland/t5-110-dc-11733844"
         ],
         "price": 80000.0,
@@ -9964,19 +11490,20 @@
         "specification": {
             "engine_power_kw": 87.2469,
             "model_series": "T5",
-            "length": 4.2,
+            "length": 4.191,
             "wheelbase": 2.48,
             "max_speed": 40.0,
             "weight": 5499.0,
-            "engine_displacement": 4.5,
+            "engine_displacement": 3.4,
             "engine_torque": 1300.0,
             "engine_cylinders": 4,
-            "first_year": "2019",
+            "first_year": 2019,
             "last_year": "2024",
+            "powertrain": "4x4",
+            "pto_power_kw": 73.9,
             "fuel_capacity": 179.8,
-            "hydrolic_pump_flow": 84.0,
             "lift_capacity": 5420.0,
-            "powertrain": "4x4"
+            "hydrolic_pump_flow": 84.0
         },
         "model_key": "t5120_ec",
         "manufacturer_key": "new_holland"
@@ -10002,8 +11529,8 @@
             "weight": 1705.0,
             "engine_displacement": 1.9,
             "engine_cylinders": 3,
-            "first_year": "2022",
-            "last_year": "2024",
+            "first_year": 2009,
+            "last_year": 2009,
             "wheelbase": 1.86,
             "powertrain": "4x4",
             "fuel_capacity": 49.2,
@@ -10035,7 +11562,7 @@
             "weight": 4500.0,
             "engine_displacement": 3.849,
             "engine_cylinders": 4,
-            "first_year": "2017",
+            "first_year": 2017,
             "last_year": "2024",
             "fuel_capacity": 135.1,
             "powertrain": "4x4",
@@ -10045,6 +11572,66 @@
         },
         "model_key": "5125_gs",
         "manufacturer_key": "deutzfahr"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 6.160 EC STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13321&page=116"
+        ],
+        "price": 91500.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 111.855,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 7864.0
+        },
+        "model_key": "t_6160_ec_stage_v",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "CASE",
+        "model": "PUMA 220 MULTICOTROLLER",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13339&page=116"
+        ],
+        "price": 156000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 187.1707,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 150.0,
+            "lift_capacity": 10463.0
+        },
+        "model_key": "puma_220_multicotroller",
+        "manufacturer_key": "case"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13347&page=116"
+        ],
+        "price": 16650.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 14.0,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_4wd",
+        "manufacturer_key": "sonalika"
     },
     {
         "category": "tractor",
@@ -10142,7 +11729,7 @@
             "weight": 4500.0,
             "engine_displacement": 3.62,
             "engine_cylinders": 4,
-            "first_year": "2017",
+            "first_year": 2017,
             "last_year": "2024",
             "fuel_capacity": 135.1,
             "powertrain": "4x4",
@@ -10156,6 +11743,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "L2-522 NAGLAK",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13380&page=117"
+        ],
+        "price": 49060.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 38.7764,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 53.8,
+            "lift_capacity": 1750.0
+        },
+        "model_key": "l2522_naglak",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "FARMTRAC",
         "model": "26",
         "sources": [
@@ -10165,6 +11772,8 @@
         "price": 9900.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 1998,
+            "last_year": 1998,
             "engine_power_kw": 17.8968,
             "pto_power_kw": 33.3,
             "powertrain": "4x4",
@@ -10176,6 +11785,46 @@
             "engine_cylinders": 3
         },
         "model_key": "26",
+        "manufacturer_key": "farmtrac"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "FARMTRAC",
+        "model": "26 H",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13386&page=118"
+        ],
+        "price": 11200.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 17.8968,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 19.3,
+            "lift_capacity": 800.0
+        },
+        "model_key": "26_h",
+        "manufacturer_key": "farmtrac"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "FARMTRAC",
+        "model": "22",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13384&page=118"
+        ],
+        "price": 9000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 15.6597,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 14.5,
+            "lift_capacity": 800.0
+        },
+        "model_key": "22",
         "manufacturer_key": "farmtrac"
     },
     {
@@ -10196,8 +11845,8 @@
             "max_speed": 30.0,
             "engine_displacement": 2.2,
             "engine_cylinders": 4,
-            "first_year": "2020",
-            "last_year": "2024",
+            "first_year": 2001,
+            "last_year": 2001,
             "fuel_capacity": 90.1,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 31.0,
@@ -10207,6 +11856,26 @@
         },
         "model_key": "3060",
         "manufacturer_key": "deutzfahr"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "DK6020C",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13396&page=118"
+        ],
+        "price": 33177.88,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 43.2506,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 62.4,
+            "lift_capacity": 1417.0
+        },
+        "model_key": "dk6020c",
+        "manufacturer_key": "kioti"
     },
     {
         "category": "tractor",
@@ -10230,7 +11899,7 @@
             "engine_displacement": 3.331,
             "engine_torque": 1400.0,
             "engine_cylinders": 4,
-            "first_year": "2021",
+            "first_year": 2019,
             "last_year": "2024",
             "fuel_capacity": 90.1,
             "hydrolic_pump_flow": 88.0,
@@ -10278,8 +11947,8 @@
             "wheelbase": 2.56,
             "max_speed": 50.0,
             "weight": 6050.0,
-            "first_year": "1998",
-            "last_year": "2006",
+            "first_year": 2012,
+            "last_year": 2012,
             "fuel_capacity": 297.9,
             "powertrain": "4x4",
             "hydrolic_pump_flow": 110.0,
@@ -10289,6 +11958,26 @@
         },
         "model_key": "516_vario",
         "manufacturer_key": "fendt"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "FARMTRAC",
+        "model": "22",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13410&page=119"
+        ],
+        "price": 12000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 15.6597,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 14.5,
+            "lift_capacity": 800.0
+        },
+        "model_key": "22",
+        "manufacturer_key": "farmtrac"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -10309,6 +11998,26 @@
         "manufacturer_key": "fischer_factory"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "L1-382 HST",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13382&page=119"
+        ],
+        "price": 27100.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 28.3366,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 45.5,
+            "lift_capacity": 906.0
+        },
+        "model_key": "l1382_hst",
+        "manufacturer_key": "kubota"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "KVERNELAND",
@@ -10325,6 +12034,64 @@
         },
         "model_key": "udrill_4001+",
         "manufacturer_key": "kverneland"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "TRION 650 VARIO 770",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13416&page=119"
+        ],
+        "price": 295000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 263.9778,
+            "working_width": 7.7,
+            "work_capacity_l": 10500.0
+        },
+        "model_key": "trion_650_vario_770",
+        "manufacturer_key": "claas"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "XP 101 P/S",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13417&page=120"
+        ],
+        "price": 48500.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 75.3157,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 59.4,
+            "lift_capacity": 3800.0
+        },
+        "model_key": "xp_101_p_s",
+        "manufacturer_key": "ls"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "FARMTRAC",
+        "model": "26 H",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13422&page=120"
+        ],
+        "price": 14650.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 17.8968,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 19.3,
+            "lift_capacity": 800.0
+        },
+        "model_key": "26_h",
+        "manufacturer_key": "farmtrac"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -10381,7 +12148,7 @@
             "wheelbase": 2.42,
             "max_speed": 50.0,
             "weight": 5010.0,
-            "first_year": "2006",
+            "first_year": 2020,
             "last_year": "2013",
             "fuel_capacity": 210.1,
             "powertrain": "4x4",
@@ -10392,6 +12159,24 @@
         },
         "model_key": "514_vario",
         "manufacturer_key": "fendt"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "LEXION 5400 CON770FL",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13463&page=122"
+        ],
+        "price": 320000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 263.9778,
+            "working_width": 7.7,
+            "work_capacity_l": 10000.0
+        },
+        "model_key": "lexion_5400_con770fl",
+        "manufacturer_key": "claas"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -10603,6 +12388,46 @@
         "manufacturer_key": "unia"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "XU 6158",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13613&page=128"
+        ],
+        "price": 36000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 43.2506,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 37.0,
+            "lift_capacity": 1850.0
+        },
+        "model_key": "xu_6158",
+        "manufacturer_key": "ls"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LS",
+        "model": "MT 3,50",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13611&page=128"
+        ],
+        "price": 30300.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 37.285000000000004,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 31.2,
+            "lift_capacity": 1320.0
+        },
+        "model_key": "mt_350",
+        "manufacturer_key": "ls"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "AGRO-SOYUZ",
@@ -10788,8 +12613,8 @@
             "engine_displacement": 2.0,
             "engine_torque": 1200.0,
             "engine_cylinders": 3,
-            "first_year": "2021",
-            "last_year": "2024",
+            "first_year": 2008,
+            "last_year": 2008,
             "powertrain": "4x4",
             "pto_power_kw": 37.3,
             "weight": 1476.0,
@@ -10822,6 +12647,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 6.145 EC STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13727&page=132"
+        ],
+        "price": 98000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 97.6867,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 7864.0
+        },
+        "model_key": "t_6145_ec_stagev",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "LANDINI",
         "model": "4-070",
         "sources": [
@@ -10841,8 +12686,8 @@
             "engine_displacement": 2.9,
             "engine_torque": 397.0,
             "engine_cylinders": 4,
-            "first_year": "2014",
-            "last_year": "2018",
+            "first_year": 2014,
+            "last_year": 2014,
             "pto_power_kw": 42.5,
             "fuel_capacity": 89.7,
             "powertrain": "4x4",
@@ -10891,6 +12736,66 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13734&page=133"
+        ],
+        "price": 13350.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 16.5,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_4wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "M5072 NARROW",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13609&page=133"
+        ],
+        "price": 74700.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 53.690400000000004,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 63.3,
+            "lift_capacity": 2300.0
+        },
+        "model_key": "m5072_narrow",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.230 AC STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13665&page=133"
+        ],
+        "price": 130000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 152.8685,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 150.0,
+            "lift_capacity": 10463.0
+        },
+        "model_key": "t_7230_ac_stagev",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "KUBOTA",
         "model": "L2-552",
         "sources": [
@@ -10900,6 +12805,8 @@
         "price": 44200.0,
         "equipment_level_code": "medium",
         "specification": {
+            "first_year": 1988,
+            "last_year": 1988,
             "engine_power_kw": 41.0135,
             "pto_power_kw": 17.9,
             "fuel_capacity": 29.1,
@@ -10936,6 +12843,26 @@
         "category": "tractor",
         "sub_category": "tractor_4x4",
         "manufacturer": "KIOTI",
+        "model": "RX7330PC",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13783&page=134"
+        ],
+        "price": 39150.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 54.4361,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 73.0,
+            "lift_capacity": 1768.0
+        },
+        "model_key": "rx7330pc",
+        "manufacturer_key": "kioti"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
         "model": "CX2510H",
         "sources": [
             "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=324&page=134",
@@ -10944,6 +12871,7 @@
         "price": 12990.0,
         "equipment_level_code": "base",
         "specification": {
+            "first_year": 2021,
             "fuel_capacity": 25.0,
             "hydrolic_pump_flow": 42.9,
             "lift_capacity": 739.0,
@@ -10956,6 +12884,106 @@
         },
         "model_key": "cx2510h",
         "manufacturer_key": "kioti"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "CK2630CH",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=325&page=134"
+        ],
+        "price": 21720.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 39.6,
+            "lift_capacity": 740.0
+        },
+        "model_key": "ck2630ch",
+        "manufacturer_key": "kioti"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 26 HST 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13735&page=134"
+        ],
+        "price": 11700.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 18.642500000000002,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 16.5,
+            "lift_capacity": 600.0
+        },
+        "model_key": "solis_26_hst_4wd",
+        "manufacturer_key": "sonalika"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "EK1-261",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13804&page=135"
+        ],
+        "price": 12100.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 19.3882,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 19.3,
+            "lift_capacity": 800.0
+        },
+        "model_key": "ek1261",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 4.75 S STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13841&page=136"
+        ],
+        "price": 39000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 55.9275,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 47.0,
+            "lift_capacity": 3000.0
+        },
+        "model_key": "t_475_s_stagev",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "EK1-261",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13813&page=136"
+        ],
+        "price": 16090.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 19.3882,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 19.3,
+            "lift_capacity": 800.0
+        },
+        "model_key": "ek1261",
+        "manufacturer_key": "kubota"
     },
     {
         "category": "feed_preperation_equipment",
@@ -11000,6 +13028,46 @@
         },
         "model_key": "u_810_2",
         "manufacturer_key": "jarmet"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "DK6020C",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13863&page=138"
+        ],
+        "price": 32050.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 43.2506,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 62.4,
+            "lift_capacity": 1417.0
+        },
+        "model_key": "dk6020c",
+        "manufacturer_key": "kioti"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.190 CLASSIC STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13914&page=140"
+        ],
+        "price": 111000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 130.4975,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "t_7190_classic_stagev",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -11056,6 +13124,26 @@
         "manufacturer_key": "kvickfinn"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 7.210 SW STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=13940&page=140"
+        ],
+        "price": 135800.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 141.683,
+            "engine_cylinders": 6,
+            "hydrolic_pump_flow": 113.0,
+            "lift_capacity": 8257.0
+        },
+        "model_key": "t_7210_sw_stagev",
+        "manufacturer_key": "new_holland"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "KVICKFINN",
@@ -11090,6 +13178,66 @@
         },
         "model_key": "bio_3250",
         "manufacturer_key": "kvickfinn"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "LX 401",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14006&page=142"
+        ],
+        "price": 33500.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 29.828000000000003,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 35.9,
+            "lift_capacity": 1150.0
+        },
+        "model_key": "lx_401",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "LX 401",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14007&page=142"
+        ],
+        "price": 47800.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 29.828000000000003,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 35.9,
+            "lift_capacity": 1150.0
+        },
+        "model_key": "lx_401",
+        "manufacturer_key": "kubota"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KUBOTA",
+        "model": "LX 401",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14008&page=142"
+        ],
+        "price": 36100.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 29.828000000000003,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 35.9,
+            "lift_capacity": 1150.0
+        },
+        "model_key": "lx_401",
+        "manufacturer_key": "kubota"
     },
     {
         "category": "feed_preperation_equipment",
@@ -11152,7 +13300,8 @@
             "weight": 1760.0,
             "fuel_capacity": 48.1,
             "lift_capacity": 1660.0,
-            "hydrolic_pump_flow": 60.0
+            "hydrolic_pump_flow": 60.0,
+            "first_year": 2016
         },
         "model_key": "yt347q",
         "manufacturer_key": "yanmar"
@@ -11247,6 +13396,26 @@
     {
         "category": "tractor",
         "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "CK4030C",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14089&page=146"
+        ],
+        "price": 27850.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 29.0823,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 42.9,
+            "lift_capacity": 740.0
+        },
+        "model_key": "ck4030c",
+        "manufacturer_key": "kioti"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
         "manufacturer": "CLAAS",
         "model": "ARION 630 CMATIC",
         "sources": [
@@ -11311,6 +13480,24 @@
         },
         "model_key": "enduro_3500",
         "manufacturer_key": "kverneland"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "SAMPO",
+        "model": "COMIA C12 6,3P",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14199&page=150"
+        ],
+        "price": 290690.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 228.9299,
+            "working_width": 6.3,
+            "work_capacity_l": 7600.0
+        },
+        "model_key": "comia_c12_63p",
+        "manufacturer_key": "sampo"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -11408,6 +13595,24 @@
         "manufacturer_key": "same"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "SAMPO ROSENLEW",
+        "model": "COMIA C12 +5.7P",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14264&page=153"
+        ],
+        "price": 287753.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 228.9299,
+            "working_width": 5.7,
+            "work_capacity_l": 7600.0
+        },
+        "model_key": "comia_c12_+57p",
+        "manufacturer_key": "sampo_rosenlew"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "IRTEM",
@@ -11424,6 +13629,26 @@
         },
         "model_key": "dd3000_540_510",
         "manufacturer_key": "irtem"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "NEW HOLLAND",
+        "model": "T 5.100 S STAGEV",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14248&page=153"
+        ],
+        "price": 53000.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 75.3157,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 64.0,
+            "lift_capacity": 4400.0
+        },
+        "model_key": "t_5100_s_stagev",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "feed_preperation_equipment",
@@ -11928,7 +14153,7 @@
             "engine_displacement": 4.156,
             "engine_torque": 315.8,
             "engine_cylinders": 4,
-            "first_year": "2018",
+            "first_year": 2016,
             "last_year": "2022",
             "fuel_capacity": 149.9,
             "powertrain": "4x4",
@@ -12436,6 +14661,26 @@
         },
         "model_key": "primera_dmc_90012c",
         "manufacturer_key": "amazone"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "HINOMOTO",
+        "model": "HM475",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14314&page=166"
+        ],
+        "price": 25537.19,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 35.7936,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 52.0,
+            "lift_capacity": 500.0
+        },
+        "model_key": "hm475",
+        "manufacturer_key": "hinomoto"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -13083,6 +15328,26 @@
         "manufacturer_key": "amazone"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "FARMTRAC",
+        "model": "6075 EC PRO 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14822&page=178"
+        ],
+        "price": 33000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 55.9275,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 50.0,
+            "lift_capacity": 3000.0
+        },
+        "model_key": "6075_ec_pro_4wd",
+        "manufacturer_key": "farmtrac"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "harrow",
         "manufacturer": "KLIMZA",
@@ -13297,6 +15562,26 @@
         "manufacturer_key": "dziekan"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "KIOTI",
+        "model": "CK4030CH",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14891&page=182"
+        ],
+        "price": 24750.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 29.828000000000003,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 43.0,
+            "lift_capacity": 740.0
+        },
+        "model_key": "ck4030ch",
+        "manufacturer_key": "kioti"
+    },
+    {
         "category": "sowing_and_planting_equipment",
         "sub_category": "seed_drill",
         "manufacturer": "AGRO-MASZ",
@@ -13333,6 +15618,44 @@
         "manufacturer_key": "metaltechnik"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CASE IH",
+        "model": "AF 7150",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15004&page=185"
+        ],
+        "price": 285000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 343.022,
+            "working_width": 7.6,
+            "work_capacity_l": 10570.0
+        },
+        "model_key": "af_7150",
+        "manufacturer_key": "case_ih"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LOVOL",
+        "model": "M504",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=14977&page=186"
+        ],
+        "price": 20619.83,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 37.285000000000004,
+            "engine_cylinders": 3,
+            "hydrolic_pump_flow": 59.0,
+            "lift_capacity": 1500.0
+        },
+        "model_key": "m504",
+        "manufacturer_key": "lovol"
+    },
+    {
         "category": "tractor",
         "sub_category": "tractor_4x4",
         "manufacturer": "FENDT",
@@ -13351,7 +15674,7 @@
             "wheelbase": 2.34,
             "max_speed": 60.0,
             "weight": 4450.0,
-            "first_year": "2006",
+            "first_year": 2012,
             "last_year": "2010",
             "fuel_capacity": 194.9,
             "powertrain": "4x4",
@@ -13362,6 +15685,24 @@
         },
         "model_key": "933_vario",
         "manufacturer_key": "fendt"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "CLAAS",
+        "model": "EVION 450 VARIO 560",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15044&page=187"
+        ],
+        "price": 229350.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 192.3906,
+            "working_width": 5.6,
+            "work_capacity_l": 8000.0
+        },
+        "model_key": "evion_450_vario_560",
+        "manufacturer_key": "claas"
     },
     {
         "category": "tractor",
@@ -13409,6 +15750,26 @@
         },
         "model_key": "astra_sz3_premium",
         "manufacturer_key": "elvorti"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 75 V 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15118&page=189"
+        ],
+        "price": 38600.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 55.9275,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 65.0,
+            "lift_capacity": 3500.0
+        },
+        "model_key": "solis_75_v_4wd",
+        "manufacturer_key": "sonalika"
     },
     {
         "category": "sowing_and_planting_equipment",
@@ -13695,7 +16056,7 @@
             "wheelbase": 2.29,
             "max_speed": 40.0,
             "weight": 3929.0,
-            "first_year": "2006",
+            "first_year": 2010,
             "last_year": "2013",
             "powertrain": "4x4",
             "engine_cylinders": 4,
@@ -13770,6 +16131,78 @@
         "manufacturer_key": "vaderstad"
     },
     {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "TC 4.90 STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15364&page=200"
+        ],
+        "price": 143000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 126.769,
+            "working_width": 5.18,
+            "work_capacity_l": 5000.0
+        },
+        "model_key": "tc_490_stage_v",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "TC 5.70 STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15365&page=200"
+        ],
+        "price": 161000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 126.769,
+            "working_width": 5.18,
+            "work_capacity_l": 5200.0
+        },
+        "model_key": "tc_570_stage_v",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "TC 5.90 STAGE V MY 22",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15366&page=200"
+        ],
+        "price": 193000.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "engine_power_kw": 177.47660000000002,
+            "working_width": 5.48,
+            "work_capacity_l": 6400.0
+        },
+        "model_key": "tc_590_stage_v_my_22",
+        "manufacturer_key": "new_holland"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "CX 5.80 STAGE V",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15367&page=200"
+        ],
+        "price": 213000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 177.47660000000002,
+            "working_width": 6.1,
+            "work_capacity_l": 8300.0
+        },
+        "model_key": "cx_580_stage_v",
+        "manufacturer_key": "new_holland"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "BOMET",
@@ -13804,6 +16237,24 @@
         },
         "model_key": "klaudia_x2_kl002a7",
         "manufacturer_key": "jagoda"
+    },
+    {
+        "category": "harvesting_equipment",
+        "sub_category": "combine",
+        "manufacturer": "NEW HOLLAND",
+        "model": "CX 6.80 STAGE V MY 22",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15369&page=200"
+        ],
+        "price": 240000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "engine_power_kw": 233.4041,
+            "working_width": 6.7,
+            "work_capacity_l": 9300.0
+        },
+        "model_key": "cx_680_stage_v_my_22",
+        "manufacturer_key": "new_holland"
     },
     {
         "category": "soil_cultivation_equipment",
@@ -13883,6 +16334,66 @@
         "manufacturer_key": "claas"
     },
     {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "BRANSON",
+        "model": "F50HN",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15372&page=202"
+        ],
+        "price": 19000.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 35.7936,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 43.0,
+            "lift_capacity": 1500.0
+        },
+        "model_key": "f50hn",
+        "manufacturer_key": "branson"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "BRANSON",
+        "model": "F50HN",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15373&page=202"
+        ],
+        "price": 21500.0,
+        "equipment_level_code": "medium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 35.7936,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 43.0,
+            "lift_capacity": 1500.0
+        },
+        "model_key": "f50hn",
+        "manufacturer_key": "branson"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "BRANSON",
+        "model": "F50HN",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15374&page=202"
+        ],
+        "price": 26500.0,
+        "equipment_level_code": "premium",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 35.7936,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 43.0,
+            "lift_capacity": 1500.0
+        },
+        "model_key": "f50hn",
+        "manufacturer_key": "branson"
+    },
+    {
         "category": "soil_cultivation_equipment",
         "sub_category": "cultivator",
         "manufacturer": "KVERNELAND",
@@ -13922,6 +16433,46 @@
         },
         "model_key": "rsl55t",
         "manufacturer_key": "laumetris"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "LOVOL",
+        "model": "M404",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15430&page=203"
+        ],
+        "price": 16528.93,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 29.828000000000003,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 38.0,
+            "lift_capacity": 740.0
+        },
+        "model_key": "m404",
+        "manufacturer_key": "lovol"
+    },
+    {
+        "category": "tractor",
+        "sub_category": "tractor_4x4",
+        "manufacturer": "SONALIKA",
+        "model": "SOLIS 90 V 4WD",
+        "sources": [
+            "https://eps.lad.gov.lv/show_etk_public?action=index&controller=catalog_entries_public&id=15422&page=204"
+        ],
+        "price": 42700.0,
+        "equipment_level_code": "base",
+        "specification": {
+            "powertrain": "4x4",
+            "engine_power_kw": 67.8587,
+            "engine_cylinders": 4,
+            "hydrolic_pump_flow": 65.0,
+            "lift_capacity": 3500.0
+        },
+        "model_key": "solis_90_v_4wd",
+        "manufacturer_key": "sonalika"
     },
     {
         "category": "sowing_and_planting_equipment",

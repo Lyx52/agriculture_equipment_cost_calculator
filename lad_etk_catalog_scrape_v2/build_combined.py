@@ -28,7 +28,6 @@ combined = build_combined(combined, lectura_spec_data)
 
 required_specification_keys_by_category = {
     'tractor': [
-        'weight',
         'engine_power_kw'
     ],
     'sowing_and_planting_equipment': [
@@ -43,7 +42,6 @@ required_specification_keys_by_category = {
         'required_power_kw',
     ],
     'harvesting_equipment': [
-        'weight',
         'engine_power_kw'
     ]
 }
