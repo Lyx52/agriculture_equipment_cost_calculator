@@ -179,19 +179,21 @@ def get_ritchiespecs() -> list[EquipmentModel]:
                 additional_specs = {}
                 match category:
                     case '2wd_tractor':
-                        additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
+                        additional_specs['powertrain'] = '4x2'
                         common_category = 'tractor'
                         common_sub_category = 'tractor_4x2'
                     case '4wd_tractor':
-                        additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
+                        additional_specs['powertrain'] = '4x4'
                         common_category = 'tractor'
                         common_sub_category = 'tractor_4x4'
-                    # case 'mfwd_tractor':
-                    #     additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x4'
-                    #     common_category = EquipmentCategory.Tractor
-                    # case 'utility_tractor':
-                    #     additional_specs[EquipmentModelMetadata.Powertrain.value[0]] = '4x2'
-                    #     common_category = EquipmentCategory.Tractor
+                    case 'mfwd_tractor':
+                        additional_specs['powertrain'] = '4x4'
+                        common_category = 'tractor'
+                        common_sub_category = 'tractor_4x4'
+                    case 'utility_tractor':
+                        additional_specs['powertrain'] = '4x2'
+                        common_category = 'tractor'
+                        common_sub_category = 'tractor_4x2'
                     case 'air_drill':
                         common_category = 'sowing_and_planting_equipment'
                         common_sub_category = 'seed_drill'   

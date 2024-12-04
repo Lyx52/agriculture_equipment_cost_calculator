@@ -5,8 +5,16 @@ convert_marks = {
     'ls_tractor': 'LS',
     'ls_mtron': 'LS'
 }
+unknown_parameters = {}
 def from_tractordata(manufacturer: str, model_data: dict) -> EquipmentModel:
+    global unknown_parameters
     specs = {}
+
+    if 'year_range' in model_data and len(model_data['year_range']) > 0:
+        specs['first_year'] = model_data['year_range'][0]
+        if len(model_data['year_range']) >= 2:
+            specs['last_year'] = model_data['year_range'][0]
+            
     for key, value in model_data['metadata'].items():
         match key:
             case 'fuel_tank':
@@ -254,10 +262,13 @@ def from_tractordata(manufacturer: str, model_data: dict) -> EquipmentModel:
                         raise Exception(f"Unknown value {key} -> {value}")
                     specs[EquipmentModelMetadata.HydraulicPumpFlowCapacity.value[0]] = float(value['value'])
                     continue
+                
                 if type(value) is dict:
                     print(f"Unknown param {key}, {value}")
                 if key.isdigit():
                     continue
+                if key not in unknown_parameters:
+                    unknown_parameters[key] = value
                 #print(f"Unknown param {key}, {value}")
     clean_mark = clean_key(manufacturer)
     if clean_mark in convert_marks.keys():
@@ -277,4 +288,6 @@ def get_tractordata_catalog() -> list[EquipmentModel]:
                 continue
             items.append(catalog_item.toDict())
     return items
+
 save_json('tractordata_catalog.json', get_tractordata_catalog())
+print(unknown_parameters)

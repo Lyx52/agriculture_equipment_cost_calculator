@@ -1,7 +1,7 @@
 from utils import open_json, clean_key, clean_value, save_json, convert_zs_to_kw
 from equipment_model import EquipmentModel
 from bs4 import BeautifulSoup
-lectura_specs_data = open_json("lectura_data.json")
+lectura_specs_data = open_json("data/lectura_specs/raw/tables.json")
 sub_category_to_category = {
     'tractor_4x2': 'tractor',
     'tractor_4x4': 'tractor',
@@ -9,7 +9,8 @@ sub_category_to_category = {
     'cultivator': 'soil_cultivation_equipment',
     'packing_press': 'feed_preperation_equipment',
     'balling_press': 'feed_preperation_equipment',
-    'seed_drill': 'sowing_and_planting_equipment'
+    'seed_drill': 'sowing_and_planting_equipment',
+    'combine': 'harvesting_equipment'
 }
 
 models = []
@@ -89,6 +90,10 @@ for url, item in lectura_specs_data.items():
                 specifications['required_power_kw'] = float(value.replace('\xa0kW', ''))
             case 'Working width':
                 specifications['working_width'] = float(value.replace('\xa0m', ''))
+            case 'Cutting platform width':
+                value = value.replace('\xa0m', '')
+                value = value.replace(',', '.')
+                specifications['working_width'] = float(value)
             case 'max. working width':
                 specifications['working_width'] = float(value.replace('\xa0m', ''))
             case 'No. of tines':
@@ -116,6 +121,9 @@ for url, item in lectura_specs_data.items():
                     value = value.split('-')[1]
                 specifications['bale_diameter'] = float(value)
             case 'Tank capacity':
+                value = value.replace('\xa0l', '')
+                specifications['work_capacity_l'] = float(value)
+            case 'Grain tank size':
                 value = value.replace('\xa0l', '')
                 specifications['work_capacity_l'] = float(value)
             case 'No. of Plowshares':
