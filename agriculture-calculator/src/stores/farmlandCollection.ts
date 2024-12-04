@@ -1,15 +1,13 @@
 import {defineStore} from "pinia";
-import type {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";
-import {
-    type EquipmentTypeCategory,
-    EquipmentTypesToCategories
-} from "@/stores/constants/EquipmentTypes";
-import type {OperationType} from "@/stores/constants/OperationTypes";
-import {getEquipmentSubTypesByOperation} from "@/stores/constants/OperationTypes";
-import {TinyEmitter} from "tiny-emitter";
 import type {IFarmland} from "@/stores/interfaces/IFarmland";
 import type {IOption} from "@/stores/interfaces/IOption";
-import {CropCalendarHarvest, CropCalendarPlant, Crops, LadCropsToCropType} from "@/stores/constants/CropTypes";
+import {
+    CropCalendarHarvest,
+    CropCalendarPlant,
+    CropTypes,
+    DefaultDateIntervalHarvest,
+    DefaultDateIntervalPlant,
+} from "@/stores/constants/CropTypes";
 import type {IFarmlandCollection} from "@/stores/interfaces/IFarmlandCollection";
 import type {ISelectedMapField} from "@/stores/interfaces/ISelectedMapField";
 import {v4 as uuid} from "uuid";
@@ -31,17 +29,17 @@ export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
             this.items = this.items.filter(i => i.uniqueId !== itemId);
         },
         onFarmlandSelected(field: ISelectedMapField) {
-            let cropType = Object.keys(LadCropsToCropType).includes(field.productCode ?? '') ? LadCropsToCropType[field.productCode!] : 'spring_wheat';
+            let cropTypeCode = Object.keys(CropTypes).includes(field.productCode ?? '') ? Number(field.productCode) : 111; // Vasaraas kvieši
 
             this.pushItem({
                 uniqueId: uuid(),
                 area: field.area,
-                cropType: cropType,
+                cropTypeCode: cropTypeCode,
                 plantingInterval: {
-                    ...CropCalendarPlant[cropType]
+                    ...(Object.keys(CropCalendarPlant).includes(String(cropTypeCode)) ? CropCalendarPlant[cropTypeCode] : DefaultDateIntervalPlant)
                 },
                 harvestingInterval: {
-                    ...CropCalendarHarvest[cropType]
+                    ...(Object.keys(CropCalendarHarvest).includes(String(cropTypeCode)) ? CropCalendarHarvest[cropTypeCode] : DefaultDateIntervalHarvest)
                 }
             } as IFarmland);
         },
@@ -49,10 +47,10 @@ export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
             const farmLand = this.items.find(i => i.uniqueId === itemId)    ;
             if (!farmLand) return;
             farmLand.plantingInterval = {
-                ...CropCalendarPlant[farmLand.cropType]
+                ...(Object.keys(CropCalendarPlant).includes(String(farmLand.cropTypeCode)) ? CropCalendarPlant[farmLand.cropTypeCode] : DefaultDateIntervalPlant)
             };
             farmLand.harvestingInterval = {
-                ...CropCalendarHarvest[farmLand.cropType]
+                ...(Object.keys(CropCalendarHarvest).includes(String(farmLand.cropTypeCode)) ? CropCalendarHarvest[farmLand.cropTypeCode] : DefaultDateIntervalHarvest)
             };
         }
     },
@@ -60,7 +58,7 @@ export const useFarmlandCollectionStore = defineStore('farmlandCollection', {
         itemOptions(state: IFarmlandCollection): IOption<IFarmland>[] {
             return state.items.map(i => ({
                 value: i,
-                text: `${Crops[i.cropType]} ${i.area?.toFixed(2) ?? 0} ha`
+                text: `${CropTypes[i.cropTypeCode]} ${i.area?.toFixed(2) ?? 0} ha`
             } as IOption<IFarmland>));
         }
     }

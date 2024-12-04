@@ -18,8 +18,8 @@
                     <BTr v-for="row in farmlandCollectionStore.items">
                         <BTd>
                             <BFormSelect
-                                v-model="row.cropType"
-                                :options="CropOptions"
+                                v-model="row.cropTypeCode"
+                                :options="CropTypeOptions"
                                 @click="farmlandCollectionStore.updateCropCalendar(row.uniqueId)"
                             />
                         </BTd>
@@ -80,10 +80,14 @@ import {
     BTh,
     BFormSelect,
     BFormInput,
-    BInputGroup, BBadge, BPopover, BButtonGroup
+    BInputGroup,
+    BButtonGroup
 } from "bootstrap-vue-next";
 import {useFarmlandCollectionStore} from "@/stores/farmlandCollection";
-import {CropCalendarHarvest, CropCalendarPlant, CropOptions} from "@/stores/constants/CropTypes";
+import {
+    CropTypeOptions, DefaultDateIntervalHarvest,
+    DefaultDateIntervalPlant
+} from "@/stores/constants/CropTypes";
 import type {IFarmland} from "@/stores/interfaces/IFarmland";
 import {v4 as uuid} from 'uuid';
 import BNumericFormInput from "@/components/elements/BNumericFormInput.vue";
@@ -94,12 +98,12 @@ const addFarmland = () => {
     farmlandCollectionStore.pushItem({
         uniqueId: uuid(),
         area: 1,
-        cropType: 'spring_wheat',
+        cropTypeCode: 111, // Vasaras kvieši
         plantingInterval: {
-            ...CropCalendarPlant['spring_wheat']
+            ...DefaultDateIntervalPlant
         },
         harvestingInterval: {
-            ...CropCalendarHarvest['spring_wheat']
+            ...DefaultDateIntervalHarvest
         }
     } as IFarmland);
 }

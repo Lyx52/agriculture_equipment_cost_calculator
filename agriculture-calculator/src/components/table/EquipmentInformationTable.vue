@@ -17,14 +17,12 @@
                         <BTh>Tehnikas vienība</BTh>
                         <BTh>Marka</BTh>
                         <BTh>Modelis</BTh>
-                        <BTh>Cena (Jaunai), EUR</BTh>
-                        <BTh>Cena (Pašreizējā), EUR</BTh>
+                        <BTh>Cena, EUR</BTh>
                         <BTh v-if="isEquipment">Nepieciešamā jauda, kw</BTh>
                         <BTh v-if="isTractor || isCombine">Jauda, kw</BTh>
                         <BTh>Nolietojums, gadi</BTh>
                         <BTh>Ekonomiskais izmantošanas laiks, gadi</BTh>
-                        <BTh>Kopējais ekspluatācijas laiks, gadi</BTh>
-                        <BTh>Darba stundas gadā, h</BTh>
+                        <BTh>Gada noslodze, h</BTh>
                         <BTh v-if="isTractor || isCombine">Smērvielu izmaksas no degv. izmaksām, %</BTh>
                         <BTh>&nbsp;</BTh>
                     </BTr>
@@ -39,11 +37,6 @@
                         </BTd>
                         <BTd>
                             {{ row.model }}
-                        </BTd>
-                        <BTd>
-                            <BNumericFormInput
-                                v-model="row.initialPrice"
-                            ></BNumericFormInput>
                         </BTd>
                         <BTd>
                             <BNumericFormInput
@@ -69,9 +62,6 @@
                             <BNumericFormInput
                                 v-model="row.usageInformation.remainingUseYears"
                             ></BNumericFormInput>
-                        </BTd>
-                        <BTd class="align-middle text-center">
-                            {{ row.totalUsageYears }}
                         </BTd>
                         <BTd>
                             <BNumericFormInput

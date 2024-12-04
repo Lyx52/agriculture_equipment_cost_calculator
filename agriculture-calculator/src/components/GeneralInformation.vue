@@ -1,15 +1,9 @@
 <template>
     <div class="card shadow">
         <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Lauksaimniecības tehnikas pamatinformācija</h5>
+            <h5 class="card-title">Ievades dati</h5>
             <div class="row">
                 <div class="col">
-                    <BInputGroup class="mt-3" prepend="Degvielas cena" append="l/EUR">
-                        <BNumericFormInput
-                            v-model="generalInformationStore.fuelPrice"
-                           id="fuelPriceEur"
-                        />
-                    </BInputGroup>
                     <BInputGroup class="mt-3" prepend="Darbaspēka atalgojums" append="EUR/h">
                         <BNumericFormInput
                             v-model="generalInformationStore.employeeWage"

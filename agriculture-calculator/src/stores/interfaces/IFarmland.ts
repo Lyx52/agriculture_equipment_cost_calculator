@@ -1,8 +1,8 @@
-import type {CropType, IDateInterval} from "@/stores/constants/CropTypes";
+import type {IDateInterval} from "@/stores/constants/CropTypes";
 
 export interface IFarmland {
     uniqueId: string;
-    cropType: CropType;
+    cropTypeCode: number;
     area: number;
     plantingInterval: IDateInterval,
     harvestingInterval: IDateInterval

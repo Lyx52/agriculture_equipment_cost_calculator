@@ -13,19 +13,25 @@
                 <span v-else>
                     &nbsp;
                 </span>
-                <BButton @click="model = false">Aizvērt</BButton>
-            </div>
 
+                <div class="d-flex flex-row gap-3 align-items-baseline ms-auto me-3 searchBox">
+                    <label for="inputSearchBlockNr">Meklēt: </label>
+                    <BOverlay v-model="isLoading">
+                        <BFormInput disabled v-model="searchValue" id="inputSearchBlockNr" trim @input="onSearchInput" />
+                    </BOverlay>
+                </div>
+                <BButton class="mb-auto" @click="model = false">Aizvērt</BButton>
+            </div>
         </template>
         <div id="mapView" style="width: 100%; height: 80vh;"></div>
         <template #footer>
-            <BButton variant="success" @click="onFieldAdded">Pievienot</BButton>
+            <BButton variant="success" :disabled="!selectedFeatureResponse" @click="onFieldAdded">Pievienot</BButton>
         </template>
     </BModal>
 </template>
 
 <script setup lang="ts">
-import {BModal, BButton, BBadge} from 'bootstrap-vue-next';
+import {BModal, BButton, BBadge, BOverlay, BFormInput} from 'bootstrap-vue-next';
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import {onMounted, ref} from "vue";
@@ -41,12 +47,16 @@ import Polygon from "@arcgis/core/geometry/Polygon";
 import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol";
 const emits = defineEmits(['onFieldAdded'])
 const model = defineModel<boolean>();
+const searchValue = ref<string>('');
+const isLoading = ref<boolean>(false);
 const selectedFeatureResponse = ref<ISelectedMapField|undefined>(undefined);
 const onFieldAdded = () => {
     emits('onFieldAdded', selectedFeatureResponse.value);
     model.value = false;
 }
+const onSearchInput = () => {
 
+}
 import esriConfig from '@arcgis/core/config';
 if (!import.meta.env.DEV) {
     esriConfig.assetsPath = 'https://www.uzc.lbtu.lv/modules/custom/uzc_gazes/js/agriculture_calculator/assets';
@@ -157,5 +167,8 @@ onMounted(async () => {
 <style>
 #mapModal .modal-body {
     padding: 0 !important;
+}
+.searchBox {
+    max-width: 25%;
 }
 </style>

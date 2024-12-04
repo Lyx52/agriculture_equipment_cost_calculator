@@ -7,25 +7,26 @@
             <BTableSimple hover no-border-collapse outlined responsive class="w-100 mb-0 overflow-x-clip">
                 <BThead head-variant="dark">
                     <BTr>
+                        <BTh>Zemes platība</BTh>
                         <BTh>Apstrādes operācija</BTh>
-                        <BTh colspan="4">Traktors/Mašīna/Kombains</BTh>
+                        <BTh colspan="3">Traktors/Mašīna/Kombains</BTh>
                     </BTr>
                 </BThead>
                 <BTbody>
                     <BTr v-for="row in operationCollectionStore.rows">
-                        <BTd>
+                        <BTd class="wmin-content">
                             <BFormSelect
                                 v-model="row.farmland"
                                 :options="farmlandCollectionStore.itemOptions"
                             />
                         </BTd>
-                        <BTd>
+                        <BTd class="wmin-content">
                             <BFormSelect
                                 v-model="row.operation"
                                 :options="OperationOptions"
                             />
                         </BTd>
-                        <BTd v-if="!['threshing', 'digging'].includes(row.operation)">
+                        <BTd class="wmin-content" v-if="!['threshing', 'digging'].includes(row.operation)">
                             <BDropdownSelectEquipment
                                 v-model="row.tractor"
                                 :is-valid="isTractorValid(row)"
@@ -34,7 +35,7 @@
                                 @on-equipment-selected="onEquipmentSelected"
                             />
                         </BTd>
-                        <BTd v-if="!['threshing', 'digging'].includes(row.operation)">
+                        <BTd class="wmin-content" v-if="!['threshing', 'digging'].includes(row.operation)">
                             <BDropdownSelectEquipment
                                 v-model="row.equipment"
                                 :is-valid="true"
@@ -43,7 +44,7 @@
                                 @on-equipment-selected="onEquipmentSelected"
                             />
                         </BTd>
-                        <BTd v-else colspan="2">
+                        <BTd class="wmin-content" v-else colspan="2">
                             <BDropdownSelectEquipment
                                 v-model="row.combine"
                                 :is-valid="true"
@@ -52,7 +53,7 @@
                                 @on-equipment-selected="onEquipmentSelected"
                             />
                         </BTd>
-                        <BTd>
+                        <BTd class="wmin-content">
                             <BButtonGroup class="d-flex flex-row">
                                 <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationCollectionStore.removeItem(row.uniqueId)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
