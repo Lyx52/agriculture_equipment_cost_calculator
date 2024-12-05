@@ -1,42 +1,53 @@
 <template>
-    <BModal id="mapModal" v-model="model" size="xl" @shown="onShown">
+    <BModal id="mapModal" v-model="model" size="xl" @shown="clearSelection">
         <template #header>
-            <div class="d-flex w-100 flex-row justify-content-between">
-                <span v-if="selectedFeatureResponse" class="fw-bold">
-                    {{ selectedFeatureResponse.displayFieldName === 'PARCEL_ID' ? 'Izvēlēta deklarētā zeme: ' : 'Izvēlēts lauka bloks: ' }}
-                    {{ selectedFeatureResponse.value }}
-                    {{ selectedFeatureResponse.area.toFixed(2) }} ha
-                    <BBadge v-if="selectedFeatureResponse.displayFieldName === 'PARCEL_ID'">
-                       {{ selectedFeatureResponse.productDescription }}
-                    </BBadge>
-                </span>
-                <span v-else>
-                    &nbsp;
-                </span>
-
-                <div class="d-flex flex-row gap-3 align-items-baseline ms-auto me-3 searchBox">
-                    <label for="inputSearchBlockNr">Meklēt: </label>
+            <div class="d-flex w-100 flex-column">
+                <div class="d-flex flex-row align-items-baseline gap-3">
+                    <label class="ms-auto" for="inputSearchBlockNr">Meklēt pēc bloka nr: </label>
                     <BOverlay v-model="isLoading">
-                        <BFormInput disabled v-model="searchValue" id="inputSearchBlockNr" trim @input="onSearchInput" />
+                        <BFormInput
+                            v-model="searchValue"
+                            id="inputSearchBlockNr"
+                            placeholder="00000-00000"
+                            trim
+                            @input="onSearchInput"
+                        />
                     </BOverlay>
+                    <BButton class="mb-auto" @click="model = false">Aizvērt</BButton>
                 </div>
-                <BButton class="mb-auto" @click="model = false">Aizvērt</BButton>
+                <div class="d-flex w-100 flex-row">
+                    <span v-if="selectedFeatureResponse" class="fw-bold">
+                        {{ selectedFeatureResponse.displayFieldName === 'PARCEL_ID' ? 'Izvēlēta deklarētā zeme: ' : 'Izvēlēts lauka bloks: ' }}
+                        {{ selectedFeatureResponse.value }}
+                        {{ selectedFeatureResponse.area.toFixed(2) }} ha
+                        <BBadge v-if="selectedFeatureResponse.displayFieldName === 'PARCEL_ID'">
+                           {{ selectedFeatureResponse.productDescription }}
+                        </BBadge>
+                    </span>
+                    <span v-else>
+                        &nbsp;
+                    </span>
+                </div>
+
+
             </div>
         </template>
         <div id="mapView" style="width: 100%; height: 80vh;"></div>
         <template #footer>
             <BButton variant="success" :disabled="!selectedFeatureResponse" @click="onFieldAdded">Pievienot</BButton>
+            <BToastOrchestrator/>
         </template>
     </BModal>
 </template>
 
 <script setup lang="ts">
-import {BModal, BButton, BBadge, BOverlay, BFormInput} from 'bootstrap-vue-next';
+import {BModal, BButton, BBadge, BOverlay, BFormInput, BToastOrchestrator, useToastController} from 'bootstrap-vue-next';
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import {onMounted, ref} from "vue";
 import WMSLayer from "@arcgis/core/layers/WMSLayer";
 import * as identify from "@arcgis/core/rest/identify";
+import { executeQueryJSON } from "@arcgis/core/rest/query"
 import IdentifyParameters from "@arcgis/core/rest/support/IdentifyParameters";
 import IdentifyResult from "@arcgis/core/rest/support/IdentifyResult";
 import type {ISelectedMapField} from "@/stores/interfaces/ISelectedMapField";
@@ -50,12 +61,10 @@ const model = defineModel<boolean>();
 const searchValue = ref<string>('');
 const isLoading = ref<boolean>(false);
 const selectedFeatureResponse = ref<ISelectedMapField|undefined>(undefined);
+const toastController = useToastController();
 const onFieldAdded = () => {
     emits('onFieldAdded', selectedFeatureResponse.value);
     model.value = false;
-}
-const onSearchInput = () => {
-
 }
 import esriConfig from '@arcgis/core/config';
 if (!import.meta.env.DEV) {
@@ -78,9 +87,10 @@ const map = new Map({
         farmFieldLayerWMS
     ]
 });
-
+let mapView: MapView|undefined = undefined;
 const graphicsLayer = new GraphicsLayer();
 map.add(graphicsLayer);
+
 
 const addFilledPolygon = (geometry: any) => {
     graphicsLayer.removeAll();
@@ -100,12 +110,12 @@ const addFilledPolygon = (geometry: any) => {
 
     graphicsLayer.add(polygonGraphic);
 }
-const onShown = () => {
+const clearSelection = () => {
     graphicsLayer.removeAll();
     selectedFeatureResponse.value = undefined;
 }
 const initializeMap = async () => {
-    const view = new MapView({
+    mapView = new MapView({
         container: "mapView",
         map: map,
         center: [24.1052, 56.946], // Riga, Latvia
@@ -114,20 +124,19 @@ const initializeMap = async () => {
             components: []
         }
     });
-
-    await view.when(() => {
-        view.on('click', async (e) => {
+    await mapView!.when(() => {
+        mapView!.on('click', async (e) => {
             const identifyUrl = "https://karte.lad.gov.lv/arcgis/rest/services/karte_pub/MapServer";
 
             const params = new IdentifyParameters({
                 geometry: e.mapPoint,
-                mapExtent: view.extent,
+                mapExtent: mapView!.extent,
                 tolerance: 0,
                 returnGeometry: true,
-                spatialReference: view.spatialReference,
+                spatialReference: mapView!.spatialReference,
                 layerOption: "all",
-                width: view.width,
-                height: view.height,
+                width: mapView!.width,
+                height: mapView!.height,
             });
             const response: { results: IdentifyResult[] } = await identify.identify(identifyUrl, params, {});
             const results = response.results.map<IArcGisIdentifyResult>(r => r.toJSON() as IArcGisIdentifyResult);
@@ -158,7 +167,43 @@ const initializeMap = async () => {
         });
     })
 }
+const onSearchInput = async () => {
+    clearSelection();
+    if (!mapView) return;
+    const matches = searchValue.value.match(/\d{5}-\d{5}/);
+    if (matches?.length && matches[0] === searchValue.value) {
+        const url = "https://karte.lad.gov.lv/arcgis/rest/services/karte_pub/MapServer/6"
+        const response = await executeQueryJSON(url, {
+            where: `BLOCK_NUMBER = '${matches[0]}'`,
+            returnGeometry: true,
+            spatialRelationship: 'intersects',
+            outFields: ['*']
+        });
 
+        let targetFeature = response.features.pop();
+        if (!targetFeature) {
+            toastController.show!({
+                props: {
+                    variant: 'danger',
+                    pos: 'bottom-end',
+                    value: 1000,
+                    body: `Lauka bloks ${matches[0]} netika atrasts...`,
+                }
+            });
+            return;
+        }
+        await mapView!.goTo({
+            target: targetFeature,
+            extent: targetFeature.geometry.extent
+        });
+        addFilledPolygon(targetFeature.geometry);
+        selectedFeatureResponse.value = {
+            area: targetFeature?.attributes?.BLOCK_AREA,
+            displayFieldName: "BLOCK_NUMBER",
+            value: targetFeature?.attributes?.BLOCK_NUMBER
+        } as ISelectedMapField;
+    }
+}
 onMounted(async () => {
     await initializeMap();
 })
@@ -167,8 +212,5 @@ onMounted(async () => {
 <style>
 #mapModal .modal-body {
     padding: 0 !important;
-}
-.searchBox {
-    max-width: 25%;
 }
 </style>

@@ -2,7 +2,7 @@
     <div class="card shadow">
         <div class="card-body d-flex flex-column">
             <div class="d-flex flex-row justify-content-between">
-                <h5 class="card-title">Zemes platības</h5>
+                <h5 class="card-title">Zemes platības (Kopējā platība {{ sum(farmlandCollectionStore.items.map(i => i.area)).toFixed(2) }} ha)</h5>
                 <a class="ms-auto btn btn-sm btn-outline-secondary" href="https://ipad.fas.usda.gov/rssiws/al/crop_calendar/europe.aspx" target="_blank">Kalendāru avots</a>
             </div>
             <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 top-form-blocks">
@@ -92,6 +92,7 @@ import type {IFarmland} from "@/stores/interfaces/IFarmland";
 import {v4 as uuid} from 'uuid';
 import BNumericFormInput from "@/components/elements/BNumericFormInput.vue";
 import FarmlandMapModal from "@/components/modal/FarmlandMapModal.vue";
+import {sum} from "../../utils";
 
 const farmlandCollectionStore = useFarmlandCollectionStore();
 const addFarmland = () => {

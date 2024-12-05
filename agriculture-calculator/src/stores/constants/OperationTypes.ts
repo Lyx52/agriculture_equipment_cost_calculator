@@ -90,27 +90,9 @@ export const OperationOptions = Object.keys(Operations)
         value: operationType
     })) as IOption<OperationType>[];
 
-// export const EquipmentSubTypesToOperations = {
-//     'harrow': 'harrowing',
-//     'combine': 'harvest_with_straw_chopping',
-//     'potato_combine': 'harvest_with_straw_chopping',
-//     'plough': 'ploughing',
-//     'cultivator': 'cultivation',
-//     'row_cultivator': 'cultivation',
-//     'packing_press': 'baling',
-//     'balling_press': 'baling',
-//     'seed_drill': 'sowing',
-//     'planter': 'sowing',
-//     'tractor_4x2': 'other',
-//     'tractor_4x4': 'other',
-//     'other': 'other'
-// } as Record<EquipmentSubType, OperationType>;
-
 export const getEquipmentSubTypesByOperation = (equipmentTypeCategory: EquipmentTypeCategory, operationType: OperationType): EquipmentSubType[] => {
     if (equipmentTypeCategory === 'tractor') {
         return ['tractor_4x2', 'tractor_4x4'];
     }
     return Object.keys(EquipmentSubTypes) as EquipmentSubType[];
-    // return Object.keys(EquipmentSubTypesToOperations)
-    //     .filter(e => EquipmentSubTypesToOperations[e as EquipmentSubType] === operationType) as EquipmentSubType[];
 };

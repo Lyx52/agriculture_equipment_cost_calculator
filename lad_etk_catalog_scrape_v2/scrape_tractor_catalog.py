@@ -40,6 +40,9 @@ def parse_tractordata_models_table(table: BeautifulSoup) -> list[dict]:
     for tr in table.find_all('tr')[1:]:
         cells = tr.find_all('td')
         link = cells[0].find('a')
+        if link is None:
+            print(tr)
+            continue
         models.append({
             'link': link.attrs['href'],
             'model': link.text.strip()

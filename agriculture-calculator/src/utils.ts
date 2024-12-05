@@ -14,6 +14,11 @@ export const unique = <T>(data: T[]): T[] => {
         return res;
     }, [] as T[]);
 };
+export function sum(values: number[]): number {
+    return values.reduce((res, val) => {
+        return res + val;
+    }, 0);
+}
 export function getClosestValue(values: any[], value: any) {
     return minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
 }
