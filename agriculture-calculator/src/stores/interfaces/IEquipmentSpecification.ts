@@ -8,4 +8,5 @@ export interface IEquipmentSpecification {
     engine_cylinders: number;
     hydrolic_pump_flow: number;
     lift_capacity: number;
+    working_width: number;
 }

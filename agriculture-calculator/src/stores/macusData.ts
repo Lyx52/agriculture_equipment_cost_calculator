@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import type {IEquipmentInformation} from "@/stores/interfaces/IEquipmentInformation";
-import type {IPropertyInformation} from "@/stores/interfaces/IPropertyInformation";
+import type {IGeneralInformation} from "@/stores/interfaces/IGeneralInformation";
 import type {IMacusData} from "@/stores/interfaces/IMacusData";
 import type {IResponse} from "@/stores/interfaces/IResponse";
 import {EquipmentInformationModel} from "@/stores/models/EquipmentInformationModel";

@@ -1,8 +1,8 @@
 import {defineStore} from "pinia";
-import type {IPropertyInformation} from "@/stores/interfaces/IPropertyInformation";
+import type {IGeneralInformation} from "@/stores/interfaces/IGeneralInformation";
 
 export const useGeneralInformationStore = defineStore('generalInformation', {
-    state: (): IPropertyInformation => {
+    state: (): IGeneralInformation => {
         return {
             fuelPrice: 0.80,
             employeeWage: 15.0,
@@ -11,4 +11,9 @@ export const useGeneralInformationStore = defineStore('generalInformation', {
             taxAndInsuranceRate: 1.0
         }
     },
+    getters: {
+        costPerEmployee(state: IGeneralInformation) {
+            return (((state.actualWorkingHours / 100) * state.employeeWage) + state.employeeWage)
+        }
+    }
 });

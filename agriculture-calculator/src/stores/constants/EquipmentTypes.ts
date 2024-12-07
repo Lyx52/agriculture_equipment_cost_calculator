@@ -114,3 +114,37 @@ export const EquipmentLevelTypes = {
     'medium': 'Vidējs',
     'premium': 'Premium'
 } as Record<EquipmentLevelType, string>
+
+export const EquipmentFieldEfficiency = {
+    'plough': 83,
+    'planter': 65,
+    'seed_drill': 70,
+    'combine': 80,
+    'potato_combine': 80,
+    'cultivator': 83,
+    'harrow': 80,
+    'disc': 81,
+    'row_cultivator': 83,
+    'other': 75,
+    'packing_press': 0,
+    'balling_press': 0,
+    'tractor_4x2': 0,
+    'tractor_4x4': 0,
+} as Record<EquipmentSubType, number>;
+
+export const EquipmentFieldSpeed = {
+    'plough': 8.5,
+    'planter': 9,
+    'seed_drill': 9,
+    'combine': 7.5,
+    'potato_combine': 7.5,
+    'cultivator': 8,
+    'harrow': 5,
+    'disc': 7.5,
+    'row_cultivator': 5,
+    'other': 7,
+    'packing_press': 0,
+    'balling_press': 0,
+    'tractor_4x2': 0,
+    'tractor_4x4': 0,
+} as Record<EquipmentSubType, number>;

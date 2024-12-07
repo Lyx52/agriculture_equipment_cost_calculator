@@ -41,34 +41,26 @@
                         {{ row.averageCostOfRepairPerHour.toFixed(2) }} EUR/h
                     </BTd>
                     <BTd class="align-middle text-center">
-                        {{ (row.horsePower * 0.197).toFixed(2) }} l/h
+                        {{ row.fuelUsage.toFixed(2) }} l/h
                     </BTd>
                     <BTd class="align-middle text-center">
-                        {{ ((row.horsePower * 0.197) * generalInformationStore.fuelPrice).toFixed(2) }} EUR/h
+                        {{ row.totalFuelCost(generalInformationStore.fuelPrice).toFixed(2) }} EUR/h
                     </BTd>
                     <BTd class="align-middle text-center">
-                        {{ (((row.horsePower * 0.197) * generalInformationStore.fuelPrice) * (row.lubricationCostPercentage / 100)).toFixed(2) }} EUR/h
+                        {{ row.totalLubricationCost(generalInformationStore.fuelPrice).toFixed(2) }} EUR/h
                     </BTd>
                     <BTd class="align-middle text-center">
-                        {{ (((generalInformationStore.actualWorkingHours / 100) * generalInformationStore.employeeWage) + generalInformationStore.employeeWage).toFixed(2) }} EUR/h
+                        {{ generalInformationStore.costPerEmployee.toFixed(2) }} EUR/h
                     </BTd>
                     <BTd class="align-middle text-center">
                         {{
-                            (
-                                row.averageCostOfRepairPerHour +
-                                ((row.horsePower * 0.197) * generalInformationStore.fuelPrice) +
-                                (((row.horsePower * 0.197) * generalInformationStore.fuelPrice) * (row.lubricationCostPercentage / 100)) +
-                                (((generalInformationStore.actualWorkingHours / 100) * generalInformationStore.employeeWage) + generalInformationStore.employeeWage)
-                            ).toFixed(2)
+                            row.totalOperationCostPerHour(generalInformationStore.fuelPrice, generalInformationStore.costPerEmployee).toFixed(2)
                         }} EUR/h
                     </BTd>
                     <BTd class="align-middle text-center">
                         {{
                             (
-                                row.averageCostOfRepairPerHour +
-                                ((row.horsePower * 0.197) * generalInformationStore.fuelPrice) +
-                                (((row.horsePower * 0.197) * generalInformationStore.fuelPrice) * (row.lubricationCostPercentage / 100)) +
-                                (((generalInformationStore.actualWorkingHours / 100) * generalInformationStore.employeeWage) + generalInformationStore.employeeWage) +
+                                row.totalOperationCostPerHour(generalInformationStore.fuelPrice, generalInformationStore.costPerEmployee) +
                                 row.getTotalEquipmentCostValuePerHour(generalInformationStore.interestRate, generalInformationStore.taxAndInsuranceRate)
                             ).toFixed(2)
                         }} EUR/h

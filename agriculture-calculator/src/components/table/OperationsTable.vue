@@ -9,7 +9,9 @@
                     <BTr>
                         <BTh>Zemes platība</BTh>
                         <BTh>Apstrādes operācija</BTh>
-                        <BTh colspan="3">Traktors/Mašīna/Kombains</BTh>
+                        <BTh colspan="2">Traktors/Mašīna/Kombains</BTh>
+                        <BTh>Agregāta darba ražīgums, ha/h</BTh>
+                        <BTh>&nbsp;</BTh>
                     </BTr>
                 </BThead>
                 <BTbody>
@@ -53,6 +55,9 @@
                                 @on-equipment-selected="onEquipmentSelected"
                             />
                         </BTd>
+                        <BTh class="align-middle text-center">
+                            {{ row.equipment?.fieldWorkingSpeed ?? 0 }}
+                        </BTh>
                         <BTd class="wmin-content">
                             <BButtonGroup class="d-flex flex-row">
                                 <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationCollectionStore.removeItem(row.uniqueId)">
@@ -65,7 +70,7 @@
                         </BTd>
                     </BTr>
                     <BTr>
-                        <BTd colspan="5">
+                        <BTd colspan="6">
                             <BButton variant="success" size="sm" @click="addOperation">Pievienot</BButton>
                         </BTd>
                     </BTr>

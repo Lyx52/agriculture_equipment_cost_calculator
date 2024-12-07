@@ -1,4 +1,4 @@
-export interface IPropertyInformation {
+export interface IGeneralInformation {
     fuelPrice: number;
     employeeWage: number;
     actualWorkingHours: number;

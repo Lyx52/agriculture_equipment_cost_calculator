@@ -3,7 +3,7 @@ import {getRemainingTractorValue, getCombineRemainingValue, getTractorEquipmentR
 import type {IDataSourceLink} from "@/stores/interfaces/IDataSourceLink";
 import { v4 as uuid } from 'uuid';
 import type {EquipmentSubType, EquipmentType} from "@/stores/constants/EquipmentTypes";
-import {EquipmentLevelTypes} from "@/stores/constants/EquipmentTypes";
+import {EquipmentFieldEfficiency, EquipmentFieldSpeed, EquipmentLevelTypes} from "@/stores/constants/EquipmentTypes";
 import type {IEquipmentSpecification} from "@/stores/interfaces/IEquipmentSpecification";
 import type {IEquipmentUsageInformation} from "@/stores/interfaces/IEquipmentUsageInformation";
 import {getCapitalRecoveryValue} from "@/stores/constants/CapitalRecoveryValue";
@@ -67,9 +67,28 @@ export class EquipmentInformationModel {
     getTotalEquipmentCostValuePerHour(interestRate: number, taxesAndInsuranceRate: number): number {
         return (this.getCapitalRecoveryValue(interestRate) + this.getTaxesAndInsuranceCostValue(taxesAndInsuranceRate)) / this.usageInformation.averageHoursPerYear;
     }
-    get horsePower() {
+    totalFuelCost(fuelPricePerLiter: number): number {
+        return this.fuelUsage * fuelPricePerLiter;
+    }
+    totalLubricationCost(fuelPricePerLiter: number): number {
+        return this.totalFuelCost(fuelPricePerLiter) * (this.lubricationCostPercentage / 100)
+    }
+    totalOperationCostPerHour(fuelPricePerLiter: number, totalEmployeeWageCost: number): number {
+        return this.averageCostOfRepairPerHour +
+            this.totalFuelCost(fuelPricePerLiter) +
+            this.totalLubricationCost(fuelPricePerLiter) +
+            totalEmployeeWageCost;
+    }
+    get horsePower(): number {
         // 1 kw = 1.3596216173 hp
         return (this.specification.engine_power_kw ?? 0) * 1.3596216173;
+    }
+    get fuelUsage(): number {
+        return this.horsePower * 0.197; // TODO: This constant differs from model to model there must be a way to calculate it differently
+    }
+    get fieldWorkingSpeed(): number {
+        // Estimating the Field Capacity of Farm Machines (A3-24)
+        return ((this.specification.working_width * EquipmentFieldSpeed[this.equipmentSubType]) / 10) * (EquipmentFieldEfficiency[this.equipmentSubType] / 100);
     }
     get totalUsageHours(): number {
         return this.usageInformation.averageHoursPerYear * this.usageInformation.currentUseYears;
