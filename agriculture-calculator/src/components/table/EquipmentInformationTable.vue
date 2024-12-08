@@ -21,9 +21,10 @@
                         <BTh v-if="isEquipment">Nepieciešamā jauda, kw</BTh>
                         <BTh v-if="isTractor || isCombine">Jauda, kw</BTh>
                         <BTh>Nolietojums, gadi</BTh>
-                        <BTh>Ekonomiskais izmantošanas laiks, gadi</BTh>
+                        <BTh>Atlikušais izmantošanas laiks, gadi</BTh>
                         <BTh>Gada noslodze, h</BTh>
                         <BTh v-if="isTractor || isCombine">Smērvielu izmaksas no degv. izmaksām, %</BTh>
+                        <BTh v-if="isEquipment">Darba platums, m</BTh>
                         <BTh>&nbsp;</BTh>
                     </BTr>
                 </BThead>
@@ -71,6 +72,11 @@
                         <BTd v-if="isTractor || isCombine">
                             <BNumericFormInput
                                 v-model="row.lubricationCostPercentage"
+                            ></BNumericFormInput>
+                        </BTd>
+                        <BTd v-if="isEquipment">
+                            <BNumericFormInput
+                                v-model="row.specification.working_width"
                             ></BNumericFormInput>
                         </BTd>
                         <BTd>
