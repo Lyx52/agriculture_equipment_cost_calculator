@@ -35,6 +35,7 @@
                                 equipment-type-category="tractor"
                                 :operation-type="row.operation"
                                 @on-equipment-selected="onEquipmentSelected"
+                                show-existing
                             />
                         </BTd>
                         <BTd class="wmin-content" v-if="!['threshing', 'digging'].includes(row.operation)">
@@ -44,6 +45,7 @@
                                 equipment-type-category="tractor_equipment"
                                 :operation-type="row.operation"
                                 @on-equipment-selected="onEquipmentSelected"
+                                show-existing
                             />
                         </BTd>
                         <BTd class="wmin-content" v-else colspan="2">
@@ -53,6 +55,7 @@
                                 equipment-type-category="combine"
                                 :operation-type="row.operation"
                                 @on-equipment-selected="onEquipmentSelected"
+                                show-existing
                             />
                         </BTd>
                         <BTh class="align-middle text-center">
@@ -101,7 +104,6 @@ import type {OperationModel} from "@/stores/models/OperationModel";
 const operationCollectionStore = useOperationCollectionStore();
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const farmlandCollectionStore = useFarmlandCollectionStore();
-
 const addOperation = () => {
     operationCollectionStore.pushItem({
         operation: 'ploughing'

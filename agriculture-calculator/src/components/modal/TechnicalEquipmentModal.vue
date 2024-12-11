@@ -2,6 +2,7 @@
     <div class="greetings">
         <BModal class="modal-xl" v-model="model"
             @hide="onClose"
+            @show="onShow"
         >
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-sm-2">
@@ -56,6 +57,9 @@ const onEquipmentSelected = (item: EquipmentInformationModel) => {
 const onClose = () => {
     equipmentFilterStore.$reset();
     equipmentInformationStore.$reset();
+}
+const onShow = async () => {
+    await equipmentFilterStore.fetchByFilters();
 }
 </script>
 

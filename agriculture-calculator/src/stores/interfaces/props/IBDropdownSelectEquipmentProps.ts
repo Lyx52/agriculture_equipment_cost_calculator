@@ -3,6 +3,9 @@ import type {OperationType} from "@/stores/constants/OperationTypes";
 
 export interface IBDropdownSelectEquipmentProps {
     equipmentTypeCategory: EquipmentTypeCategory;
-    operationType: OperationType;
+    operationType?: OperationType;
     isValid: boolean;
+    filterStoreId?: string;
+    id?: string;
+    showExisting: boolean;
 }

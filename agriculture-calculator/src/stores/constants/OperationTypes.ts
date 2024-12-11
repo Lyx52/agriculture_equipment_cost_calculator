@@ -90,7 +90,7 @@ export const OperationOptions = Object.keys(Operations)
         value: operationType
     })) as IOption<OperationType>[];
 
-export const getEquipmentSubTypesByOperation = (equipmentTypeCategory: EquipmentTypeCategory, operationType: OperationType): EquipmentSubType[] => {
+export const getEquipmentSubTypes = (equipmentTypeCategory: EquipmentTypeCategory): EquipmentSubType[] => {
     if (equipmentTypeCategory === 'tractor') {
         return ['tractor_4x2', 'tractor_4x4'];
     }

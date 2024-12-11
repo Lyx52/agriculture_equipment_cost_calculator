@@ -61,36 +61,14 @@
             label="Meklēt tehniku"
             label-for="searchDropdown"
         >
-            <div class="dropdown" id="searchDropdown">
-                <BFormInput
-                    v-model="filterStore.searchText"
-                    class="dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    autofocus
-                    @click="onOpenDropdown"
-                    @input="filterStore.fetchByFilters"
-                    ref="_search_bar"
-                    autocomplete="false"
-                />
-                <ul
-                    class="dropdown-menu short-dropdown w-100 mw-fit-content"
-                    :class="{ show: filterStore.showDropdown }"
-                    @scroll="filterStore.onSearchDropdownScroll"
-                    ref="_floating"
-                >
-                    <BOverlay
-                        :show="filterStore.isLoading"
-                        spinner-small
-                    >
-                        <li v-for="item in filterStore.filteredEquipment" class="item-height">
-                            <a class="dropdown-item" @click="onClickEquipment(item)">
-                                {{ item.fullEquipmentName }}
-                            </a>
-                        </li>
-                    </BOverlay>
-                </ul>
-            </div>
+            <BDropdownSelectEquipment
+                :equipment-type-category="props.equipmentTypeCategory"
+                :is-valid="true"
+                :filter-store-id="props.equipmentFilterStoreId"
+                id="searchDropdown"
+                @on-equipment-selected="onClickEquipment"
+                :show-existing="false"
+            />
         </BFormGroup>
     </div>
 </template>
@@ -111,6 +89,7 @@ import {
 } from "@/stores/constants/EquipmentTypes";
 import BSpinningSelect from "@/components/elements/BSpinningSelect.vue";
 import type {IOption} from "@/stores/interfaces/IOption";
+import BDropdownSelectEquipment from "@/components/elements/BDropdownSelectEquipment.vue";
 const emits = defineEmits(["onEquipmentSelected"]);
 const props = defineProps<ITechnicalEquipmentSearchFormProps>();
 const filterStore = useQuickEquipmentFilterStore(props.equipmentFilterStoreId);
@@ -125,34 +104,16 @@ const filteredEquipmentType = ref<EquipmentType>();
 const filteredEquipmentSubType = ref<EquipmentSubType>();
 const allFilteredEquipmentMarkOptions = ref<IOption<string>[]>();
 onMounted(async () => {
-    await setFilter(false, true);
+    await filterStore.fetchByFilters();
     allFilteredEquipmentMarkOptions.value = filterStore.filteredEquipmentMarkOptions;
 });
 
-const setFilter = async (showDropdown: boolean,  resetFilter: boolean = false, equipmentType: EquipmentType|undefined = undefined, equipmentSubType: EquipmentSubType|undefined = undefined) => {
-    if (resetFilter) {
-        filterStore.$reset();
-    }
-
-    filterStore.$patch({
-        filteredEquipmentTypes: equipmentType ? [equipmentType] : getEquipmentTypesByCategory(props.equipmentTypeCategory),
-        filteredEquipmentSubTypes: equipmentSubType ? [equipmentSubType] : [],
-        showDropdown: showDropdown
-    });
-    await filterStore.fetchByFilters();
-}
 const defaultEquipmentType = (): EquipmentType|undefined => {
     const equipmentTypes = getEquipmentTypesByCategory(props.equipmentTypeCategory);
     return equipmentTypes.length == 1 ? equipmentTypes[0] : undefined;
 }
-
-const onOpenDropdown = async () => {
-    await setFilter(true,  false, filteredEquipmentType.value ?? defaultEquipmentType(), filteredEquipmentSubType.value);
-    await filterStore.fetchByFilters();
-}
-const onClickEquipment = async (item: EquipmentInformationModel) => {
+const onClickEquipment = (item: EquipmentInformationModel) => {
     emits("onEquipmentSelected", item);
-    await setFilter(false, true);
 }
 </script>
 

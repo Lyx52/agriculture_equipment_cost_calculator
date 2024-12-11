@@ -5,7 +5,7 @@ import {
     EquipmentTypesToCategories
 } from "@/stores/constants/EquipmentTypes";
 import type {OperationType} from "@/stores/constants/OperationTypes";
-import {getEquipmentSubTypesByOperation} from "@/stores/constants/OperationTypes";
+import {getEquipmentSubTypes} from "@/stores/constants/OperationTypes";
 import {TinyEmitter} from "tiny-emitter";
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
@@ -31,10 +31,10 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         getEquipmentByTypeCategory(equipmentTypeCategory: EquipmentTypeCategory): EquipmentInformationModel[] {
             return this.items.filter(e => EquipmentTypesToCategories[e.equipmentType] === equipmentTypeCategory)
         },
-        getEquipmentByTypeCategoryAndOperation(equipmentTypeCategory: EquipmentTypeCategory, operationType: OperationType): EquipmentInformationModel[] {
+        getEquipmentByTypeCategoryAndOperation(equipmentTypeCategory: EquipmentTypeCategory): EquipmentInformationModel[] {
             return this.items
                 .filter(e => EquipmentTypesToCategories[e.equipmentType] === equipmentTypeCategory)
-                .filter(e => getEquipmentSubTypesByOperation(equipmentTypeCategory, operationType).includes(e.equipmentSubType))
+                .filter(e => getEquipmentSubTypes(equipmentTypeCategory).includes(e.equipmentSubType))
         },
     }
 });
