@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("DefaultCorsPolicy",
         policyBuilder =>
         {
-            policyBuilder.WithOrigins("http://localhost:9696");
+            policyBuilder.WithOrigins("https://www.ikarslab.id.lv");
         }
     );
 });
