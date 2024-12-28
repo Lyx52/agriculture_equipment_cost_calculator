@@ -1,0 +1,5 @@
+@import './base.css';
+
+.fill-secondary {
+    fill: rgba(var(--bs-secondary-rgb)) !important;
+}

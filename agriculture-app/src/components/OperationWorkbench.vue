@@ -1,0 +1,163 @@
+
+<script setup lang="ts">
+
+  import { useOperationStore } from '@/stores/operation.ts'
+  import {
+    BTableSimple,
+    BThead,
+    BTr,
+    BTh,
+    BTbody,
+    BTd,
+    BFormGroup,
+    BButton,
+    BButtonGroup,
+    BTfoot
+  } from 'bootstrap-vue-next'
+  import {v4 as uuid} from 'uuid';
+  import { useFarmlandStore } from '@/stores/farmland.ts'
+  import type { IFarmlandOperation } from '@/stores/interface/IFarmlandOperation.ts'
+  import CodifierDropdown from '@/components/elements/CodifierDropdown.vue'
+  import { Codifiers } from '@/stores/enums/Codifiers.ts'
+  import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
+  import { useCodifierStore } from '@/stores/codifier.ts'
+  import type { ICodifier } from '@/stores/interface/ICodifier.ts'
+  import type { IOperation } from '@/stores/interface/IOperation.ts'
+  import TrashIcon from '@/components/icons/TrashIcon.vue'
+  import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
+  import IconX from '@/components/icons/IconX.vue'
+  const operationStore = useOperationStore();
+  const farmlandStore = useFarmlandStore();
+  const farmlandOperationStoreId = uuid();
+  const farmlandOperationCodifierStore = useCodifierStore(farmlandOperationStoreId);
+  operationStore.emitter.on(CollectionEvents.ItemAdded, (item: IOperation) => {
+    const codifierStore = useCodifierStore(item.id);
+    codifierStore.$patch({
+      selectedItem: {
+        name: item.operation?.operationName,
+        code: `operation_${item.operation?.operationCode}`,
+        value: item.operation?.operationCode,
+        parent_code: Codifiers.OperationTypes,
+      } as ICodifier
+    });
+  });
+
+  const addNewOperation = () => {
+    operationStore.pushItem({
+      id: '',
+      farmland: undefined,
+      operation: {
+        operationCode: 'operation_110',
+        operationName: 'Aršana',
+      } as IFarmlandOperation
+    });
+    resetFilters();
+  }
+  const onOperationFiltered = (item: ICodifier) => {
+    operationStore.filteredFarmlandOperation = {
+      operationCode: item.code,
+      operationName: item.name
+    };
+  }
+  const hasFilters = () => {
+    return !!operationStore.filteredFarmlandOperation || !!operationStore.filteredFarmland
+  }
+  const resetFilters = () => {
+    farmlandOperationCodifierStore.$reset();
+    operationStore.filteredFarmland = undefined;
+    operationStore.filteredFarmlandOperation = undefined;
+  }
+  const onOperationSelected = (operation: IOperation, codifier: ICodifier) => {
+    operation.operation = {
+      operationName: codifier.name,
+      operationCode: codifier.code
+    };
+    farmlandOperationCodifierStore.$reset();
+    operationStore.filteredFarmlandOperation = undefined;
+  }
+
+</script>
+
+<template>
+  <div class="d-flex flex-column h-100">
+    <div class="d-flex flex-row gap-3">
+      <BFormGroup label="Filtrēt pēc lauka">
+        <SimpleDropdown
+          :is-loading="false"
+          :get-filtered="farmlandStore.getFiltered"
+          :get-formatted-option="farmlandStore.getFormattedOption"
+          v-model="operationStore.filteredFarmland"
+        />
+      </BFormGroup>
+      <BFormGroup label="Filtrēt pēc apstrādes operācijas">
+        <CodifierDropdown
+          :is-valid="true"
+          :parent-codifier-code="Codifiers.OperationTypes"
+          @on-selected="onOperationFiltered"
+          :store-id="farmlandOperationStoreId"
+        />
+      </BFormGroup>
+      <BButton variant="danger" class="mt-auto ms-auto" v-if="hasFilters()" @click="resetFilters()">
+        Atiestatīt filtrus <IconX/>
+      </BButton>
+    </div>
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+      <BThead class="position-sticky top-0 bg-primary in-front" >
+        <BTr>
+          <BTh>Lauks</BTh>
+          <BTh>Apstrādes operācija</BTh>
+          <BTh>Tehnikas vienība</BTh>
+          <BTh>&nbsp;</BTh>
+        </BTr>
+      </BThead>
+      <BTbody>
+        <BTr v-for="row in operationStore.filteredItems" v-bind:key="row.id">
+          <BTd>
+            <SimpleDropdown
+              :is-loading="false"
+              :get-filtered="farmlandStore.getFiltered"
+              :get-formatted-option="farmlandStore.getFormattedOption"
+              v-model="row.farmland"
+            />
+          </BTd>
+          <BTd>
+            <CodifierDropdown
+              :is-valid="true"
+              :parent-codifier-code="Codifiers.OperationTypes"
+              :store-id="row.id"
+              @on-selected="codifier => onOperationSelected(row, codifier)"
+            />
+          </BTd>
+          <BTd>
+            &nbsp;
+          </BTd>
+          <BTd>
+            <BButtonGroup class="d-inline-flex flex-row btn-group">
+              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationStore.removeItem(row.id)">
+                <TrashIcon />
+              </BButton>
+            </BButtonGroup>
+          </BTd>
+        </BTr>
+
+      </BTbody>
+      <BTfoot class="position-sticky bottom-0 in-front">
+        <BTr>
+          <BTd colspan="5">
+            <BButton variant="success" size="sm" @click="addNewOperation">Pievienot</BButton>
+          </BTd>
+        </BTr>
+      </BTfoot>
+    </BTableSimple>
+  </div>
+</template>
+
+<style scoped>
+  .table-height {
+    max-height: 85vh;
+    min-height: 50vh;
+  }
+  .in-front {
+    z-index: 999;
+  }
+</style>

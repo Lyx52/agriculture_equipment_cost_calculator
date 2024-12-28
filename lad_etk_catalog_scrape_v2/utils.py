@@ -26,71 +26,18 @@ replacements = {
     'ģ': 'g',
     'ķ': 'k',
     'ž': 'z',
-    'ņ': 'n',
-    '&': '',
-    '\'': '',
-    ' ': '_',
-    '/': '_',
-    ',': '',
-    '.': '',
-    '-': '',
-    '"': '',
-    '(': '',
-    ')': '',
-    '%': 'prc'
+    'ņ': 'n'
 }
-
-replacements_units = ['kg', 'lpm', 'bar', 'L', 'kW', 'cm']
-
-def clean_key(key: str) -> str:
-    result = str(key).lower()
-    for r in replacements:
-        if r in result:
-            result = result.replace(r, replacements[r])
-        if '__' in result:
-            result = result.replace('__', '_')
-    return result.strip()
-
-def clean_value(value: str) -> str:
-    unit = ''
-    for replacement in replacements_units:
-        if replacement in value:
-            unit = replacement.strip().lower()
-            result = value.replace(replacement, '')
-    return {
-        'unit': unit,
-        'value': float(result.strip())
-    }
-current_rates = {}
-def convert_to_eur(value, currency_code: str, date: str):
-    global current_rates
-    key = f"{currency_code}_{date}"
-    if key in current_rates:
-        return round(current_rates[key] * float(value), 2)
-    res = requests.get(f"https://api.frankfurter.app/{date}?base={currency_code}&symbols=EUR")
-    if res.status_code == 404:
-        return f"{value} {currency_code}({date})"
-    current_rates[key] = float(res.json()['rates']['EUR'])
-    
-    return round(current_rates[key] * float(value), 2)
 
 def normalize_text(text):
     text = text.lower()  # Convert to lowercase
     text = re.sub(r'[^\w\s]', '', text)  # Remove special characters
     text = re.sub(r'\s+', ' ', text).strip()  # Remove extra spaces
+    for r in replacements:
+        if r in text:
+            text = text.replace(r, replacements[r])
     return text
 
-def clean_currency(value):
-    numerics = re.findall('([0-9,]+)', value)
-    year_match = re.search('(19[0-9]{2})|(20[0-9]{2})', value)
-    currency_date = 'latest' if year_match is None else f"{year_match[0]}-01-01"
-    if len(numerics) <= 1 and year_match is not None:
-        return -1
-    if 'GBP' in value:
-        return convert_to_eur(numerics[0].replace(',', ''), 'GBP', currency_date)    
-    elif 'USD' in value or '$' in value:
-        return convert_to_eur(numerics[0].replace(',', ''), 'USD', currency_date) 
-    return value
 
 def first_or_default(data: list, fn):
     preg = list(filter(lambda v: fn(v), data))

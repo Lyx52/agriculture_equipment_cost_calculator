@@ -1,0 +1,2052 @@
+[
+    {
+        "Code": "equipment_type_categories",
+        "ParentCode": null,
+        "Name": "Tehnikas vien\u012bbas kategorijas"
+    },
+    {
+        "Code": "crop_type_categories",
+        "ParentCode": null,
+        "Name": "K\u016blt\u016braugu veidi"
+    },
+    {
+        "Code": "traktori",
+        "ParentCode": "equipment_type_categories",
+        "Name": "Traktori"
+    },
+    {
+        "Code": "traktors 4x2",
+        "ParentCode": "traktori",
+        "Name": "Traktors 4x2"
+    },
+    {
+        "Code": "traktors 4x4",
+        "ParentCode": "traktori",
+        "Name": "Traktors 4x4"
+    },
+    {
+        "Code": "sejas un stadama tehnika",
+        "ParentCode": "equipment_type_categories",
+        "Name": "S\u0113jas un st\u0101d\u0101m\u0101 tehnika"
+    },
+    {
+        "Code": "sejmasina",
+        "ParentCode": "sejas un stadama tehnika",
+        "Name": "S\u0113jma\u0161\u012bna"
+    },
+    {
+        "Code": "sikseklu sejmasina",
+        "ParentCode": "sejas un stadama tehnika",
+        "Name": "S\u012bks\u0113klu s\u0113jma\u0161\u012bna"
+    },
+    {
+        "Code": "precizas izsejas sejmasina",
+        "ParentCode": "sejas un stadama tehnika",
+        "Name": "Prec\u012bz\u0101s izs\u0113jas s\u0113jma\u0161\u012bna"
+    },
+    {
+        "Code": "auglu koku un ogulaju stadama masina",
+        "ParentCode": "sejas un stadama tehnika",
+        "Name": "Aug\u013cu koku un ogul\u0101ju st\u0101d\u0101m\u0101 ma\u0161\u012bna"
+    },
+    {
+        "Code": "kartupelu stadama masina",
+        "ParentCode": "sejas un stadama tehnika",
+        "Name": "Kartupe\u013cu st\u0101d\u0101m\u0101 ma\u0161\u012bna"
+    },
+    {
+        "Code": "stadu konteineru pildisanas un stadisanas iekarta",
+        "ParentCode": "sejas un stadama tehnika",
+        "Name": "St\u0101du konteineru pild\u012b\u0161anas un st\u0101d\u012b\u0161anas iek\u0101rta"
+    },
+    {
+        "Code": "darzenu stadama masina",
+        "ParentCode": "sejas un stadama tehnika",
+        "Name": "D\u0101rze\u0146u st\u0101d\u0101m\u0101 ma\u0161\u012bna"
+    },
+    {
+        "Code": "lopbaribas sagatavosanas tehnika",
+        "ParentCode": "equipment_type_categories",
+        "Name": "Lopbar\u012bbas sagatavo\u0161anas tehnika"
+    },
+    {
+        "Code": "plaujmasina",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "P\u013caujma\u0161\u012bna"
+    },
+    {
+        "Code": "savacejpiekabe",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "Sav\u0101c\u0113jpiekabe"
+    },
+    {
+        "Code": "tunelu sistema skabbaribai",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "Tune\u013cu sist\u0113ma sk\u0101bbar\u012bbai"
+    },
+    {
+        "Code": "valotajsarditajs",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "V\u0101lot\u0101js/\u0101rd\u012bt\u0101js"
+    },
+    {
+        "Code": "ritulu prese",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "Ritu\u013cu prese"
+    },
+    {
+        "Code": "kipu prese",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "\u0136\u012bpu prese"
+    },
+    {
+        "Code": "skabbaribas blietetajveltnis",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "Sk\u0101bbar\u012bbas bliet\u0113t\u0101jveltnis"
+    },
+    {
+        "Code": "salmu smalcinatajsizkliedetajs",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "Salmu smalcin\u0101t\u0101js-izklied\u0113t\u0101js"
+    },
+    {
+        "Code": "ietinejs",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "Ietin\u0113js"
+    },
+    {
+        "Code": "prese ar ietineju",
+        "ParentCode": "lopbaribas sagatavosanas tehnika",
+        "Name": "Prese ar ietin\u0113ju"
+    },
+    {
+        "Code": "augsnes apstrades tehnika un iekartas",
+        "ParentCode": "equipment_type_categories",
+        "Name": "Augsnes apstr\u0101des tehnika un iek\u0101rtas"
+    },
+    {
+        "Code": "veltnis",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Veltnis"
+    },
+    {
+        "Code": "rugaines kultivators",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Rugaines kultivators"
+    },
+    {
+        "Code": "diski",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Diski"
+    },
+    {
+        "Code": "ecesas",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Ec\u0113\u0161as"
+    },
+    {
+        "Code": "dzilirdinatajs",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Dzi\u013cirdin\u0101t\u0101js"
+    },
+    {
+        "Code": "arkls",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Arkls"
+    },
+    {
+        "Code": "freze",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Fr\u0113ze"
+    },
+    {
+        "Code": "kultivators",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "Kultivators"
+    },
+    {
+        "Code": "sluce",
+        "ParentCode": "augsnes apstrades tehnika un iekartas",
+        "Name": "\u0160\u013c\u016bce"
+    },
+    {
+        "Code": "meslosanas un augu aizsardzibas tehnika",
+        "ParentCode": "equipment_type_categories",
+        "Name": "M\u0113slo\u0161anas un augu aizsardz\u012bbas tehnika"
+    },
+    {
+        "Code": "organisko meslu izkliedetajs",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "Organisko m\u0113slu izklied\u0113t\u0101js"
+    },
+    {
+        "Code": "mineralmeslu un kalka izkliedetajs",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "Miner\u0101lm\u0113slu un ka\u013c\u0137a izklied\u0113t\u0101js"
+    },
+    {
+        "Code": "smidzinatajs",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "Smidzin\u0101t\u0101js"
+    },
+    {
+        "Code": "miglotajs",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "Miglot\u0101js"
+    },
+    {
+        "Code": "skidrmeslu cisterna",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "\u0160\u0137idrm\u0113slu cisterna"
+    },
+    {
+        "Code": "skidrmeslu izkliedes caurulvadu sistema",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "\u0160\u0137idrm\u0113slu izkliedes cauru\u013cvadu sist\u0113ma"
+    },
+    {
+        "Code": "skidrmeslu izkliedetaja aprikojums",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "\u0160\u0137idrm\u0113slu izklied\u0113t\u0101ja apr\u012bkojums"
+    },
+    {
+        "Code": "komposta apversejs",
+        "ParentCode": "meslosanas un augu aizsardzibas tehnika",
+        "Name": "Komposta apv\u0113rs\u0113js"
+    },
+    {
+        "Code": "sejumu un stadijumu kopsanas tehnika",
+        "ParentCode": "equipment_type_categories",
+        "Name": "S\u0113jumu un st\u0101d\u012bjumu kop\u0161anas tehnika"
+    },
+    {
+        "Code": "mulceris",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Mul\u010deris"
+    },
+    {
+        "Code": "rindstarpu kultivators",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Rindstarpu kultivators"
+    },
+    {
+        "Code": "laistisanas iekarta",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Laist\u012b\u0161anas iek\u0101rta"
+    },
+    {
+        "Code": "lakstu plavejs",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Lakstu p\u013c\u0101v\u0113js"
+    },
+    {
+        "Code": "maurina plaujmasina",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Mauri\u0146a p\u013caujma\u0161\u012bna"
+    },
+    {
+        "Code": "akmenu vacejs",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Akme\u0146u v\u0101c\u0113js"
+    },
+    {
+        "Code": "pleves ieklajejs",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Pl\u0113ves iekl\u0101j\u0113js"
+    },
+    {
+        "Code": "trimmeris",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Trimmeris"
+    },
+    {
+        "Code": "udens suknis",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "\u016adens s\u016bknis"
+    },
+    {
+        "Code": "kartupelu vagotajs",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "Kartupe\u013cu vagot\u0101js"
+    },
+    {
+        "Code": "skeldotajs",
+        "ParentCode": "sejumu un stadijumu kopsanas tehnika",
+        "Name": "\u0160\u0137eldot\u0101js"
+    },
+    {
+        "Code": "precizas tehnologijas",
+        "ParentCode": "equipment_type_categories",
+        "Name": "Prec\u012bz\u0101s tehnolo\u0123ijas"
+    },
+    {
+        "Code": "gps uztverejs",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "GPS uztv\u0113r\u0113js"
+    },
+    {
+        "Code": "augu sensors",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "Augu sensors"
+    },
+    {
+        "Code": "mainigas devas modula komplekts",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "Main\u012bg\u0101s devas modu\u013ca komplekts"
+    },
+    {
+        "Code": "bezpilota gaisa kugis",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "Bezpilota gaisa ku\u0123is"
+    },
+    {
+        "Code": "meteostacija",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "Meteostacija"
+    },
+    {
+        "Code": "robots",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "Robots"
+    },
+    {
+        "Code": "razas uzskaites sistema",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "Ra\u017eas uzskaites sist\u0113ma"
+    },
+    {
+        "Code": "gnss uztverejs",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "GNSS uztv\u0113r\u0113js"
+    },
+    {
+        "Code": "augsnes paraugu nonemejs",
+        "ParentCode": "precizas tehnologijas",
+        "Name": "Augsnes paraugu no\u0146\u0113m\u0113js"
+    },
+    {
+        "Code": "razas novaksanas tehnika",
+        "ParentCode": "equipment_type_categories",
+        "Name": "Ra\u017eas nov\u0101k\u0161anas tehnika"
+    },
+    {
+        "Code": "ogu novaksans kombains",
+        "ParentCode": "razas novaksanas tehnika",
+        "Name": "Ogu nov\u0101k\u0161ans kombains"
+    },
+    {
+        "Code": "razas novaksanas platforma",
+        "ParentCode": "razas novaksanas tehnika",
+        "Name": "Ra\u017eas nov\u0101k\u0161anas platforma"
+    },
+    {
+        "Code": "graudaugu kombains",
+        "ParentCode": "razas novaksanas tehnika",
+        "Name": "Graudaugu kombains"
+    },
+    {
+        "Code": "darzenu novaksanas kombains",
+        "ParentCode": "razas novaksanas tehnika",
+        "Name": "D\u0101rze\u0146u nov\u0101k\u0161anas kombains"
+    },
+    {
+        "Code": "kombaina heders",
+        "ParentCode": "razas novaksanas tehnika",
+        "Name": "Kombaina heders"
+    },
+    {
+        "Code": "kartupelu novaksanas kombains",
+        "ParentCode": "razas novaksanas tehnika",
+        "Name": "Kartupe\u013cu nov\u0101k\u0161anas kombains"
+    },
+    {
+        "Code": "111",
+        "ParentCode": "crop_type_categories",
+        "Name": "111"
+    },
+    {
+        "Code": "kviesi vasaras",
+        "ParentCode": "111",
+        "Name": "Kvie\u0161i, vasaras"
+    },
+    {
+        "Code": "112",
+        "ParentCode": "crop_type_categories",
+        "Name": "112"
+    },
+    {
+        "Code": "kviesi ziemas",
+        "ParentCode": "112",
+        "Name": "Kvie\u0161i, ziemas"
+    },
+    {
+        "Code": "113",
+        "ParentCode": "crop_type_categories",
+        "Name": "113"
+    },
+    {
+        "Code": "kviesi vasaras ar stiebrzalu vai taurinziezu paseju",
+        "ParentCode": "113",
+        "Name": "Kvie\u0161i vasaras ar stiebrz\u0101\u013cu vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "115",
+        "ParentCode": "crop_type_categories",
+        "Name": "115"
+    },
+    {
+        "Code": "speltas kviesi vasaras",
+        "ParentCode": "115",
+        "Name": "Speltas kvie\u0161i, vasaras"
+    },
+    {
+        "Code": "116",
+        "ParentCode": "crop_type_categories",
+        "Name": "116"
+    },
+    {
+        "Code": "speltas kviesi ziemas",
+        "ParentCode": "116",
+        "Name": "Speltas kvie\u0161i, ziemas"
+    },
+    {
+        "Code": "117",
+        "ParentCode": "crop_type_categories",
+        "Name": "117"
+    },
+    {
+        "Code": "kviesi ziemas ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "117",
+        "Name": "Kvie\u0161i, ziemas ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "118",
+        "ParentCode": "crop_type_categories",
+        "Name": "118"
+    },
+    {
+        "Code": "speltas kviesi vasaras ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "118",
+        "Name": "Speltas kvie\u0161i, vasaras ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "119",
+        "ParentCode": "crop_type_categories",
+        "Name": "119"
+    },
+    {
+        "Code": "speltas kviesi ziemas ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "119",
+        "Name": "Speltas kvie\u0161i, ziemas ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "121",
+        "ParentCode": "crop_type_categories",
+        "Name": "121"
+    },
+    {
+        "Code": "rudzi",
+        "ParentCode": "121",
+        "Name": "Rudzi"
+    },
+    {
+        "Code": "122",
+        "ParentCode": "crop_type_categories",
+        "Name": "122"
+    },
+    {
+        "Code": "rudzi populacijas skirnes t sk kaupo",
+        "ParentCode": "122",
+        "Name": "Rudzi, popul\u0101cijas \u0161\u0137irnes, t. sk. \u2018Kaupo\u2019"
+    },
+    {
+        "Code": "124",
+        "ParentCode": "crop_type_categories",
+        "Name": "124"
+    },
+    {
+        "Code": "rudzi ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "124",
+        "Name": "Rudzi, ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "125",
+        "ParentCode": "crop_type_categories",
+        "Name": "125"
+    },
+    {
+        "Code": "rudzi populacijas skirnes tsk kaupo ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "125",
+        "Name": "Rudzi, popul\u0101cijas \u0161\u0137irnes, t.sk. \u2018Kaupo\u2019 ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "131",
+        "ParentCode": "crop_type_categories",
+        "Name": "131"
+    },
+    {
+        "Code": "miezi vasaras",
+        "ParentCode": "131",
+        "Name": "Mie\u017ei, vasaras"
+    },
+    {
+        "Code": "132",
+        "ParentCode": "crop_type_categories",
+        "Name": "132"
+    },
+    {
+        "Code": "miezi ziemas",
+        "ParentCode": "132",
+        "Name": "Mie\u017ei, ziemas"
+    },
+    {
+        "Code": "133",
+        "ParentCode": "crop_type_categories",
+        "Name": "133"
+    },
+    {
+        "Code": "miezi vasaras ar stiebrzalu vai taurinziezu paseju",
+        "ParentCode": "133",
+        "Name": "Mie\u017ei vasaras ar stiebrz\u0101\u013cu vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "135",
+        "ParentCode": "crop_type_categories",
+        "Name": "135"
+    },
+    {
+        "Code": "miezi ziemas ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "135",
+        "Name": "Mie\u017ei, ziemas ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "140",
+        "ParentCode": "crop_type_categories",
+        "Name": "140"
+    },
+    {
+        "Code": "auzas",
+        "ParentCode": "140",
+        "Name": "Auzas"
+    },
+    {
+        "Code": "141",
+        "ParentCode": "crop_type_categories",
+        "Name": "141"
+    },
+    {
+        "Code": "auzas ar stiebrzalu vai taurinziezu paseju",
+        "ParentCode": "141",
+        "Name": "Auzas ar stiebrz\u0101\u013cu vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "150",
+        "ParentCode": "crop_type_categories",
+        "Name": "150"
+    },
+    {
+        "Code": "tritikale vasaras",
+        "ParentCode": "150",
+        "Name": "Tritik\u0101le, vasaras"
+    },
+    {
+        "Code": "151",
+        "ParentCode": "crop_type_categories",
+        "Name": "151"
+    },
+    {
+        "Code": "tritikale ziemas",
+        "ParentCode": "151",
+        "Name": "Tritik\u0101le, ziemas"
+    },
+    {
+        "Code": "152",
+        "ParentCode": "crop_type_categories",
+        "Name": "152"
+    },
+    {
+        "Code": "tritikale vasaras ar stiebrzalu vai taurinziezu paseju",
+        "ParentCode": "152",
+        "Name": "Tritik\u0101le vasaras ar stiebrz\u0101\u013cu vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "154",
+        "ParentCode": "crop_type_categories",
+        "Name": "154"
+    },
+    {
+        "Code": "tritikale ziemas ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "154",
+        "Name": "Tritik\u0101le, ziemas ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "160",
+        "ParentCode": "crop_type_categories",
+        "Name": "160"
+    },
+    {
+        "Code": "griki",
+        "ParentCode": "160",
+        "Name": "Gri\u0137i"
+    },
+    {
+        "Code": "161",
+        "ParentCode": "crop_type_categories",
+        "Name": "161"
+    },
+    {
+        "Code": "griki ar taurinziezu paseju",
+        "ParentCode": "161",
+        "Name": "Gri\u0137i ar tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "170",
+        "ParentCode": "crop_type_categories",
+        "Name": "170"
+    },
+    {
+        "Code": "kanepes",
+        "ParentCode": "170",
+        "Name": "Ka\u0146epes"
+    },
+    {
+        "Code": "211",
+        "ParentCode": "crop_type_categories",
+        "Name": "211"
+    },
+    {
+        "Code": "rapsis vasaras",
+        "ParentCode": "211",
+        "Name": "Rapsis, vasaras"
+    },
+    {
+        "Code": "212",
+        "ParentCode": "crop_type_categories",
+        "Name": "212"
+    },
+    {
+        "Code": "rapsis ziemas",
+        "ParentCode": "212",
+        "Name": "Rapsis, ziemas"
+    },
+    {
+        "Code": "213",
+        "ParentCode": "crop_type_categories",
+        "Name": "213"
+    },
+    {
+        "Code": "ripsis vasaras",
+        "ParentCode": "213",
+        "Name": "Ripsis, vasaras"
+    },
+    {
+        "Code": "214",
+        "ParentCode": "crop_type_categories",
+        "Name": "214"
+    },
+    {
+        "Code": "ripsis ziemas",
+        "ParentCode": "214",
+        "Name": "Ripsis, ziemas"
+    },
+    {
+        "Code": "215",
+        "ParentCode": "crop_type_categories",
+        "Name": "215"
+    },
+    {
+        "Code": "sinepe tostarp balta sinepe",
+        "ParentCode": "215",
+        "Name": "Sinepe, tostarp balt\u0101 sinepe"
+    },
+    {
+        "Code": "216",
+        "ParentCode": "crop_type_categories",
+        "Name": "216"
+    },
+    {
+        "Code": "sinepe ar taurinziezu paseju",
+        "ParentCode": "216",
+        "Name": "Sinepe ar tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "310",
+        "ParentCode": "crop_type_categories",
+        "Name": "310"
+    },
+    {
+        "Code": "lini skiedras",
+        "ParentCode": "310",
+        "Name": "Lini, \u0161\u0137iedras"
+    },
+    {
+        "Code": "330",
+        "ParentCode": "crop_type_categories",
+        "Name": "330"
+    },
+    {
+        "Code": "lini ellas",
+        "ParentCode": "330",
+        "Name": "Lini, e\u013c\u013cas"
+    },
+    {
+        "Code": "340",
+        "ParentCode": "crop_type_categories",
+        "Name": "340"
+    },
+    {
+        "Code": "tabaka",
+        "ParentCode": "340",
+        "Name": "Tabaka"
+    },
+    {
+        "Code": "410",
+        "ParentCode": "crop_type_categories",
+        "Name": "410"
+    },
+    {
+        "Code": "lauka pupas",
+        "ParentCode": "410",
+        "Name": "Lauka pupas"
+    },
+    {
+        "Code": "411",
+        "ParentCode": "crop_type_categories",
+        "Name": "411"
+    },
+    {
+        "Code": "pupas ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "411",
+        "Name": "Pupas ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "420",
+        "ParentCode": "crop_type_categories",
+        "Name": "420"
+    },
+    {
+        "Code": "zirni",
+        "ParentCode": "420",
+        "Name": "Zir\u0146i"
+    },
+    {
+        "Code": "421",
+        "ParentCode": "crop_type_categories",
+        "Name": "421"
+    },
+    {
+        "Code": "zirni ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "421",
+        "Name": "Zir\u0146i ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "430",
+        "ParentCode": "crop_type_categories",
+        "Name": "430"
+    },
+    {
+        "Code": "lupina saldas jeb dzeltenas baltas saurlapu",
+        "ParentCode": "430",
+        "Name": "Lup\u012bna (sald\u0101s jeb dzelten\u0101s, balt\u0101s, \u0161aurlapu)"
+    },
+    {
+        "Code": "441",
+        "ParentCode": "crop_type_categories",
+        "Name": "441"
+    },
+    {
+        "Code": "viki vasaras",
+        "ParentCode": "441",
+        "Name": "V\u012b\u0137i, vasaras"
+    },
+    {
+        "Code": "442",
+        "ParentCode": "crop_type_categories",
+        "Name": "442"
+    },
+    {
+        "Code": "viki ziemas",
+        "ParentCode": "442",
+        "Name": "V\u012b\u0137i, ziemas"
+    },
+    {
+        "Code": "443",
+        "ParentCode": "crop_type_categories",
+        "Name": "443"
+    },
+    {
+        "Code": "soja",
+        "ParentCode": "443",
+        "Name": "Soja"
+    },
+    {
+        "Code": "444",
+        "ParentCode": "crop_type_categories",
+        "Name": "444"
+    },
+    {
+        "Code": "soja ar stiebrzalu paseju vai taurinziezu paseju",
+        "ParentCode": "444",
+        "Name": "Soja ar stiebrz\u0101\u013cu pas\u0113ju vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "445",
+        "ParentCode": "crop_type_categories",
+        "Name": "445"
+    },
+    {
+        "Code": "graudaugu un zirnu maisijums kura zirni 50",
+        "ParentCode": "445",
+        "Name": "Graudaugu un zir\u0146u mais\u012bjums, kur\u0101 zir\u0146i > 50 %"
+    },
+    {
+        "Code": "446",
+        "ParentCode": "crop_type_categories",
+        "Name": "446"
+    },
+    {
+        "Code": "graudaugu un zirnu maisijums kura zirni 50 ar stiebrzalu vai taurinziezu paseju",
+        "ParentCode": "446",
+        "Name": "Graudaugu un zir\u0146u mais\u012bjums, kur\u0101 zir\u0146i > 50 %, ar stiebrz\u0101\u013cu vai tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "447",
+        "ParentCode": "crop_type_categories",
+        "Name": "447"
+    },
+    {
+        "Code": "graudaugu un viku maisijums kura viki 50",
+        "ParentCode": "447",
+        "Name": "Graudaugu un v\u012b\u0137u mais\u012bjums, kur\u0101 v\u012b\u0137i > 50\u00a0%"
+    },
+    {
+        "Code": "471",
+        "ParentCode": "crop_type_categories",
+        "Name": "471"
+    },
+    {
+        "Code": "viki vasaras seklas ieguvei",
+        "ParentCode": "471",
+        "Name": "V\u012b\u0137i, vasaras s\u0113klas ieguvei"
+    },
+    {
+        "Code": "472",
+        "ParentCode": "crop_type_categories",
+        "Name": "472"
+    },
+    {
+        "Code": "viki ziemas seklas ieguvei",
+        "ParentCode": "472",
+        "Name": "V\u012b\u0137i, ziemas s\u0113klas ieguvei"
+    },
+    {
+        "Code": "473",
+        "ParentCode": "crop_type_categories",
+        "Name": "473"
+    },
+    {
+        "Code": "soja seklas ieguvei",
+        "ParentCode": "473",
+        "Name": "Soja s\u0113klas ieguvei"
+    },
+    {
+        "Code": "610",
+        "ParentCode": "crop_type_categories",
+        "Name": "610"
+    },
+    {
+        "Code": "papuve iznemot zalmeslojuma augu papuvi",
+        "ParentCode": "610",
+        "Name": "Papuve, iz\u0146emot za\u013cm\u0113slojuma augu papuvi"
+    },
+    {
+        "Code": "612",
+        "ParentCode": "crop_type_categories",
+        "Name": "612"
+    },
+    {
+        "Code": "zalmeslojuma augu papuve",
+        "ParentCode": "612",
+        "Name": "Za\u013cm\u0113slojuma augu papuve"
+    },
+    {
+        "Code": "620",
+        "ParentCode": "crop_type_categories",
+        "Name": "620"
+    },
+    {
+        "Code": "liz par kuru karteja gada nevar sanemt atbalstu",
+        "ParentCode": "620",
+        "Name": "LIZ, par kuru k\u0101rt\u0113j\u0101 gad\u0101 nevar sa\u0146emt atbalstu"
+    },
+    {
+        "Code": "640",
+        "ParentCode": "crop_type_categories",
+        "Name": "640"
+    },
+    {
+        "Code": "kokaugu stadaudzetavas lauksaimniecibas zeme",
+        "ParentCode": "640",
+        "Name": "Kokaugu st\u0101daudz\u0113tavas lauksaimniec\u012bbas zem\u0113"
+    },
+    {
+        "Code": "641",
+        "ParentCode": "crop_type_categories",
+        "Name": "641"
+    },
+    {
+        "Code": "miezabralis",
+        "ParentCode": "641",
+        "Name": "Mie\u017eabr\u0101lis"
+    },
+    {
+        "Code": "642",
+        "ParentCode": "crop_type_categories",
+        "Name": "642"
+    },
+    {
+        "Code": "kludzinprosa",
+        "ParentCode": "642",
+        "Name": "Kl\u016bdzi\u0146prosa"
+    },
+    {
+        "Code": "644",
+        "ParentCode": "crop_type_categories",
+        "Name": "644"
+    },
+    {
+        "Code": "apse",
+        "ParentCode": "644",
+        "Name": "Apse"
+    },
+    {
+        "Code": "645",
+        "ParentCode": "crop_type_categories",
+        "Name": "645"
+    },
+    {
+        "Code": "karkli",
+        "ParentCode": "645",
+        "Name": "K\u0101rkli"
+    },
+    {
+        "Code": "646",
+        "ParentCode": "crop_type_categories",
+        "Name": "646"
+    },
+    {
+        "Code": "baltalksnis",
+        "ParentCode": "646",
+        "Name": "Baltalksnis"
+    },
+    {
+        "Code": "710",
+        "ParentCode": "crop_type_categories",
+        "Name": "710"
+    },
+    {
+        "Code": "ilggadigie zalaji",
+        "ParentCode": "710",
+        "Name": "Ilggad\u012bgie z\u0101l\u0101ji"
+    },
+    {
+        "Code": "713",
+        "ParentCode": "crop_type_categories",
+        "Name": "713"
+    },
+    {
+        "Code": "citur neminetas stiebrzales",
+        "ParentCode": "713",
+        "Name": "Citur nemin\u0113tas stiebrz\u0101les"
+    },
+    {
+        "Code": "714",
+        "ParentCode": "crop_type_categories",
+        "Name": "714"
+    },
+    {
+        "Code": "esparsete",
+        "ParentCode": "714",
+        "Name": "Esparsete"
+    },
+    {
+        "Code": "715",
+        "ParentCode": "crop_type_categories",
+        "Name": "715"
+    },
+    {
+        "Code": "facelija",
+        "ParentCode": "715",
+        "Name": "Fac\u0113lija"
+    },
+    {
+        "Code": "716",
+        "ParentCode": "crop_type_categories",
+        "Name": "716"
+    },
+    {
+        "Code": "facelija ar taurinziezu paseju",
+        "ParentCode": "716",
+        "Name": "Fac\u0113lija ar tauri\u0146zie\u017eu pas\u0113ju"
+    },
+    {
+        "Code": "720",
+        "ParentCode": "crop_type_categories",
+        "Name": "720"
+    },
+    {
+        "Code": "aramzeme setu stiebrzalu vai lopbaribas zalaugu ari proteinaugu maisijums",
+        "ParentCode": "720",
+        "Name": "Aramzem\u0113 s\u0113tu stiebrz\u0101\u013cu vai lopbar\u012bbas z\u0101laugu (ar\u012b prote\u012bnaugu) mais\u012bjums"
+    },
+    {
+        "Code": "723",
+        "ParentCode": "crop_type_categories",
+        "Name": "723"
+    },
+    {
+        "Code": "sarkanais abolins",
+        "ParentCode": "723",
+        "Name": "Sarkanais \u0101boli\u0146\u0161"
+    },
+    {
+        "Code": "724",
+        "ParentCode": "crop_type_categories",
+        "Name": "724"
+    },
+    {
+        "Code": "baltais abolins",
+        "ParentCode": "724",
+        "Name": "Baltais \u0101boli\u0146\u0161"
+    },
+    {
+        "Code": "725",
+        "ParentCode": "crop_type_categories",
+        "Name": "725"
+    },
+    {
+        "Code": "bastarda abolins",
+        "ParentCode": "725",
+        "Name": "Bastarda \u0101boli\u0146\u0161"
+    },
+    {
+        "Code": "726",
+        "ParentCode": "crop_type_categories",
+        "Name": "726"
+    },
+    {
+        "Code": "lucerna",
+        "ParentCode": "726",
+        "Name": "Lucerna"
+    },
+    {
+        "Code": "727",
+        "ParentCode": "crop_type_categories",
+        "Name": "727"
+    },
+    {
+        "Code": "austrumu galega",
+        "ParentCode": "727",
+        "Name": "Austrumu galega"
+    },
+    {
+        "Code": "728",
+        "ParentCode": "crop_type_categories",
+        "Name": "728"
+    },
+    {
+        "Code": "ragainais vanagnadzins",
+        "ParentCode": "728",
+        "Name": "Ragainais vanagnadzi\u0146\u0161"
+    },
+    {
+        "Code": "729",
+        "ParentCode": "crop_type_categories",
+        "Name": "729"
+    },
+    {
+        "Code": "amolins",
+        "ParentCode": "729",
+        "Name": "Amoli\u0146\u0161"
+    },
+    {
+        "Code": "731",
+        "ParentCode": "crop_type_categories",
+        "Name": "731"
+    },
+    {
+        "Code": "plavas timotins seklas ieguvei",
+        "ParentCode": "731",
+        "Name": "P\u013cavas timoti\u0146\u0161, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "732",
+        "ParentCode": "crop_type_categories",
+        "Name": "732"
+    },
+    {
+        "Code": "plavas auzene seklas ieguvei",
+        "ParentCode": "732",
+        "Name": "P\u013cavas auzene, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "733",
+        "ParentCode": "crop_type_categories",
+        "Name": "733"
+    },
+    {
+        "Code": "hibrida airene seklas ieguvei",
+        "ParentCode": "733",
+        "Name": "Hibr\u012bd\u0101 airene, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "734",
+        "ParentCode": "crop_type_categories",
+        "Name": "734"
+    },
+    {
+        "Code": "daudzziedu viengadiga airene seklas ieguvei",
+        "ParentCode": "734",
+        "Name": "Daudzziedu viengad\u012bg\u0101 airene s\u0113klas ieguvei"
+    },
+    {
+        "Code": "735",
+        "ParentCode": "crop_type_categories",
+        "Name": "735"
+    },
+    {
+        "Code": "sarkana auzene seklas ieguvei",
+        "ParentCode": "735",
+        "Name": "Sarkan\u0101 auzene, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "736",
+        "ParentCode": "crop_type_categories",
+        "Name": "736"
+    },
+    {
+        "Code": "ganibu airene seklas ieguvei",
+        "ParentCode": "736",
+        "Name": "Gan\u012bbu airene, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "737",
+        "ParentCode": "crop_type_categories",
+        "Name": "737"
+    },
+    {
+        "Code": "niedru auzene seklas ieguvei",
+        "ParentCode": "737",
+        "Name": "Niedru auzene, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "738",
+        "ParentCode": "crop_type_categories",
+        "Name": "738"
+    },
+    {
+        "Code": "plavas skarene seklas ieguvei",
+        "ParentCode": "738",
+        "Name": "P\u013cavas skarene, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "739",
+        "ParentCode": "crop_type_categories",
+        "Name": "739"
+    },
+    {
+        "Code": "kamolzale seklas ieguvei",
+        "ParentCode": "739",
+        "Name": "Kamolz\u0101le, s\u0113klas ieguvei"
+    },
+    {
+        "Code": "741",
+        "ParentCode": "crop_type_categories",
+        "Name": "741"
+    },
+    {
+        "Code": "citur nemineta kukuruza",
+        "ParentCode": "741",
+        "Name": "Citur nemin\u0113ta kukur\u016bza"
+    },
+    {
+        "Code": "760",
+        "ParentCode": "crop_type_categories",
+        "Name": "760"
+    },
+    {
+        "Code": "aramzeme setu stiebrzalu un taurinziezu maisijums kura taurinziezi 50",
+        "ParentCode": "760",
+        "Name": "Aramzem\u0113 s\u0113tu stiebrz\u0101\u013cu un tauri\u0146zie\u017eu mais\u012bjums, kur\u0101 tauri\u0146zie\u017ei > 50 %"
+    },
+    {
+        "Code": "761",
+        "ParentCode": "crop_type_categories",
+        "Name": "761"
+    },
+    {
+        "Code": "auzenairene seklas ieguvei",
+        "ParentCode": "761",
+        "Name": "Auze\u0146airene s\u0113klas ieguvei"
+    },
+    {
+        "Code": "773",
+        "ParentCode": "crop_type_categories",
+        "Name": "773"
+    },
+    {
+        "Code": "sarkanais abolins seklas ieguvei",
+        "ParentCode": "773",
+        "Name": "Sarkanais \u0101boli\u0146\u0161 s\u0113klas ieguvei"
+    },
+    {
+        "Code": "774",
+        "ParentCode": "crop_type_categories",
+        "Name": "774"
+    },
+    {
+        "Code": "baltais abolins seklas ieguvei",
+        "ParentCode": "774",
+        "Name": "Baltais \u0101boli\u0146\u0161 s\u0113klas ieguvei"
+    },
+    {
+        "Code": "775",
+        "ParentCode": "crop_type_categories",
+        "Name": "775"
+    },
+    {
+        "Code": "bastarda abolins seklas ieguvei",
+        "ParentCode": "775",
+        "Name": "Bastarda \u0101boli\u0146\u0161 s\u0113klas ieguvei"
+    },
+    {
+        "Code": "776",
+        "ParentCode": "crop_type_categories",
+        "Name": "776"
+    },
+    {
+        "Code": "lucerna seklas ieguvei",
+        "ParentCode": "776",
+        "Name": "Lucerna s\u0113klas ieguvei"
+    },
+    {
+        "Code": "777",
+        "ParentCode": "crop_type_categories",
+        "Name": "777"
+    },
+    {
+        "Code": "austrumu galega seklas ieguvei",
+        "ParentCode": "777",
+        "Name": "Austrumu galega s\u0113klas ieguvei"
+    },
+    {
+        "Code": "778",
+        "ParentCode": "crop_type_categories",
+        "Name": "778"
+    },
+    {
+        "Code": "ragainais vanagnadzins seklas ieguvei",
+        "ParentCode": "778",
+        "Name": "Ragainais vanagnadzi\u0146\u0161 s\u0113klas ieguvei"
+    },
+    {
+        "Code": "779",
+        "ParentCode": "crop_type_categories",
+        "Name": "779"
+    },
+    {
+        "Code": "amolins seklas ieguvei",
+        "ParentCode": "779",
+        "Name": "Amoli\u0146\u0161 s\u0113klas ieguvei"
+    },
+    {
+        "Code": "781",
+        "ParentCode": "crop_type_categories",
+        "Name": "781"
+    },
+    {
+        "Code": "inkarnata abolins",
+        "ParentCode": "781",
+        "Name": "Inkarn\u0101ta \u0101boli\u0146\u0161"
+    },
+    {
+        "Code": "784",
+        "ParentCode": "crop_type_categories",
+        "Name": "784"
+    },
+    {
+        "Code": "esparsete seklas ieguvei",
+        "ParentCode": "784",
+        "Name": "Esparsete s\u0113klas ieguvei"
+    },
+    {
+        "Code": "791",
+        "ParentCode": "crop_type_categories",
+        "Name": "791"
+    },
+    {
+        "Code": "kukuruza biogazes ieguvei",
+        "ParentCode": "791",
+        "Name": "Kukur\u016bza biog\u0101zes ieguvei"
+    },
+    {
+        "Code": "792",
+        "ParentCode": "crop_type_categories",
+        "Name": "792"
+    },
+    {
+        "Code": "platiba kura dabiski iesejusos augu ipatsvars parsniedz 25 darzenu kulturaugu skaits viena kvadratmetra ir mazaks par so noteikumu 2 pielikuma noteikto skaitu un nav istenoti nezalu ierobezosanas agrotehniskie pasakumi vismaz tada apjoma lai netiktu kaveta kulturaugu augsana un kulturaugi sasniegtu razas novaksanai piemerotu gatavibu6",
+        "ParentCode": "792",
+        "Name": "Plat\u012bba, kur\u0101 dabiski ies\u0113ju\u0161os augu \u012bpatsvars p\u0101rsniedz 25\u00a0%, d\u0101rze\u0146u kult\u016braugu skaits vien\u0101 kvadr\u0101tmetr\u0101 ir maz\u0101ks par \u0161o noteikumu 2. pielikum\u0101 noteikto skaitu un nav \u012bstenoti nez\u0101\u013cu ierobe\u017eo\u0161anas agrotehniskie pas\u0101kumi vismaz t\u0101d\u0101 apjom\u0101, lai netiktu kav\u0113ta kult\u016braugu aug\u0161ana un kult\u016braugi sasniegtu ra\u017eas nov\u0101k\u0161anai piem\u0113rotu gatav\u012bbu6"
+    },
+    {
+        "Code": "811",
+        "ParentCode": "crop_type_categories",
+        "Name": "811"
+    },
+    {
+        "Code": "dazadi kulturaugi neliela aramzemes platiba jeb vairaki kulturaugi audzeti vienlaidu lauka ja katrs no kulturaugiem attiecigaja lauka aiznem mazak par 01 ha vai platibas ko izmanto ziedu audzesanai",
+        "ParentCode": "811",
+        "Name": "Da\u017e\u0101di kult\u016braugi neliel\u0101 aramzemes plat\u012bb\u0101 jeb vair\u0101ki kult\u016braugi, audz\u0113ti vienlaidu lauk\u0101, ja katrs no kult\u016braugiem attiec\u012bgaj\u0101 lauk\u0101 aiz\u0146em maz\u0101k par 0,1 ha, vai plat\u012bbas, ko izmanto ziedu audz\u0113\u0161anai"
+    },
+    {
+        "Code": "820",
+        "ParentCode": "crop_type_categories",
+        "Name": "820"
+    },
+    {
+        "Code": "kartupeli kas citur nav mineti",
+        "ParentCode": "820",
+        "Name": "Kartupe\u013ci, kas citur nav min\u0113ti"
+    },
+    {
+        "Code": "821",
+        "ParentCode": "crop_type_categories",
+        "Name": "821"
+    },
+    {
+        "Code": "seklas kartupeli",
+        "ParentCode": "821",
+        "Name": "S\u0113klas kartupe\u013ci"
+    },
+    {
+        "Code": "825",
+        "ParentCode": "crop_type_categories",
+        "Name": "825"
+    },
+    {
+        "Code": "cietes kartupeli",
+        "ParentCode": "825",
+        "Name": "Cietes kartupe\u013ci"
+    },
+    {
+        "Code": "826",
+        "ParentCode": "crop_type_categories",
+        "Name": "826"
+    },
+    {
+        "Code": "tomati",
+        "ParentCode": "826",
+        "Name": "Tom\u0101ti"
+    },
+    {
+        "Code": "831",
+        "ParentCode": "crop_type_categories",
+        "Name": "831"
+    },
+    {
+        "Code": "lopbaribas bietes cukurbietes",
+        "ParentCode": "831",
+        "Name": "Lopbar\u012bbas bietes, cukurbietes"
+    },
+    {
+        "Code": "842",
+        "ParentCode": "crop_type_categories",
+        "Name": "842"
+    },
+    {
+        "Code": "ziedkaposti",
+        "ParentCode": "842",
+        "Name": "Ziedk\u0101posti"
+    },
+    {
+        "Code": "843",
+        "ParentCode": "crop_type_categories",
+        "Name": "843"
+    },
+    {
+        "Code": "burkani",
+        "ParentCode": "843",
+        "Name": "Burk\u0101ni"
+    },
+    {
+        "Code": "844",
+        "ParentCode": "crop_type_categories",
+        "Name": "844"
+    },
+    {
+        "Code": "galda bietes mangolds lapu bietes",
+        "ParentCode": "844",
+        "Name": "Galda bietes, mangolds (lapu bietes)"
+    },
+    {
+        "Code": "845",
+        "ParentCode": "crop_type_categories",
+        "Name": "845"
+    },
+    {
+        "Code": "gurki un kornisoni",
+        "ParentCode": "845",
+        "Name": "Gur\u0137i un korni\u0161oni"
+    },
+    {
+        "Code": "846",
+        "ParentCode": "crop_type_categories",
+        "Name": "846"
+    },
+    {
+        "Code": "sipoli salotes sipoli maurloki lielloku sipoli un batuni",
+        "ParentCode": "846",
+        "Name": "S\u012bpoli, \u0161alotes s\u012bpoli, maurloki, lielloku s\u012bpoli un bat\u016bni"
+    },
+    {
+        "Code": "847",
+        "ParentCode": "crop_type_categories",
+        "Name": "847"
+    },
+    {
+        "Code": "kiploki",
+        "ParentCode": "847",
+        "Name": "\u0136iploki"
+    },
+    {
+        "Code": "848",
+        "ParentCode": "crop_type_categories",
+        "Name": "848"
+    },
+    {
+        "Code": "garsaugi un kultiveti arstniecibas augi fenhelis baziliks timians estragons aniss majorans oregano jeb raudene salvija izops piparmetra pupumetra vermele lofants naktssvece devinviru speks abolmetra citronmelisa tauksakne ehinacija arstniecibas lupstajs dizzirdzene raspodins sirds matere",
+        "ParentCode": "848",
+        "Name": "Gar\u0161augi un kultiv\u0113ti \u0101rstniec\u012bbas augi (fenhelis, baziliks, timi\u0101ns, estragons, an\u012bss, major\u0101ns, oregano jeb raudene, salvija, izops, piparm\u0113tra, pupum\u0113tra, v\u0113rmele, lofants, naktssvece, devi\u0146v\u012bru sp\u0113ks, \u0101bolm\u0113tra, citronmelisa, tauksakne, ehin\u0101cija, \u0101rstniec\u012bbas lupst\u0101js, di\u017ezirdzene, raspodi\u0146\u0161, sirds m\u0101tere)"
+    },
+    {
+        "Code": "849",
+        "ParentCode": "crop_type_categories",
+        "Name": "849"
+    },
+    {
+        "Code": "puravi",
+        "ParentCode": "849",
+        "Name": "Puravi"
+    },
+    {
+        "Code": "851",
+        "ParentCode": "crop_type_categories",
+        "Name": "851"
+    },
+    {
+        "Code": "galda raceni turnepsi",
+        "ParentCode": "851",
+        "Name": "Galda r\u0101ce\u0146i, turnep\u0161i"
+    },
+    {
+        "Code": "852",
+        "ParentCode": "crop_type_categories",
+        "Name": "852"
+    },
+    {
+        "Code": "selerijas",
+        "ParentCode": "852",
+        "Name": "Selerijas"
+    },
+    {
+        "Code": "853",
+        "ParentCode": "crop_type_categories",
+        "Name": "853"
+    },
+    {
+        "Code": "redisi un melnie rutki",
+        "ParentCode": "853",
+        "Name": "Red\u012bsi un melnie rutki"
+    },
+    {
+        "Code": "854",
+        "ParentCode": "crop_type_categories",
+        "Name": "854"
+    },
+    {
+        "Code": "petersili",
+        "ParentCode": "854",
+        "Name": "P\u0113ters\u012b\u013ci"
+    },
+    {
+        "Code": "855",
+        "ParentCode": "crop_type_categories",
+        "Name": "855"
+    },
+    {
+        "Code": "pastinaks",
+        "ParentCode": "855",
+        "Name": "Pastinaks"
+    },
+    {
+        "Code": "856",
+        "ParentCode": "crop_type_categories",
+        "Name": "856"
+    },
+    {
+        "Code": "galda kali",
+        "ParentCode": "856",
+        "Name": "Galda k\u0101\u013ci"
+    },
+    {
+        "Code": "857",
+        "ParentCode": "crop_type_categories",
+        "Name": "857"
+    },
+    {
+        "Code": "darza kirbis cukini kabaci patisoni",
+        "ParentCode": "857",
+        "Name": "D\u0101rza \u0137irbis, cuk\u012bni, kaba\u010di, patisoni"
+    },
+    {
+        "Code": "859",
+        "ParentCode": "crop_type_categories",
+        "Name": "859"
+    },
+    {
+        "Code": "parastas jeb darza pupinas",
+        "ParentCode": "859",
+        "Name": "Parast\u0101s jeb d\u0101rza pupi\u0146as"
+    },
+    {
+        "Code": "860",
+        "ParentCode": "crop_type_categories",
+        "Name": "860"
+    },
+    {
+        "Code": "skabenes",
+        "ParentCode": "860",
+        "Name": "Sk\u0101benes"
+    },
+    {
+        "Code": "861",
+        "ParentCode": "crop_type_categories",
+        "Name": "861"
+    },
+    {
+        "Code": "rabarberi",
+        "ParentCode": "861",
+        "Name": "Rabarberi"
+    },
+    {
+        "Code": "862",
+        "ParentCode": "crop_type_categories",
+        "Name": "862"
+    },
+    {
+        "Code": "spinati",
+        "ParentCode": "862",
+        "Name": "Spin\u0101ti"
+    },
+    {
+        "Code": "863",
+        "ParentCode": "crop_type_categories",
+        "Name": "863"
+    },
+    {
+        "Code": "marrutki",
+        "ParentCode": "863",
+        "Name": "M\u0101rrutki"
+    },
+    {
+        "Code": "864",
+        "ParentCode": "crop_type_categories",
+        "Name": "864"
+    },
+    {
+        "Code": "salati",
+        "ParentCode": "864",
+        "Name": "Sal\u0101ti"
+    },
+    {
+        "Code": "865",
+        "ParentCode": "crop_type_categories",
+        "Name": "865"
+    },
+    {
+        "Code": "topinamburi",
+        "ParentCode": "865",
+        "Name": "Topinamb\u016bri"
+    },
+    {
+        "Code": "867",
+        "ParentCode": "crop_type_categories",
+        "Name": "867"
+    },
+    {
+        "Code": "paprika",
+        "ParentCode": "867",
+        "Name": "Paprika"
+    },
+    {
+        "Code": "868",
+        "ParentCode": "crop_type_categories",
+        "Name": "868"
+    },
+    {
+        "Code": "baklazani",
+        "ParentCode": "868",
+        "Name": "Bakla\u017e\u0101ni"
+    },
+    {
+        "Code": "869",
+        "ParentCode": "crop_type_categories",
+        "Name": "869"
+    },
+    {
+        "Code": "spargeli",
+        "ParentCode": "869",
+        "Name": "Spar\u0123e\u013ci"
+    },
+    {
+        "Code": "870",
+        "ParentCode": "crop_type_categories",
+        "Name": "870"
+    },
+    {
+        "Code": "citur nemineti kaposti baltie vai sarkanie galvinkaposti rozu jeb briseles kaposti galda kolrabji spargelkaposti virzinkaposti jeb savojas kaposti lapu kaposti brokoli pekinas kaposti iznemot lopbaribas kapostus",
+        "ParentCode": "870",
+        "Name": "Citur nemin\u0113ti k\u0101posti (baltie vai sarkanie galvi\u0146k\u0101posti, ro\u017eu jeb Briseles k\u0101posti, galda kolr\u0101bji, spar\u0123e\u013ck\u0101posti, virzi\u0146k\u0101posti jeb Savojas k\u0101posti, lapu k\u0101posti, broko\u013ci, Pekinas k\u0101posti), iz\u0146emot lopbar\u012bbas k\u0101postus"
+    },
+    {
+        "Code": "871",
+        "ParentCode": "crop_type_categories",
+        "Name": "871"
+    },
+    {
+        "Code": "darzeni ja vienlaidu platiba augosas sa atbalsttiesigas darzenu kulturaugu sugas katra aiznem mazak par 01 ha un kopeja saimniecibas aramzemes platiba nav lielaka par 10 ha",
+        "ParentCode": "871",
+        "Name": "D\u0101rze\u0146i, ja vienlaidu plat\u012bb\u0101 augo\u0161as SA atbalstties\u012bg\u0101s d\u0101rze\u0146u kult\u016braugu sugas katra aiz\u0146em maz\u0101k par 0,1 ha un kop\u0113j\u0101 saimniec\u012bbas aramzemes plat\u012bba nav liel\u0101ka par 10 ha"
+    },
+    {
+        "Code": "872",
+        "ParentCode": "crop_type_categories",
+        "Name": "872"
+    },
+    {
+        "Code": "parejie kulturaugi seti tirseja aramzeme",
+        "ParentCode": "872",
+        "Name": "P\u0101r\u0113jie kult\u016braugi, s\u0113ti t\u012brs\u0113j\u0101 aramzem\u0113"
+    },
+    {
+        "Code": "873",
+        "ParentCode": "crop_type_categories",
+        "Name": "873"
+    },
+    {
+        "Code": "parejie citur neminetie kulturaugi seti ka kulturaugu maisijums aramzeme",
+        "ParentCode": "873",
+        "Name": "P\u0101r\u0113jie citur nemin\u0113tie kult\u016braugi, s\u0113ti k\u0101 kult\u016braugu mais\u012bjums aramzem\u0113"
+    },
+    {
+        "Code": "874",
+        "ParentCode": "crop_type_categories",
+        "Name": "874"
+    },
+    {
+        "Code": "parastas dilles",
+        "ParentCode": "874",
+        "Name": "Parast\u0101s dilles"
+    },
+    {
+        "Code": "877",
+        "ParentCode": "crop_type_categories",
+        "Name": "877"
+    },
+    {
+        "Code": "sejas koriandrs jeb kinza",
+        "ParentCode": "877",
+        "Name": "S\u0113jas koriandrs jeb kinza"
+    },
+    {
+        "Code": "878",
+        "ParentCode": "crop_type_categories",
+        "Name": "878"
+    },
+    {
+        "Code": "kimene",
+        "ParentCode": "878",
+        "Name": "\u0136imene"
+    },
+    {
+        "Code": "879",
+        "ParentCode": "crop_type_categories",
+        "Name": "879"
+    },
+    {
+        "Code": "mardadzis",
+        "ParentCode": "879",
+        "Name": "M\u0101rdadzis"
+    },
+    {
+        "Code": "880",
+        "ParentCode": "crop_type_categories",
+        "Name": "880"
+    },
+    {
+        "Code": "sierabolins",
+        "ParentCode": "880",
+        "Name": "Sier\u0101boli\u0146\u0161"
+    },
+    {
+        "Code": "882",
+        "ParentCode": "crop_type_categories",
+        "Name": "882"
+    },
+    {
+        "Code": "klingerite",
+        "ParentCode": "882",
+        "Name": "Kli\u0146\u0123er\u012bte"
+    },
+    {
+        "Code": "883",
+        "ParentCode": "crop_type_categories",
+        "Name": "883"
+    },
+    {
+        "Code": "cigorins",
+        "ParentCode": "883",
+        "Name": "Cigori\u0146\u0161"
+    },
+    {
+        "Code": "884",
+        "ParentCode": "crop_type_categories",
+        "Name": "884"
+    },
+    {
+        "Code": "arstniecibas gurkene",
+        "ParentCode": "884",
+        "Name": "\u0100rstniec\u012bbas gur\u0137ene"
+    },
+    {
+        "Code": "885",
+        "ParentCode": "crop_type_categories",
+        "Name": "885"
+    },
+    {
+        "Code": "lavanda",
+        "ParentCode": "885",
+        "Name": "Lavanda"
+    },
+    {
+        "Code": "886",
+        "ParentCode": "crop_type_categories",
+        "Name": "886"
+    },
+    {
+        "Code": "lielauglu kirbis",
+        "ParentCode": "886",
+        "Name": "Lielaug\u013cu \u0137irbis"
+    },
+    {
+        "Code": "887",
+        "ParentCode": "crop_type_categories",
+        "Name": "887"
+    },
+    {
+        "Code": "muskata kirbis",
+        "ParentCode": "887",
+        "Name": "Muskata \u0137irbis"
+    },
+    {
+        "Code": "888",
+        "ParentCode": "crop_type_categories",
+        "Name": "888"
+    },
+    {
+        "Code": "viglapu kirbis",
+        "ParentCode": "888",
+        "Name": "V\u012b\u0123lapu \u0137irbis"
+    },
+    {
+        "Code": "889",
+        "ParentCode": "crop_type_categories",
+        "Name": "889"
+    },
+    {
+        "Code": "kumelite vasaras",
+        "ParentCode": "889",
+        "Name": "Kumel\u012bte, vasaras"
+    },
+    {
+        "Code": "890",
+        "ParentCode": "crop_type_categories",
+        "Name": "890"
+    },
+    {
+        "Code": "kumelite ziemas",
+        "ParentCode": "890",
+        "Name": "Kumel\u012bte, ziemas"
+    },
+    {
+        "Code": "911",
+        "ParentCode": "crop_type_categories",
+        "Name": "911"
+    },
+    {
+        "Code": "abeles",
+        "ParentCode": "911",
+        "Name": "\u0100beles"
+    },
+    {
+        "Code": "912",
+        "ParentCode": "crop_type_categories",
+        "Name": "912"
+    },
+    {
+        "Code": "bumbieres",
+        "ParentCode": "912",
+        "Name": "Bumbieres"
+    },
+    {
+        "Code": "914",
+        "ParentCode": "crop_type_categories",
+        "Name": "914"
+    },
+    {
+        "Code": "plumes",
+        "ParentCode": "914",
+        "Name": "Pl\u016bmes"
+    },
+    {
+        "Code": "915",
+        "ParentCode": "crop_type_categories",
+        "Name": "915"
+    },
+    {
+        "Code": "pluskoks",
+        "ParentCode": "915",
+        "Name": "Pl\u016b\u0161koks"
+    },
+    {
+        "Code": "918",
+        "ParentCode": "crop_type_categories",
+        "Name": "918"
+    },
+    {
+        "Code": "aronijas",
+        "ParentCode": "918",
+        "Name": "Aronijas"
+    },
+    {
+        "Code": "919",
+        "ParentCode": "crop_type_categories",
+        "Name": "919"
+    },
+    {
+        "Code": "smiltserkskis",
+        "ParentCode": "919",
+        "Name": "Smilts\u0113rk\u0161\u0137is"
+    },
+    {
+        "Code": "921",
+        "ParentCode": "crop_type_categories",
+        "Name": "921"
+    },
+    {
+        "Code": "avenes",
+        "ParentCode": "921",
+        "Name": "Avenes"
+    },
+    {
+        "Code": "922",
+        "ParentCode": "crop_type_categories",
+        "Name": "922"
+    },
+    {
+        "Code": "upenes",
+        "ParentCode": "922",
+        "Name": "Upenes"
+    },
+    {
+        "Code": "924",
+        "ParentCode": "crop_type_categories",
+        "Name": "924"
+    },
+    {
+        "Code": "krummellenes zilenes",
+        "ParentCode": "924",
+        "Name": "Kr\u016bmmellenes (zilenes)"
+    },
+    {
+        "Code": "926",
+        "ParentCode": "crop_type_categories",
+        "Name": "926"
+    },
+    {
+        "Code": "zemenes",
+        "ParentCode": "926",
+        "Name": "Zemenes"
+    },
+    {
+        "Code": "927",
+        "ParentCode": "crop_type_categories",
+        "Name": "927"
+    },
+    {
+        "Code": "erkskogas",
+        "ParentCode": "927",
+        "Name": "\u0112rk\u0161\u0137ogas"
+    },
+    {
+        "Code": "928",
+        "ParentCode": "crop_type_categories",
+        "Name": "928"
+    },
+    {
+        "Code": "krumcidonijas",
+        "ParentCode": "928",
+        "Name": "Kr\u016bmcidonijas"
+    },
+    {
+        "Code": "929",
+        "ParentCode": "crop_type_categories",
+        "Name": "929"
+    },
+    {
+        "Code": "kazenes",
+        "ParentCode": "929",
+        "Name": "Kazenes"
+    },
+    {
+        "Code": "930",
+        "ParentCode": "crop_type_categories",
+        "Name": "930"
+    },
+    {
+        "Code": "citi kultiveti nektaraugi ezziede biskreslins pukgalve melisa citronmetra citronmelisa daglitis dedestina kakumetra rudzupuke",
+        "ParentCode": "930",
+        "Name": "Citi kultiv\u0113ti nekt\u0101raugi (e\u017eziede, bi\u0161kr\u0113sli\u0146\u0161, p\u016b\u0137galve, melisa (citronm\u0113tra, citronmelisa), dagl\u012btis, dedesti\u0146a, ka\u0137um\u0113tra, rudzupu\u0137e)"
+    },
+    {
+        "Code": "931",
+        "ParentCode": "crop_type_categories",
+        "Name": "931"
+    },
+    {
+        "Code": "darza piladzi",
+        "ParentCode": "931",
+        "Name": "D\u0101rza p\u012bl\u0101d\u017ei"
+    },
+    {
+        "Code": "932",
+        "ParentCode": "crop_type_categories",
+        "Name": "932"
+    },
+    {
+        "Code": "saldie un skabie kirsi",
+        "ParentCode": "932",
+        "Name": "Saldie un sk\u0101bie \u0137ir\u0161i"
+    },
+    {
+        "Code": "933",
+        "ParentCode": "crop_type_categories",
+        "Name": "933"
+    },
+    {
+        "Code": "sarkanas un baltas janogas",
+        "ParentCode": "933",
+        "Name": "Sarkan\u0101s un balt\u0101s j\u0101\u0146ogas"
+    },
+    {
+        "Code": "934",
+        "ParentCode": "crop_type_categories",
+        "Name": "934"
+    },
+    {
+        "Code": "lielogu dzervenes",
+        "ParentCode": "934",
+        "Name": "Lielogu dz\u0113rvenes"
+    },
+    {
+        "Code": "935",
+        "ParentCode": "crop_type_categories",
+        "Name": "935"
+    },
+    {
+        "Code": "vinogas",
+        "ParentCode": "935",
+        "Name": "V\u012bnogas"
+    },
+    {
+        "Code": "937",
+        "ParentCode": "crop_type_categories",
+        "Name": "937"
+    },
+    {
+        "Code": "arbuzi un melones",
+        "ParentCode": "937",
+        "Name": "Arb\u016bzi un melones"
+    },
+    {
+        "Code": "938",
+        "ParentCode": "crop_type_categories",
+        "Name": "938"
+    },
+    {
+        "Code": "sausserdis",
+        "ParentCode": "938",
+        "Name": "Sausserdis"
+    },
+    {
+        "Code": "939",
+        "ParentCode": "crop_type_categories",
+        "Name": "939"
+    },
+    {
+        "Code": "irbene",
+        "ParentCode": "939",
+        "Name": "Irbene"
+    },
+    {
+        "Code": "940",
+        "ParentCode": "crop_type_categories",
+        "Name": "940"
+    },
+    {
+        "Code": "nektaraugi savstarpejos maisijumos vai citur neminetie nektaraugi tsk zila kapnite malva izops matere gurkumetra salvija citronmetra tauksakne raudene",
+        "ParentCode": "940",
+        "Name": "Nekt\u0101raugi savstarp\u0113jos mais\u012bjumos vai citur nemin\u0113tie nekt\u0101raugi (t.sk. zil\u0101 k\u0101pn\u012bte, malva, izops, m\u0101tere, gur\u0137um\u0113tra, salvija, citronm\u0113tra, tauksakne, raudene)"
+    },
+    {
+        "Code": "950",
+        "ParentCode": "crop_type_categories",
+        "Name": "950"
+    },
+    {
+        "Code": "auglu koki un ogulaji iznemot zemenes ja vienlaidu platiba augosas sa atbalsttiesigas auglu koku un ogulaju sugas katra aiznem mazak par 01 ha",
+        "ParentCode": "950",
+        "Name": "Aug\u013cu koki un ogul\u0101ji (iz\u0146emot zemenes), ja vienlaidu plat\u012bb\u0101 augo\u0161as SA atbalstties\u012bg\u0101s aug\u013cu koku un ogul\u0101ju sugas katra aiz\u0146em maz\u0101k par 0,1 ha"
+    },
+    {
+        "Code": "952",
+        "ParentCode": "crop_type_categories",
+        "Name": "952"
+    },
+    {
+        "Code": "citur nemineti ilggadigie stadijumi edamo auglu un ogu ieguvei",
+        "ParentCode": "952",
+        "Name": "Citur nemin\u0113ti ilggad\u012bgie st\u0101d\u012bjumi \u0113damo aug\u013cu un ogu ieguvei"
+    },
+    {
+        "Code": "960",
+        "ParentCode": "crop_type_categories",
+        "Name": "960"
+    },
+    {
+        "Code": "saulespuke",
+        "ParentCode": "960",
+        "Name": "Saulespu\u0137e"
+    }
+]

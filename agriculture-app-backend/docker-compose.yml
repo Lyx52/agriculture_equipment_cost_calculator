@@ -1,0 +1,6 @@
+﻿services:
+  agriculture-app-backend:
+    image: agriculture-app-backend
+    build:
+      context: .
+      dockerfile: Dockerfile

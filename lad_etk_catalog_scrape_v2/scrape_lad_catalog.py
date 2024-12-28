@@ -1,9 +1,19 @@
 import requests, os, time, json, random
 from bs4 import BeautifulSoup, Tag, NavigableString
-from utils import open_json, save_json
+
 base_url = "https://eps.lad.gov.lv"
 catalog_url = f"{base_url}/etk_public"
-
+def open_json(file):
+    data = {}
+    if os.path.exists(file):
+        with open(file, 'r', encoding="UTF-8") as fp:
+            data = json.load(fp)
+            fp.close()
+    return data
+def save_json(file, data):
+    with open(file, 'w', encoding="UTF-8") as fp:
+        json.dump(data, fp, indent=4)
+        fp.close()
 def get_lad_catalog_table(page: int) -> NavigableString|Tag:
     res = requests.get(f"{catalog_url}?page={page}")
     soup = BeautifulSoup(res.content, features="html.parser")

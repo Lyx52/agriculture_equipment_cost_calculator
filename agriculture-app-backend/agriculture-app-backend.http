@@ -1,0 +1,6 @@
+@agriculture_app_backend_HostAddress = http://localhost:5152
+
+GET {{agriculture_app_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
