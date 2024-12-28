@@ -9,4 +9,5 @@ public sealed class ApplicationSettings
     public string DbName { get; set; }
     
     public string DbHostname { get; set; }
+    public string CorsSettings { get; set; }
 }

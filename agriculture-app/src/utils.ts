@@ -20,3 +20,8 @@ export function getClosestValue(values: any[], value: any) {
 export const dateToString = (date: Date) => date.toISOString().slice(0, 10);
 
 export const currentYear = () => new Date().getFullYear();
+
+export const getBackendUri = () => {
+  const environment = import.meta.env.NODE_ENV || 'development';
+  return environment === 'development' ? 'http://localhost:6969' : 'https://backend.ikarslab.id.lv';
+}
