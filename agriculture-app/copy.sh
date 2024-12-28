@@ -1,0 +1,1 @@
+sudo cp dist/* /var/www/html -r

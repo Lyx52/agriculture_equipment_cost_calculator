@@ -10,8 +10,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/",
-    "copy": "sudo cp dist/* /var/www/html -r"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@arcgis/core": "^4.31.6",
