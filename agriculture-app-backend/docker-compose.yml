@@ -8,6 +8,7 @@
       - "db:database"
     ports:
       - 6969:8080
+    restart: always
   db:
     image: postgres:12
     restart: always
