@@ -1,6 +1,0 @@
-services:
-  web:
-    build:
-      context: .
-    volumes:
-      - /var/www/html:/usr/app/dist
