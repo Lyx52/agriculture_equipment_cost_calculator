@@ -4,3 +4,14 @@
     build:
       context: .
       dockerfile: Dockerfile
+    links:
+      - "db:database"
+    ports:
+      - 6969:8080
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
