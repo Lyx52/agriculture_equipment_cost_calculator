@@ -1,5 +1,3 @@
-
-
 import { defineStore } from 'pinia'
 import { TinyEmitter } from 'tiny-emitter'
 import type { ICodifierStore } from '@/stores/interface/ICodifierStore.ts'
@@ -24,7 +22,7 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
         params.set('Query', this.searchText);
       }
 
-      const response = await fetch(`http://localhost:6969/Codifier?${params.toString()}`)
+      const response = await fetch(`https://backend.ikarslab.id.lv/Codifier?${params.toString()}`)
       this.items = await response.json() as ICodifier[];
     },
     resetFilters() {
