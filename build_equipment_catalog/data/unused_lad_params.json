@@ -69,14 +69,6 @@
     "diametrs mm": "1050",
     "tilpums udenim l": "1000",
     "masa bez udens kg": "1770",
-    "signala precizitate": "RTK",
-    "monitora izmers pa diogonali collas": "8.40",
-    "montazas veids": "P\u0101rvietojams",
-    "pielietosanas veids": [
-        "N doz\u0113\u0161anai",
-        "Biomasai",
-        "Augu aizsardz\u012bbai"
-    ],
     "gredzenu tips": "Cambridge vai Crosskill",
     "maksimalais ritula diametrs m": "2.00",
     "maksimalie kipas izmeri m augstums": "1.20",
@@ -104,48 +96,14 @@
     "nepieciesamais hidrosistemas razigums lmin": "30.00",
     "maksimala celtspeja kg": "1100",
     "ietinamas pleves izmeri mm": "750",
-    "pielietojums": [
-        "S\u0113jma\u0161\u012bna",
-        "Miner\u0101lm\u0113slu izklied\u0113t\u0101js",
-        "Smidzin\u0101t\u0101js"
-    ],
-    "pielietojums ja noradits cits": "",
-    "maksimalais sekciju skaits gab": "10",
-    "vadiba": [
-        "Sekcijas"
-    ],
-    "maksimalais lidojuma ilgums min": "15",
-    "baterijas kapacitate mah": "20000",
-    "kamera lecas skatu lenkis gradi": "Horizont\u0101li 40\u00b0 ; vertik\u0101li 45\u00b0 ; skats uz leju 25\u00b0",
-    "kamera attela formats": "JPG",
-    "kamera attela izskirtspeja": "1080p",
-    "kamera video formats": "H.264",
-    "kamera video izskirtspeja": "1080p",
     "caurule garums m": "7500.00",
     "caurule diametrs mm": "20",
     "izkliedes platums m": "0.00",
     "sukna razigums lmin": "0",
-    "savienojuma veids": [
-        "Ieb\u016bv\u0113ts modems"
-    ],
-    "savienojuma veids ja atzimets cits": "",
-    "barosanas veids": [
-        "Cits"
-    ],
-    "barosanas veids ja atzimets cits": "Akumulators ar uzl\u0101di no saules pane\u013ca",
-    "meramie parametri": [
-        "Gaisa temperat\u016bra",
-        "Relat\u012bvais gaisa mitrums",
-        "Nokri\u0161\u0146i",
-        "Glob\u0101l\u0101 radi\u0101cija",
-        "V\u0113ja \u0101trums",
-        "V\u0113ja virziens",
-        "Augsnes temperat\u016bra"
-    ],
-    "meramie parametri ja atzimets cits": "Augsnes mitrums procentos",
     "griezejaparata tips ja atzimets cits": "",
     "pievienosana veids traktoram": "Piekabin\u0101ms",
     "transmisija": "hidrostatiska",
+    "vadiba": "sviras",
     "stadisanas dzilums cm": "130",
     "lemesa darba platums cm minimalais": "15",
     "operatoru skaits": "1",
@@ -162,16 +120,6 @@
     "darba platums m vertikali": "1.50",
     "griezejaparata veids ja atzimets cits": "",
     "darbinasanas veids": "rokas",
-    "energijas veids": [
-        "saule",
-        "akumulators"
-    ],
-    "energijas veids ja atzimets cits": "",
-    "darbibas veids": [
-        "s\u0113\u0161ana",
-        "rav\u0113\u0161ana"
-    ],
-    "darbibas veids ja atzimets cits": "",
     "uztadisanas veids": "P\u0101rvietojams",
     "pildamo konteineru veids": [
         "Apa\u013cie konteineri",
@@ -205,13 +153,6 @@
     "rindstarpu attalums mm minimalais": "625",
     "rindstarpu attalums mm maksimalais": "750",
     "zaru skaits": "7",
-    "tips ja izvelets cits": "",
-    "datu vizualizacija": [
-        "viedier\u012bce",
-        "dators"
-    ],
-    "signala precizitate ja izvelets cita": "+/- 1.5 m",
-    "kartesanas iespejas": "nav",
     "presesanas kamera ja izvelets cits": "",
     "ritula izmeri mm platums": "1230",
     "ritula izmeri mm diametrs": "1250",
@@ -220,11 +161,6 @@
     "stacionara": "N\u0113",
     "mobila": "N\u0113",
     "tvertnes tilpums m3": "1.00",
-    "maksimalais paraugu nemsanas dzilums cm": "60",
-    "paraugu skaits viena reize gab": "1",
-    "razigums paraugih": "15",
-    "zondes diametrs mm": "26",
-    "automatizacija": "Nav",
     "piedzina": "Cits",
     "piedzinas veids ja izvelets cits": "",
     "maksimalais smalcinamas masas diametrs mm": "200",
@@ -233,6 +169,7 @@
     "nazu skaits gab": "3",
     "sasmalcinatas frakcijas izmers mm minimalais": "2",
     "sasmalcinatas frakcijas izmers mm maksimalais": "8",
+    "tips ja izvelets cits": "",
     "izbidama galda platums mm minimalais": "0",
     "izbidama galda platums mm maksimalais": "0"
 }

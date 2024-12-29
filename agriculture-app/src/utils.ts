@@ -22,6 +22,16 @@ export const dateToString = (date: Date) => date.toISOString().slice(0, 10);
 export const currentYear = () => new Date().getFullYear();
 
 export const getBackendUri = () => {
-  console.log(import.meta.env.DEV);
   return import.meta.env.DEV ? 'http://localhost:6969' : 'https://backend.ikarslab.id.lv';
+}
+export const arraysEqual = (a: any[], b: any[]): boolean => {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (a.length !== b.length) return false;
+
+  for (let i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
+  }
+
+  return true;
 }

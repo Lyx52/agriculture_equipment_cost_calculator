@@ -11,4 +11,5 @@ public class EquipmentFilter
     public string? Query { get; set; }
     
     public string? PowerTrainTypeCode { get; set; }
+    public int? FilterTo { get; set; }
 }

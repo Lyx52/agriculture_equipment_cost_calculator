@@ -1,5 +1,5 @@
 export interface ICodifierDropdown {
   isValid: boolean;
-  parentCodifierCode: string;
+  parentCodifierCodes: string[];
   storeId?: string;
 }

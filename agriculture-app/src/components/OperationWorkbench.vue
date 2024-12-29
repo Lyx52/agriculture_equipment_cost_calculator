@@ -30,28 +30,23 @@
   const farmlandStore = useFarmlandStore();
   const farmlandOperationStoreId = uuid();
   const farmlandOperationCodifierStore = useCodifierStore(farmlandOperationStoreId);
-  operationStore.emitter.on(CollectionEvents.ItemAdded, (item: IOperation) => {
+  operationStore.emitter.on(CollectionEvents.ItemAdded, async (item: IOperation) => {
+    console.log(item.id)
     const codifierStore = useCodifierStore(item.id);
-    codifierStore.$patch({
-      selectedItem: {
-        name: item.operation?.operationName,
-        code: `operation_${item.operation?.operationCode}`,
-        value: item.operation?.operationCode,
-        parent_code: Codifiers.OperationTypes,
-      } as ICodifier
-    });
+    await codifierStore.setSelectedByCode(item.operation?.operationCode);
   });
 
   const addNewOperation = () => {
     operationStore.pushItem({
       id: '',
-      farmland: undefined,
+      farmland: operationStore.filteredFarmland,
       operation: {
         operationCode: 'operation_110',
         operationName: 'Aršana',
       } as IFarmlandOperation
     });
-    resetFilters();
+    operationStore.filteredFarmlandOperation = undefined;
+    farmlandOperationCodifierStore.$reset();
   }
   const onOperationFiltered = (item: ICodifier) => {
     operationStore.filteredFarmlandOperation = {
@@ -92,7 +87,7 @@
       <BFormGroup label="Filtrēt pēc apstrādes operācijas">
         <CodifierDropdown
           :is-valid="true"
-          :parent-codifier-code="Codifiers.OperationTypes"
+          :parent-codifier-codes="[Codifiers.OperationTypes]"
           @on-selected="onOperationFiltered"
           :store-id="farmlandOperationStoreId"
         />
@@ -123,7 +118,7 @@
           <BTd>
             <CodifierDropdown
               :is-valid="true"
-              :parent-codifier-code="Codifiers.OperationTypes"
+              :parent-codifier-codes="[Codifiers.OperationTypes]"
               :store-id="row.id"
               @on-selected="codifier => onOperationSelected(row, codifier)"
             />

@@ -5,12 +5,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 public class JsonValueConverter<T>(ConverterMappingHints? mappingHints = null) : ValueConverter<T, string?>(
     v => v == null ? null : JsonSerializer.Serialize(v, new JsonSerializerOptions()),
-    v => v == null ? default! : JsonSerializer.Deserialize<T>(v, 
-        new JsonSerializerOptions()
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
-        }
-    )!,
+    v => v == null ? default! : JsonSerializer.Deserialize<T>(v, new JsonSerializerOptions())!,
     mappingHints)
 {
     

@@ -16,9 +16,10 @@ public class EquipmentController(PersistentDbContext _db) : Controller
     public async Task<IActionResult> GetEquipmentByFilters([FromQuery] EquipmentFilter filter)
     {
         var query = _db.Set<Equipment>().AsQueryable();
-        if (!string.IsNullOrEmpty(filter.EquipmentTypeCode))
+        var equipmentTypesCodes = filter.EquipmentTypeCode?.Split(',') ?? [];
+        if (equipmentTypesCodes.Length > 0)
         {
-            query = query.Where(e => e.EquipmentTypeCode == filter.EquipmentTypeCode);
+            query = query.Where(e => equipmentTypesCodes.Contains(e.EquipmentTypeCode));
         }
         if (!string.IsNullOrEmpty(filter.Manufacturer))
         {
@@ -37,7 +38,13 @@ public class EquipmentController(PersistentDbContext _db) : Controller
             query = query.Where(e => e.Specifications.PowerTrainCode == filter.PowerTrainTypeCode);
         }
       
-        return Json(await query.ToListAsync(), new JsonSerializerOptions()
+        if (filter.FilterTo.HasValue)
+        {
+            query = query.Take(filter.FilterTo.Value);
+        }
+
+        var result = await query.ToListAsync();
+        return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,
             PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,

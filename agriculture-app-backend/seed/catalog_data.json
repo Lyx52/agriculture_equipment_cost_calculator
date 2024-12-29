@@ -1891,13 +1891,6 @@
         }
     },
     {
-        "Model": "INCOMMAND",
-        "Manufacturer": "AGLEADER",
-        "Price": 19990.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "TOP 762 C",
         "Manufacturer": "POTTINGER",
         "Price": 28900.0,
@@ -1980,20 +1973,6 @@
         "Specifications": {
             "WorkWidth": 36.0
         }
-    },
-    {
-        "Model": "OPTRX",
-        "Manufacturer": "AGLEADER",
-        "Price": 14690.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
-    },
-    {
-        "Model": "OPTRX",
-        "Manufacturer": "AGLEADER",
-        "Price": 21500.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
     },
     {
         "Model": "ZA-V 3200 SUPER PROFIS TRONIC",
@@ -3117,13 +3096,6 @@
         }
     },
     {
-        "Model": "SAM 200 ISOBUS",
-        "Manufacturer": "PLM",
-        "Price": 8452.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "AXENT 100.1",
         "Manufacturer": "RAUCH",
         "Price": 143200.0,
@@ -3140,13 +3112,6 @@
         "Specifications": {
             "WorkWidth": 50.0
         }
-    },
-    {
-        "Model": "XCN750 NAV500",
-        "Manufacturer": "PLM",
-        "Price": 2050.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "PANTERA 4504 24M",
@@ -3167,13 +3132,6 @@
             "Power": 87.25,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "XCN750 NAV500 ISOBUS VAD\u012aBA",
-        "Manufacturer": "PLM",
-        "Price": 5460.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "CX 5.80",
@@ -3204,13 +3162,6 @@
             "Power": 130.5,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "XCN1060 NAV900 APMD ISOBUS",
-        "Manufacturer": "PLM",
-        "Price": 16720.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "MINIDRILL",
@@ -4420,27 +4371,6 @@
         }
     },
     {
-        "Model": "XCN1060_EZPP_RTK_ISOBUS",
-        "Manufacturer": "PLM",
-        "Price": 22410.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "XCN1060 NAV900 EZPP RTK",
-        "Manufacturer": "PLM",
-        "Price": 18187.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "XCN1060 NAV900 EZPP RTX",
-        "Manufacturer": "PLM",
-        "Price": 11720.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "FB 2130",
         "Manufacturer": "KUHN",
         "Price": 47700.0,
@@ -4759,13 +4689,6 @@
         }
     },
     {
-        "Model": "XCN1060NAV900 EZPP RTX ISOBUS",
-        "Manufacturer": "PLM",
-        "Price": 14300.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "ZKP800",
         "Manufacturer": "PRONAR",
         "Price": 17780.0,
@@ -4774,13 +4697,6 @@
             "WorkWidth": 8.0,
             "RequiredPower": 59.66
         }
-    },
-    {
-        "Model": "AUTOPILOT NH392 RTX AGR",
-        "Manufacturer": "PLM",
-        "Price": 9132.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "MB 220 LW",
@@ -5049,41 +4965,6 @@
         }
     },
     {
-        "Model": "RCM",
-        "Manufacturer": "RAVEN",
-        "Price": 8510.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
-    },
-    {
-        "Model": "RCM",
-        "Manufacturer": "RAVEN",
-        "Price": 4900.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR7 500S",
-        "Manufacturer": "RAVEN",
-        "Price": 2700.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR7 500S",
-        "Manufacturer": "RAVEN",
-        "Price": 4060.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR7 500S",
-        "Manufacturer": "RAVEN",
-        "Price": 5660.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "PUMA 140",
         "Manufacturer": "CASE",
         "Price": 110000.0,
@@ -5102,13 +4983,6 @@
             "RequiredPower": 149.14,
             "WorkWidth": 3.0
         }
-    },
-    {
-        "Model": "AFS 392",
-        "Manufacturer": "CASE",
-        "Price": 15000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "TERREMOTO 350",
@@ -5304,34 +5178,6 @@
             "WorkWidth": 1.6,
             "RequiredPower": 59.66
         }
-    },
-    {
-        "Model": "CR12 RS1",
-        "Manufacturer": "RAVEN",
-        "Price": 16856.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR12 RS1",
-        "Manufacturer": "RAVEN",
-        "Price": 13356.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR7 RS1",
-        "Manufacturer": "RAVEN",
-        "Price": 10339.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR7 RS1",
-        "Manufacturer": "RAVEN",
-        "Price": 13839.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "METRIS 2 4100 /24",
@@ -5738,13 +5584,6 @@
         }
     },
     {
-        "Model": "NAV-900 EZ - PILOT PRO RTK",
-        "Manufacturer": "TRIMBLE",
-        "Price": 17679.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "RB 125 ROLL BALER",
         "Manufacturer": "NEW HOLLAND",
         "Price": 45000.0,
@@ -5824,13 +5663,6 @@
         }
     },
     {
-        "Model": "P40",
-        "Manufacturer": "XAG",
-        "Price": 27500.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "209 P VARIO",
         "Manufacturer": "FENDT",
         "Price": 145000.0,
@@ -5849,27 +5681,6 @@
             "RequiredPower": 119.31,
             "WorkWidth": 4.0
         }
-    },
-    {
-        "Model": "NX 510 SE",
-        "Manufacturer": "CHC NAV",
-        "Price": 6500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR12 RS1",
-        "Manufacturer": "RAVEN",
-        "Price": 24321.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "CR7 RS1",
-        "Manufacturer": "RAVEN",
-        "Price": 21304.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "LEXIS 3000/24",
@@ -6174,13 +5985,6 @@
         }
     },
     {
-        "Model": "AUTOPILOT CGR RTK",
-        "Manufacturer": "PLM",
-        "Price": 12500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "RB 180 CC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 46000.0,
@@ -6216,13 +6020,6 @@
             "Power": 233.4,
             "WorkWidth": 6.1
         }
-    },
-    {
-        "Model": "AUGMENTA",
-        "Manufacturer": "RAVEN",
-        "Price": 16450.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
     },
     {
         "Model": "P 328/7",
@@ -6300,27 +6097,6 @@
             "WorkWidth": 8.9,
             "RequiredPower": 134.23
         }
-    },
-    {
-        "Model": "NEXT GREENSEEKER PROFI",
-        "Manufacturer": "NEXT FARMING",
-        "Price": 25735.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
-    },
-    {
-        "Model": "NEXT GREENSEEKER PROFI",
-        "Manufacturer": "NEXT FARMING",
-        "Price": 21900.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
-    },
-    {
-        "Model": "P100",
-        "Manufacturer": "XAG",
-        "Price": 29260.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
     },
     {
         "Model": "ACTIVEMOW R 320",
@@ -6734,13 +6510,6 @@
         }
     },
     {
-        "Model": "IMETOS IMT 280-USW",
-        "Manufacturer": "IMETOS",
-        "Price": 3362.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
-    },
-    {
         "Model": "AXIS 30.2 H EMC",
         "Manufacturer": "RAUCH",
         "Price": 29500.0,
@@ -6817,13 +6586,6 @@
         "Specifications": {}
     },
     {
-        "Model": "CNH AUTOPILOT NH392 RTK ISOBUS",
-        "Manufacturer": "PLM",
-        "Price": 24712.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "TWIST 600P",
         "Manufacturer": "SAMASZ",
         "Price": 12200.0,
@@ -6852,13 +6614,6 @@
             "WorkWidth": 3.0,
             "RequiredPower": 149.14
         }
-    },
-    {
-        "Model": "AUTOPILOT NH392 RTK",
-        "Manufacturer": "PLM",
-        "Price": 17535.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "WF12DS",
@@ -6897,13 +6652,6 @@
         }
     },
     {
-        "Model": "INCOMMAND",
-        "Manufacturer": "AGLEADER",
-        "Price": 13545.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "SWIFTERDISC XO 6000 F",
         "Manufacturer": "BEDNAR",
         "Price": 72081.0,
@@ -6932,13 +6680,6 @@
             "RequiredPower": 134.23,
             "WorkWidth": 2.65
         }
-    },
-    {
-        "Model": "AFS 392 RTK NAVIG\u0100CIJAS KOMPLEKTS + AFS700 PRO MONITORS + ISOBUS + SEKCIJU KONTROLE",
-        "Manufacturer": "TRIMBLE",
-        "Price": 20012.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "RB 3130 F CLASSIC",
@@ -7327,13 +7068,6 @@
         }
     },
     {
-        "Model": "L2 H",
-        "Manufacturer": "FIELDBEE",
-        "Price": 12500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "UF 2002/FT 1502 25M",
         "Manufacturer": "AMAZONE",
         "Price": 92400.0,
@@ -7421,13 +7155,6 @@
             "RequiredPower": 59.66,
             "WorkWidth": 9.0
         }
-    },
-    {
-        "Model": "L2 E",
-        "Manufacturer": "FIELDBEE",
-        "Price": 8000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "AQUILA COMPACT 1500",
@@ -7578,13 +7305,6 @@
             "RequiredPower": 43.25,
             "WorkWidth": 6.0
         }
-    },
-    {
-        "Model": "P100",
-        "Manufacturer": "XAG",
-        "Price": 33990.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
     },
     {
         "Model": "CULTIMER L 5000",
@@ -7757,13 +7477,6 @@
         }
     },
     {
-        "Model": "GFX-750 EZ-PILOT RTX",
-        "Manufacturer": "TRIMBLE",
-        "Price": 10200.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "KOS PREMIUM 4",
         "Manufacturer": "UNIA",
         "Price": 17300.0,
@@ -7784,20 +7497,6 @@
         }
     },
     {
-        "Model": "GFX-750 EZ-PILOT RTK",
-        "Manufacturer": "TRIMBLE",
-        "Price": 16500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-750 EZ-PILOT APMD RTK",
-        "Manufacturer": "TRIMBLE",
-        "Price": 20650.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "ESPRO 3000",
         "Manufacturer": "KUHN",
         "Price": 92500.0,
@@ -7808,13 +7507,6 @@
         }
     },
     {
-        "Model": "GFX-750 EZ-PILOT RTK ISOBUS",
-        "Manufacturer": "TRIMBLE",
-        "Price": 18620.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "LEXIS 3000/21",
         "Manufacturer": "KUHN",
         "Price": 61860.0,
@@ -7823,13 +7515,6 @@
             "RequiredPower": 59.66,
             "WorkWidth": 18.0
         }
-    },
-    {
-        "Model": "EZ-PILOT",
-        "Manufacturer": "TRIMBLE",
-        "Price": 5950.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "LEEB 5 LT / 24 M",
@@ -8369,13 +8054,6 @@
         }
     },
     {
-        "Model": "GFX-1060 EZ-PILOT RTX",
-        "Manufacturer": "TRIMBLE",
-        "Price": 11200.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "TRIO 300",
         "Manufacturer": "KOCKERLING",
         "Price": 21790.0,
@@ -8394,13 +8072,6 @@
             "RequiredPower": 111.86,
             "WorkWidth": 4.0
         }
-    },
-    {
-        "Model": "GFX-1060 EZ-PILOT RTK",
-        "Manufacturer": "TRIMBLE",
-        "Price": 17500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "EASYCUT B 1000 CV",
@@ -8451,13 +8122,6 @@
             "RequiredPower": 186.43,
             "WorkWidth": 9.0
         }
-    },
-    {
-        "Model": "P100",
-        "Manufacturer": "XAG",
-        "Price": 40990.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
     },
     {
         "Model": "PANTERA 7004 36M",
@@ -8528,13 +8192,6 @@
             "WorkWidth": 6.4,
             "RequiredPower": 59.66
         }
-    },
-    {
-        "Model": "XCN1050 NAV900",
-        "Manufacturer": "TRIMBLE",
-        "Price": 5320.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "VOLUMETRA 20000D",
@@ -8713,20 +8370,6 @@
         }
     },
     {
-        "Model": "OPTRX 3",
-        "Manufacturer": "AG LEADER",
-        "Price": 13000.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
-    },
-    {
-        "Model": "INCOMMAND 1200 H",
-        "Manufacturer": "AG LEADER",
-        "Price": 22500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "KARAT 10/400 U",
         "Manufacturer": "LEMKEN",
         "Price": 54200.0,
@@ -8735,13 +8378,6 @@
             "RequiredPower": 149.14,
             "WorkWidth": 4.0
         }
-    },
-    {
-        "Model": "RCM ARAG",
-        "Manufacturer": "RAVEN",
-        "Price": 6000.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
     },
     {
         "Model": "SLURRY MATE SYSTEM",
@@ -9485,13 +9121,6 @@
         }
     },
     {
-        "Model": "XCN1050 NAV900 AUTOPILOT RTK ISOBUS",
-        "Manufacturer": "PLM",
-        "Price": 20566.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "PANTERA 7004 30M",
         "Manufacturer": "AMAZONE",
         "Price": 451300.0,
@@ -9530,13 +9159,6 @@
             "WorkWidth": 4.0,
             "RequiredPower": 208.8
         }
-    },
-    {
-        "Model": "ATU300+ISOBUS+MRTK",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 19009.8,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "6S",
@@ -10010,13 +9632,6 @@
         }
     },
     {
-        "Model": "RCM",
-        "Manufacturer": "RAVEN",
-        "Price": 10907.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
-    },
-    {
         "Model": "CENTAYA 3000 SUPER +FT",
         "Manufacturer": "AMAZONE",
         "Price": 103900.0,
@@ -10141,13 +9756,6 @@
         }
     },
     {
-        "Model": "DIRECTCOMMAND WSM INCOMMAND 800",
-        "Manufacturer": "AG LEADER",
-        "Price": 13000.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
-    },
-    {
         "Model": "U652 3,0M",
         "Manufacturer": "ROLMAKO",
         "Price": 17170.0,
@@ -10166,34 +9774,6 @@
             "RequiredPower": 130.5,
             "WorkWidth": 3.5
         }
-    },
-    {
-        "Model": "AGS-2 XD+ RTK",
-        "Manufacturer": "TOPCON",
-        "Price": 17885.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AGS-2 + XD RTK",
-        "Manufacturer": "TOPCON",
-        "Price": 16600.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AGS-2,  XD+ EGNOS",
-        "Manufacturer": "TOPCON",
-        "Price": 12430.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AGS-2 XD EGNOS",
-        "Manufacturer": "TOPCON",
-        "Price": 11270.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "KARAT 10/350 U",
@@ -10303,13 +9883,6 @@
             "RequiredPower": 82.03,
             "WorkWidth": 20.0
         }
-    },
-    {
-        "Model": "MATRIX 908",
-        "Manufacturer": "TEEJET",
-        "Price": 3340.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "SV 16",
@@ -11080,13 +10653,6 @@
         }
     },
     {
-        "Model": "MATRIX 908 BOOM PILOT",
-        "Manufacturer": "TEEJET",
-        "Price": 7975.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
-    },
-    {
         "Model": "MAMUT 6024",
         "Manufacturer": "AGRIO",
         "Price": 162800.0,
@@ -11654,13 +11220,6 @@
         }
     },
     {
-        "Model": "EVO II PRO V3",
-        "Manufacturer": "AUTEL ROBOTICS",
-        "Price": 2499.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "WF16LS",
         "Manufacturer": "WESTERN FABRICATIONS",
         "Price": 48920.0,
@@ -11686,13 +11245,6 @@
             "WorkWidth": 7.2,
             "RequiredPower": 50.71
         }
-    },
-    {
-        "Model": "EZ-PILOT PRO GFX-750",
-        "Manufacturer": "TRIMBLE",
-        "Price": 14500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "3000T 20M",
@@ -11865,13 +11417,6 @@
             "RequiredPower": 223.71,
             "WorkWidth": 24.0
         }
-    },
-    {
-        "Model": "UMETOS ET0-NBIOT",
-        "Manufacturer": "IMETOS",
-        "Price": 2400.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
     },
     {
         "Model": "UM27",
@@ -12193,15 +11738,6 @@
         }
     },
     {
-        "Model": "FD20",
-        "Manufacturer": "FARMDROID",
-        "Price": 117332.2,
-        "EquipmentTypeCode": "robots",
-        "Specifications": {
-            "WorkWidth": 3.0
-        }
-    },
-    {
         "Model": "2006 DIAMOND HARROW",
         "Manufacturer": "KELLY",
         "Price": 57100.0,
@@ -12221,15 +11757,6 @@
         }
     },
     {
-        "Model": "FD20",
-        "Manufacturer": "FARMDROID",
-        "Price": 88000.0,
-        "EquipmentTypeCode": "robots",
-        "Specifications": {
-            "WorkWidth": 3.0
-        }
-    },
-    {
         "Model": "5-100 ACTIVE STAGE V",
         "Manufacturer": "LANDINI",
         "Price": 52900.0,
@@ -12238,13 +11765,6 @@
             "Power": 70.84,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "GFX-750",
-        "Manufacturer": "TRIMBLE",
-        "Price": 17000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "HELIODOR 9/700 KA",
@@ -12267,22 +11787,6 @@
         }
     },
     {
-        "Model": "FD20",
-        "Manufacturer": "FARMDROID",
-        "Price": 95680.0,
-        "EquipmentTypeCode": "robots",
-        "Specifications": {
-            "WorkWidth": 3.0
-        }
-    },
-    {
-        "Model": "GFX-750",
-        "Manufacturer": "TRIMBLE",
-        "Price": 17000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "SLICER 3060TLKC",
         "Manufacturer": "FENDT",
         "Price": 13000.0,
@@ -12291,13 +11795,6 @@
             "WorkWidth": 3.0,
             "RequiredPower": 111.86
         }
-    },
-    {
-        "Model": "GFX-1260",
-        "Manufacturer": "TRIMBLE",
-        "Price": 25000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "GD3001T",
@@ -12310,20 +11807,6 @@
         }
     },
     {
-        "Model": "GFX-750",
-        "Manufacturer": "TRIMBLE",
-        "Price": 15000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-1260",
-        "Manufacturer": "TRIMBLE",
-        "Price": 23300.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "REBEL PROFILINE 800",
         "Manufacturer": "KOCKERLING",
         "Price": 121150.0,
@@ -12332,13 +11815,6 @@
             "RequiredPower": 372.85,
             "WorkWidth": 8.0
         }
-    },
-    {
-        "Model": "GFX-1260",
-        "Manufacturer": "TRIMBLE",
-        "Price": 27900.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "M5112 NARROW",
@@ -12368,13 +11844,6 @@
         "Specifications": {
             "RequiredPower": 74.57
         }
-    },
-    {
-        "Model": "NAV-900",
-        "Manufacturer": "TRIMBLE",
-        "Price": 10000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "PELIKAN MAX 3000/24",
@@ -12413,13 +11882,6 @@
             "Power": 72.33,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "IMETOS IMT 300-USW",
-        "Manufacturer": "IMETOS",
-        "Price": 5214.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
     },
     {
         "Model": "ROLLANT 540 RC",
@@ -12563,13 +12025,6 @@
             "Power": 43.25,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "WSM DIRECTCOMMAND",
-        "Manufacturer": "AG LEADER",
-        "Price": 7000.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
     },
     {
         "Model": "ARION 450",
@@ -12795,13 +12250,6 @@
         }
     },
     {
-        "Model": "EVO II DUAL (640T)",
-        "Manufacturer": "AUTEL ROBOTICS",
-        "Price": 6500.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "CATAYA 3000 SUPER",
         "Manufacturer": "AMAZONE",
         "Price": 56200.0,
@@ -12965,13 +12413,6 @@
         }
     },
     {
-        "Model": "LA711738001",
-        "Manufacturer": "MASSEY FERGUSON",
-        "Price": 10539.96,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "JOKER 7 RT +",
         "Manufacturer": "HORSCH",
         "Price": 77540.0,
@@ -13127,27 +12568,6 @@
             "Power": 172.26,
             "WorkWidth": 6.2
         }
-    },
-    {
-        "Model": "GFX-1060",
-        "Manufacturer": "TRIMBLE",
-        "Price": 3250.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "EZ-PILOT",
-        "Manufacturer": "TRIMBLE",
-        "Price": 12040.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-350",
-        "Manufacturer": "TRIMBLE",
-        "Price": 9500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "PN-1/14A",
@@ -13335,13 +12755,6 @@
         }
     },
     {
-        "Model": "NAV CONTROLLER III",
-        "Manufacturer": "TRIMBLE",
-        "Price": 8300.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "EUROSTAR 120M NON STOP 3+1",
         "Manufacturer": "REGENT",
         "Price": 26155.0,
@@ -13359,13 +12772,6 @@
             "RequiredPower": 111.86,
             "WorkWidth": 30.0
         }
-    },
-    {
-        "Model": "GFX-1260 NAV III RTK ISOBUS",
-        "Manufacturer": "TRIMBLE",
-        "Price": 19950.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "DIS 1165",
@@ -13428,20 +12834,6 @@
             "RequiredPower": 298.28,
             "WorkWidth": 8.0
         }
-    },
-    {
-        "Model": "GFX-1060 EZ-PILOT RTK ISOBUS",
-        "Manufacturer": "TRIMBLE",
-        "Price": 19600.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GGYM2303",
-        "Manufacturer": "GREEN GROWTH",
-        "Price": 4000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "300",
@@ -14073,13 +13465,6 @@
         }
     },
     {
-        "Model": "GFX-1060",
-        "Manufacturer": "TRIMBLE",
-        "Price": 9400.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "PS 300M1",
         "Manufacturer": "APV",
         "Price": 4700.0,
@@ -14184,13 +13569,6 @@
         "Specifications": {
             "RequiredPower": 104.4
         }
-    },
-    {
-        "Model": "SMART IBOX MC",
-        "Manufacturer": "REICHHARDT",
-        "Price": 12500.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "LEXION 5400 CON770FL",
@@ -15675,13 +15053,6 @@
         }
     },
     {
-        "Model": "POWERSTEER COMPLETE",
-        "Manufacturer": "FIELDBEE",
-        "Price": 6000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "PREMIUM 6200 HD",
         "Manufacturer": "KVICKFINN",
         "Price": 89550.0,
@@ -15709,13 +15080,6 @@
             "Power": 141.68,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "MAVIC 3 MULTISPECTRAL",
-        "Manufacturer": "DJI",
-        "Price": 4911.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
     },
     {
         "Model": "BIO 3250 HD",
@@ -15810,34 +15174,6 @@
             "Power": 29.83,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "AFS392 RTK",
-        "Manufacturer": "CASE IH",
-        "Price": 15730.02,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AFS392 RTX",
-        "Manufacturer": "CASE IH",
-        "Price": 8651.79,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AFS392 RTK",
-        "Manufacturer": "CASE IH",
-        "Price": 20673.9,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AFS392 RTX",
-        "Manufacturer": "CASE IH",
-        "Price": 13595.67,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "ESEMPAC050Z",
@@ -16037,62 +15373,6 @@
         }
     },
     {
-        "Model": "RS1 CR7 RTK",
-        "Manufacturer": "RAVEN",
-        "Price": 16108.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RS1 CR7 RTK",
-        "Manufacturer": "RAVEN",
-        "Price": 13836.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RS1 CR12 RTK",
-        "Manufacturer": "RAVEN",
-        "Price": 20426.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RS1 CR12 RTK",
-        "Manufacturer": "RAVEN",
-        "Price": 18154.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RS1 CR12 GS-LITE",
-        "Manufacturer": "RAVEN",
-        "Price": 14999.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RS1 CR12 GS-LITE",
-        "Manufacturer": "RAVEN",
-        "Price": 17271.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RS1 CR7 GS-LITE",
-        "Manufacturer": "RAVEN",
-        "Price": 10681.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RS1 CR7 GS-LITE",
-        "Manufacturer": "RAVEN",
-        "Price": 12953.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "ARION 630 CMATIC",
         "Manufacturer": "CLAAS",
         "Price": 162000.0,
@@ -16143,20 +15423,6 @@
         }
     },
     {
-        "Model": "YIELD MONITOR",
-        "Manufacturer": "FARM TRX",
-        "Price": 4050.0,
-        "EquipmentTypeCode": "razas_uzskaites_sistema",
-        "Specifications": {}
-    },
-    {
-        "Model": "YIELD MONITOR",
-        "Manufacturer": "FARM TRX",
-        "Price": 3115.0,
-        "EquipmentTypeCode": "razas_uzskaites_sistema",
-        "Specifications": {}
-    },
-    {
         "Model": "U810",
         "Manufacturer": "JAR-MET",
         "Price": 1074.0,
@@ -16197,20 +15463,6 @@
         }
     },
     {
-        "Model": "SAGRO10",
-        "Manufacturer": "SINGULAR XYZ",
-        "Price": 1690.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-1060",
-        "Manufacturer": "TRIMBLE",
-        "Price": 12000.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "P368/2",
         "Manufacturer": "JAR-MET",
         "Price": 10341.0,
@@ -16239,20 +15491,6 @@
             "RequiredPower": 201.34,
             "WorkWidth": 3.5
         }
-    },
-    {
-        "Model": "SAGRO150",
-        "Manufacturer": "SINGULAR XYZ",
-        "Price": 4750.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "SAGRO200",
-        "Manufacturer": "SINGULAR XYZ",
-        "Price": 4950.0,
-        "EquipmentTypeCode": "gps_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "LEEB 8.300 PT / 36 M",
@@ -16325,15 +15563,6 @@
         }
     },
     {
-        "Model": "QII-JET TAV 343",
-        "Manufacturer": "BOGAERTS",
-        "Price": 23215.0,
-        "EquipmentTypeCode": "robots",
-        "Specifications": {
-            "WorkWidth": 2.0
-        }
-    },
-    {
         "Model": "ARES XL 3",
         "Manufacturer": "UNIA",
         "Price": 10865.0,
@@ -16363,20 +15592,6 @@
         }
     },
     {
-        "Model": "INCOMMAND 1200 NET",
-        "Manufacturer": "AG LEADER",
-        "Price": 31000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "INCOMMAND 1200 STEADYSTEER",
-        "Manufacturer": "AG LEADER",
-        "Price": 17500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "CATROS+5003-2",
         "Manufacturer": "AMAZONE",
         "Price": 54000.0,
@@ -16385,20 +15600,6 @@
             "RequiredPower": 115.58,
             "WorkWidth": 5.0
         }
-    },
-    {
-        "Model": "INCOMMAND 800 STEADYSTEER",
-        "Manufacturer": "AG LEADER",
-        "Price": 15500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "INCOMMAND 1200 STEERCOMMAND",
-        "Manufacturer": "AG LEADER",
-        "Price": 17400.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "3332FR",
@@ -16488,20 +15689,6 @@
         }
     },
     {
-        "Model": "RIGHTSPOT IC1200 24",
-        "Manufacturer": "AG LEADER",
-        "Price": 38000.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
-    },
-    {
-        "Model": "INCOMMAND 800 STEADYSTEER",
-        "Manufacturer": "AG LEADER",
-        "Price": 9500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "COMIA C12 +5.7P",
         "Manufacturer": "SAMPO ROSENLEW",
         "Price": 287753.0,
@@ -16552,13 +15739,6 @@
         }
     },
     {
-        "Model": "CROPVIEW DUAL",
-        "Manufacturer": "IMETOS",
-        "Price": 2190.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
-    },
-    {
         "Model": "PNEUMATICBOX STI 1200",
         "Manufacturer": "EINBOCK",
         "Price": 9000.0,
@@ -16576,13 +15756,6 @@
             "Power": 75.32,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "RIGHTSPOT 24",
-        "Manufacturer": "AG LEADER",
-        "Price": 32000.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
     },
     {
         "Model": "FUSION 4 PLUS",
@@ -16760,20 +15933,6 @@
         }
     },
     {
-        "Model": "T50",
-        "Manufacturer": "DJI",
-        "Price": 26237.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
-        "Model": "T50",
-        "Manufacturer": "DJI",
-        "Price": 23447.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "SPIRIT ST 900S",
         "Manufacturer": "VADERSTAD",
         "Price": 194000.0,
@@ -16872,27 +16031,6 @@
         }
     },
     {
-        "Model": "F100 AUTOSTEER BASIC",
-        "Manufacturer": "SVEAVERKEN",
-        "Price": 4700.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "F100 AUTOSTEER ADVANCED",
-        "Manufacturer": "SVEAVERKEN",
-        "Price": 5700.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "F100 AUTOSTEER ADVANCED ISOBUS",
-        "Manufacturer": "SVEAVERKEN",
-        "Price": 7000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "PREMIA 300",
         "Manufacturer": "KUHN",
         "Price": 15295.0,
@@ -16913,34 +16051,6 @@
         }
     },
     {
-        "Model": "PLM CR7 DIRECTDRIVE",
-        "Manufacturer": "CNH",
-        "Price": 8461.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "PLM AUTOPILOT CR12 RS1",
-        "Manufacturer": "CNH",
-        "Price": 14675.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "PLM CR12 RS1 AUTOPILOT",
-        "Manufacturer": "CNH",
-        "Price": 17815.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "PLM DIRECTSTEER CR7 RS1",
-        "Manufacturer": "NEW HOLLAND",
-        "Price": 10577.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "BUFFALO RX 1450",
         "Manufacturer": "EUROMILK",
         "Price": 47150.0,
@@ -16958,13 +16068,6 @@
             "WorkWidth": 7.5,
             "RequiredPower": 253.54
         }
-    },
-    {
-        "Model": "INCOMMAND 1200 SC HYDRO NET",
-        "Manufacturer": "AG LEADER",
-        "Price": 38000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "TSW 2140 E",
@@ -17241,27 +16344,6 @@
         }
     },
     {
-        "Model": "SENSORS 92049535",
-        "Manufacturer": "NEW HOLLAND",
-        "Price": 2338.0,
-        "EquipmentTypeCode": "razas_uzskaites_sistema",
-        "Specifications": {}
-    },
-    {
-        "Model": "PLM CR7 500S MD",
-        "Manufacturer": "NEW HOLLAND",
-        "Price": 3498.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "RV55 MODEMS",
-        "Manufacturer": "NEW HOLLAND",
-        "Price": 6500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "MAMUT 6030 ISOBUS",
         "Manufacturer": "AGRIO",
         "Price": 129000.0,
@@ -17530,13 +16612,6 @@
         }
     },
     {
-        "Model": "MANTIS V3.0",
-        "Manufacturer": "AUGMENTA",
-        "Price": 21900.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
-    },
-    {
         "Model": "EASYCUT B 1050 CV",
         "Manufacturer": "KRONE",
         "Price": 99000.0,
@@ -17680,13 +16755,6 @@
         }
     },
     {
-        "Model": "EZPP ISOBUS UT TC",
-        "Manufacturer": "NEW HOLLAND",
-        "Price": 10806.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "SWADRO TC 680",
         "Manufacturer": "KRONE",
         "Price": 24900.0,
@@ -17735,13 +16803,6 @@
         }
     },
     {
-        "Model": "XCN1050 NAV900 EZPP",
-        "Manufacturer": "NEW HOLLAND",
-        "Price": 10500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "SERVO 3000 P",
         "Manufacturer": "POTTINGER",
         "Price": 26900.0,
@@ -17759,27 +16820,6 @@
             "RequiredPower": 89.48,
             "WorkWidth": 7.8
         }
-    },
-    {
-        "Model": "GFX-1260",
-        "Manufacturer": "TRIMBLE",
-        "Price": 24000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-1060",
-        "Manufacturer": "TRIMBLE",
-        "Price": 20500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-1060",
-        "Manufacturer": "TRIMBLE",
-        "Price": 13000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "BIOSTAR 9",
@@ -17980,13 +17020,6 @@
         "Specifications": {
             "RequiredPower": 82.03
         }
-    },
-    {
-        "Model": "GFX-1060 CAN AUTOPILOT",
-        "Manufacturer": "TRIMBLE",
-        "Price": 18500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "DISKOMAT 6 PS",
@@ -18342,13 +17375,6 @@
         }
     },
     {
-        "Model": "T25",
-        "Manufacturer": "DJI",
-        "Price": 19495.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "TS-DRILL 6000",
         "Manufacturer": "KVERNELAND",
         "Price": 60000.0,
@@ -18459,34 +17485,6 @@
             "WorkWidth": 6.0,
             "RequiredPower": 208.8
         }
-    },
-    {
-        "Model": "YM",
-        "Manufacturer": "AG LEADER",
-        "Price": 6400.0,
-        "EquipmentTypeCode": "razas_uzskaites_sistema",
-        "Specifications": {}
-    },
-    {
-        "Model": "UMETOS 200",
-        "Manufacturer": "IMETOS",
-        "Price": 2120.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
-    },
-    {
-        "Model": "AGS-2 X25 AES-35 EGNOS",
-        "Manufacturer": "TOPCON",
-        "Price": 11485.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AGS-2 X25 AES-35 RTK",
-        "Manufacturer": "TOPCON",
-        "Price": 16240.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "RM 320",
@@ -18609,13 +17607,6 @@
         }
     },
     {
-        "Model": "UMETOS 300-USW",
-        "Manufacturer": "IMETOS",
-        "Price": 3222.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
-    },
-    {
         "Model": "3500T 21M",
         "Manufacturer": "AGRO",
         "Price": 53528.0,
@@ -18634,48 +17625,6 @@
             "WorkWidth": 6.0,
             "RequiredPower": 149.14
         }
-    },
-    {
-        "Model": "GFX-1260 NAV-500",
-        "Manufacturer": "TRIMBLE",
-        "Price": 8000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-750 CAN STEER",
-        "Manufacturer": "TRIMBLE",
-        "Price": 20000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-1060 SAM300",
-        "Manufacturer": "TRIMBLE",
-        "Price": 19000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "G5PLUS SF7000",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 11795.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "ATU300 SF7000",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 12418.58,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "G5 SF7000",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 10495.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "STEALTH 350",
@@ -18728,13 +17677,6 @@
         }
     },
     {
-        "Model": "ATU300 G5",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 13347.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "KPR500",
         "Manufacturer": "PRONAR",
         "Price": 21540.0,
@@ -18743,13 +17685,6 @@
             "WorkWidth": 5.0,
             "RequiredPower": 89.48
         }
-    },
-    {
-        "Model": "ATU300 G5PLUS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 14257.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "TSW 7340 S",
@@ -18892,13 +17827,6 @@
             "RequiredPower": 164.05,
             "WorkWidth": 5.0
         }
-    },
-    {
-        "Model": "AGS-2 XD+ EHI RTK",
-        "Manufacturer": "TOPCON",
-        "Price": 16635.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "R952I 28M",
@@ -19084,20 +18012,6 @@
         }
     },
     {
-        "Model": "DAVIS-6825OV-2PLUS",
-        "Manufacturer": "DAVIS INSTRUMENTS",
-        "Price": 3959.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
-    },
-    {
-        "Model": "DAVIS-6825COV-GWRP",
-        "Manufacturer": "DAVIS INSTRUMENTS",
-        "Price": 3710.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
-    },
-    {
         "Model": "VB 3260",
         "Manufacturer": "KUHN",
         "Price": 57195.0,
@@ -19227,15 +18141,6 @@
         "Price": 354215.0,
         "EquipmentTypeCode": "skidrmeslu_cisterna",
         "Specifications": {}
-    },
-    {
-        "Model": "WINTEX 2000",
-        "Manufacturer": "WINTEXAGRO",
-        "Price": 39351.94,
-        "EquipmentTypeCode": "augsnes_paraugu_nonemejs",
-        "Specifications": {
-            "Power": 44.0
-        }
     },
     {
         "Model": "ALFA6 NO-TILL",
@@ -19640,13 +18545,6 @@
         }
     },
     {
-        "Model": "MAVIC 3 T COMBO",
-        "Manufacturer": "DJI",
-        "Price": 5206.61,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "SIMPLY 2,7",
         "Manufacturer": "JANPOL",
         "Price": 3392.91,
@@ -19655,13 +18553,6 @@
             "RequiredPower": 59.66,
             "WorkWidth": 2.7
         }
-    },
-    {
-        "Model": "NX510SE",
-        "Manufacturer": "CHCNAV",
-        "Price": 6500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "TIP ROLLER 540",
@@ -20028,20 +18919,6 @@
         }
     },
     {
-        "Model": "AT2 AUTO TURN",
-        "Manufacturer": "FJ DYNAMICS",
-        "Price": 7697.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "AT2",
-        "Manufacturer": "FJ DYNAMICS",
-        "Price": 6199.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "P 226/4",
         "Manufacturer": "JAR-MET",
         "Price": 3330.0,
@@ -20100,13 +18977,6 @@
         }
     },
     {
-        "Model": "GFX-750 NAV-900 EZ-PILOT PRO",
-        "Manufacturer": "TRIMBLE",
-        "Price": 13000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "Z-069/4",
         "Manufacturer": "WIRAX",
         "Price": 1223.14,
@@ -20115,13 +18985,6 @@
             "WorkWidth": 1.25,
             "RequiredPower": 12.68
         }
-    },
-    {
-        "Model": "GFX-750 NAV-900 EZ-PILOT PRO RTK",
-        "Manufacturer": "TRIMBLE",
-        "Price": 16000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "FORMA 2",
@@ -20224,13 +19087,6 @@
         "Specifications": {}
     },
     {
-        "Model": "MAVIC 3 MULTISPECTRAL",
-        "Manufacturer": "DJI",
-        "Price": 9912.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "ARCO-S-1",
         "Manufacturer": "JJ BROCH",
         "Price": 31395.0,
@@ -20275,13 +19131,6 @@
         }
     },
     {
-        "Model": "SF7000",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 3300.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "P226/1",
         "Manufacturer": "JAR-MET",
         "Price": 3000.0,
@@ -20302,24 +19151,10 @@
         }
     },
     {
-        "Model": "AH2",
-        "Manufacturer": "FJ DYNAMICS",
-        "Price": 7100.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "WS0026",
         "Manufacturer": "RIVULIS",
         "Price": 3711.0,
         "EquipmentTypeCode": "laistisanas_iekarta",
-        "Specifications": {}
-    },
-    {
-        "Model": "GFX-750 NAV-900 CAN AUTO PILOT",
-        "Manufacturer": "TRIMBLE",
-        "Price": 9800.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
         "Specifications": {}
     },
     {
@@ -20412,13 +19247,6 @@
         }
     },
     {
-        "Model": "NAV CONTROLLER III NH392",
-        "Manufacturer": "PLM",
-        "Price": 15088.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "ESDESB1050",
         "Manufacturer": "ZEPPELIN",
         "Price": 2894.0,
@@ -20446,13 +19274,6 @@
             "Power": 55.93,
             "PowerTrainCode": "powertrain_track"
         }
-    },
-    {
-        "Model": "NAV-900 SAM 300 GFX-750",
-        "Manufacturer": "TRIMBLE",
-        "Price": 5700.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "ASTRA 4 NEW",
@@ -20571,13 +19392,6 @@
         }
     },
     {
-        "Model": "DOCK 2",
-        "Manufacturer": "DJI",
-        "Price": 20880.0,
-        "EquipmentTypeCode": "bezpilota_gaisa_kugis",
-        "Specifications": {}
-    },
-    {
         "Model": "WS0027",
         "Manufacturer": "RIVULIS",
         "Price": 5261.67,
@@ -20662,13 +19476,6 @@
             "RequiredPower": 26.1,
             "WorkWidth": 1.55
         }
-    },
-    {
-        "Model": "FIELD ANALYZER",
-        "Manufacturer": "AUGMENTA",
-        "Price": 25235.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
     },
     {
         "Model": "SWIFTERDISC XO 7500 PROFI",
@@ -20874,27 +19681,6 @@
             "WorkWidth": 1.7,
             "RequiredPower": 63.38
         }
-    },
-    {
-        "Model": "AGRICON TOUCH 1200",
-        "Manufacturer": "MULLER ELEKTRONIK",
-        "Price": 6800.0,
-        "EquipmentTypeCode": "mainigas_devas_modula_komplekts",
-        "Specifications": {}
-    },
-    {
-        "Model": "ALS 2",
-        "Manufacturer": "YARA N-SENSOR",
-        "Price": 44581.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
-    },
-    {
-        "Model": "ALS 2",
-        "Manufacturer": "YARA N-SENSOR",
-        "Price": 37981.0,
-        "EquipmentTypeCode": "augu_sensors",
-        "Specifications": {}
     },
     {
         "Model": "311 VARIO",
@@ -21451,13 +20237,6 @@
         }
     },
     {
-        "Model": "SF7500 GPS UZTV\u0112R\u0112JS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 3500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "TETRAX2 16000S",
         "Manufacturer": "JOSKIN",
         "Price": 181000.0,
@@ -21472,13 +20251,6 @@
         "Specifications": {
             "RequiredPower": 186.43
         }
-    },
-    {
-        "Model": "GFX-1260 NAV-900 CAN AUTO PILOT",
-        "Manufacturer": "TRIMBLE",
-        "Price": 13600.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "VOLUMETRA 20000D",
@@ -21525,13 +20297,6 @@
         "Specifications": {
             "RequiredPower": 22.37
         }
-    },
-    {
-        "Model": "GFX-750 NAV-900 SAM-300",
-        "Manufacturer": "TRIMBLE",
-        "Price": 16500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "M404",
@@ -21621,13 +20386,6 @@
         "Specifications": {
             "WorkWidth": 45.0
         }
-    },
-    {
-        "Model": "SF7000+GS4 4640",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 9277.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "TL400S",
@@ -21750,13 +20508,6 @@
         }
     },
     {
-        "Model": "SF7500+G5PLUSS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 18447.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "T60",
         "Manufacturer": "GREGOIRE BESSON",
         "Price": 32000.0,
@@ -21767,27 +20518,6 @@
         }
     },
     {
-        "Model": "G5PLUSS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 9045.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "SF7500 GPS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 9600.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "G5PLUSS+SF7500 GPS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 12546.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "F5-550",
         "Manufacturer": "MCHALE",
         "Price": 46500.0,
@@ -21795,13 +20525,6 @@
         "Specifications": {
             "RequiredPower": 67.11
         }
-    },
-    {
-        "Model": "ATU300+G5+SF7500 GPS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 11345.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "IBIS XM S 4+",
@@ -21821,27 +20544,6 @@
             "WorkWidth": 3.9,
             "RequiredPower": 59.66
         }
-    },
-    {
-        "Model": "ATU300, 5GPLUSS,SF7500 GPS,SF-RTK",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 17260.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "ATU300+5G+SF7500 GPS+ISOBUS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 18869.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
-        "Model": "ATU300+SF7500 GPS",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 12147.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "P510",
@@ -21900,13 +20602,6 @@
         "Specifications": {
             "WorkWidth": 7.6
         }
-    },
-    {
-        "Model": "GFX-1060 NAV-900 CAN AUTOPILOT RTK",
-        "Manufacturer": "TRIMBLE",
-        "Price": 15500.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "HERON 4228",
@@ -22049,13 +20744,6 @@
         "Specifications": {
             "RequiredPower": 67.11
         }
-    },
-    {
-        "Model": "GFX-1060 NAV-900 EZ-PILOT APMD RTK",
-        "Manufacturer": "TRIMBLE",
-        "Price": 20700.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "MF 7345 S MCS",
@@ -22241,13 +20929,6 @@
         }
     },
     {
-        "Model": "GFX-1060 EZ-PILOT RTX",
-        "Manufacturer": "TRIMBLE",
-        "Price": 17000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "IDEAL 7",
         "Manufacturer": "FENDT",
         "Price": 370000.0,
@@ -22256,13 +20937,6 @@
             "Power": 360.17,
             "WorkWidth": 9.2
         }
-    },
-    {
-        "Model": "GFX-1060 EZ-PILOT RTX",
-        "Manufacturer": "TRIMBLE",
-        "Price": 13000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "SL-2",
@@ -22368,13 +21042,6 @@
             "RequiredPower": 119.31,
             "WorkWidth": 30.0
         }
-    },
-    {
-        "Model": "GFX-1060 NAV-900 EZ-PILOT APMD RTK ISOBUS TC",
-        "Manufacturer": "TRIMBLE",
-        "Price": 21900.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "FALCON PRO FERT",
@@ -22683,13 +21350,6 @@
         }
     },
     {
-        "Model": "NAVCONTROLLER III",
-        "Manufacturer": "TRIMBLE",
-        "Price": 6950.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
-    },
-    {
         "Model": "ARES HP XXL5",
         "Manufacturer": "UNIA",
         "Price": 37700.0,
@@ -22796,13 +21456,6 @@
             "WorkWidth": 6.1,
             "RequiredPower": 67.11
         }
-    },
-    {
-        "Model": "STEADY STEER",
-        "Manufacturer": "AG LEADER",
-        "Price": 12600.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "KOMPAKTOMAT K 800",
@@ -23161,13 +21814,6 @@
         }
     },
     {
-        "Model": "CORDULUS",
-        "Manufacturer": "CROPLINE",
-        "Price": 19000.0,
-        "EquipmentTypeCode": "meteostacija",
-        "Specifications": {}
-    },
-    {
         "Model": "DISCO 3600 FC MOVE / DISCO 3600 C  CONTOUR",
         "Manufacturer": "CLAAS",
         "Price": 48360.0,
@@ -23363,13 +22009,6 @@
             "RequiredPower": 186.43,
             "WorkWidth": 24.0
         }
-    },
-    {
-        "Model": "GFX-750 NAV-900 SAM 300 RTX",
-        "Manufacturer": "TRIMBLE",
-        "Price": 7000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "LLK-6",
@@ -23584,13 +22223,6 @@
             "WorkWidth": 7.3,
             "RequiredPower": 104.4
         }
-    },
-    {
-        "Model": "ATU300+G5PLUSS+SF7500",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 13871.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "VOLUMETRA 20000 D",
@@ -23858,13 +22490,6 @@
             "RequiredPower": 111.86,
             "WorkWidth": 4.0
         }
-    },
-    {
-        "Model": "GFX-1260 SAM-300 RTX",
-        "Manufacturer": "TRIMBLE",
-        "Price": 19000.0,
-        "EquipmentTypeCode": "gnss_uztverejs",
-        "Specifications": {}
     },
     {
         "Model": "WS0028",

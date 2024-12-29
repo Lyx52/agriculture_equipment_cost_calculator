@@ -91,7 +91,7 @@
           <BTd>
             <CodifierDropdown
               :is-valid="true"
-              :parent-codifier-code="Codifiers.CropTypes"
+              :parent-codifier-codes="[Codifiers.CropTypes]"
               :store-id="row.id"
             />
           </BTd>
@@ -121,10 +121,10 @@
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
               <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="farmlandStore.removeItem(row.id)">
-                <TrashIcon />
+                Dzēst <TrashIcon />
               </BButton>
               <BButton variant="secondary" size="sm" @click="onOpenOperationsWorkbench(row)">
-                <OperationsIcon />
+                Apstrādes operācijas <OperationsIcon />
               </BButton>
             </BButtonGroup>
           </BTd>

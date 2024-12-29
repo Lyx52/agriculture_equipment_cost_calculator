@@ -8,6 +8,7 @@
             <BButton
                 variant="outline-secondary"
                 class="w-100"
+                v-model:pressed="isDropdownShown"
                 @click="fetchByFilters"
                 v-if="!isDropdownShown"
                 ref="_button"
@@ -23,17 +24,17 @@
         </BOverlay>
         <BFormInput
             class="dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            v-if="isDropdownShown"
-            autofocus
+            :class="{
+              'd-none': !isDropdownShown,
+              'd-block': isDropdownShown,
+            }"
             @input="fetchByFilters"
             v-model="searchText"
             ref="_search_bar"
         />
         <ul
-            class="dropdown-menu short-dropdown w-100 mw-fit-content"
-            :class="{ show: isDropdownShown }"
+            class="dropdown-menu short-dropdown w-100 mw-fit-content show"
+            v-if="isDropdownShown"
             @scroll="onScroll"
             ref="_floating"
         >
@@ -60,46 +61,48 @@ import {
     BOverlay
 } from "bootstrap-vue-next";
 import { ref, useTemplateRef, watch } from 'vue'
-import {onClickOutside} from "@vueuse/core";
+import { onClickOutside, watchArray } from '@vueuse/core'
 import type { ICodifierDropdown } from '@/props/ICodifierDropdown.ts'
 import { useCodifierStore } from '@/stores/codifier.ts'
 import { v4 as uuid } from 'uuid';
 import type { ICodifier } from '@/stores/interface/ICodifier.ts'
 import CarretDownIcon from '@/components/icons/CarretDownIcon.vue'
+import { arraysEqual } from '@/utils.ts'
 const floating = useTemplateRef<HTMLElement>('_floating');
 const button = useTemplateRef<HTMLElement>('_button');
 const searchBar = useTemplateRef<HTMLElement>('_search_bar');
 
-const isLoading = ref<boolean>();
-const isDropdownShown = ref<boolean>(false);
+const isLoading = ref<boolean>(false);
+const isDropdownShown = ref(false);
 const searchText = ref<string>('');
 const props = defineProps<ICodifierDropdown>();
 const codifierStore = useCodifierStore(props.storeId ?? uuid())
 const emits = defineEmits(['onSelected']);
-
 onClickOutside(floating, () => {
   isLoading.value = false;
   isDropdownShown.value = false;
   searchText.value = '';
 }, {ignore: [button, searchBar]});
-
-watch(() => props.parentCodifierCode, async (newParentCode) => {
-  codifierStore.$reset();
+watchArray(() => props.parentCodifierCodes, async (newParentCodes, oldParentCodes) => {
+  if (arraysEqual(newParentCodes, oldParentCodes)) {
+    return;
+  }
   codifierStore.$patch({
-    codifierTypeCode: newParentCode
+    codifierTypeCodes: newParentCodes,
+    selectedItem: undefined,
+    searchText: '',
+    filterTo: 25
   });
   isLoading.value = false;
-  isDropdownShown.value = false;
   searchText.value = '';
 });
 
 const fetchByFilters = async () => {
   codifierStore.resetFilters();
   codifierStore.$patch({
-    codifierTypeCode: props.parentCodifierCode,
+    codifierTypeCodes: props.parentCodifierCodes,
     searchText: searchText.value
   });
-  isDropdownShown.value = true;
   try {
     isLoading.value = true;
     await codifierStore.fetchByFilters();
@@ -118,8 +121,8 @@ const onSelectItem = (item: ICodifier) => {
 }
 const onScroll = async (e: any) => {
   const itemsFromTop = Math.floor(e.target.scrollTop / 24);
-  if ((codifierStore.filterTo - itemsFromTop) <= 25) {
-    codifierStore.filterTo += 25;
+  if ((codifierStore.filterTo - itemsFromTop) <= 10) {
+    codifierStore.filterTo += 10;
     try {
       isLoading.value = true;
       await codifierStore.fetchByFilters();
@@ -135,7 +138,7 @@ const onScroll = async (e: any) => {
       max-height: 250px;
       overflow-y: auto;
       width: fit-content !important;
-      max-width: 400px;
+      max-width: 600px;
     }
     .cursor-pointer {
       cursor: pointer;

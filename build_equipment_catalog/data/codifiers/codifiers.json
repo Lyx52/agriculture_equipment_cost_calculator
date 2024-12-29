@@ -295,56 +295,6 @@
         "Name": "\u0160\u0137eldot\u0101js"
     },
     {
-        "Code": "precizas_tehnologijas",
-        "ParentCode": "equipment_type_categories",
-        "Name": "Prec\u012bz\u0101s tehnolo\u0123ijas"
-    },
-    {
-        "Code": "gps_uztverejs",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "GPS uztv\u0113r\u0113js"
-    },
-    {
-        "Code": "augu_sensors",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "Augu sensors"
-    },
-    {
-        "Code": "mainigas_devas_modula_komplekts",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "Main\u012bg\u0101s devas modu\u013ca komplekts"
-    },
-    {
-        "Code": "bezpilota_gaisa_kugis",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "Bezpilota gaisa ku\u0123is"
-    },
-    {
-        "Code": "meteostacija",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "Meteostacija"
-    },
-    {
-        "Code": "robots",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "Robots"
-    },
-    {
-        "Code": "razas_uzskaites_sistema",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "Ra\u017eas uzskaites sist\u0113ma"
-    },
-    {
-        "Code": "gnss_uztverejs",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "GNSS uztv\u0113r\u0113js"
-    },
-    {
-        "Code": "augsnes_paraugu_nonemejs",
-        "ParentCode": "precizas_tehnologijas",
-        "Name": "Augsnes paraugu no\u0146\u0113m\u0113js"
-    },
-    {
         "Code": "razas_novaksanas_tehnika",
         "ParentCode": "equipment_type_categories",
         "Name": "Ra\u017eas nov\u0101k\u0161anas tehnika"

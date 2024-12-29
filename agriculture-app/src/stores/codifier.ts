@@ -7,34 +7,58 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
   state(): ICodifierStore {
     return {
       items: [],
-      codifierTypeCode: '',
+      codifierTypeCodes: [],
       searchText: '',
       emitter: new TinyEmitter(),
       filterTo: 25,
-      selectedItem: undefined
+      selectedItem: undefined,
+      storeId: storeId,
+      cachedCodifiersByCode: new Map<string, ICodifier>(),
+      addChildren: false
     }
   },
   actions: {
     async fetchByFilters() {
       const params = new URLSearchParams();
-      params.set('ParentCodifierCode', this.codifierTypeCode);
+      params.set('ParentCodifierCode', this.codifierTypeCodes.join(','));
       params.set('FilterTo', this.filterTo.toString());
+      params.set('AddChildren', this.addChildren.toString());
       if (this.searchText.length >= 2) {
         params.set('Query', this.searchText);
       }
-
       const response = await fetch(`${getBackendUri()}/Codifier?${params.toString()}`)
       this.items = await response.json() as ICodifier[];
     },
     resetFilters() {
       this.searchText = '';
-      this.items = [];
       this.filterTo = 25;
+    },
+    async setSelectedByCode(code: string|undefined) {
+      if (!code)
+      {
+        this.selectedItem = undefined;
+        return;
+      }
+      if (this.cachedCodifiersByCode.has(code)) {
+        this.selectedItem = this.cachedCodifiersByCode.get(code);
+      }
+      const response = await fetch(`${getBackendUri()}/Codifier/ByCode/${code}`)
+      this.selectedItem = await response.json() as ICodifier|undefined;
+
+      if (this.selectedItem) {
+        this.cachedCodifiersByCode.set(code, this.selectedItem);
+      }
     }
   },
   getters: {
     filteredItems(state: ICodifierStore): ICodifier[] {
       return state.items;
+    },
+    allChildrenCodifiers(state: ICodifierStore): ICodifier[] {
+      return state.items.reduce((allChildren, parent) => {
+        allChildren.push(...parent.children);
+        return allChildren;
+      }, [] as ICodifier[]);
     }
   }
 })();

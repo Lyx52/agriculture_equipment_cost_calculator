@@ -22,8 +22,10 @@
             class="dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            v-if="isDropdownShown"
-            autofocus
+            :class="{
+              'd-none': !isDropdownShown,
+              'd-block': isDropdownShown,
+            }"
             v-model="searchText"
             ref="_search_bar"
         />

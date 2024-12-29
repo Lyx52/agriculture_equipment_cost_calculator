@@ -4,7 +4,7 @@ combine_manufacturers = {
     'LS TRACTOR': 'LS',
     'LS MTRON': 'LS',
 }
-allowed_categories = [codifier['Code'] for codifier in open_json("../data/codifiers/equipment_type_codifiers.json")]
+allowed_categories = [codifier['Code'] for codifier in open_json("../data/codifiers/codifiers.json")]
 parameters = {
 
 }
