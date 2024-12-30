@@ -54,42 +54,6 @@ def get_lad_page_tables(url: str) -> list[NavigableString|Tag]:
     soup = BeautifulSoup(res.content, features="html.parser")
     return list(soup.find_all("table", attrs={'class': 'table-colorized-rows'}))
 
-def scrape_metadatatables(tables: list[BeautifulSoup|Tag|NavigableString], source: str) -> dict:
-    result = {
-        'unknown': [],
-        'source': source
-    }
-    for table in tables:
-        for row in table.find_all("tr"):
-            try:
-                th = row.find("th")
-                td = row.find("td")
-                if td is None:
-                    continue
-                
-                if th is None:
-                    result['unknown'].append(td)
-                name = th.text.strip()
-                multi_column_items = td.find_all(attrs={'class': 'ce-multicolumn-field__item'})
-                if len(multi_column_items) == 0:
-                    result[name] = td.text.strip()
-                else:
-                    for item in multi_column_items:
-                        label = item.find(attrs={'class': 'ionic-icon__label'})
-                        value = item.find(attrs={'class': 'ionic-icon'})
-                        if 'checkbox' in value.text.strip().lower():
-                            if name not in result:
-                                result[name] = []
-                            result[name].append(label.text.strip())
-                        elif 'on' in value.text.strip().lower():
-                             result[name] = label.text.strip()
-                    if name not in result:
-                        result[name] = multi_column_items.text.strip()   
-            except:
-                print(f"{source} -> {row}")
-        
-    return result
-
 max_pages = get_lad_catalog_page_count()
 catalog_table_data = []
 for page in range(1, max_pages + 1):
@@ -120,9 +84,3 @@ for item in catalog_table_data:
     total_item_count += 1
 
 save_json(f'{path_to_raw_data}/catalog_item_tables.json', raw_catalog_data)
-catalog_data = []
-for source, tables in raw_catalog_data.items():
-    bs_tables = list(map(lambda table: BeautifulSoup(table, features="html.parser"), tables))
-    catalog_data.append(scrape_metadatatables(bs_tables, source))
-
-save_json(f'{path_to_temp_data}/lad_catalog.json', catalog_data)

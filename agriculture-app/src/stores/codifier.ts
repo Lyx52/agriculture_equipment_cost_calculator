@@ -55,10 +55,13 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
       return state.items;
     },
     allChildrenCodifiers(state: ICodifierStore): ICodifier[] {
-      return state.items.reduce((allChildren, parent) => {
-        allChildren.push(...parent.children);
-        return allChildren;
-      }, [] as ICodifier[]);
+      return state.items.flatMap(c => c.children);
+    },
+    toChildrenMap(state: ICodifierStore): Map<string, ICodifier> {
+      return new Map(state.items.flatMap(c => c.children).map(c => [c.code, c]));
+    },
+    toMap(state: ICodifierStore): Map<string, ICodifier> {
+      return new Map(state.items.map(c => [c.code, c]));
     }
   }
 })();

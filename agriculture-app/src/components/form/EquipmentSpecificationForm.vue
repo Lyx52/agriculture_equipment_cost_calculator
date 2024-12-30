@@ -23,6 +23,9 @@
   onMounted(async () => {
     await powerTrainCodifierStore.setSelectedByCode(equipmentStore.item.specifications.power_train_code)
   })
+  watch(() => equipmentStore.item.specifications.power_train_code, async () => {
+    await powerTrainCodifierStore.setSelectedByCode(equipmentStore.item.specifications.power_train_code)
+  })
   const onPowerTrainSelected = (item: ICodifier) => {
     equipmentStore.$patch({
       item: {

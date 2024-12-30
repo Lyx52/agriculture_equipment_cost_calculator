@@ -6,7 +6,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 92.47,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -36,7 +36,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.62,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -56,7 +57,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 206.56,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -175,7 +176,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -223,7 +224,7 @@
         "Price": 408460.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 235.64
         }
     },
@@ -243,7 +244,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 87.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -420,7 +421,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 82.03,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -469,7 +470,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 87.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -509,7 +510,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 233.4,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -559,7 +561,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 223.71,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -569,7 +572,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 223.71,
-            "WorkWidth": 32.0
+            "WorkWidth": 32.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -589,7 +593,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 223.71,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -639,7 +644,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -649,7 +655,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.8,
-            "RequiredPower": 37.29
+            "RequiredPower": 37.29,
+            "ShredderType": "disc"
         }
     },
     {
@@ -659,7 +666,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -669,7 +676,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 378.07,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -759,7 +766,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 65.62,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -789,7 +796,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 37.29
+            "RequiredPower": 37.29,
+            "ShredderType": "disc"
         }
     },
     {
@@ -799,7 +807,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.54,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1139,7 +1148,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 75.32,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -1158,7 +1167,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1168,7 +1178,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1178,7 +1189,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 84.26,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -1333,7 +1344,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1383,7 +1395,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 55.93
+            "RequiredPower": 55.93,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1400,7 +1413,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 63.38
+            "RequiredPower": 63.38,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1410,7 +1424,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1420,7 +1435,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1595,7 +1611,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.7,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1654,7 +1671,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1664,7 +1682,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1674,7 +1693,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1760,7 +1780,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.7,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1788,7 +1809,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.04,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1798,7 +1820,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.04,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1808,7 +1831,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.46,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1818,7 +1842,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.46,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -1848,7 +1873,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.04,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2037,7 +2063,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.04,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2047,7 +2074,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.46,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2236,7 +2264,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.6,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2246,7 +2275,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 4.0,
-            "RequiredPower": 1043.98
+            "RequiredPower": 1043.98,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2286,7 +2316,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 32.0
+            "WorkWidth": 32.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2306,7 +2337,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2316,7 +2348,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2326,7 +2359,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2336,7 +2370,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 32.0
+            "WorkWidth": 32.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2392,7 +2427,8 @@
         "Price": 16300.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 14.91
+            "RequiredPower": 14.91,
+            "SelfPropelled": false
         }
     },
     {
@@ -2401,7 +2437,8 @@
         "Price": 14000.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 0.0
+            "RequiredPower": 0.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2410,7 +2447,8 @@
         "Price": 18000.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 0.0
+            "RequiredPower": 0.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2418,14 +2456,18 @@
         "Manufacturer": "CRANBERRY",
         "Price": 19000.0,
         "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {}
+        "Specifications": {
+            "WorkWidth": 1.25
+        }
     },
     {
         "Model": "ARA-2021-7",
         "Manufacturer": "CRANBERRY",
         "Price": 7000.0,
         "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {}
+        "Specifications": {
+            "WorkWidth": 1.22
+        }
     },
     {
         "Model": "KOS S 2,6",
@@ -2544,7 +2586,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.3,
-            "RequiredPower": 104.4
+            "RequiredPower": 104.4,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2554,7 +2597,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.3,
-            "RequiredPower": 126.77
+            "RequiredPower": 126.77,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2564,7 +2608,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.02,
-            "RequiredPower": 134.23
+            "RequiredPower": 134.23,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2574,7 +2619,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.02,
-            "RequiredPower": 134.23
+            "RequiredPower": 134.23,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2631,7 +2677,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.2,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2651,7 +2698,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.4,
-            "RequiredPower": 33.56
+            "RequiredPower": 33.56,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2661,7 +2709,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.8,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2671,7 +2720,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.2,
-            "RequiredPower": 55.93
+            "RequiredPower": 55.93,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2681,7 +2731,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.6,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -2691,7 +2742,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 233.4,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -2943,7 +2995,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.8,
-            "RequiredPower": 26.85
+            "RequiredPower": 26.85,
+            "ShredderType": "disc"
         }
     },
     {
@@ -3012,7 +3065,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 167.78,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -3052,7 +3106,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 89.48,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3062,7 +3116,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 96.94,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3120,7 +3174,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 164.05,
-            "WorkWidth": 24.0
+            "WorkWidth": 24.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -3130,7 +3185,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 87.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3160,7 +3215,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 130.5,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3199,7 +3254,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 9.5,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -3209,7 +3265,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 87.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3275,7 +3331,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 37.29,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3373,7 +3429,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 37.29,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3401,7 +3457,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 272.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3585,7 +3641,8 @@
         "Price": 39500.0,
         "EquipmentTypeCode": "skidrmeslu_izkliedetaja_aprikojums",
         "Specifications": {
-            "WorkWidth": 5.0
+            "WorkWidth": 5.0,
+            "CultivatorType": "disc"
         }
     },
     {
@@ -3624,7 +3681,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.46,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -3809,7 +3867,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 74.57,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -3838,7 +3896,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.62,
-            "RequiredPower": 37.29
+            "RequiredPower": 37.29,
+            "ShredderType": "disc"
         }
     },
     {
@@ -3848,7 +3907,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.04,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -3858,7 +3918,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.46,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -4022,7 +4083,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 104.4,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4092,7 +4153,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 28.34,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4102,7 +4163,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 182.7,
-            "WorkWidth": 28.0
+            "WorkWidth": 28.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -4132,7 +4194,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 28.34,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4211,7 +4273,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 43.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4239,7 +4301,8 @@
         "Price": 53886.0,
         "EquipmentTypeCode": "skidrmeslu_izkliedetaja_aprikojums",
         "Specifications": {
-            "WorkWidth": 6.6
+            "WorkWidth": 6.6,
+            "CultivatorType": "disc"
         }
     },
     {
@@ -4347,7 +4410,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 89.48,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4536,7 +4599,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 123.04,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4566,7 +4629,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 111.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4596,7 +4659,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.6,
-            "RequiredPower": 33.56
+            "RequiredPower": 33.56,
+            "ShredderType": "disc"
         }
     },
     {
@@ -4606,7 +4670,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 104.4,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4616,7 +4680,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -4626,7 +4691,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -4636,7 +4702,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 24.0
+            "WorkWidth": 24.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -4646,7 +4713,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -4656,7 +4724,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 24.0
+            "WorkWidth": 24.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -4666,7 +4735,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -4676,7 +4746,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -4715,7 +4786,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 97.69,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4961,7 +5032,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 72.33,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -4971,7 +5042,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 104.4,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5011,7 +5082,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.46,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -5058,7 +5130,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.04,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -5196,7 +5269,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.04,
-            "RequiredPower": 82.03
+            "RequiredPower": 82.03,
+            "ShredderType": "disc"
         }
     },
     {
@@ -5206,7 +5280,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.46,
-            "RequiredPower": 96.94
+            "RequiredPower": 96.94,
+            "ShredderType": "disc"
         }
     },
     {
@@ -5609,7 +5684,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 119.31,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5629,7 +5704,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 178.97,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5669,7 +5744,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 67.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5767,7 +5842,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 141.68,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5777,7 +5852,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 85.01,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5900,7 +5975,7 @@
         "Price": 178960.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 130.5
         }
     },
@@ -5951,7 +6026,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 85.01,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5961,7 +6036,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -5971,7 +6047,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -5981,7 +6057,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -6075,7 +6151,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 186.43,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -6095,7 +6171,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.9,
-            "RequiredPower": 134.23
+            "RequiredPower": 134.23,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6105,7 +6182,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.22,
-            "RequiredPower": 50.71
+            "RequiredPower": 50.71,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6115,7 +6193,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.83,
-            "RequiredPower": 41.01
+            "RequiredPower": 41.01,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6125,7 +6204,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.14,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6135,7 +6215,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6164,7 +6245,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.6,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6174,7 +6256,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.6,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6184,7 +6267,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 50.71
+            "RequiredPower": 50.71,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6194,7 +6278,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6204,7 +6289,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.0,
-            "RequiredPower": 104.4
+            "RequiredPower": 104.4,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6214,7 +6300,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.1,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6224,7 +6311,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 9.46,
-            "RequiredPower": 119.31
+            "RequiredPower": 119.31,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6234,7 +6322,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.62,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6383,7 +6472,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 101.42,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -6402,7 +6491,7 @@
         "Price": 166350.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 115.58
         }
     },
@@ -6422,7 +6511,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.2,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -6707,7 +6797,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 143.92,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -6863,7 +6953,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 177.48,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -6920,7 +7010,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 59.66,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -6930,7 +7020,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 111.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -6939,7 +7029,7 @@
         "Price": 231420.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 160.33
         }
     },
@@ -6979,7 +7069,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 111.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7064,7 +7154,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 231.17,
-            "WorkWidth": 24.0
+            "WorkWidth": 24.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -7350,7 +7441,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 123.04,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7423,7 +7514,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 134.23,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7615,7 +7706,8 @@
         "EquipmentTypeCode": "graudaugu_kombains",
         "Specifications": {
             "Power": 407.9,
-            "WorkWidth": 9.15
+            "WorkWidth": 9.15,
+            "PowerTrainCode": "powertrain_track"
         }
     },
     {
@@ -7660,7 +7752,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 126.02,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7699,7 +7791,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 137.95,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7709,7 +7801,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 149.14,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7728,7 +7820,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 75.32,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7806,7 +7898,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 111.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -7843,7 +7935,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.62,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -7853,7 +7946,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -7971,7 +8065,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.85,
-            "RequiredPower": 49.96
+            "RequiredPower": 49.96,
+            "ShredderType": "drum"
         }
     },
     {
@@ -7991,7 +8086,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 152.87,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -8080,7 +8175,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.1,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -8100,7 +8196,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.1,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -8130,7 +8227,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -8140,7 +8238,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -8150,7 +8249,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 214.76,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -8247,7 +8347,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 145.41,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -8267,7 +8367,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 67.11,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -8415,7 +8515,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -8711,7 +8811,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.5,
-            "RequiredPower": 36.54
+            "RequiredPower": 36.54,
+            "ShredderType": "disc"
         }
     },
     {
@@ -8767,7 +8868,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -8875,7 +8977,8 @@
         "Price": 17442.0,
         "EquipmentTypeCode": "skidrmeslu_izkliedetaja_aprikojums",
         "Specifications": {
-            "WorkWidth": 6.4
+            "WorkWidth": 6.4,
+            "CultivatorType": "chisel"
         }
     },
     {
@@ -8915,7 +9018,7 @@
         "Price": 192215.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 145.41
         }
     },
@@ -8946,7 +9049,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 123.04,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -8986,7 +9089,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 73.08,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9069,7 +9172,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 130.5,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9089,7 +9192,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -9127,7 +9231,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -9147,7 +9252,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 108.13,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9176,7 +9281,7 @@
         "Price": 185540.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 115.58
         }
     },
@@ -9222,7 +9327,7 @@
         "Price": 264455.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 186.43
         }
     },
@@ -9300,7 +9405,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.0,
-            "RequiredPower": 19.39
+            "RequiredPower": 19.39,
+            "ShredderType": "disc"
         }
     },
     {
@@ -9310,7 +9416,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 0.0,
-            "WorkWidth": 32.0
+            "WorkWidth": 32.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -9386,7 +9493,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 64.88,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9396,7 +9503,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 71.59,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9416,7 +9523,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 79.04,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9568,7 +9675,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -9664,7 +9772,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 38.78,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9674,7 +9782,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 37.29,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9742,7 +9850,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 134.97,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9752,7 +9860,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 206.56,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9822,7 +9930,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9832,7 +9940,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9842,7 +9950,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 50.71,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -9852,7 +9960,8 @@
         "EquipmentTypeCode": "graudaugu_kombains",
         "Specifications": {
             "Power": 273.67,
-            "WorkWidth": 6.2
+            "WorkWidth": 6.2,
+            "PowerTrainCode": "powertrain_track"
         }
     },
     {
@@ -9908,7 +10017,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.1,
-            "RequiredPower": 30.57
+            "RequiredPower": 30.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -9992,7 +10102,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 105.89,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10001,7 +10111,8 @@
         "Price": 127000.0,
         "EquipmentTypeCode": "kartupelu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 96.94
+            "RequiredPower": 96.94,
+            "WorkWidth": 3.0
         }
     },
     {
@@ -10040,7 +10151,7 @@
         "Price": 221305.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 130.5
         }
     },
@@ -10051,7 +10162,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 17.15,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10091,7 +10202,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 19.39,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10101,7 +10212,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 85.01,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10121,7 +10232,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 76.06,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10131,7 +10242,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 231.17,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -10210,7 +10322,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 65.62,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10327,7 +10439,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.9,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -10384,7 +10497,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 176.73,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10461,7 +10574,7 @@
         "Price": 203460.0,
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
-            "PowerTrainCode": "powertrain_track",
+            "PowerTrainCode": "powertrain_4x4",
             "Power": 123.04
         }
     },
@@ -10472,7 +10585,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 121.55,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10522,7 +10635,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10542,7 +10655,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10552,7 +10665,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.5,
-            "RequiredPower": 41.01
+            "RequiredPower": 41.01,
+            "ShredderType": "disc"
         }
     },
     {
@@ -10572,7 +10686,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 65.62,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10582,7 +10696,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 50.71,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10609,7 +10723,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 101.42,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -10793,6 +10907,7 @@
         "Price": 2100.0,
         "EquipmentTypeCode": "pleves_ieklajejs",
         "Specifications": {
+            "WorkWidth": 1.0,
             "RequiredPower": 18.64
         }
     },
@@ -10859,7 +10974,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.02,
-            "RequiredPower": 104.4
+            "RequiredPower": 104.4,
+            "ShredderType": "disc"
         }
     },
     {
@@ -10869,7 +10985,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.4,
-            "RequiredPower": 23.12
+            "RequiredPower": 23.12,
+            "ShredderType": "disc"
         }
     },
     {
@@ -10985,7 +11102,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11015,7 +11132,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 86.5,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11034,7 +11151,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 104.4,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11082,7 +11199,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 137.95,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11186,7 +11303,8 @@
         "Price": 20500.0,
         "EquipmentTypeCode": "skidrmeslu_izkliedetaja_aprikojums",
         "Specifications": {
-            "WorkWidth": 7.0
+            "WorkWidth": 7.0,
+            "CultivatorType": "chisel"
         }
     },
     {
@@ -11319,7 +11437,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 94.7,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11329,7 +11447,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 115.58,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11359,7 +11477,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 67.11,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11368,7 +11486,8 @@
         "Price": 8335.0,
         "EquipmentTypeCode": "trimmeris",
         "Specifications": {
-            "WorkWidth": 1.0
+            "WorkWidth": 1.0,
+            "ShredderType": "scythe"
         }
     },
     {
@@ -11388,7 +11507,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.73,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -11579,7 +11699,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 171.51,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11674,7 +11794,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 97.69,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11763,7 +11883,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 70.84,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11783,7 +11903,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -11793,7 +11914,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -11823,7 +11945,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 85.76,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11833,7 +11955,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 119.31,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11842,7 +11964,8 @@
         "Price": 18900.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "SelfPropelled": false
         }
     },
     {
@@ -11880,7 +12003,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 72.33,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -11919,7 +12042,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 85.76,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12003,7 +12126,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.6,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -12013,7 +12137,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 93.21,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12023,7 +12147,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 43.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12033,7 +12157,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 97.69,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12060,7 +12184,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 43.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12128,7 +12252,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 90.23,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12198,7 +12322,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.4,
-            "RequiredPower": 23.12
+            "RequiredPower": 23.12,
+            "ShredderType": "disc"
         }
     },
     {
@@ -12236,7 +12361,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 65.62,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12246,7 +12371,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12311,7 +12436,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.3,
-            "RequiredPower": 104.4
+            "RequiredPower": 104.4,
+            "ShredderType": "disc"
         }
     },
     {
@@ -12321,7 +12447,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.3,
-            "RequiredPower": 126.77
+            "RequiredPower": 126.77,
+            "ShredderType": "disc"
         }
     },
     {
@@ -12360,7 +12487,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12390,7 +12517,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 178.97,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12603,7 +12730,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 79.04,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12612,7 +12739,8 @@
         "Price": 660000.0,
         "EquipmentTypeCode": "darzenu_novaksanas_kombains",
         "Specifications": {
-            "RequiredPower": 261.0
+            "RequiredPower": 261.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -12642,7 +12770,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 126.77,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -12787,7 +12915,8 @@
         "EquipmentTypeCode": "graudaugu_kombains",
         "Specifications": {
             "Power": 521.99,
-            "WorkWidth": 12.5
+            "WorkWidth": 12.5,
+            "PowerTrainCode": "powertrain_track"
         }
     },
     {
@@ -12841,7 +12970,8 @@
         "Price": 46720.0,
         "EquipmentTypeCode": "trimmeris",
         "Specifications": {
-            "WorkWidth": 1.0
+            "WorkWidth": 1.0,
+            "ShredderType": "rotors"
         }
     },
     {
@@ -12941,7 +13071,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 119.31,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13007,7 +13137,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 87.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13017,7 +13147,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 37.29,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13037,7 +13167,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 89.48,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13057,7 +13187,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 111.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13067,7 +13197,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 187.17,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13077,7 +13207,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13087,7 +13217,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.18,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13153,7 +13283,8 @@
         "Price": 23500.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 37.29
+            "RequiredPower": 37.29,
+            "SelfPropelled": false
         }
     },
     {
@@ -13163,7 +13294,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 82.03,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13173,7 +13304,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 38.78,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13210,7 +13341,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 17.9,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13219,7 +13350,8 @@
         "Price": 53475.0,
         "EquipmentTypeCode": "darzenu_novaksanas_kombains",
         "Specifications": {
-            "RequiredPower": 0.0
+            "RequiredPower": 0.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -13239,7 +13371,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 17.9,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13249,7 +13381,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 15.66,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13269,7 +13401,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 44.0,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13279,7 +13411,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 43.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13307,7 +13439,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.18,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13346,7 +13478,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 121.55,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13374,7 +13506,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 15.66,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13412,7 +13544,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 28.34,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13421,7 +13553,8 @@
         "Price": 17169.7,
         "EquipmentTypeCode": "darzenu_novaksanas_kombains",
         "Specifications": {
-            "RequiredPower": 0.0
+            "RequiredPower": 0.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -13461,7 +13594,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 75.32,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13489,7 +13622,8 @@
         "Price": 43220.0,
         "EquipmentTypeCode": "trimmeris",
         "Specifications": {
-            "WorkWidth": 1.0
+            "WorkWidth": 1.0,
+            "ShredderType": "rotors"
         }
     },
     {
@@ -13499,7 +13633,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 17.9,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13558,7 +13692,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 111.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13653,6 +13787,7 @@
         "Price": 5435.59,
         "EquipmentTypeCode": "pleves_ieklajejs",
         "Specifications": {
+            "WorkWidth": 2.15,
             "RequiredPower": 18.64
         }
     },
@@ -13702,6 +13837,7 @@
         "Price": 7453.56,
         "EquipmentTypeCode": "pleves_ieklajejs",
         "Specifications": {
+            "WorkWidth": 12.0,
             "RequiredPower": 22.37
         }
     },
@@ -13764,7 +13900,8 @@
         "Price": 8500.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 0.0
+            "RequiredPower": 0.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -13831,7 +13968,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 64.13,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13898,7 +14035,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 43.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13908,7 +14045,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 37.29,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -13982,7 +14119,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.17,
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -14164,7 +14302,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 36.54,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14224,7 +14362,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 97.69,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14234,7 +14372,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.6,
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -14253,7 +14392,8 @@
         "Price": 18700.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 20.13
+            "RequiredPower": 20.13,
+            "SelfPropelled": false
         }
     },
     {
@@ -14282,7 +14422,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 50.71,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14319,7 +14459,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14339,7 +14479,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.5,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -14368,7 +14509,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 53.69,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14378,7 +14519,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 152.87,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14408,7 +14549,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 41.01,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14427,7 +14568,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 54.44,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14467,7 +14608,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14477,7 +14618,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14487,7 +14628,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.49,
-            "RequiredPower": 18.64
+            "RequiredPower": 18.64,
+            "ShredderType": "scythe"
         }
     },
     {
@@ -14517,7 +14659,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14546,7 +14688,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 19.39,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14574,7 +14716,9 @@
         "Manufacturer": "BOMET",
         "Price": 2300.0,
         "EquipmentTypeCode": "kartupelu_vagotajs",
-        "Specifications": {}
+        "Specifications": {
+            "WorkWidth": 1.5
+        }
     },
     {
         "Model": "ZKT 420",
@@ -14612,7 +14756,8 @@
         "Price": 4500.0,
         "EquipmentTypeCode": "kartupelu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 48.47
+            "RequiredPower": 48.47,
+            "WorkWidth": 1.6
         }
     },
     {
@@ -14695,7 +14840,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -14751,7 +14897,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14761,7 +14907,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 19.39,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14780,7 +14926,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 121.0,
-            "RequiredPower": 11.19
+            "RequiredPower": 11.19,
+            "ShredderType": "drum"
         }
     },
     {
@@ -14800,7 +14947,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -14818,7 +14966,9 @@
         "Manufacturer": "BOMET",
         "Price": 4200.0,
         "EquipmentTypeCode": "kartupelu_vagotajs",
-        "Specifications": {}
+        "Specifications": {
+            "WorkWidth": 3.0
+        }
     },
     {
         "Model": "HEAVY 2,5",
@@ -14847,7 +14997,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.8,
-            "RequiredPower": 48.47
+            "RequiredPower": 48.47,
+            "ShredderType": "disc"
         }
     },
     {
@@ -14877,7 +15028,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -14907,7 +15059,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 43.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -14990,7 +15142,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.45,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15000,7 +15153,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.8,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15010,7 +15164,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.2,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15020,7 +15175,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 130.5,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15078,7 +15233,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 141.68,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15152,7 +15307,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 29.83,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15162,7 +15317,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 29.83,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15172,7 +15327,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 29.83,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15207,7 +15362,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 34.3,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15226,7 +15381,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15262,7 +15418,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.65,
-            "RequiredPower": 29.83
+            "RequiredPower": 29.83,
+            "ShredderType": "drum"
         }
     },
     {
@@ -15272,7 +15429,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.85,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "drum"
         }
     },
     {
@@ -15311,7 +15469,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 37.29
+            "RequiredPower": 37.29,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15330,7 +15489,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 29.08,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15379,7 +15538,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 116.33,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -15409,7 +15568,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.9,
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15439,7 +15599,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.85,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "drum"
         }
     },
     {
@@ -15499,7 +15660,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 231.17,
-            "WorkWidth": 36.0
+            "WorkWidth": 36.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -15539,7 +15701,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15608,7 +15771,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 74.57
+            "RequiredPower": 74.57,
+            "ShredderType": "disc"
         }
     },
     {
@@ -15754,7 +15918,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 75.32,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -16144,7 +16308,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.97,
-            "RequiredPower": 186.43
+            "RequiredPower": 186.43,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16154,7 +16319,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.32,
-            "RequiredPower": 186.43
+            "RequiredPower": 186.43,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16164,7 +16330,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.74,
-            "RequiredPower": 186.43
+            "RequiredPower": 186.43,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16174,7 +16341,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.32,
-            "RequiredPower": 223.71
+            "RequiredPower": 223.71,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16184,7 +16352,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.25,
-            "RequiredPower": 186.43
+            "RequiredPower": 186.43,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16194,7 +16363,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.25,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16204,7 +16374,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.67,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16224,7 +16395,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.95,
-            "RequiredPower": 223.71
+            "RequiredPower": 223.71,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16234,7 +16406,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.95,
-            "RequiredPower": 305.74
+            "RequiredPower": 305.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16283,7 +16456,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.99,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16292,7 +16466,8 @@
         "Price": 93500.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "SelfPropelled": false
         }
     },
     {
@@ -16360,7 +16535,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16377,7 +16553,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 78.3,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -16453,7 +16629,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 233.4,
-            "WorkWidth": 32.0
+            "WorkWidth": 32.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -16502,7 +16679,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.5,
-            "RequiredPower": 62.64
+            "RequiredPower": 62.64,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16618,7 +16796,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.45,
-            "RequiredPower": 186.43
+            "RequiredPower": 186.43,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16628,7 +16807,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 9.52,
-            "RequiredPower": 96.94
+            "RequiredPower": 96.94,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16677,7 +16857,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 4.0,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -16847,7 +17028,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.9,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -17009,7 +17191,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.4,
-            "RequiredPower": 37.29
+            "RequiredPower": 37.29,
+            "ShredderType": "disc"
         }
     },
     {
@@ -17058,7 +17241,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 35.79,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -17663,7 +17846,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.2,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -17673,7 +17857,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 9.0,
-            "RequiredPower": 164.05
+            "RequiredPower": 164.05,
+            "ShredderType": "disc"
         }
     },
     {
@@ -17893,7 +18078,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.61,
-            "RequiredPower": 55.93
+            "RequiredPower": 55.93,
+            "ShredderType": "disc"
         }
     },
     {
@@ -17903,7 +18089,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.14,
-            "RequiredPower": 52.2
+            "RequiredPower": 52.2,
+            "ShredderType": "disc"
         }
     },
     {
@@ -17922,7 +18109,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 9.1,
-            "RequiredPower": 134.23
+            "RequiredPower": 134.23,
+            "ShredderType": "disc"
         }
     },
     {
@@ -17931,7 +18119,8 @@
         "Price": 187810.0,
         "EquipmentTypeCode": "darzenu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "WorkWidth": 2.2
         }
     },
     {
@@ -17989,7 +18178,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.05,
-            "RequiredPower": 80.54
+            "RequiredPower": 80.54,
+            "ShredderType": "disc"
         }
     },
     {
@@ -18092,7 +18282,8 @@
         "Price": 22700.0,
         "EquipmentTypeCode": "kartupelu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 37.29
+            "RequiredPower": 37.29,
+            "WorkWidth": 1.5
         }
     },
     {
@@ -18132,7 +18323,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.5,
-            "RequiredPower": 22.37
+            "RequiredPower": 22.37,
+            "ShredderType": "scythe"
         }
     },
     {
@@ -18273,7 +18465,8 @@
         "Price": 165000.0,
         "EquipmentTypeCode": "kartupelu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 96.94
+            "RequiredPower": 96.94,
+            "WorkWidth": 3.0
         }
     },
     {
@@ -18302,7 +18495,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -18419,7 +18612,8 @@
         "Price": 3697.0,
         "EquipmentTypeCode": "darzenu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 28.34
+            "RequiredPower": 28.34,
+            "WorkWidth": 1.16
         }
     },
     {
@@ -18590,7 +18784,8 @@
         "Price": 1884.3,
         "EquipmentTypeCode": "darzenu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 11.19
+            "RequiredPower": 11.19,
+            "WorkWidth": 0.72
         }
     },
     {
@@ -18761,7 +18956,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 33.56,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -18819,7 +19014,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 29.83,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -18837,7 +19032,9 @@
         "Manufacturer": "WEIFANG FISTTER MACHINERY",
         "Price": 1636.36,
         "EquipmentTypeCode": "skeldotajs",
-        "Specifications": {}
+        "Specifications": {
+            "ShredderType": "disc"
+        }
     },
     {
         "Model": "PARK 500 WX",
@@ -18983,7 +19180,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.25,
-            "RequiredPower": 12.68
+            "RequiredPower": 12.68,
+            "ShredderType": "drum"
         }
     },
     {
@@ -18991,7 +19189,9 @@
         "Manufacturer": "UNIA",
         "Price": 4680.0,
         "EquipmentTypeCode": "kartupelu_vagotajs",
-        "Specifications": {}
+        "Specifications": {
+            "WorkWidth": 1.5
+        }
     },
     {
         "Model": "PS 500",
@@ -19057,7 +19257,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 37.29,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -19067,7 +19267,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 243.1,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -19108,7 +19308,8 @@
         "Price": 4800.0,
         "EquipmentTypeCode": "darzenu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 28.34
+            "RequiredPower": 28.34,
+            "WorkWidth": 12.8
         }
     },
     {
@@ -19117,7 +19318,8 @@
         "Price": 29100.0,
         "EquipmentTypeCode": "ogu_novaksans_kombains",
         "Specifications": {
-            "RequiredPower": 22.37
+            "RequiredPower": 22.37,
+            "SelfPropelled": false
         }
     },
     {
@@ -19147,7 +19349,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 1.6,
-            "RequiredPower": 21.63
+            "RequiredPower": 21.63,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19164,7 +19367,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 33.56,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -19272,7 +19475,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -19292,7 +19495,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 18.64,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -19302,7 +19505,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 214.76,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -19349,7 +19553,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 10.45,
-            "RequiredPower": 149.14
+            "RequiredPower": 149.14,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19368,7 +19573,8 @@
         "Price": 3450.0,
         "EquipmentTypeCode": "darzenu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 18.64
+            "RequiredPower": 18.64,
+            "WorkWidth": 1.26
         }
     },
     {
@@ -19404,7 +19610,8 @@
         "Price": 1984.0,
         "EquipmentTypeCode": "darzenu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 28.34
+            "RequiredPower": 28.34,
+            "WorkWidth": 1.14
         }
     },
     {
@@ -19424,7 +19631,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.4,
-            "RequiredPower": 33.56
+            "RequiredPower": 33.56,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19464,7 +19672,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19504,7 +19713,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.08,
-            "RequiredPower": 134.23
+            "RequiredPower": 134.23,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19689,7 +19899,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 74.57,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -19709,7 +19919,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.2,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19823,7 +20034,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.6,
-            "RequiredPower": 55.93
+            "RequiredPower": 55.93,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19833,7 +20045,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -19853,7 +20066,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.6,
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "ShredderType": "disc"
         }
     },
     {
@@ -20107,7 +20321,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.9,
-            "RequiredPower": 134.23
+            "RequiredPower": 134.23,
+            "ShredderType": "disc"
         }
     },
     {
@@ -20117,7 +20332,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 35.79,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -20127,7 +20342,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 35.79,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -20137,7 +20352,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 35.79,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -20187,7 +20402,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.16,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -20295,7 +20511,8 @@
         "Price": 2050.0,
         "EquipmentTypeCode": "darzenu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 22.37
+            "RequiredPower": 22.37,
+            "WorkWidth": 0.78
         }
     },
     {
@@ -20305,7 +20522,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 29.83,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -20434,7 +20651,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 67.86,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -20454,7 +20671,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 9.4,
-            "RequiredPower": 104.4
+            "RequiredPower": 104.4,
+            "ShredderType": "disc"
         }
     },
     {
@@ -20464,7 +20682,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.5,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -20542,7 +20761,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.9,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -20802,7 +21022,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 2.8,
-            "RequiredPower": 44.74
+            "RequiredPower": 44.74,
+            "ShredderType": "disc"
         }
     },
     {
@@ -20839,7 +21060,9 @@
         "Manufacturer": "SADRIM",
         "Price": 2000.0,
         "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {}
+        "Specifications": {
+            "WorkWidth": 1.02
+        }
     },
     {
         "Model": "JUWEL 8 MVU 4+1 L90",
@@ -20856,7 +21079,8 @@
         "Price": 175000.0,
         "EquipmentTypeCode": "kartupelu_stadama_masina",
         "Specifications": {
-            "RequiredPower": 111.86
+            "RequiredPower": 111.86,
+            "WorkWidth": 3.0
         }
     },
     {
@@ -20866,7 +21090,8 @@
         "EquipmentTypeCode": "graudaugu_kombains",
         "Specifications": {
             "Power": 466.06,
-            "WorkWidth": 12.3
+            "WorkWidth": 12.3,
+            "PowerTrainCode": "powertrain_track"
         }
     },
     {
@@ -20925,7 +21150,8 @@
         "Price": 12385.0,
         "EquipmentTypeCode": "trimmeris",
         "Specifications": {
-            "WorkWidth": 0.86
+            "WorkWidth": 0.86,
+            "ShredderType": "scythe"
         }
     },
     {
@@ -20963,7 +21189,9 @@
         "Manufacturer": "STORG",
         "Price": 10920.0,
         "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {}
+        "Specifications": {
+            "WorkWidth": 2.6
+        }
     },
     {
         "Model": "FALCON 3 COMPACT",
@@ -21190,7 +21418,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 89.48,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -21260,7 +21488,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 4.35,
-            "RequiredPower": 45.49
+            "RequiredPower": 45.49,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21279,7 +21508,8 @@
         "EquipmentTypeCode": "smidzinatajs",
         "Specifications": {
             "RequiredPower": 212.52,
-            "WorkWidth": 30.0
+            "WorkWidth": 30.0,
+            "SelfPropelled": true
         }
     },
     {
@@ -21424,7 +21654,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.6,
-            "RequiredPower": 96.94
+            "RequiredPower": 96.94,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21434,7 +21665,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.5,
-            "RequiredPower": 89.48
+            "RequiredPower": 89.48,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21682,7 +21914,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21692,7 +21925,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 55.93,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -21820,7 +22053,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 6.8,
-            "RequiredPower": 93.21
+            "RequiredPower": 93.21,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21840,7 +22074,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.5,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21859,7 +22094,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.4,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21869,7 +22105,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.5,
-            "RequiredPower": 67.11
+            "RequiredPower": 67.11,
+            "ShredderType": "disc"
         }
     },
     {
@@ -21936,7 +22173,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.0,
-            "RequiredPower": 59.66
+            "RequiredPower": 59.66,
+            "ShredderType": "disc"
         }
     },
     {
@@ -22286,7 +22524,8 @@
         "Price": 25200.0,
         "EquipmentTypeCode": "skidrmeslu_izkliedetaja_aprikojums",
         "Specifications": {
-            "WorkWidth": 5.7
+            "WorkWidth": 5.7,
+            "CultivatorType": "chisel"
         }
     },
     {
@@ -22438,7 +22677,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 8.7,
-            "RequiredPower": 126.77
+            "RequiredPower": 126.77,
+            "ShredderType": "disc"
         }
     },
     {
@@ -22458,7 +22698,7 @@
         "EquipmentTypeCode": "lauksaimniecibas_traktors",
         "Specifications": {
             "Power": 43.25,
-            "PowerTrainCode": "powertrain_track"
+            "PowerTrainCode": "powertrain_4x4"
         }
     },
     {
@@ -22478,7 +22718,8 @@
         "EquipmentTypeCode": "plaujmasina",
         "Specifications": {
             "WorkWidth": 3.2,
-            "RequiredPower": 55.93
+            "RequiredPower": 55.93,
+            "ShredderType": "disc"
         }
     },
     {

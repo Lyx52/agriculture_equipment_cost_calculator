@@ -34,7 +34,8 @@ const clearFilters = async () => {
   categoryFilterStore.$patch({
     codifierTypeCodes: [Codifiers.EquipmentTypes],
     filterTo: 25,
-    searchText: ''
+    searchText: '',
+    addChildren: true
   });
   await categoryFilterStore.fetchByFilters();
   categoryTypeParentCodes.value = categoryFilterStore.items.map(c => c.code);
@@ -49,7 +50,13 @@ const onShowSearchForm = () => {
   showEquipmentForm.value = false;
   showSearch.value = true
 }
-
+const onEquipmentTypeSelected = (item: ICodifier) => {
+  equipmentStore.$patch({
+    item: {
+     equipment_type_code: item.code
+    }
+  });
+}
 const onCategoryTypeFilterSelected = (item: ICodifier) => {
   equipmentFilterStore.setCategoryTypeCodes([item.code]);
   categoryTypeParentCodes.value = categoryFilterStore.items.map(c => c.code);
@@ -60,7 +67,13 @@ const onCategoryFilterSelected = (item: ICodifier) => {
 }
 
 const onAddEquipment = () => {
-  equipmentCollectionStore.pushItem(equipmentStore.item);
+  equipmentCollectionStore.pushItem({
+    ...equipmentStore.item,
+    equipment_type: {
+      code: equipmentStore.item.equipment_type_code,
+      name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? ''
+    }
+  });
   model.value = false;
 }
 
@@ -72,6 +85,8 @@ const onEquipmentSelected = async (item: IEquipment) => {
 
 const onModalShow = async () => {
   await clearFilters();
+
+  await equipmentTypeStore.setSelectedByCode(equipmentStore.item.equipment_type_code);
 }
 
 </script>
@@ -131,6 +146,7 @@ const onModalShow = async () => {
               :is-valid="true"
               :parent-codifier-codes="categoryFilterStore.items.map(c => c.code)"
               :store-id="equipmentTypeStore.storeId"
+              @on-selected="onEquipmentTypeSelected"
             />
           </BFormGroup>
           <BFormGroup label="Tehnikas specifikācija">

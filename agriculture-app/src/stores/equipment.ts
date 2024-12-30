@@ -21,7 +21,8 @@ export const useEquipmentStore = defineStore('equipment', {
           } as IEquipmentSpecifications
         } as IEquipment,
         showModal: false,
-        editMode: false
+        editMode: false,
+        showUsageModal: false
       }
   },
   actions: {

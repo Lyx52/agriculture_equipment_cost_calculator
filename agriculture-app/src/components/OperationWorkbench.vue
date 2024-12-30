@@ -26,12 +26,14 @@
   import TrashIcon from '@/components/icons/TrashIcon.vue'
   import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
   import IconX from '@/components/icons/IconX.vue'
+  import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
+  import { onMounted } from 'vue'
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
   const farmlandOperationStoreId = uuid();
   const farmlandOperationCodifierStore = useCodifierStore(farmlandOperationStoreId);
+  const equipmentCollectionStore = useEquipmentCollectionStore();
   operationStore.emitter.on(CollectionEvents.ItemAdded, async (item: IOperation) => {
-    console.log(item.id)
     const codifierStore = useCodifierStore(item.id);
     await codifierStore.setSelectedByCode(item.operation?.operationCode);
   });
@@ -43,7 +45,9 @@
       operation: {
         operationCode: 'operation_110',
         operationName: 'Aršana',
-      } as IFarmlandOperation
+      } as IFarmlandOperation,
+      tractorOrCombine: undefined,
+      machine: undefined
     });
     operationStore.filteredFarmlandOperation = undefined;
     farmlandOperationCodifierStore.$reset();
@@ -124,12 +128,27 @@
             />
           </BTd>
           <BTd>
-            &nbsp;
+            <div class="d-flex flex-row gap-3">
+              <SimpleDropdown
+                :is-loading="false"
+                :get-filtered="equipmentCollectionStore.getFilteredTractorOrCombine"
+                :get-formatted-option="equipmentCollectionStore.getFormattedOption"
+                v-model="row.tractorOrCombine"
+              />
+              <SimpleDropdown
+                :is-loading="false"
+                :get-filtered="equipmentCollectionStore.getFilteredMachines"
+                :get-formatted-option="equipmentCollectionStore.getFormattedOption"
+                v-model="row.machine"
+                v-if="row.tractorOrCombine?.equipment_type_code === 'lauksaimniecibas_traktors'"
+              />
+            </div>
+
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
               <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationStore.removeItem(row.id)">
-                <TrashIcon />
+                Dzēst <TrashIcon />
               </BButton>
             </BButtonGroup>
           </BTd>

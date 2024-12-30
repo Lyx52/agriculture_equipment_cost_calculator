@@ -5,4 +5,5 @@ export interface IEquipmentCollectionStore {
   items: IEquipment[];
   emitter: TinyEmitter;
   searchText: string;
+  equipmentCategoryTypeCode: string|undefined;
 }

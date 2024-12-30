@@ -64,9 +64,11 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
                 match value:
                     case 'kāpurķēžu':
                         specs['PowerTrainCode'] = 'powertrain_track'
-                        continue
+                    case '4x4':
+                        specs['PowerTrainCode'] = 'powertrain_4x4'
                     case _:
                         raise Exception(f"Unknown powertrain {value}")
+                continue
             case 'aprikojuma apraksts':
                 if '4WD' in value or '4x4' in value:
                     specs['PowerTrainCode'] = 'powertrain_4x4'
@@ -98,11 +100,92 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
                 if 'rindu skaits' in data.keys():
                    specs['WorkWidth'] = round((float(value) * float(data['rindu skaits'])) / 1000, 2)
                 continue
+            case 'rindstarpu attalums cm':
+                if 'rindu skaits' in data.keys():
+                   specs['WorkWidth'] = round((float(value) * float(data['rindu skaits'])) / 100, 2)
+                continue
+            case 'smalcinataja tips':
+                match value.lower():
+                    case 'diska':
+                        specs['ShredderType'] = 'disc'
+                    case _:
+                        raise Exception(value.lower())
+                continue
+            case 'griezejaparata veids':
+                if type(value) == list:
+                    value = value[0]
+                match value.lower():
+                    case 'disku':
+                        specs['ShredderType'] = 'disc'
+                    case 'trumuļu':
+                        specs['ShredderType'] = 'drum'
+                    case 'izkapts':
+                        specs['ShredderType'] = 'scythe'
+                    case 'rotējoši naži':
+                        specs['ShredderType'] = 'rotors'
+                    case 'cits':
+                        pass
+                    case _:
+                        raise Exception(value.lower())
+                continue
+            case 'pievienosana veids traktoram':
+                match value.lower():
+                    case 'uzkarināms':
+                        pass
+                    case _:
+                        raise Exception(value.lower())
+                continue
+            case 'tips':
+                match value.lower():
+                    case 'disku kultivātors':
+                        specs['CultivatorType'] = 'disc'
+                    case 'kaltu kultivators':
+                        specs['CultivatorType'] = 'chisel'
+                    case 'kaltu kultivators':
+                        specs['CultivatorType'] = 'chisel'
+                    case 'kaltu kultivators':
+                        specs['CultivatorType'] = 'chisel'
+                    case 'pašgājējs':
+                        specs['SelfPropelled'] = True
+                    case _:
+                        # print(value.lower())
+                        pass
+                continue
+            case 'izmeri mm platums':
+                specs['WorkWidth'] = round(float(value) / 1000, 2)
+                continue
+            case 'maksimalais vagas platums m':
+                specs['WorkWidth'] = round(float(value), 2)
+                continue
+            case 'rindstarpu attalums mm maksimalais':
+                if 'rindu skaits' in data.keys():
+                   specs['WorkWidth'] = round((float(value) * float(data['rindu skaits'])) / 1000, 2)
+                continue
             case 'plausanas platums cm':
                 specs['WorkWidth'] = round(float(value) / 100, 2)
                 continue
+            case 'pasgajejs':
+                specs['SelfPropelled'] = value == 'Jā'
+                continue
+            case 'gaitas iekarta':
+                match value.lower():
+                    case '4x2':
+                        specs['PowerTrainCode'] = 'powertrain_4x2'
+                    case '4x4':
+                        specs['PowerTrainCode'] = 'powertrain_4x4'
+                    case 'riteņi':
+                        pass
+                    case 'ķēdes':
+                        specs['PowerTrainCode'] = 'powertrain_track'
+                    case 'kāpurķēžu':
+                        specs['PowerTrainCode'] = 'powertrain_track'
+                    case 'cits':
+                        specs['PowerTrainCode'] = 'powertrain_4x2'
+                    case _:
+                        raise Exception(value.lower())
+                continue
         if key not in unused_params:
-            unused_params[key] = value
+            unused_params[key] = f'{value}; ' + model_data['source']
 
     if manufacturer in combine_manufacturers:
         manufacturer = combine_manufacturers[manufacturer]
