@@ -3,7 +3,7 @@
         "Model": "512 VARIO",
         "Manufacturer": "FENDT",
         "Price": 150500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 92.47,
             "PowerTrainCode": "powertrain_4x4"
@@ -54,7 +54,7 @@
         "Model": "8S.265 D7 EXCLUSIVE",
         "Manufacturer": "MASSEY FERGUSON",
         "Price": 189900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 206.56,
             "PowerTrainCode": "powertrain_4x4"
@@ -173,7 +173,7 @@
         "Model": "T 4.75 S",
         "Manufacturer": "NEW HOLLAND",
         "Price": 43800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -222,7 +222,7 @@
         "Model": "9340",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 408460.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 235.64
@@ -241,7 +241,7 @@
         "Model": "T 5.120 EC STAGE V NEW",
         "Manufacturer": "NEW HOLLAND",
         "Price": 65500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 87.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -418,7 +418,7 @@
         "Model": "T 5.11O STAGEV DC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 65000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 82.03,
             "PowerTrainCode": "powertrain_4x4"
@@ -467,7 +467,7 @@
         "Model": "T 5.120 EC STAGE V MY22",
         "Manufacturer": "NEW HOLLAND",
         "Price": 79000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 87.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -663,7 +663,7 @@
         "Model": "FARMALL 75 A",
         "Manufacturer": "CASE",
         "Price": 50000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -673,7 +673,7 @@
         "Model": "STEIGER 500",
         "Manufacturer": "CASE",
         "Price": 380000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 378.07,
             "PowerTrainCode": "powertrain_4x4"
@@ -763,7 +763,7 @@
         "Model": "SOLIS 90 CRDI 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 42700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 65.62,
             "PowerTrainCode": "powertrain_4x4"
@@ -1145,7 +1145,7 @@
         "Model": "T 5.100 S STAGE V",
         "Manufacturer": "NEW HOLLAND",
         "Price": 50000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 75.32,
             "PowerTrainCode": "powertrain_4x4"
@@ -1186,7 +1186,7 @@
         "Model": "M5112",
         "Manufacturer": "KUBOTA",
         "Price": 53900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 84.26,
             "PowerTrainCode": "powertrain_4x4"
@@ -3103,7 +3103,7 @@
         "Model": "6120M",
         "Manufacturer": "JOHN DEERE",
         "Price": 143700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 89.48,
             "PowerTrainCode": "powertrain_4x4"
@@ -3113,7 +3113,7 @@
         "Model": "6130M",
         "Manufacturer": "JOHN DEERE",
         "Price": 155650.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 96.94,
             "PowerTrainCode": "powertrain_4x4"
@@ -3182,7 +3182,7 @@
         "Model": "MULTI 4120",
         "Manufacturer": "STEYR",
         "Price": 120800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 87.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -3212,7 +3212,7 @@
         "Model": "T 7.190 CLASSIC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 120000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 130.5,
             "PowerTrainCode": "powertrain_4x4"
@@ -3262,7 +3262,7 @@
         "Model": "MULTI 4120",
         "Manufacturer": "STEYR",
         "Price": 114000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 87.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -3328,7 +3328,7 @@
         "Model": "MT3.50",
         "Manufacturer": "LS",
         "Price": 22900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 37.29,
             "PowerTrainCode": "powertrain_4x4"
@@ -3426,7 +3426,7 @@
         "Model": "MT3.50",
         "Manufacturer": "LS",
         "Price": 18500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 37.29,
             "PowerTrainCode": "powertrain_4x4"
@@ -3454,7 +3454,7 @@
         "Model": "3038E",
         "Manufacturer": "JOHN DEERE",
         "Price": 31600.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 272.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -3864,7 +3864,7 @@
         "Model": "KOMPAKT 4100",
         "Manufacturer": "STEYR",
         "Price": 108000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 74.57,
             "PowerTrainCode": "powertrain_4x4"
@@ -4080,7 +4080,7 @@
         "Model": "PUMA 140",
         "Manufacturer": "CASE",
         "Price": 135000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 104.4,
             "PowerTrainCode": "powertrain_4x4"
@@ -4150,7 +4150,7 @@
         "Model": "L-382",
         "Manufacturer": "KUBOTA",
         "Price": 21900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 28.34,
             "PowerTrainCode": "powertrain_4x4"
@@ -4191,7 +4191,7 @@
         "Model": "L1-382",
         "Manufacturer": "KUBOTA",
         "Price": 32600.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 28.34,
             "PowerTrainCode": "powertrain_4x4"
@@ -4270,7 +4270,7 @@
         "Model": "DK6020C",
         "Manufacturer": "KIOTI",
         "Price": 30630.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 43.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -4407,7 +4407,7 @@
         "Model": "5125 GS",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 78000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 89.48,
             "PowerTrainCode": "powertrain_4x4"
@@ -4596,7 +4596,7 @@
         "Model": "T 6.180 EC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 102000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 123.04,
             "PowerTrainCode": "powertrain_4x4"
@@ -4626,7 +4626,7 @@
         "Model": "T 6.160 EC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 97000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 111.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -4667,7 +4667,7 @@
         "Model": "T 6.155 EC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 93000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 104.4,
             "PowerTrainCode": "powertrain_4x4"
@@ -4783,7 +4783,7 @@
         "Model": "T 6.145 EC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 91000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 97.69,
             "PowerTrainCode": "powertrain_4x4"
@@ -5029,7 +5029,7 @@
         "Model": "PLUS 100 P/S",
         "Manufacturer": "LS",
         "Price": 37000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 72.33,
             "PowerTrainCode": "powertrain_4x4"
@@ -5039,7 +5039,7 @@
         "Model": "PUMA 140",
         "Manufacturer": "CASE",
         "Price": 110000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 104.4,
             "PowerTrainCode": "powertrain_4x4"
@@ -5681,7 +5681,7 @@
         "Model": "T 7.175 AC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 138000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 119.31,
             "PowerTrainCode": "powertrain_4x4"
@@ -5701,7 +5701,7 @@
         "Model": "T 7.260 SW",
         "Manufacturer": "NEW HOLLAND",
         "Price": 146000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 178.97,
             "PowerTrainCode": "powertrain_4x4"
@@ -5741,7 +5741,7 @@
         "Model": "209 P VARIO",
         "Manufacturer": "FENDT",
         "Price": 145000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 67.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -5839,7 +5839,7 @@
         "Model": "T 7.210 CLASSIC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 125000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 141.68,
             "PowerTrainCode": "powertrain_4x4"
@@ -5849,7 +5849,7 @@
         "Model": "5-120",
         "Manufacturer": "LANDINI",
         "Price": 58750.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 85.01,
             "PowerTrainCode": "powertrain_4x4"
@@ -5973,7 +5973,7 @@
         "Model": "6175M",
         "Manufacturer": "JOHN DEERE",
         "Price": 178960.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 130.5
@@ -6023,7 +6023,7 @@
         "Model": "5-120",
         "Manufacturer": "LANDINI",
         "Price": 55300.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 85.01,
             "PowerTrainCode": "powertrain_4x4"
@@ -6044,7 +6044,7 @@
         "Model": "CS2510H",
         "Manufacturer": "KIOTI",
         "Price": 14800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -6054,7 +6054,7 @@
         "Model": "CS2520H",
         "Manufacturer": "KIOTI",
         "Price": 14880.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -6148,7 +6148,7 @@
         "Model": "OPTUM 250",
         "Manufacturer": "CASE",
         "Price": 238000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 186.43,
             "PowerTrainCode": "powertrain_4x4"
@@ -6469,7 +6469,7 @@
         "Model": "6135C",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 88000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 101.42,
             "PowerTrainCode": "powertrain_4x4"
@@ -6489,7 +6489,7 @@
         "Model": "6155M",
         "Manufacturer": "JOHN DEERE",
         "Price": 166350.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 115.58
@@ -6794,7 +6794,7 @@
         "Model": "AXION 800",
         "Manufacturer": "CLAAS",
         "Price": 133000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 143.92,
             "PowerTrainCode": "powertrain_4x4"
@@ -6950,7 +6950,7 @@
         "Model": "Q225",
         "Manufacturer": "VALTRA",
         "Price": 195000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 177.48,
             "PowerTrainCode": "powertrain_4x4"
@@ -7007,7 +7007,7 @@
         "Model": "KOMPAKT 4080",
         "Manufacturer": "STEYR",
         "Price": 86000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 59.66,
             "PowerTrainCode": "powertrain_4x4"
@@ -7017,7 +7017,7 @@
         "Model": "PROFI 6150",
         "Manufacturer": "STEYR",
         "Price": 150500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 111.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -7027,7 +7027,7 @@
         "Model": "6R 215",
         "Manufacturer": "JOHN DEERE",
         "Price": 231420.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 160.33
@@ -7066,7 +7066,7 @@
         "Model": "PROFI 6150 CVT",
         "Manufacturer": "STEYR",
         "Price": 161500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 111.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -7438,7 +7438,7 @@
         "Model": "IMPULS 6165 CVT",
         "Manufacturer": "STEYR",
         "Price": 175000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 123.04,
             "PowerTrainCode": "powertrain_4x4"
@@ -7511,7 +7511,7 @@
         "Model": "IMPULS 6175 CVT",
         "Manufacturer": "STEYR",
         "Price": 185500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 134.23,
             "PowerTrainCode": "powertrain_4x4"
@@ -7749,7 +7749,7 @@
         "Model": "6175 AGROTRON TTV",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 266010.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 126.02,
             "PowerTrainCode": "powertrain_4x4"
@@ -7788,7 +7788,7 @@
         "Model": "PUMA 185",
         "Manufacturer": "CASE",
         "Price": 182000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 137.95,
             "PowerTrainCode": "powertrain_4x4"
@@ -7798,7 +7798,7 @@
         "Model": "ABSOLUT 6200 CVT",
         "Manufacturer": "STEYR",
         "Price": 188500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 149.14,
             "PowerTrainCode": "powertrain_4x4"
@@ -7817,7 +7817,7 @@
         "Model": "XP 101 P/S",
         "Manufacturer": "LS",
         "Price": 41000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 75.32,
             "PowerTrainCode": "powertrain_4x4"
@@ -7895,7 +7895,7 @@
         "Model": "M7153",
         "Manufacturer": "KUBOTA",
         "Price": 107500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 111.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -8083,7 +8083,7 @@
         "Model": "T 7.230 CLASSIC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 145000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 152.87,
             "PowerTrainCode": "powertrain_4x4"
@@ -8344,7 +8344,7 @@
         "Model": "ARION 660 CMATIC",
         "Manufacturer": "CLAAS",
         "Price": 175000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 145.41,
             "PowerTrainCode": "powertrain_4x4"
@@ -8364,7 +8364,7 @@
         "Model": "T 5.90 S",
         "Manufacturer": "NEW HOLLAND",
         "Price": 54000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 67.11,
             "PowerTrainCode": "powertrain_4x4"
@@ -8512,7 +8512,7 @@
         "Model": "5-085",
         "Manufacturer": "LANDINI",
         "Price": 51500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -9016,7 +9016,7 @@
         "Model": "6195M",
         "Manufacturer": "JOHN DEERE",
         "Price": 192215.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 145.41
@@ -9046,7 +9046,7 @@
         "Model": "PUMA 165",
         "Manufacturer": "CASE",
         "Price": 110000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 123.04,
             "PowerTrainCode": "powertrain_4x4"
@@ -9086,7 +9086,7 @@
         "Model": "ARION 420",
         "Manufacturer": "CLAAS",
         "Price": 90000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 73.08,
             "PowerTrainCode": "powertrain_4x4"
@@ -9169,7 +9169,7 @@
         "Model": "T7.190 SW",
         "Manufacturer": "NEW HOLLAND",
         "Price": 142000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 130.5,
             "PowerTrainCode": "powertrain_4x4"
@@ -9249,7 +9249,7 @@
         "Model": "6R 145",
         "Manufacturer": "JOHN DEERE",
         "Price": 212000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 108.13,
             "PowerTrainCode": "powertrain_4x4"
@@ -9279,7 +9279,7 @@
         "Model": "6R 155",
         "Manufacturer": "JOHN DEERE",
         "Price": 185540.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 115.58
@@ -9325,7 +9325,7 @@
         "Model": "6R 250",
         "Manufacturer": "JOHN DEERE",
         "Price": 264455.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 186.43
@@ -9490,7 +9490,7 @@
         "Model": "M5082 NARROW",
         "Manufacturer": "KUBOTA",
         "Price": 59000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 64.88,
             "PowerTrainCode": "powertrain_4x4"
@@ -9500,7 +9500,7 @@
         "Model": "M5092 NARROW",
         "Manufacturer": "KUBOTA",
         "Price": 61000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 71.59,
             "PowerTrainCode": "powertrain_4x4"
@@ -9520,7 +9520,7 @@
         "Model": "M5102 NARROW",
         "Manufacturer": "KUBOTA",
         "Price": 63000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 79.04,
             "PowerTrainCode": "powertrain_4x4"
@@ -9769,7 +9769,7 @@
         "Model": "L2-522 NAGLAK",
         "Manufacturer": "KUBOTA",
         "Price": 41900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 38.78,
             "PowerTrainCode": "powertrain_4x4"
@@ -9779,7 +9779,7 @@
         "Model": "SOLIS 50 STAGE V 4 WD",
         "Manufacturer": "SONALIKA",
         "Price": 26500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 37.29,
             "PowerTrainCode": "powertrain_4x4"
@@ -9847,7 +9847,7 @@
         "Model": "718 VARIO",
         "Manufacturer": "FENDT",
         "Price": 195000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 134.97,
             "PowerTrainCode": "powertrain_4x4"
@@ -9857,7 +9857,7 @@
         "Model": "Q265",
         "Manufacturer": "VALTRA",
         "Price": 200000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 206.56,
             "PowerTrainCode": "powertrain_4x4"
@@ -9927,7 +9927,7 @@
         "Model": "SOLIS 26 HST 4WD (CAB)",
         "Manufacturer": "SONALIKA",
         "Price": 14900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -9937,7 +9937,7 @@
         "Model": "5-085",
         "Manufacturer": "LANDINI",
         "Price": 43900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -9947,7 +9947,7 @@
         "Model": "4-070",
         "Manufacturer": "LANDINI",
         "Price": 36400.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 50.71,
             "PowerTrainCode": "powertrain_4x4"
@@ -10099,7 +10099,7 @@
         "Model": "M6-142",
         "Manufacturer": "KUBOTA",
         "Price": 93400.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 105.89,
             "PowerTrainCode": "powertrain_4x4"
@@ -10149,7 +10149,7 @@
         "Model": "6R 175",
         "Manufacturer": "JOHN DEERE",
         "Price": 221305.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 130.5
@@ -10159,7 +10159,7 @@
         "Model": "BX231",
         "Manufacturer": "KUBOTA",
         "Price": 23200.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 17.15,
             "PowerTrainCode": "powertrain_4x4"
@@ -10199,7 +10199,7 @@
         "Model": "B2261 ROPS",
         "Manufacturer": "KUBOTA",
         "Price": 30100.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 19.39,
             "PowerTrainCode": "powertrain_4x4"
@@ -10209,7 +10209,7 @@
         "Model": "5-120",
         "Manufacturer": "LANDINI",
         "Price": 64800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 85.01,
             "PowerTrainCode": "powertrain_4x4"
@@ -10229,7 +10229,7 @@
         "Model": "5-110",
         "Manufacturer": "LANDINI",
         "Price": 51380.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 76.06,
             "PowerTrainCode": "powertrain_4x4"
@@ -10319,7 +10319,7 @@
         "Model": "SOLIS 90N 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 38700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 65.62,
             "PowerTrainCode": "powertrain_4x4"
@@ -10494,7 +10494,7 @@
         "Model": "7250 AGROTRON TTV",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 175000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 176.73,
             "PowerTrainCode": "powertrain_4x4"
@@ -10572,7 +10572,7 @@
         "Model": "6R 165",
         "Manufacturer": "JOHN DEERE",
         "Price": 203460.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "PowerTrainCode": "powertrain_4x4",
             "Power": 123.04
@@ -10582,7 +10582,7 @@
         "Model": "6170 AGROTRON",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 130000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 121.55,
             "PowerTrainCode": "powertrain_4x4"
@@ -10632,7 +10632,7 @@
         "Model": "SOLIS 26 9+9 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 10300.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -10652,7 +10652,7 @@
         "Model": "SOLIS 26 9+9 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 17850.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -10683,7 +10683,7 @@
         "Model": "SOLIS 90 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 49150.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 65.62,
             "PowerTrainCode": "powertrain_4x4"
@@ -10693,7 +10693,7 @@
         "Model": "XU 6168",
         "Manufacturer": "LS",
         "Price": 28000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 50.71,
             "PowerTrainCode": "powertrain_4x4"
@@ -10720,7 +10720,7 @@
         "Model": "FORTERRA CL 140",
         "Manufacturer": "ZETOR",
         "Price": 84500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 101.42,
             "PowerTrainCode": "powertrain_4x4"
@@ -11099,7 +11099,7 @@
         "Model": "JM254",
         "Manufacturer": "JINMA",
         "Price": 10619.83,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -11129,7 +11129,7 @@
         "Model": "MAXXUM 115",
         "Manufacturer": "CASE",
         "Price": 115000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 86.5,
             "PowerTrainCode": "powertrain_4x4"
@@ -11148,7 +11148,7 @@
         "Model": "PUMA 140",
         "Manufacturer": "CASE",
         "Price": 115000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 104.4,
             "PowerTrainCode": "powertrain_4x4"
@@ -11196,7 +11196,7 @@
         "Model": "1026R",
         "Manufacturer": "JOHN DEERE",
         "Price": 30500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 137.95,
             "PowerTrainCode": "powertrain_4x4"
@@ -11434,7 +11434,7 @@
         "Model": "6-135H",
         "Manufacturer": "LANDINI",
         "Price": 66500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 94.7,
             "PowerTrainCode": "powertrain_4x4"
@@ -11444,7 +11444,7 @@
         "Model": "6-155 RS ROBO - SIX",
         "Manufacturer": "LANDINI",
         "Price": 82600.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 115.58,
             "PowerTrainCode": "powertrain_4x4"
@@ -11474,7 +11474,7 @@
         "Model": "HX9010PC",
         "Manufacturer": "KIOTI",
         "Price": 60900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 67.11,
             "PowerTrainCode": "powertrain_4x4"
@@ -11696,7 +11696,7 @@
         "Model": "6R 230",
         "Manufacturer": "JOHN DEERE",
         "Price": 256700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 171.51,
             "PowerTrainCode": "powertrain_4x4"
@@ -11791,7 +11791,7 @@
         "Model": "ARION 450",
         "Manufacturer": "CLAAS",
         "Price": 95000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 97.69,
             "PowerTrainCode": "powertrain_4x4"
@@ -11880,7 +11880,7 @@
         "Model": "5-100 ACTIVE STAGE V",
         "Manufacturer": "LANDINI",
         "Price": 52900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 70.84,
             "PowerTrainCode": "powertrain_4x4"
@@ -11942,7 +11942,7 @@
         "Model": "M5112 NARROW",
         "Manufacturer": "KUBOTA",
         "Price": 63900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 85.76,
             "PowerTrainCode": "powertrain_4x4"
@@ -11952,7 +11952,7 @@
         "Model": "T 7.175 CLASSIC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 110000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 119.31,
             "PowerTrainCode": "powertrain_4x4"
@@ -12000,7 +12000,7 @@
         "Model": "PLUS 100 P/S",
         "Manufacturer": "LS",
         "Price": 43000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 72.33,
             "PowerTrainCode": "powertrain_4x4"
@@ -12039,7 +12039,7 @@
         "Model": "M5112 NARROW",
         "Manufacturer": "KUBOTA",
         "Price": 73800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 85.76,
             "PowerTrainCode": "powertrain_4x4"
@@ -12134,7 +12134,7 @@
         "Model": "MAXXUM 125",
         "Manufacturer": "CASE",
         "Price": 110000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 93.21,
             "PowerTrainCode": "powertrain_4x4"
@@ -12144,7 +12144,7 @@
         "Model": "XU 6158",
         "Manufacturer": "LS",
         "Price": 35500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 43.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -12154,7 +12154,7 @@
         "Model": "ARION 450",
         "Manufacturer": "CLAAS",
         "Price": 120000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 97.69,
             "PowerTrainCode": "powertrain_4x4"
@@ -12181,7 +12181,7 @@
         "Model": "DK6020C",
         "Manufacturer": "KIOTI",
         "Price": 28505.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 43.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -12249,7 +12249,7 @@
         "Model": "ARION 440",
         "Manufacturer": "CLAAS",
         "Price": 115000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 90.23,
             "PowerTrainCode": "powertrain_4x4"
@@ -12358,7 +12358,7 @@
         "Model": "SOLIS 90N 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 44100.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 65.62,
             "PowerTrainCode": "powertrain_4x4"
@@ -12368,7 +12368,7 @@
         "Model": "SOLIS 26 9+9 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 16500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -12484,7 +12484,7 @@
         "Model": "SOLIS 26 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 9450.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -12514,7 +12514,7 @@
         "Model": "PUMA 240",
         "Manufacturer": "CASE",
         "Price": 199000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 178.97,
             "PowerTrainCode": "powertrain_4x4"
@@ -12727,7 +12727,7 @@
         "Model": "M5102",
         "Manufacturer": "KUBOTA",
         "Price": 73000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 79.04,
             "PowerTrainCode": "powertrain_4x4"
@@ -12767,7 +12767,7 @@
         "Model": "M7173 KVT",
         "Manufacturer": "KUBOTA",
         "Price": 131400.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 126.77,
             "PowerTrainCode": "powertrain_4x4"
@@ -13068,7 +13068,7 @@
         "Model": "T 7.175 CLASSIC STAGE V",
         "Manufacturer": "NEW HOLLAND",
         "Price": 98000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 119.31,
             "PowerTrainCode": "powertrain_4x4"
@@ -13134,7 +13134,7 @@
         "Model": "T5.120 EC",
         "Manufacturer": "NEW HOLLAND",
         "Price": 80000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 87.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -13144,7 +13144,7 @@
         "Model": "BOOMER 50",
         "Manufacturer": "NEW HOLLAND",
         "Price": 33900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 37.29,
             "PowerTrainCode": "powertrain_4x4"
@@ -13164,7 +13164,7 @@
         "Model": "5125 GS",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 85000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 89.48,
             "PowerTrainCode": "powertrain_4x4"
@@ -13184,7 +13184,7 @@
         "Model": "T 6.160 EC STAGE V",
         "Manufacturer": "NEW HOLLAND",
         "Price": 91500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 111.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -13194,7 +13194,7 @@
         "Model": "PUMA 220 MULTICOTROLLER",
         "Manufacturer": "CASE",
         "Price": 156000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 187.17,
             "PowerTrainCode": "powertrain_4x4"
@@ -13204,7 +13204,7 @@
         "Model": "SOLIS 26 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 16650.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -13214,7 +13214,7 @@
         "Model": "5080 DF ECOLINE",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 60000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.18,
             "PowerTrainCode": "powertrain_4x4"
@@ -13291,7 +13291,7 @@
         "Model": "5115 GS",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 63000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 82.03,
             "PowerTrainCode": "powertrain_4x4"
@@ -13301,7 +13301,7 @@
         "Model": "L2-522 NAGLAK",
         "Manufacturer": "KUBOTA",
         "Price": 49060.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 38.78,
             "PowerTrainCode": "powertrain_4x4"
@@ -13338,7 +13338,7 @@
         "Model": "26",
         "Manufacturer": "FARMTRAC",
         "Price": 9900.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 17.9,
             "PowerTrainCode": "powertrain_4x4"
@@ -13368,7 +13368,7 @@
         "Model": "26 H",
         "Manufacturer": "FARMTRAC",
         "Price": 11200.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 17.9,
             "PowerTrainCode": "powertrain_4x4"
@@ -13378,7 +13378,7 @@
         "Model": "22",
         "Manufacturer": "FARMTRAC",
         "Price": 9000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 15.66,
             "PowerTrainCode": "powertrain_4x4"
@@ -13398,7 +13398,7 @@
         "Model": "3060",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 42000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 44.0,
             "PowerTrainCode": "powertrain_4x4"
@@ -13408,7 +13408,7 @@
         "Model": "DK6020C",
         "Manufacturer": "KIOTI",
         "Price": 33177.88,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 43.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -13436,7 +13436,7 @@
         "Model": "M4073",
         "Manufacturer": "KUBOTA",
         "Price": 59300.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.18,
             "PowerTrainCode": "powertrain_4x4"
@@ -13475,7 +13475,7 @@
         "Model": "516 VARIO",
         "Manufacturer": "FENDT",
         "Price": 200000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 121.55,
             "PowerTrainCode": "powertrain_4x4"
@@ -13503,7 +13503,7 @@
         "Model": "22",
         "Manufacturer": "FARMTRAC",
         "Price": 12000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 15.66,
             "PowerTrainCode": "powertrain_4x4"
@@ -13541,7 +13541,7 @@
         "Model": "L1-382 HST",
         "Manufacturer": "KUBOTA",
         "Price": 27100.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 28.34,
             "PowerTrainCode": "powertrain_4x4"
@@ -13591,7 +13591,7 @@
         "Model": "XP 101 P/S",
         "Manufacturer": "LS",
         "Price": 48500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 75.32,
             "PowerTrainCode": "powertrain_4x4"
@@ -13630,7 +13630,7 @@
         "Model": "26 H",
         "Manufacturer": "FARMTRAC",
         "Price": 14650.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 17.9,
             "PowerTrainCode": "powertrain_4x4"
@@ -13689,7 +13689,7 @@
         "Model": "514 VARIO",
         "Manufacturer": "FENDT",
         "Price": 99850.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 111.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -13965,7 +13965,7 @@
         "Model": "5090 DS",
         "Manufacturer": "DEUTZ-FAHR",
         "Price": 68000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 64.13,
             "PowerTrainCode": "powertrain_4x4"
@@ -14032,7 +14032,7 @@
         "Model": "XU 6158",
         "Manufacturer": "LS",
         "Price": 36000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 43.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -14042,7 +14042,7 @@
         "Model": "MT 3,50",
         "Manufacturer": "LS",
         "Price": 30300.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 37.29,
             "PowerTrainCode": "powertrain_4x4"
@@ -14299,7 +14299,7 @@
         "Model": "MISTRAL 2-055",
         "Manufacturer": "LANDINI",
         "Price": 34500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 36.54,
             "PowerTrainCode": "powertrain_4x4"
@@ -14359,7 +14359,7 @@
         "Model": "T 6.145 EC STAGEV",
         "Manufacturer": "NEW HOLLAND",
         "Price": 98000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 97.69,
             "PowerTrainCode": "powertrain_4x4"
@@ -14419,7 +14419,7 @@
         "Model": "4-070",
         "Manufacturer": "LANDINI",
         "Price": 49700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 50.71,
             "PowerTrainCode": "powertrain_4x4"
@@ -14456,7 +14456,7 @@
         "Model": "SOLIS 26 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 13350.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -14506,7 +14506,7 @@
         "Model": "M5072 NARROW",
         "Manufacturer": "KUBOTA",
         "Price": 74700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 53.69,
             "PowerTrainCode": "powertrain_4x4"
@@ -14516,7 +14516,7 @@
         "Model": "T 7.230 AC STAGEV",
         "Manufacturer": "NEW HOLLAND",
         "Price": 130000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 152.87,
             "PowerTrainCode": "powertrain_4x4"
@@ -14546,7 +14546,7 @@
         "Model": "L2-552",
         "Manufacturer": "KUBOTA",
         "Price": 44200.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 41.01,
             "PowerTrainCode": "powertrain_4x4"
@@ -14565,7 +14565,7 @@
         "Model": "RX7330PC",
         "Manufacturer": "KIOTI",
         "Price": 39150.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 54.44,
             "PowerTrainCode": "powertrain_4x4"
@@ -14605,7 +14605,7 @@
         "Model": "CX2510H",
         "Manufacturer": "KIOTI",
         "Price": 12990.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -14615,7 +14615,7 @@
         "Model": "CK2630CH",
         "Manufacturer": "KIOTI",
         "Price": 21720.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -14656,7 +14656,7 @@
         "Model": "SOLIS 26 HST 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 11700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -14685,7 +14685,7 @@
         "Model": "EK1-261",
         "Manufacturer": "KUBOTA",
         "Price": 12100.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 19.39,
             "PowerTrainCode": "powertrain_4x4"
@@ -14894,7 +14894,7 @@
         "Model": "T 4.75 S STAGEV",
         "Manufacturer": "NEW HOLLAND",
         "Price": 39000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -14904,7 +14904,7 @@
         "Model": "EK1-261",
         "Manufacturer": "KUBOTA",
         "Price": 16090.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 19.39,
             "PowerTrainCode": "powertrain_4x4"
@@ -15056,7 +15056,7 @@
         "Model": "DK6020C",
         "Manufacturer": "KIOTI",
         "Price": 32050.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 43.25,
             "PowerTrainCode": "powertrain_4x4"
@@ -15172,7 +15172,7 @@
         "Model": "T 7.190 CLASSIC STAGEV",
         "Manufacturer": "NEW HOLLAND",
         "Price": 111000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 130.5,
             "PowerTrainCode": "powertrain_4x4"
@@ -15230,7 +15230,7 @@
         "Model": "T 7.210 SW STAGEV",
         "Manufacturer": "NEW HOLLAND",
         "Price": 135800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 141.68,
             "PowerTrainCode": "powertrain_4x4"
@@ -15304,7 +15304,7 @@
         "Model": "LX 401",
         "Manufacturer": "KUBOTA",
         "Price": 33500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 29.83,
             "PowerTrainCode": "powertrain_4x4"
@@ -15314,7 +15314,7 @@
         "Model": "LX 401",
         "Manufacturer": "KUBOTA",
         "Price": 47800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 29.83,
             "PowerTrainCode": "powertrain_4x4"
@@ -15324,7 +15324,7 @@
         "Model": "LX 401",
         "Manufacturer": "KUBOTA",
         "Price": 36100.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 29.83,
             "PowerTrainCode": "powertrain_4x4"
@@ -15359,7 +15359,7 @@
         "Model": "YT347-Q",
         "Manufacturer": "YANMAR",
         "Price": 43700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 34.3,
             "PowerTrainCode": "powertrain_4x4"
@@ -15486,7 +15486,7 @@
         "Model": "CK4030C",
         "Manufacturer": "KIOTI",
         "Price": 27850.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 29.08,
             "PowerTrainCode": "powertrain_4x4"
@@ -15535,7 +15535,7 @@
         "Model": "ARION 630 CMATIC",
         "Manufacturer": "CLAAS",
         "Price": 162000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 116.33,
             "PowerTrainCode": "powertrain_4x4"
@@ -15915,7 +15915,7 @@
         "Model": "T 5.100 S STAGEV",
         "Manufacturer": "NEW HOLLAND",
         "Price": 53000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 75.32,
             "PowerTrainCode": "powertrain_4x4"
@@ -16550,7 +16550,7 @@
         "Model": "PROXIMA 110 CL",
         "Manufacturer": "ZETOR",
         "Price": 61500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 78.3,
             "PowerTrainCode": "powertrain_4x4"
@@ -17238,7 +17238,7 @@
         "Model": "HM475",
         "Manufacturer": "HINOMOTO",
         "Price": 25537.19,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 35.79,
             "PowerTrainCode": "powertrain_4x4"
@@ -18492,7 +18492,7 @@
         "Model": "6075 EC PRO 4WD",
         "Manufacturer": "FARMTRAC",
         "Price": 33000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -18953,7 +18953,7 @@
         "Model": "DK4520HS",
         "Manufacturer": "KIOTI",
         "Price": 18210.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 33.56,
             "PowerTrainCode": "powertrain_4x4"
@@ -19011,7 +19011,7 @@
         "Model": "CK4030CH",
         "Manufacturer": "KIOTI",
         "Price": 24750.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 29.83,
             "PowerTrainCode": "powertrain_4x4"
@@ -19254,7 +19254,7 @@
         "Model": "M504",
         "Manufacturer": "LOVOL",
         "Price": 20619.83,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 37.29,
             "PowerTrainCode": "powertrain_4x4"
@@ -19264,7 +19264,7 @@
         "Model": "933 VARIO",
         "Manufacturer": "FENDT",
         "Price": 300000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 243.1,
             "PowerTrainCode": "powertrain_4x4"
@@ -19364,7 +19364,7 @@
         "Model": "DK4520H",
         "Manufacturer": "KIOTI",
         "Price": 27650.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 33.56,
             "PowerTrainCode": "powertrain_4x4"
@@ -19472,7 +19472,7 @@
         "Model": "SOLIS 75 V 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 38600.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -19492,7 +19492,7 @@
         "Model": "DF304G2",
         "Manufacturer": "DONGFENG",
         "Price": 13966.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 18.64,
             "PowerTrainCode": "powertrain_4x4"
@@ -19896,7 +19896,7 @@
         "Model": "311 VARIO",
         "Manufacturer": "FENDT",
         "Price": 135000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 74.57,
             "PowerTrainCode": "powertrain_4x4"
@@ -20329,7 +20329,7 @@
         "Model": "F50HN",
         "Manufacturer": "BRANSON",
         "Price": 19000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 35.79,
             "PowerTrainCode": "powertrain_4x4"
@@ -20339,7 +20339,7 @@
         "Model": "F50HN",
         "Manufacturer": "BRANSON",
         "Price": 21500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 35.79,
             "PowerTrainCode": "powertrain_4x4"
@@ -20349,7 +20349,7 @@
         "Model": "F50HN",
         "Manufacturer": "BRANSON",
         "Price": 26500.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 35.79,
             "PowerTrainCode": "powertrain_4x4"
@@ -20519,7 +20519,7 @@
         "Model": "M404",
         "Manufacturer": "LOVOL",
         "Price": 16528.93,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 29.83,
             "PowerTrainCode": "powertrain_4x4"
@@ -20648,7 +20648,7 @@
         "Model": "SOLIS 90 V 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 42700.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 67.86,
             "PowerTrainCode": "powertrain_4x4"
@@ -21415,7 +21415,7 @@
         "Model": "FARMALL 120 C",
         "Manufacturer": "CASE",
         "Price": 80000.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 89.48,
             "PowerTrainCode": "powertrain_4x4"
@@ -21922,7 +21922,7 @@
         "Model": "4-080",
         "Manufacturer": "LANDINI",
         "Price": 46800.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 55.93,
             "PowerTrainCode": "powertrain_4x4"
@@ -22695,7 +22695,7 @@
         "Model": "DK6020CH",
         "Manufacturer": "KIOTI",
         "Price": 29750.0,
-        "EquipmentTypeCode": "lauksaimniecibas_traktors",
+        "EquipmentTypeCode": "traktors_4x4",
         "Specifications": {
             "Power": 43.25,
             "PowerTrainCode": "powertrain_4x4"

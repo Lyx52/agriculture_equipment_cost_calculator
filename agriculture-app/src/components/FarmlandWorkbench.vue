@@ -17,6 +17,7 @@
   import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
   import type { ICodifier } from '@/stores/interface/ICodifier.ts'
+  import { onMounted } from 'vue'
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
 
@@ -72,6 +73,15 @@
     })
     router.push('operations');
   }
+  // Load all codifier definitions
+  onMounted(async () => {
+
+    const codifierTasks = farmlandStore.items.map((item) => {
+      const store = useCodifierStore(item.id);
+      return store.setSelectedByCode(`crop_${item.product?.productCode}`)
+    });
+    await Promise.all(codifierTasks)
+  })
 </script>
 
 <template>

@@ -5,6 +5,7 @@ combine_manufacturers = {
     'LS MTRON': 'LS',
 }
 allowed_categories = [codifier['Code'] for codifier in open_json("../data/codifiers/codifiers.json")]
+allowed_categories.append('lauksaimniecibas_traktors')
 parameters = {
 
 }
@@ -197,6 +198,17 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
         if key not in parameters:
             parameters[key] = value
     
+    # Traktori;Traktors 4x4;tractor
+    # Traktori;Traktors 4x2;tractor
+    # Traktori;Traktors Ķēžu;tractor
+    if equipment_type_code == 'lauksaimniecibas_traktors':
+        match specs['PowerTrainCode']:
+            case 'powertrain_4x4':
+                equipment_type_code = normalize_text('Traktors 4x4').replace(' ', '_')
+            case 'powertrain_track':
+                equipment_type_code = normalize_text('Traktors Ķēžu').replace(' ', '_')
+            case _:
+                equipment_type_code = normalize_text('Traktors 4x2').replace(' ', '_')  
     return EquipmentModel(manufacturer, model, price, equipment_type_code, specs)
 
 def get_lad_catalog() -> list[EquipmentModel]:

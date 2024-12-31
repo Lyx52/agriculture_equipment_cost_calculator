@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid'
 import type { IEquipmentStore } from '@/stores/interface/IEquipmentStore.ts'
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
+import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 
 export const useEquipmentStore = defineStore('equipment', {
   state(): IEquipmentStore {
@@ -18,7 +19,12 @@ export const useEquipmentStore = defineStore('equipment', {
             required_power: undefined,
             power_train_code: undefined,
             work_width: undefined,
-          } as IEquipmentSpecifications
+          } as IEquipmentSpecifications,
+          usage: {
+            currentAge: 0,
+            expectedAge: 15,
+            hoursPerYear: 300,
+          } as IEquipmentUsage
         } as IEquipment,
         showModal: false,
         editMode: false,
@@ -41,7 +47,12 @@ export const useEquipmentStore = defineStore('equipment', {
           required_power: undefined,
           power_train_code: undefined,
           work_width: undefined,
-        } as IEquipmentSpecifications
+        } as IEquipmentSpecifications,
+        usage: {
+          currentAge: 0,
+          expectedAge: 15,
+          hoursPerYear: 300,
+        } as IEquipmentUsage
       } as IEquipment;
     }
   },

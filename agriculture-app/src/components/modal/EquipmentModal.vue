@@ -15,6 +15,7 @@ import EquipmentSpecificationForm from '@/components/form/EquipmentSpecification
 import IconSearch from '@/components/icons/IconSearch.vue'
 import IconPlus from '@/components/icons/IconPlus.vue'
 import { useEquipmentStore } from '@/stores/equipment.ts'
+import type { IEquipmentConstantConfiguration } from '@/stores/interface/IEquipmentConstantConfiguration.ts'
 
 const model = defineModel<boolean>();
 const equipmentCollectionStore = useEquipmentCollectionStore();
@@ -71,7 +72,8 @@ const onAddEquipment = () => {
     ...equipmentStore.item,
     equipment_type: {
       code: equipmentStore.item.equipment_type_code,
-      name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? ''
+      name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? '',
+      configuration: JSON.parse(categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.value ?? '{}') as IEquipmentConstantConfiguration
     }
   });
   model.value = false;

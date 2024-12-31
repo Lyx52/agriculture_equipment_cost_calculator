@@ -46,5 +46,6 @@ export const useOperationStore = defineStore('operation', {
       }
       return filteredItems;
     }
-  }
+  },
+  persist: true
 })

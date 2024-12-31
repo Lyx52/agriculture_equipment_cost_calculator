@@ -13,7 +13,9 @@
 
   const isTractorOrCombine = computed(() => {
     return [
-      'lauksaimniecibas_traktors',
+      'traktors_4x4',
+      'traktors_4x2',
+      'traktors_kezu',
       'kartupelu_novaksanas_kombains',
       'darzenu_novaksanas_kombains',
       'graudaugu_kombains',
@@ -55,6 +57,11 @@
     <BFormGroup label="Nepieciešamā jauda, kw" v-if="!isTractorOrCombine">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.required_power"
+      />
+    </BFormGroup>
+    <BFormGroup label="Darba platums, m" v-if="!isTractorOrCombine">
+      <BNumericFormInput
+        v-model="equipmentStore.item.specifications.work_width"
       />
     </BFormGroup>
   </div>

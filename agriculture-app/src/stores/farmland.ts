@@ -50,5 +50,6 @@ export const useFarmlandStore = defineStore('farmland', {
     totalFarmlandArea(state: IFarmlandStore) {
       return sum(state.items.map(l => l.area))
     }
-  }
+  },
+  persist: true
 })

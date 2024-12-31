@@ -12,6 +12,8 @@ if (settings is null)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
+builder.Services.AddHttpClient();
 builder.Services.AddDbContext<PersistentDbContext>(optionsBuilder =>
 {
     optionsBuilder.UseNpgsql($"Host={settings.DbHostname};Username={settings.DbUsername};Password={settings.DbPassword};Database={settings.DbName}",

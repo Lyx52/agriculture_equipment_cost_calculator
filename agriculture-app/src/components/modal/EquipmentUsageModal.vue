@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { BButton, BModal } from 'bootstrap-vue-next'
+import { BButton, BFormGroup, BInputGroup, BModal } from 'bootstrap-vue-next'
 import { useEquipmentStore } from '@/stores/equipment.ts'
+import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
 
 const model = defineModel<boolean>();
 const equipmentStore = useEquipmentStore();
@@ -22,7 +23,21 @@ const onSaveEquipmentUsage = () => {
     <div class="container-fluid">
       <div class="row row-cols-1 p-3">
         <div class="col">
-
+          <BFormGroup label="Nolietojums">
+            <BInputGroup append="gadi">
+              <BNumericFormInput v-model="equipmentStore.item.usage!.currentAge" />
+            </BInputGroup>
+          </BFormGroup>
+          <BFormGroup label="Ekonomiskais izmantošanas laiks">
+            <BInputGroup append="gadi">
+              <BNumericFormInput v-model="equipmentStore.item.usage!.expectedAge" />
+            </BInputGroup>
+          </BFormGroup>
+          <BFormGroup label="Gada noslodze">
+            <BInputGroup append="h">
+              <BNumericFormInput v-model="equipmentStore.item.usage!.hoursPerYear" />
+            </BInputGroup>
+          </BFormGroup>
         </div>
       </div>
     </div>

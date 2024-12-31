@@ -74,7 +74,21 @@
     farmlandOperationCodifierStore.$reset();
     operationStore.filteredFarmlandOperation = undefined;
   }
-
+  // Load all codifier definitions
+  onMounted(async () => {
+    const codifierTasks = operationStore.items.map((item) => {
+      const store = useCodifierStore(item.id);
+      return store.setSelectedByCode(item.operation?.operationCode)
+    })
+    await Promise.all(codifierTasks)
+  })
+  const isTractor = (code: string|undefined) => {
+    return [
+      'traktors_4x4',
+      'traktors_4x2',
+      'traktors_kezu'
+    ].includes(code ?? '');
+  }
 </script>
 
 <template>
@@ -140,7 +154,7 @@
                 :get-filtered="equipmentCollectionStore.getFilteredMachines"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
                 v-model="row.machine"
-                v-if="row.tractorOrCombine?.equipment_type_code === 'lauksaimniecibas_traktors'"
+                v-if="isTractor(row.tractorOrCombine?.equipment_type_code)"
               />
             </div>
 

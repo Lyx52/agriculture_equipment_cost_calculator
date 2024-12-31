@@ -1,5 +1,6 @@
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
 import type { IEquipmentType } from '@/stores/interface/IEquipmentType.ts'
+import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 
 export interface IEquipment {
   id: string;
@@ -9,4 +10,5 @@ export interface IEquipment {
   equipment_type: IEquipmentType|undefined;
   price: number;
   specifications: IEquipmentSpecifications;
+  usage: IEquipmentUsage|undefined;
 }

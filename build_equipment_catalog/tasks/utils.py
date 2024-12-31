@@ -25,6 +25,12 @@ def save_json(file, data):
         json.dump(data, fp, indent=4)
         fp.close()
 
+def open_csv(file, sep=';'):
+    fs = open(file, 'r', encoding='utf-8')
+    data = list(map(lambda row: row.split(sep),fs.readlines()))
+    fs.close()
+    return data
+
 def normalize_text(text):
     text = text.lower()  # Convert to lowercase
     text = re.sub(r'[^\w\s]', '', text)  # Remove special characters

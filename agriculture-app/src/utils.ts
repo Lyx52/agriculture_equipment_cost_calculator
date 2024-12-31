@@ -35,3 +35,7 @@ export const arraysEqual = (a: any[], b: any[]): boolean => {
 
   return true;
 }
+
+export type MachineTypeCode = "tractor" | "combine" | "plough" | "other_soil_tilage" | "planter_sower_sprayer" | "mower_chipper" | "press" | "swather_rake" | "transport" | "other";
+
+

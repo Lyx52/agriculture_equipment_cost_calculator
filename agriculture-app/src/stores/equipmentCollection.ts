@@ -7,7 +7,8 @@ import { v4 as uuid } from 'uuid'
 import type { IEquipmentCollectionStore } from '@/stores/interface/IEquipmentCollectionStore.ts'
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
-import type { ICodifier } from '@/stores/interface/ICodifier.ts'
+import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
+import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
   state(): IEquipmentCollectionStore {
@@ -23,9 +24,14 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
       if (this.items.some(e => e.id === item.id))
         return;
       const itemId = uuid();
-      const newItem = {
+      const newItem: IEquipment = {
         ...item,
-        id: itemId
+        id: itemId,
+        usage: {
+          currentAge: 0,
+          expectedAge: 15,
+          hoursPerYear: 300,
+        } as IEquipmentUsage
       }
       this.items.push(newItem);
       this.emitter.emit(CollectionEvents.ItemAdded, newItem);
@@ -74,6 +80,10 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         items = items.filter(e => e.equipment_type_code === state.equipmentCategoryTypeCode);
       }
       return items;
+    },
+    models(state: IEquipmentCollectionStore): EquipmentModel[] {
+      return state.items.map(e => new EquipmentModel(e));
     }
-  }
+  },
+  persist: true
 })

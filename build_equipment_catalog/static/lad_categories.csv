@@ -1,52 +1,54 @@
-Traktori;Lauksaimniecības traktors
-Sējas un stādāmā tehnika;Sējmašīna
-Sējas un stādāmā tehnika;Sīksēklu sējmašīna
-Sējas un stādāmā tehnika;Precīzās izsējas sējmašīna
-Sējas un stādāmā tehnika;Augļu koku un ogulāju stādāmā mašīna
-Sējas un stādāmā tehnika;Kartupeļu stādāmā mašīna
-Sējas un stādāmā tehnika;Stādu konteineru pildīšanas un stādīšanas iekārta
-Sējas un stādāmā tehnika;Dārzeņu stādāmā mašīna
-Lopbarības sagatavošanas tehnika;Pļaujmašīna
-Lopbarības sagatavošanas tehnika;Savācējpiekabe
-Lopbarības sagatavošanas tehnika;Tuneļu sistēma skābbarībai
-Lopbarības sagatavošanas tehnika;Vālotājs/ārdītājs
-Lopbarības sagatavošanas tehnika;Rituļu prese
-Lopbarības sagatavošanas tehnika;Ķīpu prese
-Lopbarības sagatavošanas tehnika;Skābbarības blietētājveltnis
-Lopbarības sagatavošanas tehnika;Salmu smalcinātājs-izkliedētājs
-Lopbarības sagatavošanas tehnika;Ietinējs
-Lopbarības sagatavošanas tehnika;Prese ar ietinēju
-Augsnes apstrādes tehnika un iekārtas;Veltnis
-Augsnes apstrādes tehnika un iekārtas;Rugaines kultivators
-Augsnes apstrādes tehnika un iekārtas;Diski
-Augsnes apstrādes tehnika un iekārtas;Ecēšas
-Augsnes apstrādes tehnika un iekārtas;Dziļirdinātājs
-Augsnes apstrādes tehnika un iekārtas;Arkls
-Augsnes apstrādes tehnika un iekārtas;Frēze
-Augsnes apstrādes tehnika un iekārtas;Kultivators
-Augsnes apstrādes tehnika un iekārtas;Šļūce
-Mēslošanas un augu aizsardzības tehnika;Organisko mēslu izkliedētājs
-Mēslošanas un augu aizsardzības tehnika;Minerālmēslu un kaļķa izkliedētājs
-Mēslošanas un augu aizsardzības tehnika;Smidzinātājs
-Mēslošanas un augu aizsardzības tehnika;Miglotājs
-Mēslošanas un augu aizsardzības tehnika;Šķidrmēslu cisterna
-Mēslošanas un augu aizsardzības tehnika;Šķidrmēslu izkliedes cauruļvadu sistēma
-Mēslošanas un augu aizsardzības tehnika;Šķidrmēslu izkliedētāja aprīkojums
-Mēslošanas un augu aizsardzības tehnika;Komposta apvērsējs
-Sējumu un stādījumu kopšanas tehnika;Mulčeris
-Sējumu un stādījumu kopšanas tehnika;Rindstarpu kultivators
-Sējumu un stādījumu kopšanas tehnika;Laistīšanas iekārta
-Sējumu un stādījumu kopšanas tehnika;Lakstu pļāvējs
-Sējumu un stādījumu kopšanas tehnika;Mauriņa pļaujmašīna
-Sējumu un stādījumu kopšanas tehnika;Akmeņu vācējs
-Sējumu un stādījumu kopšanas tehnika;Plēves ieklājējs
-Sējumu un stādījumu kopšanas tehnika;Trimmeris
-Sējumu un stādījumu kopšanas tehnika;Ūdens sūknis
-Sējumu un stādījumu kopšanas tehnika;Kartupeļu vagotājs
-Sējumu un stādījumu kopšanas tehnika;Šķeldotājs
-Ražas novākšanas tehnika;Ogu novākšans kombains
-Ražas novākšanas tehnika;Ražas novākšanas platforma
-Ražas novākšanas tehnika;Graudaugu kombains
-Ražas novākšanas tehnika;Dārzeņu novākšanas kombains
-Ražas novākšanas tehnika;Kombaina heders
-Ražas novākšanas tehnika;Kartupeļu novākšanas kombains
+Traktori;Traktors 4x4;tractor
+Traktori;Traktors 4x2;tractor
+Traktori;Traktors Ķēžu;tractor
+Sējas un stādāmā tehnika;Sējmašīna;planter_sower_sprayer
+Sējas un stādāmā tehnika;Sīksēklu sējmašīna;planter_sower_sprayer
+Sējas un stādāmā tehnika;Precīzās izsējas sējmašīna;planter_sower_sprayer
+Sējas un stādāmā tehnika;Augļu koku un ogulāju stādāmā mašīna;planter_sower_sprayer
+Sējas un stādāmā tehnika;Kartupeļu stādāmā mašīna;planter_sower_sprayer
+Sējas un stādāmā tehnika;Stādu konteineru pildīšanas un stādīšanas iekārta;planter_sower_sprayer
+Sējas un stādāmā tehnika;Dārzeņu stādāmā mašīna;planter_sower_sprayer
+Lopbarības sagatavošanas tehnika;Pļaujmašīna;mower_chipper
+Lopbarības sagatavošanas tehnika;Savācējpiekabe;transport
+Lopbarības sagatavošanas tehnika;Tuneļu sistēma skābbarībai;other
+Lopbarības sagatavošanas tehnika;Vālotājs/ārdītājs;swather_rake
+Lopbarības sagatavošanas tehnika;Rituļu prese;press
+Lopbarības sagatavošanas tehnika;Ķīpu prese;press
+Lopbarības sagatavošanas tehnika;Skābbarības blietētājveltnis;other
+Lopbarības sagatavošanas tehnika;Salmu smalcinātājs-izkliedētājs;swather_rake
+Lopbarības sagatavošanas tehnika;Ietinējs;other
+Lopbarības sagatavošanas tehnika;Prese ar ietinēju;press
+Augsnes apstrādes tehnika un iekārtas;Veltnis;other_soil_tilage
+Augsnes apstrādes tehnika un iekārtas;Rugaines kultivators;other_soil_tilage
+Augsnes apstrādes tehnika un iekārtas;Diski;other_soil_tilage
+Augsnes apstrādes tehnika un iekārtas;Ecēšas;other_soil_tilage
+Augsnes apstrādes tehnika un iekārtas;Dziļirdinātājs;other_soil_tilage
+Augsnes apstrādes tehnika un iekārtas;Arkls;plough
+Augsnes apstrādes tehnika un iekārtas;Frēze;other_soil_tilage
+Augsnes apstrādes tehnika un iekārtas;Kultivators;other_soil_tilage
+Augsnes apstrādes tehnika un iekārtas;Šļūce;other_soil_tilage
+Mēslošanas un augu aizsardzības tehnika;Organisko mēslu izkliedētājs;planter_sower_sprayer
+Mēslošanas un augu aizsardzības tehnika;Minerālmēslu un kaļķa izkliedētājs;planter_sower_sprayer
+Mēslošanas un augu aizsardzības tehnika;Smidzinātājs;planter_sower_sprayer
+Mēslošanas un augu aizsardzības tehnika;Miglotājs;planter_sower_sprayer
+Mēslošanas un augu aizsardzības tehnika;Šķidrmēslu cisterna;planter_sower_sprayer
+Mēslošanas un augu aizsardzības tehnika;Šķidrmēslu izkliedes cauruļvadu sistēma;planter_sower_sprayer
+Mēslošanas un augu aizsardzības tehnika;Šķidrmēslu izkliedētāja aprīkojums;planter_sower_sprayer
+Mēslošanas un augu aizsardzības tehnika;Komposta apvērsējs;swather_rake
+Sējumu un stādījumu kopšanas tehnika;Mulčeris;mower_chipper
+Sējumu un stādījumu kopšanas tehnika;Rindstarpu kultivators;other_soil_tilage
+Sējumu un stādījumu kopšanas tehnika;Laistīšanas iekārta;planter_sower_sprayer
+Sējumu un stādījumu kopšanas tehnika;Lakstu pļāvējs;mower_chipper
+Sējumu un stādījumu kopšanas tehnika;Mauriņa pļaujmašīna;mower_chipper
+Sējumu un stādījumu kopšanas tehnika;Akmeņu vācējs;other
+Sējumu un stādījumu kopšanas tehnika;Plēves ieklājējs;other
+Sējumu un stādījumu kopšanas tehnika;Trimmeris;other
+Sējumu un stādījumu kopšanas tehnika;Ūdens sūknis;other
+Sējumu un stādījumu kopšanas tehnika;Kartupeļu vagotājs;other_soil_tilage
+Sējumu un stādījumu kopšanas tehnika;Šķeldotājs;mower_chipper
+Ražas novākšanas tehnika;Ogu novākšans kombains;combine
+Ražas novākšanas tehnika;Ražas novākšanas platforma;other
+Ražas novākšanas tehnika;Graudaugu kombains;combine
+Ražas novākšanas tehnika;Dārzeņu novākšanas kombains;combine
+Ražas novākšanas tehnika;Kombaina heders;other
+Ražas novākšanas tehnika;Kartupeļu novākšanas kombains;combine

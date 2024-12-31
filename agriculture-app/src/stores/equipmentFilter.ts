@@ -3,6 +3,7 @@ import { TinyEmitter } from 'tiny-emitter'
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import { getBackendUri } from '@/utils.ts'
 import type { IEquipmentFilterStore } from '@/stores/interface/IEquipmentFilterStore.ts'
+import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 
 export const useEquipmentFilterStore = defineStore(`equipmentFilter`, {
   state(): IEquipmentFilterStore {
@@ -30,7 +31,14 @@ export const useEquipmentFilterStore = defineStore(`equipmentFilter`, {
       }
 
       const response = await fetch(`${getBackendUri()}/Equipment?${params.toString()}`)
-      this.items = await response.json() as IEquipment[];
+      this.items = (await response.json() as IEquipment[]);
+      for (const item of this.items) {
+        item.usage = {
+          currentAge: 0,
+          expectedAge: 15,
+          hoursPerYear: 300,
+        } as IEquipmentUsage
+      }
     },
     setCategoryTypeCodes(codes: string[]) {
       this.equipmentTypeCodes = codes
