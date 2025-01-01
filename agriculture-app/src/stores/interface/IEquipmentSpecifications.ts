@@ -6,4 +6,5 @@ export interface IEquipmentSpecifications {
   cultivator_type: string|undefined;
   shredder_type: string|undefined;
   self_propelled: boolean|undefined;
+  repair_value_code: string;
 }

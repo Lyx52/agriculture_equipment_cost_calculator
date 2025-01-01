@@ -21,7 +21,7 @@
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Īpašuma izmaksu novērtējums, EUR</h5>
+          <h5 class="text-center fw-bold text-black">Īpašuma izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
@@ -30,8 +30,8 @@
             <BTh>Amortizācija gadā</BTh>
             <BTh>Kapitāla atgūšanas vērtība</BTh>
             <BTh>Nodokļi, apdrošināšana un uzturēšana</BTh>
-            <BTh>Kopējās īpašuma izmaksas</BTh>
-            <BTh>Kopējās īpašuma izmaksas stundā</BTh>
+            <BTh>Kopējās izmaksas</BTh>
+            <BTh>Kopējās izmaksas stundā</BTh>
           </BTr>
         </BThead>
         <BTbody>
@@ -39,23 +39,27 @@
             <BTd>
               {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrRequiredPower(row) }}
             </BTd>
-            <BTd class="text-center user-select-none">
+            <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.remainingValue.toFixed(2) }}&nbsp;EUR&nbsp;<BBadge class="cursor-pointer" @click="onOpenRemainingValueRates(row.remainingValueRate)">{{ (row.remainingValueRate * 100).toFixed(2) }} %</BBadge>
             </BTd>
-            <BTd class="text-center user-select-none">
-              {{ (row.depreciationValue / row.totalUsageYears).toFixed(2) }}&nbsp;EUR/gadā
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ (row.depreciationValue / row.totalLifetimeUsageYears).toFixed(2) }}&nbsp;EUR/gadā
             </BTd>
-            <BTd class="text-center user-select-none">
-              {{ row.capitalRecoveryValue(indicatorStore.getCapitalRecoveryFactor(row.totalUsageYears), indicatorStore.realInterestRate).toFixed(2) }}&nbsp;EUR&nbsp;<BBadge>{{ (indicatorStore.getCapitalRecoveryFactor(row.totalUsageYears) * 100).toFixed(2) }} %</BBadge>
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.capitalRecoveryValue(indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears), indicatorStore.realInterestRate).toFixed(2)
+              }}&nbsp;EUR&nbsp;<BBadge>{{ (indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears) * 100).toFixed(2)
+              }} %</BBadge>
             </BTd>
-            <BTd class="text-center user-select-none">
+            <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.taxesAndInsuranceCostValue(farmInformationStore.otherExpensesPercentage).toFixed(2) }}&nbsp;EUR
             </BTd>
-            <BTd class="text-center user-select-none">
-              {{ row.totalExpenses(indicatorStore.getCapitalRecoveryFactor(row.totalUsageYears), indicatorStore.realInterestRate, farmInformationStore.otherExpensesPercentage).toFixed(2) }}&nbsp;EUR
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.totalExpenses(indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears), indicatorStore.realInterestRate, farmInformationStore.otherExpensesPercentage).toFixed(2)
+              }}&nbsp;EUR
             </BTd>
-            <BTd class="text-center user-select-none">
-              {{ row.totalExpensesPerHour(indicatorStore.getCapitalRecoveryFactor(row.totalUsageYears), indicatorStore.realInterestRate, farmInformationStore.otherExpensesPercentage).toFixed(2) }}&nbsp;EUR/h
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.totalExpensesPerHour(indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears), indicatorStore.realInterestRate, farmInformationStore.otherExpensesPercentage).toFixed(2)
+              }}&nbsp;EUR/h
             </BTd>
           </BTr>
         </BTbody>
@@ -64,16 +68,21 @@
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Īpašuma izmaksu novērtējums, EUR</h5>
+          <h5 class="text-center fw-bold text-black">Ekspluatācijas izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
-            <BTh>Tehnikas vienība</BTh>
-            <BTh>Tehnikas tips</BTh>
-            <BTh>Jauda</BTh>
-            <BTh>Nepieciešamā jauda</BTh>
-            <BTh>Darba platums</BTh>
-            <BTh>&nbsp;</BTh>
+            <BTh class="align-middle text-center">Tehnikas vienība</BTh>
+            <BTh class="align-middle text-center">Uzkrātās stundas</BTh>
+            <BTh class="align-middle text-center">Remonta izmaksas (Pašreizējās)</BTh>
+            <BTh class="align-middle text-center">Remonta izmaksas (Kalpošanas beigās)</BTh>
+            <BTh class="align-middle text-center">Remontdarbu kopsumma</BTh>
+            <BTh class="align-middle text-center">Remonta izmaksas stundā</BTh>
+            <BTh class="align-middle text-center">Degvielas patēriņš</BTh>
+            <BTh class="align-middle text-center">Degvielas izmaksas</BTh>
+            <BTh class="align-middle text-center">Smērvielu izmaksas</BTh>
+            <BTh class="align-middle text-center">Kopējās izmaksas</BTh>
+            <BTh class="align-middle text-center">Kopējās izmaksas stundā</BTh>
           </BTr>
         </BThead>
         <BTbody>
@@ -81,14 +90,14 @@
             <BTd>
               {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrRequiredPower(row) }}
             </BTd>
-            <BTd>
-
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.totalCurrentUsageHours.toFixed(2) }}&nbsp;h
             </BTd>
-            <BTd class="text-center">
-              {{ row.specifications.power ? `${row.specifications.power?.toFixed(2)} kw` : '' }}
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.currentCostOfRepair.toFixed(2) }}&nbsp;EUR
             </BTd>
-            <BTd class="text-center">
-              {{ row.specifications.required_power ? `${row.specifications.required_power?.toFixed(2)} kw` : '' }}
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.lifetimeCostOfRepair.toFixed(2) }}&nbsp;EUR
             </BTd>
             <BTd>
               {{ row.specifications.required_power ? `${row.specifications.work_width?.toFixed(2)} m` : '' }}
@@ -111,5 +120,8 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .vertical-align-middle {
+    vertical-align: middle !important;
   }
 </style>

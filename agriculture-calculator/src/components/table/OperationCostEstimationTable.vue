@@ -6,18 +6,18 @@
             </caption>
             <BThead head-variant="dark">
                 <BTr>
-                    <BTh>Nosaukums</BTh>
-                    <BTh>Kopējās uzkrātās stundas</BTh>
-                    <BTh>Remonta izmaksas (Pašreizējās)</BTh>
-                    <BTh>Remonta izmaksas (Kalpošanas beigās)</BTh>
-                    <BTh>Uzkrāto remontdarbu kopsumma</BTh>
-                    <BTh>Vidējās remonta izmaksas</BTh>
-                    <BTh>Degvielas patēriņš</BTh>
-                    <BTh>Degvielas izmaksas</BTh>
-                    <BTh>Smērvielu izmaksas</BTh>
-                    <BTh>Darbaspēka izmaksas</BTh>
-                    <BTh>Kopējās ekspluatācijas izmaksas</BTh>
-                    <BTh>Kopējās izmaksas</BTh>
+                    <BTh class="align-middle text-center">Nosaukums</BTh>
+                    <BTh class="align-middle text-center">Kopējās uzkrātās stundas</BTh>
+                    <BTh class="align-middle text-center">Remonta izmaksas (Pašreizējās)</BTh>
+                    <BTh class="align-middle text-center">Remonta izmaksas (Kalpošanas beigās)</BTh>
+                    <BTh class="align-middle text-center">Uzkrāto remontdarbu kopsumma</BTh>
+                    <BTh class="align-middle text-center">Vidējās remonta izmaksas</BTh>
+                    <BTh class="align-middle text-center">Degvielas patēriņš</BTh>
+                    <BTh class="align-middle text-center">Degvielas izmaksas</BTh>
+                    <BTh class="align-middle text-center">Smērvielu izmaksas</BTh>
+                    <BTh class="align-middle text-center">Darbaspēka izmaksas</BTh>
+                    <BTh class="align-middle text-center">Kopējās ekspluatācijas izmaksas</BTh>
+                    <BTh class="align-middle text-center">Kopējās izmaksas</BTh>
                 </BTr>
             </BThead>
             <BTbody>

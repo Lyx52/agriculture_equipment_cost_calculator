@@ -9,4 +9,5 @@ public class EquipmentSpecification
     public bool? SelfPropelled { get; set; }
     public string? CultivatorType { get; set; }
     public string? ShredderType { get; set; }
+    public string? RepairValueCode { get; set; }
 }

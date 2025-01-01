@@ -5,7 +5,8 @@ import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 import { getRemainingValueTractor } from '@/constants/RemainingValueTractor.ts'
 import { getRemainingValueCombine } from '@/constants/RemainingValueCombine.ts'
 import { getRemainingValueMachine } from '@/constants/RemainingValueMachine.ts'
-
+import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
+import type { RepairCategory } from '@/constants/RepairValue.ts'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
@@ -26,11 +27,24 @@ export class EquipmentModel implements IEquipment {
     this.specifications = equipment.specifications;
     this.usage = equipment.usage;
   }
-  get totalUsageHours() {
+
+  get totalCurrentUsageHours() {
     return Number(this.usage?.currentAge ?? 0) * Number(this.usage?.hoursPerYear ?? 0);
   }
 
-  get totalUsageYears(): number {
+  get totalLifetimeUsageHours() {
+    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
+  }
+
+  get lifetimeRepairCostCoefficientValue(): number {
+    return getRepairValueForUsageHours(this.specifications.repair_value_code as RepairCategory, this.totalLifetimeUsageHours);
+  }
+
+  get currentRepairCostCoefficientValue(): number {
+    return this.totalCurrentUsageHours < 1 ? 0 : getRepairValueForUsageHours(this.specifications.repair_value_code as RepairCategory, this.totalCurrentUsageHours);
+  }
+
+  get totalLifetimeUsageYears(): number {
     return Number(this.usage?.expectedAge ?? 0);
   }
 
@@ -46,7 +60,12 @@ export class EquipmentModel implements IEquipment {
   get depreciationValue() {
     return this.price - this.remainingValue;
   }
-
+  get currentCostOfRepair(): number {
+    return this.currentRepairCostCoefficientValue * this.price;
+  }
+  get lifetimeCostOfRepair(): number {
+    return this.lifetimeRepairCostCoefficientValue * this.price;
+  }
   capitalRecoveryValue(capitalRecoveryCoefficient: number, realInterestRate: number): number {
     return Number(this.depreciationValue * capitalRecoveryCoefficient) + Number((realInterestRate / 100) * this.remainingValue);
   }
@@ -61,9 +80,9 @@ export class EquipmentModel implements IEquipment {
   }
   get remainingValueRate() {
     switch (this.equipment_type?.configuration?.remaining_value_code) {
-      case 'tractor': return getRemainingValueTractor(Number(this.usage?.hoursPerYear ?? 0), this.horsePower, this.totalUsageYears);
-      case 'combine': return getRemainingValueCombine(Number(this.usage?.hoursPerYear ?? 0), this.totalUsageYears);
-      default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalUsageYears);
+      case 'tractor': return getRemainingValueTractor(Number(this.usage?.hoursPerYear ?? 0), this.horsePower, this.totalLifetimeUsageYears);
+      case 'combine': return getRemainingValueCombine(Number(this.usage?.hoursPerYear ?? 0), this.totalLifetimeUsageYears);
+      default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalLifetimeUsageYears);
     }
   }
 
