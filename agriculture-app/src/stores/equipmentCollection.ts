@@ -65,7 +65,9 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     },
     isTractorOrCombine(item: IEquipment) {
       return [
-        'lauksaimniecibas_traktors',
+        'traktors_4x4',
+        'traktors_4x2',
+        'traktors_kezu',
         'kartupelu_novaksanas_kombains',
         'darzenu_novaksanas_kombains',
         'graudaugu_kombains',
