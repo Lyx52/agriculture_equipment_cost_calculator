@@ -5,5 +5,6 @@ export interface IFarmInformationStore {
   employeeWage: number;
   otherExpensesPercentage: number;
   lubricantExpensesPercentage: number;
+  fuelPrice: number;
   emitter: TinyEmitter;
 }

@@ -7,4 +7,5 @@ export interface IEquipmentSpecifications {
   shredder_type: string|undefined;
   self_propelled: boolean|undefined;
   repair_value_code: string;
+  fuel_consumption_coefficient: number|undefined;
 }

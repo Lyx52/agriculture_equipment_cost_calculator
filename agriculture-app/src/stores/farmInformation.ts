@@ -8,6 +8,7 @@ export const useFarmInformationStore = defineStore('farmInformation', {
         employeeWage: 15,
         otherExpensesPercentage: 1.0,
         lubricantExpensesPercentage: 15,
+        fuelPrice: 0.8,
         name: '',
         emitter: new TinyEmitter()
       }

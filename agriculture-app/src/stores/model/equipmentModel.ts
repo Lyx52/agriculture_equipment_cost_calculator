@@ -7,6 +7,7 @@ import { getRemainingValueCombine } from '@/constants/RemainingValueCombine.ts'
 import { getRemainingValueMachine } from '@/constants/RemainingValueMachine.ts'
 import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
+import { computed } from 'vue'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
@@ -47,10 +48,22 @@ export class EquipmentModel implements IEquipment {
   get totalLifetimeUsageYears(): number {
     return Number(this.usage?.expectedAge ?? 0);
   }
-
+  get ptoPower() {
+    // PTO power is approximately equal to 85 percent of engine power (Michelin North America, Inc., 2001).
+    return Number(this.specifications.power ?? 0) * 0.85;
+  }
   get horsePower() {
     // 1 kw = 1.3596216173 hp
     return Number(this.specifications.power ?? 0) * 1.3596216173;
+  }
+  get ptoHorsePower() {
+    return this.ptoPower * 1.3596216173;
+  }
+
+  get iowaFuelUsagePerHour() {
+    // https://www.extension.iastate.edu/agdm/crops/html/a3-29.html 0.044 constant for diesel engines
+    // 3.785411784 for gph to lph conversion
+    return this.ptoHorsePower * 0.044 * 3.785411784;
   }
 
   get remainingValue() {
@@ -66,6 +79,25 @@ export class EquipmentModel implements IEquipment {
   get lifetimeCostOfRepair(): number {
     return this.lifetimeRepairCostCoefficientValue * this.price;
   }
+  get averageRemainingCostOfRepairPerHour(): number {
+    return (this.lifetimeCostOfRepair - this.currentCostOfRepair) / (this.totalLifetimeUsageHours - this.totalCurrentUsageHours);
+  }
+  get isTractorOrCombine() {
+    return [
+      'traktors_4x4',
+      'traktors_4x2',
+      'traktors_kezu',
+      'kartupelu_novaksanas_kombains',
+      'darzenu_novaksanas_kombains',
+      'graudaugu_kombains',
+      'ogu_novaksans_kombains'
+    ].includes(this.equipment_type_code)
+  }
+
+  fuelUsagePerHour(load: number = 0.8) {
+    return Number(this.specifications.fuel_consumption_coefficient ?? 0) * load * Number(this.specifications.power ?? 0);
+  }
+
   capitalRecoveryValue(capitalRecoveryCoefficient: number, realInterestRate: number): number {
     return Number(this.depreciationValue * capitalRecoveryCoefficient) + Number((realInterestRate / 100) * this.remainingValue);
   }

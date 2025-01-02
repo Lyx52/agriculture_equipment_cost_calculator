@@ -19,6 +19,8 @@ export const useEquipmentStore = defineStore('equipment', {
             required_power: undefined,
             power_train_code: undefined,
             work_width: undefined,
+            fuel_consumption_coefficient: 0.270,
+            repair_value_code: 'traktors_4x4',
           } as IEquipmentSpecifications,
           usage: {
             currentAge: 0,
@@ -34,6 +36,7 @@ export const useEquipmentStore = defineStore('equipment', {
   actions: {
     fromEquipment(equipment: IEquipment) {
       this.item = equipment;
+      this.item.specifications.fuel_consumption_coefficient = this.item.specifications.fuel_consumption_coefficient ?? 0.270;
     },
     resetEquipment() {
       this.item = {
@@ -47,6 +50,8 @@ export const useEquipmentStore = defineStore('equipment', {
           required_power: undefined,
           power_train_code: undefined,
           work_width: undefined,
+          fuel_consumption_coefficient: 0.270,
+          repair_value_code: 'traktors_4x4',
         } as IEquipmentSpecifications,
         usage: {
           currentAge: 0,

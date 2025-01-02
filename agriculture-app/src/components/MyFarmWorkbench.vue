@@ -32,25 +32,30 @@ const onClearStores = async () => {
   <div class="container-fluid">
     <div class="row row-cols-2">
       <div class="col">
-        <BFormGroup label="Saimniecības nosaukums">
+        <BFormGroup label="Saimniecības nosaukums" class="mt-2">
           <BFormInput v-model="farmInformationStore.name" />
         </BFormGroup>
-        <BFormGroup label="Darbaspēka atalgojums">
+        <BFormGroup label="Darbaspēka atalgojums" class="mt-2">
           <BInputGroup append="EUR/h">
             <BNumericFormInput v-model="farmInformationStore.employeeWage" />
           </BInputGroup>
         </BFormGroup>
-        <BFormGroup label="Citas izmaksas (Apdrošināšana, pajumtes uzturēšana u.c)">
+        <BFormGroup label="Citas izmaksas (Apdrošināšana, pajumtes uzturēšana u.c)" class="mt-2">
           <BInputGroup append="%">
             <BNumericFormInput v-model="farmInformationStore.otherExpensesPercentage" />
           </BInputGroup>
         </BFormGroup>
-        <BFormGroup label="Smērvielu izdevumi no degv. izmaksām">
+        <BFormGroup label="Smērvielu izdevumi no degv. izmaksām" class="mt-2">
           <BInputGroup append="%">
             <BNumericFormInput v-model="farmInformationStore.lubricantExpensesPercentage" />
           </BInputGroup>
         </BFormGroup>
-        <BFormGroup>
+        <BFormGroup label="Degvielas izmaksas" class="mt-2">
+          <BInputGroup append="EUR/l">
+            <BNumericFormInput v-model="farmInformationStore.fuelPrice" />
+          </BInputGroup>
+        </BFormGroup>
+        <BFormGroup class="mt-2">
           <template #label>
             Aizņemšanās procentu likme <BBadge><a class="text-white text-decoration-none" href="https://data.ecb.europa.eu/data/datasets/MIR/MIR.M.U2.B.A2I.AM.R.A.2240.EUR.N">Avots (Atjaunots {{ indicatorStore.interestRate.period }})</a></BBadge>
           </template>
@@ -59,7 +64,7 @@ const onClearStores = async () => {
           </BInputGroup>
 
         </BFormGroup>
-        <BFormGroup>
+        <BFormGroup class="mt-2">
           <template #label>
             Inflācijas likme <BBadge><a class="text-white text-decoration-none" href="https://data.ecb.europa.eu/data/datasets/ICP/ICP.M.LV.N.000000.4.ANR">Avots (Atjaunots {{ indicatorStore.inflationRate.period }})</a></BBadge>
           </template>
@@ -69,7 +74,7 @@ const onClearStores = async () => {
         </BFormGroup>
         <p>Reālā procentu likme: {{ indicatorStore.realInterestRate.toFixed(2) }} %</p>
       </div>
-      <div class="col d-flex flex-column">
+      <div class="col d-flex flex-column mt-2">
         <BButton variant="danger" class="ms-auto" @click="onClearStores">Dzēst saimniecības datus</BButton>
       </div>
     </div>

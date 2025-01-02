@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
-  import { BButton, BButtonGroup, BTableSimple, BTbody, BTd, BTfoot, BTh, BThead, BTr, BBadge } from 'bootstrap-vue-next'
+  import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BBadge, BPopover } from 'bootstrap-vue-next'
   import { useIndicatorStore } from '@/stores/indicator.ts'
   import { onMounted } from 'vue'
   import { useFarmInformationStore } from '@/stores/farmInformation.ts'
@@ -47,8 +47,13 @@
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.capitalRecoveryValue(indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears), indicatorStore.realInterestRate).toFixed(2)
-              }}&nbsp;EUR&nbsp;<BBadge>{{ (indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears) * 100).toFixed(2)
-              }} %</BBadge>
+              }}&nbsp;EUR&nbsp;
+              <BPopover :click="true" :close-on-hide="true" :delay="{show: 0, hide: 0}">
+                <template #target>
+                  <BBadge class="cursor-pointer">{{ (indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears) * 100).toFixed(2) }} %</BBadge>
+                </template>
+                Kapitāla atgūšanas faktors, tā ir vērtība kuru jāatvēla katru gadu lai atgūtu zaudēto summu amortizācijā, tas ļauj noteikt cik jāpelna ar iekārtu lai atpelnītu investēto naudu eksplautācijas beigās
+              </BPopover>
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.taxesAndInsuranceCostValue(farmInformationStore.otherExpensesPercentage).toFixed(2) }}&nbsp;EUR
@@ -75,13 +80,12 @@
             <BTh class="align-middle text-center">Tehnikas vienība</BTh>
             <BTh class="align-middle text-center">Uzkrātās stundas</BTh>
             <BTh class="align-middle text-center">Remonta izmaksas (Pašreizējās)</BTh>
-            <BTh class="align-middle text-center">Remonta izmaksas (Kalpošanas beigās)</BTh>
+            <BTh class="align-middle text-center">Remonta izmaksas (Atlikušās)</BTh>
             <BTh class="align-middle text-center">Remontdarbu kopsumma</BTh>
             <BTh class="align-middle text-center">Remonta izmaksas stundā</BTh>
             <BTh class="align-middle text-center">Degvielas patēriņš</BTh>
             <BTh class="align-middle text-center">Degvielas izmaksas</BTh>
             <BTh class="align-middle text-center">Smērvielu izmaksas</BTh>
-            <BTh class="align-middle text-center">Kopējās izmaksas</BTh>
             <BTh class="align-middle text-center">Kopējās izmaksas stundā</BTh>
           </BTr>
         </BThead>
@@ -97,10 +101,65 @@
               {{ row.currentCostOfRepair.toFixed(2) }}&nbsp;EUR
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
+              {{ (row.lifetimeCostOfRepair - row.currentCostOfRepair).toFixed(2) }}&nbsp;EUR
+            </BTd>
+            <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.lifetimeCostOfRepair.toFixed(2) }}&nbsp;EUR
             </BTd>
-            <BTd>
-              {{ row.specifications.required_power ? `${row.specifications.work_width?.toFixed(2)} m` : '' }}
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.averageRemainingCostOfRepairPerHour.toFixed(2) }}&nbsp;EUR/h
+            </BTd>
+            <BTd class="text-center user-select-none vertical-align-middle">
+              <span v-if="row.isTractorOrCombine">
+                {{ row.fuelUsagePerHour().toFixed(2) }}&nbsp;l/h
+                <BPopover :click="true" :close-on-hide="true" :delay="{show: 0, hide: 0}">
+                  <template #target>
+                    <BBadge class="cursor-pointer">80%</BBadge>
+                  </template>
+                  Degvielas izmaksas tiek aprēķinātas pieņemot ka dzinējs strādā ar <b>80%</b> noslodzi
+                </BPopover>
+              </span>
+              <span v-else>
+                -
+              </span>
+            </BTd>
+            <BTd class="text-center user-select-none vertical-align-middle">
+              <span v-if="row.isTractorOrCombine">
+              {{ (row.fuelUsagePerHour() * farmInformationStore.fuelPrice).toFixed(2) }}&nbsp;EUR/h
+              </span>
+              <span v-else>
+                -
+              </span>
+            </BTd>
+            <BTd class="text-center user-select-none vertical-align-middle">
+              <span v-if="row.isTractorOrCombine">
+                {{ ((row.fuelUsagePerHour() * farmInformationStore.fuelPrice) * (farmInformationStore.lubricantExpensesPercentage / 100)).toFixed(2) }}&nbsp;EUR/h&nbsp;
+                <BPopover :click="true" :close-on-hide="true" :delay="{show: 0, hide: 0}">
+                  <template #target>
+                    <BBadge class="cursor-pointer">{{ farmInformationStore.lubricantExpensesPercentage }}%</BBadge>
+                  </template>
+                  <b>{{ farmInformationStore.lubricantExpensesPercentage }}%</b> no degvielas izmaksām, skatīties <b>'Mana saimniecība'</b>
+                </BPopover>
+              </span>
+              <span v-else>
+                -
+              </span>
+            </BTd>
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{
+                (
+                  ((row.fuelUsagePerHour() * farmInformationStore.fuelPrice) * (farmInformationStore.lubricantExpensesPercentage / 100)) +
+                  (row.fuelUsagePerHour() * farmInformationStore.fuelPrice) +
+                  row.averageRemainingCostOfRepairPerHour
+                ).toFixed(2)
+              }}&nbsp;EUR/h
+              <BPopover :click="true" :close-on-hide="true" :delay="{show: 0, hide: 0}">
+                <template #target>
+                  <BBadge class="cursor-pointer" v-if="row.isTractorOrCombine">+{{ farmInformationStore.employeeWage }} EUR/h</BBadge>
+                </template>
+                Darbinieka atalgojums, skatīties <b>'Mana saimniecība'</b>
+              </BPopover>
+
             </BTd>
           </BTr>
         </BTbody>
