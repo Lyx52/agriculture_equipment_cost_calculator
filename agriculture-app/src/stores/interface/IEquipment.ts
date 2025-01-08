@@ -11,4 +11,5 @@ export interface IEquipment {
   price: number;
   specifications: IEquipmentSpecifications;
   usage: IEquipmentUsage|undefined;
+  purchaseDate: Date|undefined;
 }

@@ -16,6 +16,7 @@ import IconSearch from '@/components/icons/IconSearch.vue'
 import IconPlus from '@/components/icons/IconPlus.vue'
 import { useEquipmentStore } from '@/stores/equipment.ts'
 import type { IEquipmentConstantConfiguration } from '@/stores/interface/IEquipmentConstantConfiguration.ts'
+import BDateFormInput from '@/components/elements/BDateFormInput.vue'
 
 const model = defineModel<boolean>();
 const equipmentCollectionStore = useEquipmentCollectionStore();
@@ -29,6 +30,7 @@ const categoryFilterStore = useCodifierStore(uuid());
 const categoryTypeFilterStore = useCodifierStore(uuid());
 const equipmentTypeStore = useCodifierStore(uuid());
 const equipmentFilterStore = useEquipmentFilterStore();
+const dateValue = ref<Date|undefined>(undefined);
 const clearFilters = async () => {
   categoryTypeFilterStore.$reset();
   equipmentFilterStore.$reset();
@@ -149,6 +151,11 @@ const onModalShow = async () => {
               :parent-codifier-codes="categoryFilterStore.items.map(c => c.code)"
               :store-id="equipmentTypeStore.storeId"
               @on-selected="onEquipmentTypeSelected"
+            />
+          </BFormGroup>
+          <BFormGroup label="Tehnikas iegādes datums">
+            <BDateFormInput
+              v-model="equipmentStore.item.purchaseDate"
             />
           </BFormGroup>
           <BFormGroup label="Tehnikas specifikācija">
