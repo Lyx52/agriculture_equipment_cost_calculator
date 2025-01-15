@@ -17,7 +17,7 @@ const onSaveEquipmentUsage = () => {
 </script>
 
 <template>
-  <BModal id="equipmentModal" v-model="model" size="lg" @shown="onModalShow" >
+  <BModal id="equipmentModal" v-model="model" size="lg" @shown="onModalShow" no-close-on-backdrop>
     <template #header>
       <h5>{{ equipmentStore.item.manufacturer }} {{ equipmentStore.item.model }} nolietojums</h5>
     </template>

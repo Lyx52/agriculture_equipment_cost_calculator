@@ -1,20 +1,23 @@
 import { defineStore } from 'pinia'
-import { TinyEmitter } from 'tiny-emitter'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
 import { v4 as uuid } from 'uuid'
 import type { IOperationStore } from '@/stores/interface/IOperationStore.ts'
 import type { IOperation } from '@/stores/interface/IOperation.ts'
+import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
+import emitter from '@/stores/emitter.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {
       return {
         items: [],
         filteredFarmland: undefined,
-        filteredFarmlandOperation: undefined,
-        emitter: new TinyEmitter()
+        filteredFarmlandOperation: undefined
       }
   },
   actions: {
+    getEmitterEvent(eventType: CollectionEvents) {
+      return eventType + ":" + CollectionTypes.Operation;
+    },
     resetFilters(): void {
       this.filteredFarmland = undefined;
     },
@@ -27,11 +30,11 @@ export const useOperationStore = defineStore('operation', {
         id: itemId
       }
       this.items.push(newItem);
-      this.emitter.emit(CollectionEvents.ItemAdded, newItem);
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), newItem);
     },
     removeItem(itemId: string) {
       this.items = this.items.filter(i => i.id !== itemId);
-      this.emitter.emit(CollectionEvents.ItemRemoved, itemId);
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemRemoved), itemId);
     },
   },
   getters: {

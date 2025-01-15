@@ -1,19 +1,20 @@
 import { defineStore } from 'pinia'
-import { TinyEmitter } from 'tiny-emitter'
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import { getBackendUri } from '@/utils.ts'
 import type { IEquipmentFilterStore } from '@/stores/interface/IEquipmentFilterStore.ts'
 import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
+import { PowerFilterMax } from '@/constants/EquipmentFilterConstants.ts'
 
 export const useEquipmentFilterStore = defineStore(`equipmentFilter`, {
   state(): IEquipmentFilterStore {
       return {
         items: [],
-        emitter: new TinyEmitter(),
         searchText: '',
         selectedItem: undefined,
         filterTo: 50,
-        equipmentTypeCodes: []
+        equipmentTypeCodes: [],
+        powerFilter: [0, PowerFilterMax],
+        requiredPowerFilter: [0, PowerFilterMax],
       }
   },
   actions: {
@@ -21,11 +22,29 @@ export const useEquipmentFilterStore = defineStore(`equipmentFilter`, {
       this.searchText = '';
       this.filterTo = 50;
       this.equipmentTypeCodes = [];
+      this.powerFilter = [0, PowerFilterMax];
+      this.requiredPowerFilter = [0, PowerFilterMax];
     },
     async fetchByFilters() {
+
       const params = new URLSearchParams();
       params.set('EquipmentTypeCode', this.equipmentTypeCodes.join(','));
       params.set('FilterTo', this.filterTo.toString());
+
+      if (this.powerFilter[0] > 0) {
+        params.set('MinPower', this.powerFilter[0].toString());
+      }
+      if (this.powerFilter[1] < PowerFilterMax) {
+        params.set('MaxPower', this.powerFilter[1].toString());
+      }
+
+      if (this.requiredPowerFilter[0] > 0) {
+        params.set('RequiredMinPower', this.requiredPowerFilter[0].toString());
+      }
+      if (this.requiredPowerFilter[1] < PowerFilterMax) {
+        params.set('RequiredMaxPower', this.requiredPowerFilter[1].toString());
+      }
+
       if (this.searchText.length >= 2) {
         params.set('Query', this.searchText);
       }

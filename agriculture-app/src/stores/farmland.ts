@@ -2,21 +2,24 @@
 
 import { defineStore } from 'pinia'
 import type { IFarmlandStore } from '@/stores/interface/IFarmlandStore.ts';
-import { TinyEmitter } from 'tiny-emitter'
 import type { IFarmland } from '@/stores/interface/IFarmland.ts'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
 import { v4 as uuid } from 'uuid'
 import { sum } from '@/utils.ts'
 import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
+import emitter from '@/stores/emitter.ts'
+import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 export const useFarmlandStore = defineStore('farmland', {
   state(): IFarmlandStore {
       return {
         items: [],
-        emitter: new TinyEmitter(),
         showMapModal: false
       }
   },
   actions: {
+    getEmitterEvent(eventType: CollectionEvents) {
+      return eventType + ":" + CollectionTypes.Farmland;
+    },
     pushItem(item: IFarmland) {
       if (this.items.some(e => e.id === item.id))
         return;
@@ -26,11 +29,11 @@ export const useFarmlandStore = defineStore('farmland', {
         id: itemId
       }
       this.items.push(newItem);
-      this.emitter.emit(CollectionEvents.ItemAdded, newItem);
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), newItem);
     },
     removeItem(itemId: string) {
       this.items = this.items.filter(i => i.id !== itemId);
-      this.emitter.emit(CollectionEvents.ItemRemoved, itemId);
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemRemoved), itemId);
     },
     getFormattedOption(value: any): IDropdownOption<any> {
       const field = value as IFarmland;

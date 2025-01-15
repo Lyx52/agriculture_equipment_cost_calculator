@@ -28,12 +28,14 @@
   import IconX from '@/components/icons/IconX.vue'
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
   import { onMounted } from 'vue'
+  import emitter from '@/stores/emitter.ts'
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
   const farmlandOperationStoreId = uuid();
   const farmlandOperationCodifierStore = useCodifierStore(farmlandOperationStoreId);
   const equipmentCollectionStore = useEquipmentCollectionStore();
-  operationStore.emitter.on(CollectionEvents.ItemAdded, async (item: IOperation) => {
+
+  emitter.on(operationStore.getEmitterEvent(CollectionEvents.ItemAdded), async (item: IOperation) => {
     const codifierStore = useCodifierStore(item.id);
     await codifierStore.setSelectedByCode(item.operation?.operationCode);
   });

@@ -12,4 +12,12 @@ public class EquipmentFilter
     
     public string? PowerTrainTypeCode { get; set; }
     public int? FilterTo { get; set; }
+    
+    public int? MinPower { get; set; }
+    
+    public int? MaxPower { get; set; }
+    
+    public int? RequiredMinPower { get; set; }
+    
+    public int? RequiredMaxPower { get; set; }
 }

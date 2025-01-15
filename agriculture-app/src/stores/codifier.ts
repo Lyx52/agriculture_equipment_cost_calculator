@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { TinyEmitter } from 'tiny-emitter'
 import type { ICodifierStore } from '@/stores/interface/ICodifierStore.ts'
 import type { ICodifier } from '@/stores/interface/ICodifier.ts'
 import { getBackendUri } from '@/utils.ts'
@@ -9,7 +8,6 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
       items: [],
       codifierTypeCodes: [],
       searchText: '',
-      emitter: new TinyEmitter(),
       filterTo: 25,
       selectedItem: undefined,
       storeId: storeId,

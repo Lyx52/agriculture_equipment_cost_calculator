@@ -18,10 +18,11 @@
   import { useCodifierStore } from '@/stores/codifier.ts'
   import type { ICodifier } from '@/stores/interface/ICodifier.ts'
   import { onMounted } from 'vue'
+  import emitter from '@/stores/emitter.ts'
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
 
-  farmlandStore.emitter.on(CollectionEvents.ItemAdded, (item: IFarmland) => {
+  emitter.on(farmlandStore.getEmitterEvent(CollectionEvents.ItemAdded), (item: IFarmland) => {
     const codifierStore = useCodifierStore(item.id);
     codifierStore.$patch({
       selectedItem: {
@@ -73,9 +74,14 @@
     })
     router.push('operations');
   }
+  const onCropTypeSelected = (cropType: ICodifier, farmland: IFarmland) => {
+    farmland.product = {
+      productCode: cropType.value ?? '',
+      productName: cropType.name
+    }
+  }
   // Load all codifier definitions
   onMounted(async () => {
-
     const codifierTasks = farmlandStore.items.map((item) => {
       const store = useCodifierStore(item.id);
       return store.setSelectedByCode(`crop_${item.product?.productCode}`)
@@ -103,6 +109,7 @@
               :is-valid="true"
               :parent-codifier-codes="[Codifiers.CropTypes]"
               :store-id="row.id"
+              @onSelected="(codifier) => onCropTypeSelected(codifier, row)"
             />
           </BTd>
           <BTd>

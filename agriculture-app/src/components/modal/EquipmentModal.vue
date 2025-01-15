@@ -17,6 +17,7 @@ import IconPlus from '@/components/icons/IconPlus.vue'
 import { useEquipmentStore } from '@/stores/equipment.ts'
 import type { IEquipmentConstantConfiguration } from '@/stores/interface/IEquipmentConstantConfiguration.ts'
 import BDateFormInput from '@/components/elements/BDateFormInput.vue'
+import AdditionalEquipmentFilterForm from '@/components/form/AdditionalEquipmentFilterForm.vue'
 
 const model = defineModel<boolean>();
 const equipmentCollectionStore = useEquipmentCollectionStore();
@@ -30,7 +31,6 @@ const categoryFilterStore = useCodifierStore(uuid());
 const categoryTypeFilterStore = useCodifierStore(uuid());
 const equipmentTypeStore = useCodifierStore(uuid());
 const equipmentFilterStore = useEquipmentFilterStore();
-const dateValue = ref<Date|undefined>(undefined);
 const clearFilters = async () => {
   categoryTypeFilterStore.$reset();
   equipmentFilterStore.$reset();
@@ -65,8 +65,13 @@ const onCategoryTypeFilterSelected = (item: ICodifier) => {
   categoryTypeParentCodes.value = categoryFilterStore.items.map(c => c.code);
 }
 
-const onCategoryFilterSelected = (item: ICodifier) => {
+const onCategoryFilterSelected = async (item: ICodifier) => {
   categoryTypeParentCodes.value = [item.code];
+  categoryTypeFilterStore.$patch({
+    codifierTypeCodes: [item.code]
+  });
+  await categoryTypeFilterStore.fetchByFilters();
+  equipmentFilterStore.setCategoryTypeCodes(categoryTypeFilterStore.items.map(c => c.code));
 }
 
 const onAddEquipment = () => {
@@ -96,7 +101,7 @@ const onModalShow = async () => {
 </script>
 
 <template>
-  <BModal id="equipmentModal" v-model="model" size="lg" @shown="onModalShow" >
+  <BModal id="equipmentModal" v-model="model" size="lg" @shown="onModalShow" no-close-on-backdrop>
     <template #header>
       <div class="d-flex w-100 flex-row justify-content-between">
         <h5 class="my-auto">Pievienot tehnikas vienību</h5>
@@ -124,6 +129,7 @@ const onModalShow = async () => {
               :store-id="categoryTypeFilterStore.storeId"
             />
           </BFormGroup>
+          <AdditionalEquipmentFilterForm />
           <BFormGroup label="Meklēt tehnikas vienību:" class="mt-3">
             <EquipmentDropdown
               @on-selected="onEquipmentSelected"

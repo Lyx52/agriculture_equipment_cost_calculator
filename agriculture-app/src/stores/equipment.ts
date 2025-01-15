@@ -23,10 +23,9 @@ export const useEquipmentStore = defineStore('equipment', {
             repair_value_code: 'traktors_4x4',
           } as IEquipmentSpecifications,
           usage: {
-            currentAge: 0,
             expectedAge: 15,
             hoursPerYear: 300,
-          } as IEquipmentUsage
+          } as IEquipmentUsage,
         } as IEquipment,
         showModal: false,
         editMode: false,
@@ -45,6 +44,7 @@ export const useEquipmentStore = defineStore('equipment', {
         manufacturer: '',
         model: '',
         price: 0,
+        purchaseDate: undefined,
         specifications: {
           power: undefined,
           required_power: undefined,
@@ -54,7 +54,6 @@ export const useEquipmentStore = defineStore('equipment', {
           repair_value_code: 'traktors_4x4',
         } as IEquipmentSpecifications,
         usage: {
-          currentAge: 0,
           expectedAge: 15,
           hoursPerYear: 300,
         } as IEquipmentUsage

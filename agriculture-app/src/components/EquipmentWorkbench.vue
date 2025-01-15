@@ -116,7 +116,7 @@
             {{ row.specifications.required_power ? `${row.specifications.required_power?.toFixed(2)} kw` : '' }}
           </BTd>
           <BTd>
-            {{ row.specifications.required_power ? `${row.specifications.work_width?.toFixed(2)} m` : '' }}
+            {{ row.specifications.work_width ? `${row.specifications.work_width?.toFixed(2)} m` : '' }}
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">

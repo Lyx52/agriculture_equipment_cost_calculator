@@ -43,6 +43,26 @@ public class EquipmentController(PersistentDbContext _db) : Controller
             query = query.Take(filter.FilterTo.Value);
         }
 
+        if (filter.MinPower.HasValue)
+        {
+            query = query.Where(e => !e.Specifications.Power.HasValue || e.Specifications.Power >= filter.MinPower.Value);
+        }
+
+        if (filter.MaxPower.HasValue)
+        {
+            query = query.Where(e => !e.Specifications.Power.HasValue || e.Specifications.Power <= filter.MaxPower.Value);
+        }
+        
+        if (filter.RequiredMinPower.HasValue)
+        {
+            query = query.Where(e => !e.Specifications.RequiredPower.HasValue || e.Specifications.RequiredPower >= filter.RequiredMinPower.Value);
+        }
+
+        if (filter.RequiredMaxPower.HasValue)
+        {
+            query = query.Where(e => !e.Specifications.RequiredPower.HasValue || e.Specifications.RequiredPower <= filter.RequiredMaxPower.Value);
+        }
+        
         var result = await query.ToListAsync();
         return Json(result, new JsonSerializerOptions()
         {

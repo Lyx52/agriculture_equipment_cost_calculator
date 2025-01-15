@@ -7,7 +7,7 @@ import { getRemainingValueCombine } from '@/constants/RemainingValueCombine.ts'
 import { getRemainingValueMachine } from '@/constants/RemainingValueMachine.ts'
 import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
-import { computed } from 'vue'
+import { mapEquipmentTypeCode } from '@/utils.ts'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
@@ -17,6 +17,7 @@ export class EquipmentModel implements IEquipment {
   price: number
   specifications: IEquipmentSpecifications
   usage: IEquipmentUsage | undefined
+  purchaseDate: Date|undefined
 
   constructor(equipment: IEquipment) {
     this.equipment_type = equipment.equipment_type;
@@ -27,35 +28,47 @@ export class EquipmentModel implements IEquipment {
     this.price = equipment.price;
     this.specifications = equipment.specifications;
     this.usage = equipment.usage;
+    this.purchaseDate = equipment.purchaseDate;
+  }
+  get itemPurchaseDate(): Date|undefined {
+    return this.purchaseDate ? new Date(this.purchaseDate) : undefined;
+  }
+  get totalCurrentUsageYears(): number {
+    return (new Date()).getFullYear() - Number(this.itemPurchaseDate?.getFullYear() ?? 0)
   }
 
   get totalCurrentUsageHours() {
-    return Number(this.usage?.currentAge ?? 0) * Number(this.usage?.hoursPerYear ?? 0);
-  }
-
-  get totalLifetimeUsageHours() {
-    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
-  }
-
-  get lifetimeRepairCostCoefficientValue(): number {
-    return getRepairValueForUsageHours(this.specifications.repair_value_code as RepairCategory, this.totalLifetimeUsageHours);
-  }
-
-  get currentRepairCostCoefficientValue(): number {
-    return this.totalCurrentUsageHours < 1 ? 0 : getRepairValueForUsageHours(this.specifications.repair_value_code as RepairCategory, this.totalCurrentUsageHours);
+    return this.totalCurrentUsageYears * Number(this.usage?.hoursPerYear ?? 0);
   }
 
   get totalLifetimeUsageYears(): number {
     return Number(this.usage?.expectedAge ?? 0);
   }
+
+  get totalLifetimeUsageHours() {
+    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
+  }
+  get repairValueCode(): RepairCategory {
+    return mapEquipmentTypeCode(this.specifications, this.equipment_type_code) ?? 'traktors_4x2'
+  }
+  get lifetimeRepairCostCoefficientValue(): number {
+    return getRepairValueForUsageHours(this.repairValueCode, this.totalLifetimeUsageHours);
+  }
+
+  get currentRepairCostCoefficientValue(): number {
+    return this.totalCurrentUsageHours < 1 ? 0 : getRepairValueForUsageHours(this.repairValueCode, this.totalCurrentUsageHours);
+  }
+
   get ptoPower() {
     // PTO power is approximately equal to 85 percent of engine power (Michelin North America, Inc., 2001).
     return Number(this.specifications.power ?? 0) * 0.85;
   }
+
   get horsePower() {
     // 1 kw = 1.3596216173 hp
     return Number(this.specifications.power ?? 0) * 1.3596216173;
   }
+
   get ptoHorsePower() {
     return this.ptoPower * 1.3596216173;
   }
@@ -73,15 +86,19 @@ export class EquipmentModel implements IEquipment {
   get depreciationValue() {
     return this.price - this.remainingValue;
   }
+
   get currentCostOfRepair(): number {
     return this.currentRepairCostCoefficientValue * this.price;
   }
+
   get lifetimeCostOfRepair(): number {
     return this.lifetimeRepairCostCoefficientValue * this.price;
   }
+
   get averageRemainingCostOfRepairPerHour(): number {
     return (this.lifetimeCostOfRepair - this.currentCostOfRepair) / (this.totalLifetimeUsageHours - this.totalCurrentUsageHours);
   }
+
   get isTractorOrCombine() {
     return [
       'traktors_4x4',

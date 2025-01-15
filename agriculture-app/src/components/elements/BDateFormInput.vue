@@ -1,15 +1,31 @@
 <script setup lang="ts">
 import {BFormInput} from "bootstrap-vue-next";
-import { ref } from 'vue'
-import type { IBDateFormInput } from '@/props/IBDateFormInput.ts'
-import { toDateOrUndefined } from '@/utils.ts'
+import { ref, watch } from 'vue'
+import { format, parse, compareAsc } from "date-fns";
 const model = defineModel<Date|undefined>();
-const props = defineProps<IBDateFormInput>();
-console.log(model.value)
-const inputValue = ref<string>(toDateOrUndefined(model.value)?.toLocaleDateString() ?? toDateOrUndefined(props.defaultValue)?.toLocaleDateString() ?? '');
+const internalDateFormat = "yyyy-MM-dd";
+const inputValue = ref<string>('');
+
+const strToDate = (value: string) => {
+  return parse(value, internalDateFormat, new Date());
+}
+
+const dateToStr = (value: Date) => {
+  return format(value, internalDateFormat);
+}
+
+watch(model, (newValue: Date|undefined) => {
+  if (!newValue) {
+    inputValue.value = "";
+    return;
+  }
+
+  if (compareAsc(newValue!, strToDate(inputValue.value)) === 0) return;
+  inputValue.value = dateToStr(newValue!);
+})
 
 const onValueChange = () => {
-  model.value = toDateOrUndefined(inputValue.value);
+  model.value = strToDate(inputValue.value);
 }
 
 </script>

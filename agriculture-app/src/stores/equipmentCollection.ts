@@ -1,7 +1,6 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import { defineStore } from 'pinia'
-import { TinyEmitter } from 'tiny-emitter'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
 import { v4 as uuid } from 'uuid'
 import type { IEquipmentCollectionStore } from '@/stores/interface/IEquipmentCollectionStore.ts'
@@ -9,17 +8,21 @@ import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
 import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
+import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
+import emitter from '@/stores/emitter.ts'
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
   state(): IEquipmentCollectionStore {
       return {
         items: [],
-        emitter: new TinyEmitter(),
         searchText: '',
         equipmentCategoryTypeCode: undefined
       }
   },
   actions: {
+    getEmitterEvent(eventType: CollectionEvents) {
+      return eventType + ":" + CollectionTypes.Equipment;
+    },
     pushItem(item: IEquipment): void {
       if (this.items.some(e => e.id === item.id))
         return;
@@ -28,17 +31,16 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         ...item,
         id: itemId,
         usage: {
-          currentAge: 0,
           expectedAge: 15,
           hoursPerYear: 300,
         } as IEquipmentUsage
       }
       this.items.push(newItem);
-      this.emitter.emit(CollectionEvents.ItemAdded, newItem);
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), newItem);
     },
     removeItem(itemId: string) {
       this.items = this.items.filter(i => i.id !== itemId);
-      this.emitter.emit(CollectionEvents.ItemRemoved, itemId);
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemRemoved), itemId);
     },
     getFormattedOption(value: any): IDropdownOption<any> {
       const field = value as IEquipment;
