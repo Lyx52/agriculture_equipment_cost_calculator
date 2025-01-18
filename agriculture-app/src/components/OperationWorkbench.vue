@@ -29,6 +29,8 @@
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
   import { onMounted } from 'vue'
   import emitter from '@/stores/emitter.ts'
+  import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
+  const props = defineProps<IOperationWorkbenchProps>();
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
   const farmlandOperationStoreId = uuid();
@@ -95,7 +97,7 @@
 
 <template>
   <div class="d-flex flex-column h-100">
-    <div class="d-flex flex-row gap-3">
+    <div class="d-flex flex-row gap-3" v-if="!props.isModal">
       <BFormGroup label="Filtrēt pēc lauka">
         <SimpleDropdown
           :is-loading="false"
@@ -119,7 +121,7 @@
     <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
       <BThead class="position-sticky top-0 bg-primary in-front" >
         <BTr>
-          <BTh>Lauks</BTh>
+          <BTh v-if="!props.isModal">Lauks</BTh>
           <BTh>Apstrādes operācija</BTh>
           <BTh>Tehnikas vienība</BTh>
           <BTh>&nbsp;</BTh>
@@ -127,7 +129,7 @@
       </BThead>
       <BTbody>
         <BTr v-for="row in operationStore.filteredItems" v-bind:key="row.id">
-          <BTd>
+          <BTd v-if="!props.isModal">
             <SimpleDropdown
               :is-loading="false"
               :get-filtered="farmlandStore.getFiltered"

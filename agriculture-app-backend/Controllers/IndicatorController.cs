@@ -61,7 +61,7 @@ public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _
         {
             var client = _httpClientFactory.CreateClient(InterestData);
         
-            var response = await client.GetAsync("https://data.ecb.europa.eu/data-detail-api/MIR.M.LV.B.A2I.AM.R.A.2240.EUR.N");
+            var response = await client.GetAsync("https://data.ecb.europa.eu/data-detail-api/MIR.M.U2.B.A2I.AM.R.A.2240.EUR.N");
             var data = await response.Content.ReadAsStringAsync();
             cacheValue
                 .SetValue(data)

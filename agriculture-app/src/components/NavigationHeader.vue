@@ -41,7 +41,7 @@
         <BLink to="/operations" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <OperationsIcon />
           <Transition>
-            <span v-if="isHovering">&nbsp;Apstrādes operācijas</span>
+            <span v-if="isHovering">&nbsp;Visas Apstrādes operācijas</span>
           </Transition>
         </BLink>
       </li>

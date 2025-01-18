@@ -5,6 +5,6 @@ import OperationWorkbench from '@/components/OperationWorkbench.vue'
 
 <template>
   <BCard class="w-100 m-2">
-    <OperationWorkbench />
+    <OperationWorkbench :is-modal="false" />
   </BCard>
 </template>

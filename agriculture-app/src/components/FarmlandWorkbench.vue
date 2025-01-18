@@ -17,8 +17,9 @@
   import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
   import type { ICodifier } from '@/stores/interface/ICodifier.ts'
-  import { onMounted } from 'vue'
+  import { onMounted, ref } from 'vue'
   import emitter from '@/stores/emitter.ts'
+  import FarmlandOperationsModal from '@/components/modal/FarmlandOperationsModal.vue'
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
 
@@ -66,13 +67,13 @@
       } as IDateInterval,
     });
   }
-
+  const showFarmlandOperations = ref<boolean>(false);
   const onOpenOperationsWorkbench = (farmland: IFarmland) => {
     operationStore.resetFilters();
     operationStore.$patch({
       filteredFarmland: farmland
     })
-    router.push('operations');
+    showFarmlandOperations.value = true
   }
   const onCropTypeSelected = (cropType: ICodifier, farmland: IFarmland) => {
     farmland.product = {
@@ -159,6 +160,7 @@
     </BTableSimple>
   </div>
   <FarmlandSelectionMap v-model="farmlandStore.showMapModal" @on-field-added="onMapFarmlandSelected" />
+  <FarmlandOperationsModal v-model="showFarmlandOperations" />
 </template>
 
 <style scoped>
