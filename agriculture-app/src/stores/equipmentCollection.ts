@@ -35,28 +35,32 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
           hoursPerYear: 300,
         } as IEquipmentUsage
       }
-      this.items.push(newItem);
-      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), newItem);
+      const itemModel = new EquipmentModel(newItem);
+      this.items.push(itemModel);
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), itemModel);
     },
     removeItem(itemId: string) {
       this.items = this.items.filter(i => i.id !== itemId);
       emitter.emit(this.getEmitterEvent(CollectionEvents.ItemRemoved), itemId);
     },
+    getItemById(itemId: string|undefined) {
+      if (itemId) return this.items.find(i => i.id === itemId);
+      return undefined;
+    },
     getFormattedOption(value: any): IDropdownOption<any> {
-      const field = value as IEquipment;
       return {
         name: `${value.equipment_type?.name} - ${value.manufacturer} ${value.model} ${this.getPowerOrRequiredPower(value)}`,
-        id: field.id,
-        value: field,
+        id: value.id,
+        value: value,
       }
     },
     getFilteredTractorOrCombine(searchText: string): IDropdownOption<any>[] {
-      return this.items
+      return this.models
         .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrRequiredPower(e)}`.toLowerCase().includes(searchText.toLowerCase()) && this.isTractorOrCombine(e))
         .map(e => this.getFormattedOption(e));
     },
     getFilteredMachines(searchText: string): IDropdownOption<any>[] {
-      return this.items
+      return this.models
         .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrRequiredPower(e)}`.toLowerCase().includes(searchText.toLowerCase()) && !this.isTractorOrCombine(e))
         .map(e => this.getFormattedOption(e));
     },
@@ -78,7 +82,7 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     }
   },
   getters: {
-    filteredItems(state: IEquipmentCollectionStore): IEquipment[] {
+    filteredItems(state: IEquipmentCollectionStore): EquipmentModel[] {
       let items = state.items;
       if (state.equipmentCategoryTypeCode) {
         items = items.filter(e => e.equipment_type_code === state.equipmentCategoryTypeCode);
@@ -86,8 +90,24 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
       return items;
     },
     models(state: IEquipmentCollectionStore): EquipmentModel[] {
+      console.log(state)
       return state.items.map(e => new EquipmentModel(e));
     }
   },
-  persist: true
+  persist: {
+    serializer: {
+      deserialize: (data: string) => {
+        const stateData = JSON.parse(data);
+        return {
+          items: stateData.items.map((item: any) => new EquipmentModel(item)),
+          searchText: ''
+        } as IEquipmentCollectionStore
+      },
+      serialize: (data) => {
+        return JSON.stringify({
+          items: data.items
+        });
+      }
+    }
+  },
 })

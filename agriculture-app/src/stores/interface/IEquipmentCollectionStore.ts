@@ -1,7 +1,7 @@
-import type { IEquipment } from '@/stores/interface/IEquipment.ts'
+import type { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 
 export interface IEquipmentCollectionStore {
-  items: IEquipment[];
+  items: EquipmentModel[];
   searchText: string;
   equipmentCategoryTypeCode: string|undefined;
 }

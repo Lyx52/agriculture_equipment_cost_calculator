@@ -5,6 +5,7 @@ import type { IOperationStore } from '@/stores/interface/IOperationStore.ts'
 import type { IOperation } from '@/stores/interface/IOperation.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
+import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {
@@ -50,5 +51,25 @@ export const useOperationStore = defineStore('operation', {
       return filteredItems;
     }
   },
-  persist: true
+  persist: {
+    serializer: {
+      deserialize: (data: string) => {
+        const stateData = JSON.parse(data);
+        return {
+          items: stateData.items.map((item: any) => ({
+            ...item,
+            tractorOrCombine: item.tractorOrCombine ? new EquipmentModel(item.tractorOrCombine) : undefined,
+            machine: item.machine ? new EquipmentModel(item.machine) : undefined,
+          } as IOperation)),
+          filteredFarmland: undefined,
+          filteredFarmlandOperation: undefined
+        } as IOperationStore
+      },
+      serialize: (data) => {
+        return JSON.stringify({
+          items: data.items
+        });
+      }
+    }
+  }
 })

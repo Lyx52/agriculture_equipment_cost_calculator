@@ -8,6 +8,7 @@ import { getRemainingValueMachine } from '@/constants/RemainingValueMachine.ts'
 import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
 import { mapEquipmentTypeCode } from '@/utils.ts'
+import { isValid } from 'date-fns'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
@@ -28,26 +29,41 @@ export class EquipmentModel implements IEquipment {
     this.price = equipment.price;
     this.specifications = equipment.specifications;
     this.usage = equipment.usage;
-    this.purchaseDate = equipment.purchaseDate;
+    if (equipment.purchaseDate) {
+      this.purchaseDate = isValid(equipment.purchaseDate) ? (equipment.purchaseDate as Date) : new Date(equipment.purchaseDate as string);
+    } else {
+      this.purchaseDate = undefined;
+    }
   }
   get itemPurchaseDate(): Date|undefined {
     return this.purchaseDate ? new Date(this.purchaseDate) : undefined;
   }
+
   get totalCurrentUsageYears(): number {
     return (new Date()).getFullYear() - Number(this.itemPurchaseDate?.getFullYear() ?? 0)
   }
 
-  get totalCurrentUsageHours() {
-    return this.totalCurrentUsageYears * Number(this.usage?.hoursPerYear ?? 0);
+  get totalRemainingUsageYears(): number {
+    return this.totalLifetimeUsageYears - this.totalCurrentUsageYears;
   }
 
   get totalLifetimeUsageYears(): number {
     return Number(this.usage?.expectedAge ?? 0);
   }
 
+  get totalCurrentUsageHours() {
+    return this.totalCurrentUsageYears * Number(this.usage?.hoursPerYear ?? 0);
+  }
+
+  get totalRemainingUsageHours() {
+    return this.totalRemainingUsageYears * Number(this.usage?.hoursPerYear ?? 0);
+  }
+
   get totalLifetimeUsageHours() {
     return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
   }
+
+
   get repairValueCode(): RepairCategory {
     return mapEquipmentTypeCode(this.specifications, this.equipment_type_code) ?? 'traktors_4x2'
   }

@@ -13,7 +13,6 @@
   import OperationsIcon from '@/components/icons/OperationsIcon.vue'
   import type { IFarmland } from '@/stores/interface/IFarmland.ts'
   import { useOperationStore } from '@/stores/operation.ts'
-  import router from '@/router'
   import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
   import type { ICodifier } from '@/stores/interface/ICodifier.ts'

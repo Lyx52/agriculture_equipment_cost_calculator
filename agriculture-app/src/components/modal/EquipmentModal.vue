@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BButton, BFormGroup, BModal, BFormInput } from 'bootstrap-vue-next'
+import { BButton, BFormGroup, BModal, BFormInput, useToastController, BToastOrchestrator } from 'bootstrap-vue-next'
 import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
 import type { ICodifier } from '@/stores/interface/ICodifier.ts'
 import { ref } from 'vue'
@@ -18,11 +18,12 @@ import { useEquipmentStore } from '@/stores/equipment.ts'
 import type { IEquipmentConstantConfiguration } from '@/stores/interface/IEquipmentConstantConfiguration.ts'
 import BDateFormInput from '@/components/elements/BDateFormInput.vue'
 import AdditionalEquipmentFilterForm from '@/components/form/AdditionalEquipmentFilterForm.vue'
+import { isValid } from 'date-fns'
 
 const model = defineModel<boolean>();
 const equipmentCollectionStore = useEquipmentCollectionStore();
 const equipmentStore = useEquipmentStore();
-
+const toastController = useToastController();
 const showSearch = ref<boolean>(false);
 const showEquipmentForm = ref<boolean>(true);
 const categoryTypeParentCodes = ref<string[]>([]);
@@ -75,6 +76,31 @@ const onCategoryFilterSelected = async (item: ICodifier) => {
 }
 
 const onAddEquipment = () => {
+  if (!isValid(equipmentStore.item?.purchaseDate)) {
+    toastController.show!({
+      props: {
+        variant: 'danger',
+        pos: 'bottom-end',
+        value: 1000,
+        body: `Iegādes datums ir obligāts`,
+      }
+    });
+    return;
+  }
+
+  const specificationErrors = equipmentStore.validateSpecifications;
+  if (specificationErrors.length > 0) {
+    toastController.show!({
+      props: {
+        variant: 'danger',
+        pos: 'bottom-end',
+        value: 1000,
+        body: `${specificationErrors.join(', ')} ir obligāti lauki`,
+      }
+    });
+    return;
+  }
+
   equipmentCollectionStore.pushItem({
     ...equipmentStore.item,
     equipment_type: {
@@ -161,14 +187,15 @@ const onModalShow = async () => {
           </BFormGroup>
           <BFormGroup label="Tehnikas iegādes datums">
             <BDateFormInput
-              v-model="equipmentStore.item.purchaseDate"
+              v-model="equipmentStore.item.purchaseDate as Date|undefined"
             />
           </BFormGroup>
           <BFormGroup label="Tehnikas specifikācija">
-            <EquipmentSpecificationForm />
+            <EquipmentSpecificationForm  />
           </BFormGroup>
         </div>
       </div>
+      <BToastOrchestrator/>
     </div>
     <template #footer >
       <BButton variant="success" @click="onAddEquipment" v-if="showEquipmentForm">{{ equipmentStore.editMode ? 'Saglabāt' : 'Pievienot' }}</BButton>

@@ -30,6 +30,7 @@
   import { onMounted } from 'vue'
   import emitter from '@/stores/emitter.ts'
   import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
+  import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
   const props = defineProps<IOperationWorkbenchProps>();
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
@@ -84,7 +85,11 @@
       const store = useCodifierStore(item.id);
       return store.setSelectedByCode(item.operation?.operationCode)
     })
-    await Promise.all(codifierTasks)
+    await Promise.all(codifierTasks);
+    for (const operation of operationStore.items) {
+      operation.machine = equipmentCollectionStore.getItemById(operation.machine?.id)
+      operation.tractorOrCombine = equipmentCollectionStore.getItemById(operation.tractorOrCombine?.id)
+    }
   })
   const isTractor = (code: string|undefined) => {
     return [
@@ -121,10 +126,19 @@
     <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
       <BThead class="position-sticky top-0 bg-primary in-front" >
         <BTr>
-          <BTh v-if="!props.isModal">Lauks</BTh>
-          <BTh>Apstrādes operācija</BTh>
-          <BTh>Tehnikas vienība</BTh>
-          <BTh>&nbsp;</BTh>
+          <BTh v-if="!props.isModal" rowspan="2">Lauks</BTh>
+          <BTh rowspan="2">Apstrādes operācija</BTh>
+          <BTh rowspan="2">Tehnikas vienība</BTh>
+          <BTh rowspan="1" colspan="2" class="text-center">Cena, EUR</BTh>
+          <BTh rowspan="1" colspan="2" class="text-center">Gada noslodze, h</BTh>
+          <BTh rowspan="2">Darba ražīgums, ha/h</BTh>
+          <BTh rowspan="2">&nbsp;</BTh>
+        </BTr>
+        <BTr>
+          <BTh rowspan="1" class="text-center">Traktors</BTh>
+          <BTh rowspan="1" class="text-center">Mašīna</BTh>
+          <BTh rowspan="1" class="text-center">Traktors</BTh>
+          <BTh rowspan="1" class="text-center">Mašīna</BTh>
         </BTr>
       </BThead>
       <BTbody>
@@ -163,6 +177,24 @@
             </div>
 
           </BTd>
+          <BTd :colspan="isTractor(row.tractorOrCombine?.equipment_type_code) ? 1 : 2" class="text-center">
+            {{ (row.tractorOrCombine?.price ?? 0).toFixed(2) }}
+          </BTd>
+          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
+            {{ (row.machine?.price ?? 0).toFixed(2) }}
+          </BTd>
+          <BTd :colspan="isTractor(row.tractorOrCombine?.equipment_type_code) ? 1 : 2" class="text-center">
+            {{ (row.tractorOrCombine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
+          </BTd>
+          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
+            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
+          </BTd>
+          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
+            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
+          </BTd>
+          <BTd v-else class="text-center">
+            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
+          </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
               <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationStore.removeItem(row.id)">
@@ -175,7 +207,7 @@
       </BTbody>
       <BTfoot class="position-sticky bottom-0 in-front">
         <BTr>
-          <BTd colspan="5">
+          <BTd colspan="9">
             <BButton variant="success" size="sm" @click="addNewOperation">Pievienot</BButton>
           </BTd>
         </BTr>

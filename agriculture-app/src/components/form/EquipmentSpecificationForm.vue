@@ -2,7 +2,7 @@
   import { BFormGroup } from 'bootstrap-vue-next'
   import CodifierDropdown from '@/components/elements/CodifierDropdown.vue'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
-  import { computed, onMounted, watch } from 'vue'
+  import { onMounted, watch } from 'vue'
   import { v4 as uuid } from 'uuid';
   import { useCodifierStore } from '@/stores/codifier.ts'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
@@ -11,24 +11,6 @@
   const powerTrainCodifierStore = useCodifierStore(uuid());
   const equipmentStore = useEquipmentStore();
 
-  const isTractor = computed(() => {
-    return [
-      'traktors_4x4',
-      'traktors_4x2',
-      'traktors_kezu'
-    ].includes(equipmentStore.item.equipment_type_code)
-  });
-  const isCombine = computed(() => {
-    return [
-      'kartupelu_novaksanas_kombains',
-      'darzenu_novaksanas_kombains',
-      'graudaugu_kombains',
-      'ogu_novaksans_kombains'
-    ].includes(equipmentStore.item.equipment_type_code)
-  })
-  const isSelfPropelled = computed(() => {
-    return equipmentStore.item.specifications.self_propelled ?? true;
-  })
   onMounted(async () => {
     await powerTrainCodifierStore.setSelectedByCode(equipmentStore.item.specifications.power_train_code)
   })
@@ -48,17 +30,17 @@
 
 <template>
   <div class="d-flex flex-column" v-bind:key="equipmentStore.item.id">
-    <BFormGroup label="Jauda, kw" v-if="isTractor || (isSelfPropelled && isCombine)">
+    <BFormGroup label="Jauda, kw" v-if="equipmentStore.isTractorOrCombine">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.power"
       />
     </BFormGroup>
-    <BFormGroup label="Īpatnējais degvielas patēriņš, kg/kWh" v-if="isTractor || (isSelfPropelled && isCombine)">
+    <BFormGroup label="Īpatnējais degvielas patēriņš, kg/kWh" v-if="equipmentStore.isTractorOrCombine">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.fuel_consumption_coefficient"
       />
     </BFormGroup>
-    <BFormGroup label="Piedziņas tips" v-if="isTractor || (isSelfPropelled && isCombine)">
+    <BFormGroup label="Piedziņas tips" v-if="equipmentStore.isTractorOrCombine">
       <CodifierDropdown
         :is-valid="true"
         :parent-codifier-codes="[Codifiers.PowerTrainTypes]"
@@ -66,12 +48,12 @@
         @on-selected="onPowerTrainSelected"
       />
     </BFormGroup>
-    <BFormGroup label="Nepieciešamā jauda, kw" v-if="!isTractor && !(isSelfPropelled && isCombine)">
+    <BFormGroup label="Nepieciešamā jauda, kw" v-if="!equipmentStore.isTractorOrCombine">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.required_power"
       />
     </BFormGroup>
-    <BFormGroup label="Darba platums, m" v-if="!isTractor">
+    <BFormGroup label="Darba platums, m" v-if="!equipmentStore.isTractor">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.work_width"
       />

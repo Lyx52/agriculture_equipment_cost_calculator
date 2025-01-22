@@ -2,6 +2,7 @@
 
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
+import { format, parse } from 'date-fns'
 
 export function sum(values: number[]): number {
   return values.reduce((res, val) => {
@@ -134,3 +135,12 @@ export const mapEquipmentTypeCode = (specs: IEquipmentSpecifications, equipmentT
       return undefined;
   }
 };
+
+export const internalDateFormat = "yyyy-MM-dd";
+export const strToDate = (value: string) => {
+  return parse(value, internalDateFormat, new Date());
+}
+
+export const dateToStr = (value: Date) => {
+  return format(value, internalDateFormat);
+}
