@@ -55,6 +55,15 @@ export class EquipmentModel implements IEquipment {
     return this.totalCurrentUsageYears * Number(this.usage?.hoursPerYear ?? 0);
   }
 
+  get averageFieldWorkSpeed() {
+    console.log(this.equipment_type?.configuration)
+    return (
+      Number(this.equipment_type?.configuration?.average_speed ?? 0) *
+      Number(this.equipment_type?.configuration?.field_efficiency ?? 0) *
+      Number(this.specifications?.work_width ?? 0)
+    ) / 100;
+  }
+
   get totalRemainingUsageHours() {
     return this.totalRemainingUsageYears * Number(this.usage?.hoursPerYear ?? 0);
   }

@@ -189,11 +189,8 @@
           <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
             {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
           </BTd>
-          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
-            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
-          </BTd>
-          <BTd v-else class="text-center">
-            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
+          <BTd class="text-center">
+            {{ (row.machine?.averageFieldWorkSpeed ?? 0).toFixed(2) }}
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">

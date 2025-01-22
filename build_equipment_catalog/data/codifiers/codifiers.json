@@ -43,19 +43,19 @@
         "Code": "traktors_4x4",
         "ParentCode": "traktori",
         "Name": "Traktors 4x4",
-        "Value": "{\"remaining_value_code\": \"tractor\"}"
+        "Value": "{\"remaining_value_code\": \"tractor\", \"average_speed\": null, \"field_efficiency\": null}"
     },
     {
         "Code": "traktors_4x2",
         "ParentCode": "traktori",
         "Name": "Traktors 4x2",
-        "Value": "{\"remaining_value_code\": \"tractor\"}"
+        "Value": "{\"remaining_value_code\": \"tractor\", \"average_speed\": null, \"field_efficiency\": null}"
     },
     {
         "Code": "traktors_kezu",
         "ParentCode": "traktori",
         "Name": "Traktors \u0136\u0113\u017eu",
-        "Value": "{\"remaining_value_code\": \"tractor\"}"
+        "Value": "{\"remaining_value_code\": \"tractor\", \"average_speed\": null, \"field_efficiency\": null}"
     },
     {
         "Code": "sejas_un_stadama_tehnika",
@@ -66,43 +66,43 @@
         "Code": "sejmasina",
         "ParentCode": "sejas_un_stadama_tehnika",
         "Name": "S\u0113jma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "sikseklu_sejmasina",
         "ParentCode": "sejas_un_stadama_tehnika",
         "Name": "S\u012bks\u0113klu s\u0113jma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 9.66, \"field_efficiency\": 68.0}"
     },
     {
         "Code": "precizas_izsejas_sejmasina",
         "ParentCode": "sejas_un_stadama_tehnika",
         "Name": "Prec\u012bz\u0101s izs\u0113jas s\u0113jma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "auglu_koku_un_ogulaju_stadama_masina",
         "ParentCode": "sejas_un_stadama_tehnika",
         "Name": "Aug\u013cu koku un ogul\u0101ju st\u0101d\u0101m\u0101 ma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "kartupelu_stadama_masina",
         "ParentCode": "sejas_un_stadama_tehnika",
         "Name": "Kartupe\u013cu st\u0101d\u0101m\u0101 ma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "stadu_konteineru_pildisanas_un_stadisanas_iekarta",
         "ParentCode": "sejas_un_stadama_tehnika",
         "Name": "St\u0101du konteineru pild\u012b\u0161anas un st\u0101d\u012b\u0161anas iek\u0101rta",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "darzenu_stadama_masina",
         "ParentCode": "sejas_un_stadama_tehnika",
         "Name": "D\u0101rze\u0146u st\u0101d\u0101m\u0101 ma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "lopbaribas_sagatavosanas_tehnika",
@@ -113,61 +113,49 @@
         "Code": "plaujmasina",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "P\u013caujma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"mower_chipper\"}"
-    },
-    {
-        "Code": "savacejpiekabe",
-        "ParentCode": "lopbaribas_sagatavosanas_tehnika",
-        "Name": "Sav\u0101c\u0113jpiekabe",
-        "Value": "{\"remaining_value_code\": \"transport\"}"
-    },
-    {
-        "Code": "tunelu_sistema_skabbaribai",
-        "ParentCode": "lopbaribas_sagatavosanas_tehnika",
-        "Name": "Tune\u013cu sist\u0113ma sk\u0101bbar\u012bbai",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"mower_chipper\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "valotajsarditajs",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "V\u0101lot\u0101js/\u0101rd\u012bt\u0101js",
-        "Value": "{\"remaining_value_code\": \"swather_rake\"}"
+        "Value": "{\"remaining_value_code\": \"swather_rake\", \"average_speed\": 11.27, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "ritulu_prese",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "Ritu\u013cu prese",
-        "Value": "{\"remaining_value_code\": \"press\"}"
+        "Value": "{\"remaining_value_code\": \"press\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "kipu_prese",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "\u0136\u012bpu prese",
-        "Value": "{\"remaining_value_code\": \"press\"}"
+        "Value": "{\"remaining_value_code\": \"press\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "skabbaribas_blietetajveltnis",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "Sk\u0101bbar\u012bbas bliet\u0113t\u0101jveltnis",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"other\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "salmu_smalcinatajsizkliedetajs",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "Salmu smalcin\u0101t\u0101js-izklied\u0113t\u0101js",
-        "Value": "{\"remaining_value_code\": \"swather_rake\"}"
+        "Value": "{\"remaining_value_code\": \"swather_rake\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "ietinejs",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "Ietin\u0113js",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"other\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "prese_ar_ietineju",
         "ParentCode": "lopbaribas_sagatavosanas_tehnika",
         "Name": "Prese ar ietin\u0113ju",
-        "Value": "{\"remaining_value_code\": \"press\"}"
+        "Value": "{\"remaining_value_code\": \"press\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "augsnes_apstrades_tehnika_un_iekartas",
@@ -178,55 +166,55 @@
         "Code": "veltnis",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Veltnis",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "rugaines_kultivators",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Rugaines kultivators",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 8.9, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "diski",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Diski",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 7.64, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "ecesas",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Ec\u0113\u0161as",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "dzilirdinatajs",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Dzi\u013cirdin\u0101t\u0101js",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 8.05, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "arkls",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Arkls",
-        "Value": "{\"remaining_value_code\": \"plough\"}"
+        "Value": "{\"remaining_value_code\": \"plough\", \"average_speed\": 8.05, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "freze",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Fr\u0113ze",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "kultivators",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "Kultivators",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 11.27, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "sluce",
         "ParentCode": "augsnes_apstrades_tehnika_un_iekartas",
         "Name": "\u0160\u013c\u016bce",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "meslosanas_un_augu_aizsardzibas_tehnika",
@@ -237,49 +225,49 @@
         "Code": "organisko_meslu_izkliedetajs",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "Organisko m\u0113slu izklied\u0113t\u0101js",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "mineralmeslu_un_kalka_izkliedetajs",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "Miner\u0101lm\u0113slu un ka\u013c\u0137a izklied\u0113t\u0101js",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 9.66, \"field_efficiency\": 68.0}"
     },
     {
         "Code": "smidzinatajs",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "Smidzin\u0101t\u0101js",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 11.27, \"field_efficiency\": 68.0}"
     },
     {
         "Code": "miglotajs",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "Miglot\u0101js",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 11.27, \"field_efficiency\": 68.0}"
     },
     {
         "Code": "skidrmeslu_cisterna",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "\u0160\u0137idrm\u0113slu cisterna",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "skidrmeslu_izkliedes_caurulvadu_sistema",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "\u0160\u0137idrm\u0113slu izkliedes cauru\u013cvadu sist\u0113ma",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "skidrmeslu_izkliedetaja_aprikojums",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "\u0160\u0137idrm\u0113slu izklied\u0113t\u0101ja apr\u012bkojums",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.85, \"field_efficiency\": 60.0}"
     },
     {
         "Code": "komposta_apversejs",
         "ParentCode": "meslosanas_un_augu_aizsardzibas_tehnika",
         "Name": "Komposta apv\u0113rs\u0113js",
-        "Value": "{\"remaining_value_code\": \"swather_rake\"}"
+        "Value": "{\"remaining_value_code\": \"swather_rake\", \"average_speed\": 8.9, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "sejumu_un_stadijumu_kopsanas_tehnika",
@@ -290,67 +278,61 @@
         "Code": "mulceris",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Mul\u010deris",
-        "Value": "{\"remaining_value_code\": \"mower_chipper\"}"
+        "Value": "{\"remaining_value_code\": \"mower_chipper\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "rindstarpu_kultivators",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Rindstarpu kultivators",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 6.44, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "laistisanas_iekarta",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Laist\u012b\u0161anas iek\u0101rta",
-        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\"}"
+        "Value": "{\"remaining_value_code\": \"planter_sower_sprayer\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "lakstu_plavejs",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Lakstu p\u013c\u0101v\u0113js",
-        "Value": "{\"remaining_value_code\": \"mower_chipper\"}"
+        "Value": "{\"remaining_value_code\": \"mower_chipper\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "maurina_plaujmasina",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Mauri\u0146a p\u013caujma\u0161\u012bna",
-        "Value": "{\"remaining_value_code\": \"mower_chipper\"}"
+        "Value": "{\"remaining_value_code\": \"mower_chipper\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "akmenu_vacejs",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Akme\u0146u v\u0101c\u0113js",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"other\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "pleves_ieklajejs",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Pl\u0113ves iekl\u0101j\u0113js",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"other\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "trimmeris",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Trimmeris",
-        "Value": "{\"remaining_value_code\": \"other\"}"
-    },
-    {
-        "Code": "udens_suknis",
-        "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
-        "Name": "\u016adens s\u016bknis",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"other\", \"average_speed\": 8.05, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "kartupelu_vagotajs",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "Kartupe\u013cu vagot\u0101js",
-        "Value": "{\"remaining_value_code\": \"other_soil_tilage\"}"
+        "Value": "{\"remaining_value_code\": \"other_soil_tilage\", \"average_speed\": 8.9, \"field_efficiency\": 80.0}"
     },
     {
         "Code": "skeldotajs",
         "ParentCode": "sejumu_un_stadijumu_kopsanas_tehnika",
         "Name": "\u0160\u0137eldot\u0101js",
-        "Value": "{\"remaining_value_code\": \"mower_chipper\"}"
+        "Value": "{\"remaining_value_code\": \"mower_chipper\", \"average_speed\": 8.9, \"field_efficiency\": 78.0}"
     },
     {
         "Code": "razas_novaksanas_tehnika",
@@ -361,37 +343,25 @@
         "Code": "ogu_novaksans_kombains",
         "ParentCode": "razas_novaksanas_tehnika",
         "Name": "Ogu nov\u0101k\u0161ans kombains",
-        "Value": "{\"remaining_value_code\": \"combine\"}"
-    },
-    {
-        "Code": "razas_novaksanas_platforma",
-        "ParentCode": "razas_novaksanas_tehnika",
-        "Name": "Ra\u017eas nov\u0101k\u0161anas platforma",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"combine\", \"average_speed\": 7.24, \"field_efficiency\": 75.0}"
     },
     {
         "Code": "graudaugu_kombains",
         "ParentCode": "razas_novaksanas_tehnika",
         "Name": "Graudaugu kombains",
-        "Value": "{\"remaining_value_code\": \"combine\"}"
+        "Value": "{\"remaining_value_code\": \"combine\", \"average_speed\": 7.24, \"field_efficiency\": 75.0}"
     },
     {
         "Code": "darzenu_novaksanas_kombains",
         "ParentCode": "razas_novaksanas_tehnika",
         "Name": "D\u0101rze\u0146u nov\u0101k\u0161anas kombains",
-        "Value": "{\"remaining_value_code\": \"combine\"}"
-    },
-    {
-        "Code": "kombaina_heders",
-        "ParentCode": "razas_novaksanas_tehnika",
-        "Name": "Kombaina heders",
-        "Value": "{\"remaining_value_code\": \"other\"}"
+        "Value": "{\"remaining_value_code\": \"combine\", \"average_speed\": 7.24, \"field_efficiency\": 75.0}"
     },
     {
         "Code": "kartupelu_novaksanas_kombains",
         "ParentCode": "razas_novaksanas_tehnika",
         "Name": "Kartupe\u013cu nov\u0101k\u0161anas kombains",
-        "Value": "{\"remaining_value_code\": \"combine\"}"
+        "Value": "{\"remaining_value_code\": \"combine\", \"average_speed\": 7.24, \"field_efficiency\": 75.0}"
     },
     {
         "Code": "crop_111",

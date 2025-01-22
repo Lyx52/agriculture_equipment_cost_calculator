@@ -166,28 +166,6 @@
         }
     },
     {
-        "Model": "GIGA VITESSE CFS 4401",
-        "Manufacturer": "STRAUTMANN",
-        "Price": 112840.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 134.23,
-            "WorkWidth": 2.0,
-            "RepairValueCode": "lopbaribas_piekabe"
-        }
-    },
-    {
-        "Model": "SUPER VITESSE CFS 3502",
-        "Manufacturer": "STRAUTMANN",
-        "Price": 82870.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 96.94,
-            "WorkWidth": 1.8,
-            "RepairValueCode": "lopbaribas_piekabe"
-        }
-    },
-    {
         "Model": "T 4.75 S",
         "Manufacturer": "NEW HOLLAND",
         "Price": 43800.0,
@@ -271,16 +249,6 @@
             "Power": 87.25,
             "PowerTrainCode": "powertrain_4x4",
             "RepairValueCode": "traktors_4x4"
-        }
-    },
-    {
-        "Model": "RT 7000 FARM",
-        "Manufacturer": "BUDISSA",
-        "Price": 81300.0,
-        "EquipmentTypeCode": "tunelu_sistema_skabbaribai",
-        "Specifications": {
-            "RequiredPower": 55.93,
-            "RepairValueCode": "meslojuma_izkliedetajs"
         }
     },
     {
@@ -2722,26 +2690,6 @@
             "RequiredPower": 0.0,
             "SelfPropelled": true,
             "RepairValueCode": "pasgajejkombains_sp"
-        }
-    },
-    {
-        "Model": "ARA-2021-6",
-        "Manufacturer": "CRANBERRY",
-        "Price": 19000.0,
-        "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {
-            "WorkWidth": 1.25,
-            "RepairValueCode": "piekabe"
-        }
-    },
-    {
-        "Model": "ARA-2021-7",
-        "Manufacturer": "CRANBERRY",
-        "Price": 7000.0,
-        "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {
-            "WorkWidth": 1.22,
-            "RepairValueCode": "piekabe"
         }
     },
     {
@@ -6156,17 +6104,6 @@
             "WorkWidth": 5.3,
             "RequiredPower": 85.76,
             "RepairValueCode": "plaujmasinakondicionieris"
-        }
-    },
-    {
-        "Model": "T635",
-        "Manufacturer": "ZAMET",
-        "Price": 11640.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 60.4,
-            "WorkWidth": 1.85,
-            "RepairValueCode": "lopbaribas_piekabe"
         }
     },
     {
@@ -10276,17 +10213,6 @@
         }
     },
     {
-        "Model": "TORRO 8010 L COMBILINE",
-        "Manufacturer": "POTTINGER",
-        "Price": 139000.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 223.71,
-            "WorkWidth": 2.0,
-            "RepairValueCode": "lopbaribas_piekabe"
-        }
-    },
-    {
         "Model": "6R 145",
         "Manufacturer": "JOHN DEERE",
         "Price": 212000.0,
@@ -12430,16 +12356,6 @@
         }
     },
     {
-        "Model": "3016 12F",
-        "Manufacturer": "CASE IH",
-        "Price": 40000.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 3.6,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
         "Model": "300",
         "Manufacturer": "EDWARD",
         "Price": 41600.0,
@@ -12587,28 +12503,6 @@
             "WorkWidth": 10.2,
             "RequiredPower": 134.23,
             "RepairValueCode": "plaujmasinakondicionieris"
-        }
-    },
-    {
-        "Model": "FARO 4010 L COMBILINE",
-        "Manufacturer": "POTTINGER",
-        "Price": 90120.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 111.86,
-            "WorkWidth": 1.85,
-            "RepairValueCode": "lopbaribas_piekabe"
-        }
-    },
-    {
-        "Model": "FARO 4010 D COMBILINE",
-        "Manufacturer": "POTTINGER",
-        "Price": 95120.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 111.86,
-            "WorkWidth": 1.85,
-            "RepairValueCode": "lopbaribas_piekabe"
         }
     },
     {
@@ -12857,17 +12751,6 @@
             "WorkWidth": 7.5,
             "RequiredPower": 152.87,
             "RepairValueCode": "plaujmasinakondicionieris"
-        }
-    },
-    {
-        "Model": "AMBION 500",
-        "Manufacturer": "STRAUTMANN",
-        "Price": 97950.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 67.11,
-            "WorkWidth": 1.8,
-            "RepairValueCode": "lopbaribas_piekabe"
         }
     },
     {
@@ -14480,51 +14363,6 @@
             "RequiredPower": 201.34,
             "WorkWidth": 4.0,
             "RepairValueCode": "lauku_kultivators"
-        }
-    },
-    {
-        "Model": "SEH50X",
-        "Manufacturer": "KOSHIN",
-        "Price": 1100.0,
-        "EquipmentTypeCode": "udens_suknis",
-        "Specifications": {
-            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
-        }
-    },
-    {
-        "Model": "KOSHIN KTH50X",
-        "Manufacturer": "FOGO",
-        "Price": 1500.0,
-        "EquipmentTypeCode": "udens_suknis",
-        "Specifications": {
-            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
-        }
-    },
-    {
-        "Model": "KOSHIN KTH80X",
-        "Manufacturer": "FOGO",
-        "Price": 1900.0,
-        "EquipmentTypeCode": "udens_suknis",
-        "Specifications": {
-            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
-        }
-    },
-    {
-        "Model": "KOSHIN KTH100X",
-        "Manufacturer": "FOGO",
-        "Price": 2400.0,
-        "EquipmentTypeCode": "udens_suknis",
-        "Specifications": {
-            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
-        }
-    },
-    {
-        "Model": "SEH80XF",
-        "Manufacturer": "KOSHIN",
-        "Price": 1200.0,
-        "EquipmentTypeCode": "udens_suknis",
-        "Specifications": {
-            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
         }
     },
     {
@@ -19128,17 +18966,6 @@
         }
     },
     {
-        "Model": "T 635",
-        "Manufacturer": "ZAMET",
-        "Price": 14655.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 60.4,
-            "WorkWidth": 1.85,
-            "RepairValueCode": "lopbaribas_piekabe"
-        }
-    },
-    {
         "Model": "PNEUMATICSTAR 900 STI",
         "Manufacturer": "EINBOCK",
         "Price": 17900.0,
@@ -19784,17 +19611,6 @@
             "WorkWidth": 7.4,
             "RequiredPower": 52.2,
             "RepairValueCode": "ecesas"
-        }
-    },
-    {
-        "Model": "MX 370 GD",
-        "Manufacturer": "KRONE",
-        "Price": 125000.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 104.4,
-            "WorkWidth": 1.8,
-            "RepairValueCode": "lopbaribas_piekabe"
         }
     },
     {
@@ -21682,16 +21498,6 @@
         }
     },
     {
-        "Model": "ZPU 3001",
-        "Manufacturer": "ZIEGLER",
-        "Price": 23500.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 3.0,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
         "Model": "SOLIS 75 V 4WD",
         "Manufacturer": "SONALIKA",
         "Price": 38600.0,
@@ -22264,46 +22070,6 @@
         }
     },
     {
-        "Model": "FD235 FLEXDRAPER",
-        "Manufacturer": "MACDON",
-        "Price": 151500.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 10.6,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
-        "Model": "FD230 FLEXDRAPER",
-        "Manufacturer": "MACDON",
-        "Price": 137900.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 9.1,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
-        "Model": "FD225 FLEXDRAPER",
-        "Manufacturer": "MACDON",
-        "Price": 133900.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 7.6,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
-        "Model": "FD241 FLEXDRAPER",
-        "Manufacturer": "MACDON",
-        "Price": 164500.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 12.5,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
         "Model": "ST600 16R",
         "Manufacturer": "CZAJKOWSKI ST600 16R",
         "Price": 289100.0,
@@ -22428,16 +22194,6 @@
             "RequiredPower": 50.71,
             "WorkWidth": 3.2,
             "RepairValueCode": "lauku_kultivators"
-        }
-    },
-    {
-        "Model": "FD230",
-        "Manufacturer": "MACDON",
-        "Price": 152000.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 9.1,
-            "RepairValueCode": "heders_uzkarinams"
         }
     },
     {
@@ -23150,16 +22906,6 @@
         }
     },
     {
-        "Model": "CONVIO FLEX 1080",
-        "Manufacturer": "CLAAS",
-        "Price": 161560.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 10.8,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
         "Model": "AVATAR 12 LC",
         "Manufacturer": "HORSCH",
         "Price": 269900.0,
@@ -23190,16 +22936,6 @@
             "RequiredPower": 111.86,
             "WorkWidth": 32.0,
             "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
-        }
-    },
-    {
-        "Model": "AFN225",
-        "Manufacturer": "HONEY BEE",
-        "Price": 127500.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 7.6,
-            "RepairValueCode": "heders_uzkarinams"
         }
     },
     {
@@ -23461,16 +23197,6 @@
         }
     },
     {
-        "Model": "WR34",
-        "Manufacturer": "SADRIM",
-        "Price": 2000.0,
-        "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {
-            "WorkWidth": 1.02,
-            "RepairValueCode": "piekabe"
-        }
-    },
-    {
         "Model": "JUWEL 8 MVU 4+1 L90",
         "Manufacturer": "LEMKEN",
         "Price": 48000.0,
@@ -23607,16 +23333,6 @@
         }
     },
     {
-        "Model": "3",
-        "Manufacturer": "STORG",
-        "Price": 10920.0,
-        "EquipmentTypeCode": "razas_novaksanas_platforma",
-        "Specifications": {
-            "WorkWidth": 2.6,
-            "RepairValueCode": "piekabe"
-        }
-    },
-    {
         "Model": "FALCON 3 COMPACT",
         "Manufacturer": "FARMET",
         "Price": 70800.0,
@@ -23669,26 +23385,6 @@
             "WorkWidth": 7.1,
             "RequiredPower": 52.2,
             "RepairValueCode": "ecesas"
-        }
-    },
-    {
-        "Model": "NXT AFN 236",
-        "Manufacturer": "HONEY BEE",
-        "Price": 150400.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 11.0,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
-        "Model": "NXT AFN 240",
-        "Manufacturer": "HONEY BEE",
-        "Price": 159700.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 12.2,
-            "RepairValueCode": "heders_uzkarinams"
         }
     },
     {
@@ -23966,16 +23662,6 @@
             "WorkWidth": 30.0,
             "SelfPropelled": true,
             "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
-        }
-    },
-    {
-        "Model": "NXT AFN 230",
-        "Manufacturer": "HONEY BEE",
-        "Price": 143600.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 9.1,
-            "RepairValueCode": "heders_uzkarinams"
         }
     },
     {
@@ -24659,16 +24345,6 @@
         }
     },
     {
-        "Model": "RD30F",
-        "Manufacturer": "JOHN DEERE",
-        "Price": 131900.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 9.15,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
         "Model": "ZA-XW 503",
         "Manufacturer": "AMAZONE",
         "Price": 4600.0,
@@ -24902,16 +24578,6 @@
         "Specifications": {
             "WorkWidth": 36.0,
             "RepairValueCode": "meslojuma_izkliedetajs"
-        }
-    },
-    {
-        "Model": "FD235",
-        "Manufacturer": "MACDON",
-        "Price": 155000.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 10.7,
-            "RepairValueCode": "heders_uzkarinams"
         }
     },
     {
@@ -25211,16 +24877,6 @@
         }
     },
     {
-        "Model": "CONVIO FLEX 1230",
-        "Manufacturer": "CLAAS",
-        "Price": 173660.0,
-        "EquipmentTypeCode": "kombaina_heders",
-        "Specifications": {
-            "WorkWidth": 12.3,
-            "RepairValueCode": "heders_uzkarinams"
-        }
-    },
-    {
         "Model": "FALCON 6 COMPACT",
         "Manufacturer": "FARMET",
         "Price": 129653.0,
@@ -25274,17 +24930,6 @@
             "ShredderType": "disc",
             "WithConditioner": true,
             "RepairValueCode": "plaujmasinakondicionieris_rotacijas"
-        }
-    },
-    {
-        "Model": "AX 250 L",
-        "Manufacturer": "KRONE",
-        "Price": 78000.0,
-        "EquipmentTypeCode": "savacejpiekabe",
-        "Specifications": {
-            "RequiredPower": 59.66,
-            "WorkWidth": 1.8,
-            "RepairValueCode": "lopbaribas_piekabe"
         }
     },
     {

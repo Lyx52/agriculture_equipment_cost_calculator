@@ -49,7 +49,7 @@ categories.close()
 added = []
 values = []
 for line in lines:
-    [parent, child, remaining_value_code] = line.split(';')
+    [parent, child, remaining_value_code, average_speed, field_efficiency] = line.split(';')
     
     if parent not in added:
         codifiers.append({
@@ -64,7 +64,9 @@ for line in lines:
             "ParentCode": normalize_text(parent).replace(' ', '_'),
             "Name": child.strip(),
             "Value": json.dumps({
-                'remaining_value_code': remaining_value_code.strip()
+                'remaining_value_code': remaining_value_code.strip(),
+                'average_speed': None if len(average_speed.strip()) <= 0 else float(average_speed.strip()),
+                'field_efficiency': None if len(field_efficiency.strip()) <= 0 else float(field_efficiency.strip())  
             })
         })
         added.append(child)
