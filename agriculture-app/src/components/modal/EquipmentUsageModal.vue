@@ -50,7 +50,7 @@ const onSaveEquipmentUsage = () => {
         <div class="col">
           <BFormGroup label="Tehnikas iegādes datums">
             <BDateFormInput
-              v-model="equipmentStore.item.purchaseDate"
+              v-model="equipmentStore.item.purchaseDate as Date|undefined"
             />
           </BFormGroup>
           <BFormGroup label="Ekonomiskais izmantošanas laiks">
