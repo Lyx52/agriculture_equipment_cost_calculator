@@ -1,4 +1,4 @@
-import requests, os, time, json, random
+import requests, os, time, json, random, time, argparse, shutil
 from bs4 import BeautifulSoup, Tag, NavigableString
 path_to_temp_data = "../data/lad_catalog"
 path_to_raw_data = f"{path_to_temp_data}/raw"
@@ -54,33 +54,48 @@ def get_lad_page_tables(url: str) -> list[NavigableString|Tag]:
     soup = BeautifulSoup(res.content, features="html.parser")
     return list(soup.find_all("table", attrs={'class': 'table-colorized-rows'}))
 
-max_pages = get_lad_catalog_page_count()
-catalog_table_data = []
-for page in range(1, max_pages + 1):
-    table = None
-    if not os.path.exists(f"{path_to_raw_pages}/page_{page}_table.html"):
-        table = get_lad_catalog_table(page)
-        with open(f"{path_to_raw_pages}/page_{page}_table.html", "w", encoding="UTF-8") as fp:
-            fp.write(table.prettify())
-            fp.close()
-        time.sleep(0.1 + random.random() / 8)
-    else:
-        with open(f"{path_to_raw_pages}/page_{page}_table.html", "r", encoding="UTF-8") as fp:
-            table = BeautifulSoup(fp.read(), features="html.parser")
-    print(f"Page {page}/{max_pages}...")
-    catalog_table_data.extend(scrape_lad_page_table(table))
-raw_catalog_data = {}
-total_item_count = 0
-if os.path.exists(f'{path_to_raw_data}/catalog_item_tables.json'):
-    raw_catalog_data = open_json(f'{path_to_raw_data}/catalog_item_tables.json')
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--delete",
+        action="store_true",
+        help="Deletes currently scraped data"
+    )
 
-for item in catalog_table_data:
-    if item['source'] not in raw_catalog_data:
-        raw_catalog_data[item['source']] = list(map(lambda t: t.prettify(), get_lad_page_tables(item['source'])))
-        time.sleep(0.1 + random.random() / 8)
-        if (total_item_count % 25) == 0:
-            print(f"Saving... {total_item_count}")
-            save_json(f'{path_to_raw_data}/catalog_item_tables.json', raw_catalog_data)
-    total_item_count += 1
+    args = parser.parse_args()
+    if args.delete:
+        shutil.rmtree(path_to_raw_data)
+        os.makedirs(path_to_raw_pages)
 
-save_json(f'{path_to_raw_data}/catalog_item_tables.json', raw_catalog_data)
+    max_pages = get_lad_catalog_page_count()
+    catalog_table_data = []
+    raw_catalog_data = {}
+    if os.path.exists(f'{path_to_raw_data}/catalog_item_tables.json'):
+        raw_catalog_data = open_json(f'{path_to_raw_data}/catalog_item_tables.json')
+
+    for page in range(1, max_pages + 1):
+        table = None
+        if not os.path.exists(f"{path_to_raw_pages}/page_{page}_table.html"):
+            table = get_lad_catalog_table(page)
+            with open(f"{path_to_raw_pages}/page_{page}_table.html", "w", encoding="UTF-8") as fp:
+                fp.write(table.prettify())
+                fp.close()
+            time.sleep(0.1 + random.random() / 8)
+        else:
+            with open(f"{path_to_raw_pages}/page_{page}_table.html", "r", encoding="UTF-8") as fp:
+                table = BeautifulSoup(fp.read(), features="html.parser")
+        print(f"Page {page}/{max_pages}...")
+        catalog_table_data.extend(scrape_lad_page_table(table))
+
+    total_item_count = 0
+
+    for item in catalog_table_data:
+        if item['source'] not in raw_catalog_data:
+            raw_catalog_data[item['source']] = list(map(lambda t: t.prettify(), get_lad_page_tables(item['source'])))
+            time.sleep(0.1 + random.random() / 8)
+            if (total_item_count % 25) == 0:
+                print(f"Saving... {total_item_count}")
+                save_json(f'{path_to_raw_data}/catalog_item_tables.json', raw_catalog_data)
+        total_item_count += 1
+
+    save_json(f'{path_to_raw_data}/catalog_item_tables.json', raw_catalog_data)
