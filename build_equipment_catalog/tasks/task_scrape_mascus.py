@@ -59,6 +59,8 @@ if __name__ == "__main__":
        "listings": [],
        "scraped_pages": 0
     }
+    if os.path.exists(f"{path_to_mascus_data}/mascus_short.json"):
+       exit(0)
     if os.path.exists(f"{path_to_mascus_data}/mascus.json"):
       results = open_json(f"{path_to_mascus_data}/mascus.json")
     page = 1
