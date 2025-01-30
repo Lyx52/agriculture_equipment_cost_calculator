@@ -49,24 +49,24 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     },
     getFormattedOption(value: any): IDropdownOption<any> {
       return {
-        name: `${value.equipment_type?.name} - ${value.manufacturer} ${value.model} ${this.getPowerOrRequiredPower(value)}`,
+        name: `${value.equipment_type?.name} - ${value.manufacturer} ${value.model} ${this.getPowerOrWorkingWidth(value)}`,
         id: value.id,
         value: value,
       }
     },
     getFilteredTractorOrCombine(searchText: string): IDropdownOption<any>[] {
       return this.models
-        .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrRequiredPower(e)}`.toLowerCase().includes(searchText.toLowerCase()) && this.isTractorOrCombine(e))
+        .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrWorkingWidth(e)}`.toLowerCase().includes(searchText.toLowerCase()) && this.isTractorOrCombine(e))
         .map(e => this.getFormattedOption(e));
     },
     getFilteredMachines(searchText: string): IDropdownOption<any>[] {
       return this.models
-        .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrRequiredPower(e)}`.toLowerCase().includes(searchText.toLowerCase()) && !this.isTractorOrCombine(e))
+        .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrWorkingWidth(e)}`.toLowerCase().includes(searchText.toLowerCase()) && !this.isTractorOrCombine(e))
         .map(e => this.getFormattedOption(e));
     },
-    getPowerOrRequiredPower(item: IEquipment) {
-      if (item.specifications.power) return `${item.specifications.power} kw`;
-      if (item.specifications.required_power) return `${item.specifications.required_power} kw`;
+    getPowerOrWorkingWidth(item: IEquipment) {
+      if (item.specifications.power) return `(${item.specifications.power} kw)`;
+      if (item.specifications.work_width) return `(${item.specifications.work_width} m)`;
       return '';
     },
     isTractorOrCombine(item: IEquipment) {

@@ -184,13 +184,13 @@
             {{ (row.machine?.price ?? 0).toFixed(2) }}
           </BTd>
           <BTd :colspan="isTractor(row.tractorOrCombine?.equipment_type_code) ? 1 : 2" class="text-center">
-            {{ (row.tractorOrCombine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
+            {{ (row.tractorOrCombine?.totalCurrentUsageHours ?? 0).toFixed(2) }} h
           </BTd>
           <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
-            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }}
+            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }} h
           </BTd>
           <BTd class="text-center">
-            {{ (row.machine?.averageFieldWorkSpeed ?? 0).toFixed(2) }}
+            {{ (row.machine?.averageFieldWorkSpeed ?? 0).toFixed(2) }} ha/h
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">

@@ -56,12 +56,11 @@ export class EquipmentModel implements IEquipment {
   }
 
   get averageFieldWorkSpeed() {
-    console.log(this.equipment_type?.configuration)
     return (
       Number(this.equipment_type?.configuration?.average_speed ?? 0) *
-      Number(this.equipment_type?.configuration?.field_efficiency ?? 0) *
+      (Number(this.equipment_type?.configuration?.field_efficiency ?? 0) / 100) *
       Number(this.specifications?.work_width ?? 0)
-    ) / 100;
+    ) / 10;
   }
 
   get totalRemainingUsageHours() {

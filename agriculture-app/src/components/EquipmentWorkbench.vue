@@ -104,7 +104,7 @@
       <BTbody>
         <BTr v-for="row in equipmentCollectionStore.filteredItems" v-bind:key="row.id">
           <BTd>
-            {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrRequiredPower(row) }}
+            {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
           </BTd>
           <BTd>
             {{ row.equipment_type?.name }}

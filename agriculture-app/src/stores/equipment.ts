@@ -36,6 +36,7 @@ export const useEquipmentStore = defineStore('equipment', {
     fromEquipment(equipment: IEquipment) {
       this.item = equipment;
       this.item.specifications.fuel_consumption_coefficient = this.item.specifications.fuel_consumption_coefficient ?? 0.270;
+      this.item.purchaseDate = this.item.purchaseDate ?? new Date();
     },
     resetEquipment() {
       this.item = {
@@ -44,7 +45,7 @@ export const useEquipmentStore = defineStore('equipment', {
         manufacturer: '',
         model: '',
         price: 0,
-        purchaseDate: undefined,
+        purchaseDate: new Date(),
         specifications: {
           power: undefined,
           required_power: undefined,

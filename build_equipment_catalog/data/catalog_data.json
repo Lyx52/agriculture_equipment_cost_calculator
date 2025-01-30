@@ -79,114 +79,6 @@
         }
     },
     {
-        "Model": "CULTUS CS 300",
-        "Manufacturer": "VADERSTAD",
-        "Price": 26085.0,
-        "EquipmentTypeCode": "rugaines_kultivators",
-        "Specifications": {
-            "RequiredPower": 123.04,
-            "WorkWidth": 3.0,
-            "RepairValueCode": "lauku_kultivators"
-        }
-    },
-    {
-        "Model": "CULTUS CS 300",
-        "Manufacturer": "VADERSTAD",
-        "Price": 40550.0,
-        "EquipmentTypeCode": "rugaines_kultivators",
-        "Specifications": {
-            "RequiredPower": 123.04,
-            "WorkWidth": 3.0,
-            "RepairValueCode": "lauku_kultivators"
-        }
-    },
-    {
-        "Model": "CULTUS CS 300",
-        "Manufacturer": "VADERSTAD",
-        "Price": 46130.0,
-        "EquipmentTypeCode": "rugaines_kultivators",
-        "Specifications": {
-            "RequiredPower": 123.04,
-            "WorkWidth": 3.0,
-            "RepairValueCode": "lauku_kultivators"
-        }
-    },
-    {
-        "Model": "DD3000",
-        "Manufacturer": "IRTEM",
-        "Price": 11500.0,
-        "EquipmentTypeCode": "sejmasina",
-        "Specifications": {
-            "WorkWidth": 3.0,
-            "RequiredPower": 67.11,
-            "RepairValueCode": "graudu_sejmasina"
-        }
-    },
-    {
-        "Model": "DD4000",
-        "Manufacturer": "IRTEM",
-        "Price": 12900.0,
-        "EquipmentTypeCode": "sejmasina",
-        "Specifications": {
-            "WorkWidth": 4.0,
-            "RequiredPower": 89.48,
-            "RepairValueCode": "graudu_sejmasina"
-        }
-    },
-    {
-        "Model": "FDD3000",
-        "Manufacturer": "IRTEM",
-        "Price": 19800.0,
-        "EquipmentTypeCode": "sejmasina",
-        "Specifications": {
-            "WorkWidth": 3.0,
-            "RequiredPower": 59.66,
-            "RepairValueCode": "graudu_sejmasina"
-        }
-    },
-    {
-        "Model": "FDD4000",
-        "Manufacturer": "IRTEM",
-        "Price": 26600.0,
-        "EquipmentTypeCode": "sejmasina",
-        "Specifications": {
-            "WorkWidth": 4.0,
-            "RequiredPower": 74.57,
-            "RepairValueCode": "graudu_sejmasina"
-        }
-    },
-    {
-        "Model": "VS 1805",
-        "Manufacturer": "STRAUTMANN",
-        "Price": 65000.0,
-        "EquipmentTypeCode": "organisko_meslu_izkliedetajs",
-        "Specifications": {
-            "RequiredPower": 89.48,
-            "RepairValueCode": "meslojuma_izkliedetajs"
-        }
-    },
-    {
-        "Model": "T 4.75 S",
-        "Manufacturer": "NEW HOLLAND",
-        "Price": 43800.0,
-        "EquipmentTypeCode": "traktors_4x4",
-        "Specifications": {
-            "Power": 55.93,
-            "PowerTrainCode": "powertrain_4x4",
-            "RepairValueCode": "traktors_4x4"
-        }
-    },
-    {
-        "Model": "ALPHA F12",
-        "Manufacturer": "IRTEM",
-        "Price": 4250.0,
-        "EquipmentTypeCode": "mineralmeslu_un_kalka_izkliedetajs",
-        "Specifications": {
-            "WorkWidth": 24.0,
-            "RepairValueCode": "meslojuma_izkliedetajs"
-        }
-    },
-    {
         "Model": "S-MOWER H 200",
         "Manufacturer": "FISCHER FACTORY",
         "Price": 9920.0,
@@ -24665,16 +24557,6 @@
         }
     },
     {
-        "Model": "ROCK TORNADO",
-        "Manufacturer": "HAUMET",
-        "Price": 38000.0,
-        "EquipmentTypeCode": "akmenu_vacejs",
-        "Specifications": {
-            "RequiredPower": 111.86,
-            "RepairValueCode": "plaujmasinakondicionieris"
-        }
-    },
-    {
         "Model": "WPS 630",
         "Manufacturer": "LANDSTAL",
         "Price": 11850.0,
@@ -24999,6 +24881,17 @@
         }
     },
     {
+        "Model": "ROTANET 1020",
+        "Manufacturer": "CARRE",
+        "Price": 35000.0,
+        "EquipmentTypeCode": "ecesas",
+        "Specifications": {
+            "RequiredPower": 149.14,
+            "WorkWidth": 10.2,
+            "RepairValueCode": "ecesas"
+        }
+    },
+    {
         "Model": "PS 300",
         "Manufacturer": "APV",
         "Price": 11495.0,
@@ -25064,6 +24957,26 @@
         }
     },
     {
+        "Model": "ZA-V 2000 SUPER",
+        "Manufacturer": "AMAZONE",
+        "Price": 17700.0,
+        "EquipmentTypeCode": "mineralmeslu_un_kalka_izkliedetajs",
+        "Specifications": {
+            "WorkWidth": 21.0,
+            "RepairValueCode": "meslojuma_izkliedetajs"
+        }
+    },
+    {
+        "Model": "TYTAN 18TD PREMIUM",
+        "Manufacturer": "UNIA",
+        "Price": 45400.0,
+        "EquipmentTypeCode": "organisko_meslu_izkliedetajs",
+        "Specifications": {
+            "RequiredPower": 111.86,
+            "RepairValueCode": "meslojuma_izkliedetajs"
+        }
+    },
+    {
         "Model": "AGL 165",
         "Manufacturer": "C.A. AGRI-MACHINERY",
         "Price": 2214.88,
@@ -25075,6 +24988,26 @@
         }
     },
     {
+        "Model": "COMPACT 800",
+        "Manufacturer": "RONDINI",
+        "Price": 3470.0,
+        "EquipmentTypeCode": "mineralmeslu_un_kalka_izkliedetajs",
+        "Specifications": {
+            "WorkWidth": 7.0,
+            "RepairValueCode": "meslojuma_izkliedetajs"
+        }
+    },
+    {
+        "Model": "PRIMOR 2060 M",
+        "Manufacturer": "KUHN",
+        "Price": 21500.0,
+        "EquipmentTypeCode": "salmu_smalcinatajsizkliedetajs",
+        "Specifications": {
+            "RequiredPower": 62.64,
+            "RepairValueCode": "stublaju_smalcinatajs"
+        }
+    },
+    {
         "Model": "SHC1450",
         "Manufacturer": "FLINGK",
         "Price": 18500.0,
@@ -25082,6 +25015,343 @@
         "Specifications": {
             "RequiredPower": 89.48,
             "RepairValueCode": "stublaju_smalcinatajs"
+        }
+    },
+    {
+        "Model": "OPTI CUT 2,60",
+        "Manufacturer": "TALEX",
+        "Price": 7300.0,
+        "EquipmentTypeCode": "plaujmasina",
+        "Specifications": {
+            "WorkWidth": 2.6,
+            "RequiredPower": 52.2,
+            "ShredderType": "disc",
+            "WithConditioner": false,
+            "RepairValueCode": "plaujmasinas_rotacijas"
+        }
+    },
+    {
+        "Model": "OPTI CUT 3,00",
+        "Manufacturer": "TALEX",
+        "Price": 7600.0,
+        "EquipmentTypeCode": "plaujmasina",
+        "Specifications": {
+            "WorkWidth": 3.0,
+            "RequiredPower": 59.66,
+            "ShredderType": "disc",
+            "WithConditioner": false,
+            "RepairValueCode": "plaujmasinas_rotacijas"
+        }
+    },
+    {
+        "Model": "4200G/9 24M",
+        "Manufacturer": "AGRO",
+        "Price": 54280.0,
+        "EquipmentTypeCode": "smidzinatajs",
+        "Specifications": {
+            "RequiredPower": 82.03,
+            "WorkWidth": 24.0,
+            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
+        }
+    },
+    {
+        "Model": "6000G 24M",
+        "Manufacturer": "AGRO",
+        "Price": 69138.0,
+        "EquipmentTypeCode": "smidzinatajs",
+        "Specifications": {
+            "RequiredPower": 89.48,
+            "WorkWidth": 24.0,
+            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
+        }
+    },
+    {
+        "Model": "PRIMOR 3570 M",
+        "Manufacturer": "KUHN",
+        "Price": 28700.0,
+        "EquipmentTypeCode": "salmu_smalcinatajsizkliedetajs",
+        "Specifications": {
+            "RequiredPower": 62.64,
+            "RepairValueCode": "stublaju_smalcinatajs"
+        }
+    },
+    {
+        "Model": "CATROS+ 4003-2TS",
+        "Manufacturer": "AMAZONE",
+        "Price": 30600.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 178.97,
+            "WorkWidth": 4.0,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "VOLTO 1100",
+        "Manufacturer": "CLAAS",
+        "Price": 26500.0,
+        "EquipmentTypeCode": "valotajsarditajs",
+        "Specifications": {
+            "WorkWidth": 10.7,
+            "RequiredPower": 44.74,
+            "RepairValueCode": "ecesas"
+        }
+    },
+    {
+        "Model": "5,0",
+        "Manufacturer": "METAL-TECHNIK",
+        "Price": 2000.0,
+        "EquipmentTypeCode": "ecesas",
+        "Specifications": {
+            "RequiredPower": 29.83,
+            "WorkWidth": 5.0,
+            "RepairValueCode": "ecesas"
+        }
+    },
+    {
+        "Model": "6000G 32M",
+        "Manufacturer": "AGRO",
+        "Price": 92126.0,
+        "EquipmentTypeCode": "smidzinatajs",
+        "Specifications": {
+            "RequiredPower": 96.94,
+            "WorkWidth": 32.0,
+            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
+        }
+    },
+    {
+        "Model": "DIS 13800",
+        "Manufacturer": "NETAFIM",
+        "Price": 4565.61,
+        "EquipmentTypeCode": "laistisanas_iekarta",
+        "Specifications": {
+            "RepairValueCode": "stangu_tipa_smidzinatajs"
+        }
+    },
+    {
+        "Model": "CATROS+ 4001",
+        "Manufacturer": "AMAZONE",
+        "Price": 28800.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 93.21,
+            "WorkWidth": 4.0,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "CENTAYA 3000-C",
+        "Manufacturer": "AMAZONE",
+        "Price": 72000.0,
+        "EquipmentTypeCode": "sejmasina",
+        "Specifications": {
+            "WorkWidth": 3.0,
+            "RequiredPower": 186.43,
+            "RepairValueCode": "graudu_sejmasina"
+        }
+    },
+    {
+        "Model": "PRIOS 440 PRO",
+        "Manufacturer": "GRIMME",
+        "Price": 170000.0,
+        "EquipmentTypeCode": "kartupelu_stadama_masina",
+        "Specifications": {
+            "RequiredPower": 111.86,
+            "WorkWidth": 3.0,
+            "RepairValueCode": "rindu_staditajs"
+        }
+    },
+    {
+        "Model": "CATROS+ 8003-2TX",
+        "Manufacturer": "AMAZONE",
+        "Price": 100000.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 178.97,
+            "WorkWidth": 8.0,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "CATROS+ 7003-2TX",
+        "Manufacturer": "AMAZONE",
+        "Price": 97000.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 156.6,
+            "WorkWidth": 7.0,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "OPTIMER L 5000 SH",
+        "Manufacturer": "KUHN",
+        "Price": 69400.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 186.43,
+            "WorkWidth": 5.0,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "WF9DS",
+        "Manufacturer": "WESTERN FABRICATIONS",
+        "Price": 36250.0,
+        "EquipmentTypeCode": "organisko_meslu_izkliedetajs",
+        "Specifications": {
+            "RequiredPower": 104.4,
+            "RepairValueCode": "meslojuma_izkliedetajs"
+        }
+    },
+    {
+        "Model": "QUALIDISC PRO 6000",
+        "Manufacturer": "KVERNELNAD",
+        "Price": 67000.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 261.0,
+            "WorkWidth": 6.0,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "WF12DSH",
+        "Manufacturer": "WESTERN FABRICATIONS",
+        "Price": 52716.0,
+        "EquipmentTypeCode": "organisko_meslu_izkliedetajs",
+        "Specifications": {
+            "RequiredPower": 134.23,
+            "RepairValueCode": "meslojuma_izkliedetajs"
+        }
+    },
+    {
+        "Model": "REXIUS 820",
+        "Manufacturer": "VADERSTAD",
+        "Price": 49500.0,
+        "EquipmentTypeCode": "veltnis",
+        "Specifications": {
+            "WorkWidth": 8.2,
+            "RequiredPower": 164.05,
+            "RepairValueCode": "plaujmasinakondicionieris"
+        }
+    },
+    {
+        "Model": "TEMPO TPT6",
+        "Manufacturer": "VADERSTAD",
+        "Price": 62100.0,
+        "EquipmentTypeCode": "precizas_izsejas_sejmasina",
+        "Specifications": {
+            "WorkWidth": 2.7,
+            "RequiredPower": 111.86,
+            "RepairValueCode": "graudu_sejmasina"
+        }
+    },
+    {
+        "Model": "SIMULTA 3000S",
+        "Manufacturer": "JUNKKARI",
+        "Price": 3400.0,
+        "EquipmentTypeCode": "sikseklu_sejmasina",
+        "Specifications": {
+            "WorkWidth": 3.0,
+            "RepairValueCode": "graudu_sejmasina"
+        }
+    },
+    {
+        "Model": "HILLSTAR",
+        "Manufacturer": "EINBOCK",
+        "Price": 13400.0,
+        "EquipmentTypeCode": "kartupelu_vagotajs",
+        "Specifications": {
+            "WorkWidth": 0.32,
+            "RepairValueCode": "lauku_kultivators"
+        }
+    },
+    {
+        "Model": "JOKER 5 RT",
+        "Manufacturer": "HORSCH",
+        "Price": 81230.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 91.72,
+            "WorkWidth": 5.15,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "P4-531C",
+        "Manufacturer": "SAMASZ",
+        "Price": 8471.07,
+        "EquipmentTypeCode": "valotajsarditajs",
+        "Specifications": {
+            "WorkWidth": 5.3,
+            "RequiredPower": 29.83,
+            "RepairValueCode": "ecesas"
+        }
+    },
+    {
+        "Model": "MS",
+        "Manufacturer": "MONOSEM",
+        "Price": 24000.0,
+        "EquipmentTypeCode": "precizas_izsejas_sejmasina",
+        "Specifications": {
+            "WorkWidth": 3.0,
+            "RequiredPower": 37.29,
+            "RepairValueCode": "graudu_sejmasina"
+        }
+    },
+    {
+        "Model": "VIKING LH 5,3",
+        "Manufacturer": "UNIA",
+        "Price": 13500.0,
+        "EquipmentTypeCode": "kultivators",
+        "Specifications": {
+            "RequiredPower": 126.77,
+            "WorkWidth": 5.3,
+            "RepairValueCode": "lauku_kultivators"
+        }
+    },
+    {
+        "Model": "DISKOMAT 5 PS",
+        "Manufacturer": "FARMET",
+        "Price": 82522.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 152.87,
+            "WorkWidth": 5.0,
+            "RepairValueCode": "smagie_diski"
+        }
+    },
+    {
+        "Model": "AGP 400 PRO",
+        "Manufacturer": "AGROMEHANIKA",
+        "Price": 10100.0,
+        "EquipmentTypeCode": "miglotajs",
+        "Specifications": {
+            "RequiredPower": 14.91,
+            "WorkWidth": 5.0,
+            "RepairValueCode": "smidzinatajs_ar_pneimatiskais"
+        }
+    },
+    {
+        "Model": "M35W 1800",
+        "Manufacturer": "BOGBALLE",
+        "Price": 22410.0,
+        "EquipmentTypeCode": "mineralmeslu_un_kalka_izkliedetajs",
+        "Specifications": {
+            "WorkWidth": 48.0,
+            "RepairValueCode": "meslojuma_izkliedetajs"
+        }
+    },
+    {
+        "Model": "JOKER 7 RT +",
+        "Manufacturer": "HORSCH",
+        "Price": 96442.0,
+        "EquipmentTypeCode": "diski",
+        "Specifications": {
+            "RequiredPower": 238.62,
+            "WorkWidth": 7.15,
+            "RepairValueCode": "smagie_diski"
         }
     }
 ]

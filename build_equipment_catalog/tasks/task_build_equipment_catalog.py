@@ -151,6 +151,10 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
                         raise Exception(value.lower())
                 continue
             case 'tips':
+                if isinstance(value, list):
+                    print(value)
+                    value = value[0] if len(value) > 0 else ""
+                
                 match value.lower():
                     case 'disku kultivātors':
                         specs['CultivatorType'] = 'disc'
@@ -163,7 +167,7 @@ def from_lad_catalog(model_data: dict) -> EquipmentModel:
                     case 'pašgājējs':
                         specs['SelfPropelled'] = True
                     case _:
-                        # print(value.lower())
+                        #print(value.lower())
                         pass
                 continue
             case 'izmeri mm platums':
