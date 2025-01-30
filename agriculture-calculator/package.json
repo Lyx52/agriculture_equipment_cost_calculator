@@ -1,34 +1,3 @@
-{
-  "name": "agriculture-calculator",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build --force"
-  },
-  "dependencies": {
-    "@arcgis/core": "^4.31.6",
-    "@vueuse/core": "^11.3.0",
-    "bootstrap": "^5.3.3",
-    "bootstrap-vue-next": "^0.25.5",
-    "pinia": "^2.2.4",
-    "tiny-emitter": "^2.1.0",
-    "uuid": "^11.0.2",
-    "vue": "^3.5.12"
-  },
-  "devDependencies": {
-    "@tsconfig/node20": "^20.1.4",
-    "@types/node": "^20.16.11",
-    "@vitejs/plugin-vue": "^5.1.4",
-    "@vitejs/plugin-vue-jsx": "^4.0.1",
-    "@vue/tsconfig": "^0.5.1",
-    "npm-run-all2": "^6.2.3",
-    "typescript": "~5.5.4",
-    "vite": "^5.4.8",
-    "vue-tsc": "^2.1.6"
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:447da5b6c6214a817d20bc203ab7747e4038da02d5575dbe4930778a5983ffe5
+size 889

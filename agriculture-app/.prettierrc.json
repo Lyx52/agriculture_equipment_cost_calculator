@@ -1,6 +1,3 @@
-{
-  "$schema": "https://json.schemastore.org/prettierrc",
-  "semi": false,
-  "singleQuote": true,
-  "printWidth": 100
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1e2c957ed25d839c1d8817922f153a78dabea24d31a96161b5fa0f527b6ac9d7
+size 126
