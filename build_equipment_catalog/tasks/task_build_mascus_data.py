@@ -15,6 +15,7 @@ def build_from_listing(listing):
         "manufactureYear": listing["yearOfManufacture"],
         "motorHours": listing["meterReadout"] if listing["meterReadoutUnit"] == "h" else None,
         "drivenDistance": listing["meterReadout"] if listing["meterReadoutUnit"] == "km" else None,
+        "url": listing["assetUrl"]
     }
 results = []
 for listing in mascus_data['listings']:
