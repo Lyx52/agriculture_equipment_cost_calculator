@@ -48,8 +48,9 @@ lines = categories.readlines()
 categories.close()
 added = []
 values = []
+all_categories = []
 for line in lines:
-    [parent, child, remaining_value_code, average_speed, field_efficiency] = line.split(';')
+    [parent, child, remaining_value_code, average_speed, field_efficiency, mascus_category_code] = line.split(';')
     
     if parent not in added:
         codifiers.append({
@@ -59,6 +60,7 @@ for line in lines:
         })
         added.append(parent)
     if child not in added:
+        all_categories.append(normalize_text(child).replace(' ', '_'))
         codifiers.append({
             "Code": normalize_text(child).replace(' ', '_'),
             "ParentCode": normalize_text(parent).replace(' ', '_'),
@@ -66,7 +68,8 @@ for line in lines:
             "Value": json.dumps({
                 'remaining_value_code': remaining_value_code.strip(),
                 'average_speed': None if len(average_speed.strip()) <= 0 else float(average_speed.strip()),
-                'field_efficiency': None if len(field_efficiency.strip()) <= 0 else float(field_efficiency.strip())  
+                'field_efficiency': None if len(field_efficiency.strip()) <= 0 else float(field_efficiency.strip()) ,
+                'mascus_category_code': mascus_category_code.strip()
             })
         })
         added.append(child)
@@ -107,3 +110,4 @@ for line in lines:
 
 with open(f'{path_to_codifiers}/codifiers.json', "w", encoding="UTF-8") as fp:
     json.dump(codifiers, fp, indent=4)
+print(all_categories)

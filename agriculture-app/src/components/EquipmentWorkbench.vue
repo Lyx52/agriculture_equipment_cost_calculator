@@ -24,13 +24,22 @@
   import IconX from '@/components/icons/IconX.vue'
   import { v4 as uuid } from 'uuid';
   import { useCodifierStore } from '@/stores/codifier.ts'
-  import { onBeforeMount } from 'vue'
+  import { onBeforeMount, onMounted } from 'vue'
   import IconClockHistory from '@/components/icons/IconClockHistory.vue'
   import EquipmentUsageModal from '@/components/modal/EquipmentUsageModal.vue'
+  import { useIndicatorStore } from '@/stores/indicator.ts'
   const equipmentCollectionStore = useEquipmentCollectionStore();
   const equipmentStore = useEquipmentStore();
   const equipmentCodifierStore = useCodifierStore(uuid());
   const equipmentCategoryTypeStore = useCodifierStore(uuid());
+  const indicatorStore = useIndicatorStore();
+  onMounted(async () => {
+    await indicatorStore.getInflationRate();
+    await indicatorStore.getInterestRate();
+    await indicatorStore.getConsumerPriceIndices();
+    await indicatorStore.getMotorHoursByYear();
+  });
+
   onBeforeMount(async() => {
     equipmentCodifierStore.$reset();
     equipmentCodifierStore.$patch({

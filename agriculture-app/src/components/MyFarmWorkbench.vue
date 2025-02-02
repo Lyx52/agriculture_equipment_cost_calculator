@@ -10,6 +10,8 @@ const indicatorStore = useIndicatorStore();
 onMounted(async () => {
   await indicatorStore.getInflationRate();
   await indicatorStore.getInterestRate();
+  await indicatorStore.getConsumerPriceIndices();
+  await indicatorStore.getMotorHoursByYear();
 });
 const onClearStores = async () => {
   const confirmed = await confirm?.({
@@ -20,7 +22,6 @@ const onClearStores = async () => {
       okVariant: 'danger',
     }
   });
-  console.log(confirmed)
   if (confirmed) {
     localStorage.clear();
     window.location.reload();

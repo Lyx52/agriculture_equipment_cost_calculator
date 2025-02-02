@@ -9,6 +9,8 @@ import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
 import { mapEquipmentTypeCode } from '@/utils.ts'
 import { isValid } from 'date-fns'
+import { useIndicatorStore } from '@/stores/indicator.ts'
+import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
@@ -35,27 +37,63 @@ export class EquipmentModel implements IEquipment {
       this.purchaseDate = undefined;
     }
   }
+
+  /**
+   * Date of the equipment purchase.
+   */
   get itemPurchaseDate(): Date|undefined {
     return this.purchaseDate ? new Date(this.purchaseDate) : undefined;
   }
 
+  /**
+   * Price of the equipment at the time of purchase.
+   */
+  get originalPurchasePrice(): number {
+    return Number(this.price ?? 0);
+  }
+
+  /**
+   * Current purchase price of the equipment, calculated with PPI factor from the purchase date.
+   */
+  get currentPurchasePrice(): number {
+    const purchaseYear = this.itemPurchaseDate?.getFullYear() ?? 0;
+    const indicatorStore = useIndicatorStore();
+
+    return this.originalPurchasePrice * indicatorStore.getConsumerPriceIndexFactor(purchaseYear, new Date().getFullYear());
+  }
+
+  /**
+   * Current usage years of the equipment.
+   */
   get totalCurrentUsageYears(): number {
     return (new Date()).getFullYear() - Number(this.itemPurchaseDate?.getFullYear() ?? 0)
   }
 
+  /**
+   * Remaining usage years of the equipment.
+   */
   get totalRemainingUsageYears(): number {
     return this.totalLifetimeUsageYears - this.totalCurrentUsageYears;
   }
 
+  /**
+   * Expected lifetime usage years of the equipment.
+   */
   get totalLifetimeUsageYears(): number {
     return Number(this.usage?.expectedAge ?? 0);
   }
 
-  get totalCurrentUsageHours() {
+  /**
+   * Total current usage hours of the equipment.
+   */
+  get totalCurrentUsageHours(): number {
     return this.totalCurrentUsageYears * Number(this.usage?.hoursPerYear ?? 0);
   }
 
-  get averageFieldWorkSpeed() {
+  /**
+   * Average field work speed of the equipment, ha/h.
+   */
+  get averageFieldWorkSpeed(): number {
     return (
       Number(this.equipment_type?.configuration?.average_speed ?? 0) *
       (Number(this.equipment_type?.configuration?.field_efficiency ?? 0) / 100) *
@@ -63,18 +101,18 @@ export class EquipmentModel implements IEquipment {
     ) / 10;
   }
 
-  get totalRemainingUsageHours() {
+  get totalRemainingUsageHours(): number {
     return this.totalRemainingUsageYears * Number(this.usage?.hoursPerYear ?? 0);
   }
 
-  get totalLifetimeUsageHours() {
+  get totalLifetimeUsageHours(): number {
     return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
   }
-
 
   get repairValueCode(): RepairCategory {
     return mapEquipmentTypeCode(this.specifications, this.equipment_type_code) ?? 'traktors_4x2'
   }
+
   get lifetimeRepairCostCoefficientValue(): number {
     return getRepairValueForUsageHours(this.repairValueCode, this.totalLifetimeUsageHours);
   }
@@ -83,20 +121,39 @@ export class EquipmentModel implements IEquipment {
     return this.totalCurrentUsageHours < 1 ? 0 : getRepairValueForUsageHours(this.repairValueCode, this.totalCurrentUsageHours);
   }
 
-  get ptoPower() {
+  /**
+   * Equipment PTO power, kW. Approximately 85% of engine power.
+   */
+  get ptoPower(): number {
     // PTO power is approximately equal to 85 percent of engine power (Michelin North America, Inc., 2001).
     return Number(this.specifications.power ?? 0) * 0.85;
   }
 
-  get horsePower() {
+  /**
+   * Equipment PTO power, hp.
+   */
+  get ptoHorsePower(): number {
+    return this.ptoPower * 1.3596216173;
+  }
+
+  /**
+   * Equipment engine power, kW.
+   */
+  get power(): number {
+    return Number(this.specifications.power ?? 0);
+  }
+
+  /**
+   * Equipment engine power, hp.
+   */
+  get horsePower(): number {
     // 1 kw = 1.3596216173 hp
     return Number(this.specifications.power ?? 0) * 1.3596216173;
   }
 
-  get ptoHorsePower() {
-    return this.ptoPower * 1.3596216173;
-  }
-
+  /**
+   * Equipment fuel usage per hour, l/h. Approximately 0.044 l/h per hp. According to Iowa State University.
+   */
   get iowaFuelUsagePerHour() {
     // https://www.extension.iastate.edu/agdm/crops/html/a3-29.html 0.044 constant for diesel engines
     // 3.785411784 for gph to lph conversion
@@ -139,18 +196,27 @@ export class EquipmentModel implements IEquipment {
     return Number(this.specifications.fuel_consumption_coefficient ?? 0) * load * Number(this.specifications.power ?? 0);
   }
 
-  capitalRecoveryValue(capitalRecoveryCoefficient: number, realInterestRate: number): number {
-    return Number(this.depreciationValue * capitalRecoveryCoefficient) + Number((realInterestRate / 100) * this.remainingValue);
+  capitalRecoveryValue(): number {
+    const indicatorStore = useIndicatorStore();
+    const capitalRecoveryCoefficient = indicatorStore.getCapitalRecoveryFactor(this.totalLifetimeUsageYears);
+
+    return Number(this.depreciationValue * capitalRecoveryCoefficient) +
+      Number((indicatorStore.realInterestRate / 100) * this.remainingValue);
   }
-  taxesAndInsuranceCostValue(taxesAndInsuranceRate: number): number {
-    return ((this.price + this.remainingValue) / 2) * (taxesAndInsuranceRate / 100);
+
+  taxesAndInsuranceCostValue(): number {
+    const farmStore = useFarmInformationStore();
+    return ((this.price + this.remainingValue) / 2) * (farmStore.otherExpensesPercentage / 100);
   }
-  totalExpenses(capitalRecoveryCoefficient: number, realInterestRate: number, taxesAndInsuranceRate: number): number {
-    return this.capitalRecoveryValue(capitalRecoveryCoefficient, realInterestRate) + this.taxesAndInsuranceCostValue(taxesAndInsuranceRate);
+
+  totalExpenses(): number {
+    return this.capitalRecoveryValue() + this.taxesAndInsuranceCostValue();
   }
-  totalExpensesPerHour(capitalRecoveryCoefficient: number, realInterestRate: number, taxesAndInsuranceRate: number): number {
-    return this.totalExpenses(capitalRecoveryCoefficient, realInterestRate, taxesAndInsuranceRate) / Math.max(1, Number(this.usage?.hoursPerYear ?? 1));
+
+  totalExpensesPerHour(): number {
+    return this.totalExpenses() / Math.max(1, Number(this.usage?.hoursPerYear ?? 1));
   }
+
   get remainingValueRate() {
     switch (this.equipment_type?.configuration?.remaining_value_code) {
       case 'tractor': return getRemainingValueTractor(Number(this.usage?.hoursPerYear ?? 0), this.horsePower, this.totalLifetimeUsageYears);
@@ -158,5 +224,4 @@ export class EquipmentModel implements IEquipment {
       default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalLifetimeUsageYears);
     }
   }
-
 }

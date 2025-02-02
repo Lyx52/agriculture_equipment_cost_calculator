@@ -8,6 +8,8 @@
   onMounted(async () => {
     await indicatorStore.getInflationRate();
     await indicatorStore.getInterestRate();
+    await indicatorStore.getConsumerPriceIndices();
+    await indicatorStore.getMotorHoursByYear();
   });
   const farmInformationStore = useFarmInformationStore();
   const equipmentCollectionStore = useEquipmentCollectionStore();
@@ -32,12 +34,13 @@
             <BTh>Nodokļi, apdrošināšana un uzturēšana</BTh>
             <BTh>Kopējās izmaksas</BTh>
             <BTh>Kopējās izmaksas stundā</BTh>
+            <BTh>Tests</BTh>
           </BTr>
         </BThead>
         <BTbody>
           <BTr v-for="row in equipmentCollectionStore.models" v-bind:key="row.id">
             <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrRequiredPower(row) }}
+              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.remainingValue.toFixed(2) }}&nbsp;EUR&nbsp;<BBadge class="cursor-pointer" @click="onOpenRemainingValueRates(row.remainingValueRate)">{{ (row.remainingValueRate * 100).toFixed(2) }} %</BBadge>
@@ -46,7 +49,7 @@
               {{ (row.depreciationValue / row.totalLifetimeUsageYears).toFixed(2) }}&nbsp;EUR/gadā
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.capitalRecoveryValue(indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears), indicatorStore.realInterestRate).toFixed(2)
+              {{ row.capitalRecoveryValue().toFixed(2)
               }}&nbsp;EUR&nbsp;
               <BPopover :click="true" :close-on-hide="true" :delay="{show: 0, hide: 0}">
                 <template #target>
@@ -56,14 +59,18 @@
               </BPopover>
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.taxesAndInsuranceCostValue(farmInformationStore.otherExpensesPercentage).toFixed(2) }}&nbsp;EUR
+              {{ row.taxesAndInsuranceCostValue().toFixed(2) }}&nbsp;EUR
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.totalExpenses(indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears), indicatorStore.realInterestRate, farmInformationStore.otherExpensesPercentage).toFixed(2)
+              {{ row.totalExpenses().toFixed(2)
               }}&nbsp;EUR
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.totalExpensesPerHour(indicatorStore.getCapitalRecoveryFactor(row.totalLifetimeUsageYears), indicatorStore.realInterestRate, farmInformationStore.otherExpensesPercentage).toFixed(2)
+              {{ row.totalExpensesPerHour().toFixed(2)
+              }}&nbsp;EUR/h
+            </BTd>
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.totalExpensesPerHour().toFixed(2)
               }}&nbsp;EUR/h
             </BTd>
           </BTr>
@@ -92,7 +99,7 @@
         <BTbody>
           <BTr v-for="row in equipmentCollectionStore.models" v-bind:key="row.id">
             <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrRequiredPower(row) }}
+              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.totalCurrentUsageHours.toFixed(2) }}&nbsp;h

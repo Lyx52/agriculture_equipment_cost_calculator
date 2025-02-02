@@ -9,6 +9,14 @@ export function sum(values: number[]): number {
     return res + val;
   }, 0);
 }
+export function avg(values: number[]): number {
+  return sum(values) / values.length;
+}
+export function max(values: number[]): number {
+  return values.reduce((res, val) => {
+    return Math.max(res, val);
+  }, Number.NEGATIVE_INFINITY);
+}
 export function minBy(values: any[], key: any): any {
   return values.reduce((res, v) => {
     if (!(key in res) || res[key] > v[key]) {

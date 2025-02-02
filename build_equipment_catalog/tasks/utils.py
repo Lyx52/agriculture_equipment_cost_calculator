@@ -1,4 +1,5 @@
 import re, json, os
+from rapidfuzz import fuzz 
 replacements = {
     'ā': 'a',
     'ē': 'e',
@@ -43,6 +44,17 @@ def normalize_text(text):
 # https://www.calculatorsoup.com/calculators/conversions/power.php zs -> kw 
 def convert_zs_to_kw(zs):
     return round(float(zs) * 0.7457, 2)
+
+def rapidfuzz_similarity(a: str, b: str) -> float:
+    normalized_a = normalize_text(a)
+    normalized_b = normalize_text(b)
+    return fuzz.token_sort_ratio(normalized_a, normalized_b) / 100
+
+def word_overlap(a: str, b: str) -> float:
+    words_a = set(normalize_text(a).split())
+    words_b = set(normalize_text(b).split())
+    common_words = words_a & words_b
+    return len(common_words) / max(len(words_a), len(words_b))
 
 class EquipmentModel:
     def __init__(self, manufacturer, model, price, equipment_type_code, specifications):

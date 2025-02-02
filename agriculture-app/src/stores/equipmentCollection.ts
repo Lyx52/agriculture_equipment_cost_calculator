@@ -10,6 +10,7 @@ import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
+import { useIndicatorStore } from '@/stores/indicator.ts'
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
   state(): IEquipmentCollectionStore {
@@ -27,12 +28,14 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
       if (this.items.some(e => e.id === item.id))
         return;
       const itemId = uuid();
+      const indicatorStore = useIndicatorStore();
+      const purchaseYear = item.purchaseDate ? (item.purchaseDate as Date).getFullYear() : new Date().getFullYear();
       const newItem: IEquipment = {
         ...item,
         id: itemId,
         usage: {
           expectedAge: 15,
-          hoursPerYear: 300,
+          hoursPerYear: indicatorStore.getAverageHoursPerForCategory(item.equipment_type?.configuration?.mascus_category_code, purchaseYear),
         } as IEquipmentUsage
       }
       const itemModel = new EquipmentModel(newItem);

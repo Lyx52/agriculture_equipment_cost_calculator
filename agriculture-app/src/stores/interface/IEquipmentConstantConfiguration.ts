@@ -4,4 +4,5 @@ export interface IEquipmentConstantConfiguration {
   remaining_value_code: MachineTypeCode;
   field_efficiency: number|undefined;
   average_speed: number|undefined;
+  mascus_category_code: string;
 }

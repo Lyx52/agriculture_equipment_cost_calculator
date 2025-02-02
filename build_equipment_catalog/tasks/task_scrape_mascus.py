@@ -1,25 +1,13 @@
 import json, os, requests, time, math
 url = "https://qhqraq9hm7.execute-api.eu-central-1.amazonaws.com/Search/SearchAssets"
-items_per_page = 500
-categories = [
-  "tractors",
-  "agriharvesters",
-  "siena-novaksanas-un-lopbaribas-sagatavosanas-tehnika",
-  "augsnes-apstrades-tehnika",
-  "sejmasinas-un-stadamas-masinas",
-  "lopkopibas-iekartas",
-  "meslosanas-aprikojums",
-  "miglotaji",
-  "labibas-apstrades-un-uzglabasanas-iekartas",
-  "kartupelu-tehnika",
-  "lopbaribas-novaceji-(pasgajeji)-lauksaimnieciba"
-]
+items_per_page = 150
 
 payload = {
   "catalogs":[
     "agriculture"
   ],
-  "categories": [],
+  "categories": [
+  ],
   "page": 1,
   "pagesize": items_per_page,
   "usercurrency":"EUR"
@@ -55,33 +43,27 @@ if __name__ == "__main__":
     path_to_mascus_data = "../data/mascus"
     if not os.path.exists(path_to_mascus_data):
         os.makedirs(path_to_mascus_data)
-    results = {
-       "listings": [],
-       "scraped_pages": 0
-    }
+    results = {}
     if os.path.exists(f"{path_to_mascus_data}/mascus_short.json"):
        exit(0)
     if os.path.exists(f"{path_to_mascus_data}/mascus.json"):
-      results = open_json(f"{path_to_mascus_data}/mascus.json")
+        results = open_json(f"{path_to_mascus_data}/mascus.json")
     page = 1
     data = fetch_listings(page)
     totalResults = data['totalResults']
-    results["listings"].extend(data["items"])
-
     max_pages = math.floor(totalResults / items_per_page)
-    if max_pages <= results['scraped_pages']:
-       exit(0)  
-    for page in range(results['scraped_pages'] + 1, max_pages + 1):
-      time.sleep(0.4)
+
+    for page in range(page, max_pages + 1):
+      time.sleep(0.3)
       print(f"{page}/{max_pages}...")
       data = fetch_listings(page)
-      results["listings"].extend(data["items"])
-      results['scraped_pages'] = page
-      if (page % 25) == 0:
-         print(f"Saving...")
+      for item in data["items"]:
+          if item["productId"] not in results:
+              results[item["productId"]] = item
+
+      if (page % 5) == 0:
+         print(f"Saving... {len(results.values())}")
          save_json(f"{path_to_mascus_data}/mascus.json", results)
     
-    data = fetch_listings(max_pages + 1, totalResults - (max_pages * items_per_page))
-    results["listings"].extend(data["items"])
     print(f"Saving...")
     save_json(f"{path_to_mascus_data}/mascus.json", results)

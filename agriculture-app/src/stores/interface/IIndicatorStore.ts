@@ -3,4 +3,6 @@ import type { IIndicatorResponse } from '@/stores/interface/IIndicatorResponse.t
 export interface IIndicatorStore {
   interestRate: IIndicatorResponse;
   inflationRate: IIndicatorResponse;
+  consumerPriceIndices: Record<string, number>;
+  motorHoursByYear: Record<string, Record<string, number>>;
 }

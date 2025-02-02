@@ -5,7 +5,7 @@ execute_order = [
     "task_scrape_lad_catalog",
     "task_build_codifiers",
     "task_build_from_scraped_data",
-    "task_build_equipment_catalog",
+    "task_build_equipment_catalog_lad",
     "task_build_mascus_category_map",
     "task_scrape_mascus"
 ]

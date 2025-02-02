@@ -30,7 +30,6 @@
   import { onMounted } from 'vue'
   import emitter from '@/stores/emitter.ts'
   import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
-  import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
   const props = defineProps<IOperationWorkbenchProps>();
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
