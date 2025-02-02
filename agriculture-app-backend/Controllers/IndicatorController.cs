@@ -1,4 +1,6 @@
+using System.Globalization;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using agriculture_app_backend.Infrastructure.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +14,7 @@ public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _
 {
     private const string InflationData = nameof(InflationData);
     private const string InterestData = nameof(InterestData);
+    private const string ConsumerPriceIndicesData = nameof(ConsumerPriceIndicesData);
     
     [HttpGet("Inflation")]
     [EnableCors("DefaultCorsPolicy")]
@@ -86,6 +89,105 @@ public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _
             .First();
         
         return Json(interest, new JsonSerializerOptions()
+        {
+            WriteIndented = true,
+            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+            DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseUpper
+        });
+    }
+    
+    [HttpGet("ConsumerPriceIndices")]
+    [EnableCors("DefaultCorsPolicy")]
+    public async Task<IActionResult> GetConsumerPriceIndices()
+    {
+        var cachedValue = await _memoryCache.GetOrCreateAsync<string>(ConsumerPriceIndicesData, async (cacheValue) =>
+        {
+            var client = _httpClientFactory.CreateClient(ConsumerPriceIndicesData);
+            var postData = JsonSerializer.Deserialize<object>(
+                """
+                {
+                  "query": [
+                    {
+                      "code": "ECOICOP",
+                      "selection": {
+                        "filter": "vs:VS_ECOICOP",
+                        "values": [
+                          "07"
+                        ]
+                      }
+                    },
+                    {
+                      "code": "ContentsCode",
+                      "selection": {
+                        "filter": "item",
+                        "values": [
+                          "PCI020m"
+                        ]
+                      }
+                    },
+                    {
+                      "code": "TIME",
+                      "selection": {
+                        "filter": "all",
+                        "values": [
+                          "*M01",
+                          "*M02",
+                          "*M03",
+                          "*M04",
+                          "*M05",
+                          "*M06",
+                          "*M07",
+                          "*M08",
+                          "*M09",
+                          "*M10",
+                          "*M11",
+                          "*M12"
+                        ]
+                      }
+                    }
+                  ],
+                  "response": {
+                    "format": "JSON"
+                  }
+                }
+                """
+            );
+            var response = await client.PostAsJsonAsync("https://data.stat.gov.lv:443/api/v1/en/OSP_PUB/START/VEK/PC/PCI/PCI020m", postData);
+            var data = await response.Content.ReadAsStringAsync();
+            var result = JsonSerializer.Deserialize<ConsumerPriceIndicesModel>(data);
+
+            if (result is null) return string.Empty;
+
+            var resultView = result.Data.GroupBy(
+                value => value.key[1].Substring(0, 4),
+                value => float.TryParse(value.values[0], out var index) ? index : -1
+            ).ToDictionary(
+                value => value.Key,
+                value => value.Where(v => v >= 0).Average()
+            );
+
+            var cachedJson = JsonSerializer.Serialize(resultView);
+            
+            cacheValue
+                .SetValue(cachedJson)
+                .SetAbsoluteExpiration(DateTimeOffset.Now.AddDays(15));
+            return cachedJson;
+        });
+        
+        if (string.IsNullOrEmpty(cachedValue))
+        {
+            return StatusCode(500, "Failed to request consumer price indices metrics");
+        }
+
+        var result = JsonSerializer.Deserialize<Dictionary<string, float>>(cachedValue);
+        
+        if (result is null)
+        {
+            return StatusCode(500, "Failed to request consumer price indices metrics");
+        }
+
+        
+        return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,
             PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
