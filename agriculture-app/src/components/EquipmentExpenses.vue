@@ -28,19 +28,22 @@
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
             <BTh>Tehnikas vienība</BTh>
+            <BTh>Iegādes cena</BTh>
             <BTh>Atlikusī vērtība</BTh>
             <BTh>Amortizācija gadā</BTh>
             <BTh>Kapitāla atgūšanas vērtība</BTh>
             <BTh>Nodokļi, apdrošināšana un uzturēšana</BTh>
             <BTh>Kopējās izmaksas</BTh>
             <BTh>Kopējās izmaksas stundā</BTh>
-            <BTh>Tests</BTh>
           </BTr>
         </BThead>
         <BTbody>
           <BTr v-for="row in equipmentCollectionStore.models" v-bind:key="row.id">
             <BTd>
               {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
+            </BTd>
+            <BTd class="text-center user-select-none vertical-align-middle">
+              {{ row.originalPurchasePrice.toFixed(2) }}&nbsp;EUR
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.remainingValue.toFixed(2) }}&nbsp;EUR&nbsp;<BBadge class="cursor-pointer" @click="onOpenRemainingValueRates(row.remainingValueRate)">{{ (row.remainingValueRate * 100).toFixed(2) }} %</BBadge>
@@ -64,10 +67,6 @@
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.totalExpenses().toFixed(2)
               }}&nbsp;EUR
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.totalExpensesPerHour().toFixed(2)
-              }}&nbsp;EUR/h
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.totalExpensesPerHour().toFixed(2)

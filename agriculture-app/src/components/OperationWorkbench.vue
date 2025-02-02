@@ -97,6 +97,7 @@
       'traktors_kezu'
     ].includes(code ?? '');
   }
+  console.log(operationStore.filteredItems)
 </script>
 
 <template>
@@ -131,6 +132,7 @@
           <BTh rowspan="1" colspan="2" class="text-center">Cena, EUR</BTh>
           <BTh rowspan="1" colspan="2" class="text-center">Gada noslodze, h</BTh>
           <BTh rowspan="2">Darba ražīgums, ha/h</BTh>
+          <BTh rowspan="2">Degvielas patērīņš, ha/h</BTh>
           <BTh rowspan="2">&nbsp;</BTh>
         </BTr>
         <BTr>
@@ -183,13 +185,16 @@
             {{ (row.machine?.price ?? 0).toFixed(2) }}
           </BTd>
           <BTd :colspan="isTractor(row.tractorOrCombine?.equipment_type_code) ? 1 : 2" class="text-center">
-            {{ (row.tractorOrCombine?.totalCurrentUsageHours ?? 0).toFixed(2) }} h
+            {{ (row.tractorOrCombine?.hoursPerYear ?? 0).toFixed(2) }} h
           </BTd>
           <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
             {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }} h
           </BTd>
-          <BTd class="text-center">
+          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
             {{ (row.machine?.averageFieldWorkSpeed ?? 0).toFixed(2) }} ha/h
+          </BTd>
+          <BTd v-else class="text-center">
+            {{ (row.tractorOrCombine?.averageFieldWorkSpeed ?? 0).toFixed(2) }} ha/h
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
