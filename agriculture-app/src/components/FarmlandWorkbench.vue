@@ -70,7 +70,7 @@
   const onOpenOperationsWorkbench = (farmland: IFarmland) => {
     operationStore.resetFilters();
     operationStore.$patch({
-      filteredFarmland: farmland
+      filteredFarmlandId: farmland.id
     })
     showFarmlandOperations.value = true
   }

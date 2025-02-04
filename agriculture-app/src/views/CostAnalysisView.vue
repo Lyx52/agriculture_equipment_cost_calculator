@@ -11,7 +11,7 @@ import EquipmentExpensesByOperation from '@/components/EquipmentExpensesByOperat
       <BTab title="Izmaksas aprēķins pēc tehnikas vienības" active>
         <TotalEquipmentExpenses />
       </BTab>
-      <BTab title="Izmaksas aprēķins pēc apstrādes operācijām" active>
+      <BTab title="Izmaksas aprēķins pēc apstrādes operācijām">
         <EquipmentExpensesByOperation />
       </BTab>
       <BTab title="Izmaksas aprēķins pēc apstrādes laukiem" disabled>

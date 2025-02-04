@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
-  import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BBadge, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
+  import { BTableSimple, BTbody, BTh, BThead, BTr, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
   import { useIndicatorStore } from '@/stores/indicator.ts'
   import { onMounted, ref } from 'vue'
   const indicatorStore = useIndicatorStore();
@@ -44,43 +44,8 @@
           </BTr>
         </BThead>
         <BTbody>
-          <BTr v-for="row in equipmentCollectionStore.models" v-bind:key="row.id">
-            <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.totalCurrentUsageYears }}&nbsp;gadi ({{ row.totalCurrentUsageHours }}&nbsp;stundas)
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.originalPurchasePrice.toFixed(2) }}&nbsp;EUR
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.currentPurchasePrice.toFixed(2) }}&nbsp;EUR
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.salvageValue.toFixed(2) }}&nbsp;EUR
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.totalDepreciationValue.toFixed(2) }}&nbsp;EUR
-            </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.capitalRecoveryValuePerYear.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }} <BBadge class="cursor-pointer">{{ (row.capitalRecoveryCoefficient * 100).toFixed(2) }} %</BBadge>
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.capitalRecoveryValuePerHour.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }} <BBadge class="cursor-pointer">{{ (row.capitalRecoveryCoefficient * 100).toFixed(2) }} %</BBadge>
-            </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.taxesAndInsuranceCostValuePerYear.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.taxesAndInsuranceCostValuePerHour.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.totalOwnershipCostPerYear.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.totalOwnershipCostPerHour.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
+          <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
+
           </BTr>
         </BTbody>
       </BTableSimple>
@@ -105,59 +70,7 @@
           </BTr>
         </BThead>
         <BTbody>
-          <BTr v-for="row in equipmentCollectionStore.models" v-bind:key="row.id">
-            <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.totalCurrentUsageYears }}&nbsp;gadi ({{ row.totalCurrentUsageHours }}&nbsp;stundas)
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.originalPurchasePrice.toFixed(2) }}&nbsp;EUR
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.currentPurchasePrice.toFixed(2) }}&nbsp;EUR
-            </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.accumulatedRepairsCostValue.toFixed(2) }}&nbsp;EUR ({{ (row.repairValueFactor * 100).toFixed(2) }}&nbsp;%)
-            </BTd>
-            <BTd v-if="row.isTractorOrCombine && selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.fuelCostsPerYearNew().toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else-if="row.isTractorOrCombine" class="text-center user-select-none vertical-align-middle">
-              {{ row.fuelCostsPerHourNew().toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              &nbsp;-&nbsp;
-            </BTd>
-            <BTd v-if="row.isTractorOrCombine && selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.lubricationCostsPerYearNew().toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else-if="row.isTractorOrCombine" class="text-center user-select-none vertical-align-middle">
-              {{ row.lubricationCostsPerHourNew().toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              &nbsp;-&nbsp;
-            </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.accumulatedRepairsCostPerYear.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.accumulatedRepairsCostPerHour.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.equipmentOperatorWageCostPerYear.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.equipmentOperatorWageCostPerHour.toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'"  class="text-center user-select-none vertical-align-middle">
-              {{ row.totalOperatingCostsPerYear().toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.totalOperatingCostsPerHour().toFixed(2) }}&nbsp;EUR/{{ selectedCalculatePer }}
-            </BTd>
-
+          <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
           </BTr>
         </BTbody>
       </BTableSimple>
