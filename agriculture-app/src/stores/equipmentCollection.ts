@@ -51,6 +51,7 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
       const item = this.items.find(i => i.id === itemId);
       return item ? item : undefined;
     },
+
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {

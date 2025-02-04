@@ -44,7 +44,7 @@ export const useOperationStore = defineStore('operation', {
       let filteredItems = state.items;
 
       if (state.filteredFarmlandId) {
-        filteredItems = filteredItems.filter(o => o.farmland?.id == state.filteredFarmlandId);
+        filteredItems = filteredItems.filter(o => o.farmlandId == state.filteredFarmlandId);
       }
       if (state.filteredFarmlandOperation) {
         filteredItems = filteredItems.filter(o => o.operation?.operationCode == state.filteredFarmlandOperation?.operationCode);

@@ -10,6 +10,7 @@ import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
 import emitter from '@/stores/emitter.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import { FarmlandModel } from '@/stores/model/farmlandModel.ts'
+import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 export const useFarmlandStore = defineStore('farmland', {
   state(): IFarmlandStore {
       return {
@@ -40,10 +41,9 @@ export const useFarmlandStore = defineStore('farmland', {
     },
 
     getItemById(itemId: string|undefined): FarmlandModel|undefined {
-      const item = this.items.find(i => i.id !== itemId);
-      return item || undefined;
+      const item = this.items.find(i => i.id === itemId);
+      return item ? item : undefined;
     },
-
     getFormattedOption(value: any): IDropdownOption<any> {
       console.log(value)
       const item = this.getItemById(value);

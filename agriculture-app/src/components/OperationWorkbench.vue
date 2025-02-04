@@ -43,6 +43,7 @@
   });
 
   const addNewOperation = () => {
+    console.log(operationStore.filteredFarmlandId)
     operationStore.pushItem({
       id: '',
       farmlandId: operationStore.filteredFarmlandId,

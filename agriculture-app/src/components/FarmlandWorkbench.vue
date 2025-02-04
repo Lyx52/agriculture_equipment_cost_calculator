@@ -69,6 +69,7 @@
   const showFarmlandOperations = ref<boolean>(false);
   const onOpenOperationsWorkbench = (farmland: IFarmland) => {
     operationStore.resetFilters();
+    console.log(farmland)
     operationStore.$patch({
       filteredFarmlandId: farmland.id
     })
