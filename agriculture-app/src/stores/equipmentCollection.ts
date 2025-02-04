@@ -11,6 +11,7 @@ import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
 import { useIndicatorStore } from '@/stores/indicator.ts'
+import { sum } from '@/utils.ts'
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
   state(): IEquipmentCollectionStore {
@@ -46,28 +47,30 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
       this.items = this.items.filter(i => i.id !== itemId);
       emitter.emit(this.getEmitterEvent(CollectionEvents.ItemRemoved), itemId);
     },
-    getItemById(itemId: string|undefined) {
-      if (itemId) return this.items.find(i => i.id === itemId);
-      return undefined;
+    getItemById(itemId: string|undefined): EquipmentModel|undefined {
+      const item = this.items.find(i => i.id === itemId);
+      return item ? item : undefined;
     },
     getFormattedOption(value: any): IDropdownOption<any> {
+      const item = this.getItemById(value);
       return {
-        name: `${value.equipment_type?.name} - ${value.manufacturer} ${value.model} ${this.getPowerOrWorkingWidth(value)}`,
-        id: value.id,
+        name: `${item?.equipment_type?.name} - ${item?.manufacturer} ${item?.model} ${this.getPowerOrWorkingWidth(item)}`,
+        id: value,
         value: value,
       }
     },
     getFilteredTractorOrCombine(searchText: string): IDropdownOption<any>[] {
-      return this.models
+      return this.items
         .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrWorkingWidth(e)}`.toLowerCase().includes(searchText.toLowerCase()) && this.isTractorOrCombine(e))
-        .map(e => this.getFormattedOption(e));
+        .map(e => this.getFormattedOption(e.id));
     },
     getFilteredMachines(searchText: string): IDropdownOption<any>[] {
-      return this.models
+      return this.items
         .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrWorkingWidth(e)}`.toLowerCase().includes(searchText.toLowerCase()) && !this.isTractorOrCombine(e))
-        .map(e => this.getFormattedOption(e));
+        .map(e => this.getFormattedOption(e.id));
     },
-    getPowerOrWorkingWidth(item: IEquipment) {
+    getPowerOrWorkingWidth(item: IEquipment|undefined) {
+      if (!item) return '';
       if (item.specifications.power) return `(${item.specifications.power} kw)`;
       if (item.specifications.work_width) return `(${item.specifications.work_width} m)`;
       return '';
@@ -82,6 +85,10 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         'graudaugu_kombains',
         'ogu_novaksans_kombains'
       ].includes(item.equipment_type_code);
+    },
+    equipmentTotalsByProperty(mapFunc: (model: EquipmentModel) => number): number {
+      const models: EquipmentModel[] = this.items;
+      return sum(models.map(mapFunc));
     }
   },
   getters: {
@@ -92,10 +99,6 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
       }
       return items;
     },
-    models(state: IEquipmentCollectionStore): EquipmentModel[] {
-      console.log(state)
-      return state.items.map(e => new EquipmentModel(e));
-    }
   },
   persist: {
     serializer: {

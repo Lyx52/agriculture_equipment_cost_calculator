@@ -70,7 +70,6 @@ const searchText = ref<string>('');
 const model = defineModel();
 const props = defineProps<ISimpleDropdownProps>();
 const selectedItem = ref<IDropdownOption<any>|undefined>(model.value ? props.getFormattedOption(model.value) : undefined);
-
 watch(model, (newModelValue) => {
   selectedItem.value = newModelValue ? props.getFormattedOption(newModelValue) : undefined;
 });

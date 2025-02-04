@@ -117,7 +117,7 @@
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               <span v-if="row.isTractorOrCombine">
-                {{ row.fuelUsagePerHour().toFixed(2) }}&nbsp;l/h
+                {{ row.fuelCostsPerHour().toFixed(2) }}&nbsp;l/h
                 <BPopover :click="true" :close-on-hide="true" :delay="{show: 0, hide: 0}">
                   <template #target>
                     <BBadge class="cursor-pointer">80%</BBadge>
@@ -131,7 +131,7 @@
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               <span v-if="row.isTractorOrCombine">
-              {{ (row.fuelUsagePerHour() * farmInformationStore.fuelPrice).toFixed(2) }}&nbsp;EUR/h
+              {{ (row.fuelCostsPerHour() * farmInformationStore.fuelPrice).toFixed(2) }}&nbsp;EUR/h
               </span>
               <span v-else>
                 -
@@ -139,7 +139,8 @@
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               <span v-if="row.isTractorOrCombine">
-                {{ ((row.fuelUsagePerHour() * farmInformationStore.fuelPrice) * (farmInformationStore.lubricantExpensesPercentage / 100)).toFixed(2) }}&nbsp;EUR/h&nbsp;
+                {{ ((row.fuelCostsPerHour() * farmInformationStore.fuelPrice) * (farmInformationStore.lubricantExpensesPercentage / 100)).toFixed(2)
+                }}&nbsp;EUR/h&nbsp;
                 <BPopover :click="true" :close-on-hide="true" :delay="{show: 0, hide: 0}">
                   <template #target>
                     <BBadge class="cursor-pointer">{{ farmInformationStore.lubricantExpensesPercentage }}%</BBadge>
@@ -154,8 +155,8 @@
             <BTd class="text-center user-select-none vertical-align-middle">
               {{
                 (
-                  ((row.fuelUsagePerHour() * farmInformationStore.fuelPrice) * (farmInformationStore.lubricantExpensesPercentage / 100)) +
-                  (row.fuelUsagePerHour() * farmInformationStore.fuelPrice) +
+                  ((row.fuelCostsPerHour() * farmInformationStore.fuelPrice) * (farmInformationStore.lubricantExpensesPercentage / 100)) +
+                  (row.fuelCostsPerHour() * farmInformationStore.fuelPrice) +
                   row.averageRemainingCostOfRepairPerHour
                 ).toFixed(2)
               }}&nbsp;EUR/h

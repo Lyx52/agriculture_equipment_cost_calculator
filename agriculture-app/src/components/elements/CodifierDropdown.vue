@@ -44,7 +44,7 @@
             >
                 <li v-for="item in codifierStore.filteredItems" class="item-height" v-bind:key="item.code">
                     <a class="dropdown-item cursor-pointer" @click="onSelectItem(item)">
-                        {{ item.name }}
+                        {{ item.name }} {{ props.showValue ? `(${item.value})` : '' }}
                     </a>
                 </li>
             </BOverlay>
@@ -60,7 +60,7 @@ import {
     BButton,
     BOverlay
 } from "bootstrap-vue-next";
-import { ref, useTemplateRef, watch } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import { onClickOutside, watchArray } from '@vueuse/core'
 import type { ICodifierDropdown } from '@/props/ICodifierDropdown.ts'
 import { useCodifierStore } from '@/stores/codifier.ts'

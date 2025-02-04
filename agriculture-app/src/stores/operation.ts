@@ -5,13 +5,13 @@ import type { IOperationStore } from '@/stores/interface/IOperationStore.ts'
 import type { IOperation } from '@/stores/interface/IOperation.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
-import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
+import { OperationModel } from '@/stores/model/operationModel.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {
       return {
-        items: [],
-        filteredFarmland: undefined,
+        items: [] as OperationModel[],
+        filteredFarmlandId: undefined,
         filteredFarmlandOperation: undefined
       }
   },
@@ -20,16 +20,17 @@ export const useOperationStore = defineStore('operation', {
       return eventType + ":" + CollectionTypes.Operation;
     },
     resetFilters(): void {
-      this.filteredFarmland = undefined;
+      this.filteredFarmlandId = undefined;
+      this.filteredFarmlandOperation = undefined;
     },
     pushItem(item: IOperation): void {
       if (this.items.some(e => e.id === item.id))
         return;
       const itemId = uuid();
-      const newItem = {
+      const newItem = new OperationModel({
         ...item,
         id: itemId
-      }
+      } as IOperation);
       this.items.push(newItem);
       emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), newItem);
     },
@@ -39,11 +40,11 @@ export const useOperationStore = defineStore('operation', {
     },
   },
   getters: {
-    filteredItems(state: IOperationStore): IOperation[] {
+    filteredItems(state: IOperationStore): OperationModel[] {
       let filteredItems = state.items;
 
-      if (state.filteredFarmland) {
-        filteredItems = filteredItems.filter(o => o.farmland?.id == state.filteredFarmland?.id);
+      if (state.filteredFarmlandId) {
+        filteredItems = filteredItems.filter(o => o.farmland?.id == state.filteredFarmlandId);
       }
       if (state.filteredFarmlandOperation) {
         filteredItems = filteredItems.filter(o => o.operation?.operationCode == state.filteredFarmlandOperation?.operationCode);
@@ -56,12 +57,8 @@ export const useOperationStore = defineStore('operation', {
       deserialize: (data: string) => {
         const stateData = JSON.parse(data);
         return {
-          items: stateData.items.map((item: any) => ({
-            ...item,
-            tractorOrCombine: item.tractorOrCombine ? new EquipmentModel(item.tractorOrCombine) : undefined,
-            machine: item.machine ? new EquipmentModel(item.machine) : undefined,
-          } as IOperation)),
-          filteredFarmland: undefined,
+          items: stateData.items.map((o: any) => new OperationModel(o)),
+          filteredFarmlandId: undefined,
           filteredFarmlandOperation: undefined
         } as IOperationStore
       },

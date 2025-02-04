@@ -46,7 +46,8 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
       if (this.selectedItem) {
         this.cachedCodifiersByCode.set(code, this.selectedItem);
       }
-    }
+    },
+
   },
   getters: {
     filteredItems(state: ICodifierStore): ICodifier[] {

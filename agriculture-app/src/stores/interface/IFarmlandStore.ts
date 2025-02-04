@@ -1,6 +1,6 @@
-import type { IFarmland } from '@/stores/interface/IFarmland.ts'
+import type { FarmlandModel } from '@/stores/model/farmlandModel.ts';
 
 export interface IFarmlandStore {
-  items: IFarmland[];
+  items: FarmlandModel[];
   showMapModal: boolean;
 }

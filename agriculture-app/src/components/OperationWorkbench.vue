@@ -45,13 +45,13 @@
   const addNewOperation = () => {
     operationStore.pushItem({
       id: '',
-      farmland: operationStore.filteredFarmland,
+      farmlandId: operationStore.filteredFarmlandId,
       operation: {
         operationCode: 'operation_110',
         operationName: 'Aršana',
       } as IFarmlandOperation,
-      tractorOrCombine: undefined,
-      machine: undefined
+      tractorOrCombineId: undefined,
+      machineId: undefined
     });
     operationStore.filteredFarmlandOperation = undefined;
     farmlandOperationCodifierStore.$reset();
@@ -63,11 +63,11 @@
     };
   }
   const hasFilters = () => {
-    return !!operationStore.filteredFarmlandOperation || !!operationStore.filteredFarmland
+    return !!operationStore.filteredFarmlandOperation || !!operationStore.filteredFarmlandId
   }
   const resetFilters = () => {
     farmlandOperationCodifierStore.$reset();
-    operationStore.filteredFarmland = undefined;
+    operationStore.filteredFarmlandId = undefined;
     operationStore.filteredFarmlandOperation = undefined;
   }
   const onOperationSelected = (operation: IOperation, codifier: ICodifier) => {
@@ -85,10 +85,6 @@
       return store.setSelectedByCode(item.operation?.operationCode)
     })
     await Promise.all(codifierTasks);
-    for (const operation of operationStore.items) {
-      operation.machine = equipmentCollectionStore.getItemById(operation.machine?.id)
-      operation.tractorOrCombine = equipmentCollectionStore.getItemById(operation.tractorOrCombine?.id)
-    }
   })
   const isTractor = (code: string|undefined) => {
     return [
@@ -97,7 +93,6 @@
       'traktors_kezu'
     ].includes(code ?? '');
   }
-  console.log(operationStore.filteredItems)
 </script>
 
 <template>
@@ -108,7 +103,7 @@
           :is-loading="false"
           :get-filtered="farmlandStore.getFiltered"
           :get-formatted-option="farmlandStore.getFormattedOption"
-          v-model="operationStore.filteredFarmland"
+          v-model="operationStore.filteredFarmlandId"
         />
       </BFormGroup>
       <BFormGroup label="Filtrēt pēc apstrādes operācijas">
@@ -132,7 +127,6 @@
           <BTh rowspan="1" colspan="2" class="text-center">Cena, EUR</BTh>
           <BTh rowspan="1" colspan="2" class="text-center">Gada noslodze, h</BTh>
           <BTh rowspan="2">Darba ražīgums, ha/h</BTh>
-          <BTh rowspan="2">Degvielas patērīņš, ha/h</BTh>
           <BTh rowspan="2">&nbsp;</BTh>
         </BTr>
         <BTr>
@@ -149,7 +143,7 @@
               :is-loading="false"
               :get-filtered="farmlandStore.getFiltered"
               :get-formatted-option="farmlandStore.getFormattedOption"
-              v-model="row.farmland"
+              v-model="row.farmlandId"
             />
           </BTd>
           <BTd>
@@ -158,6 +152,7 @@
               :parent-codifier-codes="[Codifiers.OperationTypes]"
               :store-id="row.id"
               @on-selected="codifier => onOperationSelected(row, codifier)"
+              :showValue="true"
             />
           </BTd>
           <BTd>
@@ -166,13 +161,13 @@
                 :is-loading="false"
                 :get-filtered="equipmentCollectionStore.getFilteredTractorOrCombine"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
-                v-model="row.tractorOrCombine"
+                v-model="row.tractorOrCombineId"
               />
               <SimpleDropdown
                 :is-loading="false"
                 :get-filtered="equipmentCollectionStore.getFilteredMachines"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
-                v-model="row.machine"
+                v-model="row.machineId"
                 v-if="isTractor(row.tractorOrCombine?.equipment_type_code)"
               />
             </div>

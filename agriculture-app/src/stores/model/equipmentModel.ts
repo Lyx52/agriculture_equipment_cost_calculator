@@ -58,7 +58,6 @@ export class EquipmentModel implements IEquipment {
   get currentPurchasePrice(): number {
     const purchaseYear = this.itemPurchaseDate?.getFullYear() ?? 0;
     const indicatorStore = useIndicatorStore();
-
     return this.originalPurchasePrice * indicatorStore.getConsumerPriceIndexFactor(purchaseYear, new Date().getFullYear());
   }
 
@@ -90,15 +89,31 @@ export class EquipmentModel implements IEquipment {
     return this.totalCurrentUsageYears * this.hoursPerYear;
   }
 
+  /**
+   * Total remaining usage hours of the equipment.
+   */
+  get totalRemainingUsageHours(): number {
+    return this.totalLifetimeUsageHours - this.totalCurrentUsageHours;
+  }
+
+  /**
+   * Total lifetime usage hours of the equipment.
+   */
+  get totalLifetimeUsageHours(): number {
+    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
+  }
+
+  /**
+   * Total remaining usage hours of the equipment. (Per year)
+   */
   get hoursPerYear(): number {
     return Number(this.usage?.hoursPerYear ?? 0);
   }
 
   /**
-   * Average field work speed of the equipment, ha/h.
+   * Effective field work speed of the equipment, ha/h.
    */
   get averageFieldWorkSpeed(): number {
-    console.log(this.equipment_type)
     return (
       Number(this.equipment_type?.configuration?.average_speed ?? 0) *
       (Number(this.equipment_type?.configuration?.field_efficiency ?? 0) / 100) *
@@ -106,24 +121,75 @@ export class EquipmentModel implements IEquipment {
     ) / 10;
   }
 
-  get totalRemainingUsageHours(): number {
-    return this.totalRemainingUsageYears * Number(this.usage?.hoursPerYear ?? 0);
-  }
-
-  get totalLifetimeUsageHours(): number {
-    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
-  }
-
+  /**
+   * Repair value code of the equipment. Used to get repair value coefficients.
+   */
   get repairValueCode(): RepairCategory {
     return mapEquipmentTypeCode(this.specifications, this.equipment_type_code) ?? 'traktors_4x2'
   }
 
-  get lifetimeRepairCostCoefficientValue(): number {
+  /**
+   * Lifetime repair cost coefficient value of the equipment.
+   */
+  get repairValueFactor(): number {
     return getRepairValueForUsageHours(this.repairValueCode, this.totalLifetimeUsageHours);
   }
 
-  get currentRepairCostCoefficientValue(): number {
-    return this.totalCurrentUsageHours < 1 ? 0 : getRepairValueForUsageHours(this.repairValueCode, this.totalCurrentUsageHours);
+  /**
+   * Accumulated repairs cost value of the equipment. Over the lifetime.
+   */
+  get accumulatedRepairsCostValue(): number {
+    return this.repairValueFactor * this.currentPurchasePrice;
+  }
+
+  /**
+   * Accumulated repairs cost per year of the equipment.
+   */
+  get accumulatedRepairsCostPerYear(): number {
+    return this.accumulatedRepairsCostValue / this.totalLifetimeUsageYears;
+  }
+
+  /**
+   * Accumulated repairs cost per hour of the equipment.
+   */
+  get accumulatedRepairsCostPerHour(): number {
+    return this.accumulatedRepairsCostValue / this.totalLifetimeUsageHours;
+  }
+
+  /**
+   * Equipment operator wage cost per hour.
+   */
+  get equipmentOperatorWageCostPerHour(): number {
+    const farmStore = useFarmInformationStore();
+    return farmStore.employeeWage;
+  }
+
+  /**
+   * Equipment operator wage cost per year.
+   */
+  get equipmentOperatorWageCostPerYear(): number {
+    return this.equipmentOperatorWageCostPerHour * this.hoursPerYear;
+  }
+
+  /**
+   * Total operating costs per hour of the equipment.
+   * @param loadWork - % load of the equipment. Default is 80%.
+   * @param loadTurn - % load of the equipment for turning. Default is 30%.
+   */
+  totalOperatingCostsPerYear(loadWork: number = 0.8, loadTurn: number = 0.3): number {
+    return this.equipmentOperatorWageCostPerYear +
+      this.fuelCostsPerHourNew(loadWork, loadTurn) +
+      this.lubricationCostsPerYearNew(loadWork, loadTurn) +
+      this.accumulatedRepairsCostPerYear;
+  }
+
+  /**
+   * Total operating costs per hour of the equipment.
+   * @param loadWork - % load of the equipment. Default is 80%.
+   * @param loadTurn - % load of the equipment for turning. Default is 30%.
+   */
+  totalOperatingCostsPerHour(loadWork: number = 0.8, loadTurn: number = 0.3): number {
+    return this.totalOperatingCostsPerYear(loadWork, loadTurn) / this.hoursPerYear;
   }
 
   /**
@@ -159,30 +225,174 @@ export class EquipmentModel implements IEquipment {
   /**
    * Equipment fuel usage per hour, l/h. Approximately 0.044 l/h per hp. According to Iowa State University.
    */
-  get iowaFuelUsagePerHour() {
+  get iowaFuelCostsPerHour() {
     // https://www.extension.iastate.edu/agdm/crops/html/a3-29.html 0.044 constant for diesel engines
     // 3.785411784 for gph to lph conversion
-    return this.ptoHorsePower * 0.044 * 3.785411784;
+    const farmStore = useFarmInformationStore();
+    return this.ptoHorsePower * 0.044 * 3.785411784 * farmStore.fuelPrice;
   }
 
-  get remainingValue() {
-    return this.remainingValueRate * this.price;
+  /**
+   * Equipment fuel usage per hour, l/h. Calculated from fuel consumption coefficient.
+   * @param load - % load of the equipment. Default is 80%.
+   */
+  fuelCostsPerHour(load: number = 0.8) {
+    const farmStore = useFarmInformationStore();
+    return Number(this.specifications.fuel_consumption_coefficient ?? 0) * load * Number(this.specifications.power ?? 0) * farmStore.fuelPrice;
   }
 
-  get depreciationValue() {
-    return this.price - this.remainingValue;
+  /**
+   * Equipment fuel usage per year, l/year. Calculated from fuel consumption coefficient.
+   * @param load - % load of the equipment. Default is 80%.
+   */
+  fuelCostsPerYear(load: number = 0.8) {
+    return this.fuelCostsPerHour(load) * this.hoursPerYear;
   }
 
-  get currentCostOfRepair(): number {
-    return this.currentRepairCostCoefficientValue * this.price;
+  /**
+   * Equipment fuel usage per hour, l/h. Calculated from fuel consumption coefficient.
+   * @param loadWork - % load of the equipment for field work. Default is 80%.
+   * @param loadTurn - % load of the equipment for turning. Default is 30%.
+   */
+  fuelCostsPerHourNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
+    // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
+    const farmStore = useFarmInformationStore();
+    return (
+        Number(this.specifications.fuel_consumption_coefficient ?? 0) * loadWork * Number(this.specifications.power ?? 0)
+      ) + (
+        Number(this.specifications.fuel_consumption_coefficient ?? 0) * loadTurn * Number(this.specifications.power ?? 0)
+      )
+      * farmStore.fuelPrice;
   }
 
-  get lifetimeCostOfRepair(): number {
-    return this.lifetimeRepairCostCoefficientValue * this.price;
+  /**
+   * Equipment fuel usage per year, l/year. Calculated from fuel consumption coefficient.
+   * @param loadWork - % load of the equipment for field work. Default is 80%.
+   * @param loadTurn - % load of the equipment for turning. Default is 30%.
+   */
+  fuelCostsPerYearNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
+    // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
+    return this.fuelCostsPerHourNew(loadWork, loadTurn) * this.hoursPerYear;
   }
 
-  get averageRemainingCostOfRepairPerHour(): number {
-    return (this.lifetimeCostOfRepair - this.currentCostOfRepair) / (this.totalLifetimeUsageHours - this.totalCurrentUsageHours);
+  /**
+   * Equipment lubrication costs per hour, l/h. Calculated from fuel consumption calculation.
+   * @param load
+   */
+  lubricationCostsPerHour(load: number = 0.8) {
+    const farmStore = useFarmInformationStore();
+    return this.fuelCostsPerHour(load) * (farmStore.lubricantExpensesPercentage / 100);
+  }
+
+  /**
+   * Equipment lubrication costs per year, l/year. Calculated from fuel consumption calculation.
+   * @param load
+   */
+  lubricationCostsPerYear(load: number = 0.8) {
+    return this.lubricationCostsPerHour(load) * this.hoursPerYear;
+  }
+
+  /**
+   * Equipment lubrication costs per hour, l/h. Calculated from iowa fuel consumption calculation.
+   */
+  get iowaLubricationCostsPerHour() {
+    const farmStore = useFarmInformationStore();
+    return this.iowaFuelCostsPerHour * (farmStore.lubricantExpensesPercentage / 100);
+  }
+
+  /**
+   * Equipment lubrication costs per hour, l/h. Calculated from fuel consumption calculation.
+   * @param load - % load of the equipment. Default is 80%.
+   * @param loadTurn - % load of the equipment for turning. Default is 30%.
+   */
+  lubricationCostsPerHourNew(load: number = 0.8, loadTurn: number = 0.3) {
+    const farmStore = useFarmInformationStore();
+    return this.fuelCostsPerHourNew(load, loadTurn) * (farmStore.lubricantExpensesPercentage / 100);
+  }
+
+  /**
+   * Equipment lubrication costs per year, l/year. Calculated from fuel consumption calculation.
+   * @param load - % load of the equipment. Default is 80%.
+   * @param loadTurn - % load of the equipment for turning. Default is 30%.
+   */
+  lubricationCostsPerYearNew(load: number = 0.8, loadTurn: number = 0.3) {
+    return this.lubricationCostsPerHourNew(load, loadTurn) * this.hoursPerYear;
+  }
+
+  /**
+   * Remaining value factor
+   */
+  get remainingValueFactor() {
+    switch (this.equipment_type?.configuration?.remaining_value_code) {
+      case 'tractor': return getRemainingValueTractor(Number(this.usage?.hoursPerYear ?? 0), this.horsePower, this.totalLifetimeUsageYears);
+      case 'combine': return getRemainingValueCombine(Number(this.usage?.hoursPerYear ?? 0), this.totalLifetimeUsageYears);
+      default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalLifetimeUsageYears);
+    }
+  }
+
+  /**
+   * Salvage value of the equipment. Calculated as the current purchase price multiplied by the remaining value factor.
+   */
+  get salvageValue() {
+    return this.currentPurchasePrice * this.remainingValueFactor;
+  }
+
+  /**
+   * Depreciation value of the equipment. Calculated as the original purchase price minus the salvage value.
+   */
+  get totalDepreciationValue() {
+    return this.originalPurchasePrice - this.salvageValue;
+  }
+
+  get capitalRecoveryCoefficient() {
+    const indicatorStore = useIndicatorStore();
+    return indicatorStore.getCapitalRecoveryFactor(this.totalLifetimeUsageYears);
+  }
+
+  /**
+   * Annual capital recovery value of the equipment. (Per year)
+   */
+  get capitalRecoveryValuePerYear(): number {
+    const indicatorStore = useIndicatorStore();
+
+    return Number(this.totalDepreciationValue * this.capitalRecoveryCoefficient) +
+      Number(this.salvageValue * (indicatorStore.realInterestRate / 100));
+  }
+
+  /**
+   * Capital recovery value of the equipment. (Per hour)
+   */
+  get capitalRecoveryValuePerHour(): number {
+    return this.capitalRecoveryValuePerYear / this.hoursPerYear;
+  }
+
+  /**
+   * Annual taxes and insurance cost of the equipment. (Per year)
+   */
+  get taxesAndInsuranceCostValuePerYear(): number {
+    const farmStore = useFarmInformationStore();
+    return ((this.originalPurchasePrice + this.salvageValue) / 2) * (farmStore.otherExpensesPercentage / 100);
+  }
+
+  /**
+   * Taxes and insurance cost of the equipment. (Per hour)
+   */
+  get taxesAndInsuranceCostValuePerHour(): number {
+    return this.taxesAndInsuranceCostValuePerYear / this.hoursPerYear;
+  }
+
+  /**
+   * Total annual expenses of the equipment. (Per year)
+   */
+  get totalOwnershipCostPerYear(): number {
+    return this.capitalRecoveryValuePerYear + this.taxesAndInsuranceCostValuePerYear;
+  }
+
+  /**
+   * Total annual expenses of the equipment. (Per hour)
+   */
+  get totalOwnershipCostPerHour(): number {
+    return this.totalOwnershipCostPerYear / this.hoursPerYear;
   }
 
   get isTractorOrCombine() {
@@ -195,38 +405,5 @@ export class EquipmentModel implements IEquipment {
       'graudaugu_kombains',
       'ogu_novaksans_kombains'
     ].includes(this.equipment_type_code)
-  }
-
-  fuelUsagePerHour(load: number = 0.8) {
-    return Number(this.specifications.fuel_consumption_coefficient ?? 0) * load * Number(this.specifications.power ?? 0);
-  }
-
-  capitalRecoveryValue(): number {
-    const indicatorStore = useIndicatorStore();
-    const capitalRecoveryCoefficient = indicatorStore.getCapitalRecoveryFactor(this.totalLifetimeUsageYears);
-
-    return Number(this.depreciationValue * capitalRecoveryCoefficient) +
-      Number((indicatorStore.realInterestRate / 100) * this.remainingValue);
-  }
-
-  taxesAndInsuranceCostValue(): number {
-    const farmStore = useFarmInformationStore();
-    return ((this.price + this.remainingValue) / 2) * (farmStore.otherExpensesPercentage / 100);
-  }
-
-  totalExpenses(): number {
-    return this.capitalRecoveryValue() + this.taxesAndInsuranceCostValue();
-  }
-
-  totalExpensesPerHour(): number {
-    return this.totalExpenses() / Math.max(1, Number(this.usage?.hoursPerYear ?? 1));
-  }
-
-  get remainingValueRate() {
-    switch (this.equipment_type?.configuration?.remaining_value_code) {
-      case 'tractor': return getRemainingValueTractor(Number(this.usage?.hoursPerYear ?? 0), this.horsePower, this.totalLifetimeUsageYears);
-      case 'combine': return getRemainingValueCombine(Number(this.usage?.hoursPerYear ?? 0), this.totalLifetimeUsageYears);
-      default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalLifetimeUsageYears);
-    }
   }
 }
