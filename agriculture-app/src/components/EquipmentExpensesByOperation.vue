@@ -3,6 +3,8 @@
   import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BBadge, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
   import { useIndicatorStore } from '@/stores/indicator.ts'
   import { onMounted, ref } from 'vue'
+  import { useOperationStore } from '@/stores/operation.ts'
+  import { useCodifierStore } from '@/stores/codifier.ts'
   const indicatorStore = useIndicatorStore();
   const selectedCalculatePer = ref<string>('gadā');
   const calculatePerOptions = [
@@ -16,6 +18,7 @@
     await indicatorStore.getMotorHoursByYear();
   });
   const equipmentCollectionStore = useEquipmentCollectionStore();
+  const operationStore = useOperationStore();
 </script>
 
 <template>
@@ -44,9 +47,9 @@
           </BTr>
         </BThead>
         <BTbody>
-          <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
+          <BTr v-for="(row, key) in operationStore.groupedByOperationCode" v-bind:key="key">
             <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
+              {{ row.operation?.operationName }}
             </BTd>
           </BTr>
         </BTbody>

@@ -17,6 +17,7 @@ export function max(values: number[]): number {
     return Math.max(res, val);
   }, Number.NEGATIVE_INFINITY);
 }
+
 export function minBy(values: any[], key: any): any {
   return values.reduce((res, v) => {
     if (!(key in res) || res[key] > v[key]) {
@@ -25,6 +26,18 @@ export function minBy(values: any[], key: any): any {
     return res;
   }, {});
 }
+
+export function groupedBy<T>(values: T[], getProp: (item: T) => string): Record<string, T[]> {
+  return values.reduce((res: Record<string, T[]>, value: T) => {
+    const key = getProp(value);
+    if (!res[key]) {
+      res[key] = [];
+    }
+    res[key].push(value);
+    return res;
+  }, {} as Record<string, T[]>);
+}
+
 export function getClosestValue(values: any[], value: any) {
   return minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
 }

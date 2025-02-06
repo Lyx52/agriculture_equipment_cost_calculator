@@ -6,6 +6,7 @@ import type { IOperation } from '@/stores/interface/IOperation.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
 import { OperationModel } from '@/stores/model/operationModel.ts'
+import { groupedBy } from '@/utils.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {
@@ -50,6 +51,9 @@ export const useOperationStore = defineStore('operation', {
         filteredItems = filteredItems.filter(o => o.operation?.operationCode == state.filteredFarmlandOperation?.operationCode);
       }
       return filteredItems;
+    },
+    groupedByOperationCode(state: IOperationStore): Record<string, OperationModel[]> {
+      return groupedBy(state.items, (item) => item.operation?.operationCode)
     }
   },
   persist: {
