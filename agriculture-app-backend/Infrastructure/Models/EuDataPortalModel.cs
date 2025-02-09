@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace agriculture_app_backend.Infrastructure.Models;
+namespace AgricultureAppBackend.Infrastructure.Models;
 
 public class EuDataPortalModel
 {

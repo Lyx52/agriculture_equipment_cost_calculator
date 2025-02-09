@@ -1,7 +1,7 @@
 using System.Text.Json;
-using agriculture_app_backend.Infrastructure.Data;
-using agriculture_app_backend.Infrastructure.Models;
-using agriculture_app_backend.Infrastructure.Settings;
+using AgricultureAppBackend.Infrastructure.Data;
+using AgricultureAppBackend.Infrastructure.Data.Model;
+using AgricultureAppBackend.Infrastructure.Settings;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,11 +36,10 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<PersistentDbContext>();
-    context.Database.EnsureCreatedAsync().GetAwaiter().GetResult();
-    context.Set<Codifier>().ExecuteDelete();
-    context.Set<Equipment>().ExecuteDelete();
-    context.SaveChanges();
-    
+    context.Database.MigrateAsync().GetAwaiter().GetResult();
+
+    context.Set<Codifier>().ExecuteDeleteAsync().GetAwaiter().GetResult();
+    context.SaveChangesAsync().GetAwaiter().GetResult();
     // Import codifiers
     foreach (var file in Directory.GetFiles("seed/codifiers", "*.json"))
     {
@@ -49,11 +48,13 @@ using (var scope = app.Services.CreateScope())
         context.AddRange(codifiers!);
     }
     
+    context.Set<Equipment>().ExecuteDeleteAsync().GetAwaiter().GetResult();
+    context.SaveChangesAsync().GetAwaiter().GetResult();
     // Import catalog data
     using var fsCatalog = File.OpenRead("seed/catalog_data.json");
     var equipment = JsonSerializer.Deserialize<List<Equipment>>(fsCatalog);
     context.AddRange(equipment!);
-    context.SaveChanges();
+    context.SaveChangesAsync().GetAwaiter().GetResult();
 }
 
 if (app.Environment.IsDevelopment())

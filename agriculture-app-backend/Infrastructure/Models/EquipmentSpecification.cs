@@ -1,4 +1,4 @@
-namespace agriculture_app_backend.Infrastructure.Models;
+namespace AgricultureAppBackend.Infrastructure.Models;
 
 public class EquipmentSpecification
 {

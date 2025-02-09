@@ -1,4 +1,4 @@
-namespace agriculture_app_backend.Infrastructure.Settings;
+namespace AgricultureAppBackend.Infrastructure.Settings;
 
 public sealed class ApplicationSettings
 {

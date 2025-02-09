@@ -1,4 +1,4 @@
-namespace agriculture_app_backend.Infrastructure.Models;
+namespace AgricultureAppBackend.Infrastructure.Models.Filter;
 
 public class EquipmentFilter
 {

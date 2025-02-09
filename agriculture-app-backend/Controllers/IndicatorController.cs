@@ -1,12 +1,10 @@
-using System.Globalization;
 using System.Text.Json;
-using System.Text.Json.Nodes;
-using agriculture_app_backend.Infrastructure.Models;
+using AgricultureAppBackend.Infrastructure.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace agriculture_app_backend.Controllers;
+namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
 [Route("Indicators")]

@@ -1,11 +1,12 @@
 using System.Text.Json;
-using agriculture_app_backend.Infrastructure.Data;
-using agriculture_app_backend.Infrastructure.Models;
+using AgricultureAppBackend.Infrastructure.Data;
+using AgricultureAppBackend.Infrastructure.Data.Model;
+using AgricultureAppBackend.Infrastructure.Models.Filter;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace agriculture_app_backend.Controllers;
+namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
 [Route("Codifier")]

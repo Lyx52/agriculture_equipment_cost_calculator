@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using AgricultureAppBackend.Infrastructure.Models;
 
-namespace agriculture_app_backend.Infrastructure.Models;
+namespace AgricultureAppBackend.Infrastructure.Data.Model;
 
 public class Equipment
 {
@@ -16,4 +17,6 @@ public class Equipment
     public string EquipmentTypeCode { get; set; }
     
     public EquipmentSpecification Specifications { get; set; }
+    
+    public List<User> Users { get; set; } = new List<User>();
 }

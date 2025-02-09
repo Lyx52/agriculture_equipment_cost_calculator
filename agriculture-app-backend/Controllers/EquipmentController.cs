@@ -1,11 +1,12 @@
 using System.Text.Json;
-using agriculture_app_backend.Infrastructure.Data;
-using agriculture_app_backend.Infrastructure.Models;
+using AgricultureAppBackend.Infrastructure.Data;
+using AgricultureAppBackend.Infrastructure.Data.Model;
+using AgricultureAppBackend.Infrastructure.Models.Filter;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace agriculture_app_backend.Controllers;
+namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
 [Route("Equipment")]
@@ -64,6 +65,27 @@ public class EquipmentController(PersistentDbContext _db) : Controller
         }
         
         var result = await query.ToListAsync();
+        return Json(result, new JsonSerializerOptions()
+        {
+            WriteIndented = true,
+            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+            DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseUpper
+        });
+    }
+
+    [HttpGet("ByUserId/{userId}")]
+    [EnableCors("DefaultCorsPolicy")]
+    public async Task<IActionResult> GetEquipmentByUserId([FromRoute] string userId)
+    {
+        if (string.IsNullOrEmpty(userId))
+        {
+            return BadRequest("UserId is required!");
+        }
+
+        var result = await _db.Users.Where(u => u.Id == userId)
+            .SelectMany(u => u.Equipment)
+            .ToListAsync();
+        
         return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,

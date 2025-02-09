@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace agriculture_app_backend.Infrastructure.Models;
+namespace AgricultureAppBackend.Infrastructure.Data.Model;
 
 public class Codifier
 {

@@ -1,13 +1,15 @@
-using agriculture_app_backend.Infrastructure.Converters;
-using agriculture_app_backend.Infrastructure.Models;
+using AgricultureAppBackend.Infrastructure.Converters;
+using AgricultureAppBackend.Infrastructure.Data.Model;
+using AgricultureAppBackend.Infrastructure.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace agriculture_app_backend.Infrastructure.Data;
+namespace AgricultureAppBackend.Infrastructure.Data;
 
 public class PersistentDbContext(
     DbContextOptions<PersistentDbContext> options, 
     ILogger<PersistentDbContext> logger
-) : DbContext(options)
+) : IdentityDbContext<User>(options)
 {
     public DbSet<Codifier> Codifiers { get; set; }
     public DbSet<Equipment> Equipment { get; set; }
@@ -26,6 +28,10 @@ public class PersistentDbContext(
             .HasConversion(new JsonValueConverter<EquipmentSpecification>())
             .HasColumnType("jsonb");
         
+        modelBuilder.Entity<User>()
+            .HasMany(e => e.Equipment)
+            .WithMany(e => e.Users);
+
         base.OnModelCreating(modelBuilder);
     }
 }
