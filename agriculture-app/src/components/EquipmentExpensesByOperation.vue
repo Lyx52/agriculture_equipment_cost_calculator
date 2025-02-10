@@ -5,17 +5,26 @@
   import { onMounted, ref } from 'vue'
   import { useOperationStore } from '@/stores/operation.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
+  import { Codifiers } from '@/stores/enums/Codifiers.ts'
+  import {v4 as uuid} from 'uuid'
+  import { sumBy } from '@/utils.ts'
   const indicatorStore = useIndicatorStore();
-  const selectedCalculatePer = ref<string>('gadā');
+  const codifierStore = useCodifierStore(uuid());
+  const selectedCalculatePer = ref<string>('kopā');
   const calculatePerOptions = [
-    { value: 'gadā', text: 'gadā' },
-    { value: 'h', text: 'h' }
+    { value: 'kopā', text: 'kopā' },
+    { value: 'h', text: 'h' },
+    { value: 'ha', text: 'ha' },
   ]
   onMounted(async () => {
     await indicatorStore.getInflationRate();
     await indicatorStore.getInterestRate();
     await indicatorStore.getConsumerPriceIndices();
     await indicatorStore.getMotorHoursByYear();
+    codifierStore.$patch({
+      codifierTypeCodes: [Codifiers.OperationTypes],
+    });
+    await codifierStore.fetchByFilters();
   });
   const equipmentCollectionStore = useEquipmentCollectionStore();
   const operationStore = useOperationStore();
@@ -35,21 +44,51 @@
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
-            <BTh>Tehnikas vienība</BTh>
-            <BTh>Tehnikas vecums</BTh>
-            <BTh>Iegādes cena</BTh>
-            <BTh>Pašreizējā cena</BTh>
-            <BTh>Atgūstamā vērtība, EUR</BTh>
-            <BTh>Amortizācijas kopsumma</BTh>
+            <BTh>Apstrādes operācija</BTh>
+            <BTh>Apstrādātā platība, ha</BTh>
+            <BTh>Veiktās darba stundas, h</BTh>
             <BTh>Kapitāla atgūšanas vērtība, {{ selectedCalculatePer }}</BTh>
             <BTh>Citas izmaksas (Apdrošināšana, pajumte u.c), {{ selectedCalculatePer }}</BTh>
-            <BTh>Kopējās īpašumtiesības izmaksas, {{ selectedCalculatePer }}</BTh>
+            <BTh>Kopējās īpašumtiesības izmaksas, h</BTh>
           </BTr>
         </BThead>
         <BTbody>
           <BTr v-for="(row, key) in operationStore.groupedByOperationCode" v-bind:key="key">
             <BTd>
-              {{ row.operation?.operationName }}
+              {{ codifierStore.getByCode(key)?.name ?? key }}
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }} h
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+          </BTr>
+          <BTr>
+            <BTd class="fw-bold">Kopā</BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }} h
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
             </BTd>
           </BTr>
         </BTbody>
@@ -62,11 +101,9 @@
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
-            <BTh>Tehnikas vienība</BTh>
-            <BTh>Tehnikas vecums</BTh>
-            <BTh>Iegādes cena</BTh>
-            <BTh>Pašreizējā cena</BTh>
-            <BTh>Uzkrātās remonta izmaksas (Eksplautācijas beigās), EUR</BTh>
+            <BTh>Apstrādes operācija</BTh>
+            <BTh>Apstrādātā platība, ha</BTh>
+            <BTh>Veiktās darba stundas, h</BTh>
             <BTh>Degvielas izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
             <BTh>Smērvielu izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
             <BTh>Remonta izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
@@ -75,11 +112,55 @@
           </BTr>
         </BThead>
         <BTbody>
-          <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
+          <BTr v-for="(row, key) in operationStore.groupedByOperationCode" v-bind:key="key">
             <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
+              {{ codifierStore.getByCode(key)?.name ?? key }}
             </BTd>
-
+            <BTd>
+              {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }} h
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd>
+              {{ sumBy(row, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+          </BTr>
+          <BTr>
+            <BTd class="fw-bold">Kopā</BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }} h
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+            </BTd>
           </BTr>
         </BTbody>
       </BTableSimple>

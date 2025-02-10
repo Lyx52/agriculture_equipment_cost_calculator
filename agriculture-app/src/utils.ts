@@ -38,6 +38,13 @@ export function groupedBy<T>(values: T[], getProp: (item: T) => string): Record<
   }, {} as Record<string, T[]>);
 }
 
+export function sumBy<T>(values: T[], getProp: (item: T) => number): number {
+  return values.reduce((res: number, value: T) => {
+    const gotValue = getProp(value);
+    return res + gotValue;
+  }, 0);
+}
+
 export function getClosestValue(values: any[], value: any) {
   return minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
 }

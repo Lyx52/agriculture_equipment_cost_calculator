@@ -10,7 +10,6 @@ import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
 import emitter from '@/stores/emitter.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import { FarmlandModel } from '@/stores/model/farmlandModel.ts'
-import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 export const useFarmlandStore = defineStore('farmland', {
   state(): IFarmlandStore {
       return {
@@ -45,7 +44,6 @@ export const useFarmlandStore = defineStore('farmland', {
       return item ? item : undefined;
     },
     getFormattedOption(value: any): IDropdownOption<any> {
-      console.log(value)
       const item = this.getItemById(value);
       return {
         name: `${item?.product?.productName ?? 'Lauks'} (${(item?.area ?? 0).toFixed(2)} ha)`,
@@ -55,7 +53,6 @@ export const useFarmlandStore = defineStore('farmland', {
     },
 
     getFiltered(searchText: string): IDropdownOption<any>[] {
-      console.log(searchText)
       return this.items
         .filter(f => `${f?.product?.productName ?? 'Lauks'} (${(f?.area ?? 0).toFixed(2)} ha)`.toLowerCase().includes(searchText.toLowerCase()))
         .map(f => this.getFormattedOption(f.id));

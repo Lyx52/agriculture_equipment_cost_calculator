@@ -6,7 +6,8 @@ import type { IOperation } from '@/stores/interface/IOperation.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
 import { OperationModel } from '@/stores/model/operationModel.ts'
-import { groupedBy } from '@/utils.ts'
+import { groupedBy, sum } from '@/utils.ts'
+import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {
@@ -38,7 +39,7 @@ export const useOperationStore = defineStore('operation', {
     removeItem(itemId: string) {
       this.items = this.items.filter(i => i.id !== itemId);
       emitter.emit(this.getEmitterEvent(CollectionEvents.ItemRemoved), itemId);
-    },
+    }
   },
   getters: {
     filteredItems(state: IOperationStore): OperationModel[] {
@@ -53,7 +54,7 @@ export const useOperationStore = defineStore('operation', {
       return filteredItems;
     },
     groupedByOperationCode(state: IOperationStore): Record<string, OperationModel[]> {
-      return groupedBy(state.items, (item) => item.operation?.operationCode)
+      return groupedBy(state.items, (item) => item.operation!.operationCode!)
     }
   },
   persist: {

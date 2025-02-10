@@ -176,9 +176,9 @@ export class EquipmentModel implements IEquipment {
    * @param loadWork - % load of the equipment. Default is 80%.
    * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  totalOperatingCostsPerYear(loadWork: number = 0.8, loadTurn: number = 0.3): number {
+    totalOperatingCostsPerYear(loadWork: number = 0.8, loadTurn: number = 0.3): number {
     return this.equipmentOperatorWageCostPerYear +
-      this.fuelCostsPerHourNew(loadWork, loadTurn) +
+      this.fuelCostsPerYearNew(loadWork, loadTurn) +
       this.lubricationCostsPerYearNew(loadWork, loadTurn) +
       this.accumulatedRepairsCostPerYear;
   }
@@ -189,7 +189,10 @@ export class EquipmentModel implements IEquipment {
    * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
   totalOperatingCostsPerHour(loadWork: number = 0.8, loadTurn: number = 0.3): number {
-    return this.totalOperatingCostsPerYear(loadWork, loadTurn) / this.hoursPerYear;
+    return this.equipmentOperatorWageCostPerHour +
+      this.fuelCostsPerHourNew(loadWork, loadTurn) +
+      this.lubricationCostsPerHourNew(loadWork, loadTurn) +
+      this.accumulatedRepairsCostPerHour;
   }
 
   /**
@@ -212,6 +215,13 @@ export class EquipmentModel implements IEquipment {
    */
   get power(): number {
     return Number(this.specifications.power ?? 0);
+  }
+
+  /**
+   * Equipment engine power, kW.
+   */
+  get requiredPower(): number {
+    return Number(this.specifications.required_power ?? 0);
   }
 
   /**
