@@ -20,4 +20,4 @@ RUN dotnet publish "agriculture-app-backend.csproj" -c $BUILD_CONFIGURATION -o /
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "agriculture-app-backend.dll"]
+ENTRYPOINT ["dotnet", "AgricultureAppBackend.dll"]
