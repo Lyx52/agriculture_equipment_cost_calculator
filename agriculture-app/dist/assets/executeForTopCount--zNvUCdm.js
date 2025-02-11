@@ -1,0 +1,1 @@
+import{eT as n,f7 as c}from"./index-DfTA9gm4.js";import{c as e}from"./queryTopFeatures-DgC2c-Ta.js";async function u(o,t,r){const a=n(o);return(await e(a,c.from(t),{...r})).data.count}export{u as executeForTopCount};

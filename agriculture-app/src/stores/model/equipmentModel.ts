@@ -100,14 +100,14 @@ export class EquipmentModel implements IEquipment {
    * Total lifetime usage hours of the equipment.
    */
   get totalLifetimeUsageHours(): number {
-    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 0);
+    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 1);
   }
 
   /**
    * Total remaining usage hours of the equipment. (Per year)
    */
   get hoursPerYear(): number {
-    return Number(this.usage?.hoursPerYear ?? 0);
+    return Number(this.usage?.hoursPerYear ?? 1);
   }
 
   /**
@@ -365,6 +365,7 @@ export class EquipmentModel implements IEquipment {
 
   get capitalRecoveryCoefficient() {
     const indicatorStore = useIndicatorStore();
+    console.log(this.totalLifetimeUsageHours)
     return indicatorStore.getCapitalRecoveryFactor(this.totalLifetimeUsageYears);
   }
 
