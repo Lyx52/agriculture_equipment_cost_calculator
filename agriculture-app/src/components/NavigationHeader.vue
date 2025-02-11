@@ -6,6 +6,7 @@
   import CostIcon from '@/components/icons/CostIcon.vue'
   import OperationsIcon from '@/components/icons/OperationsIcon.vue'
   import IconHouseGear from '@/components/icons/IconHouseGear.vue'
+  import IconSeedling from '@/components/icons/IconSeedling.vue'
 
   const isHovering = ref<boolean>(false);
 </script>
@@ -42,6 +43,14 @@
           <OperationsIcon />
           <Transition>
             <span v-if="isHovering">&nbsp;Visas Apstrādes operācijas</span>
+          </Transition>
+        </BLink>
+      </li>
+      <li class="nav-item border-bottom border-secondary">
+        <BLink to="/crop_inventory" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
+          <IconSeedling />
+          <Transition>
+            <span v-if="isHovering">&nbsp;Manas kūltūraugu izmaksas</span>
           </Transition>
         </BLink>
       </li>

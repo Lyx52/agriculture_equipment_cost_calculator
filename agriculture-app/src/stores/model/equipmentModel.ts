@@ -260,19 +260,28 @@ export class EquipmentModel implements IEquipment {
   }
 
   /**
-   * Equipment fuel usage per hour, l/h. Calculated from fuel consumption coefficient.
+   * Equipment fuel usage per hour, EUR/h. Calculated from fuel consumption coefficient.
    * @param loadWork - % load of the equipment for field work. Default is 80%.
    * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
   fuelCostsPerHourNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
     // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
     const farmStore = useFarmInformationStore();
+    return this.fuelUsagePerHourNew(loadWork, loadTurn) * farmStore.fuelPrice;
+  }
+
+  /**
+   * Equipment fuel usage per hour, l/h. Calculated from fuel consumption coefficient.
+   * @param loadWork - % load of the equipment for field work. Default is 80%.
+   * @param loadTurn - % load of the equipment for turning. Default is 30%.
+   */
+  fuelUsagePerHourNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
+    // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
     return (
         Number(this.specifications.fuel_consumption_coefficient ?? 0) * loadWork * Number(this.specifications.power ?? 0)
       ) + (
         Number(this.specifications.fuel_consumption_coefficient ?? 0) * loadTurn * Number(this.specifications.power ?? 0)
-      )
-      * farmStore.fuelPrice;
+      );
   }
 
   /**

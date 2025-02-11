@@ -12,8 +12,6 @@ import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 import { useIndicatorStore } from '@/stores/indicator.ts'
 import { onMounted } from 'vue'
-import { PowerFilterMax } from '@/constants/EquipmentFilterConstants.ts'
-import VueSlider from 'vue-3-slider-component'
 const farmInformationStore = useFarmInformationStore();
 const {confirm} = useModalController();
 const indicatorStore = useIndicatorStore();
@@ -47,6 +45,9 @@ const onClearStores = async () => {
           <BFormInput v-model="farmInformationStore.name" />
         </BFormGroup>
         <BAccordion class="mt-3" >
+          <BAccordionItem title="Saimniecības atbalstu veidi"  body-class="mb-3">
+            Nav vēl izstrādāts...
+          </BAccordionItem>
           <BAccordionItem title="Noklusētās vērtības"  body-class="mb-3">
             <BFormGroup label="Darbaspēka atalgojums" class="mt-2">
               <BInputGroup append="EUR/h">
@@ -87,6 +88,7 @@ const onClearStores = async () => {
             </BFormGroup>
             <p>Reālā procentu likme: {{ indicatorStore.realInterestRate.toFixed(2) }} %</p>
           </BAccordionItem>
+
         </BAccordion>
       </div>
       <div class="col d-flex flex-column mt-2">

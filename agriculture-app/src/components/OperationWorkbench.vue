@@ -12,7 +12,8 @@
     BFormGroup,
     BButton,
     BButtonGroup,
-    BTfoot
+    BTfoot,
+    BBadge, useModalController
   } from 'bootstrap-vue-next'
   import {v4 as uuid} from 'uuid';
   import { useFarmlandStore } from '@/stores/farmland.ts'
@@ -30,6 +31,7 @@
   import { onMounted } from 'vue'
   import emitter from '@/stores/emitter.ts'
   import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
+  import { InfoModalText, type InfoModalTextType } from '@/constants/InfoModalText.ts'
   const props = defineProps<IOperationWorkbenchProps>();
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
@@ -41,7 +43,7 @@
     const codifierStore = useCodifierStore(item.id);
     await codifierStore.setSelectedByCode(item.operation?.operationCode);
   });
-
+  const {show} = useModalController();
   const addNewOperation = () => {
     operationStore.pushItem({
       id: '',
@@ -93,6 +95,15 @@
       'traktors_kezu'
     ].includes(code ?? '');
   }
+  const showInfoModal = (infoText: InfoModalTextType) => {
+
+    show?.({
+      props: {
+        body: InfoModalText[infoText],
+        noFooter: true
+      }
+    });
+  }
 </script>
 
 <template>
@@ -127,6 +138,7 @@
           <BTh rowspan="1" colspan="2" class="text-center">Cena, EUR</BTh>
           <BTh rowspan="1" colspan="2" class="text-center">Gada noslodze, h</BTh>
           <BTh rowspan="2">Darba ražīgums, ha/h</BTh>
+          <BTh rowspan="2">Degvielas patēriņš, l/ha</BTh>
           <BTh rowspan="2">&nbsp;</BTh>
         </BTr>
         <BTr>
@@ -191,6 +203,9 @@
           <BTd v-else class="text-center">
             {{ (row.tractorOrCombine?.averageFieldWorkSpeed ?? 0).toFixed(2) }} ha/h
           </BTd>
+          <BTd class="text-center">
+            {{ row.fuelUsagePerHectare.toFixed(2) }} l/ha <BBadge class="cursor-pointer" @click="() => showInfoModal('fuel_usage_info')">slodze <br/> {{ (row.loadFactorOnPowerMachine * 100).toFixed(2) }}%</BBadge>
+          </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
               <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationStore.removeItem(row.id)">
@@ -219,5 +234,8 @@
   }
   .in-front {
     z-index: 999;
+  }
+  .cursor-pointer {
+    cursor: pointer;
   }
 </style>

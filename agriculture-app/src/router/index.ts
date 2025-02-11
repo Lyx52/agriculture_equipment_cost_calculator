@@ -4,6 +4,7 @@ import MyEquipmentView from '@/views/MyEquipmentView.vue'
 import CostAnalysisView from '@/views/CostAnalysisView.vue'
 import OperationsView from '@/views/OperationsView.vue'
 import MyFarmView from '@/views/MyFarmView.vue'
+import MyCropInventoryView from '@/views/MyCropInventoryView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/operations',
       name: 'operations',
       component: OperationsView,
+    },
+    {
+      path: '/crop_inventory',
+      name: 'crop_inventory',
+      component: MyCropInventoryView,
     },
     {
       path: '/cost_analysis',
