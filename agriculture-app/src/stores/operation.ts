@@ -7,7 +7,6 @@ import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
 import { OperationModel } from '@/stores/model/operationModel.ts'
 import { groupedBy, sum } from '@/utils.ts'
-import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {

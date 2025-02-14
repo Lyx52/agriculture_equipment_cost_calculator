@@ -3,6 +3,8 @@
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
 import { format, parse } from 'date-fns'
+import { useToastController } from 'bootstrap-vue-next'
+import emitter from '@/stores/emitter.ts'
 
 export function sum(values: number[]): number {
   return values.reduce((res, val) => {
@@ -171,4 +173,23 @@ export const strToDate = (value: string) => {
 
 export const dateToStr = (value: Date) => {
   return format(value, internalDateFormat);
+}
+
+export const ErrorTranslations = {
+  "USER_ALREADY_EXISTS": "Lietotājs jau eksistē"
+} as Record<string, string>;
+
+export const validateProblem = async (response: Response) => {
+  if (response.ok) return false;
+  try {
+    const data = await response.json();
+    if (data.errors) {
+      const errorKey = Object.keys(data.errors)[0];
+      emitter.emit('error', ErrorTranslations[errorKey] || errorKey);
+      return true;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+  emitter.emit('error', 'Radās kļūda!')
 }

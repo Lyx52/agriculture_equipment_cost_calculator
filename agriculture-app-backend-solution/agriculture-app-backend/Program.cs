@@ -93,7 +93,11 @@ public class Program {
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("DefaultCorsPolicy",
-                policyBuilder => { policyBuilder.WithOrigins(settings.CorsSettings); }
+                policyBuilder =>
+                {
+                    policyBuilder.WithOrigins(settings.CorsSettings);
+                    policyBuilder.WithHeaders("Content-Type", "content-type", "Authorization");
+                }
             );
         });
 

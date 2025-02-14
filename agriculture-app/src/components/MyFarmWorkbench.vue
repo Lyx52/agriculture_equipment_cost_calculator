@@ -12,9 +12,11 @@ import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 import { useIndicatorStore } from '@/stores/indicator.ts'
 import { onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth.ts'
 const farmInformationStore = useFarmInformationStore();
 const {confirm} = useModalController();
 const indicatorStore = useIndicatorStore();
+const authStore = useAuthStore();
 onMounted(async () => {
   await indicatorStore.getInflationRate();
   await indicatorStore.getInterestRate();
@@ -46,7 +48,7 @@ const onClearStores = async () => {
         </BFormGroup>
         <BAccordion class="mt-3" >
           <BAccordionItem title="Saimniecības atbalstu veidi"  body-class="mb-3">
-            Nav vēl izstrādāts...
+            Lietotājs pieslēdzies {{ authStore.isLoggedIn }}
           </BAccordionItem>
           <BAccordionItem title="Noklusētās vērtības"  body-class="mb-3">
             <BFormGroup label="Darbaspēka atalgojums" class="mt-2">

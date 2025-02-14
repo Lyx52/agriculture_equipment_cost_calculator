@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using AgricultureAppBackend.Infrastructure.Constants;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Request;
 using AgricultureAppBackend.Infrastructure.Models.Response;
@@ -8,6 +9,8 @@ using AgricultureAppBackend.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
@@ -18,10 +21,6 @@ public class AuthController(UserManager<User> _userManager, SignInManager<User> 
     [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
-        {
-            return BadRequest("Password and Email are required");
-        }
         var user = await _userManager.FindByEmailAsync(request.Email);
         if (user == null)
         {
@@ -48,15 +47,10 @@ public class AuthController(UserManager<User> _userManager, SignInManager<User> 
     [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
-        if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
-        {
-            return BadRequest("Password and Email are required");
-        }
-
         var existing = await _userManager.FindByEmailAsync(request.Email);
         if (existing is not null)
         {
-            return BadRequest("User with this email already exists");
+            return ValidationProblem(Utils.ToValidationProblem("USER_ALREADY_EXISTS", "User with this email already exists"));
         }
         
         var user = new User
@@ -68,7 +62,11 @@ public class AuthController(UserManager<User> _userManager, SignInManager<User> 
         var result = await _userManager.CreateAsync(user, request.Password);
         if (!result.Succeeded)
         {
-            return BadRequest(result.Errors);
+            var errorDict = result.Errors
+                .GroupBy(e => e.Code)
+                .ToDictionary(g => g.Key, g => g.Select(e => e.Description).ToArray());
+
+            return ValidationProblem(Utils.ToValidationProblem(errorDict));
         }
 
         return Created();

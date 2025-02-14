@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { IIndicatorStore } from '@/stores/interface/IIndicatorStore.ts'
-import { avg, getBackendUri, max } from '@/utils.ts'
+import { avg, getBackendUri, max, validateProblem } from '@/utils.ts'
 import type { IIndicatorResponse } from '@/stores/interface/IIndicatorResponse.ts'
 
 export const useIndicatorStore = defineStore('indicator', {
@@ -20,8 +20,10 @@ export const useIndicatorStore = defineStore('indicator', {
   },
   actions: {
     async getInflationRate() {
+
       if (this.inflationRate.period) return this.inflationRate.value;
       const response = await fetch(`${getBackendUri()}/Indicators/Inflation`)
+      validateProblem(response);
       this.inflationRate = (await response.json() as IIndicatorResponse);
       return this.inflationRate.value;
     },
@@ -33,13 +35,14 @@ export const useIndicatorStore = defineStore('indicator', {
     },
     async getConsumerPriceIndices() {
       if (Object.keys(this.consumerPriceIndices).length) return this.consumerPriceIndices;
-      const response = await fetch(`${getBackendUri()}/Indicators/ConsumerPriceIndices`)
+      const response = await fetch(`${getBackendUri()}/Indicators/ConsumerPriceIndices`);
       this.consumerPriceIndices = (await response.json() as Record<string, number>);
       return this.consumerPriceIndices;
     },
     async getMotorHoursByYear() {
       if (Object.keys(this.motorHoursByYear).length) return this.motorHoursByYear;
-      const response = await fetch(`${getBackendUri()}/StaticData/HoursByYear`)
+      const response = await fetch(`${getBackendUri()}/StaticData/HoursByYear`);
+
       this.motorHoursByYear = (await response.json() as Record<string, Record<string, number>>);
       return this.motorHoursByYear;
     },
