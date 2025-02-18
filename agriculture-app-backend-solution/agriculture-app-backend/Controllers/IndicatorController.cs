@@ -16,7 +16,6 @@ public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _
     private const string ConsumerPriceIndicesData = nameof(ConsumerPriceIndicesData);
     
     [HttpGet("Inflation")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetInflation()
     {
         var cachedValue = await _memoryCache.GetOrCreateAsync<string>(InflationData, async (cacheValue) =>
@@ -56,7 +55,6 @@ public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _
     }
     
     [HttpGet("InterestRate")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetInterestRate()
     {
         var cachedValue = await _memoryCache.GetOrCreateAsync<string>(InterestData, async (cacheValue) =>
@@ -96,7 +94,6 @@ public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _
     }
     
     [HttpGet("ConsumerPriceIndices")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetConsumerPriceIndices()
     {
         var cachedValue = await _memoryCache.GetOrCreateAsync<string>(ConsumerPriceIndicesData, async (cacheValue) =>

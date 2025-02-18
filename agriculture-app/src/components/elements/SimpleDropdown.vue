@@ -69,6 +69,7 @@ const isDropdownShown = ref<boolean>(false);
 const searchText = ref<string>('');
 const model = defineModel();
 const props = defineProps<ISimpleDropdownProps>();
+const emits = defineEmits(["changed"])
 const selectedItem = ref<IDropdownOption<any>|undefined>(model.value ? props.getFormattedOption(model.value) : undefined);
 watch(model, (newModelValue) => {
   selectedItem.value = newModelValue ? props.getFormattedOption(newModelValue) : undefined;
@@ -83,6 +84,7 @@ const onSelectItem = (item: IDropdownOption<any>) => {
   model.value = item.value;
   isDropdownShown.value = false;
   searchText.value = '';
+  emits('changed',  model.value);
 }
 
 </script>

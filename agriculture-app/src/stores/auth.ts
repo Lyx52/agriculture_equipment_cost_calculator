@@ -54,7 +54,6 @@ export const useAuthStore = defineStore('auth', {
       this.token = null
     },
     validateExpiration() {
-      console.log(this.expiration)
       if (this.expiration && new Date(this.expiration) < new Date()) {
         this.token = null;
         this.expiration = null

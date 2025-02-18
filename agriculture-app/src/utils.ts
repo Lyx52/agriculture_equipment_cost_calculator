@@ -3,8 +3,8 @@
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
 import { format, parse } from 'date-fns'
-import { useToastController } from 'bootstrap-vue-next'
 import emitter from '@/stores/emitter.ts'
+import { useAuthStore } from '@/stores/auth.ts'
 
 export function sum(values: number[]): number {
   return values.reduce((res, val) => {
@@ -40,6 +40,16 @@ export function groupedBy<T>(values: T[], getProp: (item: T) => string): Record<
   }, {} as Record<string, T[]>);
 }
 
+export function uniqueBy<T>(values: T[], getProp: (item: T) => any|undefined): any[] {
+  return values.reduce((res: any[], value: T) => {
+    const propValue = getProp(value);
+    if (propValue && !res.includes(propValue)) {
+      res.push(propValue);
+    }
+    return res;
+  }, [] as any[]);
+}
+
 export function sumBy<T>(values: T[], getProp: (item: T) => number): number {
   return values.reduce((res: number, value: T) => {
     const gotValue = getProp(value);
@@ -58,6 +68,21 @@ export const currentYear = () => new Date().getFullYear();
 export const getBackendUri = () => {
   return import.meta.env.DEV ? 'http://localhost:6969' : 'https://backend.ikarslab.id.lv';
 }
+export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
+export const fetchBackend = async (method: FetchMethod, url: string, body: any|undefined = undefined) => {
+  const authStore = useAuthStore();
+  return await fetch(url, {
+    method: method as string,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(authStore.isLoggedIn ? { 'Authorization': `Bearer ${authStore.token}` } : {})
+    },
+    credentials: 'include',
+    ...(body ? { body: JSON.stringify(body) } : {})
+  });
+
+}
+
 export const arraysEqual = (a: any[], b: any[]): boolean => {
   if (a === b) return true;
   if (a == null || b == null) return false;

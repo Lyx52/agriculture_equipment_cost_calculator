@@ -29,12 +29,14 @@ public class PersistentDbContext(
         modelBuilder.Entity<Codifier>()
             .HasMany<FarmlandOperation>(e => e.Operations)
             .WithOne(c => c.Operation)
-            .HasForeignKey(e => e.OperationCode);
+            .HasForeignKey(e => e.OperationCode)
+            .OnDelete(DeleteBehavior.NoAction);
         
         modelBuilder.Entity<Codifier>()
             .HasMany<UserFarmland>(e => e.Farmlands)
             .WithOne(c => c.Product)
-            .HasForeignKey(e => e.ProductCode);
+            .HasForeignKey(e => e.ProductCode)
+            .OnDelete(DeleteBehavior.NoAction);
         
         modelBuilder.Entity<Equipment>()
             .Property(e => e.Specifications)

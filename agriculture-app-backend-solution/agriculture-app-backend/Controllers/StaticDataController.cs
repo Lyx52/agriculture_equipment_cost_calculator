@@ -12,7 +12,6 @@ public class StaticDataController(IMemoryCache _memoryCache) : Controller
     private const string HoursByYearStaticData = nameof(HoursByYearStaticData);
     
     [HttpGet("HoursByYear")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetMotorHoursByYear()
     {
         var cachedValue = await _memoryCache.GetOrCreateAsync<Dictionary<string, Dictionary<string, float>>>(HoursByYearStaticData, async (cacheValue) =>

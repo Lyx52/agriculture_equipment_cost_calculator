@@ -51,13 +51,6 @@ export const useEquipmentFilterStore = defineStore(`equipmentFilter`, {
 
       const response = await fetch(`${getBackendUri()}/Equipment?${params.toString()}`)
       this.items = (await response.json() as IEquipment[]);
-      for (const item of this.items) {
-        item.usage = {
-          currentAge: 0,
-          expectedAge: 15,
-          hoursPerYear: 300,
-        } as IEquipmentUsage
-      }
     },
     setCategoryTypeCodes(codes: string[]) {
       this.equipmentTypeCodes = codes

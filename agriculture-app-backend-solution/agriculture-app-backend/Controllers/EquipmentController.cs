@@ -14,7 +14,6 @@ namespace AgricultureAppBackend.Controllers;
 public class EquipmentController(PersistentDbContext _db) : Controller
 {
     [HttpGet]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetEquipmentByFilters([FromQuery] EquipmentFilter filter)
     {
         var query = _db.Set<Equipment>().AsQueryable();

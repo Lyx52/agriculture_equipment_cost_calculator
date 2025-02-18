@@ -4,4 +4,5 @@ export interface IEquipmentCollectionStore {
   items: EquipmentModel[];
   searchText: string;
   equipmentCategoryTypeCode: string|undefined;
+  isLoading: boolean;
 }

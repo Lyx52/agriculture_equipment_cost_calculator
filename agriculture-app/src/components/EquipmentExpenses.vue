@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
-  import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BBadge, BPopover } from 'bootstrap-vue-next'
   import { useIndicatorStore } from '@/stores/indicator.ts'
   import { onMounted } from 'vue'
   import { useFarmInformationStore } from '@/stores/farmInformation.ts'

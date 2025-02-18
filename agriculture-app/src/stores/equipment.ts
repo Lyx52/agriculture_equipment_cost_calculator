@@ -22,10 +22,8 @@ export const useEquipmentStore = defineStore('equipment', {
             fuel_consumption_coefficient: 0.270,
             repair_value_code: 'traktors_4x4',
           } as IEquipmentSpecifications,
-          usage: {
-            expectedAge: 15,
-            hoursPerYear: 300,
-          } as IEquipmentUsage,
+          expectedAge: 15,
+          usageHoursPerYear: 300,
         } as IEquipment,
         showModal: false,
         editMode: false,
@@ -36,7 +34,7 @@ export const useEquipmentStore = defineStore('equipment', {
     fromEquipment(equipment: IEquipment) {
       this.item = equipment;
       this.item.specifications.fuel_consumption_coefficient = this.item.specifications.fuel_consumption_coefficient ?? 0.270;
-      this.item.purchaseDate = this.item.purchaseDate ?? new Date();
+      this.item.purchase_date = this.item.purchase_date ?? new Date();
     },
     resetEquipment() {
       this.item = {
@@ -54,10 +52,8 @@ export const useEquipmentStore = defineStore('equipment', {
           fuel_consumption_coefficient: 0.270,
           repair_value_code: 'traktors_4x4',
         } as IEquipmentSpecifications,
-        usage: {
-          expectedAge: 15,
-          hoursPerYear: 300,
-        } as IEquipmentUsage
+        expectedAge: 15,
+        usageHoursPerYear: 300,
       } as IEquipment;
     }
   },
@@ -116,7 +112,7 @@ export const useEquipmentStore = defineStore('equipment', {
     },
     validateUsage(state: IEquipmentStore): string[] {
       const errors = [] as string[];
-      for (const [property, value] of Object.entries(state.item?.usage ?? {})) {
+      for (const [property, value] of Object.entries(state.item ?? {})) {
         switch (property) {
           case 'expectedAge':
           {
@@ -124,7 +120,7 @@ export const useEquipmentStore = defineStore('equipment', {
               errors.push("Ekonomiskais izmantošanas laiks");
             }
           } break;
-          case 'hoursPerYear':
+          case 'usageHoursPerYear':
           {
             if (isNaN(value) || Number(value) <= 0) {
               errors.push("Gada noslodze");

@@ -10,7 +10,8 @@
     BButton,
     BButtonGroup,
     BTfoot,
-    BFormGroup
+    BFormGroup,
+    BSpinner
   } from 'bootstrap-vue-next'
   import TrashIcon from '@/components/icons/TrashIcon.vue'
   import EquipmentModal from '@/components/modal/EquipmentModal.vue'
@@ -38,6 +39,7 @@
     await indicatorStore.getInterestRate();
     await indicatorStore.getConsumerPriceIndices();
     await indicatorStore.getMotorHoursByYear();
+    await equipmentCollectionStore.fetchByFilters();
   });
 
   onBeforeMount(async() => {
@@ -110,7 +112,14 @@
           <BTh>&nbsp;</BTh>
         </BTr>
       </BThead>
-      <BTbody>
+      <BTbody v-if="equipmentCollectionStore.isLoading">
+        <BTr>
+          <BTd colspan="6" class="text-center">
+            <BSpinner v-if="true" />
+          </BTd>
+        </BTr>
+      </BTbody>
+      <BTbody v-else>
         <BTr v-for="row in equipmentCollectionStore.filteredItems" v-bind:key="row.id">
           <BTd>
             {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
@@ -129,7 +138,7 @@
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
-              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="equipmentCollectionStore.removeItem(row.id)">
+              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="equipmentCollectionStore.removeEquipmentAsync(row.id)">
                 Dzēst <TrashIcon />
               </BButton>
               <BButton class="ms-auto flex-grow-0" variant="secondary" size="sm" @click="onEditEquipment(row)">

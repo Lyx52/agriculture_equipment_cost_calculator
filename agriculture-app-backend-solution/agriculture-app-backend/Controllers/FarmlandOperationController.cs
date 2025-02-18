@@ -17,9 +17,8 @@ namespace AgricultureAppBackend.Controllers;
 [Authorize]
 public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEquipmentController> _logger) : Controller
 {
-    [HttpGet("GetAll")]
-    [EnableCors("DefaultCorsPolicy")]
-    public async Task<IActionResult> GetFarmlandOperations([FromQuery] bool AddCodifiers = false)
+    [HttpGet("Get")]
+    public async Task<IActionResult> GetFarmlandOperationsByFilter([FromQuery] FarmlandOperationFilter filter)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (string.IsNullOrEmpty(userId))
@@ -27,16 +26,19 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
             return Unauthorized();
         }
 
-        var query = _db.FarmlandOperations
-            .Include(o => o.UserFarmland)
-            .Where(o => o.UserFarmland.UserId == userId);
+        var x = await _db.FarmlandOperations.ToListAsync();
+        var query = _db.FarmlandOperations.AsQueryable();
         
-        if (AddCodifiers)
+        if (filter.AddCodifiers)
         {
             query = query.Include(f => f.Operation);
         }
-        
-        var result = await query.ToListAsync();
+
+        if (!string.IsNullOrEmpty(filter.FarmlandId))
+        {
+            query = query.Where(o => o.UserFarmlandId == filter.FarmlandId);
+        }
+        var result = await query.OrderBy(o => o.Id).ToListAsync();
         return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,
@@ -46,7 +48,6 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
     }
     
     [HttpGet("{farmlandId}/GetAll")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetFarmlandOperations([FromRoute][Required] string farmlandId, [FromQuery] bool AddCodifiers = false)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -75,7 +76,6 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
     }
 
     [HttpPost("{farmlandId}/Add")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> AddFarmlandOperation([FromRoute][Required] string farmlandId, FarmlandOperationRequest request)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -100,7 +100,6 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
     }
     
     [HttpDelete("{farmlandId}/Remove/{operationId}")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> RemoveUserFarmland([FromRoute][Required] string farmlandId, [FromRoute][Required] string operationId)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -126,7 +125,6 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
     }
     
     [HttpPost("{farmlandId}/Update/{operationId}")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> UpdateUserEquipment([FromRoute][Required] string farmlandId, [FromRoute][Required] string operationId,  [FromBody] FarmlandOperationRequest request)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;

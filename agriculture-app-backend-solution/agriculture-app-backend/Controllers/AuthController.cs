@@ -18,7 +18,6 @@ namespace AgricultureAppBackend.Controllers;
 public class AuthController(UserManager<User> _userManager, SignInManager<User> _signInManager, IJwtTokenProvider _jwtTokenProvider) : Controller
 {
     [HttpPost("Login")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         var user = await _userManager.FindByEmailAsync(request.Email);
@@ -44,7 +43,6 @@ public class AuthController(UserManager<User> _userManager, SignInManager<User> 
     }
     
     [HttpPost("Register")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
         var existing = await _userManager.FindByEmailAsync(request.Email);

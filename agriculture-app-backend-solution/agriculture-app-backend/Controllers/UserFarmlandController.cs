@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Text.Json;
+using AgricultureAppBackend.Infrastructure.Constants;
 using AgricultureAppBackend.Infrastructure.Database;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Filter;
@@ -18,7 +19,6 @@ namespace AgricultureAppBackend.Controllers;
 public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipmentController> _logger) : Controller
 {
     [HttpGet("Get")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetUserFarmlands([FromQuery] bool AddOperations = false, [FromQuery] bool AddCodifiers = false)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -51,7 +51,6 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
     }
 
     [HttpPost("Add")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> AddUserFarmland(UserFarmlandRequest request)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -59,11 +58,28 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
         {
             return Unauthorized();
         }
+
+        var productCodifier = await _db.Codifiers.FirstOrDefaultAsync(c => c.Code == request.ProductCode);
+        if (productCodifier is null && string.IsNullOrEmpty(request.ProductName))
+        {
+            return ValidationProblem(Utils.ToValidationProblem("PRODUCT_DOES_NOT_EXIST", "Product does not exist!"));
+        } 
         
+        if (productCodifier is null)
+        {
+            await _db.Codifiers.AddAsync(new Codifier()
+            {
+                Code = request.ProductCode,
+                Value = request.ProductCode.Replace("crop_", string.Empty),
+                Name = request.ProductName!,
+                ParentCode = "crop_type_categories"
+            });
+            await _db.SaveChangesAsync();
+        }
         await _db.UserFarmlands.AddAsync(new UserFarmland()
         {
             UserId = userId,
-            Id = request.Id ?? Guid.NewGuid().ToString(),
+            Id = string.IsNullOrEmpty(request.Id) ? Guid.NewGuid().ToString() : request.Id,
             ProductCode = request.ProductCode,
             Area = request.Area,
             Operations = new List<FarmlandOperation>()
@@ -74,7 +90,6 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
     }
     
     [HttpDelete("Remove/{farmlandId}")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> RemoveUserFarmland([FromRoute][Required] string farmlandId)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -97,7 +112,6 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
     }
     
     [HttpPost("Update/{farmlandId}")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> UpdateUserEquipment([FromRoute][Required] string farmlandId, [FromBody] UserFarmlandRequest request)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;

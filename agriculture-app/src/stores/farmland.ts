@@ -5,44 +5,112 @@ import type { IFarmlandStore } from '@/stores/interface/IFarmlandStore.ts';
 import type { IFarmland } from '@/stores/interface/IFarmland.ts'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
 import { v4 as uuid } from 'uuid'
-import { sum } from '@/utils.ts'
+import { fetchBackend, getBackendUri, sum, uniqueBy } from '@/utils.ts'
 import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
 import emitter from '@/stores/emitter.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import { FarmlandModel } from '@/stores/model/farmlandModel.ts'
+import { useCodifierStore, useCodifierStoreCache } from '@/stores/codifier.ts'
 export const useFarmlandStore = defineStore('farmland', {
   state(): IFarmlandStore {
       return {
         items: [] as FarmlandModel[],
-        showMapModal: false
+        showMapModal: false,
+        isLoading: false
       }
   },
   actions: {
     getEmitterEvent(eventType: CollectionEvents) {
       return eventType + ":" + CollectionTypes.Farmland;
     },
+    async addFarmlandAsync(item: IFarmland) {
+      this.isLoading = true;
 
-    pushItem(item: IFarmland) {
-      if (this.items.some(e => e.id === item.id))
-        return;
-      const itemId = uuid();
-      const newItem = new FarmlandModel({
-        ...item,
-        id: itemId
-      } as IFarmland);
-      this.items.push(newItem);
-      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), newItem);
+      try {
+        const res = await fetchBackend('POST', `${getBackendUri()}/UserFarmland/Add`, item);
+        if (!res.ok) {
+          console.error(res);
+          emitter.emit('error', `Neizdevās pievienot lauku`);
+        }
+
+      } catch (e: any) {
+        emitter.emit('error', e.message);
+      }  finally {
+        this.isLoading = false;
+      }
+      await this.fetchByFilters();
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), new FarmlandModel(item));
     },
 
-    removeItem(itemId: string) {
-      this.items = this.items.filter(i => i.id !== itemId);
+    async updateFarmlandAsync(item: IFarmland) {
+      this.isLoading = true;
+
+      try {
+        const res = await fetchBackend('POST', `${getBackendUri()}/UserFarmland/Update/${item.id}`, item);
+        if (!res.ok) {
+          console.error(res);
+          emitter.emit('error', `Neizdevās atjaunot lauku`);
+        }
+
+      } catch (e: any) {
+        emitter.emit('error', e.message);
+      }  finally {
+        this.isLoading = false;
+      }
+      await this.fetchByFilters();
+      emitter.emit(this.getEmitterEvent(CollectionEvents.ItemAdded), new FarmlandModel(item));
+    },
+
+    async removeFarmlandAsync(itemId: string) {
+      this.isLoading = true;
+      try {
+        const res = await fetchBackend('DELETE', `${getBackendUri()}/UserFarmland/Remove/${itemId}`);
+        if (!res.ok) {
+          console.error(res);
+          emitter.emit('error', `Neizdevās noņemt lauku`);
+        }
+      } catch (e: any) {
+        emitter.emit('error', e.message);
+      }  finally {
+        this.isLoading = false;
+      }
+
+      await this.fetchByFilters();
       emitter.emit(this.getEmitterEvent(CollectionEvents.ItemRemoved), itemId);
+    },
+
+    async fetchByFilters() {
+      this.isLoading = true;
+      try {
+        const response = await fetchBackend('GET', `${getBackendUri()}/UserFarmland/Get`)
+        const items = await response.json() as IFarmland[];
+        this.items = items.map((i: IFarmland) => new FarmlandModel(i));
+
+        /**
+         * Load all unique codifier definitions
+         */
+        const codifierCache = useCodifierStoreCache();
+        const productCodes = uniqueBy(this.items, (item) => item.product_code);
+        await Promise.all(productCodes.map(code => codifierCache.addAsync(code)));
+
+        this.items.forEach((item) => {
+          const store = useCodifierStore(item.id);
+          store.setSelectedByCode(item.product_code);
+        });
+
+      } catch (e: any) {
+        emitter.emit('error', e.message);
+        this.items = [];
+      }  finally {
+        this.isLoading = false;
+      }
     },
 
     getItemById(itemId: string|undefined): FarmlandModel|undefined {
       const item = this.items.find(i => i.id === itemId);
       return item ? item : undefined;
     },
+
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {
@@ -61,22 +129,6 @@ export const useFarmlandStore = defineStore('farmland', {
   getters: {
     totalFarmlandArea(state: IFarmlandStore) {
       return sum(state.items.map(l => l.area));
-    }
-  },
-  persist: {
-    serializer: {
-      deserialize: (data: string) => {
-        const stateData = JSON.parse(data);
-        return {
-          items: stateData.items.map((o: any) => new FarmlandModel(o)),
-          showMapModal: false
-        } as IFarmlandStore
-      },
-      serialize: (data) => {
-        return JSON.stringify({
-          items: data.items
-        });
-      }
     }
   }
 })

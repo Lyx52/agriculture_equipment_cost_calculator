@@ -1,14 +1,22 @@
 <script setup lang="ts">
   import { useFarmlandStore } from '@/stores/farmland.ts'
-  import { BTableSimple, BTh, BTd, BTr, BThead, BTbody, BInputGroup, BFormInput, BButtonGroup, BButton, BTfoot } from 'bootstrap-vue-next';
+  import {
+    BTableSimple,
+    BTh,
+    BTd,
+    BTr,
+    BThead,
+    BTbody,
+    BButtonGroup,
+    BButton,
+    BTfoot,
+    BSpinner
+  } from 'bootstrap-vue-next'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue';
   import FarmlandSelectionMap from '@/components/FarmlandSelectionMap.vue';
-  import { DefaultDateIntervalHarvest, DefaultDateIntervalPlant } from '../../defaults.ts'
-  import type { IDateInterval } from '@/stores/interface/IDateInterval.ts'
   import type { ISelectedMapField } from '@/stores/interface/ISelectedMapField.ts'
   import CodifierDropdown from '@/components/elements/CodifierDropdown.vue'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
-  import type { IFarmlandProduct } from '@/stores/interface/IFarmlandProduct.ts'
   import TrashIcon from '@/components/icons/TrashIcon.vue'
   import OperationsIcon from '@/components/icons/OperationsIcon.vue'
   import type { IFarmland } from '@/stores/interface/IFarmland.ts'
@@ -17,77 +25,56 @@
   import { useCodifierStore } from '@/stores/codifier.ts'
   import type { ICodifier } from '@/stores/interface/ICodifier.ts'
   import { onMounted, ref } from 'vue'
+  import {v4 as uuid} from 'uuid';
   import emitter from '@/stores/emitter.ts'
   import FarmlandOperationsModal from '@/components/modal/FarmlandOperationsModal.vue'
+  import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
+  const equipmentCollection = useEquipmentCollectionStore();
 
   emitter.on(farmlandStore.getEmitterEvent(CollectionEvents.ItemAdded), (item: IFarmland) => {
     const codifierStore = useCodifierStore(item.id);
-    codifierStore.$patch({
-      selectedItem: {
-        name: item.product?.productName,
-        code: `crop_${item.product?.productCode}`,
-        value: item.product?.productCode,
-        parent_code: Codifiers.CropTypes,
-      } as ICodifier
-    });
+    codifierStore.setSelectedByCode(item.product_code);
   });
-
-  const addNewFarmland = () => {
-    farmlandStore.pushItem({
-      id: '',
+  const addNewFarmland = async () => {
+    const farmland = {
+      id: uuid(),
       area: 1,
-      product: {
-        productCode: '111',
-        productName: 'Vasaras, Kvieši'
-      } as IFarmlandProduct,
-      harvestInterval: {
-        ...DefaultDateIntervalHarvest
-      } as IDateInterval,
-      plantInterval: {
-        ...DefaultDateIntervalPlant
-      } as IDateInterval,
-    });
+      product_code: 'crop_111',
+      product_name: undefined
+    };
+    await farmlandStore.addFarmlandAsync(farmland);
   }
-  const onMapFarmlandSelected = (selectedFarmland: ISelectedMapField) => {
-    farmlandStore.pushItem({
-      id: '',
+
+  const onMapFarmlandSelected = async (selectedFarmland: ISelectedMapField) => {
+    await farmlandStore.addFarmlandAsync({
+      id: uuid(),
       area: selectedFarmland.area,
-      product: {
-        productCode: selectedFarmland.productCode,
-        productName: selectedFarmland.productDescription
-      } as IFarmlandProduct,
-      harvestInterval: {
-        ...DefaultDateIntervalHarvest
-      } as IDateInterval,
-      plantInterval: {
-        ...DefaultDateIntervalPlant
-      } as IDateInterval,
+      product_code: `crop_${selectedFarmland.productCode}`,
+      product_name: selectedFarmland.productDescription
     });
   }
+
   const showFarmlandOperations = ref<boolean>(false);
-  const onOpenOperationsWorkbench = (farmland: IFarmland) => {
+  const onOpenOperationsWorkbench = async (farmland: IFarmland) => {
     operationStore.resetFilters();
-    console.log(farmland)
     operationStore.$patch({
       filteredFarmlandId: farmland.id
-    })
-    showFarmlandOperations.value = true
+    });
+    showFarmlandOperations.value = true;
+    await operationStore.fetchByFilters();
   }
-  const onCropTypeSelected = (cropType: ICodifier, farmland: IFarmland) => {
-    farmland.product = {
-      productCode: cropType.value ?? '',
-      productName: cropType.name
-    }
+  const onCropTypeSelected = async (cropType: ICodifier, farmland: IFarmland) => {
+    await farmlandStore.updateFarmlandAsync({
+      ...farmland,
+      product_code: cropType.code
+    });
   }
   // Load all codifier definitions
   onMounted(async () => {
-    const codifierTasks = farmlandStore.items.map((item) => {
-      const store = useCodifierStore(item.id);
-      return store.setSelectedByCode(`crop_${item.product?.productCode}`)
-    });
-    await Promise.all(codifierTasks)
+    await equipmentCollection.fetchByFilters();
+    await farmlandStore.fetchByFilters();
   })
 </script>
 
@@ -99,11 +86,16 @@
         <BTr>
           <BTh>Ražas veids</BTh>
           <BTh>Zemes platība, ha</BTh>
-          <BTh class="text-center">Sējas kalendārs</BTh>
-          <BTh class="text-center" colspan="2">Ražas kalendārs</BTh>
         </BTr>
       </BThead>
-      <BTbody>
+      <BTbody v-if="farmlandStore.isLoading">
+        <BTr>
+          <BTd colspan="2" class="text-center">
+            <BSpinner v-if="true" />
+          </BTd>
+        </BTr>
+      </BTbody>
+      <BTbody v-else>
         <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
           <BTd>
             <CodifierDropdown
@@ -114,31 +106,11 @@
             />
           </BTd>
           <BTd>
-            <BNumericFormInput v-model="row.area" />
-          </BTd>
-          <BTd>
-            <div class="d-flex flex-row gap-3">
-              <BInputGroup prepend="No">
-                <BFormInput v-model="row.plantInterval.from" type="date" />
-              </BInputGroup>
-              <BInputGroup prepend="Līdz">
-                <BFormInput v-model="row.plantInterval.to" type="date" />
-              </BInputGroup>
-            </div>
-          </BTd>
-          <BTd>
-            <div class="d-flex flex-row gap-3">
-              <BInputGroup prepend="No">
-                <BFormInput v-model="row.harvestInterval.from" type="date" />
-              </BInputGroup>
-              <BInputGroup prepend="Līdz">
-                <BFormInput v-model="row.harvestInterval.to" type="date" />
-              </BInputGroup>
-            </div>
+            <BNumericFormInput @changed="farmlandStore.updateFarmlandAsync(row)" v-model="row.area" />
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
-              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="farmlandStore.removeItem(row.id)">
+              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="farmlandStore.removeFarmlandAsync(row.id)">
                 Dzēst <TrashIcon />
               </BButton>
               <BButton variant="secondary" size="sm" @click="onOpenOperationsWorkbench(row)">

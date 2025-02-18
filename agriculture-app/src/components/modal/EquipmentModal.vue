@@ -75,8 +75,8 @@ const onCategoryFilterSelected = async (item: ICodifier) => {
   equipmentFilterStore.setCategoryTypeCodes(categoryTypeFilterStore.items.map(c => c.code));
 }
 
-const onAddEquipment = () => {
-  if (!isValid(equipmentStore.item?.purchaseDate)) {
+const onAddEquipment = async () => {
+  if (!isValid(equipmentStore.item?.purchase_date)) {
     toastController.show!({
       props: {
         variant: 'danger',
@@ -100,15 +100,26 @@ const onAddEquipment = () => {
     });
     return;
   }
+  if (equipmentStore.editMode) {
+    await equipmentCollectionStore.updateEquipmentAsync({
+      ...equipmentStore.item,
+      equipment_type: {
+        code: equipmentStore.item.equipment_type_code,
+        name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? '',
+        configuration: JSON.parse(categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.value ?? '{}') as IEquipmentConstantConfiguration
+      }
+    });
+  } else {
+    await equipmentCollectionStore.addEquipmentAsync({
+      ...equipmentStore.item,
+      equipment_type: {
+        code: equipmentStore.item.equipment_type_code,
+        name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? '',
+        configuration: JSON.parse(categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.value ?? '{}') as IEquipmentConstantConfiguration
+      }
+    });
+  }
 
-  equipmentCollectionStore.pushItem({
-    ...equipmentStore.item,
-    equipment_type: {
-      code: equipmentStore.item.equipment_type_code,
-      name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? '',
-      configuration: JSON.parse(categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.value ?? '{}') as IEquipmentConstantConfiguration
-    }
-  });
   model.value = false;
 }
 
@@ -187,7 +198,7 @@ const onModalShow = async () => {
           </BFormGroup>
           <BFormGroup label="Tehnikas iegādes datums">
             <BDateFormInput
-              v-model="equipmentStore.item.purchaseDate as Date|undefined"
+              v-model="equipmentStore.item.purchase_date as Date|undefined"
             />
           </BFormGroup>
           <BFormGroup label="Tehnikas specifikācija">

@@ -1,7 +1,6 @@
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import type { IEquipmentType } from '@/stores/interface/IEquipmentType.ts'
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
-import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 import { getRemainingValueTractor } from '@/constants/RemainingValueTractor.ts'
 import { getRemainingValueCombine } from '@/constants/RemainingValueCombine.ts'
 import { getRemainingValueMachine } from '@/constants/RemainingValueMachine.ts'
@@ -19,8 +18,9 @@ export class EquipmentModel implements IEquipment {
   model: string
   price: number
   specifications: IEquipmentSpecifications
-  usage: IEquipmentUsage | undefined
-  purchaseDate: Date|undefined
+  expected_age: number|undefined
+  usage_hours_per_year: number|undefined
+  purchase_date: Date|undefined
 
   constructor(equipment: IEquipment) {
     this.equipment_type = equipment.equipment_type;
@@ -30,11 +30,12 @@ export class EquipmentModel implements IEquipment {
     this.model = equipment.model;
     this.price = equipment.price;
     this.specifications = equipment.specifications;
-    this.usage = equipment.usage;
-    if (equipment.purchaseDate) {
-      this.purchaseDate = isValid(equipment.purchaseDate) ? (equipment.purchaseDate as Date) : new Date(equipment.purchaseDate as string);
+    this.expected_age = equipment.expected_age;
+    this.usage_hours_per_year = equipment.usage_hours_per_year;
+    if (equipment.purchase_date) {
+      this.purchase_date = isValid(equipment.purchase_date) ? (equipment.purchase_date as Date) : new Date(equipment.purchase_date as string);
     } else {
-      this.purchaseDate = undefined;
+      this.purchase_date = undefined;
     }
   }
 
@@ -42,7 +43,7 @@ export class EquipmentModel implements IEquipment {
    * Date of the equipment purchase.
    */
   get itemPurchaseDate(): Date|undefined {
-    return this.purchaseDate ? new Date(this.purchaseDate) : undefined;
+    return this.purchase_date ? new Date(this.purchase_date) : undefined;
   }
 
   /**
@@ -79,7 +80,7 @@ export class EquipmentModel implements IEquipment {
    * Expected lifetime usage years of the equipment.
    */
   get totalLifetimeUsageYears(): number {
-    return Number(this.usage?.expectedAge ?? 0);
+    return Number(this.expected_age ?? 0);
   }
 
   /**
@@ -100,14 +101,14 @@ export class EquipmentModel implements IEquipment {
    * Total lifetime usage hours of the equipment.
    */
   get totalLifetimeUsageHours(): number {
-    return this.totalLifetimeUsageYears * Number(this.usage?.hoursPerYear ?? 1);
+    return this.totalLifetimeUsageYears * Number(this.usage_hours_per_year ?? 1);
   }
 
   /**
    * Total remaining usage hours of the equipment. (Per year)
    */
   get hoursPerYear(): number {
-    return Number(this.usage?.hoursPerYear ?? 1);
+    return Number(this.usage_hours_per_year ?? 1);
   }
 
   /**
@@ -343,8 +344,8 @@ export class EquipmentModel implements IEquipment {
    */
   get remainingValueFactor() {
     switch (this.equipment_type?.configuration?.remaining_value_code) {
-      case 'tractor': return getRemainingValueTractor(Number(this.usage?.hoursPerYear ?? 0), this.horsePower, this.totalLifetimeUsageYears);
-      case 'combine': return getRemainingValueCombine(Number(this.usage?.hoursPerYear ?? 0), this.totalLifetimeUsageYears);
+      case 'tractor': return getRemainingValueTractor(Number(this.usage_hours_per_year ?? 0), this.horsePower, this.totalLifetimeUsageYears);
+      case 'combine': return getRemainingValueCombine(Number(this.usage_hours_per_year ?? 0), this.totalLifetimeUsageYears);
       default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalLifetimeUsageYears);
     }
   }

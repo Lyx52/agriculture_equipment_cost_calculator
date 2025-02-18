@@ -17,7 +17,9 @@ public class UserEquipment
     public string EquipmentTypeCode { get; set; }
     
     public EquipmentSpecification Specifications { get; set; }
-    
+    public string PurchaseDate { get; set; }
+    public double ExpectedAge { get; set; }
+    public double UsageHoursPerYear { get; set; }
     public string UserId { get; set; }
     public User User { get; set; }
 }

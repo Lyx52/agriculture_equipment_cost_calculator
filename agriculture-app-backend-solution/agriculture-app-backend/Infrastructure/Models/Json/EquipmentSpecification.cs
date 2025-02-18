@@ -10,4 +10,5 @@ public class EquipmentSpecification
     public string? CultivatorType { get; set; }
     public string? ShredderType { get; set; }
     public string? RepairValueCode { get; set; }
+    public float? FuelConsumptionCoefficient { get; set; }
 }

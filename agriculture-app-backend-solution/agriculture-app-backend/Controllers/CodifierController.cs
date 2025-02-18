@@ -5,15 +5,16 @@ using AgricultureAppBackend.Infrastructure.Models.Filter;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace AgricultureAppBackend.Controllers;
 
+public record CodifierShort(string Name, string Code, string? ParentCode, string? Value);
 [ApiController]
 [Route("Codifier")]
-public class CodifierController(PersistentDbContext _db) : Controller
+public class CodifierController(PersistentDbContext _db, IMemoryCache _cache) : Controller
 {
     [HttpGet("ByCode/{codifierCode}")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetCodifiersByCode([FromRoute] string codifierCode)
     {
         if (string.IsNullOrEmpty(codifierCode))
@@ -21,15 +22,28 @@ public class CodifierController(PersistentDbContext _db) : Controller
             return BadRequest("codifierCode is required");
         }
 
-        var codifierValue = await _db.Set<Codifier>()
-            .Select(c => new
-            {
-                Name = c.Name,
-                Code = c.Code,
-                ParentCode = c.ParentCode,
-                Value = c.Value
-            })
-            .FirstOrDefaultAsync(c => c.Code == codifierCode);
+        var codifierValue = await _cache.GetOrCreateAsync<CodifierShort?>(codifierCode, async (entry) =>
+        {
+            var result = await _db.Set<Codifier>()
+                .Select(c => new 
+                {
+                    Name = c.Name,
+                    Code = c.Code,
+                    ParentCode = c.ParentCode,
+                    Value = c.Value
+                })
+                .FirstOrDefaultAsync(c => c.Code == codifierCode);
+            if (result is null) return null;
+            var value = new CodifierShort(
+                result.Name,
+                result.Code,
+                result.ParentCode,
+                result.Value
+            );
+            entry.Value = value;
+            entry.SlidingExpiration = TimeSpan.FromHours(8);
+            return value;
+        });
         
         return Json(codifierValue, new JsonSerializerOptions()
         {
@@ -39,7 +53,6 @@ public class CodifierController(PersistentDbContext _db) : Controller
         });
     }
     [HttpGet]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetCodifiersByParentCode([FromQuery] CodifierFilter filter)
     {
         var parentCodifierCodes = filter.ParentCodifierCode.Split(','); 

@@ -4,13 +4,14 @@ import { useEquipmentStore } from '@/stores/equipment.ts'
 import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
 import BDateFormInput from '@/components/elements/BDateFormInput.vue'
 import { isValid } from 'date-fns'
+import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
 
 const model = defineModel<boolean>();
 const equipmentStore = useEquipmentStore();
 const toastController = useToastController();
-
+const equipmentCollectionStore = useEquipmentCollectionStore();
 const onSaveEquipmentUsage = () => {
-  if (!isValid(equipmentStore.item?.purchaseDate)) {
+  if (!isValid(equipmentStore.item?.purchase_date)) {
     toastController.show!({
       props: {
         variant: 'danger',
@@ -34,7 +35,7 @@ const onSaveEquipmentUsage = () => {
     });
     return;
   }
-
+  equipmentCollectionStore.updateEquipmentAsync(equipmentStore.item);
   model.value = false;
 }
 
@@ -50,17 +51,17 @@ const onSaveEquipmentUsage = () => {
         <div class="col">
           <BFormGroup label="Tehnikas iegādes datums">
             <BDateFormInput
-              v-model="equipmentStore.item.purchaseDate as Date|undefined"
+              v-model="equipmentStore.item.purchase_date as Date|undefined"
             />
           </BFormGroup>
           <BFormGroup label="Ekonomiskais izmantošanas laiks">
             <BInputGroup append="gadi">
-              <BNumericFormInput v-model="equipmentStore.item.usage!.expectedAge" />
+              <BNumericFormInput v-model="equipmentStore.item.expected_age" />
             </BInputGroup>
           </BFormGroup>
           <BFormGroup label="Gada noslodze">
             <BInputGroup append="h">
-              <BNumericFormInput v-model="equipmentStore.item.usage!.hoursPerYear" />
+              <BNumericFormInput v-model="equipmentStore.item.usage_hours_per_year" />
             </BInputGroup>
           </BFormGroup>
         </div>

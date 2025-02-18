@@ -1,7 +1,33 @@
 import { defineStore } from 'pinia'
-import type { ICodifierStore } from '@/stores/interface/ICodifierStore.ts'
+import type { ICodifierCacheStore, ICodifierStore } from '@/stores/interface/ICodifierStore.ts'
 import type { ICodifier } from '@/stores/interface/ICodifier.ts'
 import { getBackendUri } from '@/utils.ts'
+export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
+  state(): ICodifierCacheStore {
+    return {
+      cachedCodifiersByCode: new Map<string, ICodifier>(),
+    } as ICodifierCacheStore;
+  },
+  actions: {
+    clearCache() {
+      this.cachedCodifiersByCode.clear();
+    },
+    async addAsync(code: string) {
+      if (this.cachedCodifiersByCode.has(code)) return;
+      const response = await fetch(`${getBackendUri()}/Codifier/ByCode/${code}`)
+      const value = await response.json() as ICodifier|undefined;
+      if (value) {
+        this.cachedCodifiersByCode.set(code, value);
+      }
+    },
+    getByCode(code: string): ICodifier|undefined {
+      return this.cachedCodifiersByCode.get(code);
+    },
+    setByCode(code: string, codifier: ICodifier) {
+      this.cachedCodifiersByCode.set(code, codifier);
+    }
+  }
+})();
 export const useCodifierStore = (storeId: string) => defineStore(`codifier_${storeId}`, {
   state(): ICodifierStore {
     return {
@@ -11,7 +37,6 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
       filterTo: 25,
       selectedItem: undefined,
       storeId: storeId,
-      cachedCodifiersByCode: new Map<string, ICodifier>(),
       addChildren: false
     }
   },
@@ -32,19 +57,23 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
       this.filterTo = 25;
     },
     async setSelectedByCode(code: string|undefined) {
+
       if (!code)
       {
         this.selectedItem = undefined;
         return;
       }
-      if (this.cachedCodifiersByCode.has(code)) {
-        this.selectedItem = this.cachedCodifiersByCode.get(code);
+      const codifierCacheStore = useCodifierStoreCache();
+      const existing = codifierCacheStore.getByCode(code);
+      if (existing) {
+        this.selectedItem = existing;
+        return;
       }
       const response = await fetch(`${getBackendUri()}/Codifier/ByCode/${code}`)
       this.selectedItem = await response.json() as ICodifier|undefined;
 
       if (this.selectedItem) {
-        this.cachedCodifiersByCode.set(code, this.selectedItem);
+        codifierCacheStore.setByCode(code, this.selectedItem);
       }
     },
     getByCode(code: string): ICodifier|undefined {

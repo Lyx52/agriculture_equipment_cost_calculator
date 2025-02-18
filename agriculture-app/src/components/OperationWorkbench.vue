@@ -13,11 +13,10 @@
     BButton,
     BButtonGroup,
     BTfoot,
-    BBadge, useModalController
+    BBadge, useModalController, BSpinner
   } from 'bootstrap-vue-next'
   import {v4 as uuid} from 'uuid';
   import { useFarmlandStore } from '@/stores/farmland.ts'
-  import type { IFarmlandOperation } from '@/stores/interface/IFarmlandOperation.ts'
   import CodifierDropdown from '@/components/elements/CodifierDropdown.vue'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
   import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
@@ -29,7 +28,6 @@
   import IconX from '@/components/icons/IconX.vue'
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
   import { onMounted } from 'vue'
-  import emitter from '@/stores/emitter.ts'
   import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
   import { InfoModalText, type InfoModalTextType } from '@/constants/InfoModalText.ts'
   const props = defineProps<IOperationWorkbenchProps>();
@@ -39,54 +37,48 @@
   const farmlandOperationCodifierStore = useCodifierStore(farmlandOperationStoreId);
   const equipmentCollectionStore = useEquipmentCollectionStore();
 
-  emitter.on(operationStore.getEmitterEvent(CollectionEvents.ItemAdded), async (item: IOperation) => {
-    const codifierStore = useCodifierStore(item.id);
-    await codifierStore.setSelectedByCode(item.operation?.operationCode);
-  });
   const {show} = useModalController();
-  const addNewOperation = () => {
-    operationStore.pushItem({
+
+  const addNewOperation = async () => {
+    await operationStore.addOperationAsync({
       id: '',
-      farmlandId: operationStore.filteredFarmlandId,
-      operation: {
-        operationCode: 'operation_110',
-        operationName: 'Aršana',
-      } as IFarmlandOperation,
-      tractorOrCombineId: undefined,
-      machineId: undefined
+      user_farmland_id: operationStore.filteredFarmlandId,
+      operation_code: 'operation_110',
+      tractor_or_combine_id: undefined,
+      machine_id: undefined
     });
-    operationStore.filteredFarmlandOperation = undefined;
+    operationStore.filteredFarmlandOperationCode = undefined;
     farmlandOperationCodifierStore.$reset();
   }
+
   const onOperationFiltered = (item: ICodifier) => {
-    operationStore.filteredFarmlandOperation = {
-      operationCode: item.code,
-      operationName: item.name
-    };
+    operationStore.filteredFarmlandOperationCode = item.code
   }
+
   const hasFilters = () => {
-    return !!operationStore.filteredFarmlandOperation || !!operationStore.filteredFarmlandId
+    return !!operationStore.filteredFarmlandOperationCode || !!operationStore.filteredFarmlandId
   }
+
   const resetFilters = () => {
     farmlandOperationCodifierStore.$reset();
     operationStore.filteredFarmlandId = undefined;
-    operationStore.filteredFarmlandOperation = undefined;
+    operationStore.filteredFarmlandOperationCode = undefined;
   }
-  const onOperationSelected = (operation: IOperation, codifier: ICodifier) => {
-    operation.operation = {
-      operationName: codifier.name,
-      operationCode: codifier.code
-    };
+
+  const onOperationSelected = async (operation: IOperation, codifier: ICodifier) => {
+    await operationStore.updateOperationAsync({
+      ...operation,
+      operation_code: codifier.code,
+    })
     farmlandOperationCodifierStore.$reset();
-    operationStore.filteredFarmlandOperation = undefined;
+    operationStore.filteredFarmlandOperationCode = undefined;
   }
+
   // Load all codifier definitions
   onMounted(async () => {
-    const codifierTasks = operationStore.items.map((item) => {
-      const store = useCodifierStore(item.id);
-      return store.setSelectedByCode(item.operation?.operationCode)
-    })
-    await Promise.all(codifierTasks);
+    await equipmentCollectionStore.fetchByFilters();
+    await farmlandStore.fetchByFilters();
+    await operationStore.fetchByFilters();
   })
   const isTractor = (code: string|undefined) => {
     return [
@@ -148,14 +140,22 @@
           <BTh rowspan="1" class="text-center">Mašīna</BTh>
         </BTr>
       </BThead>
-      <BTbody>
+      <BTbody v-if="operationStore.isLoading">
+        <BTr>
+          <BTd colspan="10" class="text-center">
+            <BSpinner v-if="true" />
+          </BTd>
+        </BTr>
+      </BTbody>
+      <BTbody v-else>
         <BTr v-for="row in operationStore.filteredItems" v-bind:key="row.id">
           <BTd v-if="!props.isModal">
             <SimpleDropdown
               :is-loading="false"
               :get-filtered="farmlandStore.getFiltered"
               :get-formatted-option="farmlandStore.getFormattedOption"
-              v-model="row.farmlandId"
+              v-model="row.user_farmland_id"
+              @changed="operationStore.updateOperationAsync(row)"
             />
           </BTd>
           <BTd>
@@ -173,14 +173,16 @@
                 :is-loading="false"
                 :get-filtered="equipmentCollectionStore.getFilteredTractorOrCombine"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
-                v-model="row.tractorOrCombineId"
+                v-model="row.tractor_or_combine_id"
+                @changed="operationStore.updateOperationAsync(row)"
               />
               <SimpleDropdown
                 :is-loading="false"
                 :get-filtered="equipmentCollectionStore.getFilteredMachines"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
-                v-model="row.machineId"
+                v-model="row.machine_id"
                 v-if="isTractor(row.tractorOrCombine?.equipment_type_code)"
+                @changed="operationStore.updateOperationAsync(row)"
               />
             </div>
 
@@ -208,7 +210,7 @@
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
-              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationStore.removeItem(row.id)">
+              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationStore.removeOperationAsync(row)">
                 Dzēst <TrashIcon />
               </BButton>
             </BButtonGroup>

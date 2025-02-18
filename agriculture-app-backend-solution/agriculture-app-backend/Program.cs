@@ -96,7 +96,9 @@ public class Program {
                 policyBuilder =>
                 {
                     policyBuilder.WithOrigins(settings.CorsSettings);
-                    policyBuilder.WithHeaders("Content-Type", "content-type", "Authorization");
+                    policyBuilder.AllowCredentials();
+                    policyBuilder.WithMethods("POST", "GET", "PUT", "DELETE", "OPTIONS");
+                    policyBuilder.WithHeaders("authorization", "content-type");
                 }
             );
         });
@@ -134,7 +136,8 @@ public class Program {
 
         builder.Services.AddAuthorization();
         var app = builder.Build();
-
+        app.UseCors("DefaultCorsPolicy");
+        
         app.UseAuthentication();
         app.UseAuthorization();
 
@@ -143,19 +146,34 @@ public class Program {
         {
             var context = scope.ServiceProvider.GetRequiredService<PersistentDbContext>();
             context.Database.MigrateAsync().GetAwaiter().GetResult();
-
-            context.Set<Codifier>().ExecuteDeleteAsync().GetAwaiter().GetResult();
             context.SaveChangesAsync().GetAwaiter().GetResult();
+
+            var codifierSet = context.Set<Codifier>();
+            var existing = codifierSet.ToListAsync().GetAwaiter().GetResult().ToDictionary(c => c.Code);
             // Import codifiers
             foreach (var file in Directory.GetFiles("seed/codifiers", "*.json"))
             {
                 using var fs = File.OpenRead(file);
                 var codifiers = JsonSerializer.Deserialize<List<Codifier>>(fs);
-                context.AddRange(codifiers!);
+                foreach (var codifier in codifiers!)
+                {
+                    if (existing.TryGetValue(codifier.Code, out var existingCodifier))
+                    {
+                        existingCodifier.Name = codifier.Name;
+                        existingCodifier.Value = codifier.Value;
+                        existingCodifier.ParentCode = codifier.ParentCode;
+                        context.Update(existingCodifier);
+                    }
+                    else
+                    {
+                        context.Add(codifier);
+                    }
+                }
             }
-
+            
             context.Set<Equipment>().ExecuteDeleteAsync().GetAwaiter().GetResult();
             context.SaveChangesAsync().GetAwaiter().GetResult();
+            
             // Import catalog data
             using var fsCatalog = File.OpenRead("seed/catalog_data.json");
             var equipment = JsonSerializer.Deserialize<List<Equipment>>(fsCatalog);

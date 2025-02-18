@@ -18,7 +18,6 @@ namespace AgricultureAppBackend.Controllers;
 public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipmentController> _logger) : Controller
 {
     [HttpGet("Get")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> GetUserEquipment()
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -40,7 +39,6 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
     }
 
     [HttpPost("Add")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> AddUserEquipment(UserEquipmentRequest request)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -58,7 +56,10 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
             Model = request.Model,
             Specifications = request.Specifications,
             Price = request.Price,
-            Id = equipmentId
+            Id = equipmentId,
+            PurchaseDate = request.PurchaseDate,
+            UsageHoursPerYear = request.UsageHoursPerYear,
+            ExpectedAge = request.ExpectedAge
         });
         await _db.SaveChangesAsync();
         
@@ -66,7 +67,6 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
     }
     
     [HttpDelete("Remove/{equipmentId}")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> RemoveUserEquipment([FromRoute][Required] string equipmentId)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -89,7 +89,6 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
     }
     
     [HttpPost("Update/{equipmentId}")]
-    [EnableCors("DefaultCorsPolicy")]
     public async Task<IActionResult> UpdateUserEquipment([FromRoute][Required] string equipmentId, [FromBody] UserEquipmentRequest request)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -109,7 +108,10 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
         equipment.Model = request.Model;
         equipment.Price = request.Price;
         equipment.Specifications = request.Specifications;
-
+        equipment.PurchaseDate = request.PurchaseDate;
+        equipment.UsageHoursPerYear = request.UsageHoursPerYear;
+        equipment.ExpectedAge = request.ExpectedAge;
+        
         _db.UserEquipment.Update(equipment);
         await _db.SaveChangesAsync();
         

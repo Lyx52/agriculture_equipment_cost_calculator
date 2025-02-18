@@ -1,9 +1,7 @@
-import type { IFarmlandOperation } from '@/stores/interface/IFarmlandOperation.ts'
-
 export interface IOperation {
   id: string;
-  farmlandId: string|undefined;
-  operation: IFarmlandOperation|undefined;
-  tractorOrCombineId: string|undefined;
-  machineId: string|undefined;
+  user_farmland_id: string|undefined;
+  operation_code: string|undefined;
+  tractor_or_combine_id: string|undefined;
+  machine_id: string|undefined;
 }

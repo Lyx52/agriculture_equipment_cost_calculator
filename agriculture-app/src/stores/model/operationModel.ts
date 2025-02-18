@@ -1,5 +1,4 @@
 import type { IOperation } from '@/stores/interface/IOperation.ts'
-import type { IFarmlandOperation } from '@/stores/interface/IFarmlandOperation.ts'
 import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
 import type { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 import { useFarmlandStore } from '@/stores/farmland.ts'
@@ -7,32 +6,32 @@ import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 
 export class OperationModel implements IOperation {
   id: string;
-  farmlandId: string|undefined;
-  operation: IFarmlandOperation|undefined;
-  tractorOrCombineId: string|undefined;
-  machineId: string|undefined;
+  user_farmland_id: string|undefined;
+  operation_code: string|undefined;
+  tractor_or_combine_id: string|undefined;
+  machine_id: string|undefined;
 
   constructor(operation: IOperation) {
     this.id = operation.id;
-    this.farmlandId = operation.farmlandId;
-    this.operation = operation.operation;
-    this.tractorOrCombineId = operation.tractorOrCombineId;
-    this.machineId = operation.machineId;
+    this.user_farmland_id = operation.user_farmland_id;
+    this.operation_code = operation.operation_code;
+    this.tractor_or_combine_id = operation.tractor_or_combine_id;
+    this.machine_id = operation.machine_id;
   }
 
   get machine(): EquipmentModel|undefined {
     const equipmentCollection = useEquipmentCollectionStore();
-    return equipmentCollection.getItemById(this.machineId);
+    return equipmentCollection.getItemById(this.machine_id);
   }
 
   get tractorOrCombine(): EquipmentModel|undefined {
     const equipmentCollection = useEquipmentCollectionStore();
-    return equipmentCollection.getItemById(this.tractorOrCombineId);
+    return equipmentCollection.getItemById(this.tractor_or_combine_id);
   }
 
   get farmland(): FarmlandModel|undefined {
     const farmlandCollection = useFarmlandStore();
-    return farmlandCollection.getItemById(this.farmlandId);
+    return farmlandCollection.getItemById(this.user_farmland_id);
   }
 
   /**
