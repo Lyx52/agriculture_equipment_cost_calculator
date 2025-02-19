@@ -82,7 +82,7 @@
               {{ sumBy(operationStore.items, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
             </BTd>
           </BTr>
         </BTbody>

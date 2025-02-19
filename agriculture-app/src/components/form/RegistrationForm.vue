@@ -68,6 +68,7 @@
   import { useAuthStore } from '@/stores/auth.ts'
   import { Checkbox } from 'vue-recaptcha';
   import emitter from '@/stores/emitter.ts'
+  import router from '@/router'
   const email = ref('');
   const password = ref('');
   const passwordRepeat = ref('');
@@ -111,6 +112,7 @@
       return;
     }
     await authStore.register(email.value, password.value);
+    await router.push('/auth/login');
   }
 </script>
 
