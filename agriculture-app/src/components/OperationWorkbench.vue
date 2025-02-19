@@ -178,6 +178,7 @@
               />
               <SimpleDropdown
                 :is-loading="false"
+                :is-invalid="row.machineValid"
                 :get-filtered="equipmentCollectionStore.getFilteredMachines"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
                 v-model="row.machine_id"

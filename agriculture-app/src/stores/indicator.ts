@@ -47,7 +47,7 @@ export const useIndicatorStore = defineStore('indicator', {
       return this.motorHoursByYear;
     },
     getCapitalRecoveryFactor(expectedAge: number) {
-      const rate = (this.realInterestRate / 100);
+      const rate = this.realInterestRate;
       return rate * (Math.pow(1 + rate, expectedAge) / (Math.pow(1 + rate, expectedAge) - 1))
     },
     getConsumerPriceIndexFactor(purchaseYear: number, currentYear: number) {
@@ -68,7 +68,7 @@ export const useIndicatorStore = defineStore('indicator', {
   },
   getters: {
     realInterestRate(state: IIndicatorStore) {
-      return Number(state.interestRate.value ?? 0) - Number(state.inflationRate.value ?? 0);
+      return (Number(state.interestRate.value ?? 0) - Number(state.inflationRate.value ?? 0)) / 100;
     }
   }
 })

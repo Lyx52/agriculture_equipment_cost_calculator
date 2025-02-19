@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
-import { useIndicatorStore } from '@/stores/indicator.ts'
 import { onMounted, ref } from 'vue'
 import { useOperationStore } from '@/stores/operation.ts'
 import { useCodifierStore } from '@/stores/codifier.ts'
@@ -8,7 +7,9 @@ import { Codifiers } from '@/stores/enums/Codifiers.ts'
 import {v4 as uuid} from 'uuid'
 import { sumBy } from '@/utils.ts'
 import { useFarmlandStore } from '@/stores/farmland.ts'
-const indicatorStore = useIndicatorStore();
+
+const operationStore = useOperationStore();
+const farmlandStore = useFarmlandStore();
 const codifierStore = useCodifierStore(uuid());
 const selectedCalculatePer = ref<string>('kopā');
 const calculatePerOptions = [
@@ -17,17 +18,11 @@ const calculatePerOptions = [
   { value: 'ha', text: 'ha' },
 ]
 onMounted(async () => {
-  await indicatorStore.getInflationRate();
-  await indicatorStore.getInterestRate();
-  await indicatorStore.getConsumerPriceIndices();
-  await indicatorStore.getMotorHoursByYear();
   codifierStore.$patch({
     codifierTypeCodes: [Codifiers.OperationTypes],
   });
   await codifierStore.fetchByFilters();
 });
-const operationStore = useOperationStore();
-const farmlandStore = useFarmlandStore();
 </script>
 
 <template>
@@ -55,7 +50,7 @@ const farmlandStore = useFarmlandStore();
         <BTbody>
           <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
             <BTd>
-              {{ `${row?.product?.productName ?? 'Lauks'} (${(row?.area ?? 0).toFixed(2)} ha)` }}
+              {{ `${row?.product_name ?? 'Lauks'} (${(row?.area ?? 0).toFixed(2)} ha)` }}
             </BTd>
             <BTd>
               {{ row.landArea.toFixed(2) }} ha
@@ -88,7 +83,7 @@ const farmlandStore = useFarmlandStore();
               {{ sumBy(operationStore.items, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
             </BTd>
           </BTr>
         </BTbody>
@@ -114,7 +109,7 @@ const farmlandStore = useFarmlandStore();
         <BTbody>
           <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
             <BTd>
-              {{ `${row?.product?.productName ?? 'Lauks'} (${(row?.area ?? 0).toFixed(2)} ha)` }}
+              {{ `${row?.product_name ?? 'Lauks'} (${(row?.area ?? 0).toFixed(2)} ha)` }}
             </BTd>
             <BTd>
               {{ row.landArea.toFixed(2) }} ha

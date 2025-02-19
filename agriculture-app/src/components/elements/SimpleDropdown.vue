@@ -11,6 +11,9 @@
                 @click="isDropdownShown = true"
                 v-if="!isDropdownShown"
                 ref="_button"
+                :class="{
+                  'btn-outline-danger': props.isInvalid
+                }"
             >
                 <div class="d-flex">
                     <span class="ms-auto me-auto">{{ selectedItem?.name ?? 'Izvēlēties' }}</span>
@@ -25,6 +28,7 @@
             :class="{
               'd-none': !isDropdownShown,
               'd-block': isDropdownShown,
+              'is-invalid': props.isInvalid
             }"
             v-model="searchText"
             ref="_search_bar"

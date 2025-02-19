@@ -20,7 +20,8 @@ export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
         this.cachedCodifiersByCode.set(code, value);
       }
     },
-    getByCode(code: string): ICodifier|undefined {
+    getByCode(code: string|undefined): ICodifier|undefined {
+      if (!code) return undefined;
       return this.cachedCodifiersByCode.get(code);
     },
     setByCode(code: string, codifier: ICodifier) {

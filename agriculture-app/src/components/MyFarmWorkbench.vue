@@ -88,7 +88,7 @@ const onClearStores = async () => {
                 <BNumericFormInput v-model="indicatorStore.inflationRate.value" />
               </BInputGroup>
             </BFormGroup>
-            <p>Reālā procentu likme: {{ indicatorStore.realInterestRate.toFixed(2) }} %</p>
+            <p>Reālā procentu likme: {{ (indicatorStore.realInterestRate * 100).toFixed(2) }} %</p>
           </BAccordionItem>
 
         </BAccordion>

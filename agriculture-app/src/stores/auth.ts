@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getBackendUri, validateProblem } from '@/utils.ts'
+import { getBackendUri, parseJwt, validateProblem } from '@/utils.ts'
 import type { IAuthStore } from '@/stores/interface/IAuthStore.ts'
 
 export const useAuthStore = defineStore('auth', {
@@ -63,6 +63,11 @@ export const useAuthStore = defineStore('auth', {
   getters: {
     isLoggedIn(state: IAuthStore) {
       return !!state?.token?.length;
+    },
+    email(state: IAuthStore) {
+      if (!state.token) return '';
+      const tokenInfo = parseJwt(state.token);
+      return tokenInfo?.email || '';
     }
   },
   persist: {

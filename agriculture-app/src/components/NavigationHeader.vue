@@ -7,14 +7,18 @@
   import OperationsIcon from '@/components/icons/OperationsIcon.vue'
   import IconHouseGear from '@/components/icons/IconHouseGear.vue'
   import IconSeedling from '@/components/icons/IconSeedling.vue'
-
+  import { useAuthStore } from '@/stores/auth.ts'
+  import IconLogin from '@/components/icons/IconLogin.vue'
+  import IconLogout from '@/components/icons/IconLogout.vue'
+  import IconUser from '@/components/icons/IconUser.vue'
+  const authStore = useAuthStore();
   const isHovering = ref<boolean>(false);
 </script>
 
 <template>
   <header class="d-flex flex-column bg-primary navigation-header" @mouseenter="isHovering = true" @mouseleave="isHovering = false">
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-      <li class="nav-item border-bottom border-top border-secondary">
+      <li class="nav-item border-bottom border-top border-secondary" v-if="authStore.isLoggedIn">
         <BLink to="/" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <IconHouseGear />
           <Transition>
@@ -22,7 +26,7 @@
           </Transition>
         </BLink>
       </li>
-      <li class="nav-item border-bottom border-top border-secondary">
+      <li class="nav-item border-bottom border-top border-secondary" v-if="authStore.isLoggedIn">
         <BLink to="/equipment" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <TractorIcon />
           <Transition>
@@ -30,7 +34,7 @@
           </Transition>
         </BLink>
       </li>
-      <li class="nav-item border-bottom border-secondary">
+      <li class="nav-item border-bottom border-secondary" v-if="authStore.isLoggedIn">
         <BLink to="/farmland" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <FarmlandIcon />
           <Transition>
@@ -38,7 +42,7 @@
           </Transition>
         </BLink>
       </li>
-      <li class="nav-item border-bottom border-secondary">
+      <li class="nav-item border-bottom border-secondary" v-if="authStore.isLoggedIn">
         <BLink to="/operations" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <OperationsIcon />
           <Transition>
@@ -46,7 +50,7 @@
           </Transition>
         </BLink>
       </li>
-      <li class="nav-item border-bottom border-secondary">
+      <li class="nav-item border-bottom border-secondary" v-if="authStore.isLoggedIn">
         <BLink to="/crop_inventory" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <IconSeedling />
           <Transition>
@@ -54,11 +58,38 @@
           </Transition>
         </BLink>
       </li>
-      <li class="nav-item border-bottom border-secondary">
+      <li class="nav-item border-bottom border-secondary" v-if="authStore.isLoggedIn">
         <BLink to="/cost_analysis" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <CostIcon />
           <Transition>
             <span v-if="isHovering">&nbsp;Izmaksu kopskats</span>
+          </Transition>
+        </BLink>
+      </li>
+
+    </ul>
+    <ul class="nav nav-pills nav-flush flex-column mt-auto text-center">
+      <Transition>
+        <li class="nav-item border-bottom border-secondary" v-if="authStore.isLoggedIn && isHovering">
+          <BLink to="/" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap user-email">
+            <IconUser />
+            <span>&nbsp;&nbsp;{{ authStore.email }}</span>
+          </BLink>
+        </li>
+      </Transition>
+      <li class="nav-item border-bottom border-secondary" v-if="!authStore.isLoggedIn">
+        <BLink to="/auth/login" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
+          <IconLogin />
+          <Transition>
+            <span v-if="isHovering">&nbsp;Pieslēgties</span>
+          </Transition>
+        </BLink>
+      </li>
+      <li class="nav-item border-bottom border-secondary" v-if="authStore.isLoggedIn">
+        <BLink to="/auth/login" @click="authStore.logout()" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
+          <IconLogout />
+          <Transition>
+            <span v-if="isHovering">&nbsp;Atslēgties</span>
           </Transition>
         </BLink>
       </li>
@@ -67,7 +98,7 @@
 </template>
 
 <style scoped>
-  .router-link-active {
+  .router-link-active:not(.user-email) {
     color: rgba(var(--bs-secondary-rgb)) !important;
     svg {
       fill: rgba(var(--bs-secondary-rgb)) !important;

@@ -101,23 +101,9 @@ const onAddEquipment = async () => {
     return;
   }
   if (equipmentStore.editMode) {
-    await equipmentCollectionStore.updateEquipmentAsync({
-      ...equipmentStore.item,
-      equipment_type: {
-        code: equipmentStore.item.equipment_type_code,
-        name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? '',
-        configuration: JSON.parse(categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.value ?? '{}') as IEquipmentConstantConfiguration
-      }
-    });
+    await equipmentCollectionStore.updateEquipmentAsync(equipmentStore.item);
   } else {
-    await equipmentCollectionStore.addEquipmentAsync({
-      ...equipmentStore.item,
-      equipment_type: {
-        code: equipmentStore.item.equipment_type_code,
-        name: categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.name ?? '',
-        configuration: JSON.parse(categoryFilterStore.toChildrenMap.get(equipmentStore.item.equipment_type_code)?.value ?? '{}') as IEquipmentConstantConfiguration
-      }
-    });
+    await equipmentCollectionStore.addEquipmentAsync(equipmentStore.item);
   }
 
   model.value = false;

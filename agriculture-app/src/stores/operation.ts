@@ -1,6 +1,6 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { defineStore } from 'pinia'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
-import { v4 as uuid } from 'uuid'
 import type { IOperationStore } from '@/stores/interface/IOperationStore.ts'
 import type { IOperation } from '@/stores/interface/IOperation.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
@@ -8,8 +8,6 @@ import emitter from '@/stores/emitter.ts'
 import { OperationModel } from '@/stores/model/operationModel.ts'
 import { fetchBackend, getBackendUri, groupedBy, uniqueBy } from '@/utils.ts'
 import { useCodifierStore, useCodifierStoreCache } from '@/stores/codifier.ts'
-import type { IFarmland } from '@/stores/interface/IFarmland.ts'
-import { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {
@@ -130,7 +128,7 @@ export const useOperationStore = defineStore('operation', {
       return filteredItems;
     },
     groupedByOperationCode(state: IOperationStore): Record<string, OperationModel[]> {
-      return groupedBy(state.items, (item) => item.operation_code)
+      return groupedBy(state.items, (item) => item?.operation_code)
     }
   }
 })

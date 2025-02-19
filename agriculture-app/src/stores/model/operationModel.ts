@@ -19,6 +19,10 @@ export class OperationModel implements IOperation {
     this.machine_id = operation.machine_id;
   }
 
+  get machineValid(): boolean {
+    return Number(this.tractorOrCombine?.power ?? 0) < Number(this.machine?.requiredPower ?? 0);
+  }
+
   get machine(): EquipmentModel|undefined {
     const equipmentCollection = useEquipmentCollectionStore();
     return equipmentCollection.getItemById(this.machine_id);

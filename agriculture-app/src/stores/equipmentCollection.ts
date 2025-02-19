@@ -2,7 +2,6 @@
 
 import { defineStore } from 'pinia'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
-import { v4 as uuid } from 'uuid'
 import type { IEquipmentCollectionStore } from '@/stores/interface/IEquipmentCollectionStore.ts'
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
@@ -10,7 +9,7 @@ import { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
 import { fetchBackend, getBackendUri, sum, uniqueBy } from '@/utils.ts'
-import { useCodifierStore, useCodifierStoreCache } from '@/stores/codifier.ts'
+import { useCodifierStoreCache } from '@/stores/codifier.ts'
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
   state(): IEquipmentCollectionStore {
@@ -105,7 +104,7 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
             item.equipment_type = {
               code: equipmentValueCodifier.code,
               name: equipmentValueCodifier.name,
-              configuration: JSON.stringify(equipmentValueCodifier.value)
+              configuration: equipmentValueCodifier?.value ? JSON.parse(equipmentValueCodifier!.value) : undefined
             };
           }
         });

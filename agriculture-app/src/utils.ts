@@ -5,7 +5,6 @@ import type { RepairCategory } from '@/constants/RepairValue.ts'
 import { format, parse } from 'date-fns'
 import emitter from '@/stores/emitter.ts'
 import { useAuthStore } from '@/stores/auth.ts'
-
 export function sum(values: number[]): number {
   return values.reduce((res, val) => {
     return res + val;
@@ -29,9 +28,10 @@ export function minBy(values: any[], key: any): any {
   }, {});
 }
 
-export function groupedBy<T>(values: T[], getProp: (item: T) => string): Record<string, T[]> {
+export function groupedBy<T>(values: T[], getProp: (item: T) => string|undefined): Record<string, T[]> {
   return values.reduce((res: Record<string, T[]>, value: T) => {
     const key = getProp(value);
+    if (!key) return res;
     if (!res[key]) {
       res[key] = [];
     }
@@ -93,6 +93,22 @@ export const arraysEqual = (a: any[], b: any[]): boolean => {
   }
 
   return true;
+}
+
+export const parseJwt = (token: string): undefined|any => {
+  const parts = token.split('.');
+  if (parts.length !== 3) {
+    return undefined;
+  }
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [header, payload, signature] = parts;
+    const data = atob(payload);
+    return JSON.parse(data);
+  } catch(e) {
+    console.log(e);
+    return undefined;
+  }
 }
 
 export type MachineTypeCode = "tractor" | "combine" | "plough" | "other_soil_tilage" | "planter_sower_sprayer" | "mower_chipper" | "press" | "swather_rake" | "transport" | "other";

@@ -15,16 +15,25 @@ const router = createRouter({
       path: '/',
       name: 'farm',
       component: MyFarmView,
+      meta: {
+        authorized: true
+      }
     },
     {
       path: '/equipment',
       name: 'equipment',
       component: MyEquipmentView,
+      meta: {
+        authorized: true
+      }
     },
     {
       path: '/farmland',
       name: 'farmlands',
       component: MyFarmlandsView,
+      meta: {
+        authorized: true
+      }
     },
     {
       path: '/operations',
@@ -38,11 +47,17 @@ const router = createRouter({
       path: '/crop_inventory',
       name: 'crop_inventory',
       component: MyCropInventoryView,
+      meta: {
+        authorized: true
+      }
     },
     {
       path: '/cost_analysis',
       name: 'cost_analysis',
       component: CostAnalysisView,
+      meta: {
+        authorized: true
+      }
     },
     {
       path: '/auth/register',

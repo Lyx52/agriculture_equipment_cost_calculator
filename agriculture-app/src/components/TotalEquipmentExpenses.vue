@@ -1,20 +1,12 @@
 <script setup lang="ts">
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
   import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BBadge, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
-  import { useIndicatorStore } from '@/stores/indicator.ts'
-  import { onMounted, ref } from 'vue'
-  const indicatorStore = useIndicatorStore();
+  import { ref } from 'vue'
   const selectedCalculatePer = ref<string>('gadā');
   const calculatePerOptions = [
     { value: 'gadā', text: 'gadā' },
     { value: 'h', text: 'h' }
   ]
-  onMounted(async () => {
-    await indicatorStore.getInflationRate();
-    await indicatorStore.getInterestRate();
-    await indicatorStore.getConsumerPriceIndices();
-    await indicatorStore.getMotorHoursByYear();
-  });
   const equipmentCollectionStore = useEquipmentCollectionStore();
 </script>
 

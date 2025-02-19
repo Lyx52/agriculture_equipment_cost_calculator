@@ -22,8 +22,9 @@ export const useEquipmentStore = defineStore('equipment', {
             fuel_consumption_coefficient: 0.270,
             repair_value_code: 'traktors_4x4',
           } as IEquipmentSpecifications,
-          expectedAge: 15,
-          usageHoursPerYear: 300,
+          expected_age: 15,
+          usage_hours_per_year: 300,
+          purchase_date: new Date(),
         } as IEquipment,
         showModal: false,
         editMode: false,
@@ -43,7 +44,7 @@ export const useEquipmentStore = defineStore('equipment', {
         manufacturer: '',
         model: '',
         price: 0,
-        purchaseDate: new Date(),
+        purchase_date: new Date(),
         specifications: {
           power: undefined,
           required_power: undefined,
@@ -52,8 +53,9 @@ export const useEquipmentStore = defineStore('equipment', {
           fuel_consumption_coefficient: 0.270,
           repair_value_code: 'traktors_4x4',
         } as IEquipmentSpecifications,
-        expectedAge: 15,
-        usageHoursPerYear: 300,
+        expected_age: 15,
+        usage_hours_per_year: 300,
+
       } as IEquipment;
     }
   },

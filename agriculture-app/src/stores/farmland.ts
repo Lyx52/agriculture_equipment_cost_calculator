@@ -96,6 +96,7 @@ export const useFarmlandStore = defineStore('farmland', {
         this.items.forEach((item) => {
           const store = useCodifierStore(item.id);
           store.setSelectedByCode(item.product_code);
+          item.product_name = codifierCache.getByCode(item.product_code)?.name;
         });
 
       } catch (e: any) {
@@ -114,7 +115,7 @@ export const useFarmlandStore = defineStore('farmland', {
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {
-        name: `${item?.product?.productName ?? 'Lauks'} (${(item?.area ?? 0).toFixed(2)} ha)`,
+        name: `${item?.product_name ?? 'Lauks'} (${(item?.area ?? 0).toFixed(2)} ha)`,
         id: value,
         value: value,
       }
@@ -122,7 +123,7 @@ export const useFarmlandStore = defineStore('farmland', {
 
     getFiltered(searchText: string): IDropdownOption<any>[] {
       return this.items
-        .filter(f => `${f?.product?.productName ?? 'Lauks'} (${(f?.area ?? 0).toFixed(2)} ha)`.toLowerCase().includes(searchText.toLowerCase()))
+        .filter(f => `${f?.product_name ?? 'Lauks'} (${(f?.area ?? 0).toFixed(2)} ha)`.toLowerCase().includes(searchText.toLowerCase()))
         .map(f => this.getFormattedOption(f.id));
     }
   },

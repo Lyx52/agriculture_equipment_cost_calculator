@@ -1,14 +1,13 @@
 <script setup lang="ts">
-  import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
-  import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BBadge, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
-  import { useIndicatorStore } from '@/stores/indicator.ts'
+  import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
   import { onMounted, ref } from 'vue'
   import { useOperationStore } from '@/stores/operation.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
   import {v4 as uuid} from 'uuid'
   import { sumBy } from '@/utils.ts'
-  const indicatorStore = useIndicatorStore();
+
+  const operationStore = useOperationStore();
   const codifierStore = useCodifierStore(uuid());
   const selectedCalculatePer = ref<string>('kopā');
   const calculatePerOptions = [
@@ -17,17 +16,12 @@
     { value: 'ha', text: 'ha' },
   ]
   onMounted(async () => {
-    await indicatorStore.getInflationRate();
-    await indicatorStore.getInterestRate();
-    await indicatorStore.getConsumerPriceIndices();
-    await indicatorStore.getMotorHoursByYear();
     codifierStore.$patch({
       codifierTypeCodes: [Codifiers.OperationTypes],
     });
     await codifierStore.fetchByFilters();
   });
-  const equipmentCollectionStore = useEquipmentCollectionStore();
-  const operationStore = useOperationStore();
+
 </script>
 
 <template>

@@ -10,6 +10,7 @@ import { mapEquipmentTypeCode } from '@/utils.ts'
 import { isValid } from 'date-fns'
 import { useIndicatorStore } from '@/stores/indicator.ts'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
+import { useCodifierStoreCache } from '@/stores/codifier.ts'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
@@ -23,7 +24,15 @@ export class EquipmentModel implements IEquipment {
   purchase_date: Date|undefined
 
   constructor(equipment: IEquipment) {
-    this.equipment_type = equipment.equipment_type;
+    const codifierCache = useCodifierStoreCache();
+    const equipmentValueCodifier = codifierCache.getByCode(equipment.equipment_type_code);
+    if (equipmentValueCodifier) {
+      this.equipment_type = {
+        code: equipmentValueCodifier.code,
+        name: equipmentValueCodifier.name,
+        configuration: equipmentValueCodifier?.value ? JSON.parse(equipmentValueCodifier!.value) : undefined
+      };
+    }
     this.equipment_type_code = equipment.equipment_type_code;
     this.id = equipment.id;
     this.manufacturer = equipment.manufacturer;
@@ -343,6 +352,7 @@ export class EquipmentModel implements IEquipment {
    * Remaining value factor
    */
   get remainingValueFactor() {
+    if (!this.equipment_type?.configuration?.remaining_value_code) return 0;
     switch (this.equipment_type?.configuration?.remaining_value_code) {
       case 'tractor': return getRemainingValueTractor(Number(this.usage_hours_per_year ?? 0), this.horsePower, this.totalLifetimeUsageYears);
       case 'combine': return getRemainingValueCombine(Number(this.usage_hours_per_year ?? 0), this.totalLifetimeUsageYears);
@@ -366,7 +376,6 @@ export class EquipmentModel implements IEquipment {
 
   get capitalRecoveryCoefficient() {
     const indicatorStore = useIndicatorStore();
-    console.log(this.totalLifetimeUsageHours)
     return indicatorStore.getCapitalRecoveryFactor(this.totalLifetimeUsageYears);
   }
 
@@ -375,9 +384,8 @@ export class EquipmentModel implements IEquipment {
    */
   get capitalRecoveryValuePerYear(): number {
     const indicatorStore = useIndicatorStore();
-
     return Number(this.totalDepreciationValue * this.capitalRecoveryCoefficient) +
-      Number(this.salvageValue * (indicatorStore.realInterestRate / 100));
+      Number(this.salvageValue * indicatorStore.realInterestRate);
   }
 
   /**
