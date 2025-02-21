@@ -10,6 +10,7 @@ import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import emitter from '@/stores/emitter.ts'
 import { fetchBackend, getBackendUri, sum, uniqueBy } from '@/utils.ts'
 import { useCodifierStoreCache } from '@/stores/codifier.ts'
+import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
   state(): IEquipmentCollectionStore {
@@ -27,8 +28,12 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     async addEquipmentAsync(item: IEquipment) {
       const newItem: IEquipment = {
         ...item,
-        expected_age: 15,
-        usage_hours_per_year: 300,
+        usage: {
+          expected_age: 15,
+          hours_per_year: 300,
+          hours_per_individual_years: [],
+          use_hours_per_individual_years: false
+        } as IEquipmentUsage,
         purchase_date: item.purchase_date ?? new Date()
       }
       this.isLoading = true;
@@ -107,6 +112,14 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
               configuration: equipmentValueCodifier?.value ? JSON.parse(equipmentValueCodifier!.value) : undefined
             };
           }
+          if (!item.usage) {
+            item.usage = {
+              expected_age: 15,
+              hours_per_year: 300,
+              hours_per_individual_years: {} as Record<string, number>,
+              use_hours_per_individual_years: false
+            } as IEquipmentUsage;
+          }
         });
 
       } catch (e: any) {
@@ -125,39 +138,24 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {
-        name: `${item?.equipment_type?.name} - ${item?.manufacturer} ${item?.model} ${this.getPowerOrWorkingWidth(item)}`,
+        name: item?.displayName ?? '',
         id: value,
         value: value,
       }
     },
 
-    getFilteredTractorOrCombine(searchText: string): IDropdownOption<any>[] {
+    getFilteredTractorOrSelfPropelledOrCombine(searchText: string): IDropdownOption<any>[] {
       return this.items
-        .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrWorkingWidth(e)}`.toLowerCase().includes(searchText.toLowerCase()) && this.isTractorOrCombine(e))
+        .filter(e => e.displayName.toLowerCase().includes(searchText.toLowerCase()) && (e.isTractor || e.isSelfPropelled || e.isCombine))
         .map(e => this.getFormattedOption(e.id));
     },
+
     getFilteredMachines(searchText: string): IDropdownOption<any>[] {
       return this.items
-        .filter(e => `${e.manufacturer} ${e.model} ${this.getPowerOrWorkingWidth(e)}`.toLowerCase().includes(searchText.toLowerCase()) && !this.isTractorOrCombine(e))
+        .filter(e => e.displayName.toLowerCase().includes(searchText.toLowerCase()) && e.isMachine)
         .map(e => this.getFormattedOption(e.id));
     },
-    getPowerOrWorkingWidth(item: IEquipment|undefined) {
-      if (!item) return '';
-      if (item.specifications.power) return `(${item.specifications.power} kw)`;
-      if (item.specifications.work_width) return `(${item.specifications.work_width} m)`;
-      return '';
-    },
-    isTractorOrCombine(item: IEquipment) {
-      return [
-        'traktors_4x4',
-        'traktors_4x2',
-        'traktors_kezu',
-        'kartupelu_novaksanas_kombains',
-        'darzenu_novaksanas_kombains',
-        'graudaugu_kombains',
-        'ogu_novaksans_kombains'
-      ].includes(item.equipment_type_code);
-    },
+
     equipmentTotalsByProperty(mapFunc: (model: EquipmentModel) => number): number {
       const models: EquipmentModel[] = this.items;
       return sum(models.map(mapFunc));

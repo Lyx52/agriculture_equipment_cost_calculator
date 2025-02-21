@@ -25,15 +25,24 @@
   import IconX from '@/components/icons/IconX.vue'
   import { v4 as uuid } from 'uuid';
   import { useCodifierStore } from '@/stores/codifier.ts'
-  import { onBeforeMount, onMounted } from 'vue'
+  import { onBeforeMount, onMounted, ref } from 'vue'
   import IconClockHistory from '@/components/icons/IconClockHistory.vue'
   import EquipmentUsageModal from '@/components/modal/EquipmentUsageModal.vue'
   import { useIndicatorStore } from '@/stores/indicator.ts'
+  import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
   const equipmentCollectionStore = useEquipmentCollectionStore();
   const equipmentStore = useEquipmentStore();
   const equipmentCodifierStore = useCodifierStore(uuid());
   const equipmentCategoryTypeStore = useCodifierStore(uuid());
   const indicatorStore = useIndicatorStore();
+
+  const equipmentUsage = ref<IEquipmentUsage>({
+    use_hours_per_individual_years: false,
+    hours_per_year: 0,
+    expected_age: 0,
+    hours_per_individual_years: {}
+  });
+
   onMounted(async () => {
     await indicatorStore.getInflationRate();
     await indicatorStore.getInterestRate();
@@ -59,9 +68,11 @@
   }
   const onAddUsage = (item: IEquipment) => {
     equipmentStore.fromEquipment(item);
+    equipmentUsage.value = item.usage;
     equipmentStore.$patch({
       showUsageModal: true
     });
+
   }
   const onAddEquipment = () => {
     equipmentStore.resetEquipment();
@@ -122,7 +133,7 @@
       <BTbody v-else>
         <BTr v-for="row in equipmentCollectionStore.filteredItems" v-bind:key="row.id">
           <BTd>
-            {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
+            {{ row.displayName }}
           </BTd>
           <BTd>
             {{ row.equipment_type?.name }}
@@ -160,7 +171,7 @@
       </BTfoot>
     </BTableSimple>
     <EquipmentModal v-model="equipmentStore.showModal" />
-    <EquipmentUsageModal v-model="equipmentStore.showUsageModal" />
+    <EquipmentUsageModal :usage="equipmentUsage" v-model="equipmentStore.showUsageModal" />
   </div>
 </template>
 

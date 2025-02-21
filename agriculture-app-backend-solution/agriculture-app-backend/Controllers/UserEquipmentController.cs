@@ -58,8 +58,7 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
             Price = request.Price,
             Id = equipmentId,
             PurchaseDate = request.PurchaseDate,
-            UsageHoursPerYear = request.UsageHoursPerYear,
-            ExpectedAge = request.ExpectedAge
+            Usage = request.Usage
         });
         await _db.SaveChangesAsync();
         
@@ -109,8 +108,7 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
         equipment.Price = request.Price;
         equipment.Specifications = request.Specifications;
         equipment.PurchaseDate = request.PurchaseDate;
-        equipment.UsageHoursPerYear = request.UsageHoursPerYear;
-        equipment.ExpectedAge = request.ExpectedAge;
+        equipment.Usage = request.Usage;
         
         _db.UserEquipment.Update(equipment);
         await _db.SaveChangesAsync();

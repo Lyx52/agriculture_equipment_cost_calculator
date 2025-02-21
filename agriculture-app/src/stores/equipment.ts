@@ -22,8 +22,12 @@ export const useEquipmentStore = defineStore('equipment', {
             fuel_consumption_coefficient: 0.270,
             repair_value_code: 'traktors_4x4',
           } as IEquipmentSpecifications,
-          expected_age: 15,
-          usage_hours_per_year: 300,
+          usage: {
+            expected_age: 15,
+            hours_per_year: 300,
+            hours_per_individual_years: {} as Record<string, number>,
+            use_hours_per_individual_years: false
+          } as IEquipmentUsage,
           purchase_date: new Date(),
         } as IEquipment,
         showModal: false,
@@ -53,9 +57,12 @@ export const useEquipmentStore = defineStore('equipment', {
           fuel_consumption_coefficient: 0.270,
           repair_value_code: 'traktors_4x4',
         } as IEquipmentSpecifications,
-        expected_age: 15,
-        usage_hours_per_year: 300,
-
+        usage: {
+          expected_age: 15,
+          hours_per_year: 300,
+          hours_per_individual_years: {} as Record<string, number>,
+          use_hours_per_individual_years: false
+        } as IEquipmentUsage,
       } as IEquipment;
     }
   },
@@ -112,27 +119,7 @@ export const useEquipmentStore = defineStore('equipment', {
 
       return errors;
     },
-    validateUsage(state: IEquipmentStore): string[] {
-      const errors = [] as string[];
-      for (const [property, value] of Object.entries(state.item ?? {})) {
-        switch (property) {
-          case 'expectedAge':
-          {
-            if (isNaN(value) || Number(value) <= 0) {
-              errors.push("Ekonomiskais izmantošanas laiks");
-            }
-          } break;
-          case 'usageHoursPerYear':
-          {
-            if (isNaN(value) || Number(value) <= 0) {
-              errors.push("Gada noslodze");
-            }
-          } break;
-        }
-      }
 
-      return errors;
-    },
     isTractor(state: IEquipmentStore): boolean {
       return [
         'traktors_4x4',

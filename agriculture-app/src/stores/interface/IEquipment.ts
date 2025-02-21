@@ -1,4 +1,5 @@
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
+import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 
 export interface IEquipment {
   id: string;
@@ -7,7 +8,6 @@ export interface IEquipment {
   equipment_type_code: string;
   price: number;
   specifications: IEquipmentSpecifications;
-  expected_age: number|undefined;
-  usage_hours_per_year: number|undefined;
+  usage: IEquipmentUsage;
   purchase_date: Date|string|undefined;
 }

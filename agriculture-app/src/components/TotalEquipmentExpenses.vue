@@ -38,7 +38,7 @@
         <BTbody>
           <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
             <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
+              {{ row.displayName }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.totalCurrentUsageYears }}&nbsp;gadi ({{ row.totalCurrentUsageHours }}&nbsp;stundas)
@@ -132,7 +132,7 @@
         <BTbody>
           <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
             <BTd>
-              {{ row.equipment_type?.name }} - {{ row.manufacturer }} {{ row.model }} {{ equipmentCollectionStore.getPowerOrWorkingWidth(row) }}
+              {{ row.displayName }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.totalCurrentUsageYears }}&nbsp;gadi ({{ row.totalCurrentUsageHours }}&nbsp;stundas)

@@ -12,6 +12,7 @@ export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
     clearCache() {
       this.cachedCodifiersByCode.clear();
     },
+
     async addAsync(code: string) {
       if (this.cachedCodifiersByCode.has(code)) return;
       const response = await fetch(`${getBackendUri()}/Codifier/ByCode/${code}`)

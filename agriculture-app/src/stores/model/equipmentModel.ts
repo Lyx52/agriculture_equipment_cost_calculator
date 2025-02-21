@@ -6,21 +6,21 @@ import { getRemainingValueCombine } from '@/constants/RemainingValueCombine.ts'
 import { getRemainingValueMachine } from '@/constants/RemainingValueMachine.ts'
 import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
-import { mapEquipmentTypeCode } from '@/utils.ts'
+import { avg, mapEquipmentTypeCode, sum } from '@/utils.ts'
 import { isValid } from 'date-fns'
 import { useIndicatorStore } from '@/stores/indicator.ts'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 import { useCodifierStoreCache } from '@/stores/codifier.ts'
+import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
-  id: string
+  id: string;
   manufacturer: string
   model: string
   price: number
   specifications: IEquipmentSpecifications
-  expected_age: number|undefined
-  usage_hours_per_year: number|undefined
+  usage: IEquipmentUsage;
   purchase_date: Date|undefined
 
   constructor(equipment: IEquipment) {
@@ -33,20 +33,68 @@ export class EquipmentModel implements IEquipment {
         configuration: equipmentValueCodifier?.value ? JSON.parse(equipmentValueCodifier!.value) : undefined
       };
     }
+    this.usage = equipment.usage;
+    if (!equipment.usage) {
+      equipment.usage = {
+        expected_age: 15,
+        hours_per_year: 300,
+        hours_per_individual_years: {} as Record<string, number>,
+        use_hours_per_individual_years: false
+      } as IEquipmentUsage;
+    }
     this.equipment_type_code = equipment.equipment_type_code;
     this.id = equipment.id;
     this.manufacturer = equipment.manufacturer;
     this.model = equipment.model;
     this.price = equipment.price;
     this.specifications = equipment.specifications;
-    this.expected_age = equipment.expected_age;
-    this.usage_hours_per_year = equipment.usage_hours_per_year;
     if (equipment.purchase_date) {
       this.purchase_date = isValid(equipment.purchase_date) ? (equipment.purchase_date as Date) : new Date(equipment.purchase_date as string);
     } else {
       this.purchase_date = undefined;
     }
   }
+
+  get displayName() {
+    let displayName = `${this.equipment_type?.name} - ${this.manufacturer} ${this.model}`;
+    if (this.isSelfPropelled) {
+      displayName = `(Pašgājējs) ${displayName}`;
+    }
+
+    if (this.isTractor) {
+      displayName = `${displayName} (${this.power.toFixed(2)} kw)`;
+    } else {
+      displayName = `${displayName} (${this.workWidth.toFixed(2)} m)`;
+    }
+
+    return displayName;
+  }
+
+  get isTractor(): boolean {
+    return [
+      'traktors_4x4',
+      'traktors_4x2',
+      'traktors_kezu'
+    ].includes(this.equipment_type_code);
+  }
+
+  get isSelfPropelled(): boolean {
+    return this.specifications?.self_propelled ?? false;
+  }
+
+  get isCombine(): boolean {
+     return [
+      'kartupelu_novaksanas_kombains',
+      'darzenu_novaksanas_kombains',
+      'graudaugu_kombains',
+      'ogu_novaksans_kombains'
+    ].includes(this.equipment_type_code);
+  }
+
+  get isMachine(): boolean {
+    return !this.isTractor && !this.isCombine && !this.isSelfPropelled;
+  }
+
 
   /**
    * Date of the equipment purchase.
@@ -89,13 +137,17 @@ export class EquipmentModel implements IEquipment {
    * Expected lifetime usage years of the equipment.
    */
   get totalLifetimeUsageYears(): number {
-    return Number(this.expected_age ?? 0);
+    return Number(this.usage.expected_age ?? 0);
   }
 
   /**
    * Total current usage hours of the equipment.
    */
   get totalCurrentUsageHours(): number {
+    if (this.usage.use_hours_per_individual_years) {
+      return sum(Object.values(this.usage.hours_per_individual_years));
+    }
+
     return this.totalCurrentUsageYears * this.hoursPerYear;
   }
 
@@ -110,25 +162,45 @@ export class EquipmentModel implements IEquipment {
    * Total lifetime usage hours of the equipment.
    */
   get totalLifetimeUsageHours(): number {
-    return this.totalLifetimeUsageYears * Number(this.usage_hours_per_year ?? 1);
+    return this.totalLifetimeUsageYears * this.hoursPerYear;
   }
 
   /**
    * Total remaining usage hours of the equipment. (Per year)
    */
   get hoursPerYear(): number {
-    return Number(this.usage_hours_per_year ?? 1);
+    if (this.usage.use_hours_per_individual_years) {
+      return Number(avg(Object.values(this.usage.hours_per_individual_years)) ?? 300);
+    }
+    return Number(this.usage.hours_per_year ?? 300);
+  }
+
+  /**
+   * Working width of the equipment, m.
+   */
+  get workWidth(): number {
+    return Number(this.specifications.work_width ?? 0);
+  }
+
+  /**
+   * Field work efficiency of the equipment, %.
+   */
+  get fieldWorkEfficiency(): number {
+    return Number(this.equipment_type?.configuration?.field_efficiency ?? 0) / 100;
+  }
+
+  /**
+   * Average work speed of the equipment, km/h.
+   */
+  get averageWorkSpeed(): number {
+    return Number(this.equipment_type?.configuration?.average_speed ?? 0);
   }
 
   /**
    * Effective field work speed of the equipment, ha/h.
    */
   get averageFieldWorkSpeed(): number {
-    return (
-      Number(this.equipment_type?.configuration?.average_speed ?? 0) *
-      (Number(this.equipment_type?.configuration?.field_efficiency ?? 0) / 100) *
-      Number(this.specifications?.work_width ?? 0)
-    ) / 10;
+    return (this.averageWorkSpeed * this.fieldWorkEfficiency * this.workWidth) / 10;
   }
 
   /**
@@ -354,8 +426,8 @@ export class EquipmentModel implements IEquipment {
   get remainingValueFactor() {
     if (!this.equipment_type?.configuration?.remaining_value_code) return 0;
     switch (this.equipment_type?.configuration?.remaining_value_code) {
-      case 'tractor': return getRemainingValueTractor(Number(this.usage_hours_per_year ?? 0), this.horsePower, this.totalLifetimeUsageYears);
-      case 'combine': return getRemainingValueCombine(Number(this.usage_hours_per_year ?? 0), this.totalLifetimeUsageYears);
+      case 'tractor': return getRemainingValueTractor(this.hoursPerYear, this.horsePower, this.totalLifetimeUsageYears);
+      case 'combine': return getRemainingValueCombine(this.hoursPerYear, this.totalLifetimeUsageYears);
       default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalLifetimeUsageYears);
     }
   }

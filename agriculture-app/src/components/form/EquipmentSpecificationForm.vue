@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { BFormGroup } from 'bootstrap-vue-next'
+  import { BFormGroup, BFormCheckbox } from 'bootstrap-vue-next'
   import CodifierDropdown from '@/components/elements/CodifierDropdown.vue'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
   import { onMounted, watch } from 'vue'
@@ -56,6 +56,12 @@
     <BFormGroup label="Darba platums, m" v-if="!equipmentStore.isTractor">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.work_width"
+      />
+    </BFormGroup>
+    <BFormGroup label="Ir pašgājējs" v-if="!equipmentStore.isTractor">
+      <BFormCheckbox
+        switch
+        v-model="equipmentStore.item.specifications.self_propelled"
       />
     </BFormGroup>
   </div>

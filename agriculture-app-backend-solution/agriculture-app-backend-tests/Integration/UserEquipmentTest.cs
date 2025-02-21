@@ -77,7 +77,9 @@ public class UserEquipmentTest
             EquipmentTypeCode = "Type123",
             Model = "ModelX",
             Specifications = new EquipmentSpecification(),
-            Price = 1000
+            Usage = new EquipmentUsage(),
+            Price = 1000,
+            PurchaseDate = "12313"
         };
 
         var addResponse = await _client.PostAsJsonAsync("/UserEquipment/Add", addRequest, _jsonOptions);
@@ -106,7 +108,9 @@ public class UserEquipmentTest
             EquipmentTypeCode = "TypeA",
             Model = "ModelOriginal",
             Specifications = new EquipmentSpecification(),
-            Price = 500
+            Usage = new EquipmentUsage(),
+            Price = 500,
+            PurchaseDate = "12313"
         };
 
         var addResponse = await _client.PostAsJsonAsync("/UserEquipment/Add", addRequest, _jsonOptions);
@@ -127,7 +131,9 @@ public class UserEquipmentTest
             EquipmentTypeCode = "TypeB",
             Model = "ModelUpdated",
             Specifications = new EquipmentSpecification(),
-            Price = 750
+            Usage = new EquipmentUsage(),
+            Price = 750,
+            PurchaseDate = "12313"
         };
 
         var updateResponse = await _client.PostAsJsonAsync($"/UserEquipment/Update/{equipmentId}", updateRequest, _jsonOptions);
@@ -153,7 +159,9 @@ public class UserEquipmentTest
             EquipmentTypeCode = "RemoveType",
             Model = "ModelRemove",
             Specifications = new EquipmentSpecification(),
-            Price = 300
+            Usage = new EquipmentUsage(),
+            Price = 300,
+            PurchaseDate = "12313"
         };
 
         var addResponse = await _client.PostAsJsonAsync("/UserEquipment/Add", addRequest, _jsonOptions);

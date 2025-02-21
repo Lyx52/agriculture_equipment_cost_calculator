@@ -161,12 +161,13 @@ public class Program {
                     {
                         existingCodifier.Name = codifier.Name;
                         existingCodifier.Value = codifier.Value;
-                        existingCodifier.ParentCode = codifier.ParentCode;
                         context.Update(existingCodifier);
+                        context.SaveChangesAsync().GetAwaiter().GetResult();
                     }
                     else
                     {
                         context.Add(codifier);
+                        context.SaveChangesAsync().GetAwaiter().GetResult();
                     }
                 }
             }

@@ -3,6 +3,7 @@ using System;
 using AgricultureAppBackend.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgricultureAppBackend.Migrations
 {
     [DbContext(typeof(PersistentDbContext))]
-    partial class PersistentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250220212901_AddUsageJsonModel")]
+    partial class AddUsageJsonModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -174,42 +177,6 @@ namespace AgricultureAppBackend.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("LadCode")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<double>("StandardProductPrice")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("StandardSeedCost")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("StandardYield")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserCropTypes");
                 });
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", b =>
@@ -458,17 +425,6 @@ namespace AgricultureAppBackend.Migrations
                         .HasForeignKey("EquipmentId");
                 });
 
-            modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", b =>
-                {
-                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.User", "User")
-                        .WithMany("CropTypes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", b =>
                 {
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.User", "User")
@@ -565,8 +521,6 @@ namespace AgricultureAppBackend.Migrations
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.User", b =>
                 {
-                    b.Navigation("CropTypes");
-
                     b.Navigation("Equipment");
 
                     b.Navigation("Farmlands");

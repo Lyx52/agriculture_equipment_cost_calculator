@@ -171,7 +171,7 @@
             <div class="d-flex flex-row gap-3">
               <SimpleDropdown
                 :is-loading="false"
-                :get-filtered="equipmentCollectionStore.getFilteredTractorOrCombine"
+                :get-filtered="equipmentCollectionStore.getFilteredTractorOrSelfPropelledOrCombine"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
                 v-model="row.tractor_or_combine_id"
                 @changed="operationStore.updateOperationAsync(row)"

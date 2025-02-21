@@ -61,6 +61,18 @@ export function getClosestValue(values: any[], value: any) {
   return minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
 }
 
+export function sortBy<T>(
+  array: T[],
+  getProp: (item: T) => any,
+  ascending: boolean = true
+): T[] {
+  return array.sort((a, b) => {
+    if (getProp(a) < getProp(b)) return ascending ? -1 : 1;
+    if (getProp(a) > getProp(b)) return ascending ? 1 : -1;
+    return 0;
+  });
+}
+
 export const dateToString = (date: Date) => date.toISOString().slice(0, 10);
 
 export const currentYear = () => new Date().getFullYear();
@@ -109,6 +121,11 @@ export const parseJwt = (token: string): undefined|any => {
     console.log(e);
     return undefined;
   }
+}
+
+export const yearsBetweenDates = (startDate: Date|undefined): number[] => {
+  const yearsBetween = (new Date()).getFullYear() - (startDate ?? new Date).getFullYear();
+  return Array.from({ length: yearsBetween + 1 }).map((_, i) => (new Date()).getFullYear() - i)
 }
 
 export type MachineTypeCode = "tractor" | "combine" | "plough" | "other_soil_tilage" | "planter_sower_sprayer" | "mower_chipper" | "press" | "swather_rake" | "transport" | "other";

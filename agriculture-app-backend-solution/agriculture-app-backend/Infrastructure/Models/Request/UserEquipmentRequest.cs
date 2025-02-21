@@ -16,9 +16,8 @@ public class UserEquipmentRequest
     [Required]
     public EquipmentSpecification Specifications { get; set; }
     [Required]
+    public EquipmentUsage Usage { get; set; }
+    [Required]
     public string PurchaseDate { get; set; }
-    [Required]
-    public double ExpectedAge { get; set; }
-    [Required]
-    public double UsageHoursPerYear { get; set; }
+   
 }

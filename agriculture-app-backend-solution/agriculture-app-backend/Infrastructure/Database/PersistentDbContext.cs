@@ -15,6 +15,7 @@ public class PersistentDbContext(
     public DbSet<Equipment> Equipment { get; set; }
     public DbSet<UserEquipment> UserEquipment { get; set; }
     public DbSet<UserFarmland> UserFarmlands { get; set; }
+    public DbSet<UserCropType> UserCropTypes { get; set; }
     public DbSet<FarmlandOperation> FarmlandOperations { get; set; }
     private readonly ILogger<PersistentDbContext> _logger = logger;
 
@@ -48,6 +49,11 @@ public class PersistentDbContext(
             .HasConversion(new JsonValueConverter<EquipmentSpecification>())
             .HasColumnType("jsonb");
         
+        modelBuilder.Entity<UserEquipment>()
+            .Property(e => e.Usage)
+            .HasConversion(new JsonValueConverter<EquipmentUsage>())
+            .HasColumnType("jsonb");
+        
         modelBuilder.Entity<User>()
             .HasMany(e => e.Equipment)
             .WithOne(e => e.User)
@@ -58,6 +64,11 @@ public class PersistentDbContext(
             .WithOne(e => e.User)
             .HasForeignKey(e => e.UserId);
 
+        modelBuilder.Entity<User>()
+            .HasMany(e => e.CropTypes)
+            .WithOne(e => e.User)
+            .HasForeignKey(e => e.UserId);
+        
         modelBuilder.Entity<UserFarmland>()
             .HasMany(e => e.Operations)
             .WithOne(e => e.UserFarmland)

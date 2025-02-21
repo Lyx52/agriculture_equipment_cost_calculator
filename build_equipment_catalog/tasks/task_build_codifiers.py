@@ -81,13 +81,18 @@ categories.close()
 added = []
 values = []
 for line in lines:
-    [code, name] = line.split(';')
+    [code, name, standard_yield_t_ha, product_price_eur_t, seed_cost_eur_kg] = line.split(';')
     if code not in added:
         codifiers.append({
             "Code": f"crop_{code}",
             "ParentCode": "crop_type_categories",
             "Name": name.strip(),
-            "Value": str(code)
+            "Value": json.dumps({
+                'standard_yield': float(standard_yield_t_ha),
+                'standard_product_price': float(product_price_eur_t),
+                'standard_seed_cost': float(seed_cost_eur_kg),
+                'code': str(code)
+            })
         })
         added.append(parent)
 
