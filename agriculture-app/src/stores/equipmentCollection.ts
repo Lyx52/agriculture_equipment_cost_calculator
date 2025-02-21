@@ -31,7 +31,7 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         usage: {
           expected_age: 15,
           hours_per_year: 300,
-          hours_per_individual_years: [],
+          hours_per_individual_years: {} as Record<string, number>,
           use_hours_per_individual_years: false
         } as IEquipmentUsage,
         purchase_date: item.purchase_date ?? new Date()

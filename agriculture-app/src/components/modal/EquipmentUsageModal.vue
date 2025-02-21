@@ -1,4 +1,6 @@
+
 <script setup lang="ts">
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { BButton, BFormGroup, BInputGroup, BModal, BToastOrchestrator, useToastController, BFormCheckbox } from 'bootstrap-vue-next'
 import { useEquipmentStore } from '@/stores/equipment.ts'
 import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
@@ -26,21 +28,21 @@ const validateUsage = (): string[] => {
     switch (property) {
       case 'expected_age':
       {
-        if (isNaN(value) || Number(value) <= 0) {
+        if (isNaN(value as number) || Number(value) <= 0) {
           errors.push("Ekonomiskais izmantošanas laiks");
         }
       } break;
       case 'hours_per_year':
       {
-        if (isNaN(value) || Number(value) <= 0 && !isUsagePerIndividualYear) {
+        if (isNaN(value as number) || Number(value) <= 0 && !isUsagePerIndividualYear) {
           errors.push("Vidējā gada noslodze");
         }
       } break;
       case 'use_hours_per_individual_years':
       {
         if (!isUsagePerIndividualYear) break;
-        for (const hoursPerYear of Object.keys(value)) {
-          if (isNaN(hoursPerYear) || Number(hoursPerYear) <= 0) {
+        for (const hoursPerYear of Object.values(value as Record<string, number>)) {
+          if (isNaN(hoursPerYear as number) || Number(hoursPerYear) <= 0) {
             errors.push("Noslodze pa gadiem");
             break;
           }
@@ -52,11 +54,11 @@ const validateUsage = (): string[] => {
   return errors;
 };
 
-const onChangeToIndividualYears = (e) => {
+const onChangeToIndividualYears = (e: any) => {
   usage.value = {
     ...usage.value,
     use_hours_per_individual_years: e.target.checked,
-    hours_per_individual_years: Object.fromEntries(yearsBetweenDates(equipmentStore.item?.purchase_date).map(year => [year.toString(), 300]))
+    hours_per_individual_years: Object.fromEntries(yearsBetweenDates(equipmentStore?.item?.purchase_date as Date|undefined).map(year => [year.toString(), 300]))
   }
 }
 

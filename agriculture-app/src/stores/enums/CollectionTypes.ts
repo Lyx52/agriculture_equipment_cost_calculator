@@ -3,4 +3,5 @@ export enum CollectionTypes {
   Equipment = 'equipment',
   Operation = 'operation',
   Codifier = 'codifier',
+  Crops = 'crops',
 }

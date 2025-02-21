@@ -5,5 +5,5 @@ export interface ICropType {
   standard_yield: number|undefined;
   standard_product_price: number|undefined;
   standard_seed_cost: number|undefined;
-  lad_code: string;
+  lad_code: string|undefined;
 }

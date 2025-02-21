@@ -1,6 +1,5 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import { defineStore } from 'pinia'
-import type { IIndicatorStore } from '@/stores/interface/IIndicatorStore.ts'
 import type { ICropsStore } from '@/stores/interface/ICropsStore.ts'
 import { useCodifierStore } from '@/stores/codifier.ts'
 import { cropFromCodifier, CropTypeModel } from '@/stores/model/cropTypeModel.ts'
@@ -10,6 +9,7 @@ import { fetchBackend, getBackendUri, sortBy } from '@/utils.ts'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
 import type { ICropType } from '@/stores/interface/ICropType.tsx'
 import { v4 as uuid } from 'uuid';
+import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 
 export const useCropsStore = defineStore('crops', {
   state(): ICropsStore {
@@ -19,6 +19,9 @@ export const useCropsStore = defineStore('crops', {
       }
   },
   actions: {
+    getEmitterEvent(eventType: CollectionEvents) {
+      return eventType + ":" + CollectionTypes.Crops;
+    },
     async addCropTypeAsync(item: ICropType) {
       this.isLoading = true;
 
@@ -100,10 +103,5 @@ export const useCropsStore = defineStore('crops', {
         this.isLoading = false;
       }
     }
-  },
-  getters: {
-    realInterestRate(state: IIndicatorStore) {
-      return (Number(state.interestRate.value ?? 0) - Number(state.inflationRate.value ?? 0)) / 100;
-    }
   }
-})
+});
