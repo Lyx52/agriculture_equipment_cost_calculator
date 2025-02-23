@@ -81,7 +81,9 @@ categories.close()
 added = []
 values = []
 for line in lines:
-    [code, name, standard_yield_t_ha, product_price_eur_t, seed_cost_eur_kg] = line.split(';')
+    print(line)
+    [code, name, standard_yield_t_ha, product_price_eur_t, seed_cost_eur_kg, seeds_per_ha] = line.split(';')
+    
     if code not in added:
         codifiers.append({
             "Code": f"crop_{code}",
@@ -91,6 +93,7 @@ for line in lines:
                 'standard_yield': float(standard_yield_t_ha),
                 'standard_product_price': float(product_price_eur_t),
                 'standard_seed_cost': float(seed_cost_eur_kg),
+                'standard_seed_usage': float(seeds_per_ha),
                 'code': str(code)
             })
         })

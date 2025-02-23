@@ -1,80 +1,80 @@
-111;Kvieši, vasaras;3.38;170;0.31
-112;Kvieši, ziemas;5.14;170;0.31
-113;Kvieši vasaras ar stiebrzāļu vai tauriņziežu pasēju;2.54;170;0.31
-115;Speltas kvieši, vasaras;3.38;174;0.65
-116;Speltas kvieši, ziemas;5.14;174;0.65
-117;Kvieši, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.86;170;0.31
-118;Speltas kvieši, vasaras ar stiebrzāļu pasēju vai tauriņziežu pasēju;2.54;174;0.65
-119;Speltas kvieši, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.86;174;0.65
-121;Rudzi;4.3;114;0.28
-122;Rudzi, populācijas šķirnes, t. sk. ‘Kaupo’;4.01;118;0.28
-123;Rudzi,  populācijas, izņemot “Kaupo”;4.01;118;0.28
-125;Rudzi, populācijas šķirnes, t.sk. ‘Kaupo’ ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.23;114;0.28
-126;Rudzi, Kaupo, ar pasēju;3.01;118;0.28
-127;Rudzi,  populācijas, izņemot “Kaupo”, ar pasēju;3.01;118;0.28
-131;Mieži, vasaras;3;143;0.28
-132;Mieži, ziemas;4.87;143;0.28
-133;Mieži vasaras ar stiebrzāļu vai tauriņziežu pasēju;2.25;143;0.28
-135;Mieži, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.65;143;0.28
-140;Auzas;2.53;151;0.3
-141;Auzas ar stiebrzāļu vai tauriņziežu pasēju;1.9;151;0.3
-150;Tritikāle, vasaras;2.66;133;0.28
-151;Tritikāle, ziemas;3.69;133;0.28
-152;Tritikāle vasaras ar stiebrzāļu vai tauriņziežu pasēju;2;133;0.28
-154;Tritikāle, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;2.77;133;0.28
-160;Griķi;0.86;440;0.6
-161;Griķi ar tauriņziežu pasēju;0.65;440;0.6
-170;Kaņepes;0.61;1763;4.3
-211;Rapsis, vasaras;1.73;359;7.5
-212;Rapsis, ziemas;3.07;359;7.5
-213;Ripsis, vasaras;0.68;780;2.5
-214;Ripsis, ziemas;1.21;780;2.5
-215;Sinepe, tostarp baltā sinepe;24.45;0;2.8
-216;Sinepe ar tauriņziežu pasēju;24.45;0;3.2
-310;Lini, šķiedras;3.15;100;1.85
-330;Lini, eļļas;0.77;286;1.85
-410;Lauka pupas;2.72;220;0.33
-420;Zirņi;1.92;190;0.3
-430;Lupīna (saldās jeb dzeltenās, baltās, šaurlapu);0.72;190;0.3
-441;Vīķi, vasaras;0.94;21;0.25
-442;Vīķi, ziemas;0.94;21;0.32
-443;Soja;2.15;460;1.2
-445;Graudaugu un zirņu maisījums, kurā zirņi > 50 %;24.45;21;0.32
-446;Graudaugu un zirņu maisījums, kurā zirņi > 50 %, ar stiebrzāļu vai tauriņziežu pasēju;24.45;21;0.32
-447;Graudaugu un vīķu maisījums, kurā vīķi > 50 %;24.45;21;0.32
-610;Papuve, izņemot zaļmēslojuma augu papuvi;0;0;0
-611;Zaļmēslojuma papuve;24.45;0;1.46
-713;Citur neminētas stiebrzāles;24.45;24;3.5
-715;Facēlija;24.45;0;6.95
-716;Facēlija ar tauriņziežu pasēju;24.45;0;5.5
-720;Aramzemē sētu stiebrzāļu vai lopbarības zālaugu (arī proteīnaugu) maisījums;24.45;24;2.5
-723;Sarkanais āboliņš;24.45;21;4.95
-724;Baltais āboliņš;12.23;21;3.9
-725;Bastarda āboliņš;24.45;21;7.6
-726;Lucerna;39.12;21;5.95
-727;Austrumu galega;9.78;21;5.95
-728;Ragainais vanagnadziņš;9.78;21;11.4
-729;Amoliņš;39.12;21;3.9
-731;Pļavas timotiņš, sēklas ieguvei;0.49;1172;3.3
-732;Pļavas auzene, sēklas ieguvei;0.49;1103;3.95
-733;Hibrīdā airene, sēklas ieguvei;0.49;1112;2.95
-734;Daudzziedu viengadīgā airene sēklas ieguvei;0.49;1018;2.2
-735;Sarkanā auzene, sēklas ieguvei;0.49;1103;3.6
-736;Ganību airene, sēklas ieguvei;0.49;1112;2.95
-737;Niedru auzene, sēklas ieguvei;0.49;1401;4.55
-738;Pļavas skarene, sēklas ieguvei;0.49;3296;7.95
-739;Kamolzāle, sēklas ieguvei;0.49;1172;4.15
-741;Citur neminēta kukurūza;29.34;33;2.74
-760;Aramzemē sētu stiebrzāļu un tauriņziežu maisījums, kurā tauriņzieži > 50 %;19.56;24;2.5
-761;Auzeņairene sēklas ieguvei;0.49;1112;2.95
-781;Inkarnāta āboliņš;39.12;21;3.5
-791;Kukurūza biogāzes ieguvei;29.34;33;2.74
-991;Auzas50/ baltā sinepe6;0;0;0.568
-992;Baltā sinepe10/ redīss6(rutks10);0;0;4
-993;Auzas120/ vīķi7/ facēlija1;0;0;0.353
-994;Airene15/ griķi20/ facēlija1;0;0;1.756
-995;Airene10(Auza50)/ inkarnātāb10/ facēlija1;0;0;3.402
-996;Rudzi50/ rapsis2/ facēlija1;0;0;0.678
-998;Facēlija5/ vīķi30/ sinepe5;0;0;1.459
-988;Eļļas rutks;0;0;2.7
-988;Sakņu redīss;0;0;6
+111;Kvieši, vasaras;3.38;170;0.31;480
+112;Kvieši, ziemas;5.14;170;0.31;400
+113;Kvieši vasaras ar stiebrzāļu vai tauriņziežu pasēju;2.54;170;0.31;480
+115;Speltas kvieši, vasaras;3.38;174;0.65;250
+116;Speltas kvieši, ziemas;5.14;174;0.65;200
+117;Kvieši, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.86;170;0.31;400
+118;Speltas kvieši, vasaras ar stiebrzāļu pasēju vai tauriņziežu pasēju;2.54;174;0.65;250
+119;Speltas kvieši, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.86;174;0.65;200
+121;Rudzi;4.3;114;0.28;120
+122;Rudzi, populācijas šķirnes, t. sk. ‘Kaupo’;4.01;118;0.28;450
+123;Rudzi,  populācijas, izņemot “Kaupo”;4.01;118;0.28;450
+125;Rudzi, populācijas šķirnes, t.sk. ‘Kaupo’ ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.23;114;0.28;450
+126;Rudzi, Kaupo, ar pasēju;3.01;118;0.28;160
+127;Rudzi,  populācijas, izņemot “Kaupo”, ar pasēju;3.01;118;0.28;450
+131;Mieži, vasaras;3;143;0.28;400
+132;Mieži, ziemas;4.87;143;0.28;400
+133;Mieži vasaras ar stiebrzāļu vai tauriņziežu pasēju;2.25;143;0.28;220
+135;Mieži, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;3.65;143;0.28;220
+140;Auzas;2.53;151;0.3;200
+141;Auzas ar stiebrzāļu vai tauriņziežu pasēju;1.9;151;0.3;200
+150;Tritikāle, vasaras;2.66;133;0.28;500
+151;Tritikāle, ziemas;3.69;133;0.28;500
+152;Tritikāle vasaras ar stiebrzāļu vai tauriņziežu pasēju;2;133;0.28;500
+154;Tritikāle, ziemas ar stiebrzāļu pasēju vai tauriņziežu pasēju;2.77;133;0.28;500
+160;Griķi;0.86;440;0.6;90
+161;Griķi ar tauriņziežu pasēju;0.65;440;0.6;90
+170;Kaņepes;0.61;1763;4.3;25
+211;Rapsis, vasaras;1.73;359;7.5;15
+212;Rapsis, ziemas;3.07;359;7.5;14
+213;Ripsis, vasaras;0.68;780;2.5;5
+214;Ripsis, ziemas;1.21;780;2.5;6
+215;Sinepe, tostarp baltā sinepe;24.45;0;2.8;20
+216;Sinepe ar tauriņziežu pasēju;24.45;0;3.2;20
+310;Lini, šķiedras;3.15;100;1.85;20
+330;Lini, eļļas;0.77;286;1.85;20
+410;Lauka pupas;2.72;220;0.33;240
+420;Zirņi;1.92;190;0.3;225
+430;Lupīna (saldās jeb dzeltenās, baltās, šaurlapu);0.72;190;0.3;160
+441;Vīķi, vasaras;0.94;21;0.25;120
+442;Vīķi, ziemas;0.94;21;0.32120;100
+443;Soja;2.15;460;1.2;90
+445;Graudaugu un zirņu maisījums, kurā zirņi > 50 %;24.45;21;0.32;200
+446;Graudaugu un zirņu maisījums, kurā zirņi > 50 %, ar stiebrzāļu vai tauriņziežu pasēju;24.45;21;0.32;200
+447;Graudaugu un vīķu maisījums, kurā vīķi > 50 %;24.45;21;0.32;180
+610;Papuve, izņemot zaļmēslojuma augu papuvi;0;0;0;0
+611;Zaļmēslojuma papuve;24.45;0;1.46;0
+713;Citur neminētas stiebrzāles;24.45;24;3.5;0
+715;Facēlija;24.45;0;6.95;10
+716;Facēlija ar tauriņziežu pasēju;24.45;0;5.5;10
+720;Aramzemē sētu stiebrzāļu vai lopbarības zālaugu (arī proteīnaugu) maisījums;24.45;24;2.5;10
+723;Sarkanais āboliņš;24.45;21;4.95;15
+724;Baltais āboliņš;12.23;21;3.9;7
+725;Bastarda āboliņš;24.45;21;7.6;6
+726;Lucerna;39.12;21;5.95;20
+727;Austrumu galega;9.78;21;5.95;20
+728;Ragainais vanagnadziņš;9.78;21;11.4;12
+729;Amoliņš;39.12;21;3.9;15
+731;Pļavas timotiņš, sēklas ieguvei;0.49;1172;3.3;8
+732;Pļavas auzene, sēklas ieguvei;0.49;1103;3.95;12
+733;Hibrīdā airene, sēklas ieguvei;0.49;1112;2.95;18
+734;Daudzziedu viengadīgā airene sēklas ieguvei;0.49;1018;2.2;38
+735;Sarkanā auzene, sēklas ieguvei;0.49;1103;3.6;10
+736;Ganību airene, sēklas ieguvei;0.49;1112;2.95;25
+737;Niedru auzene, sēklas ieguvei;0.49;1401;4.55;10
+738;Pļavas skarene, sēklas ieguvei;0.49;3296;7.95;9.5
+739;Kamolzāle, sēklas ieguvei;0.49;1172;4.15;7
+741;Citur neminēta kukurūza;29.34;33;2.74;150
+760;Aramzemē sētu stiebrzāļu un tauriņziežu maisījums, kurā tauriņzieži > 50 %;19.56;24;2.5;150
+761;Auzeņairene sēklas ieguvei;0.49;1112;2.95;18
+781;Inkarnāta āboliņš;39.12;21;3.5;25
+791;Kukurūza biogāzes ieguvei;29.34;33;2.74;10
+991;Auzas 50/ baltā sinepe 6;0;0;0.568;56
+992;Baltā sinepe 10/ redīss 6(rutks 10);0;0;4;20
+993;Auzas 120/ vīķi 7/ facēlija 1;0;0;0.353;128
+994;Airene 15/ griķi 20/ facēlija 1;0;0;1.756;35
+995;Airene 10 (Auza 50)/ inkarnātāb 10/ facēlija1;0;0;3.402;21
+996;Rudzi 50/ rapsis 2/ facēlija 1;0;0;0.678;53
+998;Facēlija 5/ vīķi 30/ sinepe 5;0;0;1.459;135
+988;Eļļas rutks;0;0;2.7;25
+988;Sakņu redīss;0;0;6;8
