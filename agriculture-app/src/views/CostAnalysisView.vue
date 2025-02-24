@@ -46,6 +46,9 @@ onMounted(async () => {
       <BTab title="Izmaksas aprēķins pēc tehnikas vienības">
         <TotalEquipmentExpenses />
       </BTab>
+      <BTab title="Bruto seguma aprēķins">
+        Nav izstrādāts
+      </BTab>
     </BTabs>
   </BCard>
 </template>
