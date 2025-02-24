@@ -234,7 +234,8 @@ export const dateToStr = (value: Date) => {
 }
 
 export const ErrorTranslations = {
-  "USER_ALREADY_EXISTS": "Lietotājs jau eksistē"
+  "USER_ALREADY_EXISTS": "Lietotājs jau eksistē",
+  "NAME": "Lauks 'nosaukums' ir obligāts"
 } as Record<string, string>;
 
 export const validateProblem = async (response: Response) => {

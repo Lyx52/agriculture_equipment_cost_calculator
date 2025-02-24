@@ -39,7 +39,33 @@ codifiers = [
         "Code": "powertrain_track",
         "ParentCode": "powertrain_type",
         "Name": "Kāpurķēžu" 
-    }
+    },
+    {
+        "Code": "custom_adjustments",
+        "ParentCode": None,
+        "Name": "Papildus pielāgotās izmaksas" 
+    },
+    {
+        "Code": "custom_adjustments_materials",
+        "ParentCode": "custom_adjustments",
+        "Name": "Papildus pielāgotās izmaksas" 
+    },
+    {
+        "Code": "custom_adjustments_operations",
+        "ParentCode": "custom_adjustments",
+        "Name": "Papildus pielāgotās izmaksas" 
+    },
+    {
+        "Code": "employee_wage_eur_h",
+        "ParentCode": "custom_adjustments_materials",
+        "Name": "Darbinieka alga EUR/h" 
+    },
+    {
+        "Code": "custom_material_cost_eur_ha",
+        "ParentCode": "custom_adjustments_operations",
+        "Name": "Papildus izejvielu izmaksas EUR/ha" 
+    },
+
 ]
 
 # LAD Categories
@@ -115,7 +141,7 @@ for line in lines:
             "Value": str(code)
         })
         added.append(parent)
-
+        
 with open(f'{path_to_codifiers}/codifiers.json', "w", encoding="UTF-8") as fp:
     json.dump(codifiers, fp, indent=4)
 print(all_categories)

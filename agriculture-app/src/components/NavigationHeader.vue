@@ -54,7 +54,7 @@
         <BLink to="/crop_inventory" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
           <IconSeedling />
           <Transition>
-            <span v-if="isHovering">&nbsp;Manas kūltūraugu izmaksas</span>
+            <span v-if="isHovering">&nbsp;Manas izejvielas</span>
           </Transition>
         </BLink>
       </li>

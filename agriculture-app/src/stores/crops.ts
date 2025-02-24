@@ -5,7 +5,7 @@ import { useCodifierStore } from '@/stores/codifier.ts'
 import { cropFromCodifier, CropTypeModel } from '@/stores/model/cropTypeModel.ts'
 import { Codifiers } from '@/stores/enums/Codifiers.ts'
 import emitter from '@/stores/emitter.ts'
-import { fetchBackend, getBackendUri, sortBy } from '@/utils.ts'
+import { fetchBackend, getBackendUri, sortBy, validateProblem } from '@/utils.ts'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
 import type { ICropType } from '@/stores/interface/ICropType.tsx'
 import { v4 as uuid } from 'uuid';
@@ -27,11 +27,8 @@ export const useCropsStore = defineStore('crops', {
       this.isLoading = true;
 
       try {
-        const res = await fetchBackend('POST', `${getBackendUri()}/UserCropType/Add`, item);
-        if (!res.ok) {
-          console.error(res);
-          emitter.emit('error', `Neizdevās pievienot kūltūraugu iestatījumus`);
-        }
+        const response = await fetchBackend('POST', `${getBackendUri()}/UserCropType/Add`, item);
+        await validateProblem(response);
       } catch (e: any) {
         emitter.emit('error', e.message);
       }  finally {
@@ -45,11 +42,8 @@ export const useCropsStore = defineStore('crops', {
       this.isLoading = true;
 
       try {
-        const res = await fetchBackend('POST', `${getBackendUri()}/UserCropType/Update/${item.id}`, item);
-        if (!res.ok) {
-          console.error(res);
-          emitter.emit('error', `Neizdevās atjaunot kūltūraugu iestatījumus`);
-        }
+        const response = await fetchBackend('POST', `${getBackendUri()}/UserCropType/Update/${item.id}`, item);
+        await validateProblem(response);
       } catch (e: any) {
         emitter.emit('error', e.message);
       }  finally {
@@ -62,11 +56,8 @@ export const useCropsStore = defineStore('crops', {
     async resetCropTypesAsync() {
       this.isLoading = true;
       try {
-        const res = await fetchBackend('DELETE', `${getBackendUri()}/UserCropType/Remove/All`);
-        if (!res.ok) {
-          console.error(res);
-          emitter.emit('error', `Neizdevās attiestatīt visus kūltūraugus`);
-        }
+        const response = await fetchBackend('DELETE', `${getBackendUri()}/UserCropType/Remove/All`);
+        await validateProblem(response);
       } catch (e: any) {
         emitter.emit('error', e.message);
       }  finally {
@@ -78,11 +69,8 @@ export const useCropsStore = defineStore('crops', {
     async removeCropAsync(cropId: string) {
       this.isLoading = true;
       try {
-        const res = await fetchBackend('DELETE', `${getBackendUri()}/UserCropType/Remove/${cropId}`);
-        if (!res.ok) {
-          console.error(res);
-          emitter.emit('error', `Neizdevās noņemt kūltūraugu`);
-        }
+        const response = await fetchBackend('DELETE', `${getBackendUri()}/UserCropType/Remove/${cropId}`);
+        await validateProblem(response);
       } catch (e: any) {
         emitter.emit('error', e.message);
       }  finally {

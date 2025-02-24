@@ -7,4 +7,5 @@ public class User : IdentityUser
     public List<UserEquipment> Equipment { get; set; } = new List<UserEquipment>();
     public List<UserFarmland> Farmlands { get; set; } = new List<UserFarmland>();
     public List<UserCropType> CropTypes { get; set; } = new List<UserCropType>();
+    public List<UserAdjustment> Adjustments { get; set; } = new List<UserAdjustment>();
 }

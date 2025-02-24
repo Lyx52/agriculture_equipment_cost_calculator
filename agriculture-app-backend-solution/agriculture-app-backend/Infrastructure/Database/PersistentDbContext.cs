@@ -17,6 +17,7 @@ public class PersistentDbContext(
     public DbSet<UserFarmland> UserFarmlands { get; set; }
     public DbSet<UserCropType> UserCropTypes { get; set; }
     public DbSet<FarmlandOperation> FarmlandOperations { get; set; }
+    public DbSet<UserAdjustment> UserAdjustments { get; set; }
     private readonly ILogger<PersistentDbContext> _logger = logger;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,6 +32,12 @@ public class PersistentDbContext(
             .HasMany<FarmlandOperation>(e => e.Operations)
             .WithOne(c => c.Operation)
             .HasForeignKey(e => e.OperationCode)
+            .OnDelete(DeleteBehavior.NoAction);
+        
+        modelBuilder.Entity<Codifier>()
+            .HasMany<UserAdjustment>(e => e.Adjustments)
+            .WithOne(c => c.AdjustmentType)
+            .HasForeignKey(e => e.AdjustmentTypeCode)
             .OnDelete(DeleteBehavior.NoAction);
         
         modelBuilder.Entity<UserCropType>()
@@ -66,6 +73,11 @@ public class PersistentDbContext(
 
         modelBuilder.Entity<User>()
             .HasMany(e => e.CropTypes)
+            .WithOne(e => e.User)
+            .HasForeignKey(e => e.UserId);
+        
+        modelBuilder.Entity<User>()
+            .HasMany(e => e.Adjustments)
             .WithOne(e => e.User)
             .HasForeignKey(e => e.UserId);
         

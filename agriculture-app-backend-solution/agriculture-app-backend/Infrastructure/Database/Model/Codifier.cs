@@ -21,4 +21,6 @@ public class Codifier
     
     // Refs
     public List<FarmlandOperation> Operations { get; set; } = new List<FarmlandOperation>();
+
+    public List<UserAdjustment> Adjustments { get; set; } = new List<UserAdjustment>();
 }

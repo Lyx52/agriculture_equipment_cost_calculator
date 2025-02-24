@@ -4,10 +4,9 @@ import MyEquipmentView from '@/views/MyEquipmentView.vue'
 import CostAnalysisView from '@/views/CostAnalysisView.vue'
 import OperationsView from '@/views/OperationsView.vue'
 import MyFarmView from '@/views/MyFarmView.vue'
-import MyCropInventoryView from '@/views/MyCropInventoryView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import LoginView from '@/views/LoginView.vue'
-import { useCropsStore } from '@/stores/crops.ts'
+import MyMaterialCostsView from '@/views/MyMaterialCostsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,7 +46,7 @@ const router = createRouter({
     {
       path: '/crop_inventory',
       name: 'crop_inventory',
-      component: MyCropInventoryView,
+      component: MyMaterialCostsView,
       meta: {
         authorized: true
       }

@@ -43,5 +43,8 @@ router.beforeEach((to, from, next) => {
 </template>
 
 <style scoped>
-
+  .min-vh-100 {
+    min-height: 100vh !important;
+    height: 100% !important;
+  }
 </style>

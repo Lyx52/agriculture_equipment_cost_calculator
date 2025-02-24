@@ -146,7 +146,7 @@ import { onBeforeRouteUpdate } from 'vue-router'
     margin-top: 0.1rem !important;
   }
   .table-height {
-    max-height: 85vh;
+    max-height: 50vh;
     min-height: 50vh;
   }
   .in-front {
