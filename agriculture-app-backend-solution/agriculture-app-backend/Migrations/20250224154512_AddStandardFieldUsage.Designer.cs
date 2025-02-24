@@ -3,6 +3,7 @@ using System;
 using AgricultureAppBackend.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgricultureAppBackend.Migrations
 {
     [DbContext(typeof(PersistentDbContext))]
-    partial class PersistentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250224154512_AddStandardFieldUsage")]
+    partial class AddStandardFieldUsage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -185,9 +188,6 @@ namespace AgricultureAppBackend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsCustom")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("LadCode")
                         .HasColumnType("text");
 
@@ -269,7 +269,7 @@ namespace AgricultureAppBackend.Migrations
                     b.Property<double>("Area")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("ProductCropTypeId")
+                    b.Property<string>("ProductCode")
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
@@ -278,7 +278,7 @@ namespace AgricultureAppBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductCropTypeId");
+                    b.HasIndex("ProductCode");
 
                     b.HasIndex("UserId");
 
@@ -488,10 +488,10 @@ namespace AgricultureAppBackend.Migrations
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", b =>
                 {
-                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", "ProductCropType")
-                        .WithMany("UserFarmlands")
-                        .HasForeignKey("ProductCropTypeId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.Codifier", "Product")
+                        .WithMany("Farmlands")
+                        .HasForeignKey("ProductCode")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.User", "User")
                         .WithMany("Farmlands")
@@ -499,7 +499,7 @@ namespace AgricultureAppBackend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ProductCropType");
+                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });
@@ -559,6 +559,8 @@ namespace AgricultureAppBackend.Migrations
                 {
                     b.Navigation("Children");
 
+                    b.Navigation("Farmlands");
+
                     b.Navigation("Operations");
                 });
 
@@ -574,11 +576,6 @@ namespace AgricultureAppBackend.Migrations
                     b.Navigation("Equipment");
 
                     b.Navigation("Farmlands");
-                });
-
-            modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", b =>
-                {
-                    b.Navigation("UserFarmlands");
                 });
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", b =>

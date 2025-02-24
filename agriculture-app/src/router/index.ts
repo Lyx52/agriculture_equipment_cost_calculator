@@ -7,6 +7,7 @@ import MyFarmView from '@/views/MyFarmView.vue'
 import MyCropInventoryView from '@/views/MyCropInventoryView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import LoginView from '@/views/LoginView.vue'
+import { useCropsStore } from '@/stores/crops.ts'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

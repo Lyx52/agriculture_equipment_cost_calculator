@@ -15,8 +15,6 @@
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue';
   import FarmlandSelectionMap from '@/components/FarmlandSelectionMap.vue';
   import type { ISelectedMapField } from '@/stores/interface/ISelectedMapField.ts'
-  import CodifierDropdown from '@/components/elements/CodifierDropdown.vue'
-  import { Codifiers } from '@/stores/enums/Codifiers.ts'
   import TrashIcon from '@/components/icons/TrashIcon.vue'
   import OperationsIcon from '@/components/icons/OperationsIcon.vue'
   import type { IFarmland } from '@/stores/interface/IFarmland.ts'
@@ -29,10 +27,12 @@
   import emitter from '@/stores/emitter.ts'
   import FarmlandOperationsModal from '@/components/modal/FarmlandOperationsModal.vue'
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
+  import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
+  import { useCropsStore } from '@/stores/crops.ts'
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
   const equipmentCollection = useEquipmentCollectionStore();
-
+  const cropStore = useCropsStore();
   emitter.on(farmlandStore.getEmitterEvent(CollectionEvents.ItemAdded), (item: IFarmland) => {
     const codifierStore = useCodifierStore(item.id);
     codifierStore.setSelectedByCode(item.product_code);
@@ -65,15 +65,10 @@
     showFarmlandOperations.value = true;
     await operationStore.fetchByFilters();
   }
-  const onCropTypeSelected = async (cropType: ICodifier, farmland: IFarmland) => {
-    await farmlandStore.updateFarmlandAsync({
-      ...farmland,
-      product_code: cropType.code
-    });
-  }
   // Load all codifier definitions
   onMounted(async () => {
     await equipmentCollection.fetchByFilters();
+    await cropStore.fetchByFilters();
     await farmlandStore.fetchByFilters();
   })
 </script>
@@ -98,11 +93,13 @@
       <BTbody v-else>
         <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
           <BTd>
-            <CodifierDropdown
-              :is-valid="true"
-              :parent-codifier-codes="[Codifiers.CropTypes]"
-              :store-id="row.id"
-              @onSelected="(codifier) => onCropTypeSelected(codifier, row)"
+            <SimpleDropdown
+              :is-loading="false"
+              :is-invalid="false"
+              :get-filtered="cropStore.getFilteredCropTypes"
+              :get-formatted-option="cropStore.getFormattedOption"
+              v-model="row.product_code"
+              @changed="farmlandStore.updateFarmlandAsync(row)"
             />
           </BTd>
           <BTd>

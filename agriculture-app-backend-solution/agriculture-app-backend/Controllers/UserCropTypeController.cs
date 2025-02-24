@@ -57,6 +57,8 @@ public class UserCropTypeController(PersistentDbContext _db, ILogger<UserEquipme
             StandardYield = request.StandardYield,
             StandardProductPrice = request.StandardProductPrice,
             StandardSeedCost = request.StandardSeedCost,
+            StandardFieldUsage = request.StandardFieldUsage,
+            IsCustom = request.IsCustom,
             Id = cropTypeId,
         });
         await _db.SaveChangesAsync();
@@ -120,6 +122,8 @@ public class UserCropTypeController(PersistentDbContext _db, ILogger<UserEquipme
         cropType.StandardYield = request.StandardYield;
         cropType.StandardProductPrice = request.StandardProductPrice;
         cropType.StandardSeedCost = request.StandardSeedCost;
+        cropType.StandardFieldUsage = request.StandardFieldUsage;
+        cropType.Name = request.Name;
         
         _db.UserCropTypes.Update(cropType);
         await _db.SaveChangesAsync();

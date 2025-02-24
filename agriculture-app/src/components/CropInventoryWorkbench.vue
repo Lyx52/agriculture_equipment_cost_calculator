@@ -6,19 +6,23 @@ import {
   BTr,
   BThead,
   BTbody,
-  BSpinner, BButton, useModalController
+  BSpinner,
+  BButton,
+  useModalController,
+  BTfoot,
+  BFormInput
 } from 'bootstrap-vue-next'
-  import { onMounted } from 'vue'
+import { onActivated, onBeforeMount, onMounted, ref } from 'vue'
   import { useCropsStore } from '@/stores/crops.ts'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
   import type { CropTypeModel } from '@/stores/model/cropTypeModel.ts'
+  import {v4 as uuid} from 'uuid';
+  import TrashIcon from '@/components/icons/TrashIcon.vue'
+import { onBeforeRouteUpdate } from 'vue-router'
   const cropsStore = useCropsStore();
   const {confirm} = useModalController();
+  const isLoading = ref<boolean>(true);
 
-  // Load all codifier definitions
-  onMounted(async () => {
-    await cropsStore.fetchByFilters();
-  })
   const onValuesChanged = async (row: CropTypeModel) => {
     if (row.id) {
       await cropsStore.updateCropTypeAsync(row);
@@ -26,6 +30,7 @@ import {
       await cropsStore.addCropTypeAsync(row);
     }
   }
+
   const onClearCropSettings = async () => {
     const confirmed = await confirm?.({
       props: {
@@ -40,6 +45,25 @@ import {
     }
 
   }
+  const onAddCropType = async () => {
+    const id = uuid();
+    await cropsStore.addCropTypeAsync({
+      id: id,
+      code: `custom_${id}`,
+      name: 'Jauns kūltūraugs',
+      lad_code: undefined,
+      standard_yield: 1,
+      standard_product_price: 100,
+      standard_seed_cost: 0.25,
+      standard_field_usage: 1,
+      is_custom: true
+    });
+  }
+
+  // Load all codifier definitions
+  onBeforeMount(async () => {
+    await cropsStore.fetchByFilters();
+  })
 </script>
 
 <template>
@@ -57,21 +81,30 @@ import {
           <BTh>Standartražība, t/ha</BTh>
           <BTh>Produkcijas cena, EUR/t</BTh>
           <BTh>Sēklas cena, EUR/kg</BTh>
+          <BTh>Izsējas norma, kg/ha</BTh>
+          <BTh>&nbsp;</BTh>
         </BTr>
       </BThead>
       <BTbody v-if="cropsStore.isLoading">
         <BTr>
-          <BTd colspan="5" class="text-center">
+          <BTd colspan="7" class="text-center">
             <BSpinner v-if="true" />
           </BTd>
         </BTr>
       </BTbody>
       <BTbody v-else>
         <BTr v-for="row in cropsStore.items" v-bind:key="row.id">
-          <BTd>
+          <BTd v-if="row.isCustom">
+            &nbsp;-&nbsp;
+          </BTd>
+          <BTd v-else>
             {{ row.ladCode }}
           </BTd>
-          <BTd>
+
+          <BTd v-if="row.isCustom">
+            <BFormInput @change="() => onValuesChanged(row)" v-model="row.name" />
+          </BTd>
+          <BTd v-else>
             {{ row.cropName }}
           </BTd>
           <BTd>
@@ -83,9 +116,27 @@ import {
           <BTd>
             <BNumericFormInput @changed="() => onValuesChanged(row)" v-model="row.standard_seed_cost" />
           </BTd>
+          <BTd>
+            <BNumericFormInput @changed="() => onValuesChanged(row)" v-model="row.standard_field_usage" />
+          </BTd>
+          <BTd v-if="row.isCustom">
+            <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="cropsStore.removeCropAsync(row.id!)">
+              <TrashIcon />
+            </BButton>
+          </BTd>
+          <BTd v-else>
+            &nbsp;
+          </BTd>
         </BTr>
 
       </BTbody>
+      <BTfoot class="position-sticky bottom-0 in-front">
+        <BTr>
+          <BTd colspan="7">
+            <BButton variant="success" size="sm" @click="onAddCropType">Pievienot</BButton>
+          </BTd>
+        </BTr>
+      </BTfoot>
     </BTableSimple>
   </div>
 </template>

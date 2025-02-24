@@ -8,9 +8,9 @@ public class UserFarmland
     public string Id { get; set; }
    
     public double Area { get; set; }
-
-    public string? ProductCode { get; set; }
-    public Codifier? Product { get; set; }
+    
+    public string? ProductCropTypeId { get; set; }
+    public UserCropType? ProductCropType { get; set; }
     
     public List<FarmlandOperation> Operations { get; set; } = new List<FarmlandOperation>();
     

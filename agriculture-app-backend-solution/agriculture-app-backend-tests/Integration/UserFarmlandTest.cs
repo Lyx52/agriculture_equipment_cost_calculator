@@ -75,6 +75,7 @@ public class UserFarmlandTest
         var addRequest = new UserFarmlandRequest
         {
             ProductCode = "crop_151",
+            ProductName = "tests123",
             Area = 150.5
         };
 
@@ -83,12 +84,12 @@ public class UserFarmlandTest
         Assert.IsTrue(addResponse.IsSuccessStatusCode, "Add request should be successful");
 
         // Retrieve farmlands to verify that the new farmland appears.
-        var getResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCodifiers=false");
+        var getResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCropTypes=true");
         Assert.IsTrue(getResponse.IsSuccessStatusCode, "GET request should be successful");
 
         var farmlands = await getResponse.Content.ReadFromJsonAsync<List<UserFarmland>>(_jsonOptions);
         Assert.NotNull(farmlands);
-        var added = farmlands!.FirstOrDefault(f => f.ProductCode == addRequest.ProductCode);
+        var added = farmlands!.FirstOrDefault(f => f.ProductCropType!.Code == addRequest.ProductCode);
         Assert.NotNull(added, "Added farmland should be retrievable");
     }
 
@@ -99,6 +100,7 @@ public class UserFarmlandTest
         var addRequest = new UserFarmlandRequest
         {
             ProductCode = "crop_141",
+            ProductName = "tests123",
             Area = 200
         };
 
@@ -106,10 +108,10 @@ public class UserFarmlandTest
         Assert.IsTrue(addResponse.IsSuccessStatusCode, "Add request should be successful");
 
         // Retrieve farmlands to obtain the farmland id.
-        var getResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCodifiers=false");
+        var getResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCropTypes=true");
         var farmlands = await getResponse.Content.ReadFromJsonAsync<List<UserFarmland>>(_jsonOptions);
         Assert.NotNull(farmlands);
-        var farmland = farmlands!.FirstOrDefault(f => f.ProductCode == addRequest.ProductCode);
+        var farmland = farmlands!.FirstOrDefault(f => f.ProductCropType!.Code == addRequest.ProductCode);
         Assert.NotNull(farmland, "Farmland should exist after add");
         var farmlandId = farmland!.Id;
 
@@ -125,12 +127,12 @@ public class UserFarmlandTest
         Assert.IsTrue(updateResponse.IsSuccessStatusCode, "Update request should be successful");
 
         // Verify that the farmland data was updated.
-        var getAfterResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCodifiers=false");
+        var getAfterResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCropTypes=true");
         var farmlandsAfter = await getAfterResponse.Content.ReadFromJsonAsync<List<UserFarmland>>(_jsonOptions);
         Assert.NotNull(farmlandsAfter);
         var updated = farmlandsAfter!.FirstOrDefault(f => f.Id == farmlandId);
         Assert.NotNull(updated, "Updated farmland should be present");
-        Assert.AreEqual(updateRequest.ProductCode, updated!.ProductCode);
+        Assert.AreEqual(updateRequest.ProductCode, updated!.ProductCropType!.Code);
         Assert.AreEqual(updateRequest.Area, updated.Area);
     }
 
@@ -148,10 +150,10 @@ public class UserFarmlandTest
         Assert.IsTrue(addResponse.IsSuccessStatusCode, "Add request should be successful");
 
         // Retrieve the farmland id.
-        var getResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCodifiers=false");
+        var getResponse = await _client.GetAsync("/UserFarmland/Get?AddOperations=false&AddCropTypes=true");
         var farmlands = await getResponse.Content.ReadFromJsonAsync<List<UserFarmland>>(_jsonOptions);
         Assert.NotNull(farmlands);
-        var farmland = farmlands!.FirstOrDefault(f => f.ProductCode == addRequest.ProductCode);
+        var farmland = farmlands!.FirstOrDefault(f => f.ProductCropType!.Code == addRequest.ProductCode);
         Assert.NotNull(farmland, "Farmland should exist before removal");
         var farmlandId = farmland!.Id;
 

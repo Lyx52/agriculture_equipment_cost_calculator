@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { BCard } from 'bootstrap-vue-next';
+import { BCard } from 'bootstrap-vue-next'
 import CropInventoryWorkbench from '@/components/CropInventoryWorkbench.vue'
+
 </script>
 
 <template>

@@ -3,6 +3,7 @@ using System;
 using AgricultureAppBackend.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgricultureAppBackend.Migrations
 {
     [DbContext(typeof(PersistentDbContext))]
-    partial class PersistentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250224191850_MigrateToCropCodeInstead")]
+    partial class MigrateToCropCodeInstead
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,7 +272,7 @@ namespace AgricultureAppBackend.Migrations
                     b.Property<double>("Area")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("ProductCropTypeId")
+                    b.Property<string>("ProductCode")
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
@@ -278,7 +281,7 @@ namespace AgricultureAppBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductCropTypeId");
+                    b.HasIndex("ProductCode");
 
                     b.HasIndex("UserId");
 
@@ -488,9 +491,9 @@ namespace AgricultureAppBackend.Migrations
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", b =>
                 {
-                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", "ProductCropType")
+                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", "Product")
                         .WithMany("UserFarmlands")
-                        .HasForeignKey("ProductCropTypeId")
+                        .HasForeignKey("ProductCode")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.User", "User")
@@ -499,7 +502,7 @@ namespace AgricultureAppBackend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ProductCropType");
+                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });

@@ -33,11 +33,11 @@ public class PersistentDbContext(
             .HasForeignKey(e => e.OperationCode)
             .OnDelete(DeleteBehavior.NoAction);
         
-        modelBuilder.Entity<Codifier>()
-            .HasMany<UserFarmland>(e => e.Farmlands)
-            .WithOne(c => c.Product)
-            .HasForeignKey(e => e.ProductCode)
-            .OnDelete(DeleteBehavior.NoAction);
+        modelBuilder.Entity<UserCropType>()
+            .HasMany<UserFarmland>(e => e.UserFarmlands)
+            .WithOne(c => c.ProductCropType)
+            .HasForeignKey(e => e.ProductCropTypeId)
+            .OnDelete(DeleteBehavior.SetNull);
         
         modelBuilder.Entity<Equipment>()
             .Property(e => e.Specifications)

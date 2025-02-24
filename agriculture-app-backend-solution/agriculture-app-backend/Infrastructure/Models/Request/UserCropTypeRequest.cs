@@ -18,6 +18,10 @@ public class UserCropTypeRequest
     
     [Required]
     public double StandardSeedCost { get; set; }
+    [Required]
+    public double StandardFieldUsage { get; set; }
+    [Required]
+    public bool IsCustom { get; set; }
 
     public string? LadCode { get; set; }
 }

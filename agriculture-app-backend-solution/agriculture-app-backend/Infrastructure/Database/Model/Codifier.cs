@@ -20,6 +20,5 @@ public class Codifier
     public List<Codifier> Children { get; set; } = new();
     
     // Refs
-    public List<UserFarmland> Farmlands { get; set; } = new List<UserFarmland>();
     public List<FarmlandOperation> Operations { get; set; } = new List<FarmlandOperation>();
 }

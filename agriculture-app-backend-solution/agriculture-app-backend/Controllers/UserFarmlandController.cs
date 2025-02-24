@@ -5,6 +5,7 @@ using AgricultureAppBackend.Infrastructure.Constants;
 using AgricultureAppBackend.Infrastructure.Database;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Filter;
+using AgricultureAppBackend.Infrastructure.Models.Json;
 using AgricultureAppBackend.Infrastructure.Models.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -19,7 +20,7 @@ namespace AgricultureAppBackend.Controllers;
 public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipmentController> _logger) : Controller
 {
     [HttpGet("Get")]
-    public async Task<IActionResult> GetUserFarmlands([FromQuery] bool AddOperations = false, [FromQuery] bool AddCodifiers = false)
+    public async Task<IActionResult> GetUserFarmlands([FromQuery] bool AddOperations = false, [FromQuery] bool AddCropTypes = false)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (string.IsNullOrEmpty(userId))
@@ -27,21 +28,22 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             return Unauthorized();
         }
 
-        var query = _db.Users.Where(u => u.Id == userId).SelectMany(u => u.Farmlands);
+        var query = _db.Users.Where(u => u.Id == userId)
+            .SelectMany(u => u.Farmlands)
+            .Include(f => f.ProductCropType).AsQueryable();
 
-        if (AddOperations && AddCodifiers)
-        {
-            query = query.Include(f => f.Operations).ThenInclude(o => o.Operation);
-        } else if (AddOperations)
+        if (AddOperations)
         {
             query = query.Include(f => f.Operations);
         }
-        if (AddCodifiers)
-        {
-            query = query.Include(f => f.Product);
-        }
         
-        var result = await query.ToListAsync();
+        var result = await query.Select(f => new UserFarmlandModel()
+        {
+            Id = f.Id,
+            Area = f.Area,
+            ProductCode = f.ProductCropType.Code,
+            ProductName = f.ProductCropType.Name
+        }).ToListAsync();
         return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,
@@ -59,28 +61,19 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             return Unauthorized();
         }
 
-        var productCodifier = await _db.Codifiers.FirstOrDefaultAsync(c => c.Code == request.ProductCode);
-        if (productCodifier is null && string.IsNullOrEmpty(request.ProductName))
+        // First try to query for existing UserCropType
+
+        var userCropTypeId = await CreateOrGetUserCropType(request.ProductCode, request.ProductName, userId);
+        if (string.IsNullOrEmpty(userCropTypeId))
         {
             return ValidationProblem(Utils.ToValidationProblem("PRODUCT_DOES_NOT_EXIST", "Product does not exist!"));
-        } 
-        
-        if (productCodifier is null)
-        {
-            await _db.Codifiers.AddAsync(new Codifier()
-            {
-                Code = request.ProductCode,
-                Value = request.ProductCode.Replace("crop_", string.Empty),
-                Name = request.ProductName!,
-                ParentCode = "crop_type_categories"
-            });
-            await _db.SaveChangesAsync();
         }
+        
         await _db.UserFarmlands.AddAsync(new UserFarmland()
         {
             UserId = userId,
             Id = string.IsNullOrEmpty(request.Id) ? Guid.NewGuid().ToString() : request.Id,
-            ProductCode = request.ProductCode,
+            ProductCropTypeId = userCropTypeId,
             Area = request.Area,
             Operations = new List<FarmlandOperation>()
         });
@@ -126,12 +119,82 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             return NotFound("User farmland not found");
         }
 
+        var userCropTypeId = await CreateOrGetUserCropType(request.ProductCode, request.ProductName, userId);
+        if (string.IsNullOrEmpty(userCropTypeId))
+        {
+            return ValidationProblem(Utils.ToValidationProblem("PRODUCT_DOES_NOT_EXIST", "Product does not exist!"));
+        }
+        
         farmland.Area = request.Area;
-        farmland.ProductCode = request.ProductCode;
+        farmland.ProductCropTypeId = userCropTypeId;
 
         _db.UserFarmlands.Update(farmland);
         await _db.SaveChangesAsync();
         
         return Ok();
+    }
+
+    private async Task<string?> CreateOrGetUserCropType(string productCode, string? productName, string userId)
+    {
+        // Existing
+        var userCropType = await _db.UserCropTypes.FirstOrDefaultAsync(c => c.Code == productCode && c.UserId == userId);
+        if (userCropType is not null)
+        {
+            return userCropType.Id;
+        }
+        
+        var productCodifier = await _db.Codifiers.FirstOrDefaultAsync(c => c.Code == productCode);
+        if (productCodifier is null && string.IsNullOrEmpty(productName))
+        {
+            return null;
+        }
+        
+        // New from productCode, productName
+        var userCropTypeId = Guid.NewGuid().ToString();
+        if (productCodifier is null)
+        {
+            await _db.UserCropTypes.AddAsync(new UserCropType()
+            {
+                Id = userCropTypeId,
+                Code = productCode,
+                LadCode = productCode.Replace("crop_", string.Empty),
+                Name = productName!,
+                StandardSeedCost = 0.25,
+                StandardFieldUsage = 1,
+                StandardYield = 1,
+                StandardProductPrice = 100,
+                IsCustom = true,
+                UserId = userId
+            });
+            await _db.SaveChangesAsync();
+            return productCode;
+        }
+        
+        // New from codifier
+        ProductCropParameterModel? cropTypesValues = null;
+        try
+        {
+            cropTypesValues = JsonSerializer.Deserialize<ProductCropParameterModel>(productCodifier.Value ?? "");
+        }
+        catch
+        {
+            // ignored
+        }
+
+        await _db.UserCropTypes.AddAsync(new UserCropType()
+        {
+            Id = userCropTypeId,
+            Code = productCodifier.Code,
+            LadCode = cropTypesValues?.Code ?? productCodifier.Code.Replace("crop_", string.Empty),
+            Name = productCodifier.Name,
+            StandardSeedCost = cropTypesValues?.StandardSeedCost ?? 0.25,
+            StandardFieldUsage = cropTypesValues?.StandardFieldUsage ?? 1,
+            StandardYield = cropTypesValues?.StandardYield ?? 1,
+            StandardProductPrice = cropTypesValues?.StandardProductPrice ?? 100,
+            IsCustom = cropTypesValues?.Code is null,
+            UserId = userId
+        });
+        await _db.SaveChangesAsync();
+        return userCropTypeId;
     }
 }

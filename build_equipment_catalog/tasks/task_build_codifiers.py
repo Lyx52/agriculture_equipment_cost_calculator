@@ -93,7 +93,7 @@ for line in lines:
                 'standard_yield': float(standard_yield_t_ha),
                 'standard_product_price': float(product_price_eur_t),
                 'standard_seed_cost': float(seed_cost_eur_kg),
-                'standard_seed_usage': float(seeds_per_ha),
+                'standard_field_usage': float(seeds_per_ha),
                 'code': str(code)
             })
         })
