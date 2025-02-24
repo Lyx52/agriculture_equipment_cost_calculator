@@ -167,7 +167,7 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
                 UserId = userId
             });
             await _db.SaveChangesAsync();
-            return productCode;
+            return userCropTypeId;
         }
         
         // New from codifier
