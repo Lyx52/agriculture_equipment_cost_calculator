@@ -28,6 +28,7 @@ public class UserAdjustmentController(PersistentDbContext _db, ILogger<UserEquip
 
         var result = await _db.Users.Where(u => u.Id == userId)
             .SelectMany(u => u.Adjustments)
+            .OrderBy(u => u.Created)
             .ToListAsync();
         
         return Json(result, new JsonSerializerOptions()
@@ -54,7 +55,8 @@ public class UserAdjustmentController(PersistentDbContext _db, ILogger<UserEquip
             UserId = userId,
             Value = request.Value,
             Name = request.Name,
-            AdjustmentTypeCode = request.AdjustmentTypeCode
+            AdjustmentTypeCode = request.AdjustmentTypeCode,
+            Created = DateTime.UtcNow
         });
         await _db.SaveChangesAsync();
         

@@ -87,6 +87,26 @@ public class PersistentDbContext(
             .HasForeignKey(e => e.UserFarmlandId)
             .OnDelete(DeleteBehavior.Cascade);
         
+        modelBuilder.Entity<FarmlandOperation>()
+            .Property(e => e.Created)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        
+        modelBuilder.Entity<UserAdjustment>()
+            .Property(e => e.Created)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        
+        modelBuilder.Entity<UserCropType>()
+            .Property(e => e.Created)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        
+        modelBuilder.Entity<UserEquipment>()
+            .Property(e => e.Created)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        
+        modelBuilder.Entity<UserFarmland>()
+            .Property(e => e.Created)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        
         base.OnModelCreating(modelBuilder);
     }
 }

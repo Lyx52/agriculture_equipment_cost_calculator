@@ -28,6 +28,7 @@ public class UserCropTypeController(PersistentDbContext _db, ILogger<UserEquipme
 
         var result = await _db.Users.Where(u => u.Id == userId)
             .SelectMany(u => u.CropTypes)
+            .OrderBy(u => u.Created)
             .ToListAsync();
         
         return Json(result, new JsonSerializerOptions()
@@ -60,6 +61,7 @@ public class UserCropTypeController(PersistentDbContext _db, ILogger<UserEquipme
             StandardFieldUsage = request.StandardFieldUsage,
             IsCustom = request.IsCustom,
             Id = cropTypeId,
+            Created = DateTime.UtcNow
         });
         await _db.SaveChangesAsync();
         

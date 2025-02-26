@@ -19,7 +19,9 @@ export class FarmlandModel implements IFarmland {
       this.product_name = codifierCache.getByCode(this.product_code)?.name;
     }
   }
-
+  get displayName(): string {
+    return `${this.product_name ?? 'Lauks'} (${(this.area ?? 0).toFixed(2)} ha)`;
+  }
   get landArea(): number {
     return Number(this.area ?? 0);
   }

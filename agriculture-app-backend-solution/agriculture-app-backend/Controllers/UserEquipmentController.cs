@@ -28,6 +28,7 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
 
         var result = await _db.Users.Where(u => u.Id == userId)
             .SelectMany(u => u.Equipment)
+            .OrderBy(f => f.Created)
             .ToListAsync();
         
         return Json(result, new JsonSerializerOptions()
@@ -58,7 +59,8 @@ public class UserEquipmentController(PersistentDbContext _db, ILogger<UserEquipm
             Price = request.Price,
             Id = equipmentId,
             PurchaseDate = request.PurchaseDate,
-            Usage = request.Usage
+            Usage = request.Usage,
+            Created = DateTime.UtcNow
         });
         await _db.SaveChangesAsync();
         

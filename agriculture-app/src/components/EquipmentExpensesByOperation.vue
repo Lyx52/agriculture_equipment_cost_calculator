@@ -12,8 +12,8 @@
   const selectedCalculatePer = ref<string>('kopā');
   const calculatePerOptions = [
     { value: 'kopā', text: 'kopā' },
-    { value: 'h', text: 'h' },
-    { value: 'ha', text: 'ha' },
+    { value: 'h', text: 'stundā' },
+    { value: 'ha', text: 'hektārā' },
   ]
   onMounted(async () => {
     codifierStore.$patch({
@@ -43,7 +43,7 @@
             <BTh>Veiktās darba stundas, h</BTh>
             <BTh>Kapitāla atgūšanas vērtība, {{ selectedCalculatePer }}</BTh>
             <BTh>Citas izmaksas (Apdrošināšana, pajumte u.c), {{ selectedCalculatePer }}</BTh>
-            <BTh>Kopējās īpašumtiesības izmaksas, h</BTh>
+            <BTh>Kopējās īpašumtiesības izmaksas, {{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
         <BTbody>
@@ -52,37 +52,37 @@
               {{ codifierStore.getByCode(key)?.name ?? key }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+              {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }} h
+              {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>
           <BTr>
             <BTd class="fw-bold">Kopā</BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+              {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }} h
+              {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>
         </BTbody>
@@ -111,49 +111,49 @@
               {{ codifierStore.getByCode(key)?.name ?? key }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+              {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }} h
+              {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(row, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>
           <BTr>
             <BTd class="fw-bold">Kopā</BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }} ha
+              {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }} h
+              {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }} EUR/{{ selectedCalculatePer }}
+              {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>
         </BTbody>

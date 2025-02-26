@@ -22,4 +22,5 @@ public class UserCropType
     public User User { get; set; }
 
     public List<UserFarmland> UserFarmlands { get; set; } = new List<UserFarmland>();
+    public DateTime Created { get; set; }
 }

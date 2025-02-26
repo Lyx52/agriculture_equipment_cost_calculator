@@ -115,7 +115,7 @@ export const useFarmlandStore = defineStore('farmland', {
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {
-        name: `${item?.product_name ?? 'Lauks'} (${(item?.area ?? 0).toFixed(2)} ha)`,
+        name: item?.displayName ?? '',
         id: value,
         value: value,
       }
@@ -123,13 +123,13 @@ export const useFarmlandStore = defineStore('farmland', {
 
     getFiltered(searchText: string): IDropdownOption<any>[] {
       return this.items
-        .filter(f => `${f?.product_name ?? 'Lauks'} (${(f?.area ?? 0).toFixed(2)} ha)`.toLowerCase().includes(searchText.toLowerCase()))
+        .filter(f => f.displayName.toLowerCase().includes(searchText.toLowerCase()))
         .map(f => this.getFormattedOption(f.id));
     }
   },
   getters: {
     totalFarmlandArea(state: IFarmlandStore) {
       return sum(state.items.map(l => l.area));
-    }
+    },
   }
 })

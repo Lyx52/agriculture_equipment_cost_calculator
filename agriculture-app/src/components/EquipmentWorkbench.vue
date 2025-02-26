@@ -99,6 +99,7 @@
 
 <template>
   <div class="d-flex flex-column h-100">
+    <h4 class="card-title mb-3">Saimniecības tehnika</h4>
     <div class="d-flex flex-row gap-3">
       <BFormGroup label="Filtrēt pēc tehnikas tipa">
         <CodifierDropdown
@@ -115,7 +116,8 @@
     <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
       <BThead class="position-sticky top-0 bg-primary in-front" >
         <BTr>
-          <BTh>Tehnikas nosaukums</BTh>
+          <BTh>Marka</BTh>
+          <BTh>Modelis</BTh>
           <BTh>Tehnikas tips</BTh>
           <BTh>Jauda</BTh>
           <BTh>Nepieciešamā jauda</BTh>
@@ -133,7 +135,10 @@
       <BTbody v-else>
         <BTr v-for="row in equipmentCollectionStore.filteredItems" v-bind:key="row.id">
           <BTd>
-            {{ row.displayName }}
+            {{ row.manufacturer }}
+          </BTd>
+          <BTd>
+            {{ row.model }}
           </BTd>
           <BTd>
             {{ row.equipment_type?.name }}

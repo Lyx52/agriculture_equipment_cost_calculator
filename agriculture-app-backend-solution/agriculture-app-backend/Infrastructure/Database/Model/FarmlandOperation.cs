@@ -18,4 +18,5 @@ public class FarmlandOperation
     
     public string UserFarmlandId { get; set; }
     public UserFarmland UserFarmland { get; set; }
+    public DateTime Created { get; set; }
 }

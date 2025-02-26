@@ -7,6 +7,7 @@ import CustomMaterialAdjustmentWorkbench from '@/components/CustomMaterialAdjust
 
 <template>
   <BCard class="w-100 m-2 d-flex flex-column overflow-y-auto">
+    <h4 class="card-title mb-3">Saimniecības izejvielas</h4>
     <CustomMaterialAdjustmentWorkbench />
     <CropInventoryWorkbench />
   </BCard>

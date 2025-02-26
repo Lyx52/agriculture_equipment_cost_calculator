@@ -26,19 +26,23 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
             return Unauthorized();
         }
 
-        var x = await _db.FarmlandOperations.ToListAsync();
-        var query = _db.FarmlandOperations.AsQueryable();
+        var query = _db.UserFarmlands
+            .Where(f => f.UserId == userId)
+            .Include(f => f.Operations)
+            .SelectMany(f => f.Operations)
+            .AsQueryable();
+        
+        if (!string.IsNullOrEmpty(filter.FarmlandId))
+        {
+            query = query.Where(o => o.UserFarmlandId == filter.FarmlandId);
+        }
         
         if (filter.AddCodifiers)
         {
             query = query.Include(f => f.Operation);
         }
-
-        if (!string.IsNullOrEmpty(filter.FarmlandId))
-        {
-            query = query.Where(o => o.UserFarmlandId == filter.FarmlandId);
-        }
-        var result = await query.OrderBy(o => o.Id).ToListAsync();
+        
+        var result = await query.OrderBy(o => o.Created).ToListAsync();
         return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,
@@ -66,7 +70,7 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
             query = query.Include(f => f.Operation);
         }
         
-        var result = await query.ToListAsync();
+        var result = await query.OrderBy(f => f.Created).ToListAsync();
         return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,
@@ -91,7 +95,8 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
             UserFarmlandId = farmlandId,
             MachineId = request.MachineId,
             OperationCode = request.OperationCode,
-            TractorOrCombineId = request.TractorOrCombineId
+            TractorOrCombineId = request.TractorOrCombineId,
+            Created = DateTime.UtcNow
         });
         
         await _db.SaveChangesAsync();

@@ -21,7 +21,7 @@ public class JwtTokenProvider(ApplicationSettings _settings) : IJwtTokenProvider
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Email, user.Email!)
             }),
-            Expires = DateTime.UtcNow.AddHours(1),
+            Expires = DateTime.UtcNow.AddHours(24),
             Issuer = _settings.JwtIssuer,
             Audience = _settings.JwtAudience,
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

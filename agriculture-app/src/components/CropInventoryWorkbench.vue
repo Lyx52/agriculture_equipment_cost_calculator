@@ -68,7 +68,7 @@ import { onBeforeRouteUpdate } from 'vue-router'
 
 <template>
   <div class="d-flex flex-column">
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-3">
       <h5 class="card-title">Kūltūraugu izmaksas</h5>
       <BButton variant="danger" class="ms-auto" @click="onClearCropSettings">Attiestatīt uz sākuma vērtībām</BButton>
     </div>

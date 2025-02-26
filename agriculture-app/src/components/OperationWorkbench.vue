@@ -100,6 +100,8 @@
 
 <template>
   <div class="d-flex flex-column h-100">
+    <h4 class="card-title" v-if="props.isModal">Lauks <u>{{ operationStore.filteredFarmland?.displayName }}</u></h4>
+    <h4 class="card-title mb-3" v-else>Apstrādes operācijas visiem laukiem</h4>
     <div class="d-flex flex-row gap-3" v-if="!props.isModal">
       <BFormGroup label="Filtrēt pēc lauka">
         <SimpleDropdown

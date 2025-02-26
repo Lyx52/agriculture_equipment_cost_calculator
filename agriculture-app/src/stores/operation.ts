@@ -8,6 +8,9 @@ import emitter from '@/stores/emitter.ts'
 import { OperationModel } from '@/stores/model/operationModel.ts'
 import { fetchBackend, getBackendUri, groupedBy, uniqueBy } from '@/utils.ts'
 import { useCodifierStore, useCodifierStoreCache } from '@/stores/codifier.ts'
+import type { IFarmlandStore } from '@/stores/interface/IFarmlandStore.ts'
+import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
+import { useFarmlandStore } from '@/stores/farmland.ts'
 
 export const useOperationStore = defineStore('operation', {
   state(): IOperationStore {
@@ -129,6 +132,11 @@ export const useOperationStore = defineStore('operation', {
     },
     groupedByOperationCode(state: IOperationStore): Record<string, OperationModel[]> {
       return groupedBy(state.items, (item) => item?.operation_code)
+    },
+    filteredFarmland(state: IOperationStore): FarmlandModel|undefined {
+      if (!state.filteredFarmlandId) return undefined;
+      const farmlandStore = useFarmlandStore();
+      return farmlandStore.getItemById(state.filteredFarmlandId);
     }
   }
 })

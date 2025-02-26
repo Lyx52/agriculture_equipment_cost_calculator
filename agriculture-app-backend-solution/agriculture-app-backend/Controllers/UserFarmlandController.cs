@@ -37,7 +37,9 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             query = query.Include(f => f.Operations);
         }
         
-        var result = await query.Select(f => new UserFarmlandModel()
+        var result = await query
+            .OrderBy(f => f.Created)
+        .Select(f => new UserFarmlandModel()
         {
             Id = f.Id,
             Area = f.Area,
@@ -75,7 +77,8 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             Id = string.IsNullOrEmpty(request.Id) ? Guid.NewGuid().ToString() : request.Id,
             ProductCropTypeId = userCropTypeId,
             Area = request.Area,
-            Operations = new List<FarmlandOperation>()
+            Operations = new List<FarmlandOperation>(),
+            Created = DateTime.UtcNow
         });
         await _db.SaveChangesAsync();
         
@@ -164,7 +167,8 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
                 StandardYield = 1,
                 StandardProductPrice = 100,
                 IsCustom = true,
-                UserId = userId
+                UserId = userId,
+                Created = DateTime.UtcNow
             });
             await _db.SaveChangesAsync();
             return userCropTypeId;
@@ -192,7 +196,8 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             StandardYield = cropTypesValues?.StandardYield ?? 1,
             StandardProductPrice = cropTypesValues?.StandardProductPrice ?? 100,
             IsCustom = cropTypesValues?.Code is null,
-            UserId = userId
+            UserId = userId,
+            Created = DateTime.UtcNow
         });
         await _db.SaveChangesAsync();
         return userCropTypeId;

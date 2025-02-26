@@ -75,7 +75,7 @@
 
 <template>
   <div class="d-flex flex-column">
-    <h5 class="card-title">Zemes platības (Kopējā platība {{ farmlandStore.totalFarmlandArea.toFixed(2) }} ha)</h5>
+    <h4 class="card-title">Saimiecības lauki - zemes platības (Kopējā platība {{ farmlandStore.totalFarmlandArea.toFixed(2) }} ha)</h4>
     <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
