@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import type { IIndicatorStore } from '@/stores/interface/IIndicatorStore.ts'
 import { avg, getBackendUri, max, validateProblem } from '@/utils.ts'
 import type { IIndicatorResponse } from '@/stores/interface/IIndicatorResponse.ts'
+import type { IInflationBetweenResult } from '@/stores/interface/IInflationBetweenResult.ts'
 
 export const useIndicatorStore = defineStore('indicator', {
   state(): IIndicatorStore {
@@ -15,7 +16,8 @@ export const useIndicatorStore = defineStore('indicator', {
           period: undefined
         },
         consumerPriceIndices: {} as Record<string, number>,
-        motorHoursByYear: {} as Record<string, Record<string, number>>
+        motorHoursByYear: {} as Record<string, Record<string, number>>,
+        inflationBetweenCache: {} as Record<string, IInflationBetweenResult>
       }
   },
   actions: {
@@ -57,6 +59,16 @@ export const useIndicatorStore = defineStore('indicator', {
       const purchaseIndex = this.consumerPriceIndices[years.includes(purchaseYear) ? purchaseYear : max(years)];
 
       return isNaN(currentIndex / purchaseIndex) ? 0 : currentIndex / purchaseIndex;
+    },
+    async fetchInflationChangeFactor(purchaseYear: number, currentYear: number) {
+      const key = `${purchaseYear}-${currentYear}`;
+      if (Object.keys(this.inflationBetweenCache).includes(key)) return this.inflationBetweenCache[key];
+
+      const response = await fetch(`${getBackendUri()}/Indicators/InflationBetween/${purchaseYear}/${currentYear}`);
+      const result = (await response.json() as IInflationBetweenResult);
+      this.inflationBetweenCache[key] = result;
+
+      return result;
     },
     getAverageHoursPerForCategory(categoryCode: string|undefined, yearOfManufacture: number): number {
       if (!categoryCode) return 300;

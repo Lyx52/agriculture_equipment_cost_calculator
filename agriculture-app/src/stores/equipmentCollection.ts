@@ -102,6 +102,7 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         const codifierCache = useCodifierStoreCache();
         const productCodes = uniqueBy(this.items, (item) => item.equipment_type_code);
         await Promise.all(productCodes.map(code => codifierCache.addAsync(code)));
+        await Promise.all(this.items.map(item => item.fetchRequiredParameters()));
 
         this.items.forEach((item) => {
           const equipmentValueCodifier = codifierCache.getByCode(item.equipment_type_code);

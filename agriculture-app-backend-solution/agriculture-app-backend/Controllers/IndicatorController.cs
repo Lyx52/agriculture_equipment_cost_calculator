@@ -1,6 +1,9 @@
+using System.Globalization;
 using System.Text.Json;
+using AgricultureAppBackend.Infrastructure.Constants;
 using AgricultureAppBackend.Infrastructure.Models;
 using AgricultureAppBackend.Infrastructure.Models.Json;
+using AgricultureAppBackend.Infrastructure.Models.Response;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -12,8 +15,84 @@ namespace AgricultureAppBackend.Controllers;
 public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _httpClientFactory) : Controller
 {
     private const string InflationData = nameof(InflationData);
+    private const string InflationBetweenData = nameof(InflationBetweenData);
     private const string InterestData = nameof(InterestData);
     private const string ConsumerPriceIndicesData = nameof(ConsumerPriceIndicesData);
+
+    [HttpGet("InflationBetween/{startYear}/{endYear}")]
+    public async Task<IActionResult> GetInflationBetween(int startYear, int endYear)
+    {
+        var currentYear = DateTime.UtcNow.Year;
+        if (startYear < 2000 || endYear > currentYear)
+        {
+            return ValidationProblem(Utils.ToValidationProblem("INVALID_YEARS", "Invalid start or end year"));
+        }
+        
+        var cacheKey = $"{InflationBetweenData}_{startYear}_{endYear}";
+        
+        var cachedValue = await _memoryCache.GetOrCreateAsync<InflationBetweenYearsResponse?>(cacheKey, async (cacheValue) =>
+        {
+            if (startYear == endYear)
+            {
+                var value = new InflationBetweenYearsResponse()
+                {
+                    StartYear = startYear,
+                    EndYear = endYear,
+                    InflationChange = 0
+                };
+                
+                cacheValue
+                    .SetValue(value)
+                    .SetAbsoluteExpiration(DateTimeOffset.Now.AddDays(30));
+                
+                return value;
+            }
+            var client = _httpClientFactory.CreateClient(InflationBetweenData);
+            
+            var response = await client.GetAsync($"https://tools.csb.gov.lv/cpi_calculator/php_service/index.php?db=dataByTime&lang=lv&time_from={startYear}M01&time_to={endYear}M01&code=0&multiplier=100");
+            var data = await response.Content.ReadAsStringAsync();
+            
+            var inflationData = JsonSerializer.Deserialize<CSBCpiChangeModel>(data);
+
+            if (inflationData is null) return null;
+            var changesPerYear = inflationData.Data.chart.data
+                .Select(v => new
+                {
+                    Value = v.index_value,
+                    Date = DateTime.ParseExact(v.period.Replace('M', '-') + "-01", "yyyy-MM-dd",
+                        CultureInfo.InvariantCulture)
+                })
+                .Where(v => v.Date.Year > startYear && v.Date.Year <= endYear)
+                .GroupBy(v => v.Date.Year)
+                .OrderBy(v => v.Key)
+                .Last()
+                .ToList();
+            
+            var result = new InflationBetweenYearsResponse()
+            {
+                StartYear = startYear,
+                EndYear = endYear,
+                InflationChange = changesPerYear.Average(v => v.Value)
+            };
+            cacheValue
+                .SetValue(result)
+                .SetAbsoluteExpiration(DateTimeOffset.Now.AddDays(7));
+
+            return result;
+        });
+        
+        if (cachedValue is null)
+        {
+            return StatusCode(500, "Failed to request inflation metrics");
+        }
+        
+        return Json(cachedValue, new JsonSerializerOptions()
+        {
+            WriteIndented = true,
+            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+            DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseUpper
+        });
+    }
     
     [HttpGet("Inflation")]
     public async Task<IActionResult> GetInflation()

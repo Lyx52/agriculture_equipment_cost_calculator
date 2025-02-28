@@ -20,19 +20,19 @@
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Īpašuma izmaksu novērtējums</h5>
+          <h5 class="text-center fw-bold text-black">Patstāvīgo izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
             <BTh>Tehnikas vienība</BTh>
             <BTh>Tehnikas vecums</BTh>
-            <BTh>Iegādes cena</BTh>
-            <BTh>Pašreizējā cena</BTh>
+            <BTh>Iegādes cena, EUR</BTh>
+            <BTh>Pašreizējā cena (Līdzvērtīgas tehnikas), EUR</BTh>
             <BTh>Atgūstamā vērtība, EUR</BTh>
             <BTh>Amortizācijas kopsumma</BTh>
-            <BTh>Kapitāla atgūšanas vērtība, {{ selectedCalculatePer }}</BTh>
+            <BTh>Finanšu resursu izmaksas, {{ selectedCalculatePer }}</BTh>
             <BTh>Citas izmaksas (Apdrošināšana, pajumte u.c), {{ selectedCalculatePer }}</BTh>
-            <BTh>Kopējās īpašumtiesības izmaksas, {{ selectedCalculatePer }}</BTh>
+            <BTh>Kopējās patstāvīgās izmaksas, {{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
         <BTbody>
@@ -47,7 +47,7 @@
               {{ row.originalPurchasePrice.toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.currentPurchasePrice.toFixed(2) }}
+              {{ row.inflationAdjustedPurchasePrice.toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.salvageValue.toFixed(2) }}
@@ -80,7 +80,7 @@
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.originalPurchasePrice).toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.currentPurchasePrice).toFixed(2) }}
+              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.inflationAdjustedPurchasePrice).toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.salvageValue).toFixed(2) }}
@@ -119,8 +119,8 @@
           <BTr>
             <BTh>Tehnikas vienība</BTh>
             <BTh>Tehnikas vecums</BTh>
-            <BTh>Iegādes cena</BTh>
-            <BTh>Pašreizējā cena</BTh>
+            <BTh>Iegādes cena, EUR</BTh>
+            <BTh>Pašreizējā cena (Līdzvērtīgas tehnikas), EUR</BTh>
             <BTh>Uzkrātās remonta izmaksas (Eksplautācijas beigās), EUR</BTh>
             <BTh>Remonta izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
             <BTh>Degvielas izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
@@ -141,7 +141,7 @@
               {{ row.originalPurchasePrice.toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.currentPurchasePrice.toFixed(2) }}
+              {{ row.inflationAdjustedPurchasePrice.toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ row.accumulatedRepairsCostValue.toFixed(2) }} <BBadge class="cursor-pointer">{{ (row.repairValueFactor * 100).toFixed(2) }}&nbsp;%</BBadge>
@@ -189,7 +189,7 @@
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.originalPurchasePrice).toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.currentPurchasePrice).toFixed(2) }}
+              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.inflationAdjustedPurchasePrice).toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.accumulatedRepairsCostValue).toFixed(2) }}

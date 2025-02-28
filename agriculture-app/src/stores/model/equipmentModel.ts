@@ -1,9 +1,6 @@
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import type { IEquipmentType } from '@/stores/interface/IEquipmentType.ts'
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
-import { getRemainingValueTractor } from '@/constants/RemainingValueTractor.ts'
-import { getRemainingValueCombine } from '@/constants/RemainingValueCombine.ts'
-import { getRemainingValueMachine } from '@/constants/RemainingValueMachine.ts'
 import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
 import { avg, mapEquipmentTypeCode, sum } from '@/utils.ts'
@@ -12,6 +9,7 @@ import { useIndicatorStore } from '@/stores/indicator.ts'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 import { useCodifierStoreCache } from '@/stores/codifier.ts'
 import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
+import { getRemainingValue } from '@/constants/RemainingValue.ts'
 export class EquipmentModel implements IEquipment {
   equipment_type: IEquipmentType | undefined
   equipment_type_code: string
@@ -22,7 +20,7 @@ export class EquipmentModel implements IEquipment {
   specifications: IEquipmentSpecifications
   usage: IEquipmentUsage;
   purchase_date: Date|undefined
-
+  inflation_adjusted_price: number|undefined;
   constructor(equipment: IEquipment) {
     const codifierCache = useCodifierStoreCache();
     const equipmentValueCodifier = codifierCache.getByCode(equipment.equipment_type_code);
@@ -53,6 +51,13 @@ export class EquipmentModel implements IEquipment {
     } else {
       this.purchase_date = undefined;
     }
+  }
+
+  async fetchRequiredParameters() {
+    const indicatorStore = useIndicatorStore();
+    const currentYear = new Date().getFullYear();
+    const priceChangeFactor = await indicatorStore.fetchInflationChangeFactor(this.purchase_date?.getFullYear() ?? currentYear, currentYear);
+    this.inflation_adjusted_price = this.price * (1 + (priceChangeFactor?.inflation_change ?? 100) / 100);
   }
 
   get displayName() {
@@ -108,6 +113,13 @@ export class EquipmentModel implements IEquipment {
    */
   get originalPurchasePrice(): number {
     return Number(this.price ?? 0);
+  }
+
+  /**
+   *  Price of the equipment at the time of purchase, adjusted for inflation.
+   */
+  get inflationAdjustedPurchasePrice(): number {
+    return Number(this.inflation_adjusted_price ?? this.originalPurchasePrice);
   }
 
   /**
@@ -221,7 +233,7 @@ export class EquipmentModel implements IEquipment {
    * Accumulated repairs cost value of the equipment. Over the lifetime.
    */
   get accumulatedRepairsCostValue(): number {
-    return this.repairValueFactor * this.currentPurchasePrice;
+    return this.repairValueFactor * this.inflationAdjustedPurchasePrice;
   }
 
   /**
@@ -420,29 +432,40 @@ export class EquipmentModel implements IEquipment {
     return this.lubricationCostsPerHourNew(load, loadTurn) * this.hoursPerYear;
   }
 
+  get is4WheelDrive() {
+    return (this.specifications?.power_train_code ?? 'powertrain_4x4') === 'powertrain_4x4';
+  }
+
+  get remainingValueCode() {
+    return this.equipment_type?.configuration?.remaining_value_code ?? 'other';
+  }
+
   /**
    * Remaining value factor
    */
   get remainingValueFactor() {
     if (!this.equipment_type?.configuration?.remaining_value_code) return 0;
-    switch (this.equipment_type?.configuration?.remaining_value_code) {
-      case 'tractor': return getRemainingValueTractor(this.hoursPerYear, this.horsePower, this.totalLifetimeUsageYears);
-      case 'combine': return getRemainingValueCombine(this.hoursPerYear, this.totalLifetimeUsageYears);
-      default: return getRemainingValueMachine(this.equipment_type!.configuration!.remaining_value_code, this.totalLifetimeUsageYears);
-    }
+    return getRemainingValue(this.is4WheelDrive, this.remainingValueCode, this.horsePower, this.hoursPerYear, this.totalLifetimeUsageYears);
   }
 
   /**
    * Salvage value of the equipment. Calculated as the current purchase price multiplied by the remaining value factor.
    */
   get salvageValue() {
-    return this.currentPurchasePrice * this.remainingValueFactor;
+    return this.inflationAdjustedPurchasePrice * (this.remainingValueFactor / 100);
   }
 
   /**
    * Depreciation value of the equipment. Calculated as the original purchase price minus the salvage value.
    */
   get totalDepreciationValue() {
+    return this.originalPurchasePrice - this.salvageValue;
+  }
+
+  /**
+   * Depreciation value of the equipment. Calculated as the original purchase price minus the salvage value.
+   */
+  get linearTotalDepreciationValue() {
     return this.originalPurchasePrice - this.salvageValue;
   }
 

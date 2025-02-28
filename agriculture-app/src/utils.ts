@@ -252,3 +252,10 @@ export const validateProblem = async (response: Response) => {
   }
   emitter.emit('error', 'Radās kļūda!')
 }
+
+export const calculateRemainingValue = (c1: number, c2: number, c3: number, n: number, h: number): number => {
+  const valueFactor = c1 - c2 * Math.sqrt(n) - c3 * Math.sqrt(h);
+  // Ensure that valueFactor is not negative before squaring
+  const adjustedValueFactor = Math.max(valueFactor, 0);
+  return 100 * Math.pow(adjustedValueFactor, 2);
+}

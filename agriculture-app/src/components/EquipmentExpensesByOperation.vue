@@ -34,16 +34,16 @@
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Īpašuma izmaksu novērtējums</h5>
+          <h5 class="text-center fw-bold text-black">Patstāvīgo izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
             <BTh>Apstrādes operācija</BTh>
             <BTh>Apstrādātā platība, ha</BTh>
             <BTh>Veiktās darba stundas, h</BTh>
-            <BTh>Kapitāla atgūšanas vērtība, {{ selectedCalculatePer }}</BTh>
+            <BTh>Finanšu resursu izmaksas, {{ selectedCalculatePer }}</BTh>
             <BTh>Citas izmaksas (Apdrošināšana, pajumte u.c), {{ selectedCalculatePer }}</BTh>
-            <BTh>Kopējās īpašumtiesības izmaksas, {{ selectedCalculatePer }}</BTh>
+            <BTh>Kopējās patstāvīgās izmaksas, {{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
         <BTbody>
