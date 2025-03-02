@@ -166,9 +166,10 @@ export const mapEquipmentTypeCode = (specs: IEquipmentSpecifications, equipmentT
     case 'tunelu_sistema_skabbaribai':
       return 'meslojuma_izkliedetajs';
     case 'darzenu_novaksanas_kombains':
+      return specs.self_propelled ? 'lopbaribas_kombains_sp' : 'lopbaribas_novaksanas_kombains_velkamais';
     case 'graudaugu_kombains':
     case 'ogu_novaksans_kombains':
-      return specs.self_propelled ? 'pasgajejkombains_sp' : 'kombains_sp';
+      return specs.self_propelled ? 'kombains_sp' : 'lopbaribas_novaksanas_kombains_velkamais';
     case 'sejmasina':
     case 'sikseklu_sejmasina':
     case 'precizas_izsejas_sejmasina':
@@ -205,7 +206,7 @@ export const mapEquipmentTypeCode = (specs: IEquipmentSpecifications, equipmentT
     case 'diski':
       return 'smagie_diski';
     case 'razas_novaksanas_platforma':
-      return 'piekabe';
+      return 'lopbaribas_piekabe';
     case 'salmu_smalcinatajsizkliedetajs':
     case 'skeldotajs':
     case 'mulceris':
@@ -218,7 +219,7 @@ export const mapEquipmentTypeCode = (specs: IEquipmentSpecifications, equipmentT
     case 'sluce':
       return 'stangu_tipa_smidzinatajs';
     case 'savacejpiekabe':
-      return 'lopbaribas_piekabe';
+      return 'piekabe';
     default:
       return undefined;
   }
@@ -258,4 +259,8 @@ export const calculateRemainingValue = (c1: number, c2: number, c3: number, n: n
   // Ensure that valueFactor is not negative before squaring
   const adjustedValueFactor = Math.max(valueFactor, 0);
   return 100 * Math.pow(adjustedValueFactor, 2);
+}
+
+export const calculateRepairValue = (rf1: number, rf2: number, accumulatedHours: number): number => {
+  return rf1 * Math.pow(accumulatedHours / 1000, rf2);
 }

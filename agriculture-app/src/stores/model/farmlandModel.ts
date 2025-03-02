@@ -2,6 +2,7 @@ import type { IFarmland } from '@/stores/interface/IFarmland.ts'
 import { useOperationStore } from '@/stores/operation.ts'
 import { type OperationModel } from '@/stores/model/operationModel.ts'
 import { useCodifierStoreCache } from '@/stores/codifier.ts'
+import { useCropsStore } from '@/stores/crops.ts'
 
 export class FarmlandModel implements IFarmland {
   id: string;
@@ -22,6 +23,7 @@ export class FarmlandModel implements IFarmland {
   get displayName(): string {
     return `${this.product_name ?? 'Lauks'} (${(this.area ?? 0).toFixed(2)} ha)`;
   }
+
   get landArea(): number {
     return Number(this.area ?? 0);
   }
@@ -29,5 +31,11 @@ export class FarmlandModel implements IFarmland {
   get operations(): OperationModel[] {
     const operationCollection = useOperationStore();
     return operationCollection.items.filter(o => o.user_farmland_id === this.id);
+  }
+
+  get materialCostsPerHectare(): number {
+    const cropTypeStore = useCropsStore();
+    const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
+    return Number(cropType?.pricePerHectare ?? 0) * this.landArea;
   }
 }

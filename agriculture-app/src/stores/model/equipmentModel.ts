@@ -1,7 +1,7 @@
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import type { IEquipmentType } from '@/stores/interface/IEquipmentType.ts'
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
-import { getRepairValueForUsageHours } from '@/constants/RepairValue.ts'
+import { getRepairValueForUsageHoursNew } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
 import { avg, mapEquipmentTypeCode, sum } from '@/utils.ts'
 import { isValid } from 'date-fns'
@@ -225,15 +225,22 @@ export class EquipmentModel implements IEquipment {
   /**
    * Lifetime repair cost coefficient value of the equipment.
    */
-  get repairValueFactor(): number {
-    return getRepairValueForUsageHours(this.repairValueCode, this.totalLifetimeUsageHours);
+  get repairValueFactorLifetime(): number {
+    return getRepairValueForUsageHoursNew(this.repairValueCode, this.totalLifetimeUsageHours);
+  }
+
+  /**
+   * Currently accumulated repair cost coefficient value of the equipment.
+   */
+  get repairValueFactorCurrentlyAccumulated(): number {
+    return getRepairValueForUsageHoursNew(this.repairValueCode, this.totalCurrentUsageHours);
   }
 
   /**
    * Accumulated repairs cost value of the equipment. Over the lifetime.
    */
   get accumulatedRepairsCostValue(): number {
-    return this.repairValueFactor * this.inflationAdjustedPurchasePrice;
+    return this.repairValueFactorLifetime * this.inflationAdjustedPurchasePrice;
   }
 
   /**

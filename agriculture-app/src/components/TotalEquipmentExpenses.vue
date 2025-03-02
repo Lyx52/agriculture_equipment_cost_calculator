@@ -144,7 +144,8 @@
               {{ row.inflationAdjustedPurchasePrice.toFixed(2) }}
             </BTd>
             <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.accumulatedRepairsCostValue.toFixed(2) }} <BBadge class="cursor-pointer">{{ (row.repairValueFactor * 100).toFixed(2) }}&nbsp;%</BBadge>
+              {{ row.accumulatedRepairsCostValue.toFixed(2) }} <BBadge class="cursor-pointer">{{ (row.repairValueFactorLifetime * 100).toFixed(2)
+              }}&nbsp;%</BBadge>
             </BTd>
             <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
               {{ row.accumulatedRepairsCostPerYear.toFixed(2) }}

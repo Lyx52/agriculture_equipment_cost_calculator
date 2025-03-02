@@ -55,30 +55,34 @@ export class CropTypeModel implements ICropType {
   }
 
   /**
-   * The name of the crop type
+   * The name of the crop type, t/ha
    */
   get standardYield(): number {
     return Number(this.standard_yield ?? 0);
   }
 
   /**
-   * The standard product price for this crop type
+   * The standard product price for this crop type, EUR/t
    */
   get standardProductPrice(): number {
     return Number(this.standard_product_price ?? 0);
   }
 
   /**
-   * The standard seed price for this crop type
+   * The standard seed price for this crop type, EUR/kg
    */
   get standardSeedCost(): number {
     return Number(this.standard_seed_cost ?? 0);
   }
 
   /**
-   * The standard field usage for this crop type
+   * The standard field usage for this crop type, kg/ha
    */
   get standardFieldUsage(): number {
     return Number(this.standard_field_usage ?? 0);
+  }
+
+  get pricePerHectare(): number {
+    return this.standardFieldUsage * this.standardSeedCost;
   }
 }
