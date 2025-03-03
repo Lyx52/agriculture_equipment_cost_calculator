@@ -89,11 +89,7 @@ const onClearStores = async () => {
             </BFormGroup>
             <p>Reālā procentu likme: {{ (indicatorStore.realInterestRate * 100).toFixed(2) }} %</p>
           </BAccordionItem>
-
         </BAccordion>
-      </div>
-      <div class="col d-flex flex-column mt-2">
-        <BButton variant="danger" class="ms-auto" @click="onClearStores">Dzēst saimniecības datus</BButton>
       </div>
     </div>
   </div>

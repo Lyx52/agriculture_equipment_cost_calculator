@@ -60,6 +60,21 @@ export class EquipmentModel implements IEquipment {
     this.inflation_adjusted_price = this.price * (1 + (priceChangeFactor?.inflation_change ?? 100) / 100);
   }
 
+  get displayNameShort() {
+    let displayName = `${this.manufacturer} ${this.model}`;
+    if (this.isSelfPropelled) {
+      displayName = `(Pašgājējs) ${displayName}`;
+    }
+
+    if (this.isTractor) {
+      displayName = `${displayName} (${this.power.toFixed(2)} kw)`;
+    } else {
+      displayName = `${displayName} (${this.workWidth.toFixed(2)} m)`;
+    }
+
+    return displayName;
+  }
+
   get displayName() {
     let displayName = `${this.equipment_type?.name} - ${this.manufacturer} ${this.model}`;
     if (this.isSelfPropelled) {
@@ -232,15 +247,21 @@ export class EquipmentModel implements IEquipment {
   /**
    * Currently accumulated repair cost coefficient value of the equipment.
    */
-  get repairValueFactorCurrentlyAccumulated(): number {
+  get repairValueFactorCurrent(): number {
     return getRepairValueForUsageHoursNew(this.repairValueCode, this.totalCurrentUsageHours);
   }
 
   /**
-   * Accumulated repairs cost value of the equipment. Over the lifetime.
+   * Accumulated repairs cost value of the equipment. Calculated from currently accumulated repair costs
+   */
+  get accumulatedRepairsCostValueLifetime(): number {
+    return this.repairValueFactorLifetime * this.inflationAdjustedPurchasePrice;
+  }
+  /**
+   * Accumulated repairs cost value of the equipment. Calculated from currently accumulated repair costs
    */
   get accumulatedRepairsCostValue(): number {
-    return this.repairValueFactorLifetime * this.inflationAdjustedPurchasePrice;
+    return this.repairValueFactorCurrent * this.inflationAdjustedPurchasePrice;
   }
 
   /**
@@ -250,11 +271,26 @@ export class EquipmentModel implements IEquipment {
     return this.accumulatedRepairsCostValue / this.totalLifetimeUsageYears;
   }
 
+
+  /**
+   * Accumulated repairs cost per year of the equipment. Over lifetime repairs
+   */
+  get accumulatedRepairsLifetimeCostPerYear(): number {
+    return this.accumulatedRepairsCostValueLifetime / this.totalLifetimeUsageYears;
+  }
+
   /**
    * Accumulated repairs cost per hour of the equipment.
    */
   get accumulatedRepairsCostPerHour(): number {
     return this.accumulatedRepairsCostValue / this.totalLifetimeUsageHours;
+  }
+
+  /**
+   * Accumulated repairs cost per hour of the equipment. Over lifetime repairs
+   */
+  get accumulatedRepairsLifetimeCostPerHour(): number {
+    return this.accumulatedRepairsCostValueLifetime / this.totalLifetimeUsageHours;
   }
   /**
    * Total operating costs per hour of the equipment.
@@ -452,6 +488,20 @@ export class EquipmentModel implements IEquipment {
   }
 
   /**
+   * Depreciation value of the equipment. Per year
+   */
+  get depreciationValuePerYear() {
+    return this.totalDepreciationValue / this.totalLifetimeUsageYears;
+  }
+
+  /**
+   * Depreciation value of the equipment. Per hour
+   */
+  get depreciationValuePerHour() {
+    return this.totalDepreciationValue / this.totalLifetimeUsageHours;
+  }
+
+  /**
    * Depreciation value of the equipment. Calculated as the original purchase price minus the salvage value.
    */
   get linearTotalDepreciationValue() {
@@ -518,5 +568,9 @@ export class EquipmentModel implements IEquipment {
       'graudaugu_kombains',
       'ogu_novaksans_kombains'
     ].includes(this.equipment_type_code)
+  }
+
+  get powerOrRequiredPower(): number {
+    return this.power || this.requiredPower;
   }
 }

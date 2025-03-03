@@ -136,6 +136,15 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
       return item ? item : undefined;
     },
 
+    getFormattedOptionShort(value: any): IDropdownOption<any> {
+      const item = this.getItemById(value);
+      return {
+        name: item?.displayNameShort ?? '',
+        id: value,
+        value: value,
+      }
+    },
+
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {

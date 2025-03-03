@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
-import { getBackendUri, parseJwt, validateProblem } from '@/utils.ts'
+import { ErrorTranslations, getBackendUri, parseJwt, validateProblem } from '@/utils.ts'
 import type { IAuthStore } from '@/stores/interface/IAuthStore.ts'
+import emitter from '@/stores/emitter.ts'
 
 export const useAuthStore = defineStore('auth', {
   state(): IAuthStore {
@@ -22,6 +23,10 @@ export const useAuthStore = defineStore('auth', {
           },
           body: JSON.stringify({ email, password })
         });
+        if (response.status == 401) {
+          emitter.emit('error', ErrorTranslations["LOGIN_FAILED"]);
+          return;
+        }
         if (await validateProblem(response)) return;
         const data = await response.json();
         this.token = data?.token;

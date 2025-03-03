@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { BCard, BTabs, BTab, BCardBody, BSpinner } from 'bootstrap-vue-next'
+import { BTabs, BTab, BCardBody, BSpinner } from 'bootstrap-vue-next'
 import TotalEquipmentExpenses from '@/components/TotalEquipmentExpenses.vue'
 import EquipmentExpensesByOperation from '@/components/EquipmentExpensesByOperation.vue'
 import EquipmentExpensesByField from '@/components/EquipmentExpensesByField.vue'
@@ -12,6 +12,7 @@ import { useIndicatorStore } from '@/stores/indicator.ts'
 import { useAdjustmentsStore } from '@/stores/adjustments.ts'
 import { useCropsStore } from '@/stores/crops.ts'
 import GrossCoverage from '@/components/GrossCoverage.vue'
+import CardContainer from '@/components/elements/CardContainer.vue'
 const equipmentCollection = useEquipmentCollectionStore();
 const farmlandStore = useFarmlandStore();
 const operationStore = useOperationStore();
@@ -38,7 +39,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <BCard class="w-100 m-2">
+  <CardContainer>
     <BCardBody v-if="isLoading" class="text-center">
       <BSpinner v-if="true" />
     </BCardBody>
@@ -56,7 +57,7 @@ onMounted(async () => {
         <GrossCoverage />
       </BTab>
     </BTabs>
-  </BCard>
+  </CardContainer>
 </template>
 
 <style scoped>

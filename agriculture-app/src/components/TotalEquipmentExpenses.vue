@@ -37,73 +37,73 @@
         </BThead>
         <BTbody>
           <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ row.displayName }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.totalCurrentUsageYears }}&nbsp;gadi ({{ row.totalCurrentUsageHours }}&nbsp;stundas)
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.originalPurchasePrice.toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.inflationAdjustedPurchasePrice.toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.salvageValue.toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.totalDepreciationValue.toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ row.capitalRecoveryValuePerYear.toFixed(2) }} <BBadge class="cursor-pointer">{{ (row.capitalRecoveryCoefficient * 100).toFixed(2) }} %</BBadge>
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ row.capitalRecoveryValuePerHour.toFixed(2) }} <BBadge class="cursor-pointer">{{ (row.capitalRecoveryCoefficient * 100).toFixed(2) }} %</BBadge>
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ row.taxesAndInsuranceCostValuePerYear.toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ row.taxesAndInsuranceCostValuePerHour.toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ row.totalOwnershipCostPerYear.toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ row.totalOwnershipCostPerHour.toFixed(2) }}
             </BTd>
           </BTr>
           <BTr class="fw-bold">
             <BTd class="text-end user-select-none vertical-align-middle" colspan="2">Kopā</BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.originalPurchasePrice).toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.inflationAdjustedPurchasePrice).toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.salvageValue).toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.totalDepreciationValue).toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.capitalRecoveryValuePerYear).toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.capitalRecoveryValuePerHour).toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.taxesAndInsuranceCostValuePerYear).toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.taxesAndInsuranceCostValuePerHour).toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.totalOwnershipCostPerYear).toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.totalOwnershipCostPerHour).toFixed(2) }}
             </BTd>
           </BTr>
@@ -111,7 +111,7 @@
       </BTableSimple>
     </div>
     <div class="row">
-      <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+      <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
         <caption>
           <h5 class="text-center fw-bold text-black">Mainīgo izmaksu novērtējums</h5>
         </caption>
@@ -130,86 +130,86 @@
         </BThead>
         <BTbody>
           <BTr v-for="row in equipmentCollectionStore.items" v-bind:key="row.id">
-            <BTd>
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.displayName }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.totalCurrentUsageYears }}&nbsp;gadi ({{ row.totalCurrentUsageHours }}&nbsp;stundas)
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.originalPurchasePrice.toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ row.inflationAdjustedPurchasePrice.toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ row.accumulatedRepairsCostValue.toFixed(2) }} <BBadge class="cursor-pointer">{{ (row.repairValueFactorLifetime * 100).toFixed(2)
+            <BTd class="text-start user-select-none vertical-align-middle">
+              {{ row.accumulatedRepairsCostValueLifetime.toFixed(2) }} <BBadge class="cursor-pointer">{{ (row.repairValueFactorLifetime * 100).toFixed(2)
               }}&nbsp;%</BBadge>
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.accumulatedRepairsCostPerYear.toFixed(2) }}
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
+              {{ row.accumulatedRepairsLifetimeCostPerYear.toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.accumulatedRepairsCostPerHour.toFixed(2) }}
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
+              {{ row.accumulatedRepairsLifetimeCostPerHour.toFixed(2) }}
             </BTd>
-            <BTd v-if="row.isTractorOrCombine && selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="row.isTractorOrCombine && selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ row.fuelCostsPerYearNew().toFixed(2) }}
             </BTd>
-            <BTd v-else-if="row.isTractorOrCombine" class="text-center user-select-none vertical-align-middle">
+            <BTd v-else-if="row.isTractorOrCombine" class="text-start user-select-none vertical-align-middle">
               {{ row.fuelCostsPerHourNew().toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               &nbsp;-&nbsp;
             </BTd>
-            <BTd v-if="row.isTractorOrCombine && selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="row.isTractorOrCombine && selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ row.lubricationCostsPerYearNew().toFixed(2) }}
             </BTd>
-            <BTd v-else-if="row.isTractorOrCombine" class="text-center user-select-none vertical-align-middle">
+            <BTd v-else-if="row.isTractorOrCombine" class="text-start user-select-none vertical-align-middle">
               {{ row.lubricationCostsPerHourNew().toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               &nbsp;-&nbsp;
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'"  class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'"  class="text-start user-select-none vertical-align-middle">
               {{ row.totalOperatingCostsPerYear().toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ row.totalOperatingCostsPerHour().toFixed(2) }}
             </BTd>
           </BTr>
           <BTr class="fw-bold">
             <BTd class="text-end user-select-none vertical-align-middle" colspan="2">Kopā</BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.originalPurchasePrice).toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
+            <BTd class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.inflationAdjustedPurchasePrice).toFixed(2) }}
             </BTd>
-            <BTd class="text-center user-select-none vertical-align-middle">
-              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.accumulatedRepairsCostValue).toFixed(2) }}
+            <BTd class="text-start user-select-none vertical-align-middle">
+              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.accumulatedRepairsCostValueLifetime).toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.accumulatedRepairsCostPerYear).toFixed(2) }}
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
+              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.accumulatedRepairsLifetimeCostPerYear).toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.accumulatedRepairsCostPerHour).toFixed(2) }}
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
+              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.accumulatedRepairsLifetimeCostPerHour).toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.fuelCostsPerYearNew()).toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.fuelCostsPerHourNew()).toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.lubricationCostsPerYearNew()).toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.lubricationCostsPerHourNew()).toFixed(2) }}
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
+            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.totalOperatingCostsPerYear()).toFixed(2) }}
             </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
+            <BTd v-else class="text-start user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.totalOperatingCostsPerHour()).toFixed(2) }}
             </BTd>
           </BTr>

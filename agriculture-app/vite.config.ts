@@ -4,7 +4,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'node:path'
 import vueDevTools from 'vite-plugin-vue-devtools';
-
+import pkg from './package.json'
+import { format } from 'date-fns'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -13,6 +14,10 @@ export default defineConfig({
   ],
   server: {
     port: 9696,
+  },
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version),
+    __APP_BUILD_DATE__: JSON.stringify(format(new Date(), 'yyyy-MM-dd HH:mm:ss')),
   },
   resolve: {
     alias: {

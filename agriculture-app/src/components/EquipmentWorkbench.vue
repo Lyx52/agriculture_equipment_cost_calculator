@@ -113,21 +113,22 @@
         Atiestatīt filtrus <IconX />
       </BButton>
     </div>
-    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
       <BThead class="position-sticky top-0 bg-primary in-front" >
         <BTr>
+          <BTh>Tehnikas nosaukums</BTh>
           <BTh>Marka</BTh>
           <BTh>Modelis</BTh>
-          <BTh>Tehnikas tips</BTh>
-          <BTh>Jauda</BTh>
-          <BTh>Nepieciešamā jauda</BTh>
-          <BTh>Darba platums</BTh>
+          <BTh>Jauda/Nepieciešamā jauda, kw</BTh>
+          <BTh>Darba platums, m</BTh>
+          <BTh>Darba ražīgums, ha/h</BTh>
+          <BTh>Uzkrātās darba stundas, h</BTh>
           <BTh>&nbsp;</BTh>
         </BTr>
       </BThead>
       <BTbody v-if="equipmentCollectionStore.isLoading">
         <BTr>
-          <BTd colspan="6" class="text-center">
+          <BTd colspan="10" class="text-center">
             <BSpinner v-if="true" />
           </BTd>
         </BTr>
@@ -135,32 +136,35 @@
       <BTbody v-else>
         <BTr v-for="row in equipmentCollectionStore.filteredItems" v-bind:key="row.id">
           <BTd>
+            {{ row.equipment_type?.name }}
+          </BTd>
+          <BTd>
             {{ row.manufacturer }}
           </BTd>
           <BTd>
             {{ row.model }}
           </BTd>
-          <BTd>
-            {{ row.equipment_type?.name }}
+          <BTd class="text-center">
+            {{ row.powerOrRequiredPower.toFixed(2) }}
           </BTd>
           <BTd class="text-center">
-            {{ row.specifications.power ? `${row.specifications.power?.toFixed(2)} kw` : '' }}
+            {{ row.specifications.work_width ? row.specifications.work_width?.toFixed(2) : '' }}
           </BTd>
           <BTd class="text-center">
-            {{ row.specifications.required_power ? `${row.specifications.required_power?.toFixed(2)} kw` : '' }}
+            {{ row.averageFieldWorkSpeed > 0 ? row.averageFieldWorkSpeed.toFixed(2) : '' }}
           </BTd>
-          <BTd>
-            {{ row.specifications.work_width ? `${row.specifications.work_width?.toFixed(2)} m` : '' }}
+          <BTd class="text-center">
+            {{ row.totalCurrentUsageHours.toFixed(2) }}
           </BTd>
           <BTd>
             <BButtonGroup class="d-inline-flex flex-row btn-group">
-              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="equipmentCollectionStore.removeEquipmentAsync(row.id)">
+              <BButton class="ms-auto flex-grow-0 btn-icon" variant="danger" size="sm" @click="equipmentCollectionStore.removeEquipmentAsync(row.id)">
                 Dzēst <TrashIcon />
               </BButton>
-              <BButton class="ms-auto flex-grow-0" variant="secondary" size="sm" @click="onEditEquipment(row)">
+              <BButton class="ms-auto flex-grow-0 btn-icon" variant="secondary" size="sm" @click="onEditEquipment(row)">
                 Rediģēt <OperationsIcon />
               </BButton>
-              <BButton class="ms-auto flex-grow-0" variant="info" size="sm" @click="onAddUsage(row)">
+              <BButton class="ms-auto flex-grow-0 btn-icon" variant="info" size="sm" @click="onAddUsage(row)">
                 Pievienot nolietojumu <IconClockHistory />
               </BButton>
             </BButtonGroup>
@@ -169,7 +173,7 @@
       </BTbody>
       <BTfoot class="position-sticky bottom-0 in-front">
         <BTr>
-          <BTd colspan="6">
+          <BTd colspan="8">
             <BButton variant="success" size="sm" @click="onAddEquipment">Pievienot</BButton>
           </BTd>
         </BTr>

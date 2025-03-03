@@ -4,7 +4,7 @@ import RegistrationForm from '@/components/form/RegistrationForm.vue'
 </script>
 
 <template>
-  <BCard class="w-100 w-lg-25 m-2">
+  <BCard class="w-100 w-lg-25">
     <RegistrationForm />
   </BCard>
 </template>

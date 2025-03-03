@@ -4,7 +4,7 @@ import LoginForm from '@/components/form/LoginForm.vue'
 </script>
 
 <template>
-  <BCard class="w-100 w-lg-25 m-2">
+  <BCard class="w-100 w-lg-25">
     <LoginForm />
   </BCard>
 </template>

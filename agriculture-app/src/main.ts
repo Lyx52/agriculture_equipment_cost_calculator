@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
 import { VueRecaptchaPlugin } from 'vue-recaptcha/head'
-
+export const AppVersion = `Lietotnes versija - ${__APP_VERSION__} - ${__APP_BUILD_DATE__}`;
 const app = createApp(App)
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate)

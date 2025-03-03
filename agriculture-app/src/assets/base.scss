@@ -1,0 +1,23 @@
+:root {
+    --bs-primary-rgb: 58, 37, 28 !important;
+    --bs-secondary-rgb: 244, 92, 46 !important;
+    --navbar-width: 60px;
+}
+.common-table-style {
+    max-height: 75vh !important;
+    min-height: 35vh;
+    .dropdown {
+        button {
+            font-size: 0.9rem;
+        }
+    }
+    .btn-icon {
+        gap: 0.25rem;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+.w-fit {
+    width: fit-content!important;
+}

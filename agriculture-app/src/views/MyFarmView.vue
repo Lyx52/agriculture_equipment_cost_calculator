@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { BCard, BCardBody } from 'bootstrap-vue-next'
+import { BCardBody } from 'bootstrap-vue-next'
 import MyFarmWorkbench from '@/components/MyFarmWorkbench.vue'
+import CardContainer from '@/components/elements/CardContainer.vue'
 </script>
 
 <template>
-  <BCard class="w-100 m-2 shadow">
+  <CardContainer>
     <BCardBody class="d-flex flex-column h-100">
       <MyFarmWorkbench />
     </BCardBody>
-  </BCard>
+  </CardContainer>
 </template>
 
 <style scoped>

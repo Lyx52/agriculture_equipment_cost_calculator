@@ -119,24 +119,19 @@
         Atiestatīt filtrus <IconX/>
       </BButton>
     </div>
-    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="mt-4 w-100 mb-0 overflow-y-auto common-table-style">
       <BThead class="position-sticky top-0 bg-primary in-front" >
         <BTr>
-          <BTh v-if="!props.isModal" rowspan="2">Lauks</BTh>
-          <BTh rowspan="2">Apstrādes operācija</BTh>
-          <BTh rowspan="2">Darbinieks</BTh>
-          <BTh rowspan="2">Tehnikas vienība</BTh>
-          <BTh rowspan="1" colspan="2" class="text-center">Cena, EUR</BTh>
-          <BTh rowspan="1" colspan="2" class="text-center">Gada noslodze, h</BTh>
-          <BTh rowspan="2">Darba ražīgums, ha/h</BTh>
-          <BTh rowspan="2">Degvielas patēriņš, l/ha</BTh>
-          <BTh rowspan="2">&nbsp;</BTh>
-        </BTr>
-        <BTr>
-          <BTh rowspan="1" class="text-center">Traktors</BTh>
-          <BTh rowspan="1" class="text-center">Mašīna</BTh>
-          <BTh rowspan="1" class="text-center">Traktors</BTh>
-          <BTh rowspan="1" class="text-center">Mašīna</BTh>
+          <BTh v-if="!props.isModal">Lauks</BTh>
+          <BTh>Apstrādes operācija</BTh>
+          <BTh>Darbinieks</BTh>
+          <BTh>Tehnikas vienība</BTh>
+          <BTh>Degvielas izmaksas, EUR/ha</BTh>
+          <BTh>Smērvielu izmaksas, EUR/ha</BTh>
+          <BTh>Remonta izmaksas, EUR/ha</BTh>
+          <BTh>Darbaspēka izmaksas, EUR/ha</BTh>
+          <BTh>Kopējās mainīgās izmaksas, EUR/ha</BTh>
+          <BTh>&nbsp;</BTh>
         </BTr>
       </BThead>
       <BTbody v-if="operationStore.isLoading">
@@ -180,7 +175,7 @@
               <SimpleDropdown
                 :is-loading="false"
                 :get-filtered="equipmentCollectionStore.getFilteredTractorOrSelfPropelledOrCombine"
-                :get-formatted-option="equipmentCollectionStore.getFormattedOption"
+                :get-formatted-option="equipmentCollectionStore.getFormattedOptionShort"
                 v-model="row.tractor_or_combine_id"
                 @changed="operationStore.updateOperationAsync(row)"
               />
@@ -188,44 +183,36 @@
                 :is-loading="false"
                 :is-invalid="row.machineValid"
                 :get-filtered="equipmentCollectionStore.getFilteredMachines"
-                :get-formatted-option="equipmentCollectionStore.getFormattedOption"
+                :get-formatted-option="equipmentCollectionStore.getFormattedOptionShort"
                 v-model="row.machine_id"
                 v-if="row.tractorOrCombine?.isTractor"
                 @changed="operationStore.updateOperationAsync(row)"
               />
             </div>
-
           </BTd>
-          <BTd :colspan="row.tractorOrCombine?.isTractor ? 1 : 2" class="text-center">
-            {{ (row.tractorOrCombine?.price ?? 0).toFixed(2) }}
+          <BTd class="text-center align-middle">
+            <div class="d-flex gap-1 justify-content-center align-items-center">{{ row.totalFuelCosts('ha').toFixed(2) }} <BBadge class="cursor-pointer" @click="() => showInfoModal('fuel_usage_info')">slodze <br/> {{ (row.loadFactorOnPowerMachine * 100).toFixed(2) }}%</BBadge></div>
           </BTd>
-          <BTd v-if="row.tractorOrCombine?.isTractor" class="text-center">
-            {{ (row.machine?.price ?? 0).toFixed(2) }}
+          <BTd class="text-center align-middle">
+            {{ row.lubricationCosts('ha').toFixed(2) }}
           </BTd>
-          <BTd :colspan="row.tractorOrCombine?.isTractor ? 1 : 2" class="text-center">
-            {{ (row.tractorOrCombine?.hoursPerYear ?? 0).toFixed(2) }} h
+          <BTd class="text-center align-middle">
+            {{ row.accumulatedRepairCosts('ha').toFixed(2) }}
           </BTd>
-          <BTd v-if="row.tractorOrCombine?.isTractor" class="text-center">
-            {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }} h
+          <BTd class="text-center align-middle">
+            {{ row.equipmentOperatorWageCosts('ha').toFixed(2) }}
           </BTd>
-          <BTd v-if="row.tractorOrCombine?.isTractor" class="text-center">
-            {{ (row.machine?.averageFieldWorkSpeed ?? 0).toFixed(2) }} ha/h
+          <BTd class="text-center align-middle">
+            {{ row.totalOperatingCosts('ha').toFixed(2) }}
           </BTd>
-          <BTd v-else class="text-center">
-            {{ (row.tractorOrCombine?.averageFieldWorkSpeed ?? 0).toFixed(2) }} ha/h
-          </BTd>
-          <BTd class="text-center">
-            {{ row.fuelUsagePerHectare.toFixed(2) }} l/ha <BBadge class="cursor-pointer" @click="() => showInfoModal('fuel_usage_info')">slodze <br/> {{ (row.loadFactorOnPowerMachine * 100).toFixed(2) }}%</BBadge>
-          </BTd>
-          <BTd>
+          <BTd class="text-end align-middle">
             <BButtonGroup class="d-inline-flex flex-row btn-group">
-              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="operationStore.removeOperationAsync(row)">
+              <BButton class="ms-auto flex-grow-0 btn-icon" variant="danger" size="sm" @click="operationStore.removeOperationAsync(row)">
                 Dzēst <TrashIcon />
               </BButton>
             </BButtonGroup>
           </BTd>
         </BTr>
-
       </BTbody>
       <BTfoot class="position-sticky bottom-0 in-front">
         <BTr v-if="props.isModal">
@@ -238,11 +225,7 @@
   </div>
 </template>
 
-<style scoped>
-  .table-height {
-    max-height: 85vh;
-    min-height: 50vh;
-  }
+<style>
   .in-front {
     z-index: 999;
   }

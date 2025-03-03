@@ -165,6 +165,19 @@ export class OperationModel implements IOperation {
     }
   }
 
+  depreciationValue(selectedCalculatePer: string): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.operationWorkHours * this.sumByFunction(e => e.depreciationValuePerHour);
+      case 'h':
+        return this.sumByFunction(e => e.depreciationValuePerHour);
+      default:
+        // ha
+        const eurPerHour = this.sumByFunction(e => e.depreciationValuePerHour);
+        return eurPerHour / this.operationFieldWorkSpeedPerHour;
+    }
+  }
+
   accumulatedRepairCosts(selectedCalculatePer: string): number {
     switch(selectedCalculatePer) {
       case 'kopā':

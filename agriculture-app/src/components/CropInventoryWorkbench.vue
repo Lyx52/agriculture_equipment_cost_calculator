@@ -73,7 +73,7 @@ import { onBeforeRouteUpdate } from 'vue-router'
       <BButton variant="danger" class="ms-auto" @click="onClearCropSettings">Attiestatīt uz sākuma vērtībām</BButton>
     </div>
 
-    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
           <BTh>Klasifikatora kods</BTh>
@@ -120,7 +120,7 @@ import { onBeforeRouteUpdate } from 'vue-router'
             <BNumericFormInput @changed="() => onValuesChanged(row)" v-model="row.standard_field_usage" />
           </BTd>
           <BTd v-if="row.isCustom">
-            <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="cropsStore.removeCropAsync(row.id!)">
+            <BButton class="ms-auto flex-grow-0 btn-icon" variant="danger" size="sm" @click="cropsStore.removeCropAsync(row.id!)">
               <TrashIcon />
             </BButton>
           </BTd>

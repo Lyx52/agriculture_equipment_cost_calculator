@@ -29,9 +29,4 @@ const onHideOperations = () => {
 </template>
 
 <style lang="scss">
-  .operations-modal {
-    .table-height {
-      max-height: 80vh !important;
-    }
-  }
 </style>

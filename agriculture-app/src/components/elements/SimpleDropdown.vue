@@ -1,6 +1,6 @@
 
 <template>
-    <div class="dropdown w-100">
+    <div class="dropdown">
         <BOverlay
             :show="props.isLoading && !isDropdownShown"
             spinner-small

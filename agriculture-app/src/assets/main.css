@@ -1,4 +1,4 @@
-@import './base.css';
+@import './base.scss';
 
 .fill-secondary {
     fill: rgba(var(--bs-secondary-rgb)) !important;

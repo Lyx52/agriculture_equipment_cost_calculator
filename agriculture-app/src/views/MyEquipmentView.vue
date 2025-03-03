@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { BCard } from 'bootstrap-vue-next'
 import EquipmentWorkbench from '@/components/EquipmentWorkbench.vue'
+import CardContainer from '@/components/elements/CardContainer.vue'
 </script>
 
 <template>
-  <BCard class="w-100 m-2">
+  <CardContainer>
     <EquipmentWorkbench />
-  </BCard>
+  </CardContainer>
 </template>

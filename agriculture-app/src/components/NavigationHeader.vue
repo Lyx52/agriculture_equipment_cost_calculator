@@ -114,6 +114,11 @@
     }
   }
   .navigation-header {
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    min-width: var(--navbar-width);
     svg {
       width: 24px !important;
       height: 24px !important;
@@ -121,12 +126,12 @@
   }
   .v-enter-active,
   .v-leave-active {
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
   }
 
   .v-enter-from,
   .v-leave-to {
     opacity: 0;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.15s ease;
   }
 </style>

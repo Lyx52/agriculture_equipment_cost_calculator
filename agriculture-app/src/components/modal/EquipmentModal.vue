@@ -144,7 +144,7 @@ const onModalShow = async () => {
               :store-id="categoryFilterStore.storeId"
             />
           </BFormGroup>
-          <BFormGroup label="Tehnikas tips" class="mt-3">
+          <BFormGroup label="Tehnikas nosaukums" class="mt-3">
             <CodifierDropdown
               :is-valid="true"
               :parent-codifier-codes="categoryTypeParentCodes"
@@ -174,7 +174,7 @@ const onModalShow = async () => {
           <BFormGroup label="Iegādes cena">
             <BNumericFormInput v-model="equipmentStore.item.price" />
           </BFormGroup>
-          <BFormGroup label="Tehnikas tips">
+          <BFormGroup label="Tehnikas nosaukums">
             <CodifierDropdown
               :is-valid="true"
               :parent-codifier-codes="categoryFilterStore.items.map(c => c.code)"

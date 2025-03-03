@@ -76,23 +76,24 @@
 <template>
   <div class="d-flex flex-column">
     <h4 class="card-title">Saimiecības lauki - zemes platības (Kopējā platība {{ farmlandStore.totalFarmlandArea.toFixed(2) }} ha)</h4>
-    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
           <BTh>Ražas veids</BTh>
           <BTh>Zemes platība, ha</BTh>
+          <BTh>&nbsp;</BTh>
         </BTr>
       </BThead>
       <BTbody v-if="farmlandStore.isLoading">
         <BTr>
-          <BTd colspan="2" class="text-center">
+          <BTd colspan="3" class="text-center">
             <BSpinner v-if="true" />
           </BTd>
         </BTr>
       </BTbody>
       <BTbody v-else>
         <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
-          <BTd>
+          <BTd class="text-center align-middle">
             <SimpleDropdown
               :is-loading="false"
               :is-invalid="false"
@@ -102,12 +103,12 @@
               @changed="farmlandStore.updateFarmlandAsync(row)"
             />
           </BTd>
-          <BTd>
+          <BTd class="text-center align-middle">
             <BNumericFormInput @changed="farmlandStore.updateFarmlandAsync(row)" v-model="row.area" />
           </BTd>
-          <BTd>
+          <BTd class="text-end align-middle">
             <BButtonGroup class="d-inline-flex flex-row btn-group">
-              <BButton class="ms-auto flex-grow-0" variant="danger" size="sm" @click="farmlandStore.removeFarmlandAsync(row.id)">
+              <BButton class="ms-auto flex-grow-0 btn-icon" variant="danger" size="sm" @click="farmlandStore.removeFarmlandAsync(row.id)">
                 Dzēst <TrashIcon />
               </BButton>
               <BButton variant="secondary" size="sm" @click="onOpenOperationsWorkbench(row)">

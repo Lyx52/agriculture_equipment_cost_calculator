@@ -40,7 +40,7 @@
       <h5 class="card-title">Papildus izejvielu izmaksas</h5>
     </div>
 
-    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
           <BTh>Nosaukums</BTh>
@@ -64,7 +64,7 @@
             <BNumericFormInput @changed="() => adjustmentStore.updateAdjustmentAsync(row)" v-model="row.value" />
           </BTd>
           <BTd>
-            <BButton class="ms-auto" variant="danger" size="sm" @click="adjustmentStore.removeAdjustmentAsync(row.id!)">
+            <BButton class="ms-auto btn-icon" variant="danger" size="sm" @click="adjustmentStore.removeAdjustmentAsync(row.id!)">
               <TrashIcon />
             </BButton>
           </BTd>

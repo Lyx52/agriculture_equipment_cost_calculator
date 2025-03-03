@@ -8,6 +8,7 @@ import { useAuthStore } from '@/stores/auth.ts'
 const { show } = useToastController();
 const authStore = useAuthStore();
 import { useRecaptchaProvider } from 'vue-recaptcha'
+import { AppVersion } from './main.ts'
 useRecaptchaProvider();
 
 emitter.on('error', (message: string) => {
@@ -33,18 +34,42 @@ router.beforeEach((to, from, next) => {
 
 <template>
 
-  <main class="d-flex flex-row justify-content-start vh-100">
+  <main class="d-flex flex-row justify-content-start main-container">
     <Navigation />
-    <RouterView />
-    <BModalOrchestrator />
-    <BToastOrchestrator />
-  </main>
+    <div class="d-flex flex-column w-100 h-100 content-container">
+      <div class="content">
+        <RouterView />
+        <BModalOrchestrator />
+        <BToastOrchestrator />
+      </div>
+      <div class="text-center">
+        <p class="m-0">{{ AppVersion }}</p>
+      </div>
+    </div>
 
+  </main>
 </template>
 
-<style scoped>
-  .min-vh-100 {
+<style scoped lang="scss">
+  .main-container {
     min-height: 100vh !important;
+    max-width: 100vw;
+    overflow-x: hidden;
     height: 100% !important;
+    .content-container {
+      min-height: 100vh;
+      margin-left: var(--navbar-width);
+      z-index: 0;
+      .content {
+        padding: 0.25rem;
+        flex: 1;
+        display: flex;
+        flex-flow: column;
+        > .card {
+          height: 100%;
+          flex: 1;
+        }
+      }
+    }
   }
 </style>

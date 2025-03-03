@@ -34,54 +34,61 @@
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Patstāvīgo izmaksu novērtējums</h5>
+          <h5 class="text-start fw-bold text-black">Patstāvīgo izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
             <BTh>Apstrādes operācija</BTh>
             <BTh>Apstrādātā platība, ha</BTh>
             <BTh>Veiktās darba stundas, h</BTh>
-            <BTh>Finanšu resursu izmaksas, {{ selectedCalculatePer }}</BTh>
-            <BTh>Citas izmaksas (Apdrošināšana u.c), {{ selectedCalculatePer }}</BTh>
-            <BTh>Kopējās patstāvīgās izmaksas, {{ selectedCalculatePer }}</BTh>
+            <BTh>Amortizācija, EUR/{{ selectedCalculatePer }}</BTh>
+            <BTh>Finanšu resursu izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
+            <BTh>Citas izmaksas (Apdrošināšana u.c), EUR/{{ selectedCalculatePer }}</BTh>
+            <BTh>Kopējās patstāvīgās izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
         <BTbody>
           <BTr v-for="(row, key) in operationStore.groupedByOperationCode" v-bind:key="key">
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ codifierStore.getByCode(key)?.name ?? key }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
+              {{ sumBy(row, item => item.depreciationValue(selectedCalculatePer)).toFixed(2) }}
+            </BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>
           <BTr>
-            <BTd class="fw-bold">Kopā</BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-end align-middle">Kopā</BTd>
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
+              {{ sumBy(operationStore.items, item => item.depreciationValue(selectedCalculatePer)).toFixed(2) }}
+            </BTd>
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.capitalRecoveryValue(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.taxesAndInsuranceCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.totalOwnershipCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>
@@ -89,9 +96,9 @@
       </BTableSimple>
     </div>
     <div class="row">
-      <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+      <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
         <caption>
-          <h5 class="text-center fw-bold text-black">Mainīgo izmaksu novērtējums</h5>
+          <h5 class="text-start fw-bold text-black">Mainīgo izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
@@ -107,52 +114,52 @@
         </BThead>
         <BTbody>
           <BTr v-for="(row, key) in operationStore.groupedByOperationCode" v-bind:key="key">
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ codifierStore.getByCode(key)?.name ?? key }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd>
+            <BTd class="text-start align-middle">
               {{ sumBy(row, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>
           <BTr>
-            <BTd class="fw-bold">Kopā</BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-end align-middle">Kopā</BTd>
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.totalFuelCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.lubricationCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.accumulatedRepairCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
-            <BTd class="fw-bold">
+            <BTd class="fw-bold text-start align-middle">
               {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
           </BTr>

@@ -33,7 +33,7 @@
     <div class="d-flex flex-row">
       <h5 class="card-title">Saimniecības darbinieki</h5>
     </div>
-    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
           <BTh>Nosaukums (Piemēram vārds, uzvārds)</BTh>
@@ -50,15 +50,15 @@
       </BTbody>
       <BTbody v-else>
         <BTr v-for="row in adjustmentStore.employees" v-bind:key="row.id">
-          <BTd >
+          <BTd class="text-center align-middle">
             <BFormInput v-model="row.name" @change="() => adjustmentStore.updateAdjustmentAsync(row)" />
           </BTd>
-          <BTd>
+          <BTd class="text-center align-middle">
             <BNumericFormInput @changed="() => adjustmentStore.updateAdjustmentAsync(row)" v-model="row.value" />
           </BTd>
-          <BTd>
-            <BButton class="ms-auto" variant="danger" size="sm" @click="adjustmentStore.removeAdjustmentAsync(row.id!)">
-              <TrashIcon />
+          <BTd class="text-end align-middle">
+            <BButton class="ms-auto btn-icon" variant="danger" size="sm" @click="adjustmentStore.removeAdjustmentAsync(row.id!)">
+              Dzēst <TrashIcon />
             </BButton>
           </BTd>
         </BTr>
