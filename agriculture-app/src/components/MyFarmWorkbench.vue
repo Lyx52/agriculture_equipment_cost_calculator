@@ -51,12 +51,12 @@ const onClearStores = async () => {
             Lietotājs pieslēdzies {{ authStore.isLoggedIn }}
           </BAccordionItem>
           <BAccordionItem title="Noklusētās vērtības"  body-class="mb-3">
-            <BFormGroup label="Darbaspēka atalgojums" class="mt-2">
+            <BFormGroup label="Darbaspēka atalgojums (Noklusētā darba alga, ja nav ievadīti darbinieki)" class="mt-2">
               <BInputGroup append="EUR/h">
                 <BNumericFormInput v-model="farmInformationStore.employeeWage" />
               </BInputGroup>
             </BFormGroup>
-            <BFormGroup label="Citas izmaksas (Apdrošināšana, pajumtes uzturēšana u.c)" class="mt-2">
+            <BFormGroup label="Citas izmaksas (Apdrošināšana u.c)" class="mt-2">
               <BInputGroup append="%">
                 <BNumericFormInput v-model="farmInformationStore.otherExpensesPercentage" />
               </BInputGroup>
@@ -78,7 +78,6 @@ const onClearStores = async () => {
               <BInputGroup append="%">
                 <BNumericFormInput v-model="indicatorStore.interestRate.value" />
               </BInputGroup>
-
             </BFormGroup>
             <BFormGroup class="mt-2">
               <template #label>

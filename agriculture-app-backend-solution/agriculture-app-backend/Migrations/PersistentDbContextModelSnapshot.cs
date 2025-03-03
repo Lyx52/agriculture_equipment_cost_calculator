@@ -86,6 +86,9 @@ namespace AgricultureAppBackend.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("text");
+
                     b.Property<string>("MachineId")
                         .HasColumnType("text");
 
@@ -100,6 +103,8 @@ namespace AgricultureAppBackend.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.HasIndex("MachineId");
 
@@ -483,6 +488,11 @@ namespace AgricultureAppBackend.Migrations
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.FarmlandOperation", b =>
                 {
+                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", "Employee")
+                        .WithMany("Operations")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", "Machine")
                         .WithMany()
                         .HasForeignKey("MachineId");
@@ -501,6 +511,8 @@ namespace AgricultureAppBackend.Migrations
                         .HasForeignKey("UserFarmlandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Employee");
 
                     b.Navigation("Machine");
 
@@ -651,6 +663,11 @@ namespace AgricultureAppBackend.Migrations
                     b.Navigation("Equipment");
 
                     b.Navigation("Farmlands");
+                });
+
+            modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", b =>
+                {
+                    b.Navigation("Operations");
                 });
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", b =>

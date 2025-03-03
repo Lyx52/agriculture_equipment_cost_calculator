@@ -7,6 +7,7 @@ import MyFarmView from '@/views/MyFarmView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import LoginView from '@/views/LoginView.vue'
 import MyMaterialCostsView from '@/views/MyMaterialCostsView.vue'
+import MyTeamAndProvidersView from '@/views/MyTeamAndProvidersView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,6 +48,14 @@ const router = createRouter({
       path: '/crop_inventory',
       name: 'crop_inventory',
       component: MyMaterialCostsView,
+      meta: {
+        authorized: true
+      }
+    },
+    {
+      path: '/team_and_services',
+      name: 'team_and_services',
+      component: MyTeamAndProvidersView,
       meta: {
         authorized: true
       }

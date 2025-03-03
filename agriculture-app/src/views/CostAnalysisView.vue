@@ -9,11 +9,15 @@ import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
 import { useFarmlandStore } from '@/stores/farmland.ts'
 import { useOperationStore } from '@/stores/operation.ts'
 import { useIndicatorStore } from '@/stores/indicator.ts'
+import { useAdjustmentsStore } from '@/stores/adjustments.ts'
+import { useCropsStore } from '@/stores/crops.ts'
+import GrossCoverage from '@/components/GrossCoverage.vue'
 const equipmentCollection = useEquipmentCollectionStore();
 const farmlandStore = useFarmlandStore();
 const operationStore = useOperationStore();
 const indicatorStore = useIndicatorStore();
-
+const adjustmentStore = useAdjustmentsStore();
+const cropTypeStore = useCropsStore();
 const isLoading = ref<boolean>(true);
 
 onMounted(async () => {
@@ -25,6 +29,8 @@ onMounted(async () => {
   await equipmentCollection.fetchByFilters();
   await farmlandStore.fetchByFilters();
   await operationStore.fetchByFilters();
+  await adjustmentStore.fetchByFilters();
+  await cropTypeStore.fetchByFilters();
   isLoading.value = false;
 });
 
@@ -47,7 +53,7 @@ onMounted(async () => {
         <TotalEquipmentExpenses />
       </BTab>
       <BTab title="Bruto seguma aprēķins">
-        Nav izstrādāts
+        <GrossCoverage />
       </BTab>
     </BTabs>
   </BCard>

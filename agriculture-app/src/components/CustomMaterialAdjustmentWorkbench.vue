@@ -16,12 +16,13 @@
   import {v4 as uuid} from 'uuid';
   import TrashIcon from '@/components/icons/TrashIcon.vue'
   import { useAdjustmentsStore } from '@/stores/adjustments.ts'
+  import { Codifiers } from '@/stores/enums/Codifiers.ts'
   const adjustmentStore = useAdjustmentsStore();
 
   const addMaterialAdjustment = async () => {
     await adjustmentStore.addAdjustmentAsync({
       id: uuid(),
-      adjustment_type_code: 'custom_material_cost_eur_ha',
+      adjustment_type_code: Codifiers.CustomAdjustmentsMaterials,
       value: 0,
       name: 'Papildus izejvielu izmaksas'
     });
@@ -55,7 +56,7 @@
         </BTr>
       </BTbody>
       <BTbody v-else>
-        <BTr v-for="row in adjustmentStore.items" v-bind:key="row.id">
+        <BTr v-for="row in adjustmentStore.customMaterialAdjustments" v-bind:key="row.id">
           <BTd >
             <BFormInput v-model="row.name" @change="() => adjustmentStore.updateAdjustmentAsync(row)" />
           </BTd>

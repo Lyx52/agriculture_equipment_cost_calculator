@@ -11,6 +11,7 @@
   import IconLogin from '@/components/icons/IconLogin.vue'
   import IconLogout from '@/components/icons/IconLogout.vue'
   import IconUser from '@/components/icons/IconUser.vue'
+  import IconPersonSettings from '@/components/icons/IconPersonSettings.vue'
   const authStore = useAuthStore();
   const isHovering = ref<boolean>(false);
 </script>
@@ -31,6 +32,14 @@
           <TractorIcon />
           <Transition>
             <span v-if="isHovering">&nbsp;Mana tehnika</span>
+          </Transition>
+        </BLink>
+      </li>
+      <li class="nav-item border-bottom border-top border-secondary" v-if="authStore.isLoggedIn">
+        <BLink to="/team_and_services" class="nav-link p-3 bg-primary rounded-0 text-white text-start text-nowrap">
+          <IconPersonSettings />
+          <Transition>
+            <span v-if="isHovering">&nbsp;Mani darbinieki</span>
           </Transition>
         </BLink>
       </li>

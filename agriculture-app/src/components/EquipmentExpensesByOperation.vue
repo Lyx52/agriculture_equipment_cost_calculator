@@ -42,7 +42,7 @@
             <BTh>Apstrādātā platība, ha</BTh>
             <BTh>Veiktās darba stundas, h</BTh>
             <BTh>Finanšu resursu izmaksas, {{ selectedCalculatePer }}</BTh>
-            <BTh>Citas izmaksas (Apdrošināšana, pajumte u.c), {{ selectedCalculatePer }}</BTh>
+            <BTh>Citas izmaksas (Apdrošināšana u.c), {{ selectedCalculatePer }}</BTh>
             <BTh>Kopējās patstāvīgās izmaksas, {{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
@@ -91,7 +91,7 @@
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Ekspluatācijas izmaksu novērtējums</h5>
+          <h5 class="text-center fw-bold text-black">Mainīgo izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>

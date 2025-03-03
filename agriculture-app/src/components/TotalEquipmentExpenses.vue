@@ -31,7 +31,7 @@
             <BTh>Atgūstamā vērtība, EUR</BTh>
             <BTh>Amortizācijas kopsumma</BTh>
             <BTh>Finanšu resursu izmaksas, {{ selectedCalculatePer }}</BTh>
-            <BTh>Citas izmaksas (Apdrošināšana, pajumte u.c), {{ selectedCalculatePer }}</BTh>
+            <BTh>Citas izmaksas (Apdrošināšana u.c), {{ selectedCalculatePer }}</BTh>
             <BTh>Kopējās patstāvīgās izmaksas, {{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
@@ -113,7 +113,7 @@
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Ekspluatācijas izmaksu novērtējums</h5>
+          <h5 class="text-center fw-bold text-black">Mainīgo izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
@@ -125,8 +125,7 @@
             <BTh>Remonta izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
             <BTh>Degvielas izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
             <BTh>Smērvielu izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
-            <BTh>Darbaspēka izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
-            <BTh>Kopējās ekspluatācijas izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
+            <BTh>Kopējās mainīgās izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
         <BTbody>
@@ -171,12 +170,6 @@
             <BTd v-else class="text-center user-select-none vertical-align-middle">
               &nbsp;-&nbsp;
             </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ row.equipmentOperatorWageCostPerYear.toFixed(2) }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ row.equipmentOperatorWageCostPerHour.toFixed(2) }}
-            </BTd>
             <BTd v-if="selectedCalculatePer === 'gadā'"  class="text-center user-select-none vertical-align-middle">
               {{ row.totalOperatingCostsPerYear().toFixed(2) }}
             </BTd>
@@ -212,12 +205,6 @@
             </BTd>
             <BTd v-else class="text-center user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.lubricationCostsPerHourNew()).toFixed(2) }}
-            </BTd>
-            <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
-              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.equipmentOperatorWageCostPerYear).toFixed(2) }}
-            </BTd>
-            <BTd v-else class="text-center user-select-none vertical-align-middle">
-              {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.equipmentOperatorWageCostPerHour).toFixed(2) }}
             </BTd>
             <BTd v-if="selectedCalculatePer === 'gadā'" class="text-center user-select-none vertical-align-middle">
               {{ equipmentCollectionStore.equipmentTotalsByProperty(e => e.totalOperatingCostsPerYear()).toFixed(2) }}

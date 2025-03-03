@@ -256,30 +256,13 @@ export class EquipmentModel implements IEquipment {
   get accumulatedRepairsCostPerHour(): number {
     return this.accumulatedRepairsCostValue / this.totalLifetimeUsageHours;
   }
-
-  /**
-   * Equipment operator wage cost per hour.
-   */
-  get equipmentOperatorWageCostPerHour(): number {
-    const farmStore = useFarmInformationStore();
-    return farmStore.employeeWage;
-  }
-
-  /**
-   * Equipment operator wage cost per year.
-   */
-  get equipmentOperatorWageCostPerYear(): number {
-    return this.equipmentOperatorWageCostPerHour * this.hoursPerYear;
-  }
-
   /**
    * Total operating costs per hour of the equipment.
    * @param loadWork - % load of the equipment. Default is 80%.
    * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
     totalOperatingCostsPerYear(loadWork: number = 0.8, loadTurn: number = 0.3): number {
-    return this.equipmentOperatorWageCostPerYear +
-      this.fuelCostsPerYearNew(loadWork, loadTurn) +
+    return this.fuelCostsPerYearNew(loadWork, loadTurn) +
       this.lubricationCostsPerYearNew(loadWork, loadTurn) +
       this.accumulatedRepairsCostPerYear;
   }
@@ -290,8 +273,7 @@ export class EquipmentModel implements IEquipment {
    * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
   totalOperatingCostsPerHour(loadWork: number = 0.8, loadTurn: number = 0.3): number {
-    return this.equipmentOperatorWageCostPerHour +
-      this.fuelCostsPerHourNew(loadWork, loadTurn) +
+    return this.fuelCostsPerHourNew(loadWork, loadTurn) +
       this.lubricationCostsPerHourNew(loadWork, loadTurn) +
       this.accumulatedRepairsCostPerHour;
   }

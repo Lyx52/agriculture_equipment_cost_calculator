@@ -85,4 +85,8 @@ export class CropTypeModel implements ICropType {
   get pricePerHectare(): number {
     return this.standardFieldUsage * this.standardSeedCost;
   }
+
+  get earningsPerHectare(): number {
+    return this.standardProductPrice * this.standardYield;
+  }
 }

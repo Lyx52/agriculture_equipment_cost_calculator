@@ -3,6 +3,8 @@ import { useOperationStore } from '@/stores/operation.ts'
 import { type OperationModel } from '@/stores/model/operationModel.ts'
 import { useCodifierStoreCache } from '@/stores/codifier.ts'
 import { useCropsStore } from '@/stores/crops.ts'
+import { useAdjustmentsStore } from '@/stores/adjustments.ts'
+import { sumBy } from '@/utils.ts'
 
 export class FarmlandModel implements IFarmland {
   id: string;
@@ -33,9 +35,44 @@ export class FarmlandModel implements IFarmland {
     return operationCollection.items.filter(o => o.user_farmland_id === this.id);
   }
 
-  get materialCostsPerHectare(): number {
+  get earningsPerHectare(): number {
     const cropTypeStore = useCropsStore();
     const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
-    return Number(cropType?.pricePerHectare ?? 0) * this.landArea;
+    return Number(cropType?.earningsPerHectare ?? 0);
+  }
+
+  get cropCostsPerHectare(): number {
+    const cropTypeStore = useCropsStore();
+    const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
+    return Number(cropType?.pricePerHectare ?? 0);
+  }
+
+  get otherAdjustmentCostsPerHectare(): number {
+    const adjustmentsStore = useAdjustmentsStore();
+    return adjustmentsStore.totalCostsPerHectare;
+  }
+
+  get materialCostsPerHectare(): number {
+    return (this.cropCostsPerHectare + this.otherAdjustmentCostsPerHectare);
+  }
+
+  get materialCostsTotal(): number {
+    return this.materialCostsPerHectare * this.landArea;
+  }
+
+  get totalOperatingCostsPerHectare(): number {
+    return sumBy(this.operations, o => o.totalOperatingCosts('ha'))
+  }
+
+  get totalOwnershipCostsPerHectare(): number {
+    return sumBy(this.operations, o => o.totalOwnershipCosts('ha'))
+  }
+
+  get grossCoveragePerHectare(): number {
+    return this.earningsPerHectare - (this.totalOperatingCostsPerHectare + this.totalOwnershipCostsPerHectare);
+  }
+
+  get grossCoverage(): number {
+    return this.grossCoveragePerHectare * this.landArea;
   }
 }

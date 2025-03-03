@@ -30,13 +30,14 @@
   import { onMounted } from 'vue'
   import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
   import { InfoModalText, type InfoModalTextType } from '@/constants/InfoModalText.ts'
+  import { useAdjustmentsStore } from '@/stores/adjustments.ts'
   const props = defineProps<IOperationWorkbenchProps>();
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
   const farmlandOperationStoreId = uuid();
   const farmlandOperationCodifierStore = useCodifierStore(farmlandOperationStoreId);
   const equipmentCollectionStore = useEquipmentCollectionStore();
-
+  const adjustmentStore = useAdjustmentsStore();
   const {show} = useModalController();
 
   const addNewOperation = async () => {
@@ -45,7 +46,8 @@
       user_farmland_id: operationStore.filteredFarmlandId,
       operation_code: 'operation_110',
       tractor_or_combine_id: undefined,
-      machine_id: undefined
+      machine_id: undefined,
+      employee_id: undefined
     });
     operationStore.filteredFarmlandOperationCode = undefined;
     farmlandOperationCodifierStore.$reset();
@@ -79,14 +81,8 @@
     await equipmentCollectionStore.fetchByFilters();
     await farmlandStore.fetchByFilters();
     await operationStore.fetchByFilters();
-  })
-  const isTractor = (code: string|undefined) => {
-    return [
-      'traktors_4x4',
-      'traktors_4x2',
-      'traktors_kezu'
-    ].includes(code ?? '');
-  }
+    await adjustmentStore.fetchByFilters();
+  });
   const showInfoModal = (infoText: InfoModalTextType) => {
 
     show?.({
@@ -128,6 +124,7 @@
         <BTr>
           <BTh v-if="!props.isModal" rowspan="2">Lauks</BTh>
           <BTh rowspan="2">Apstrādes operācija</BTh>
+          <BTh rowspan="2">Darbinieks</BTh>
           <BTh rowspan="2">Tehnikas vienība</BTh>
           <BTh rowspan="1" colspan="2" class="text-center">Cena, EUR</BTh>
           <BTh rowspan="1" colspan="2" class="text-center">Gada noslodze, h</BTh>
@@ -144,7 +141,7 @@
       </BThead>
       <BTbody v-if="operationStore.isLoading">
         <BTr>
-          <BTd colspan="10" class="text-center">
+          <BTd colspan="11" class="text-center">
             <BSpinner v-if="true" />
           </BTd>
         </BTr>
@@ -170,6 +167,15 @@
             />
           </BTd>
           <BTd>
+            <SimpleDropdown
+              :is-loading="false"
+              :get-filtered="adjustmentStore.getFilteredEmployees"
+              :get-formatted-option="adjustmentStore.getFormattedOption"
+              v-model="row.employee_id"
+              @changed="operationStore.updateOperationAsync(row)"
+            />
+          </BTd>
+          <BTd>
             <div class="d-flex flex-row gap-3">
               <SimpleDropdown
                 :is-loading="false"
@@ -184,25 +190,25 @@
                 :get-filtered="equipmentCollectionStore.getFilteredMachines"
                 :get-formatted-option="equipmentCollectionStore.getFormattedOption"
                 v-model="row.machine_id"
-                v-if="isTractor(row.tractorOrCombine?.equipment_type_code)"
+                v-if="row.tractorOrCombine?.isTractor"
                 @changed="operationStore.updateOperationAsync(row)"
               />
             </div>
 
           </BTd>
-          <BTd :colspan="isTractor(row.tractorOrCombine?.equipment_type_code) ? 1 : 2" class="text-center">
+          <BTd :colspan="row.tractorOrCombine?.isTractor ? 1 : 2" class="text-center">
             {{ (row.tractorOrCombine?.price ?? 0).toFixed(2) }}
           </BTd>
-          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
+          <BTd v-if="row.tractorOrCombine?.isTractor" class="text-center">
             {{ (row.machine?.price ?? 0).toFixed(2) }}
           </BTd>
-          <BTd :colspan="isTractor(row.tractorOrCombine?.equipment_type_code) ? 1 : 2" class="text-center">
+          <BTd :colspan="row.tractorOrCombine?.isTractor ? 1 : 2" class="text-center">
             {{ (row.tractorOrCombine?.hoursPerYear ?? 0).toFixed(2) }} h
           </BTd>
-          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
+          <BTd v-if="row.tractorOrCombine?.isTractor" class="text-center">
             {{ (row.machine?.totalCurrentUsageHours ?? 0).toFixed(2) }} h
           </BTd>
-          <BTd v-if="isTractor(row.tractorOrCombine?.equipment_type_code)" class="text-center">
+          <BTd v-if="row.tractorOrCombine?.isTractor" class="text-center">
             {{ (row.machine?.averageFieldWorkSpeed ?? 0).toFixed(2) }} ha/h
           </BTd>
           <BTd v-else class="text-center">
@@ -222,8 +228,8 @@
 
       </BTbody>
       <BTfoot class="position-sticky bottom-0 in-front">
-        <BTr>
-          <BTd colspan="9">
+        <BTr v-if="props.isModal">
+          <BTd colspan="11">
             <BButton variant="success" size="sm" @click="addNewOperation">Pievienot</BButton>
           </BTd>
         </BTr>

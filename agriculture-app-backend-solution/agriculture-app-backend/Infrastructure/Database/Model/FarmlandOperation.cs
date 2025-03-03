@@ -18,5 +18,8 @@ public class FarmlandOperation
     
     public string UserFarmlandId { get; set; }
     public UserFarmland UserFarmland { get; set; }
+    
+    public string? EmployeeId { get; set; }
+    public UserAdjustment? Employee { get; set; }
     public DateTime Created { get; set; }
 }

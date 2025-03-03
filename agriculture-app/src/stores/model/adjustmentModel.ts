@@ -11,4 +11,10 @@ export class AdjustmentModel implements IAdjustment {
     this.id = adjustment.id;
     this.name = adjustment.name;
   }
+  get displayName() {
+    return this.name;
+  }
+  get costPerHectare() {
+    return this.value;
+  }
 }

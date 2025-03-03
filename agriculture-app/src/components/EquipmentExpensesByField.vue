@@ -43,7 +43,7 @@ onMounted(async () => {
             <BTh>Lauka platība, ha</BTh>
             <BTh>Veiktās darba stundas, h</BTh>
             <BTh>Finanšu resursu izmaksas, {{ selectedCalculatePer }}</BTh>
-            <BTh>Citas izmaksas (Apdrošināšana, pajumte u.c), {{ selectedCalculatePer }}</BTh>
+            <BTh>Citas izmaksas (Apdrošināšana u.c), {{ selectedCalculatePer }}</BTh>
             <BTh>Kopējās patstāvīgās izmaksas, {{ selectedCalculatePer }}</BTh>
           </BTr>
         </BThead>
@@ -92,12 +92,13 @@ onMounted(async () => {
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto table-height">
         <caption>
-          <h5 class="text-center fw-bold text-black">Ekspluatācijas izmaksu novērtējums</h5>
+          <h5 class="text-center fw-bold text-black">Mainīgo izmaksu novērtējums</h5>
         </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
             <BTh>Apstrādes lauks</BTh>
             <BTh>Lauka platība, ha</BTh>
+            <BTh>Izejvielu izmaksas, EUR/ha</BTh>
             <BTh>Veiktās darba stundas, h</BTh>
             <BTh>Degvielas izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
             <BTh>Smērvielu izmaksas, EUR/{{ selectedCalculatePer }}</BTh>
@@ -115,6 +116,9 @@ onMounted(async () => {
               {{ row.landArea.toFixed(2) }}
             </BTd>
             <BTd>
+              {{ row.materialCostsPerHectare.toFixed(2) }}
+            </BTd>
+            <BTd>
               {{ sumBy(row.operations, item => item.operationWorkHours).toFixed(2) }}
             </BTd>
             <BTd>
@@ -130,13 +134,16 @@ onMounted(async () => {
               {{ sumBy(row.operations, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd>
-              {{ sumBy(row.operations, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }}
+              {{ (row.materialCostsTotal + sumBy(row.operations, item => item.totalOperatingCosts(selectedCalculatePer))).toFixed(2) }}
             </BTd>
           </BTr>
           <BTr>
             <BTd class="fw-bold">Kopā</BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.farmland?.area ?? 0).toFixed(2) }}
+              {{ sumBy(farmlandStore.items, item => item.area ?? 0).toFixed(2) }}
+            </BTd>
+            <BTd class="fw-bold">
+              {{ sumBy(farmlandStore.items, item => item.materialCostsPerHectare ?? 0).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
               {{ sumBy(operationStore.items, item => item.operationWorkHours).toFixed(2) }}
@@ -154,7 +161,11 @@ onMounted(async () => {
               {{ sumBy(operationStore.items, item => item.equipmentOperatorWageCosts(selectedCalculatePer)).toFixed(2) }}
             </BTd>
             <BTd class="fw-bold">
-              {{ sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer)).toFixed(2) }}
+              {{ (
+                  sumBy(farmlandStore.items, item => item.materialCostsTotal ?? 0) +
+                  sumBy(operationStore.items, item => item.totalOperatingCosts(selectedCalculatePer))
+                 ).toFixed(2)
+              }}
             </BTd>
           </BTr>
         </BTbody>

@@ -96,6 +96,7 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
             MachineId = request.MachineId,
             OperationCode = request.OperationCode,
             TractorOrCombineId = request.TractorOrCombineId,
+            EmployeeId = request.EmployeeId,
             Created = DateTime.UtcNow
         });
         
@@ -151,7 +152,8 @@ public class FarmlandOperationController(PersistentDbContext _db, ILogger<UserEq
         operation.OperationCode = request.OperationCode;
         operation.MachineId = request.MachineId;
         operation.TractorOrCombineId = request.TractorOrCombineId;
-
+        operation.EmployeeId = request.EmployeeId;
+        
         _db.FarmlandOperations.Update(operation);
         await _db.SaveChangesAsync();
         

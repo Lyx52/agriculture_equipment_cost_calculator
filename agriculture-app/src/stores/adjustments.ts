@@ -1,12 +1,14 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import { defineStore } from 'pinia'
 import emitter from '@/stores/emitter.ts'
-import { fetchBackend, getBackendUri, validateProblem } from '@/utils.ts'
+import { fetchBackend, getBackendUri, sumBy, validateProblem } from '@/utils.ts'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import type { IAdjustmentStore } from '@/stores/interface/IAdjustmentStore.ts'
 import { AdjustmentModel } from '@/stores/model/adjustmentModel.ts'
 import type { IAdjustment } from '@/stores/interface/IAdjustment.ts'
+import { Codifiers } from '@/stores/enums/Codifiers.ts'
+import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
 
 export const useAdjustmentsStore = defineStore('adjustments', {
   state(): IAdjustmentStore {
@@ -75,6 +77,39 @@ export const useAdjustmentsStore = defineStore('adjustments', {
       }  finally {
         this.isLoading = false;
       }
+    },
+    getItemById(id: string): AdjustmentModel | undefined {
+      return this.items.find(e => e.id === id);
+    },
+
+    getFormattedOption(value: any): IDropdownOption<any> {
+
+      const item = this.getItemById(value);
+      console.log(item);
+      return {
+        name: item?.displayName ?? '',
+        id: value,
+        value: value,
+      }
+    },
+
+    getFilteredEmployees(searchText: string): IDropdownOption<any>[] {
+      return this.employees
+        .filter(f => f.displayName.toLowerCase().includes(searchText.toLowerCase()))
+        .map(f => this.getFormattedOption(f.id));
+    }
+  },
+  getters: {
+    customMaterialAdjustments(store: IAdjustmentStore): AdjustmentModel[] {
+      return store.items.filter((e) => e.adjustment_type_code === Codifiers.CustomAdjustmentsMaterials);
+    },
+    employees(store: IAdjustmentStore): AdjustmentModel[] {
+      return store.items.filter((e) => e.adjustment_type_code === Codifiers.EmployeeWagePerHour);
+    },
+    totalCostsPerHectare(store: IAdjustmentStore): number {
+      const filteredAdjustments = store.items
+        .filter((e) => e.adjustment_type_code === Codifiers.CustomAdjustmentsMaterials);
+      return sumBy(filteredAdjustments, (e) => e.costPerHectare);
     }
   }
 });

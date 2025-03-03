@@ -90,6 +90,12 @@ public class PersistentDbContext(
         modelBuilder.Entity<FarmlandOperation>()
             .Property(e => e.Created)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        modelBuilder.Entity<UserAdjustment>()
+            .HasMany(e => e.Operations)
+            .WithOne(o => o.Employee)
+            .HasForeignKey(o => o.EmployeeId)
+            .OnDelete(DeleteBehavior.SetNull);
         
         modelBuilder.Entity<UserAdjustment>()
             .Property(e => e.Created)

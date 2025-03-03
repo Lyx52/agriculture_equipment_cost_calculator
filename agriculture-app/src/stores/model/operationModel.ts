@@ -3,6 +3,9 @@ import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
 import type { EquipmentModel } from '@/stores/model/equipmentModel.ts'
 import { useFarmlandStore } from '@/stores/farmland.ts'
 import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
+import type { AdjustmentModel } from '@/stores/model/adjustmentModel.ts'
+import { useAdjustmentsStore } from '@/stores/adjustments.ts'
+import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 
 export class OperationModel implements IOperation {
   id: string;
@@ -10,13 +13,19 @@ export class OperationModel implements IOperation {
   operation_code: string|undefined;
   tractor_or_combine_id: string|undefined;
   machine_id: string|undefined;
-
+  employee_id: string|undefined;
   constructor(operation: IOperation) {
     this.id = operation.id;
     this.user_farmland_id = operation.user_farmland_id;
     this.operation_code = operation.operation_code;
     this.tractor_or_combine_id = operation.tractor_or_combine_id;
     this.machine_id = operation.machine_id;
+    this.employee_id = operation.employee_id;
+  }
+
+  get employee(): AdjustmentModel | undefined {
+    const adjustmentStore = useAdjustmentsStore();
+    return adjustmentStore.getItemById(this.employee_id ?? '');
   }
 
   get machineValid(): boolean {
@@ -168,17 +177,27 @@ export class OperationModel implements IOperation {
         return eurPerHour / this.operationFieldWorkSpeedPerHour;
     }
   }
+  /**
+   * Equipment operator wage cost per hour.
+   */
+  get equipmentOperatorWageCostPerHour(): number {
+    const employee = this.employee;
+    if (employee) {
+      return employee.value;
+    }
+    const farmStore = useFarmInformationStore();
+    return farmStore.employeeWage;
+  }
 
   equipmentOperatorWageCosts(selectedCalculatePer: string): number {
     switch(selectedCalculatePer) {
       case 'kopā':
-        return this.operationWorkHours * this.sumByFunction(e => e.equipmentOperatorWageCostPerHour);
+        return this.operationWorkHours * this.equipmentOperatorWageCostPerHour;
       case 'h':
-        return this.sumByFunction(e => e.equipmentOperatorWageCostPerHour);
+        return this.equipmentOperatorWageCostPerHour;
       default:
         // ha
-        const eurPerHour = this.sumByFunction(e => e.equipmentOperatorWageCostPerHour);
-        return eurPerHour / this.operationFieldWorkSpeedPerHour;
+        return this.equipmentOperatorWageCostPerHour / this.operationFieldWorkSpeedPerHour;
     }
   }
 
