@@ -494,8 +494,9 @@ namespace AgricultureAppBackend.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", "Machine")
-                        .WithMany()
-                        .HasForeignKey("MachineId");
+                        .WithMany("OperationsMachines")
+                        .HasForeignKey("MachineId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.Codifier", "Operation")
                         .WithMany("Operations")
@@ -503,8 +504,9 @@ namespace AgricultureAppBackend.Migrations
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", "TractorOrCombine")
-                        .WithMany()
-                        .HasForeignKey("TractorOrCombineId");
+                        .WithMany("OperationsTractorsOrCombines")
+                        .HasForeignKey("TractorOrCombineId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", "UserFarmland")
                         .WithMany("Operations")
@@ -673,6 +675,13 @@ namespace AgricultureAppBackend.Migrations
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", b =>
                 {
                     b.Navigation("UserFarmlands");
+                });
+
+            modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", b =>
+                {
+                    b.Navigation("OperationsMachines");
+
+                    b.Navigation("OperationsTractorsOrCombines");
                 });
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", b =>

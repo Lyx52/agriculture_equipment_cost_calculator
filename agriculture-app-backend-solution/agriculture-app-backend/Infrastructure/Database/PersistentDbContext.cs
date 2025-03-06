@@ -91,6 +91,18 @@ public class PersistentDbContext(
             .Property(e => e.Created)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
+        modelBuilder.Entity<UserEquipment>()
+            .HasMany(e => e.OperationsMachines)
+            .WithOne(o => o.Machine)
+            .HasForeignKey(o => o.MachineId)
+            .OnDelete(DeleteBehavior.SetNull);
+        
+        modelBuilder.Entity<UserEquipment>()
+            .HasMany(e => e.OperationsTractorsOrCombines)
+            .WithOne(o => o.TractorOrCombine)
+            .HasForeignKey(o => o.TractorOrCombineId)
+            .OnDelete(DeleteBehavior.SetNull);
+        
         modelBuilder.Entity<UserAdjustment>()
             .HasMany(e => e.Operations)
             .WithOne(o => o.Employee)

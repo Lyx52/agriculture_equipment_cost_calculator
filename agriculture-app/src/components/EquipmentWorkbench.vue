@@ -30,6 +30,7 @@
   import EquipmentUsageModal from '@/components/modal/EquipmentUsageModal.vue'
   import { useIndicatorStore } from '@/stores/indicator.ts'
   import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
+  import { DisplayNumber } from '../utils.ts'
   const equipmentCollectionStore = useEquipmentCollectionStore();
   const equipmentStore = useEquipmentStore();
   const equipmentCodifierStore = useCodifierStore(uuid());
@@ -119,6 +120,7 @@
           <BTh>Tehnikas nosaukums</BTh>
           <BTh>Marka</BTh>
           <BTh>Modelis</BTh>
+          <BTh>Iegādes gads</BTh>
           <BTh>Jauda/Nepieciešamā jauda, kw</BTh>
           <BTh>Darba platums, m</BTh>
           <BTh>Darba ražīgums, ha/h</BTh>
@@ -143,6 +145,9 @@
           </BTd>
           <BTd>
             {{ row.model }}
+          </BTd>
+          <BTd class="text-center">
+            {{ DisplayNumber(row.itemPurchaseYear, 0) }}
           </BTd>
           <BTd class="text-center">
             {{ row.powerOrRequiredPower.toFixed(2) }}
@@ -173,7 +178,7 @@
       </BTbody>
       <BTfoot class="position-sticky bottom-0 in-front">
         <BTr>
-          <BTd colspan="8">
+          <BTd colspan="9">
             <BButton variant="success" size="sm" @click="onAddEquipment">Pievienot</BButton>
           </BTd>
         </BTr>

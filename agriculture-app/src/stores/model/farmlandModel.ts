@@ -5,13 +5,13 @@ import { useCodifierStoreCache } from '@/stores/codifier.ts'
 import { useCropsStore } from '@/stores/crops.ts'
 import { useAdjustmentsStore } from '@/stores/adjustments.ts'
 import { sumBy } from '@/utils.ts'
+import type { AdjustmentModel } from '@/stores/model/adjustmentModel.ts'
 
 export class FarmlandModel implements IFarmland {
   id: string;
   area: number;
   product_code: string|undefined;
   product_name: string|undefined;
-
   constructor(farmland: IFarmland) {
     this.id = farmland.id;
     this.area = farmland.area;
@@ -35,10 +35,52 @@ export class FarmlandModel implements IFarmland {
     return operationCollection.items.filter(o => o.user_farmland_id === this.id);
   }
 
+  get productTonsPerHectare(): number {
+    const cropTypeStore = useCropsStore();
+    const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
+    return Number(cropType?.standardYield ?? 0);
+  }
+
+  get totalProductTons(): number {
+    return this.productTonsPerHectare * this.landArea;
+  }
+
+  get cropName(): string {
+    const cropTypeStore = useCropsStore();
+    const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
+    return cropType?.cropName ?? 'Nav zināms';
+  }
+
+  get standardProductPrice(): number {
+    const cropTypeStore = useCropsStore();
+    const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
+    return Number(cropType?.standardProductPrice ?? 0);
+  }
+
   get earningsPerHectare(): number {
     const cropTypeStore = useCropsStore();
     const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
     return Number(cropType?.earningsPerHectare ?? 0);
+  }
+
+  get totalEarnings(): number {
+    return this.earningsPerHectare * this.landArea;
+  }
+
+  get cropUsageTonsPerHectare(): number {
+    const cropTypeStore = useCropsStore();
+    const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
+    return Number(cropType?.standardFieldUsage ?? 0) / 1000;
+  }
+
+  get cropUsageTotalTons(): number {
+    return this.cropUsageTonsPerHectare * this.landArea;
+  }
+
+  get cropCostsPerTon(): number {
+    const cropTypeStore = useCropsStore();
+    const cropType = cropTypeStore.getItemByCode(this.product_code ?? '');
+    return Number(cropType?.standardSeedCost ?? 0) * 1000;
   }
 
   get cropCostsPerHectare(): number {
@@ -50,6 +92,19 @@ export class FarmlandModel implements IFarmland {
   get otherAdjustmentCostsPerHectare(): number {
     const adjustmentsStore = useAdjustmentsStore();
     return adjustmentsStore.totalCostsPerHectare;
+  }
+
+  get totalOtherAdjustmentCosts(): number {
+    return this.otherAdjustmentCostsPerHectare * this.landArea;
+  }
+
+  get otherAdjustmentCosts(): AdjustmentModel[] {
+    const adjustmentsStore = useAdjustmentsStore();
+    return adjustmentsStore.customMaterialAdjustments;
+  }
+
+  get totalCropCosts(): number {
+    return this.cropCostsPerHectare * this.landArea;
   }
 
   get materialCostsPerHectare(): number {
@@ -64,8 +119,20 @@ export class FarmlandModel implements IFarmland {
     return sumBy(this.operations, o => o.totalOperatingCosts('ha'))
   }
 
+  get totalOperatingCosts(): number {
+    return this.totalOperatingCostsPerHectare * this.landArea;
+  }
+
   get totalOwnershipCostsPerHectare(): number {
     return sumBy(this.operations, o => o.totalOwnershipCosts('ha'))
+  }
+
+  get totalOwnershipCosts(): number {
+    return this.totalOwnershipCostsPerHectare * this.landArea;
+  }
+
+  get totalCosts(): number {
+    return this.totalOperatingCosts + this.totalOwnershipCosts + this.materialCostsTotal;
   }
 
   get grossCoveragePerHectare(): number {
@@ -74,5 +141,13 @@ export class FarmlandModel implements IFarmland {
 
   get grossCoverage(): number {
     return this.grossCoveragePerHectare * this.landArea;
+  }
+
+  get grossCoverageFirst(): number {
+    return this.totalEarnings - this.materialCostsTotal;
+  }
+
+  get grossCoverageSecond(): number {
+    return this.totalEarnings - (this.totalOperatingCosts + this.totalOwnershipCosts);
   }
 }

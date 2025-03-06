@@ -265,3 +265,11 @@ export const calculateRemainingValue = (c1: number, c2: number, c3: number, n: n
 export const calculateRepairValue = (rf1: number, rf2: number, accumulatedHours: number): number => {
   return rf1 * Math.pow(accumulatedHours / 1000, rf2);
 }
+
+export const DisplayNumber = (value: number|undefined|string, fraction: number = 2, defaultEmptyValue = '-'): string => {
+  return isNaN(Number(value)) || !isFinite(Number(value)) ? defaultEmptyValue : Number(value).toFixed(fraction);
+}
+
+export const NanAsZero = (value: number|undefined): number => {
+  return isNaN(Number(value)) || !isFinite(Number(value)) ? 0 : Number(value);
+}

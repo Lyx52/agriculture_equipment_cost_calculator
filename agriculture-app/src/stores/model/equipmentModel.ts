@@ -3,7 +3,7 @@ import type { IEquipmentType } from '@/stores/interface/IEquipmentType.ts'
 import type { IEquipmentSpecifications } from '@/stores/interface/IEquipmentSpecifications.ts'
 import { getRepairValueForUsageHoursNew } from '@/constants/RepairValue.ts'
 import type { RepairCategory } from '@/constants/RepairValue.ts'
-import { avg, mapEquipmentTypeCode, sum } from '@/utils.ts'
+import { avg, mapEquipmentTypeCode, NanAsZero, sum } from '@/utils.ts'
 import { isValid } from 'date-fns'
 import { useIndicatorStore } from '@/stores/indicator.ts'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
@@ -60,8 +60,12 @@ export class EquipmentModel implements IEquipment {
     this.inflation_adjusted_price = this.price * (1 + (priceChangeFactor?.inflation_change ?? 100) / 100);
   }
 
+  get manufacturerModel(): string {
+    return `${this.manufacturer} ${this.model}`;
+  }
+
   get displayNameShort() {
-    let displayName = `${this.manufacturer} ${this.model}`;
+    let displayName = this.manufacturerModel;
     if (this.isSelfPropelled) {
       displayName = `(Pašgājējs) ${displayName}`;
     }
@@ -121,6 +125,13 @@ export class EquipmentModel implements IEquipment {
    */
   get itemPurchaseDate(): Date|undefined {
     return this.purchase_date ? new Date(this.purchase_date) : undefined;
+  }
+
+  /**
+   * Date of the equipment purchase.
+   */
+  get itemPurchaseYear(): number {
+    return Number(this.itemPurchaseDate?.getFullYear() ?? Number.NaN);
   }
 
   /**
@@ -254,23 +265,30 @@ export class EquipmentModel implements IEquipment {
   /**
    * Accumulated repairs cost value of the equipment. Calculated from currently accumulated repair costs
    */
-  get accumulatedRepairsCostValueLifetime(): number {
-    return this.repairValueFactorLifetime * this.inflationAdjustedPurchasePrice;
-  }
-  /**
-   * Accumulated repairs cost value of the equipment. Calculated from currently accumulated repair costs
-   */
   get accumulatedRepairsCostValue(): number {
-    return this.repairValueFactorCurrent * this.inflationAdjustedPurchasePrice;
+    return this.repairValueFactorCurrent * this.originalPurchasePrice;
   }
 
   /**
    * Accumulated repairs cost per year of the equipment.
    */
   get accumulatedRepairsCostPerYear(): number {
-    return this.accumulatedRepairsCostValue / this.totalLifetimeUsageYears;
+    return NanAsZero(this.accumulatedRepairsCostValue / this.totalCurrentUsageYears);
   }
 
+  /**
+   * Accumulated repairs cost per hour of the equipment.
+   */
+  get accumulatedRepairsCostPerHour(): number {
+    return NanAsZero(this.accumulatedRepairsCostValue / this.totalCurrentUsageHours)
+  }
+
+  /**
+   * Accumulated repairs cost value of the equipment. Calculated from currently accumulated repair costs
+   */
+  get accumulatedRepairsCostValueLifetime(): number {
+    return this.repairValueFactorLifetime * this.originalPurchasePrice;
+  }
 
   /**
    * Accumulated repairs cost per year of the equipment. Over lifetime repairs
@@ -280,27 +298,57 @@ export class EquipmentModel implements IEquipment {
   }
 
   /**
-   * Accumulated repairs cost per hour of the equipment.
-   */
-  get accumulatedRepairsCostPerHour(): number {
-    return this.accumulatedRepairsCostValue / this.totalLifetimeUsageHours;
-  }
-
-  /**
    * Accumulated repairs cost per hour of the equipment. Over lifetime repairs
    */
   get accumulatedRepairsLifetimeCostPerHour(): number {
     return this.accumulatedRepairsCostValueLifetime / this.totalLifetimeUsageHours;
   }
+
+  accumulatedRepairCosts(selectedCalculatePer: string): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.accumulatedRepairsCostPerYear * this.totalCurrentUsageYears;
+      case 'gadā':
+        return this.accumulatedRepairsCostPerYear;
+      default:
+        // h
+        return this.accumulatedRepairsCostPerHour;
+    }
+  }
+
+  accumulatedLifetimeRepairCosts(selectedCalculatePer: string): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.accumulatedRepairsLifetimeCostPerYear * this.totalCurrentUsageYears;
+      case 'gadā':
+        return this.accumulatedRepairsLifetimeCostPerYear;
+      default:
+        // h
+        return this.accumulatedRepairsLifetimeCostPerHour;
+    }
+  }
+
   /**
    * Total operating costs per hour of the equipment.
    * @param loadWork - % load of the equipment. Default is 80%.
    * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-    totalOperatingCostsPerYear(loadWork: number = 0.8, loadTurn: number = 0.3): number {
+  totalOperatingCostsPerYear(loadWork: number = 0.8, loadTurn: number = 0.3): number {
     return this.fuelCostsPerYearNew(loadWork, loadTurn) +
       this.lubricationCostsPerYearNew(loadWork, loadTurn) +
       this.accumulatedRepairsCostPerYear;
+  }
+
+  operatingCosts(selectedCalculatePer: string, loadWork: number = 0.8, loadTurn: number = 0.3): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.totalOperatingCostsPerYear(loadWork, loadTurn) * this.totalCurrentUsageYears;
+      case 'gadā':
+        return this.totalOperatingCostsPerYear(loadWork, loadTurn);
+      default:
+        // h
+        return this.totalOperatingCostsPerHour(loadWork, loadTurn);
+    }
   }
 
   /**
@@ -431,6 +479,42 @@ export class EquipmentModel implements IEquipment {
   }
 
   /**
+   * Equipment lubrication costs per hour, l/h. Calculated from fuel consumption calculation.
+   * @param selectedCalculatePer
+   * @param loadWork
+   * @param loadTurn
+   */
+  lubricationCosts(selectedCalculatePer: string, loadWork: number = 0.8, loadTurn: number = 0.3): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.lubricationCostsPerYearNew(loadWork, loadTurn) * this.totalCurrentUsageYears;
+      case 'gadā':
+        return this.lubricationCostsPerYearNew(loadWork, loadTurn);
+      default:
+        // h
+        return this.lubricationCostsPerHourNew(loadWork, loadTurn);
+    }
+  }
+
+  /**
+   * Equipment lubrication costs per year, l/year. Calculated from fuel consumption calculation.
+   * @param selectedCalculatePer
+   * @param loadWork
+   * @param loadTurn
+   */
+  fuelCosts(selectedCalculatePer: string, loadWork: number = 0.8, loadTurn: number = 0.3): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.fuelCostsPerYearNew(loadWork, loadTurn) * this.totalCurrentUsageYears;
+      case 'gadā':
+        return this.fuelCostsPerYearNew(loadWork, loadTurn);
+      default:
+        // h
+        return this.fuelCostsPerHourNew(loadWork, loadTurn);
+    }
+  }
+
+  /**
    * Equipment lubrication costs per hour, l/h. Calculated from iowa fuel consumption calculation.
    */
   get iowaLubricationCostsPerHour() {
@@ -501,11 +585,30 @@ export class EquipmentModel implements IEquipment {
     return this.totalDepreciationValue / this.totalLifetimeUsageHours;
   }
 
+  depreciationValue(selectedCalculatePer: string): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.depreciationValuePerYear * this.totalLifetimeUsageYears;
+      case 'gadā':
+        return this.depreciationValuePerYear;
+      default:
+        // h
+        return this.depreciationValuePerHour;
+    }
+  }
+
   /**
    * Depreciation value of the equipment. Calculated as the original purchase price minus the salvage value.
    */
   get linearTotalDepreciationValue() {
-    return this.originalPurchasePrice - this.salvageValue;
+    return this.originalPurchasePrice;
+  }
+
+  /**
+   * Depreciation value of the equipment. Calculated as the original purchase price minus the salvage value.
+   */
+  get linearDepreciationValuePerHour() {
+    return this.linearTotalDepreciationValue / this.totalLifetimeUsageHours;
   }
 
   get capitalRecoveryCoefficient() {
@@ -529,6 +632,18 @@ export class EquipmentModel implements IEquipment {
     return this.capitalRecoveryValuePerYear / this.hoursPerYear;
   }
 
+  capitalRecoveryValue(selectedCalculatePer: string): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.capitalRecoveryValuePerYear * this.totalLifetimeUsageYears;
+      case 'gadā':
+        return this.capitalRecoveryValuePerYear;
+      default:
+        // h
+        return this.capitalRecoveryValuePerHour;
+    }
+  }
+
   /**
    * Annual taxes and insurance cost of the equipment. (Per year)
    */
@@ -544,11 +659,23 @@ export class EquipmentModel implements IEquipment {
     return this.taxesAndInsuranceCostValuePerYear / this.hoursPerYear;
   }
 
+  taxesAndInsuranceCostValue(selectedCalculatePer: string): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.taxesAndInsuranceCostValuePerYear * this.totalLifetimeUsageYears;
+      case 'gadā':
+        return this.taxesAndInsuranceCostValuePerYear;
+      default:
+        // h
+        return this.taxesAndInsuranceCostValuePerHour;
+    }
+  }
+
   /**
    * Total annual expenses of the equipment. (Per year)
    */
   get totalOwnershipCostPerYear(): number {
-    return this.capitalRecoveryValuePerYear + this.taxesAndInsuranceCostValuePerYear;
+    return this.capitalRecoveryValuePerYear + this.taxesAndInsuranceCostValuePerYear + this.depreciationValuePerYear;
   }
 
   /**
@@ -556,6 +683,18 @@ export class EquipmentModel implements IEquipment {
    */
   get totalOwnershipCostPerHour(): number {
     return this.totalOwnershipCostPerYear / this.hoursPerYear;
+  }
+
+  totalOwnershipCost(selectedCalculatePer: string): number {
+    switch(selectedCalculatePer) {
+      case 'kopā':
+        return this.totalOwnershipCostPerYear * this.totalLifetimeUsageYears;
+      case 'gadā':
+        return this.totalOwnershipCostPerYear;
+      default:
+        // h
+        return this.totalOwnershipCostPerHour;
+    }
   }
 
   get isTractorOrCombine() {

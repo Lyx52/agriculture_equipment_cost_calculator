@@ -1,50 +1,230 @@
 <script setup lang="ts">
-import { BButton, BFormGroup, BTableSimple, BTbody, BTd, BTh, BThead, BTr } from 'bootstrap-vue-next'
+import { BButton, BTableSimple, BTbody, BTd, BTh, BThead, BTr } from 'bootstrap-vue-next'
 import { useFarmlandStore } from '@/stores/farmland.ts'
-import { sumBy } from '../utils.ts'
-import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
 import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 import { computed, ref } from 'vue'
-import IconX from '@/components/icons/IconX.vue'
+import SumTd from '@/components/table/SumTd.vue'
+import IconArrowDownRightSquare from '@/components/icons/IconArrowDownRightSquare.vue'
+import IconClose from '@/components/icons/IconClose.vue'
+import { DisplayNumber } from '../utils.ts'
 const farmlandStore = useFarmlandStore();
 const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
-const handleRemoveSelected = () => {
-  selectedFarmland.value = undefined;
-}
 const hasSelectedFilter = computed(() => !!selectedFarmland.value);
 </script>
 
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <BFormGroup label="Skatīt detalizētu lauka bruto segumu">
-        <div class="d-flex flex-row">
-          <SimpleDropdown
-            class="w-fit"
-            :is-loading="false"
-            :is-invalid="false"
-            :get-filtered="farmlandStore.getFiltered"
-            :get-formatted-option="farmlandStore.getFormattedOption"
-            v-model="selectedFarmland"
-          />
-
-          <BButton v-if="hasSelectedFilter" variant="danger" class="ms-2 mt-auto" @click="handleRemoveSelected">
-            <IconX />
-          </BButton>
-        </div>
-      </BFormGroup>
-
-    </div>
     <div class="row" v-if="hasSelectedFilter">
-      sdadasd
+      <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
+        <BThead class="position-sticky top-0 bg-primary in-front" >
+          <BTr>
+            <BTh colspan="1">
+              <BButton @click="() => selectedFarmland = undefined" variant="outline-danger" class="cursor-pointer">
+                Aizvērt <IconClose />
+              </BButton>
+            </BTh>
+            <BTh colspan="5">
+              <h5 class="text-end fw-bold text-black">Bruto seguma novērtējums, <span class="text-decoration-underline">{{ selectedFarmland?.displayName }}</span></h5>
+            </BTh>
+          </BTr>
+        </BThead>
+        <BTbody>
+          <BTr>
+            <BTh>Ieņēmumi</BTh>
+            <BTh>Mērvienība</BTh>
+            <BTh>Daudzums</BTh>
+            <BTh>Cena, EUR</BTh>
+            <BTh>Kopā, EUR</BTh>
+          </BTr>
+          <BTr>
+            <BTd>
+              &ensp;&ensp;&ensp;{{ selectedFarmland?.cropName }}
+            </BTd>
+            <BTd>t</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.totalProductTons) }}</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.standardProductPrice) }}</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.totalEarnings) }}</BTd>
+          </BTr>
+          <BTr>
+            <BTd>
+              &ensp;&ensp;&ensp;<b>Ieņēmumi kopā</b> (1)
+            </BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTh>{{ DisplayNumber(selectedFarmland?.totalEarnings) }}</BTh>
+          </BTr>
+          <BTr>
+            <BTh class="text-start" colspan="6">
+              Mainīgās izmaksas
+            </BTh>
+          </BTr>
+          <BTr>
+            <BTh class="text-start" colspan="6">
+              &ensp;&ensp;&ensp;Izejvielu izmaksas
+            </BTh>
+          </BTr>
+          <BTr>
+            <BTd>
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Sēklas/stādi
+            </BTd>
+            <BTd>t</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.cropUsageTotalTons) }}</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.cropCostsPerTon) }}</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.totalCropCosts) }}</BTd>
+          </BTr>
+          <BTr v-for="otherCost in (selectedFarmland?.otherAdjustmentCosts ?? [])" v-bind:key="otherCost.id">
+            <BTd>
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ otherCost.displayName }}
+            </BTd>
+            <BTd>ha</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.landArea) }}</BTd>
+            <BTd>{{ DisplayNumber(otherCost.costPerHectare) }}</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.totalOtherAdjustmentCosts) }}</BTd>
+          </BTr>
+          <BTr>
+            <BTd>
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<b>Izejvielu izmaksas kopā</b> (2)
+            </BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTh>{{ DisplayNumber(selectedFarmland?.materialCostsTotal) }}</BTh>
+          </BTr>
+          <BTr>
+            <BTh class="text-start">
+              &ensp;&ensp;&ensp;Eksplautācijas izmaksas (3.1)
+            </BTh>
+            <BTh class="text-start whitespace-nowrap">Amortizācija, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">Darbaspēka izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">Remonta izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">&nbsp;</BTh>
+          </BTr>
+          <BTr v-for="operation in (selectedFarmland?.operations ?? [])" v-bind:key="operation.id">
+            <BTd class="text-start align-middle whitespace-nowrap">
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.depreciationValue('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.equipmentOperatorWageCosts('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.accumulatedRepairCosts('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              &nbsp;
+            </BTd>
+          </BTr>
+          <BTr>
+            <BTh class="text-start">
+              &ensp;&ensp;&ensp;Eksplautācijas izmaksas (3.2)
+            </BTh>
+            <BTh class="text-start whitespace-nowrap">Degvielas izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">Smērvielu izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">Eksplautācijas izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">&nbsp;</BTh>
+          </BTr>
+          <BTr v-for="operation in (selectedFarmland?.operations ?? [])" v-bind:key="operation.id">
+            <BTd class="text-start align-middle whitespace-nowrap">
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.totalFuelCosts('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.lubricationCosts('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.totalOperatingCosts('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.totalOperatingCosts('kopā')) }}
+            </BTd>
+          </BTr>
+          <BTr>
+            <BTd>
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<b>Eksplautācijas izmaksas kopā</b> (3)
+            </BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTh>{{ DisplayNumber(selectedFarmland?.totalOperatingCosts) }}</BTh>
+          </BTr>
+          <BTr>
+            <BTh class="text-start">
+              Patstāvīgās izmaksas
+            </BTh>
+            <BTh class="text-start whitespace-nowrap">Finanšu resursu izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">Citas izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">Patstāvīgās izmaksas, EUR/ha</BTh>
+            <BTh class="text-start whitespace-nowrap">&nbsp;</BTh>
+          </BTr>
+          <BTr v-for="operation in (selectedFarmland?.operations ?? [])" v-bind:key="operation.id">
+            <BTd class="text-start align-middle whitespace-nowrap">
+              &ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.capitalRecoveryValue('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.taxesAndInsuranceCosts('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.totalOwnershipCosts('ha')) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(operation.totalOwnershipCosts('kopā')) }}
+            </BTd>
+          </BTr>
+          <BTr>
+            <BTd>
+              &ensp;&ensp;&ensp;<b>Patstāvīgās izmaksas kopā</b> (4)
+            </BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTh>{{ DisplayNumber(selectedFarmland?.totalOwnershipCosts) }}</BTh>
+          </BTr>
+          <BTr>
+            <BTd>
+              <b>Izmaksas kopā</b> (2 + 3 + 4)
+            </BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTh>{{ DisplayNumber(selectedFarmland?.totalCosts) }}</BTh>
+          </BTr>
+          <BTr>
+            <BTh colspan="4" class="text-start">
+              Bruto segums 1 (Ieņēmumi - Izejvielu izmaksas)
+            </BTh>
+            <BTh class="text-start whitespace-nowrap">
+              {{ DisplayNumber(selectedFarmland?.grossCoverageFirst) }}
+            </BTh>
+          </BTr>
+          <BTr>
+            <BTh colspan="4" class="text-start">
+              Bruto segums 2 (Ieņēmumi - (eksplautācijas izmaksas + patstāvīgās izmaksas))
+            </BTh>
+            <BTh class="text-start whitespace-nowrap">
+              {{ DisplayNumber(selectedFarmland?.grossCoverageSecond) }}
+            </BTh>
+          </BTr>
+        </BTbody>
+      </BTableSimple>
     </div>
     <div class="row" v-else>
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
-        <caption>
-          <h5 class="text-center fw-bold text-black">Bruto seguma novērtējums</h5>
-        </caption>
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
+            <BTh colspan="8">
+              <h5 class="text-center fw-bold text-black">Bruto seguma novērtējums</h5>
+            </BTh>
+          </BTr>
+          <BTr>
+            <BTh>&nbsp;</BTh>
             <BTh>Apstrādes lauks</BTh>
             <BTh>Lauka platība, ha</BTh>
             <BTh>Ieņēmumi, EUR/ha</BTh>
@@ -56,6 +236,11 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
         </BThead>
         <BTbody>
           <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
+            <BTd>
+              <BButton @click="() => selectedFarmland = row"  variant="outline-secondary" class="cursor-pointer">
+                Detalizēti <IconArrowDownRightSquare />
+              </BButton>
+            </BTd>
             <BTd class="text-start align-middle">
               {{ `${row?.product_name ?? 'Lauks'} (${(row?.area ?? 0).toFixed(2)} ha)` }}
             </BTd>
@@ -79,25 +264,13 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
             </BTd>
           </BTr>
           <BTr class="fw-bold">
-            <BTd class="text-end user-select-none vertical-align-middle" colspan="1">Kopā</BTd>
-            <BTd class="text-start user-select-none vertical-align-middle">
-              {{ sumBy(farmlandStore.items, e => e.landArea).toFixed(2) }}
-            </BTd>
-            <BTd class="text-start user-select-none vertical-align-middle">
-              {{ sumBy(farmlandStore.items, e => e.earningsPerHectare).toFixed(2) }}
-            </BTd>
-            <BTd class="text-start user-select-none vertical-align-middle">
-              {{ sumBy(farmlandStore.items, e => e.totalOwnershipCostsPerHectare).toFixed(2) }}
-            </BTd>
-            <BTd class="text-start user-select-none vertical-align-middle">
-              {{ sumBy(farmlandStore.items, e => e.totalOperatingCostsPerHectare).toFixed(2) }}
-            </BTd>
-            <BTd class="text-start user-select-none vertical-align-middle">
-              {{ sumBy(farmlandStore.items, e => e.grossCoveragePerHectare).toFixed(2) }}
-            </BTd>
-            <BTd class="text-start user-select-none vertical-align-middle">
-              {{ sumBy(farmlandStore.items, e => e.grossCoverage).toFixed(2) }}
-            </BTd>
+            <BTd class="text-end user-select-none vertical-align-middle" colspan="2">Kopā</BTd>
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.landArea" />
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.earningsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.totalOwnershipCostsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.totalOperatingCostsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.grossCoveragePerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.grossCoverage" />
           </BTr>
         </BTbody>
       </BTableSimple>
@@ -122,5 +295,8 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
 }
 .w-fit-content {
   width: fit-content;
+}
+.whitespace-nowrap {
+  white-space: nowrap !important;
 }
 </style>

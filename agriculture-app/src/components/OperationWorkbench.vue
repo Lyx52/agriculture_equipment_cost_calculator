@@ -31,6 +31,7 @@
   import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
   import { InfoModalText, type InfoModalTextType } from '@/constants/InfoModalText.ts'
   import { useAdjustmentsStore } from '@/stores/adjustments.ts'
+  import { DisplayNumber } from '../utils.ts'
   const props = defineProps<IOperationWorkbenchProps>();
   const operationStore = useOperationStore();
   const farmlandStore = useFarmlandStore();
@@ -129,7 +130,7 @@
           <BTh>Degvielas izmaksas, EUR/ha</BTh>
           <BTh>Smērvielu izmaksas, EUR/ha</BTh>
           <BTh>Remonta izmaksas, EUR/ha</BTh>
-          <BTh>Darbaspēka izmaksas, EUR/ha</BTh>
+          <BTh>Darbaspēka izmaksas, EUR/h</BTh>
           <BTh>Kopējās mainīgās izmaksas, EUR/ha</BTh>
           <BTh>&nbsp;</BTh>
         </BTr>
@@ -191,19 +192,19 @@
             </div>
           </BTd>
           <BTd class="text-center align-middle">
-            <div class="d-flex gap-1 justify-content-center align-items-center">{{ row.totalFuelCosts('ha').toFixed(2) }} <BBadge class="cursor-pointer" @click="() => showInfoModal('fuel_usage_info')">slodze <br/> {{ (row.loadFactorOnPowerMachine * 100).toFixed(2) }}%</BBadge></div>
+            <div class="d-flex gap-1 justify-content-center align-items-center">{{ DisplayNumber(row.totalFuelCosts('ha')) }} <BBadge class="cursor-pointer" @click="() => showInfoModal('fuel_usage_info')">slodze <br/> {{ (row.loadFactorOnPowerMachine * 100).toFixed(2) }}%</BBadge></div>
           </BTd>
           <BTd class="text-center align-middle">
-            {{ row.lubricationCosts('ha').toFixed(2) }}
+            {{ DisplayNumber(row.lubricationCosts('ha')) }}
           </BTd>
           <BTd class="text-center align-middle">
-            {{ row.accumulatedRepairCosts('ha').toFixed(2) }}
+            {{ DisplayNumber(row.accumulatedRepairCosts('ha')) }}
           </BTd>
           <BTd class="text-center align-middle">
-            {{ row.equipmentOperatorWageCosts('ha').toFixed(2) }}
+            {{ DisplayNumber(row.equipmentOperatorWageCosts('kopā')) }}
           </BTd>
           <BTd class="text-center align-middle">
-            {{ row.totalOperatingCosts('ha').toFixed(2) }}
+            {{ DisplayNumber(row.totalOperatingCosts('ha')) }}
           </BTd>
           <BTd class="text-end align-middle">
             <BButtonGroup class="d-inline-flex flex-row btn-group">

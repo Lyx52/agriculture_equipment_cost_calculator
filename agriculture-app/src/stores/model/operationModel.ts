@@ -6,6 +6,7 @@ import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 import type { AdjustmentModel } from '@/stores/model/adjustmentModel.ts'
 import { useAdjustmentsStore } from '@/stores/adjustments.ts'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
+import { useCodifierStoreCache } from '@/stores/codifier.ts'
 
 export class OperationModel implements IOperation {
   id: string;
@@ -21,6 +22,11 @@ export class OperationModel implements IOperation {
     this.tractor_or_combine_id = operation.tractor_or_combine_id;
     this.machine_id = operation.machine_id;
     this.employee_id = operation.employee_id;
+  }
+
+  get displayName(): string {
+    const codifierStore = useCodifierStoreCache();
+    return codifierStore.getByCode(this.operation_code ?? '')?.name ?? '-';
   }
 
   get employee(): AdjustmentModel | undefined {
