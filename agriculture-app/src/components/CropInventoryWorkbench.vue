@@ -12,16 +12,14 @@ import {
   BTfoot,
   BFormInput
 } from 'bootstrap-vue-next'
-import { onActivated, onBeforeMount, onMounted, ref } from 'vue'
+import { onBeforeMount } from 'vue'
   import { useCropsStore } from '@/stores/crops.ts'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
   import type { CropTypeModel } from '@/stores/model/cropTypeModel.ts'
   import {v4 as uuid} from 'uuid';
   import TrashIcon from '@/components/icons/TrashIcon.vue'
-import { onBeforeRouteUpdate } from 'vue-router'
   const cropsStore = useCropsStore();
   const {confirm} = useModalController();
-  const isLoading = ref<boolean>(true);
 
   const onValuesChanged = async (row: CropTypeModel) => {
     if (row.id) {

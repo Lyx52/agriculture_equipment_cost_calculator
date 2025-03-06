@@ -11,7 +11,7 @@ public class UserFarmland
     
     public string? ProductCropTypeId { get; set; }
     public UserCropType? ProductCropType { get; set; }
-    
+    public List<UserAdjustment> Adjustments { get; set; } = new List<UserAdjustment>();
     public List<FarmlandOperation> Operations { get; set; } = new List<FarmlandOperation>();
     
     public string UserId { get; set; }

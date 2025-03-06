@@ -17,19 +17,25 @@
   import TrashIcon from '@/components/icons/TrashIcon.vue'
   import { useAdjustmentsStore } from '@/stores/adjustments.ts'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
+  import { useFarmlandStore } from '@/stores/farmland.ts'
+  import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
+  import type { IAdjustment } from '@/stores/interface/IAdjustment.ts'
   const adjustmentStore = useAdjustmentsStore();
+  const farmlandStore = useFarmlandStore();
 
   const addMaterialAdjustment = async () => {
     await adjustmentStore.addAdjustmentAsync({
       id: uuid(),
       adjustment_type_code: Codifiers.CustomAdjustmentsMaterials,
       value: 0,
-      name: 'Papildus izejvielu izmaksas'
-    });
+      name: 'Papildus izejvielu izmaksas',
+      user_farmland_id: undefined
+    } as IAdjustment);
   }
 
   // Load all codifier definitions
   onBeforeMount(async () => {
+    await farmlandStore.fetchByFilters();
     await adjustmentStore.fetchByFilters();
   })
 </script>
@@ -44,6 +50,7 @@
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
           <BTh>Nosaukums</BTh>
+          <BTh>Lauks</BTh>
           <BTh>Papildus izmaksas, EUR/ha</BTh>
           <BTh>&nbsp;</BTh>
         </BTr>
@@ -57,8 +64,17 @@
       </BTbody>
       <BTbody v-else>
         <BTr v-for="row in adjustmentStore.customMaterialAdjustments" v-bind:key="row.id">
-          <BTd >
+          <BTd>
             <BFormInput v-model="row.name" @change="() => adjustmentStore.updateAdjustmentAsync(row)" />
+          </BTd>
+          <BTd>
+            <SimpleDropdown
+              :is-loading="false"
+              :get-filtered="farmlandStore.getFiltered"
+              :get-formatted-option="farmlandStore.getFormattedOption"
+              v-model="row.user_farmland_id"
+              @changed="adjustmentStore.updateAdjustmentAsync(row)"
+            />
           </BTd>
           <BTd>
             <BNumericFormInput @changed="() => adjustmentStore.updateAdjustmentAsync(row)" v-model="row.value" />

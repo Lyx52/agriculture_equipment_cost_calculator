@@ -6,6 +6,7 @@ import { useCropsStore } from '@/stores/crops.ts'
 import { useAdjustmentsStore } from '@/stores/adjustments.ts'
 import { sumBy } from '@/utils.ts'
 import type { AdjustmentModel } from '@/stores/model/adjustmentModel.ts'
+import { Codifiers } from '@/stores/enums/Codifiers.ts'
 
 export class FarmlandModel implements IFarmland {
   id: string;
@@ -90,8 +91,7 @@ export class FarmlandModel implements IFarmland {
   }
 
   get otherAdjustmentCostsPerHectare(): number {
-    const adjustmentsStore = useAdjustmentsStore();
-    return adjustmentsStore.totalCostsPerHectare;
+    return sumBy(this.otherAdjustmentCosts, (adjustment) => adjustment.costPerHectare);
   }
 
   get totalOtherAdjustmentCosts(): number {
@@ -100,7 +100,7 @@ export class FarmlandModel implements IFarmland {
 
   get otherAdjustmentCosts(): AdjustmentModel[] {
     const adjustmentsStore = useAdjustmentsStore();
-    return adjustmentsStore.customMaterialAdjustments;
+    return adjustmentsStore.getItemByFarmlandIdAndCode(this.id, Codifiers.CustomAdjustmentsMaterials);
   }
 
   get totalCropCosts(): number {

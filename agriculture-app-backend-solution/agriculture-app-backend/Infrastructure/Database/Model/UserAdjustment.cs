@@ -16,4 +16,7 @@ public class UserAdjustment
     public DateTime Created { get; set; }
 
     public List<FarmlandOperation> Operations { get; set; } = new List<FarmlandOperation>();
+    
+    public string? UserFarmlandId { get; set; }
+    public UserFarmland? UserFarmland { get; set; }
 }

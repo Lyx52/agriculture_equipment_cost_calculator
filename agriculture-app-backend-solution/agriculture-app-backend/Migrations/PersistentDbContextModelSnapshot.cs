@@ -204,6 +204,9 @@ namespace AgricultureAppBackend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("UserFarmlandId")
+                        .HasColumnType("text");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
@@ -214,6 +217,8 @@ namespace AgricultureAppBackend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AdjustmentTypeCode");
+
+                    b.HasIndex("UserFarmlandId");
 
                     b.HasIndex("UserId");
 
@@ -540,6 +545,11 @@ namespace AgricultureAppBackend.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", "UserFarmland")
+                        .WithMany("Adjustments")
+                        .HasForeignKey("UserFarmlandId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.User", "User")
                         .WithMany("Adjustments")
                         .HasForeignKey("UserId")
@@ -549,6 +559,8 @@ namespace AgricultureAppBackend.Migrations
                     b.Navigation("AdjustmentType");
 
                     b.Navigation("User");
+
+                    b.Navigation("UserFarmland");
                 });
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", b =>
@@ -686,6 +698,8 @@ namespace AgricultureAppBackend.Migrations
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", b =>
                 {
+                    b.Navigation("Adjustments");
+
                     b.Navigation("Operations");
                 });
 #pragma warning restore 612, 618

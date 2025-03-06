@@ -16,6 +16,7 @@
   import TrashIcon from '@/components/icons/TrashIcon.vue'
   import { useAdjustmentsStore } from '@/stores/adjustments.ts'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
+  import type { IAdjustment } from '@/stores/interface/IAdjustment.ts'
   const adjustmentStore = useAdjustmentsStore();
 
   const addEmployee = async () => {
@@ -23,8 +24,9 @@
       id: uuid(),
       adjustment_type_code: Codifiers.EmployeeWagePerHour,
       value: 15,
-      name: 'Darbinieks'
-    });
+      name: 'Darbinieks',
+      user_farmland_id: undefined
+    } as IAdjustment);
   }
 </script>
 

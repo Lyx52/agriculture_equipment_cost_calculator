@@ -82,10 +82,12 @@ export const useAdjustmentsStore = defineStore('adjustments', {
       return this.items.find(e => e.id === id);
     },
 
-    getFormattedOption(value: any): IDropdownOption<any> {
+    getItemByFarmlandIdAndCode(userFarmlandId: string, typeCode: string): AdjustmentModel[] {
+      return this.items.filter(e => e.user_farmland_id === userFarmlandId && e.adjustment_type_code === typeCode);
+    },
 
+    getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
-      console.log(item);
       return {
         name: item?.displayName ?? '',
         id: value,

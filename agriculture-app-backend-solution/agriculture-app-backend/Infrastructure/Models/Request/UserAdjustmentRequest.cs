@@ -13,4 +13,6 @@ public class UserAdjustmentRequest
     
     [Required]
     public double Value { get; set; }
+    
+    public string? UserFarmlandId { get; set; }
 }

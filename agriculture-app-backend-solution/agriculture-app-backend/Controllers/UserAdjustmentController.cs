@@ -56,6 +56,7 @@ public class UserAdjustmentController(PersistentDbContext _db, ILogger<UserEquip
             Value = request.Value,
             Name = request.Name,
             AdjustmentTypeCode = request.AdjustmentTypeCode,
+            UserFarmlandId = request.UserFarmlandId,
             Created = DateTime.UtcNow
         });
         await _db.SaveChangesAsync();
@@ -103,6 +104,7 @@ public class UserAdjustmentController(PersistentDbContext _db, ILogger<UserEquip
         adjustment.Value = request.Value;
         adjustment.AdjustmentTypeCode = request.AdjustmentTypeCode;
         adjustment.Name = request.Name;
+        adjustment.UserFarmlandId = request.UserFarmlandId;
         
         _db.UserAdjustments.Update(adjustment);
         await _db.SaveChangesAsync();

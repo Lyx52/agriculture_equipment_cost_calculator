@@ -87,6 +87,12 @@ public class PersistentDbContext(
             .HasForeignKey(e => e.UserFarmlandId)
             .OnDelete(DeleteBehavior.Cascade);
         
+        modelBuilder.Entity<UserFarmland>()
+            .HasMany(e => e.Adjustments)
+            .WithOne(e => e.UserFarmland)
+            .HasForeignKey(e => e.UserFarmlandId)
+            .OnDelete(DeleteBehavior.SetNull);
+        
         modelBuilder.Entity<FarmlandOperation>()
             .Property(e => e.Created)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
