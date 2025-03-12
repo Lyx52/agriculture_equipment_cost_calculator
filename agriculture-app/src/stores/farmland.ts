@@ -4,13 +4,15 @@ import { defineStore } from 'pinia'
 import type { IFarmlandStore } from '@/stores/interface/IFarmlandStore.ts';
 import type { IFarmland } from '@/stores/interface/IFarmland.ts'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
-import { v4 as uuid } from 'uuid'
 import { fetchBackend, getBackendUri, sum, uniqueBy } from '@/utils.ts'
 import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
 import emitter from '@/stores/emitter.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import { FarmlandModel } from '@/stores/model/farmlandModel.ts'
-import { useCodifierStore, useCodifierStoreCache } from '@/stores/codifier.ts'
+import {
+  useCodifierStore,
+  useCodifierStoreCache
+} from '@/stores/codifier.ts'
 export const useFarmlandStore = defineStore('farmland', {
   state(): IFarmlandStore {
       return {

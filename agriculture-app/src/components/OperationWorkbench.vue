@@ -19,7 +19,6 @@
   import { useFarmlandStore } from '@/stores/farmland.ts'
   import CodifierDropdown from '@/components/elements/CodifierDropdown.vue'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
-  import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
   import type { ICodifier } from '@/stores/interface/ICodifier.ts'
   import type { IOperation } from '@/stores/interface/IOperation.ts'
@@ -48,7 +47,8 @@
       operation_code: 'operation_110',
       tractor_or_combine_id: undefined,
       machine_id: undefined,
-      employee_id: undefined
+      employee_id: undefined,
+      external_service_id: undefined,
     });
     operationStore.filteredFarmlandOperationCode = undefined;
     farmlandOperationCodifierStore.$reset();

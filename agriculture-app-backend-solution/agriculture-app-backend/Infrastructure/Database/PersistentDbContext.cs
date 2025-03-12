@@ -116,6 +116,12 @@ public class PersistentDbContext(
             .OnDelete(DeleteBehavior.SetNull);
         
         modelBuilder.Entity<UserAdjustment>()
+            .HasMany(e => e.OperationsExternalServices)
+            .WithOne(o => o.ExternalService)
+            .HasForeignKey(o => o.ExternalServiceId)
+            .OnDelete(DeleteBehavior.SetNull);
+        
+        modelBuilder.Entity<UserAdjustment>()
             .Property(e => e.Created)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
         

@@ -5,5 +5,6 @@ export const enum Codifiers {
   PowerTrainTypes = "powertrain_type",
   CustomAdjustmentsMaterials = "custom_adjustments_materials",
   CustomAdjustmentsOperations = "custom_adjustments_operations",
+  CustomAgriculturalSupport = "custom_agricultural_support_eur_ha",
   EmployeeWagePerHour = "employee_wage_eur_h",
 }

@@ -5,7 +5,7 @@
   import { useCodifierStore } from '@/stores/codifier.ts'
   import { Codifiers } from '@/stores/enums/Codifiers.ts'
   import {v4 as uuid} from 'uuid'
-  import { DisplayNumber, sumBy } from '@/utils.ts'
+  import { DisplayNumber } from '@/utils.ts'
   import CollapsableTr from '@/components/table/CollapsableTr.vue'
   import SumTd from '@/components/table/SumTd.vue'
   import type { OperationModel } from '@/stores/model/operationModel.ts'

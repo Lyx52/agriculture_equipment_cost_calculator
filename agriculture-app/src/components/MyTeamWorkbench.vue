@@ -31,7 +31,7 @@
 </script>
 
 <template>
-  <div class="d-flex flex-column mb-3">
+  <div class="d-flex flex-column">
     <div class="d-flex flex-row">
       <h5 class="card-title">Saimniecības darbinieki</h5>
     </div>

@@ -13,6 +13,7 @@ import { useAdjustmentsStore } from '@/stores/adjustments.ts'
 import { useCropsStore } from '@/stores/crops.ts'
 import GrossCoverage from '@/components/GrossCoverage.vue'
 import CardContainer from '@/components/elements/CardContainer.vue'
+import { useAgriculturalSupportCodifierStore } from '@/stores/codifier.ts'
 const equipmentCollection = useEquipmentCollectionStore();
 const farmlandStore = useFarmlandStore();
 const operationStore = useOperationStore();
@@ -20,7 +21,7 @@ const indicatorStore = useIndicatorStore();
 const adjustmentStore = useAdjustmentsStore();
 const cropTypeStore = useCropsStore();
 const isLoading = ref<boolean>(true);
-
+const codifierStore = useAgriculturalSupportCodifierStore();
 onMounted(async () => {
   await indicatorStore.getInflationRate();
   await indicatorStore.getInterestRate();
@@ -32,6 +33,7 @@ onMounted(async () => {
   await operationStore.fetchByFilters();
   await adjustmentStore.fetchByFilters();
   await cropTypeStore.fetchByFilters();
+  await codifierStore.fetchByFilters();
   isLoading.value = false;
 });
 

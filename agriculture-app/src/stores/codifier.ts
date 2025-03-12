@@ -2,10 +2,12 @@ import { defineStore } from 'pinia'
 import type { ICodifierCacheStore, ICodifierStore } from '@/stores/interface/ICodifierStore.ts'
 import type { ICodifier } from '@/stores/interface/ICodifier.ts'
 import { getBackendUri } from '@/utils.ts'
+import { Codifiers } from '@/stores/enums/Codifiers.ts'
 export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
   state(): ICodifierCacheStore {
     return {
       cachedCodifiersByCode: new Map<string, ICodifier>(),
+      cachedCodifiersByParentCode: new Map<string, ICodifier[]>()
     } as ICodifierCacheStore;
   },
   actions: {
@@ -19,6 +21,10 @@ export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
       const value = await response.json() as ICodifier|undefined;
       if (value) {
         this.cachedCodifiersByCode.set(code, value);
+        if (!value.parent_code) return;
+        const byParent = this.cachedCodifiersByParentCode.get(value.parent_code) ?? [];
+        byParent.push(value);
+        this.cachedCodifiersByParentCode.set(value.parent_code, byParent);
       }
     },
     getByCode(code: string|undefined): ICodifier|undefined {
@@ -27,6 +33,9 @@ export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
     },
     setByCode(code: string, codifier: ICodifier) {
       this.cachedCodifiersByCode.set(code, codifier);
+    },
+    getByParentCode(parentCode: string): ICodifier[] {
+      return this.cachedCodifiersByParentCode.get(parentCode) ?? [];
     }
   }
 })();
@@ -97,3 +106,12 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
     }
   }
 })();
+
+export const useAgriculturalSupportCodifierStore = () => {
+  const codifierStore = useCodifierStore(Codifiers.CustomAgriculturalSupport);
+  codifierStore.$patch({
+    codifierTypeCodes: [Codifiers.CustomAgriculturalSupport]
+  })
+
+  return codifierStore;
+}

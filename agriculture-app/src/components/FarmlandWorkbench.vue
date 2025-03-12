@@ -21,7 +21,6 @@
   import { useOperationStore } from '@/stores/operation.ts'
   import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
-  import type { ICodifier } from '@/stores/interface/ICodifier.ts'
   import { onMounted, ref } from 'vue'
   import {v4 as uuid} from 'uuid';
   import emitter from '@/stores/emitter.ts'
@@ -29,10 +28,17 @@
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
   import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
   import { useCropsStore } from '@/stores/crops.ts'
+  import FarmlandSupportTypesModal from '@/components/modal/FarmlandSupportTypesModal.vue'
+  import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
+  import CostIcon from '@/components/icons/CostIcon.vue'
+  import { useAdjustmentsStore } from '@/stores/adjustments.ts'
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
   const equipmentCollection = useEquipmentCollectionStore();
   const cropStore = useCropsStore();
+  const adjustmentStore = useAdjustmentsStore();
+  const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
+  const showFarmlandSupportTypesModal = ref<boolean>(false);
   emitter.on(farmlandStore.getEmitterEvent(CollectionEvents.ItemAdded), (item: IFarmland) => {
     const codifierStore = useCodifierStore(item.id);
     codifierStore.setSelectedByCode(item.product_code);
@@ -64,6 +70,11 @@
     });
     showFarmlandOperations.value = true;
     await operationStore.fetchByFilters();
+  }
+  const onOpenFarmlandSupportTypes = async (farmland: FarmlandModel) => {
+    await adjustmentStore.fetchByFilters();
+    selectedFarmland.value = farmland;
+    showFarmlandSupportTypesModal.value = true;
   }
   // Load all codifier definitions
   onMounted(async () => {
@@ -114,6 +125,9 @@
               <BButton variant="secondary" size="sm" @click="onOpenOperationsWorkbench(row)">
                 Apstrādes operācijas <OperationsIcon />
               </BButton>
+              <BButton variant="success" size="sm" @click="onOpenFarmlandSupportTypes(row)">
+                Atbalsta veidi <CostIcon class="cost-icon" />
+              </BButton>
             </BButtonGroup>
           </BTd>
         </BTr>
@@ -131,6 +145,7 @@
   </div>
   <FarmlandSelectionMap v-model="farmlandStore.showMapModal" @on-field-added="onMapFarmlandSelected" />
   <FarmlandOperationsModal v-model="showFarmlandOperations" />
+  <FarmlandSupportTypesModal :farmland="selectedFarmland" v-model="showFarmlandSupportTypesModal" />
 </template>
 
 <style scoped>
@@ -143,5 +158,8 @@
   }
   .in-front {
     z-index: 999;
+  }
+  .cost-icon {
+    width: 18px !important;
   }
 </style>

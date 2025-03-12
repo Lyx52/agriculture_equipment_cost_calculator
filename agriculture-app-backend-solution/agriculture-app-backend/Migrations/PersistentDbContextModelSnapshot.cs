@@ -89,6 +89,9 @@ namespace AgricultureAppBackend.Migrations
                     b.Property<string>("EmployeeId")
                         .HasColumnType("text");
 
+                    b.Property<string>("ExternalServiceId")
+                        .HasColumnType("text");
+
                     b.Property<string>("MachineId")
                         .HasColumnType("text");
 
@@ -105,6 +108,8 @@ namespace AgricultureAppBackend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EmployeeId");
+
+                    b.HasIndex("ExternalServiceId");
 
                     b.HasIndex("MachineId");
 
@@ -498,6 +503,11 @@ namespace AgricultureAppBackend.Migrations
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", "ExternalService")
+                        .WithMany("OperationsExternalServices")
+                        .HasForeignKey("ExternalServiceId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", "Machine")
                         .WithMany("OperationsMachines")
                         .HasForeignKey("MachineId")
@@ -520,6 +530,8 @@ namespace AgricultureAppBackend.Migrations
                         .IsRequired();
 
                     b.Navigation("Employee");
+
+                    b.Navigation("ExternalService");
 
                     b.Navigation("Machine");
 
@@ -682,6 +694,8 @@ namespace AgricultureAppBackend.Migrations
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", b =>
                 {
                     b.Navigation("Operations");
+
+                    b.Navigation("OperationsExternalServices");
                 });
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.UserCropType", b =>

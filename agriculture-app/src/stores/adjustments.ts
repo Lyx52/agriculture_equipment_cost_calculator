@@ -86,6 +86,10 @@ export const useAdjustmentsStore = defineStore('adjustments', {
       return this.items.filter(e => e.user_farmland_id === userFarmlandId && e.adjustment_type_code === typeCode);
     },
 
+    getItemByFarmlandIdAndCodes(userFarmlandId: string, typeCodes: string[]): AdjustmentModel[] {
+      return this.items.filter(e => e.user_farmland_id === userFarmlandId && typeCodes.includes(e.adjustment_type_code));
+    },
+
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {
@@ -94,9 +98,13 @@ export const useAdjustmentsStore = defineStore('adjustments', {
         value: value,
       }
     },
-
     getFilteredEmployees(searchText: string): IDropdownOption<any>[] {
       return this.employees
+        .filter(f => f.displayName.toLowerCase().includes(searchText.toLowerCase()))
+        .map(f => this.getFormattedOption(f.id));
+    },
+    getFilteredExternalServices(searchText: string): IDropdownOption<any>[] {
+      return this.customOperationAdjustments
         .filter(f => f.displayName.toLowerCase().includes(searchText.toLowerCase()))
         .map(f => this.getFormattedOption(f.id));
     }
@@ -104,6 +112,9 @@ export const useAdjustmentsStore = defineStore('adjustments', {
   getters: {
     customMaterialAdjustments(store: IAdjustmentStore): AdjustmentModel[] {
       return store.items.filter((e) => e.adjustment_type_code === Codifiers.CustomAdjustmentsMaterials);
+    },
+    customOperationAdjustments(store: IAdjustmentStore): AdjustmentModel[] {
+      return store.items.filter((e) => e.adjustment_type_code === Codifiers.CustomAdjustmentsOperations);
     },
     employees(store: IAdjustmentStore): AdjustmentModel[] {
       return store.items.filter((e) => e.adjustment_type_code === Codifiers.EmployeeWagePerHour);

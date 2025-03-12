@@ -55,6 +55,35 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
             <BTh>{{ DisplayNumber(selectedFarmland?.totalEarnings) }}</BTh>
           </BTr>
           <BTr>
+            <BTh>Atbalsts</BTh>
+            <BTh>&nbsp;</BTh>
+            <BTh>&nbsp;</BTh>
+            <BTh>&nbsp;</BTh>
+            <BTh>&nbsp;</BTh>
+          </BTr>
+          <BTr v-for="supportType in (selectedFarmland?.agriculturalSupportAdjustments ?? [])" v-bind:key="supportType.id">
+            <BTd class="text-start align-middle whitespace-nowrap">
+              &ensp;&ensp;&ensp;{{ supportType.displayName }}
+            </BTd>
+            <BTd>ha</BTd>
+            <BTd>{{ DisplayNumber(selectedFarmland?.landArea) }}</BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(supportType.value) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ DisplayNumber(selectedFarmland?.totalAgriculturalSupportAdjustmentForType(supportType.adjustment_type_code)) }}
+            </BTd>
+          </BTr>
+          <BTr>
+            <BTd>
+              &ensp;&ensp;&ensp;<b>Atbalsts kopā</b> (2)
+            </BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTd>&nbsp;</BTd>
+            <BTh>{{ DisplayNumber(selectedFarmland?.totalAgriculturalSupportAdjustments) }}</BTh>
+          </BTr>
+          <BTr>
             <BTh class="text-start" colspan="6">
               Mainīgās izmaksas
             </BTh>
@@ -84,7 +113,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
           </BTr>
           <BTr>
             <BTd>
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<b>Izejvielu izmaksas kopā</b> (2)
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<b>Izejvielu izmaksas kopā</b> (3)
             </BTd>
             <BTd>&nbsp;</BTd>
             <BTd>&nbsp;</BTd>
@@ -93,7 +122,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
           </BTr>
           <BTr>
             <BTh class="text-start">
-              &ensp;&ensp;&ensp;Eksplautācijas izmaksas (3.1)
+              &ensp;&ensp;&ensp;Eksplautācijas izmaksas (4.1)
             </BTh>
             <BTh class="text-start whitespace-nowrap">Amortizācija, EUR/ha</BTh>
             <BTh class="text-start whitespace-nowrap">Darbaspēka izmaksas, EUR/ha</BTh>
@@ -119,7 +148,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
           </BTr>
           <BTr>
             <BTh class="text-start">
-              &ensp;&ensp;&ensp;Eksplautācijas izmaksas (3.2)
+              &ensp;&ensp;&ensp;Eksplautācijas izmaksas (4.2)
             </BTh>
             <BTh class="text-start whitespace-nowrap">Degvielas izmaksas, EUR/ha</BTh>
             <BTh class="text-start whitespace-nowrap">Smērvielu izmaksas, EUR/ha</BTh>
@@ -145,7 +174,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
           </BTr>
           <BTr>
             <BTd>
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<b>Eksplautācijas izmaksas kopā</b> (3)
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<b>Eksplautācijas izmaksas kopā</b> (4)
             </BTd>
             <BTd>&nbsp;</BTd>
             <BTd>&nbsp;</BTd>
@@ -153,48 +182,13 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
             <BTh>{{ DisplayNumber(selectedFarmland?.totalOperatingCosts) }}</BTh>
           </BTr>
           <BTr>
-            <BTh class="text-start">
-              Patstāvīgās izmaksas
-            </BTh>
-            <BTh class="text-start whitespace-nowrap">Finanšu resursu izmaksas, EUR/ha</BTh>
-            <BTh class="text-start whitespace-nowrap">Citas izmaksas, EUR/ha</BTh>
-            <BTh class="text-start whitespace-nowrap">Patstāvīgās izmaksas, EUR/ha</BTh>
-            <BTh class="text-start whitespace-nowrap">&nbsp;</BTh>
-          </BTr>
-          <BTr v-for="operation in (selectedFarmland?.operations ?? [])" v-bind:key="operation.id">
-            <BTd class="text-start align-middle whitespace-nowrap">
-              &ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
-            </BTd>
-            <BTd class="text-start align-middle">
-              {{ DisplayNumber(operation.capitalRecoveryValue('ha')) }}
-            </BTd>
-            <BTd class="text-start align-middle">
-              {{ DisplayNumber(operation.taxesAndInsuranceCosts('ha')) }}
-            </BTd>
-            <BTd class="text-start align-middle">
-              {{ DisplayNumber(operation.totalOwnershipCosts('ha')) }}
-            </BTd>
-            <BTd class="text-start align-middle">
-              {{ DisplayNumber(operation.totalOwnershipCosts('kopā')) }}
-            </BTd>
-          </BTr>
-          <BTr>
             <BTd>
-              &ensp;&ensp;&ensp;<b>Patstāvīgās izmaksas kopā</b> (4)
+              <b>Izmaksas kopā</b> (3 + 4)
             </BTd>
             <BTd>&nbsp;</BTd>
             <BTd>&nbsp;</BTd>
             <BTd>&nbsp;</BTd>
-            <BTh>{{ DisplayNumber(selectedFarmland?.totalOwnershipCosts) }}</BTh>
-          </BTr>
-          <BTr>
-            <BTd>
-              <b>Izmaksas kopā</b> (2 + 3 + 4)
-            </BTd>
-            <BTd>&nbsp;</BTd>
-            <BTd>&nbsp;</BTd>
-            <BTd>&nbsp;</BTd>
-            <BTh>{{ DisplayNumber(selectedFarmland?.totalCosts) }}</BTh>
+            <BTh>{{ DisplayNumber(selectedFarmland?.grossCoverageTotalCosts) }}</BTh>
           </BTr>
           <BTr>
             <BTh colspan="4" class="text-start">
@@ -206,10 +200,18 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
           </BTr>
           <BTr>
             <BTh colspan="4" class="text-start">
-              Bruto segums 2 (Ieņēmumi - (eksplautācijas izmaksas + patstāvīgās izmaksas))
+              Bruto segums 2 (Ieņēmumi - Eksplautācijas izmaksas)
             </BTh>
             <BTh class="text-start whitespace-nowrap">
               {{ DisplayNumber(selectedFarmland?.grossCoverageSecond) }}
+            </BTh>
+          </BTr>
+          <BTr>
+            <BTh colspan="4" class="text-start">
+              Bruto segums 3 ((Ieņēmumi + Atbalsts) - Eksplautācijas izmaksas)
+            </BTh>
+            <BTh class="text-start whitespace-nowrap">
+              {{ DisplayNumber(selectedFarmland?.grossCoverageThird) }}
             </BTh>
           </BTr>
         </BTbody>
@@ -228,7 +230,8 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
             <BTh>Apstrādes lauks</BTh>
             <BTh>Lauka platība, ha</BTh>
             <BTh>Ieņēmumi, EUR/ha</BTh>
-            <BTh>Patstāvīgās izmaksas, EUR/ha</BTh>
+            <BTh>Atbalsts, EUR/ha</BTh>
+            <BTh>Izejvielu izmaksas, EUR/ha</BTh>
             <BTh>Mainīgās izmaksas, EUR/ha</BTh>
             <BTh>Bruto segums, EUR/ha</BTh>
             <BTh>Bruto segums, EUR</BTh>
@@ -251,7 +254,10 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
               {{ row.earningsPerHectare.toFixed(2) }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.totalOwnershipCostsPerHectare.toFixed(2) }}
+              {{ row.totalAgriculturalSupportAdjustmentsPerHectare.toFixed(2) }}
+            </BTd>
+            <BTd class="text-start align-middle">
+              {{ row.materialCostsPerHectare.toFixed(2) }}
             </BTd>
             <BTd class="text-start align-middle">
               {{ row.totalOperatingCostsPerHectare.toFixed(2) }}
@@ -267,7 +273,8 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
             <BTd class="text-end user-select-none vertical-align-middle" colspan="2">Kopā</BTd>
             <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.landArea" />
             <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.earningsPerHectare" />
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.totalOwnershipCostsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.totalAgriculturalSupportAdjustmentsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.materialCostsPerHectare" />
             <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.totalOperatingCostsPerHectare" />
             <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.grossCoveragePerHectare" />
             <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.grossCoverage" />

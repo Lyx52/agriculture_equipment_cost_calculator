@@ -15,6 +15,7 @@ export class OperationModel implements IOperation {
   tractor_or_combine_id: string|undefined;
   machine_id: string|undefined;
   employee_id: string|undefined;
+  external_service_id: string|undefined;
   constructor(operation: IOperation) {
     this.id = operation.id;
     this.user_farmland_id = operation.user_farmland_id;
@@ -22,6 +23,7 @@ export class OperationModel implements IOperation {
     this.tractor_or_combine_id = operation.tractor_or_combine_id;
     this.machine_id = operation.machine_id;
     this.employee_id = operation.employee_id;
+    this.external_service_id = operation.external_service_id;
   }
 
   get displayName(): string {
@@ -32,6 +34,11 @@ export class OperationModel implements IOperation {
   get employee(): AdjustmentModel | undefined {
     const adjustmentStore = useAdjustmentsStore();
     return adjustmentStore.getItemById(this.employee_id ?? '');
+  }
+
+  get externalService(): AdjustmentModel | undefined {
+    const adjustmentStore = useAdjustmentsStore();
+    return adjustmentStore.getItemById(this.external_service_id ?? '');
   }
 
   get machineValid(): boolean {

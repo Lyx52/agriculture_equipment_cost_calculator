@@ -21,5 +21,8 @@ public class FarmlandOperation
     
     public string? EmployeeId { get; set; }
     public UserAdjustment? Employee { get; set; }
+    
+    public string? ExternalServiceId { get; set; }
+    public UserAdjustment? ExternalService { get; set; }
     public DateTime Created { get; set; }
 }
