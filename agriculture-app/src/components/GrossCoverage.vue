@@ -54,7 +54,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
             <BTd>&nbsp;</BTd>
             <BTh>{{ DisplayNumber(selectedFarmland?.totalEarnings) }}</BTh>
           </BTr>
-          <BTr>
+          <BTr v-if="(selectedFarmland?.agriculturalSupportAdjustments ?? []).length > 0">
             <BTh>Atbalsts</BTh>
             <BTh>&nbsp;</BTh>
             <BTh>&nbsp;</BTh>
@@ -74,7 +74,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
               {{ DisplayNumber(selectedFarmland?.totalAgriculturalSupportAdjustmentForType(supportType.adjustment_type_code)) }}
             </BTd>
           </BTr>
-          <BTr>
+          <BTr v-if="(selectedFarmland?.agriculturalSupportAdjustments ?? []).length > 0">
             <BTd>
               &ensp;&ensp;&ensp;<b>Atbalsts kopā</b> (2)
             </BTd>
