@@ -212,7 +212,7 @@ export class OperationModel implements IOperation {
       return employee.value;
     }
     const farmStore = useFarmInformationStore();
-    return farmStore.employeeWage;
+    return farmStore.default_wage;
   }
 
   equipmentOperatorWageCosts(selectedCalculatePer: string): number {

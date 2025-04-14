@@ -2,7 +2,7 @@
 import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
 import { onMounted, ref } from 'vue'
 import { useOperationStore } from '@/stores/operation.ts'
-import { useCodifierStore } from '@/stores/codifier.ts'
+import { useCodifierStore, useOperationTypeCodifierStore } from '@/stores/codifier.ts'
 import { Codifiers } from '@/stores/enums/Codifiers.ts'
 import {v4 as uuid} from 'uuid'
 import { DisplayNumber } from '@/utils.ts'
@@ -14,19 +14,13 @@ import CollapsableTr from '@/components/table/CollapsableTr.vue'
 
 const operationStore = useOperationStore();
 const farmlandStore = useFarmlandStore();
-const codifierStore = useCodifierStore(uuid());
+const codifierStore = useOperationTypeCodifierStore();
 const selectedCalculatePer = ref<string>('kopā');
 const calculatePerOptions = [
   { value: 'kopā', text: 'kopā' },
   { value: 'h', text: 'stundā' },
   { value: 'ha', text: 'hektārā' },
-]
-onMounted(async () => {
-  codifierStore.$patch({
-    codifierTypeCodes: [Codifiers.OperationTypes],
-  });
-  await codifierStore.fetchByFilters();
-});
+];
 </script>
 
 <template>

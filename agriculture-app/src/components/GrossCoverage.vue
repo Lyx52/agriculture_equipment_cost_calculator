@@ -248,25 +248,25 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
               {{ `${row?.product_name ?? 'Lauks'} (${(row?.area ?? 0).toFixed(2)} ha)` }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.landArea.toFixed(2) }}
+              {{ DisplayNumber(row.landArea) }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.earningsPerHectare.toFixed(2) }}
+              {{ DisplayNumber(row.earningsPerHectare) }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.totalAgriculturalSupportAdjustmentsPerHectare.toFixed(2) }}
+              {{ DisplayNumber(row.totalAgriculturalSupportAdjustmentsPerHectare) }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.materialCostsPerHectare.toFixed(2) }}
+              {{ DisplayNumber(row.materialCostsPerHectare) }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.totalOperatingCostsPerHectare.toFixed(2) }}
+              {{ DisplayNumber(row.totalOperatingCostsPerHectare) }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.grossCoveragePerHectare.toFixed(2) }}
+              {{ DisplayNumber(row.grossCoveragePerHectare) }}
             </BTd>
             <BTd class="text-start align-middle">
-              {{ row.grossCoverage.toFixed(2) }}
+              {{ DisplayNumber(row.grossCoverage) }}
             </BTd>
           </BTr>
           <BTr class="fw-bold">

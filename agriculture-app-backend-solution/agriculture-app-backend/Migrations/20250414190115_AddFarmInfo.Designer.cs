@@ -3,6 +3,7 @@ using System;
 using AgricultureAppBackend.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AgricultureAppBackend.Migrations
 {
     [DbContext(typeof(PersistentDbContext))]
-    partial class PersistentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250414190115_AddFarmInfo")]
+    partial class AddFarmInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,9 +138,7 @@ namespace AgricultureAppBackend.Migrations
                         .HasColumnType("text");
 
                     b.Property<double>("DefaultWage")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("double precision")
-                        .HasDefaultValue(15.0);
+                        .HasColumnType("double precision");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -154,9 +155,7 @@ namespace AgricultureAppBackend.Migrations
                         .HasColumnType("text");
 
                     b.Property<double>("FuelCostPerLiter")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("double precision")
-                        .HasDefaultValue(0.80000001192092896);
+                        .HasColumnType("double precision");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -165,9 +164,7 @@ namespace AgricultureAppBackend.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<double>("LubricationCostsPercentage")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("double precision")
-                        .HasDefaultValue(15.0);
+                        .HasColumnType("double precision");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -178,9 +175,7 @@ namespace AgricultureAppBackend.Migrations
                         .HasColumnType("character varying(256)");
 
                     b.Property<double>("OtherExpensesPercentage")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("double precision")
-                        .HasDefaultValue(1.0);
+                        .HasColumnType("double precision");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("text");

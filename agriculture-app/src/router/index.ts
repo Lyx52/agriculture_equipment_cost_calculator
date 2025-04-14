@@ -8,6 +8,7 @@ import RegisterView from '@/views/RegisterView.vue'
 import LoginView from '@/views/LoginView.vue'
 import MyMaterialCostsView from '@/views/MyMaterialCostsView.vue'
 import MyTeamAndProvidersView from '@/views/MyTeamAndProvidersView.vue'
+import { Prefetch } from '@/stores/enums/Prefetch.ts'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,7 +18,11 @@ const router = createRouter({
       name: 'farm',
       component: MyFarmView,
       meta: {
-        authorized: true
+        authorized: true,
+        prefetch: [
+          Prefetch.UserFarmInfo,
+          Prefetch.FetchAllIndicators,
+        ]
       }
     },
     {
@@ -33,7 +38,15 @@ const router = createRouter({
       name: 'farmlands',
       component: MyFarmlandsView,
       meta: {
-        authorized: true
+        authorized: true,
+        prefetch: [
+          Prefetch.FetchAllIndicators,
+          Prefetch.UserFarmlands,
+          Prefetch.UserOperations,
+          Prefetch.UserEquipment,
+          Prefetch.UserAdjustments,
+          Prefetch.UserCropTypes,
+        ]
       }
     },
     {
@@ -41,7 +54,13 @@ const router = createRouter({
       name: 'operations',
       component: OperationsView,
       meta: {
-        authorized: true
+        authorized: true,
+        prefetch: [
+          Prefetch.UserFarmlands,
+          Prefetch.UserOperations,
+          Prefetch.UserEquipment,
+          Prefetch.UserAdjustments
+        ]
       }
     },
     {
@@ -49,7 +68,12 @@ const router = createRouter({
       name: 'crop_inventory',
       component: MyMaterialCostsView,
       meta: {
-        authorized: true
+        authorized: true,
+        prefetch: [
+          Prefetch.UserFarmlands,
+          Prefetch.UserCropTypes,
+          Prefetch.UserAdjustments
+        ]
       }
     },
     {
@@ -57,7 +81,10 @@ const router = createRouter({
       name: 'team_and_services',
       component: MyTeamAndProvidersView,
       meta: {
-        authorized: true
+        authorized: true,
+        prefetch: [
+          Prefetch.UserAdjustments
+        ]
       }
     },
     {
@@ -65,7 +92,18 @@ const router = createRouter({
       name: 'cost_analysis',
       component: CostAnalysisView,
       meta: {
-        authorized: true
+        authorized: true,
+        prefetch: [
+          Prefetch.UserFarmInfo,
+          Prefetch.UserAdjustments,
+          Prefetch.UserEquipment,
+          Prefetch.UserCropTypes,
+          Prefetch.UserOperationTypeCodifiers,
+          Prefetch.UserAgriculturalOperationCodifiers,
+          Prefetch.UserOperations,
+          Prefetch.UserFarmlands,
+          Prefetch.FetchAllIndicators
+        ]
       }
     },
     {

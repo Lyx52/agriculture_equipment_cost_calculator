@@ -21,11 +21,10 @@
   import { useOperationStore } from '@/stores/operation.ts'
   import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
   import { useCodifierStore } from '@/stores/codifier.ts'
-  import { onMounted, ref } from 'vue'
+  import { ref } from 'vue'
   import {v4 as uuid} from 'uuid';
   import emitter from '@/stores/emitter.ts'
   import FarmlandOperationsModal from '@/components/modal/FarmlandOperationsModal.vue'
-  import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
   import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
   import { useCropsStore } from '@/stores/crops.ts'
   import FarmlandSupportTypesModal from '@/components/modal/FarmlandSupportTypesModal.vue'
@@ -34,7 +33,6 @@
   import { useAdjustmentsStore } from '@/stores/adjustments.ts'
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
-  const equipmentCollection = useEquipmentCollectionStore();
   const cropStore = useCropsStore();
   const adjustmentStore = useAdjustmentsStore();
   const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
@@ -76,12 +74,6 @@
     selectedFarmland.value = farmland;
     showFarmlandSupportTypesModal.value = true;
   }
-  // Load all codifier definitions
-  onMounted(async () => {
-    await equipmentCollection.fetchByFilters();
-    await cropStore.fetchByFilters();
-    await farmlandStore.fetchByFilters();
-  })
 </script>
 
 <template>

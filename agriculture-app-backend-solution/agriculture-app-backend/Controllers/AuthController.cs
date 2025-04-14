@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using AgricultureAppBackend.Infrastructure.Constants;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Request;
@@ -17,6 +18,57 @@ namespace AgricultureAppBackend.Controllers;
 [Route("Auth")]
 public class AuthController(UserManager<User> _userManager, SignInManager<User> _signInManager, IJwtTokenProvider _jwtTokenProvider) : Controller
 {
+    [HttpGet("GetFarmInfo")]
+    public async Task<IActionResult> GetUserFarmInfo()
+    {
+        var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized();
+        }
+
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user is null)
+        {
+            return Unauthorized();
+        }
+
+        var result = UserFarmInfoResponse.FromUser(user);
+        return Json(result, new JsonSerializerOptions()
+        {
+            WriteIndented = true,
+            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+            DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseUpper
+        });
+    }
+    
+    [HttpPost("UpdateFarmInfo")]
+    public async Task<IActionResult> UpdateUserFarmInfo([FromBody] UserFarmInfoRequest request)
+    {
+        var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized();
+        }
+
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user is null)
+        {
+            return Unauthorized();
+        }
+
+        user.LubricationCostsPercentage = request.LubricationCostsPercentage;
+        user.DefaultWage = request.DefaultWage;
+        user.OtherExpensesPercentage = request.OtherExpensesPercentage;
+        user.FuelCostPerLiter = request.FuelCostPerLiter;
+        user.FarmName = request.FarmName;
+        
+        await _userManager.UpdateAsync(user);
+        return Ok();
+    }
+    
+    
+    
     [HttpPost("Login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
@@ -55,7 +107,11 @@ public class AuthController(UserManager<User> _userManager, SignInManager<User> 
         {
             UserName = request.Email, 
             Email = request.Email, 
-            Equipment = new List<UserEquipment>() 
+            Equipment = new List<UserEquipment>(),
+            DefaultWage = 15.0f,
+            OtherExpensesPercentage = 1.0f,
+            LubricationCostsPercentage = 15.0f,
+            FuelCostPerLiter = 0.8f,
         };
         var result = await _userManager.CreateAsync(user, request.Password);
         if (!result.Succeeded)

@@ -8,7 +8,6 @@ import emitter from '@/stores/emitter.ts'
 import { OperationModel } from '@/stores/model/operationModel.ts'
 import { fetchBackend, getBackendUri, groupedBy, uniqueBy } from '@/utils.ts'
 import { useCodifierStore, useCodifierStoreCache } from '@/stores/codifier.ts'
-import type { IFarmlandStore } from '@/stores/interface/IFarmlandStore.ts'
 import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 import { useFarmlandStore } from '@/stores/farmland.ts'
 

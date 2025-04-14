@@ -110,8 +110,29 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
 export const useAgriculturalSupportCodifierStore = () => {
   const codifierStore = useCodifierStore(Codifiers.CustomAgriculturalSupport);
   codifierStore.$patch({
-    codifierTypeCodes: [Codifiers.CustomAgriculturalSupport]
-  })
+    codifierTypeCodes: [Codifiers.CustomAgriculturalSupport],
+    filterTo: 999
+  });
+
+  return codifierStore;
+}
+
+export const useCropTypeCodifierStore = () => {
+  const codifierStore = useCodifierStore(Codifiers.CropTypes);
+  codifierStore.$patch({
+    codifierTypeCodes: [Codifiers.CropTypes],
+    filterTo: 999
+  });
+
+  return codifierStore;
+}
+
+export const useOperationTypeCodifierStore = () => {
+  const codifierStore = useCodifierStore(Codifiers.OperationTypes);
+  codifierStore.$patch({
+    codifierTypeCodes: [Codifiers.OperationTypes],
+    filterTo: 999
+  });
 
   return codifierStore;
 }

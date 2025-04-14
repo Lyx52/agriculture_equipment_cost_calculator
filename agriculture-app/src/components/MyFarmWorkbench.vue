@@ -3,26 +3,19 @@ import {
   BFormInput,
   BFormGroup,
   BInputGroup,
-  BButton,
   useModalController,
   BBadge,
-  BAccordion, BAccordionItem
+  BAccordion,
+  BAccordionItem, BSpinner
 } from 'bootstrap-vue-next'
 import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 import { useIndicatorStore } from '@/stores/indicator.ts'
-import { onMounted } from 'vue'
 import { useAuthStore } from '@/stores/auth.ts'
 const farmInformationStore = useFarmInformationStore();
 const {confirm} = useModalController();
 const indicatorStore = useIndicatorStore();
 const authStore = useAuthStore();
-onMounted(async () => {
-  await indicatorStore.getInflationRate();
-  await indicatorStore.getInterestRate();
-  await indicatorStore.getConsumerPriceIndices();
-  await indicatorStore.getMotorHoursByYear();
-});
 const onClearStores = async () => {
   const confirmed = await confirm?.({
     props: {
@@ -37,38 +30,44 @@ const onClearStores = async () => {
     window.location.reload();
   }
 }
+const onInformationChange = async () => {
+  await farmInformationStore.updateFarmInformationAsync();
+}
 </script>
 
 <template>
   <div class="container-fluid">
     <div class="row row-cols-2">
       <div class="col">
+
         <BFormGroup label="Saimniecības nosaukums" class="mt-2">
-          <BFormInput v-model="farmInformationStore.name" />
+          <BSpinner v-if="farmInformationStore.isLoading" />
+          <BFormInput v-if="!farmInformationStore.isLoading" v-model="farmInformationStore.farm_name" @change="onInformationChange" />
         </BFormGroup>
         <BAccordion class="mt-3" >
           <BAccordionItem title="Saimniecības atbalstu veidi"  body-class="mb-3">
             Lietotājs pieslēdzies {{ authStore.isLoggedIn }}
           </BAccordionItem>
           <BAccordionItem title="Noklusētās vērtības"  body-class="mb-3">
+            <BSpinner v-if="farmInformationStore.isLoading" />
             <BFormGroup label="Darbaspēka atalgojums (Noklusētā darba alga, ja nav ievadīti darbinieki)" class="mt-2">
               <BInputGroup append="EUR/h">
-                <BNumericFormInput v-model="farmInformationStore.employeeWage" />
+                <BNumericFormInput v-model="farmInformationStore.default_wage" @change="onInformationChange" />
               </BInputGroup>
             </BFormGroup>
             <BFormGroup label="Citas izmaksas (Apdrošināšana u.c)" class="mt-2">
               <BInputGroup append="%">
-                <BNumericFormInput v-model="farmInformationStore.otherExpensesPercentage" />
+                <BNumericFormInput v-model="farmInformationStore.other_expenses_percentage" @change="onInformationChange" />
               </BInputGroup>
             </BFormGroup>
             <BFormGroup label="Smērvielu izdevumi no degv. izmaksām" class="mt-2">
               <BInputGroup append="%">
-                <BNumericFormInput v-model="farmInformationStore.lubricantExpensesPercentage" />
+                <BNumericFormInput v-model="farmInformationStore.lubrication_costs_percentage" @change="onInformationChange" />
               </BInputGroup>
             </BFormGroup>
             <BFormGroup label="Degvielas izmaksas" class="mt-2">
               <BInputGroup append="EUR/l">
-                <BNumericFormInput v-model="farmInformationStore.fuelPrice" />
+                <BNumericFormInput v-model="farmInformationStore.fuel_cost_per_liter" @change="onInformationChange" />
               </BInputGroup>
             </BFormGroup>
             <BFormGroup class="mt-2">

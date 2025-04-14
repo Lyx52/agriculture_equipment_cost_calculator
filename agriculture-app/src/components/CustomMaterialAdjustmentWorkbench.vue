@@ -11,7 +11,6 @@
     BTfoot,
     BFormInput
   } from 'bootstrap-vue-next'
-  import { onBeforeMount } from 'vue'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
   import {v4 as uuid} from 'uuid';
   import TrashIcon from '@/components/icons/TrashIcon.vue'
@@ -32,12 +31,6 @@
       user_farmland_id: undefined
     } as IAdjustment);
   }
-
-  // Load all codifier definitions
-  onBeforeMount(async () => {
-    await farmlandStore.fetchByFilters();
-    await adjustmentStore.fetchByFilters();
-  })
 </script>
 
 <template>
@@ -69,7 +62,8 @@
           </BTd>
           <BTd>
             <SimpleDropdown
-              :is-loading="false"
+              v-if="!farmlandStore.isLoading"
+              :is-loading="farmlandStore.isLoading"
               :get-filtered="farmlandStore.getFiltered"
               :get-formatted-option="farmlandStore.getFormattedOption"
               v-model="row.user_farmland_id"

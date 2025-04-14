@@ -406,7 +406,7 @@ export class EquipmentModel implements IEquipment {
     // https://www.extension.iastate.edu/agdm/crops/html/a3-29.html 0.044 constant for diesel engines
     // 3.785411784 for gph to lph conversion
     const farmStore = useFarmInformationStore();
-    return this.ptoHorsePower * 0.044 * 3.785411784 * farmStore.fuelPrice;
+    return this.ptoHorsePower * 0.044 * 3.785411784 * farmStore.fuel_cost_per_liter;
   }
 
   /**
@@ -415,7 +415,7 @@ export class EquipmentModel implements IEquipment {
    */
   fuelCostsPerHour(load: number = 0.8) {
     const farmStore = useFarmInformationStore();
-    return Number(this.specifications.fuel_consumption_coefficient ?? 0) * load * Number(this.specifications.power ?? 0) * farmStore.fuelPrice;
+    return Number(this.specifications.fuel_consumption_coefficient ?? 0) * load * Number(this.specifications.power ?? 0) * farmStore.fuel_cost_per_liter;
   }
 
   /**
@@ -434,7 +434,7 @@ export class EquipmentModel implements IEquipment {
   fuelCostsPerHourNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
     // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
     const farmStore = useFarmInformationStore();
-    return this.fuelUsagePerHourNew(loadWork, loadTurn) * farmStore.fuelPrice;
+    return this.fuelUsagePerHourNew(loadWork, loadTurn) * farmStore.fuel_cost_per_liter;
   }
 
   /**
@@ -467,7 +467,7 @@ export class EquipmentModel implements IEquipment {
    */
   lubricationCostsPerHour(load: number = 0.8) {
     const farmStore = useFarmInformationStore();
-    return this.fuelCostsPerHour(load) * (farmStore.lubricantExpensesPercentage / 100);
+    return this.fuelCostsPerHour(load) * (farmStore.lubrication_costs_percentage / 100);
   }
 
   /**
@@ -519,7 +519,7 @@ export class EquipmentModel implements IEquipment {
    */
   get iowaLubricationCostsPerHour() {
     const farmStore = useFarmInformationStore();
-    return this.iowaFuelCostsPerHour * (farmStore.lubricantExpensesPercentage / 100);
+    return this.iowaFuelCostsPerHour * (farmStore.lubrication_costs_percentage / 100);
   }
 
   /**
@@ -529,7 +529,7 @@ export class EquipmentModel implements IEquipment {
    */
   lubricationCostsPerHourNew(load: number = 0.8, loadTurn: number = 0.3) {
     const farmStore = useFarmInformationStore();
-    return this.fuelCostsPerHourNew(load, loadTurn) * (farmStore.lubricantExpensesPercentage / 100);
+    return this.fuelCostsPerHourNew(load, loadTurn) * (farmStore.lubrication_costs_percentage / 100);
   }
 
   /**
@@ -649,7 +649,7 @@ export class EquipmentModel implements IEquipment {
    */
   get taxesAndInsuranceCostValuePerYear(): number {
     const farmStore = useFarmInformationStore();
-    return ((this.originalPurchasePrice + this.salvageValue) / 2) * (farmStore.otherExpensesPercentage / 100);
+    return ((this.originalPurchasePrice + this.salvageValue) / 2) * (farmStore.other_expenses_percentage / 100);
   }
 
   /**

@@ -9,6 +9,7 @@ const { show } = useToastController();
 const authStore = useAuthStore();
 import { useRecaptchaProvider } from 'vue-recaptcha'
 import { AppVersion } from './main.ts'
+import { usePrefetchStore } from '@/stores/prefetch.ts'
 useRecaptchaProvider();
 
 emitter.on('error', (message: string) => {
@@ -19,6 +20,9 @@ emitter.on('error', (message: string) => {
     }
   });
 });
+const prefetchStore = usePrefetchStore();
+prefetchStore.initialize();
+console.log("Initialize")
 router.beforeEach((to, from, next) => {
     authStore.validateExpiration();
     // Redirect to login on unathorized
@@ -28,8 +32,17 @@ router.beforeEach((to, from, next) => {
             return;
         }
     }
+
+    // Prefetch resources by keys
+    if (to.meta?.prefetch) {
+      prefetchStore.executePrefetch(to.meta.prefetch);
+      console.log(to.meta?.prefetch)
+    }
+
     next();
 });
+
+
 </script>
 
 <template>

@@ -1,5 +1,4 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-
 import { defineStore } from 'pinia'
 import type { IFarmlandStore } from '@/stores/interface/IFarmlandStore.ts';
 import type { IFarmland } from '@/stores/interface/IFarmland.ts'

@@ -5,44 +5,17 @@ import TotalEquipmentExpenses from '@/components/TotalEquipmentExpenses.vue'
 import EquipmentExpensesByOperation from '@/components/EquipmentExpensesByOperation.vue'
 import EquipmentExpensesByField from '@/components/EquipmentExpensesByField.vue'
 import { onMounted, ref } from 'vue'
-import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
-import { useFarmlandStore } from '@/stores/farmland.ts'
-import { useOperationStore } from '@/stores/operation.ts'
 import { useIndicatorStore } from '@/stores/indicator.ts'
-import { useAdjustmentsStore } from '@/stores/adjustments.ts'
-import { useCropsStore } from '@/stores/crops.ts'
 import GrossCoverage from '@/components/GrossCoverage.vue'
 import CardContainer from '@/components/elements/CardContainer.vue'
-import { useAgriculturalSupportCodifierStore } from '@/stores/codifier.ts'
-const equipmentCollection = useEquipmentCollectionStore();
-const farmlandStore = useFarmlandStore();
-const operationStore = useOperationStore();
-const indicatorStore = useIndicatorStore();
-const adjustmentStore = useAdjustmentsStore();
-const cropTypeStore = useCropsStore();
-const isLoading = ref<boolean>(true);
-const codifierStore = useAgriculturalSupportCodifierStore();
-onMounted(async () => {
-  await indicatorStore.getInflationRate();
-  await indicatorStore.getInterestRate();
-  await indicatorStore.getConsumerPriceIndices();
-  await indicatorStore.getMotorHoursByYear();
-
-  await equipmentCollection.fetchByFilters();
-  await farmlandStore.fetchByFilters();
-  await operationStore.fetchByFilters();
-  await adjustmentStore.fetchByFilters();
-  await cropTypeStore.fetchByFilters();
-  await codifierStore.fetchByFilters();
-  isLoading.value = false;
-});
-
+import { usePrefetchStore } from '@/stores/prefetch.ts'
+const prefetchStore = usePrefetchStore();
 
 </script>
 
 <template>
   <CardContainer>
-    <BCardBody v-if="isLoading" class="text-center">
+    <BCardBody v-if="prefetchStore.isLoading" class="text-center">
       <BSpinner v-if="true" />
     </BCardBody>
     <BTabs v-else content-class="mt-3" fill>

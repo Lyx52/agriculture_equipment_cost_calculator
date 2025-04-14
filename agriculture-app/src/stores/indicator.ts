@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { IIndicatorStore } from '@/stores/interface/IIndicatorStore.ts'
-import { avg, getBackendUri, max, validateProblem } from '@/utils.ts'
+import { getBackendUri, max, validateProblem } from '@/utils.ts'
 import type { IIndicatorResponse } from '@/stores/interface/IIndicatorResponse.ts'
 import type { IInflationBetweenResult } from '@/stores/interface/IInflationBetweenResult.ts'
 

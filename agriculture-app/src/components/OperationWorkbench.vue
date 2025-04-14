@@ -26,7 +26,6 @@
   import SimpleDropdown from '@/components/elements/SimpleDropdown.vue'
   import IconX from '@/components/icons/IconX.vue'
   import { useEquipmentCollectionStore } from '@/stores/equipmentCollection.ts'
-  import { onMounted } from 'vue'
   import type { IOperationWorkbenchProps } from '@/props/IOperationWorkbenchProps.ts'
   import { InfoModalText, type InfoModalTextType } from '@/constants/InfoModalText.ts'
   import { useAdjustmentsStore } from '@/stores/adjustments.ts'
@@ -77,15 +76,7 @@
     operationStore.filteredFarmlandOperationCode = undefined;
   }
 
-  // Load all codifier definitions
-  onMounted(async () => {
-    await equipmentCollectionStore.fetchByFilters();
-    await farmlandStore.fetchByFilters();
-    await operationStore.fetchByFilters();
-    await adjustmentStore.fetchByFilters();
-  });
   const showInfoModal = (infoText: InfoModalTextType) => {
-
     show?.({
       props: {
         body: InfoModalText[infoText],

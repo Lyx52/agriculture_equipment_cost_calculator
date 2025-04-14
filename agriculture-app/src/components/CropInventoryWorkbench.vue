@@ -57,11 +57,6 @@ import { onBeforeMount } from 'vue'
       is_custom: true
     });
   }
-
-  // Load all codifier definitions
-  onBeforeMount(async () => {
-    await cropsStore.fetchByFilters();
-  })
 </script>
 
 <template>

@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
 import { getBackendUri } from '@/utils.ts'
 import type { IEquipmentFilterStore } from '@/stores/interface/IEquipmentFilterStore.ts'
-import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
 import { PowerFilterMax } from '@/constants/EquipmentFilterConstants.ts'
 
 export const useEquipmentFilterStore = defineStore(`equipmentFilter`, {

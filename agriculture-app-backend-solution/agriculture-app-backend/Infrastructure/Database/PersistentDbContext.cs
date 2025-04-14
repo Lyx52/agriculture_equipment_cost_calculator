@@ -137,6 +137,22 @@ public class PersistentDbContext(
             .Property(e => e.Created)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
         
+        modelBuilder.Entity<User>()
+            .Property(e => e.DefaultWage)
+            .HasDefaultValue(15.0f);
+        
+        modelBuilder.Entity<User>()
+            .Property(e => e.LubricationCostsPercentage)
+            .HasDefaultValue(15.0f);
+        
+        modelBuilder.Entity<User>()
+            .Property(e => e.OtherExpensesPercentage)
+            .HasDefaultValue(1.0f);
+        
+        modelBuilder.Entity<User>()
+            .Property(e => e.FuelCostPerLiter)
+            .HasDefaultValue(0.8f);
+        
         base.OnModelCreating(modelBuilder);
     }
 }
