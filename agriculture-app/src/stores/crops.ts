@@ -16,6 +16,7 @@ export const useCropsStore = defineStore('crops', {
   state(): ICropsStore {
       return {
         items: [] as CropTypeModel[],
+        searchText: '',
         isLoading: false,
       }
   },
@@ -130,6 +131,12 @@ export const useCropsStore = defineStore('crops', {
       }  finally {
         this.isLoading = false;
       }
+    }
+  },
+  getters: {
+    filteredItems(state: ICropsStore): CropTypeModel[] {
+      return state.items
+        .filter(e => e.name.toLowerCase().includes(state.searchText.toLowerCase()) || e.code.includes(state.searchText));
     }
   }
 });

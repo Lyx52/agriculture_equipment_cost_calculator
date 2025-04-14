@@ -57,12 +57,20 @@ import { onBeforeMount } from 'vue'
       is_custom: true
     });
   }
+  const searchCrops = (e) => {
+    cropsStore.$patch({
+      searchText: e.target.value
+    });
+  }
 </script>
 
 <template>
   <div class="d-flex flex-column">
     <div class="d-flex flex-row mb-3">
-      <h5 class="card-title">Kūltūraugu izmaksas</h5>
+      <span class="d-flex flex-row gap-3">
+        <h5 class="card-title w-100">Kūltūraugu izmaksas</h5>
+        <BFormInput placeholder="Meklēt..." @input="searchCrops"/>
+      </span>
       <BButton variant="danger" class="ms-auto" @click="onClearCropSettings">Attiestatīt uz sākuma vērtībām</BButton>
     </div>
 
@@ -86,7 +94,7 @@ import { onBeforeMount } from 'vue'
         </BTr>
       </BTbody>
       <BTbody v-else>
-        <BTr v-for="row in cropsStore.items" v-bind:key="row.id">
+        <BTr v-for="row in cropsStore.filteredItems" v-bind:key="row.id">
           <BTd v-if="row.isCustom">
             &nbsp;-&nbsp;
           </BTd>
