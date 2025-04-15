@@ -1,7 +1,0 @@
-name: 'UZC Gas and soil module'
-type: module
-description: 'UZC Gāzu un zemes mērījumu modulis'
-package: LLU
-core: 8.x
-core_version_requirement: ^8 || ^9 || ^10
-
