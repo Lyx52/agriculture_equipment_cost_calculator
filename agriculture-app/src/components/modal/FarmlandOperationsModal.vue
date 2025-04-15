@@ -15,8 +15,8 @@ const onHideOperations = () => {
 
 <template>
   <BModal @hide="onHideOperations" id="farmlandOperationsModal" v-model="model" fullscreen no-close-on-backdrop title="Apstrādes operācijas">
-    <div class="container-fluid p-0">
-      <div class="row row-cols-1">
+    <div class="container-fluid p-0 h-100">
+      <div class="row row-cols-1 h-100">
         <div class="col operations-modal">
           <OperationWorkbench :is-modal="true"/>
         </div>

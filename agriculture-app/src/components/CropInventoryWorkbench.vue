@@ -89,7 +89,7 @@
       <BTbody v-if="cropsStore.isLoading">
         <BTr>
           <BTd colspan="7" class="text-center">
-            <BSpinner v-if="true" />
+            <BSpinner v-if="cropsStore.isLoading" />
           </BTd>
         </BTr>
       </BTbody>

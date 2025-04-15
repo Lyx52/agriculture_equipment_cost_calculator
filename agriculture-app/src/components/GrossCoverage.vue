@@ -131,7 +131,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
           </BTr>
           <BTr v-for="operation in (selectedFarmland?.operations ?? [])" v-bind:key="operation.id">
             <BTd class="text-start align-middle whitespace-nowrap">
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.equipmentOrExternalServiceDisplayName }}
             </BTd>
             <BTd class="text-start align-middle">
               {{ DisplayNumber(operation.depreciationValue('ha')) }}
@@ -157,7 +157,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
           </BTr>
           <BTr v-for="operation in (selectedFarmland?.operations ?? [])" v-bind:key="operation.id">
             <BTd class="text-start align-middle whitespace-nowrap">
-              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
+              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{{ operation.displayName }}, {{ operation.equipmentOrExternalServiceDisplayName }}
             </BTd>
             <BTd class="text-start align-middle">
               {{ DisplayNumber(operation.totalFuelCosts('ha')) }}
@@ -240,7 +240,7 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
         <BTbody>
           <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
             <BTd>
-              <BButton @click="() => selectedFarmland = row"  variant="outline-secondary" class="cursor-pointer">
+              <BButton @click="() => selectedFarmland = row"  variant="outline-secondary" class="cursor-pointer btn-row">
                 Detalizēti <IconArrowDownRightSquare />
               </BButton>
             </BTd>
@@ -302,6 +302,11 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
 }
 .w-fit-content {
   width: fit-content;
+}
+.btn-row {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
 }
 .whitespace-nowrap {
   white-space: nowrap !important;

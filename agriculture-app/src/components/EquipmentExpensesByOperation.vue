@@ -58,7 +58,7 @@
             <template #collapsed>
               <BTr v-for="operation in row" v-bind:key="operation.id">
                 <BTd colspan="3" class="text-end fw-bold align-middle whitespace-nowrap">
-                  {{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
+                  {{ operation.displayName }}, {{ operation.equipmentOrExternalServiceDisplayName }}
                 </BTd>
                 <BTd class="text-start align-middle">
                   {{ DisplayNumber(operation.operationWorkHours) }}
@@ -125,7 +125,7 @@
             <template #collapsed>
               <BTr v-for="operation in row" v-bind:key="operation.id">
                 <BTd colspan="3" class="text-end fw-bold align-middle whitespace-nowrap">
-                  {{ operation.displayName }}, {{ operation.machine?.manufacturerModel ?? operation.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas' }}
+                  {{ operation.displayName }}, {{ operation.equipmentOrExternalServiceDisplayName }}
                 </BTd>
                 <BTd class="text-start align-middle">
                   {{ DisplayNumber(operation.operationWorkHours) }}

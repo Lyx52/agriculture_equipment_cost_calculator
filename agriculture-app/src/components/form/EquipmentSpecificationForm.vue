@@ -30,12 +30,12 @@
 
 <template>
   <div class="d-flex flex-column" v-bind:key="equipmentStore.item.id">
-    <BFormGroup label="Jauda, kw" v-if="equipmentStore.isTractorOrCombine">
+    <BFormGroup label="Jauda, kw" v-if="equipmentStore.isTractorOrCombine || equipmentStore.isSelfPropelled">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.power"
       />
     </BFormGroup>
-    <BFormGroup label="Īpatnējais degvielas patēriņš, kg/kWh" v-if="equipmentStore.isTractorOrCombine">
+    <BFormGroup label="Īpatnējais degvielas patēriņš, kg/kWh" v-if="equipmentStore.isTractorOrCombine || equipmentStore.isSelfPropelled">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.fuel_consumption_coefficient"
       />
@@ -48,7 +48,7 @@
         @on-selected="onPowerTrainSelected"
       />
     </BFormGroup>
-    <BFormGroup label="Nepieciešamā jauda, kw" v-if="!equipmentStore.isTractorOrCombine">
+    <BFormGroup label="Nepieciešamā jauda, kw" v-if="!(equipmentStore.isTractorOrCombine || equipmentStore.isSelfPropelled)">
       <BNumericFormInput
         v-model="equipmentStore.item.specifications.required_power"
       />

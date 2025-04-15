@@ -86,10 +86,7 @@ namespace AgricultureAppBackend.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-                    b.Property<string>("EmployeeId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ExternalServiceId")
+                    b.Property<string>("EmployeeOrExternalServiceId")
                         .HasColumnType("text");
 
                     b.Property<string>("MachineId")
@@ -101,21 +98,24 @@ namespace AgricultureAppBackend.Migrations
                     b.Property<string>("TractorOrCombineId")
                         .HasColumnType("text");
 
+                    b.Property<string>("UserAdjustmentId")
+                        .HasColumnType("text");
+
                     b.Property<string>("UserFarmlandId")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId");
-
-                    b.HasIndex("ExternalServiceId");
+                    b.HasIndex("EmployeeOrExternalServiceId");
 
                     b.HasIndex("MachineId");
 
                     b.HasIndex("OperationCode");
 
                     b.HasIndex("TractorOrCombineId");
+
+                    b.HasIndex("UserAdjustmentId");
 
                     b.HasIndex("UserFarmlandId");
 
@@ -522,14 +522,9 @@ namespace AgricultureAppBackend.Migrations
 
             modelBuilder.Entity("AgricultureAppBackend.Infrastructure.Database.Model.FarmlandOperation", b =>
                 {
-                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", "Employee")
+                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", "EmployeeOrExternalService")
                         .WithMany("Operations")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", "ExternalService")
-                        .WithMany("OperationsExternalServices")
-                        .HasForeignKey("ExternalServiceId")
+                        .HasForeignKey("EmployeeOrExternalServiceId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserEquipment", "Machine")
@@ -547,15 +542,17 @@ namespace AgricultureAppBackend.Migrations
                         .HasForeignKey("TractorOrCombineId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserAdjustment", null)
+                        .WithMany("OperationsExternalServices")
+                        .HasForeignKey("UserAdjustmentId");
+
                     b.HasOne("AgricultureAppBackend.Infrastructure.Database.Model.UserFarmland", "UserFarmland")
                         .WithMany("Operations")
                         .HasForeignKey("UserFarmlandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Employee");
-
-                    b.Navigation("ExternalService");
+                    b.Navigation("EmployeeOrExternalService");
 
                     b.Navigation("Machine");
 

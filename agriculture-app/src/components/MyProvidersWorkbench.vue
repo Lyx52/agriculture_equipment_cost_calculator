@@ -39,7 +39,7 @@
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
           <BTh>Nosaukums</BTh>
-          <BTh>Izmaksas EUR/h</BTh>
+          <BTh>Izmaksas EUR/ha</BTh>
           <BTh>&nbsp;</BTh>
         </BTr>
       </BThead>

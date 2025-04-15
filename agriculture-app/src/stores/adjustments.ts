@@ -90,6 +90,16 @@ export const useAdjustmentsStore = defineStore('adjustments', {
       return this.items.filter(e => e.user_farmland_id === userFarmlandId && typeCodes.includes(e.adjustment_type_code));
     },
 
+    getFormattedOptionWithType(value: any): IDropdownOption<any> {
+      const item = this.getItemById(value);
+      const displayName = item ? `${item.displayName} (${item.adjustmentTypeName})` : '';
+      return {
+        name: displayName,
+        id: value,
+        value: value,
+      }
+    },
+
     getFormattedOption(value: any): IDropdownOption<any> {
       const item = this.getItemById(value);
       return {
@@ -98,15 +108,22 @@ export const useAdjustmentsStore = defineStore('adjustments', {
         value: value,
       }
     },
+
     getFilteredEmployees(searchText: string): IDropdownOption<any>[] {
       return this.employees
         .filter(f => f.displayName.toLowerCase().includes(searchText.toLowerCase()))
         .map(f => this.getFormattedOption(f.id));
     },
+
     getFilteredExternalServices(searchText: string): IDropdownOption<any>[] {
       return this.customOperationAdjustments
         .filter(f => f.displayName.toLowerCase().includes(searchText.toLowerCase()))
         .map(f => this.getFormattedOption(f.id));
+    },
+    getFilteredEmployeesAndExternalServices(searchText: string): IDropdownOption<any>[] {
+      return this.employeesAndCustomOperationAdjustments
+        .filter(f => f.displayName.toLowerCase().includes(searchText.toLowerCase()))
+        .map(f => this.getFormattedOptionWithType(f.id));
     }
   },
   getters: {
@@ -118,6 +135,10 @@ export const useAdjustmentsStore = defineStore('adjustments', {
     },
     employees(store: IAdjustmentStore): AdjustmentModel[] {
       return store.items.filter((e) => e.adjustment_type_code === Codifiers.EmployeeWagePerHour);
+    },
+    employeesAndCustomOperationAdjustments(store: IAdjustmentStore): AdjustmentModel[] {
+      return store.items
+        .filter((e) => [Codifiers.EmployeeWagePerHour, Codifiers.CustomAdjustmentsOperations].includes(e.adjustment_type_code as Codifiers));
     },
     totalCostsPerHectare(store: IAdjustmentStore): number {
       const filteredAdjustments = store.items

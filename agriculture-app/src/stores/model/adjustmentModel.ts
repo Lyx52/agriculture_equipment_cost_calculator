@@ -1,6 +1,7 @@
 import type { IAdjustment } from '@/stores/interface/IAdjustment.ts'
 import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 import { useFarmlandStore } from '@/stores/farmland.ts'
+import { Codifiers } from '@/stores/enums/Codifiers.ts'
 
 export class AdjustmentModel implements IAdjustment {
   value: number;
@@ -24,6 +25,15 @@ export class AdjustmentModel implements IAdjustment {
   get displayName() {
     return this.name;
   }
+
+  get adjustmentTypeName() {
+    switch(this.adjustment_type_code) {
+      case Codifiers.CustomAdjustmentsOperations: return "Ārējais pakalpojums";
+      case Codifiers.EmployeeWagePerHour: return "Darbinieks";
+    }
+    return '';
+  }
+
   get costPerHectare() {
     return this.value;
   }

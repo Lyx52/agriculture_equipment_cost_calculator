@@ -46,8 +46,7 @@
       operation_code: 'operation_110',
       tractor_or_combine_id: undefined,
       machine_id: undefined,
-      employee_id: undefined,
-      external_service_id: undefined,
+      employee_or_external_service_id: undefined
     });
     operationStore.filteredFarmlandOperationCode = undefined;
     farmlandOperationCodifierStore.$reset();
@@ -87,7 +86,7 @@
 </script>
 
 <template>
-  <div class="d-flex flex-column h-100">
+  <div class="d-flex flex-column h-100 flex-1">
     <h4 class="card-title" v-if="props.isModal">Lauks <u>{{ operationStore.filteredFarmland?.displayName }}</u></h4>
     <h4 class="card-title mb-3" v-else>Apstrādes operācijas visiem laukiem</h4>
     <div class="d-flex flex-row gap-3" v-if="!props.isModal">
@@ -111,12 +110,12 @@
         Atiestatīt filtrus <IconX/>
       </BButton>
     </div>
-    <BTableSimple hover no-border-collapse outlined responsive caption-top class="mt-4 w-100 mb-0 overflow-y-auto common-table-style">
+    <BTableSimple hover no-border-collapse outlined responsive caption-top class="mt-4 w-100 mb-0 overflow-y-auto common-table-style flex-1">
       <BThead class="position-sticky top-0 bg-primary in-front" >
         <BTr>
           <BTh v-if="!props.isModal">Lauks</BTh>
           <BTh>Apstrādes operācija</BTh>
-          <BTh>Darbinieks</BTh>
+          <BTh>Darbinieks /<br/>Ārējais pakalp.</BTh>
           <BTh>Tehnikas vienība</BTh>
           <BTh>Degvielas izmaksas, EUR/ha</BTh>
           <BTh>Smērvielu izmaksas, EUR/ha</BTh>
@@ -156,14 +155,14 @@
           <BTd>
             <SimpleDropdown
               :is-loading="false"
-              :get-filtered="adjustmentStore.getFilteredEmployees"
+              :get-filtered="adjustmentStore.getFilteredEmployeesAndExternalServices"
               :get-formatted-option="adjustmentStore.getFormattedOption"
-              v-model="row.employee_id"
+              v-model="row.employee_or_external_service_id"
               @changed="operationStore.updateOperationAsync(row)"
             />
           </BTd>
           <BTd>
-            <div class="d-flex flex-row gap-3">
+            <div class="d-flex flex-row gap-3" v-if="!row.externalServiceProvider">
               <SimpleDropdown
                 :is-loading="false"
                 :get-filtered="equipmentCollectionStore.getFilteredTractorOrSelfPropelledOrCombine"
@@ -183,7 +182,7 @@
             </div>
           </BTd>
           <BTd class="text-center align-middle">
-            <div class="d-flex gap-1 justify-content-center align-items-center">{{ DisplayNumber(row.totalFuelCosts('ha')) }} <BBadge class="cursor-pointer" @click="() => showInfoModal('fuel_usage_info')">slodze <br/> {{ (row.loadFactorOnPowerMachine * 100).toFixed(2) }}%</BBadge></div>
+            <div class="d-flex gap-1 justify-content-center align-items-center">{{ DisplayNumber(row.totalFuelCosts('ha')) }} <BBadge v-if="!row.externalServiceProvider" class="cursor-pointer" @click="() => showInfoModal('fuel_usage_info')">slodze <br/> {{ (row.loadFactorOnPowerMachine * 100).toFixed(2) }}%</BBadge></div>
           </BTd>
           <BTd class="text-center align-middle">
             {{ DisplayNumber(row.lubricationCosts('ha')) }}

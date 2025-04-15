@@ -16,20 +16,7 @@ const farmInformationStore = useFarmInformationStore();
 const {confirm} = useModalController();
 const indicatorStore = useIndicatorStore();
 const authStore = useAuthStore();
-const onClearStores = async () => {
-  const confirmed = await confirm?.({
-    props: {
-      title: 'Vai tiešām dzēst saimniecības datus?',
-      cancelTitle: 'Atcelt',
-      okTitle: 'Dzēst',
-      okVariant: 'danger',
-    }
-  });
-  if (confirmed) {
-    localStorage.clear();
-    window.location.reload();
-  }
-}
+
 const onInformationChange = async () => {
   await farmInformationStore.updateFarmInformationAsync();
 }

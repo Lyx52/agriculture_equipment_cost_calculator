@@ -7,6 +7,7 @@ import type { AdjustmentModel } from '@/stores/model/adjustmentModel.ts'
 import { useAdjustmentsStore } from '@/stores/adjustments.ts'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 import { useCodifierStoreCache } from '@/stores/codifier.ts'
+import { Codifiers } from '@/stores/enums/Codifiers.ts'
 
 export class OperationModel implements IOperation {
   id: string;
@@ -14,16 +15,14 @@ export class OperationModel implements IOperation {
   operation_code: string|undefined;
   tractor_or_combine_id: string|undefined;
   machine_id: string|undefined;
-  employee_id: string|undefined;
-  external_service_id: string|undefined;
+  employee_or_external_service_id: string|undefined;
   constructor(operation: IOperation) {
     this.id = operation.id;
     this.user_farmland_id = operation.user_farmland_id;
     this.operation_code = operation.operation_code;
     this.tractor_or_combine_id = operation.tractor_or_combine_id;
     this.machine_id = operation.machine_id;
-    this.employee_id = operation.employee_id;
-    this.external_service_id = operation.external_service_id;
+    this.employee_or_external_service_id = operation.employee_or_external_service_id;
   }
 
   get displayName(): string {
@@ -31,14 +30,27 @@ export class OperationModel implements IOperation {
     return codifierStore.getByCode(this.operation_code ?? '')?.name ?? '-';
   }
 
-  get employee(): AdjustmentModel | undefined {
-    const adjustmentStore = useAdjustmentsStore();
-    return adjustmentStore.getItemById(this.employee_id ?? '');
+  get equipmentOrExternalServiceDisplayName(): string {
+    const externalService = this.externalServiceProvider;
+    if (externalService) {
+      return externalService.name
+    }
+
+    return this.machine?.manufacturerModel ?? this.tractorOrCombine?.manufacturerModel ?? 'Nav tehnikas';
   }
 
-  get externalService(): AdjustmentModel | undefined {
+  get employee(): AdjustmentModel | undefined {
     const adjustmentStore = useAdjustmentsStore();
-    return adjustmentStore.getItemById(this.external_service_id ?? '');
+    const adjustment = adjustmentStore.getItemById(this.employee_or_external_service_id ?? '');
+
+    return adjustment?.adjustment_type_code === Codifiers.EmployeeWagePerHour ? adjustment : undefined;
+  }
+
+  get externalServiceProvider(): AdjustmentModel | undefined {
+    const adjustmentStore = useAdjustmentsStore();
+    const adjustment = adjustmentStore.getItemById(this.employee_or_external_service_id ?? '');
+
+    return adjustment?.adjustment_type_code === Codifiers.CustomAdjustmentsOperations ? adjustment : undefined;
   }
 
   get machineValid(): boolean {
@@ -64,6 +76,7 @@ export class OperationModel implements IOperation {
    * Returns the total work hours spent on the operation.
    */
   get operationWorkHours(): number {
+    if (this.externalServiceProvider) return 0;
     const area = this.farmland?.area ?? 0;
     return area / this.operationFieldWorkSpeedPerHour;
   }
@@ -102,6 +115,7 @@ export class OperationModel implements IOperation {
   }
 
   totalOwnershipCosts(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.sumByFunction(e => e.totalOwnershipCostPerHour);
@@ -115,6 +129,7 @@ export class OperationModel implements IOperation {
   }
 
   taxesAndInsuranceCosts(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.sumByFunction(e => e.taxesAndInsuranceCostValuePerHour);
@@ -128,6 +143,7 @@ export class OperationModel implements IOperation {
   }
 
   capitalRecoveryValue(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.sumByFunction(e => e.capitalRecoveryValuePerHour);
@@ -153,6 +169,8 @@ export class OperationModel implements IOperation {
   }
 
   totalFuelCosts(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
+
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.fuelCostsPerHour;
@@ -166,6 +184,8 @@ export class OperationModel implements IOperation {
   }
 
   lubricationCosts(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
+
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.sumByFunction(e => e.lubricationCostsPerHourNew(this.loadFactorOnPowerMachine, 0.3));
@@ -179,6 +199,8 @@ export class OperationModel implements IOperation {
   }
 
   depreciationValue(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
+
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.sumByFunction(e => e.depreciationValuePerHour);
@@ -192,6 +214,8 @@ export class OperationModel implements IOperation {
   }
 
   accumulatedRepairCosts(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
+
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.sumByFunction(e => e.accumulatedRepairsCostPerHour);
@@ -216,6 +240,7 @@ export class OperationModel implements IOperation {
   }
 
   equipmentOperatorWageCosts(selectedCalculatePer: string): number {
+    if (this.externalServiceProvider) return 0;
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.equipmentOperatorWageCostPerHour;
@@ -228,6 +253,18 @@ export class OperationModel implements IOperation {
   }
 
   totalOperatingCosts(selectedCalculatePer: string): number {
+    const externalServiceProvider = this.externalServiceProvider;
+    if (externalServiceProvider) {
+      switch(selectedCalculatePer) {
+        case 'kopā':
+          return externalServiceProvider.value * (this.farmland?.area ?? 0);
+        case 'h':
+          return 0;
+        default:
+          // ha
+          return externalServiceProvider.value;
+      }
+    }
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3));

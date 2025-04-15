@@ -111,14 +111,8 @@ public class PersistentDbContext(
         
         modelBuilder.Entity<UserAdjustment>()
             .HasMany(e => e.Operations)
-            .WithOne(o => o.Employee)
-            .HasForeignKey(o => o.EmployeeId)
-            .OnDelete(DeleteBehavior.SetNull);
-        
-        modelBuilder.Entity<UserAdjustment>()
-            .HasMany(e => e.OperationsExternalServices)
-            .WithOne(o => o.ExternalService)
-            .HasForeignKey(o => o.ExternalServiceId)
+            .WithOne(o => o.EmployeeOrExternalService)
+            .HasForeignKey(o => o.EmployeeOrExternalServiceId)
             .OnDelete(DeleteBehavior.SetNull);
         
         modelBuilder.Entity<UserAdjustment>()

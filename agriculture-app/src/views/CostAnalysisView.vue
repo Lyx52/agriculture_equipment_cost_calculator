@@ -1,11 +1,9 @@
 <script setup lang="ts">
 
-import { BTabs, BTab, BCardBody, BSpinner } from 'bootstrap-vue-next'
+import { BTabs, BTab, BSpinner } from 'bootstrap-vue-next'
 import TotalEquipmentExpenses from '@/components/TotalEquipmentExpenses.vue'
 import EquipmentExpensesByOperation from '@/components/EquipmentExpensesByOperation.vue'
 import EquipmentExpensesByField from '@/components/EquipmentExpensesByField.vue'
-import { onMounted, ref } from 'vue'
-import { useIndicatorStore } from '@/stores/indicator.ts'
 import GrossCoverage from '@/components/GrossCoverage.vue'
 import CardContainer from '@/components/elements/CardContainer.vue'
 import { usePrefetchStore } from '@/stores/prefetch.ts'
@@ -15,9 +13,7 @@ const prefetchStore = usePrefetchStore();
 
 <template>
   <CardContainer>
-    <BCardBody v-if="prefetchStore.isLoading" class="text-center">
-      <BSpinner v-if="true" />
-    </BCardBody>
+    <BSpinner v-if="prefetchStore.isLoading" class="m-auto" />
     <BTabs v-else content-class="mt-3" fill>
       <BTab title="Izmaksas aprēķins pēc apstrādes operācijām" active>
         <EquipmentExpensesByOperation />

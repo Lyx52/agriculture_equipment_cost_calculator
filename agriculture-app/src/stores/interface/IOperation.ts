@@ -4,6 +4,5 @@ export interface IOperation {
   operation_code: string|undefined;
   tractor_or_combine_id: string|undefined;
   machine_id: string|undefined;
-  employee_id: string|undefined;
-  external_service_id: string|undefined;
+  employee_or_external_service_id: string|undefined;
 }

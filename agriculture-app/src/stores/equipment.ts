@@ -92,13 +92,13 @@ export const useEquipmentStore = defineStore('equipment', {
         switch (property) {
           case 'power':
           {
-            if (isTractorOrCombine && (isNaN(value) || Number(value) <= 0)) {
+            if ((isTractorOrCombine || isSelfPropelled) && (isNaN(value) || Number(value) <= 0)) {
               errors.push("Jauda");
             }
           } break;
           case 'required_power':
           {
-            if (!isTractorOrCombine && (isNaN(value) || Number(value) <= 0)) {
+            if (!(isTractorOrCombine || isSelfPropelled) && (isNaN(value) || Number(value) <= 0)) {
               errors.push("Nepieciešamā jauda");
             }
           } break;
@@ -110,7 +110,7 @@ export const useEquipmentStore = defineStore('equipment', {
           } break;
           case 'fuel_consumption_coefficient':
           {
-            if (isTractorOrCombine && (isNaN(value) || Number(value) <= 0)) {
+            if ((isTractorOrCombine || isSelfPropelled) && (isNaN(value) || Number(value) <= 0)) {
               errors.push("Darba platums");
             }
           } break;
@@ -149,12 +149,12 @@ export const useEquipmentStore = defineStore('equipment', {
         'ogu_novaksans_kombains'
       ].includes(state.item.equipment_type_code);
 
-      const isSelfPropelled = state.item.specifications.self_propelled ?? true;
+      const isSelfPropelled = state.item.specifications.self_propelled ?? false;
 
       return isTractor || (isSelfPropelled && isCombine);
     },
     isSelfPropelled(state: IEquipmentStore): boolean {
-      return state.item.specifications.self_propelled ?? true;
+      return state.item.specifications.self_propelled ?? false;
     }
   }
 })

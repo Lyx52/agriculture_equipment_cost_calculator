@@ -73,7 +73,7 @@
           <BTd>
             <BNumericFormInput @changed="() => adjustmentStore.updateAdjustmentAsync(row)" v-model="row.value" />
           </BTd>
-          <BTd>
+          <BTd class="align-content-around text-center">
             <BButton class="ms-auto btn-icon" variant="danger" size="sm" @click="adjustmentStore.removeAdjustmentAsync(row.id!)">
               <TrashIcon />
             </BButton>

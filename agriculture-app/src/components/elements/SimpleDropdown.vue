@@ -95,7 +95,7 @@ const onSelectItem = (item: IDropdownOption<any>) => {
 
 <style scoped>
     .short-dropdown {
-        width: fit-content;
+        width: fit-content !important;
         max-height: 250px;
         overflow-y: auto;
     }
