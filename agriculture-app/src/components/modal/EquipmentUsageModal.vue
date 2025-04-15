@@ -11,6 +11,7 @@ import { yearsBetweenDates } from '@/utils.ts'
 import type { IEquipmentUsageModalProps } from '@/props/IEquipmentUsageModalProps.ts'
 import { ref, watch } from 'vue'
 import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
+import CloseButton from '@/components/elements/CloseButton.vue'
 const props = defineProps<IEquipmentUsageModalProps>();
 const model = defineModel<boolean>();
 const equipmentStore = useEquipmentStore();
@@ -101,7 +102,10 @@ const onSaveEquipmentUsage = () => {
 <template>
   <BModal id="equipmentModal" v-model="model" size="lg" no-close-on-backdrop>
     <template #header>
-      <h5>{{ equipmentStore.item.manufacturer }} {{ equipmentStore.item.model }} nolietojums</h5>
+      <div class="d-flex w-100 flex-row justify-content-between">
+        <h5 class="my-auto">{{ equipmentStore.item.manufacturer }} {{ equipmentStore.item.model }} nolietojums</h5>
+        <CloseButton @close="() => model = false" />
+      </div>
     </template>
     <div class="container-fluid">
       <div class="row row-cols-1 p-3">

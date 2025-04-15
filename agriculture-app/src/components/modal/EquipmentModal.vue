@@ -19,6 +19,8 @@ import type { IEquipmentConstantConfiguration } from '@/stores/interface/IEquipm
 import BDateFormInput from '@/components/elements/BDateFormInput.vue'
 import AdditionalEquipmentFilterForm from '@/components/form/AdditionalEquipmentFilterForm.vue'
 import { isValid } from 'date-fns'
+import IconX from '@/components/icons/IconX.vue'
+import CloseButton from '@/components/elements/CloseButton.vue'
 
 const model = defineModel<boolean>();
 const equipmentCollectionStore = useEquipmentCollectionStore();
@@ -128,14 +130,17 @@ const onModalShow = async () => {
     <template #header>
       <div class="d-flex w-100 flex-row justify-content-between">
         <h5 class="my-auto">Pievienot tehnikas vienību</h5>
-        <BButton class="my-auto" size="sm" @click="onShowSearchForm" v-if="showEquipmentForm">Meklēt datubāzē <IconSearch /></BButton>
-        <BButton class="my-auto" size="sm" variant="success" @click="onShowEquipmentForm" v-if="showSearch">Pievienot manuāli <IconPlus /></BButton>
+        <CloseButton @close="() => model = false" />
       </div>
     </template>
     <div class="container-fluid">
       <div class="row row-cols-1 p-3">
         <div class="col" v-if="showSearch">
-          <h5>Meklēt tehnikas vienību</h5>
+          <div class="d-flex w-100">
+            <h5>Meklēt tehnikas vienību</h5>
+            <BButton class="ms-auto my-auto" size="sm" variant="success" @click="onShowEquipmentForm">Pievienot manuāli <IconPlus /></BButton>
+          </div>
+
           <BFormGroup label="Tehnikas kategorija">
             <CodifierDropdown
               :is-valid="true"
@@ -160,7 +165,10 @@ const onModalShow = async () => {
           </BFormGroup>
         </div>
         <div class="col" v-if="showEquipmentForm">
-          <h5>Tehnikas informācija</h5>
+          <div class="d-flex w-100">
+            <h5>Tehnikas informācija</h5>
+            <BButton class="ms-auto my-auto" size="sm" @click="onShowSearchForm">Meklēt datubāzē <IconSearch /></BButton>
+          </div>
           <BFormGroup label="Marka">
             <BFormInput
               v-model="equipmentStore.item.manufacturer"

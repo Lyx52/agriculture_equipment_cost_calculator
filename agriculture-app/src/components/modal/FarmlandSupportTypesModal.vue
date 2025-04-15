@@ -7,6 +7,7 @@ import type { IFarmlandSupportTypesModalProps } from '@/props/IFarmlandSupportTy
 import { useAgriculturalSupportCodifierStore } from '@/stores/codifier.ts'
 import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 import { useAdjustmentsStore } from '@/stores/adjustments.ts'
+import CloseButton from '@/components/elements/CloseButton.vue'
 const props = defineProps<IFarmlandSupportTypesModalProps>();
 const model = defineModel<boolean>();
 const codifierStore = useAgriculturalSupportCodifierStore();
@@ -61,7 +62,10 @@ onMounted(async () => {
 <template>
   <BModal id="equipmentModal" v-model="model" size="lg" no-close-on-backdrop>
     <template #header>
-      <h5><span class="text-decoration-underline">{{ props.farmland?.displayName ?? 'Lauka' }}</span> atbalsta veidi</h5>
+      <div class="d-flex w-100 flex-row justify-content-between">
+        <h5 class="my-auto"><span class="text-decoration-underline">{{ props.farmland?.displayName ?? 'Lauka' }}</span> atbalsta veidi</h5>
+        <CloseButton @close="() => model = false" />
+      </div>
     </template>
     <div class="container-fluid">
       <div class="row row-cols-1 p-3">
