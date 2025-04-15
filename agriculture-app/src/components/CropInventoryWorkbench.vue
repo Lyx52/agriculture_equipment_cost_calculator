@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import {
-  BTableSimple,
-  BTh,
-  BTd,
-  BTr,
-  BThead,
-  BTbody,
-  BSpinner,
-  BButton,
-  useModalController,
-  BTfoot,
-  BFormInput
-} from 'bootstrap-vue-next'
-import { onBeforeMount } from 'vue'
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  import {
+    BTableSimple,
+    BTh,
+    BTd,
+    BTr,
+    BThead,
+    BTbody,
+    BSpinner,
+    BButton,
+    useModalController,
+    BTfoot,
+    BFormInput
+  } from 'bootstrap-vue-next'
   import { useCropsStore } from '@/stores/crops.ts'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
   import type { CropTypeModel } from '@/stores/model/cropTypeModel.ts'
@@ -57,7 +57,7 @@ import { onBeforeMount } from 'vue'
       is_custom: true
     });
   }
-  const searchCrops = (e) => {
+  const searchCrops = (e: any) => {
     cropsStore.$patch({
       searchText: e.target.value
     });

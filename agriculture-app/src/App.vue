@@ -10,6 +10,7 @@ const authStore = useAuthStore();
 import { useRecaptchaProvider } from 'vue-recaptcha'
 import { AppVersion } from './main.ts'
 import { usePrefetchStore } from '@/stores/prefetch.ts'
+import type { Prefetch } from '@/stores/enums/Prefetch.ts'
 useRecaptchaProvider();
 
 emitter.on('error', (message: string) => {
@@ -35,7 +36,8 @@ router.beforeEach((to, from, next) => {
 
     // Prefetch resources by keys
     if (to.meta?.prefetch) {
-      prefetchStore.executePrefetch(to.meta.prefetch);
+      const prefetch = to.meta?.prefetch ?? [];
+      prefetchStore.executePrefetch(prefetch as Prefetch[]);
       console.log(to.meta?.prefetch)
     }
 
