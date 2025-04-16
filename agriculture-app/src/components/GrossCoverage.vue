@@ -13,7 +13,10 @@ const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
 const hasSelectedFilter = computed(() => !!selectedFarmland.value);
 
 const downloadAsXlsx = () => {
-  BuildGrossCoverageXlsx(selectedFarmland.value);
+  if (!selectedFarmland.value) {
+    return;
+  }
+  BuildGrossCoverageXlsx(selectedFarmland.value!);
 }
 
 </script>
