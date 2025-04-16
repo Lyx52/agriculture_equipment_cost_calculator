@@ -240,7 +240,18 @@ export class OperationModel implements IOperation {
   }
 
   equipmentOperatorWageCosts(selectedCalculatePer: string): number {
-    if (this.externalServiceProvider) return 0;
+    const externalService = this.externalServiceProvider;
+    if (externalService) {
+      switch(selectedCalculatePer) {
+        case 'kopā':
+          return externalService.value * (this.farmland?.area ?? 0);
+        case 'h':
+          return 0;
+        default:
+          // ha
+          return externalService.value;
+      }
+    }
     switch(selectedCalculatePer) {
       case 'kopā':
         return this.operationWorkHours * this.equipmentOperatorWageCostPerHour;
@@ -267,12 +278,12 @@ export class OperationModel implements IOperation {
     }
     switch(selectedCalculatePer) {
       case 'kopā':
-        return this.operationWorkHours * this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3));
+        return this.operationWorkHours * (this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3)) + this.equipmentOperatorWageCostPerHour);
       case 'h':
-        return this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3));
+        return this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3)) + this.equipmentOperatorWageCostPerHour;
       default:
         // ha
-        const eurPerHour = this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3));
+        const eurPerHour = this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3)) + this.equipmentOperatorWageCostPerHour;
         return eurPerHour / this.operationFieldWorkSpeedPerHour;
     }
   }

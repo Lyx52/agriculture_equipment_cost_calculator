@@ -359,7 +359,8 @@ export class EquipmentModel implements IEquipment {
   totalOperatingCostsPerHour(loadWork: number = 0.8, loadTurn: number = 0.3): number {
     return this.fuelCostsPerHourNew(loadWork, loadTurn) +
       this.lubricationCostsPerHourNew(loadWork, loadTurn) +
-      this.accumulatedRepairsCostPerHour;
+      this.accumulatedRepairsCostPerHour +
+      this.depreciationValuePerHour;
   }
 
   /**

@@ -6,10 +6,16 @@ import { computed, ref } from 'vue'
 import SumTd from '@/components/table/SumTd.vue'
 import IconArrowDownRightSquare from '@/components/icons/IconArrowDownRightSquare.vue'
 import IconClose from '@/components/icons/IconClose.vue'
-import { DisplayNumber } from '../utils.ts'
+import { BuildGrossCoverageXlsx, DisplayNumber } from '../utils.ts'
+import IconSpreadsheet from '@/components/icons/IconSpreadsheet.vue'
 const farmlandStore = useFarmlandStore();
 const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
 const hasSelectedFilter = computed(() => !!selectedFarmland.value);
+
+const downloadAsXlsx = () => {
+  BuildGrossCoverageXlsx(selectedFarmland.value);
+}
+
 </script>
 
 <template>
@@ -19,8 +25,11 @@ const hasSelectedFilter = computed(() => !!selectedFarmland.value);
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
             <BTh colspan="1">
-              <BButton @click="() => selectedFarmland = undefined" variant="outline-danger" class="cursor-pointer">
+              <BButton @click="() => selectedFarmland = undefined" variant="outline-danger" class="cursor-pointer btn-icon">
                 Aizvērt <IconClose />
+              </BButton>
+              <BButton @click="downloadAsXlsx" variant="outline-success" class="cursor-pointer ms-2 btn-icon">
+                Lejupielādēt <IconSpreadsheet />
               </BButton>
             </BTh>
             <BTh colspan="5">
