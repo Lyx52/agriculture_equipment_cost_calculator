@@ -93,6 +93,7 @@ const clearSelection = () => {
 }
 const initializeMap = async () => {
     if (mapView) return;
+
     const farmFieldLayerWMS = new WMSLayer({
       url: `https://karte.lad.gov.lv/arcgis/services/lauku_bloki/MapServer/WMSServer`,
       sublayers: [
@@ -106,11 +107,11 @@ const initializeMap = async () => {
     const map = new Map({
       basemap: 'topo-vector',
       layers: [
-        farmFieldLayerWMS
+        farmFieldLayerWMS,
+        graphicsLayer
       ]
     });
 
-    map.add(graphicsLayer);
     mapView = new MapView({
         container: "mapView",
         map: map,

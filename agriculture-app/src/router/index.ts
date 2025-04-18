@@ -22,6 +22,13 @@ const router = createRouter({
         prefetch: [
           Prefetch.UserFarmInfo,
           Prefetch.FetchAllIndicators,
+          Prefetch.UserAdjustments,
+          Prefetch.UserEquipment,
+          Prefetch.UserCropTypes,
+          Prefetch.UserOperationTypeCodifiers,
+          Prefetch.UserAgriculturalOperationCodifiers,
+          Prefetch.UserOperations,
+          Prefetch.UserFarmlands
         ]
       }
     },

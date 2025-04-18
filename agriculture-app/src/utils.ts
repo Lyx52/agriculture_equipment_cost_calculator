@@ -19,7 +19,9 @@ export function max(values: number[]): number {
     return Math.max(res, val);
   }, Number.NEGATIVE_INFINITY);
 }
-
+export function first<T>(values: T[]): T|undefined {
+  return values.length > 0 ? values[0] : undefined;
+}
 export function minBy(values: any[], key: any): any {
   return values.reduce((res, v) => {
     if (!(key in res) || res[key] > v[key]) {

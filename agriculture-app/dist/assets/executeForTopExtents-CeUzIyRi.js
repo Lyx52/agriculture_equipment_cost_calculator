@@ -1,1 +1,0 @@
-import{eT as i,f7 as m,bo as r}from"./index-B1r_tx_U.js";import{d as x}from"./queryTopFeatures-DcA5_cOl.js";async function c(n,o,e){const s=i(n),a=await x(s,m.from(o),{...e}),t=a.data.extent;return!t||isNaN(t.xmin)||isNaN(t.ymin)||isNaN(t.xmax)||isNaN(t.ymax)?{count:a.data.count,extent:null}:{count:a.data.count,extent:r.fromJSON(t)}}export{c as executeForTopExtents};

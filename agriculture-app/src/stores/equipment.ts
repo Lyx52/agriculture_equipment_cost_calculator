@@ -84,9 +84,11 @@ export const useEquipmentStore = defineStore('equipment', {
         'ogu_novaksans_kombains'
       ].includes(state.item.equipment_type_code);
 
-      const isSelfPropelled = state.item.specifications.self_propelled ?? true;
+      const isSelfPropelled = state.item.specifications.self_propelled ?? false;
 
       const isTractorOrCombine = isTractor || (isSelfPropelled && isCombine);
+
+
       const errors = [] as string[];
       for (const [property, value] of Object.entries(state.item?.specifications ?? {})) {
         switch (property) {

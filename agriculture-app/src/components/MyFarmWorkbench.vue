@@ -3,7 +3,6 @@ import {
   BFormInput,
   BFormGroup,
   BInputGroup,
-  useModalController,
   BBadge,
   BAccordion,
   BAccordionItem, BSpinner
@@ -12,10 +11,9 @@ import BNumericFormInput from '@/components/elements/BNumericFormInput.vue'
 import { useFarmInformationStore } from '@/stores/farmInformation.ts'
 import { useIndicatorStore } from '@/stores/indicator.ts'
 import { useAuthStore } from '@/stores/auth.ts'
+import CostsBreakdownChart from '@/components/charts/CostsBreakdownChart.vue'
 const farmInformationStore = useFarmInformationStore();
-const {confirm} = useModalController();
 const indicatorStore = useIndicatorStore();
-const authStore = useAuthStore();
 
 const onInformationChange = async () => {
   await farmInformationStore.updateFarmInformationAsync();
@@ -23,8 +21,8 @@ const onInformationChange = async () => {
 </script>
 
 <template>
-  <div class="container-fluid">
-    <div class="row row-cols-2">
+  <div class="d-flex flex-grow-1">
+    <div class="row row-cols-2 w-100">
       <div class="col">
 
         <BFormGroup label="Saimniecības nosaukums" class="mt-2">
@@ -33,7 +31,7 @@ const onInformationChange = async () => {
         </BFormGroup>
         <BAccordion class="mt-3" >
           <BAccordionItem title="Saimniecības atbalstu veidi"  body-class="mb-3">
-            Lietotājs pieslēdzies {{ authStore.isLoggedIn }}
+            Nav izstrādāts...
           </BAccordionItem>
           <BAccordionItem title="Noklusētās vērtības"  body-class="mb-3">
             <BSpinner v-if="farmInformationStore.isLoading" />
@@ -76,6 +74,9 @@ const onInformationChange = async () => {
             <p>Reālā procentu likme: {{ (indicatorStore.realInterestRate * 100).toFixed(2) }} %</p>
           </BAccordionItem>
         </BAccordion>
+      </div>
+      <div class="col">
+        <CostsBreakdownChart />
       </div>
     </div>
   </div>

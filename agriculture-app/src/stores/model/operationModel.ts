@@ -57,6 +57,18 @@ export class OperationModel implements IOperation {
     return Number(this.tractorOrCombine?.power ?? 0) < Number(this.machine?.requiredPower ?? 0);
   }
 
+  get equipment(): EquipmentModel[] {
+    const operationEquipment = [];
+    if (this.machine) {
+      operationEquipment.push(this.machine);
+    }
+    if (this.tractorOrCombine) {
+      operationEquipment.push(this.tractorOrCombine);
+    }
+
+    return operationEquipment;
+  }
+
   get machine(): EquipmentModel|undefined {
     const equipmentCollection = useEquipmentCollectionStore();
     return equipmentCollection.getItemById(this.machine_id);
