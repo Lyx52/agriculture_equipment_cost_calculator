@@ -25,26 +25,28 @@ export const useIndicatorStore = defineStore('indicator', {
 
       if (this.inflationRate.period) return this.inflationRate.value;
       const response = await fetch(`${getBackendUri()}/Indicators/Inflation`)
-      validateProblem(response);
+      await validateProblem(response);
       this.inflationRate = (await response.json() as IIndicatorResponse);
       return this.inflationRate.value;
     },
     async getInterestRate() {
       if (this.interestRate.period) return this.interestRate.value;
-      const response = await fetch(`${getBackendUri()}/Indicators/InterestRate`)
+      const response = await fetch(`${getBackendUri()}/Indicators/InterestRate`);
+      await validateProblem(response);
       this.interestRate = (await response.json() as IIndicatorResponse);
       return this.interestRate.value;
     },
     async getConsumerPriceIndices() {
       if (Object.keys(this.consumerPriceIndices).length) return this.consumerPriceIndices;
       const response = await fetch(`${getBackendUri()}/Indicators/ConsumerPriceIndices`);
+      await validateProblem(response);
       this.consumerPriceIndices = (await response.json() as Record<string, number>);
       return this.consumerPriceIndices;
     },
     async getMotorHoursByYear() {
       if (Object.keys(this.motorHoursByYear).length) return this.motorHoursByYear;
       const response = await fetch(`${getBackendUri()}/StaticData/HoursByYear`);
-
+      await validateProblem(response);
       this.motorHoursByYear = (await response.json() as Record<string, Record<string, number>>);
       return this.motorHoursByYear;
     },
@@ -65,6 +67,7 @@ export const useIndicatorStore = defineStore('indicator', {
       if (Object.keys(this.inflationBetweenCache).includes(key)) return this.inflationBetweenCache[key];
 
       const response = await fetch(`${getBackendUri()}/Indicators/InflationBetween/${purchaseYear}/${currentYear}`);
+      await validateProblem(response);
       const result = (await response.json() as IInflationBetweenResult);
       this.inflationBetweenCache[key] = result;
 

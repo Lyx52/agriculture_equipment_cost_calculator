@@ -11,6 +11,7 @@ import emitter from '@/stores/emitter.ts'
 import { fetchBackend, getBackendUri, sum, uniqueBy } from '@/utils.ts'
 import { useCodifierStoreCache } from '@/stores/codifier.ts'
 import type { IEquipmentUsage } from '@/stores/interface/IEquipmentUsage.ts'
+import { useIndicatorStore } from '@/stores/indicator.ts'
 
 export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
   state(): IEquipmentCollectionStore {
@@ -102,7 +103,15 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
         const codifierCache = useCodifierStoreCache();
         const productCodes = uniqueBy(this.items, (item) => item.equipment_type_code);
         await Promise.all(productCodes.map(code => codifierCache.addAsync(code)));
-        await Promise.all(this.items.map(item => item.fetchRequiredParameters()));
+
+        /**
+         *  Load equipment inflation adjusted pricing
+         */
+        const currentYear = new Date().getFullYear();
+        const allPurchaseYears = uniqueBy(this.items, (item: EquipmentModel) => item.purchase_date?.getFullYear() ?? currentYear);
+        const indicatorStore = useIndicatorStore();
+        const inflationFactorResponses = await Promise.all(allPurchaseYears.map(async (yearFrom) => indicatorStore.fetchInflationChangeFactor(yearFrom, currentYear)))
+        const inflationFactorsByYear = Object.fromEntries(inflationFactorResponses.map((res) => [res.start_year, res.inflation_change]));
 
         this.items.forEach((item) => {
           const equipmentValueCodifier = codifierCache.getByCode(item.equipment_type_code);
@@ -121,6 +130,9 @@ export const useEquipmentCollectionStore = defineStore('equipmentCollection', {
               use_hours_per_individual_years: false
             } as IEquipmentUsage;
           }
+          item.purchase_date = item.purchase_date ?? new Date();
+          const priceChangeFactor = inflationFactorsByYear[item.purchase_date.getFullYear()] ?? 100;
+          item.inflation_adjusted_price = item.price * (1 + priceChangeFactor / 100);
         });
 
       } catch (e: any) {
