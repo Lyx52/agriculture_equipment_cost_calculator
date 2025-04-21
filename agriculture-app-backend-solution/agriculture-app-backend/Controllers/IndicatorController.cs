@@ -1,10 +1,9 @@
 using System.Globalization;
 using System.Text.Json;
 using AgricultureAppBackend.Infrastructure.Constants;
-using AgricultureAppBackend.Infrastructure.Models;
 using AgricultureAppBackend.Infrastructure.Models.Json;
 using AgricultureAppBackend.Infrastructure.Models.Response;
-using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -12,6 +11,7 @@ namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
 [Route("Indicators")]
+[Authorize]
 public class IndicatorController(IMemoryCache _memoryCache, IHttpClientFactory _httpClientFactory) : Controller
 {
     private const string InflationData = nameof(InflationData);

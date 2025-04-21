@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { ICodifierCacheStore, ICodifierStore } from '@/stores/interface/ICodifierStore.ts'
 import type { ICodifier } from '@/stores/interface/ICodifier.ts'
-import { getBackendUri } from '@/utils.ts'
+import { fetchBackend, getBackendUri } from '@/utils.ts'
 import { Codifiers } from '@/stores/enums/Codifiers.ts'
 export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
   state(): ICodifierCacheStore {
@@ -17,7 +17,7 @@ export const useCodifierStoreCache = () => defineStore('codifier_store_cache', {
 
     async addAsync(code: string) {
       if (this.cachedCodifiersByCode.has(code)) return;
-      const response = await fetch(`${getBackendUri()}/Codifier/ByCode/${code}`)
+      const response = await fetchBackend('GET', `${getBackendUri()}/Codifier/ByCode/${code}`)
       const value = await response.json() as ICodifier|undefined;
       if (value) {
         this.cachedCodifiersByCode.set(code, value);
@@ -60,7 +60,7 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
       if (this.searchText.length >= 2) {
         params.set('Query', this.searchText);
       }
-      const response = await fetch(`${getBackendUri()}/Codifier?${params.toString()}`)
+      const response = await fetchBackend('GET', `${getBackendUri()}/Codifier?${params.toString()}`)
       this.items = await response.json() as ICodifier[];
     },
     resetFilters() {
@@ -80,7 +80,7 @@ export const useCodifierStore = (storeId: string) => defineStore(`codifier_${sto
         this.selectedItem = existing;
         return;
       }
-      const response = await fetch(`${getBackendUri()}/Codifier/ByCode/${code}`)
+      const response = await fetchBackend('GET', `${getBackendUri()}/Codifier/ByCode/${code}`)
       this.selectedItem = await response.json() as ICodifier|undefined;
 
       if (this.selectedItem) {

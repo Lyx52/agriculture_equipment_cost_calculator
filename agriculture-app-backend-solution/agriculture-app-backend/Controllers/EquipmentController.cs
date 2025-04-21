@@ -3,7 +3,6 @@ using AgricultureAppBackend.Infrastructure.Database;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Filter;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +10,7 @@ namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
 [Route("Equipment")]
+[Authorize]
 public class EquipmentController(PersistentDbContext _db) : Controller
 {
     [HttpGet]

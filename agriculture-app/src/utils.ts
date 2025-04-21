@@ -22,13 +22,39 @@ export function max(values: number[]): number {
 export function first<T>(values: T[]): T|undefined {
   return values.length > 0 ? values[0] : undefined;
 }
-export function minBy(values: any[], key: any): any {
+export function minByKey(values: any[], key: any): any {
   return values.reduce((res, v) => {
     if (!(key in res) || res[key] > v[key]) {
       return v;
     }
     return res;
   }, {});
+}
+
+export function minBy<T>(values: T[], getProp: (item: T) => number|undefined): T|undefined {
+  return values.reduce((result: T|undefined, value: T) => {
+    if (!result) return value;
+    const a = getProp(result) as number;
+    const b = getProp(value) as number;
+    if (a > b) {
+      return value;
+    }
+
+    return result;
+  }, undefined);
+}
+
+export function maxBy<T>(values: T[], getProp: (item: T) => number|undefined): T|undefined {
+  return values.reduce((result: T|undefined, value: T) => {
+    if (!result) return value;
+    const a = getProp(result) as number;
+    const b = getProp(value) as number;
+    if (a < b) {
+      return value;
+    }
+
+    return result;
+  }, undefined);
 }
 
 export function groupedBy<T>(values: T[], getProp: (item: T) => string|undefined): Record<string, T[]> {
@@ -61,7 +87,7 @@ export function sumBy<T>(values: T[], getProp: (item: T) => number): number {
 }
 
 export function getClosestValue(values: any[], value: any) {
-  return minBy(values.map(v => ({value: v, diff: Math.abs(v - value)})), 'diff')['value'];
+  return minBy<any>(values.map(v => ({value: v, diff: Math.abs(v - value)})), (item: any) => item.diff).value;
 }
 
 export function sortBy<T>(

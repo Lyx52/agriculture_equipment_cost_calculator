@@ -124,7 +124,7 @@ export const useCropsStore = defineStore('crops', {
           ...this.items,
           ...userCrops.map(c => new CropTypeModel(c))
         ];
-        this.items = sortBy(this.items, (item) => item.isCustom ? -1000 : Number(item.ladCode), true);
+        this.items = sortBy(this.items, (item) => item.isCustom ? Number.NEGATIVE_INFINITY : Number(item.ladCode), true);
       } catch (e: any) {
         console.log(e);
         emitter.emit('error', e.message);

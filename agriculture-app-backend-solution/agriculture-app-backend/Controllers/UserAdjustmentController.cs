@@ -3,10 +3,8 @@ using System.Security.Claims;
 using System.Text.Json;
 using AgricultureAppBackend.Infrastructure.Database;
 using AgricultureAppBackend.Infrastructure.Database.Model;
-using AgricultureAppBackend.Infrastructure.Models.Filter;
 using AgricultureAppBackend.Infrastructure.Models.Request;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

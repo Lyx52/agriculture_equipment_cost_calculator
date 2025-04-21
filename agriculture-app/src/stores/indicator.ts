@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { IIndicatorStore } from '@/stores/interface/IIndicatorStore.ts'
-import { getBackendUri, max, validateProblem } from '@/utils.ts'
+import { fetchBackend, getBackendUri, max, validateProblem } from '@/utils.ts'
 import type { IIndicatorResponse } from '@/stores/interface/IIndicatorResponse.ts'
 import type { IInflationBetweenResult } from '@/stores/interface/IInflationBetweenResult.ts'
 
@@ -24,28 +24,28 @@ export const useIndicatorStore = defineStore('indicator', {
     async getInflationRate() {
 
       if (this.inflationRate.period) return this.inflationRate.value;
-      const response = await fetch(`${getBackendUri()}/Indicators/Inflation`)
+      const response = await fetchBackend('GET', `${getBackendUri()}/Indicators/Inflation`)
       await validateProblem(response);
       this.inflationRate = (await response.json() as IIndicatorResponse);
       return this.inflationRate.value;
     },
     async getInterestRate() {
       if (this.interestRate.period) return this.interestRate.value;
-      const response = await fetch(`${getBackendUri()}/Indicators/InterestRate`);
+      const response = await fetchBackend('GET', `${getBackendUri()}/Indicators/InterestRate`);
       await validateProblem(response);
       this.interestRate = (await response.json() as IIndicatorResponse);
       return this.interestRate.value;
     },
     async getConsumerPriceIndices() {
       if (Object.keys(this.consumerPriceIndices).length) return this.consumerPriceIndices;
-      const response = await fetch(`${getBackendUri()}/Indicators/ConsumerPriceIndices`);
+      const response = await fetchBackend('GET', `${getBackendUri()}/Indicators/ConsumerPriceIndices`);
       await validateProblem(response);
       this.consumerPriceIndices = (await response.json() as Record<string, number>);
       return this.consumerPriceIndices;
     },
     async getMotorHoursByYear() {
       if (Object.keys(this.motorHoursByYear).length) return this.motorHoursByYear;
-      const response = await fetch(`${getBackendUri()}/StaticData/HoursByYear`);
+      const response = await fetchBackend('GET', `${getBackendUri()}/StaticData/HoursByYear`);
       await validateProblem(response);
       this.motorHoursByYear = (await response.json() as Record<string, Record<string, number>>);
       return this.motorHoursByYear;
@@ -66,7 +66,7 @@ export const useIndicatorStore = defineStore('indicator', {
       const key = `${purchaseYear}-${currentYear}`;
       if (Object.keys(this.inflationBetweenCache).includes(key)) return this.inflationBetweenCache[key];
 
-      const response = await fetch(`${getBackendUri()}/Indicators/InflationBetween/${purchaseYear}/${currentYear}`);
+      const response = await fetchBackend('GET', `${getBackendUri()}/Indicators/InflationBetween/${purchaseYear}/${currentYear}`);
       await validateProblem(response);
       const result = (await response.json() as IInflationBetweenResult);
       this.inflationBetweenCache[key] = result;

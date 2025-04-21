@@ -2,7 +2,7 @@ using System.Text.Json;
 using AgricultureAppBackend.Infrastructure.Database;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Filter;
-using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -12,6 +12,7 @@ namespace AgricultureAppBackend.Controllers;
 public record CodifierShort(string Name, string Code, string? ParentCode, string? Value);
 [ApiController]
 [Route("Codifier")]
+[Authorize]
 public class CodifierController(PersistentDbContext _db, IMemoryCache _cache) : Controller
 {
     [HttpGet("ByCode/{codifierCode}")]

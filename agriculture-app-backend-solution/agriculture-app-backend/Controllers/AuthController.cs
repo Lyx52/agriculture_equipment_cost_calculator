@@ -1,16 +1,13 @@
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 using System.Text.Json;
 using AgricultureAppBackend.Infrastructure.Constants;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Request;
 using AgricultureAppBackend.Infrastructure.Models.Response;
 using AgricultureAppBackend.Infrastructure.Services.Interfaces;
-using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace AgricultureAppBackend.Controllers;
 
@@ -19,6 +16,7 @@ namespace AgricultureAppBackend.Controllers;
 public class AuthController(UserManager<User> _userManager, SignInManager<User> _signInManager, IJwtTokenProvider _jwtTokenProvider) : Controller
 {
     [HttpGet("GetFarmInfo")]
+    [Authorize]
     public async Task<IActionResult> GetUserFarmInfo()
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;

@@ -1,5 +1,5 @@
 using System.Text.Json;
-using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -7,6 +7,7 @@ namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
 [Route("StaticData")]
+[Authorize]
 public class StaticDataController(IMemoryCache _memoryCache) : Controller
 {
     private const string HoursByYearStaticData = nameof(HoursByYearStaticData);

@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column max-h-80vh">
+  <div class="d-flex flex-column max-h-75vh">
     <div class="d-flex flex-row graph-header mb-3">
       <BButton class="ms-3" v-if="selectedGraphType !== 'total'" @click="prevGraph">
         <IconArrowLeft /> Atpakaļ
@@ -8,16 +8,18 @@
         <BFormSelect :options="calculatePerOptions" v-model="selectedCalculatePer" />
       </BInputGroup>
     </div>
-    <BPopover placement="left">
-      <template #default>Uzspiežot uz stabiņa redz detalizētu informāciju</template>
-      <template #target>
-        <BBadge class="ms-auto my-auto p-1">
-          <IconInfo />
-        </BBadge>
-      </template>
-    </BPopover>
+    <div class="d-flex">
+      <h5 class="ms-4 text-center w-fit-content">{{ graphTitle }}</h5>
+      <BPopover placement="left">
+        <template #default>Uzspiežot uz stabiņa redz detalizētu informāciju</template>
+        <template #target>
+          <BBadge class="ms-auto my-auto p-1">
+            <IconInfo />
+          </BBadge>
+        </template>
+      </BPopover>
+    </div>
     <Bar
-      id="my-chart-id"
       :options="options"
       :data="data"
     />
@@ -28,8 +30,8 @@
 .graph-header {
   height: 50px;
 }
-.max-h-80vh {
-  max-height: 80vh;
+.max-h-75vh {
+  max-height: 75vh;
 }
 .w-fit-content {
   width: fit-content;
@@ -82,7 +84,7 @@ const labels = [
   "Degvielas izmaksas, EUR/ha",
   "Smērvielu izmaksas, EUR/ha",
 ];
-
+const graphTitle = ref<string>('Visas izmaksas');
 const data = ref<ChartData<'bar', DefaultDataPoint<'bar'>, unknown>>({
   labels,
   datasets: [
@@ -97,6 +99,17 @@ const data = ref<ChartData<'bar', DefaultDataPoint<'bar'>, unknown>>({
 const {
   isLoading
 } = toRefs(prefetchStore);
+
+const getCostType = (costType: number) => {
+  switch(costType) {
+    case 0: return 'Amortizācijas';
+    case 1: return 'Darbaspēka';
+    case 2: return 'Remonta';
+    case 3: return 'Degvielas';
+    case 4: return 'Smērvielu';
+  }
+  return '';
+}
 
 const getOperationCostCalcByType = (costType: number, calculatePer: string): ((item: OperationModel) => number) => {
   switch(costType) {
@@ -199,10 +212,12 @@ const nextGraph = (index: number) => {
     case 'total':
       selectedGraphType.value = 'farmland';
       selectedCostType.value = index;
+      graphTitle.value = `${getCostType(selectedCostType.value)} izmaksas, pēc laukiem`;
       break;
     case 'farmland':
       selectedGraphType.value = 'operation';
       selectedFarmlandGroup.value = currentGroups.value[index];
+      graphTitle.value = `${getCostType(selectedCostType.value)} izmaksas, pēc ${selectedFarmlandGroup.value} lauka operācijām`;
       break;
   }
   selectedCalculatePer.value = 'kopā';
@@ -214,11 +229,13 @@ const prevGraph = () => {
       selectedGraphType.value = 'total';
       selectedCostType.value = -1;
       selectedCalculatePer.value = 'ha';
+      graphTitle.value = 'Visas izmaksas';
       break;
     case 'operation':
       selectedGraphType.value = 'farmland';
       selectedFarmlandGroup.value = undefined;
       selectedCalculatePer.value = 'kopā';
+      graphTitle.value = `Izmaksas ${getCostType(selectedCostType.value)}, pēc laukiem`;
       break;
   }
 }

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { IEquipment } from '@/stores/interface/IEquipment.ts'
-import { getBackendUri } from '@/utils.ts'
+import { fetchBackend, getBackendUri } from '@/utils.ts'
 import type { IEquipmentFilterStore } from '@/stores/interface/IEquipmentFilterStore.ts'
 import { PowerFilterMax } from '@/constants/EquipmentFilterConstants.ts'
 
@@ -48,7 +48,7 @@ export const useEquipmentFilterStore = defineStore(`equipmentFilter`, {
         params.set('Query', this.searchText);
       }
 
-      const response = await fetch(`${getBackendUri()}/Equipment?${params.toString()}`)
+      const response = await fetchBackend('GET', `${getBackendUri()}/Equipment?${params.toString()}`)
       this.items = (await response.json() as IEquipment[]);
     },
     setCategoryTypeCodes(codes: string[]) {
