@@ -331,34 +331,32 @@ export class EquipmentModel implements IEquipment {
   /**
    * Total operating costs per hour of the equipment.
    * @param loadWork - % load of the equipment. Default is 80%.
-   * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  totalOperatingCostsPerYear(loadWork: number = 0.8, loadTurn: number = 0.3): number {
-    return this.fuelCostsPerYearNew(loadWork, loadTurn) +
-      this.lubricationCostsPerYearNew(loadWork, loadTurn) +
+  totalOperatingCostsPerYear(loadWork: number = 0.8): number {
+    return this.fuelCostsPerYearNew(loadWork) +
+      this.lubricationCostsPerYearNew(loadWork) +
       this.accumulatedRepairsCostPerYear;
   }
 
-  operatingCosts(selectedCalculatePer: string, loadWork: number = 0.8, loadTurn: number = 0.3): number {
+  operatingCosts(selectedCalculatePer: string, loadWork: number = 0.8): number {
     switch(selectedCalculatePer) {
       case 'kopā':
-        return this.totalOperatingCostsPerYear(loadWork, loadTurn) * this.totalCurrentUsageYears;
+        return this.totalOperatingCostsPerYear(loadWork) * this.totalCurrentUsageYears;
       case 'gadā':
-        return this.totalOperatingCostsPerYear(loadWork, loadTurn);
+        return this.totalOperatingCostsPerYear(loadWork);
       default:
         // h
-        return this.totalOperatingCostsPerHour(loadWork, loadTurn);
+        return this.totalOperatingCostsPerHour(loadWork);
     }
   }
 
   /**
    * Total operating costs per hour of the equipment.
    * @param loadWork - % load of the equipment. Default is 80%.
-   * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  totalOperatingCostsPerHour(loadWork: number = 0.8, loadTurn: number = 0.3): number {
-    return this.fuelCostsPerHourNew(loadWork, loadTurn) +
-      this.lubricationCostsPerHourNew(loadWork, loadTurn) +
+  totalOperatingCostsPerHour(loadWork: number = 0.8): number {
+    return this.fuelCostsPerHourNew(loadWork) +
+      this.lubricationCostsPerHourNew(loadWork) +
       this.accumulatedRepairsCostPerHour +
       this.depreciationValuePerHour;
   }
@@ -430,36 +428,29 @@ export class EquipmentModel implements IEquipment {
   /**
    * Equipment fuel usage per hour, EUR/h. Calculated from fuel consumption coefficient.
    * @param loadWork - % load of the equipment for field work. Default is 80%.
-   * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  fuelCostsPerHourNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
+  fuelCostsPerHourNew(loadWork: number = 0.8) {
     // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
     const farmStore = useFarmInformationStore();
-    return this.fuelUsagePerHourNew(loadWork, loadTurn) * farmStore.fuel_cost_per_liter;
+    return this.fuelUsagePerHourNew(loadWork) * farmStore.fuel_cost_per_liter;
   }
 
   /**
    * Equipment fuel usage per hour, l/h. Calculated from fuel consumption coefficient.
    * @param loadWork - % load of the equipment for field work. Default is 80%.
-   * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  fuelUsagePerHourNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
+  fuelUsagePerHourNew(loadWork: number = 0.8) {
     // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
-    return (
-        Number(this.specifications.fuel_consumption_coefficient ?? 0) * loadWork * Number(this.specifications.power ?? 0)
-      ) + (
-        Number(this.specifications.fuel_consumption_coefficient ?? 0) * loadTurn * Number(this.specifications.power ?? 0)
-      );
+    return Number(this.specifications.fuel_consumption_coefficient ?? 0) * loadWork * Number(this.specifications.power ?? 0)
   }
 
   /**
    * Equipment fuel usage per year, l/year. Calculated from fuel consumption coefficient.
    * @param loadWork - % load of the equipment for field work. Default is 80%.
-   * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  fuelCostsPerYearNew(loadWork: number = 0.8, loadTurn: number = 0.3) {
+  fuelCostsPerYearNew(loadWork: number = 0.8) {
     // https://sjar.revistas.csic.es/index.php/sjar/article/view/9490/3126
-    return this.fuelCostsPerHourNew(loadWork, loadTurn) * this.hoursPerYear;
+    return this.fuelCostsPerHourNew(loadWork) * this.hoursPerYear;
   }
 
   /**
@@ -483,17 +474,16 @@ export class EquipmentModel implements IEquipment {
    * Equipment lubrication costs per hour, l/h. Calculated from fuel consumption calculation.
    * @param selectedCalculatePer
    * @param loadWork
-   * @param loadTurn
    */
-  lubricationCosts(selectedCalculatePer: string, loadWork: number = 0.8, loadTurn: number = 0.3): number {
+  lubricationCosts(selectedCalculatePer: string, loadWork: number = 0.8): number {
     switch(selectedCalculatePer) {
       case 'kopā':
-        return this.lubricationCostsPerYearNew(loadWork, loadTurn) * this.totalCurrentUsageYears;
+        return this.lubricationCostsPerYearNew(loadWork) * this.totalCurrentUsageYears;
       case 'gadā':
-        return this.lubricationCostsPerYearNew(loadWork, loadTurn);
+        return this.lubricationCostsPerYearNew(loadWork);
       default:
         // h
-        return this.lubricationCostsPerHourNew(loadWork, loadTurn);
+        return this.lubricationCostsPerHourNew(loadWork);
     }
   }
 
@@ -501,17 +491,16 @@ export class EquipmentModel implements IEquipment {
    * Equipment lubrication costs per year, l/year. Calculated from fuel consumption calculation.
    * @param selectedCalculatePer
    * @param loadWork
-   * @param loadTurn
    */
-  fuelCosts(selectedCalculatePer: string, loadWork: number = 0.8, loadTurn: number = 0.3): number {
+  fuelCosts(selectedCalculatePer: string, loadWork: number = 0.8): number {
     switch(selectedCalculatePer) {
       case 'kopā':
-        return this.fuelCostsPerYearNew(loadWork, loadTurn) * this.totalCurrentUsageYears;
+        return this.fuelCostsPerYearNew(loadWork) * this.totalCurrentUsageYears;
       case 'gadā':
-        return this.fuelCostsPerYearNew(loadWork, loadTurn);
+        return this.fuelCostsPerYearNew(loadWork);
       default:
         // h
-        return this.fuelCostsPerHourNew(loadWork, loadTurn);
+        return this.fuelCostsPerHourNew(loadWork);
     }
   }
 
@@ -526,20 +515,18 @@ export class EquipmentModel implements IEquipment {
   /**
    * Equipment lubrication costs per hour, l/h. Calculated from fuel consumption calculation.
    * @param load - % load of the equipment. Default is 80%.
-   * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  lubricationCostsPerHourNew(load: number = 0.8, loadTurn: number = 0.3) {
+  lubricationCostsPerHourNew(load: number = 0.8) {
     const farmStore = useFarmInformationStore();
-    return this.fuelCostsPerHourNew(load, loadTurn) * (farmStore.lubrication_costs_percentage / 100);
+    return this.fuelCostsPerHourNew(load) * (farmStore.lubrication_costs_percentage / 100);
   }
 
   /**
    * Equipment lubrication costs per year, l/year. Calculated from fuel consumption calculation.
    * @param load - % load of the equipment. Default is 80%.
-   * @param loadTurn - % load of the equipment for turning. Default is 30%.
    */
-  lubricationCostsPerYearNew(load: number = 0.8, loadTurn: number = 0.3) {
-    return this.lubricationCostsPerHourNew(load, loadTurn) * this.hoursPerYear;
+  lubricationCostsPerYearNew(load: number = 0.8) {
+    return this.lubricationCostsPerHourNew(load) * this.hoursPerYear;
   }
 
   get is4WheelDrive() {

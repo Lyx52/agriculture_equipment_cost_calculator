@@ -169,7 +169,7 @@ export class OperationModel implements IOperation {
   }
 
   get fuelUsagePerHour(): number {
-    return this.sumByFunction(e => e.fuelUsagePerHourNew(this.loadFactorOnPowerMachine, 0.3));
+    return this.sumByFunction(e => e.fuelUsagePerHourNew(this.loadFactorOnPowerMachine));
   }
 
   get fuelUsagePerHectare(): number {
@@ -177,7 +177,7 @@ export class OperationModel implements IOperation {
   }
 
   get fuelCostsPerHour(): number {
-    return this.sumByFunction(e => e.fuelCostsPerHourNew(this.loadFactorOnPowerMachine, 0.3));
+    return this.sumByFunction(e => e.fuelCostsPerHourNew(this.loadFactorOnPowerMachine));
   }
 
   totalFuelCosts(selectedCalculatePer: string): number {
@@ -200,12 +200,12 @@ export class OperationModel implements IOperation {
 
     switch(selectedCalculatePer) {
       case 'kopā':
-        return this.operationWorkHours * this.sumByFunction(e => e.lubricationCostsPerHourNew(this.loadFactorOnPowerMachine, 0.3));
+        return this.operationWorkHours * this.sumByFunction(e => e.lubricationCostsPerHourNew(this.loadFactorOnPowerMachine));
       case 'h':
-        return this.sumByFunction(e => e.lubricationCostsPerHourNew(this.loadFactorOnPowerMachine, 0.3));
+        return this.sumByFunction(e => e.lubricationCostsPerHourNew(this.loadFactorOnPowerMachine));
       default:
         // ha
-        const eurPerHour = this.sumByFunction(e => e.lubricationCostsPerHourNew(this.loadFactorOnPowerMachine, 0.3));
+        const eurPerHour = this.sumByFunction(e => e.lubricationCostsPerHourNew(this.loadFactorOnPowerMachine));
         return eurPerHour / this.operationFieldWorkSpeedPerHour;
     }
   }
@@ -290,12 +290,12 @@ export class OperationModel implements IOperation {
     }
     switch(selectedCalculatePer) {
       case 'kopā':
-        return this.operationWorkHours * (this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3)) + this.equipmentOperatorWageCostPerHour);
+        return this.operationWorkHours * (this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine)) + this.equipmentOperatorWageCostPerHour);
       case 'h':
-        return this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3)) + this.equipmentOperatorWageCostPerHour;
+        return this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine)) + this.equipmentOperatorWageCostPerHour;
       default:
         // ha
-        const eurPerHour = this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine, 0.3)) + this.equipmentOperatorWageCostPerHour;
+        const eurPerHour = this.sumByFunction(e => e.totalOperatingCostsPerHour(this.loadFactorOnPowerMachine)) + this.equipmentOperatorWageCostPerHour;
         return eurPerHour / this.operationFieldWorkSpeedPerHour;
     }
   }
