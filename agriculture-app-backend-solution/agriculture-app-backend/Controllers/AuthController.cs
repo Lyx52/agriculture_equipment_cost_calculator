@@ -110,6 +110,8 @@ public class AuthController(UserManager<User> _userManager, SignInManager<User> 
             OtherExpensesPercentage = 1.0f,
             LubricationCostsPercentage = 15.0f,
             FuelCostPerLiter = 0.8f,
+            FarmName = string.Empty,
+            Farmlands = new List<UserFarmland>()
         };
         var result = await _userManager.CreateAsync(user, request.Password);
         if (!result.Succeeded)
