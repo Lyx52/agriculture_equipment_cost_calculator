@@ -169,6 +169,10 @@ onMounted(async () => {
 </script>
 <template>
   <div id="container">
+    <div class="page" style="margin: 10px;">
+      <div ref="chartContainer">
+      </div>
+    </div>
     <div class="page">
       <table class="gross-table">
         <tbody>
@@ -286,10 +290,7 @@ onMounted(async () => {
         </tbody>
       </table>
     </div>
-    <div class="page" style="margin: 10px;">
-      <div ref="chartContainer">
-      </div>
-    </div>
+
   </div>
 </template>
 <style scoped>

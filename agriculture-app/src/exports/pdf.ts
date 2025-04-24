@@ -13,8 +13,8 @@ const buildReportHtml = (farmland: FarmlandModel, width: number, height: number)
 }
 export const buildPdfReport = (farmland: FarmlandModel) => {
   const scalingFactor = 0.4;
-  const pageWidth = 495 / scalingFactor;
-  const pageHeight = 340 / scalingFactor;
+  const pageWidth = 500 / scalingFactor;
+  const pageHeight = 330 / scalingFactor;
 
   const doc = new jsPDF.jsPDF({
     putOnlyUsedFonts: false,
