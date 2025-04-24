@@ -29,4 +29,7 @@ const onHideOperations = () => {
 </template>
 
 <style lang="scss">
+.operations-modal {
+  max-height: 100%;
+}
 </style>
