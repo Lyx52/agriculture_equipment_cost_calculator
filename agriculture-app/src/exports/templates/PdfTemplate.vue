@@ -70,9 +70,8 @@ const buildChartOptions = (chartTitle: string, yAxisTitle: string, xAxisTitle: s
 
 const buildChartByOperations = (farmland: FarmlandModel) => {
   const datasets = [];
-  const labels = [];
+  const labels = [''];
   for (const operation of farmland.operations) {
-    labels.push(`${operation.displayName}, ${operation.equipmentOrExternalServiceDisplayName}`);
     datasets.push({
       label: `${operation.displayName}, ${operation.equipmentOrExternalServiceDisplayName}`,
       data: [operation.totalOperatingCosts('ha')]
