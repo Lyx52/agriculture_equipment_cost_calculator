@@ -6,8 +6,11 @@ import { computed, ref } from 'vue'
 import SumTd from '@/components/table/SumTd.vue'
 import IconArrowDownRightSquare from '@/components/icons/IconArrowDownRightSquare.vue'
 import IconClose from '@/components/icons/IconClose.vue'
-import { BuildGrossCoverageXlsx, DisplayNumber } from '../utils.ts'
+import { DisplayNumber } from '../utils.ts'
 import IconSpreadsheet from '@/components/icons/IconSpreadsheet.vue'
+import IconPDF from '@/components/icons/IconPDF.vue'
+import { buildXlsxReport } from '@/exports/xlsx.ts'
+import { buildPdfReport } from '@/exports/pdf.ts'
 const farmlandStore = useFarmlandStore();
 const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
 const hasSelectedFilter = computed(() => !!selectedFarmland.value);
@@ -16,7 +19,14 @@ const downloadAsXlsx = () => {
   if (!selectedFarmland.value) {
     return;
   }
-  BuildGrossCoverageXlsx(selectedFarmland.value!);
+  buildXlsxReport(selectedFarmland.value!);
+}
+
+const downloadAsPDF = () => {
+  if (!selectedFarmland.value) {
+    return;
+  }
+  buildPdfReport(selectedFarmland.value!);
 }
 
 </script>
@@ -33,6 +43,9 @@ const downloadAsXlsx = () => {
               </BButton>
               <BButton @click="downloadAsXlsx" variant="outline-success" class="cursor-pointer ms-2 btn-icon">
                 Lejupielādēt <IconSpreadsheet />
+              </BButton>
+              <BButton @click="downloadAsPDF" variant="outline-danger" class="cursor-pointer ms-2 btn-icon">
+                Lejupielādēt <IconPDF />
               </BButton>
             </BTh>
             <BTh colspan="5">

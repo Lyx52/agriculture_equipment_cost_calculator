@@ -62,6 +62,7 @@ import type { OperationModel } from '@/stores/model/operationModel.ts'
 import { BFormSelect, BInputGroup, BButton, BBadge, BPopover } from 'bootstrap-vue-next'
 import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import IconInfo from '@/components/icons/IconInfo.vue'
+import { ChartConstants } from '@/constants/ChartConstants.ts'
 Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 const selectedCalculatePer = ref<string>('ha');
@@ -249,11 +250,20 @@ const options: ChartOptions<'bar'> = {
     }
   },
   scales: {
+    x: {
+      ticks: {
+        font: ChartConstants.MediumTextFont,
+      }
+    },
     y: {
       ticks: {
-        callback: function(value) {
-          return `${typeof value !== 'string' ? value?.toFixed(2) : value} €`;
-        }
+        callback: ChartConstants.FormatterEuro,
+        font: ChartConstants.MediumTextFont,
+      },
+      title: {
+        display: true,
+        text: 'EUR/ha',
+        font: ChartConstants.LargeTextFont
       }
     }
   },
