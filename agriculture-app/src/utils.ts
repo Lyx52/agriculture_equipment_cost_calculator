@@ -108,7 +108,8 @@ export const dateToString = (date: Date) => date.toISOString().slice(0, 10);
 export const currentYear = () => new Date().getFullYear();
 
 export const getBackendUri = () => {
-  return import.meta.env.DEV ? 'http://localhost:6969' : 'https://backend.ikarslab.id.lv';
+  return import.meta.env.DEV ? '' : 'https://backend.ikarslab.id.lv';
+  //return import.meta.env.DEV ? 'http://localhost:6969' : 'https://backend.ikarslab.id.lv';
 }
 export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 export const fetchBackend = async (method: FetchMethod, url: string, body: any|undefined = undefined) => {
@@ -321,22 +322,24 @@ export const DownloadFileFromBuffer = (buffer: any, fileName: string, contentTyp
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-export const buildHtml = <TProps>($component: Component, props: TProps = {} as TProps): string => {
-  const $container = document.createElement('div');
+export const buildHtml = async <TProps>($component: Component, props: TProps = {} as TProps): Promise<string> => {
+  return new Promise((resolve) => {
+    const $container = document.createElement('div');
 
-  // Create and mount the app
-  const $app = createApp({
-    render() {
-      return h($component, props);
-    },
+    // Create and mount the app
+    const $app = createApp({
+      render() {
+        return h($component, props);
+      },
+    });
+
+    // Mount the app to the container and get the HTML
+    $app.mount($container);
+    const html = $container.innerHTML;
+
+    $app.unmount();
+    resolve(html);
   });
-
-  // Mount the app to the container and get the HTML
-  $app.mount($container);
-  const html = $container.innerHTML;
-
-  $app.unmount();
-  return html;
 }
 
 export const renderChartJs = <CType extends ChartType>(type: CType, width: number, height: number, config: any) => {

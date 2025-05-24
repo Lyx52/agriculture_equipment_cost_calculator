@@ -78,15 +78,18 @@ const searchText = ref<string>('');
 const props = defineProps<ICodifierDropdown>();
 const codifierStore = useCodifierStore(props.storeId ?? uuid())
 const emits = defineEmits(['onSelected']);
+
 onClickOutside(floating, () => {
   isLoading.value = false;
   isDropdownShown.value = false;
   searchText.value = '';
 }, {ignore: [button, searchBar]});
+
 watchArray(() => props.parentCodifierCodes, async (newParentCodes, oldParentCodes) => {
   if (arraysEqual(newParentCodes, oldParentCodes)) {
     return;
   }
+
   codifierStore.$patch({
     codifierTypeCodes: newParentCodes,
     selectedItem: undefined,
@@ -110,6 +113,7 @@ const fetchByFilters = async () => {
     isLoading.value = false;
   }
 }
+
 const onSelectItem = (item: ICodifier) => {
   codifierStore.$patch({
     selectedItem: item

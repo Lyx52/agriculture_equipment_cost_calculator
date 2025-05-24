@@ -97,6 +97,7 @@ export const useFarmlandStore = defineStore('farmland', {
         this.items.forEach((item) => {
           const store = useCodifierStore(item.id);
           store.setSelectedByCode(item.product_code);
+          console.log(`Set ${item.id} to  ${item.product_code}`);
           item.product_name = codifierCache.getByCode(item.product_code)?.name;
         });
 

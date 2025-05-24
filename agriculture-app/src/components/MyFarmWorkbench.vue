@@ -30,9 +30,9 @@ const onInformationChange = async () => {
           <BFormInput v-if="!farmInformationStore.isLoading" v-model="farmInformationStore.farm_name" @change="onInformationChange" />
         </BFormGroup>
         <BAccordion class="mt-3" >
-          <BAccordionItem title="Saimniecības atbalstu veidi"  body-class="mb-3">
-            Nav izstrādāts...
-          </BAccordionItem>
+<!--          <BAccordionItem title="Saimniecības atbalstu veidi"  body-class="mb-3">-->
+<!--            Nav izstrādāts...-->
+<!--          </BAccordionItem>-->
           <BAccordionItem title="Noklusētās vērtības"  body-class="mb-3">
             <BSpinner v-if="farmInformationStore.isLoading" />
             <BFormGroup label="Darbaspēka atalgojums (Noklusētā darba alga, ja nav ievadīti darbinieki)" class="mt-2">

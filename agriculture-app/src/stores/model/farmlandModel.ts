@@ -19,6 +19,7 @@ export class FarmlandModel implements IFarmland {
     this.product_code = farmland.product_code;
     this.product_name = farmland.product_name;
     if (!this.product_code) {
+      console.log(`Getting product type ${this.product_code}`);
       const codifierCache = useCodifierStoreCache();
       this.product_name = codifierCache.getByCode(this.product_code)?.name;
     }

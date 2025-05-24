@@ -10,10 +10,52 @@ import { format } from 'date-fns'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools()
+    // vueDevTools()
   ],
   server: {
     port: 9696,
+    proxy: {
+      '/Auth': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/Indicators': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/UserAdjustment': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/StaticData': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/UserFarmland': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/FarmlandOperation': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/Codifier': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/UserCropType': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/UserEquipment': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+      '/Equipment': {
+        target: 'https://backend.ikarslab.id.lv',
+        changeOrigin: true
+      },
+    },
   },
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),

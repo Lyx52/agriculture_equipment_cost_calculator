@@ -14,7 +14,7 @@ import { buildPdfReport } from '@/exports/pdf.ts'
 const farmlandStore = useFarmlandStore();
 const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
 const hasSelectedFilter = computed(() => !!selectedFarmland.value);
-
+const isBuildingPdf = ref(false);
 const downloadAsXlsx = () => {
   if (!selectedFarmland.value) {
     return;
@@ -22,11 +22,13 @@ const downloadAsXlsx = () => {
   buildXlsxReport(selectedFarmland.value!);
 }
 
-const downloadAsPDF = () => {
+const downloadAsPDF = async () => {
   if (!selectedFarmland.value) {
     return;
   }
-  buildPdfReport(selectedFarmland.value!);
+  isBuildingPdf.value = true;
+  buildPdfReport(selectedFarmland.value!)
+    .finally(() => { isBuildingPdf.value = false; });
 }
 
 </script>
@@ -44,7 +46,7 @@ const downloadAsPDF = () => {
               <BButton @click="downloadAsXlsx" variant="outline-success" class="cursor-pointer ms-2 btn-icon">
                 Lejupielādēt <IconSpreadsheet />
               </BButton>
-              <BButton @click="downloadAsPDF" variant="outline-danger" class="cursor-pointer ms-2 btn-icon">
+              <BButton :loading="isBuildingPdf" @click="downloadAsPDF" variant="outline-danger" class="cursor-pointer ms-2 btn-icon">
                 Lejupielādēt <IconPDF />
               </BButton>
             </BTh>
