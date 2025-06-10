@@ -110,7 +110,7 @@ export const useCropsStore = defineStore('crops', {
         const codifierStore = useCodifierStore(uuid());
         codifierStore.$patch({
           codifierTypeCodes: [Codifiers.CropTypes],
-          filterTo: 1000,
+          filterTo: 10000,
         });
         await codifierStore.fetchByFilters();
 

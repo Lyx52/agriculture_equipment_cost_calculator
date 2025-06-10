@@ -12,6 +12,7 @@ import {
   useCodifierStore,
   useCodifierStoreCache
 } from '@/stores/codifier.ts'
+import {useCropsStore} from "@/stores/crops.ts";
 export const useFarmlandStore = defineStore('farmland', {
   state(): IFarmlandStore {
       return {
@@ -45,7 +46,12 @@ export const useFarmlandStore = defineStore('farmland', {
 
     async updateFarmlandAsync(item: IFarmland) {
       this.isLoading = true;
-
+      const cropsStore = useCropsStore();
+      const cropByCode = cropsStore.getItemByCode(item.product_code ?? '');
+      if (cropByCode) {
+        item.product_code = cropByCode.code;
+        item.product_name = cropByCode.name;
+      }
       try {
         const res = await fetchBackend('POST', `${getBackendUri()}/UserFarmland/Update/${item.id}`, item);
         if (!res.ok) {
@@ -86,21 +92,8 @@ export const useFarmlandStore = defineStore('farmland', {
         const response = await fetchBackend('GET', `${getBackendUri()}/UserFarmland/Get`)
         const items = await response.json() as IFarmland[];
         this.items = items.map((i: IFarmland) => new FarmlandModel(i));
-
-        /**
-         * Load all unique codifier definitions
-         */
-        const codifierCache = useCodifierStoreCache();
-        const productCodes = uniqueBy(this.items, (item) => item.product_code);
-        await Promise.all(productCodes.map(code => codifierCache.addAsync(code)));
-
-        this.items.forEach((item) => {
-          const store = useCodifierStore(item.id);
-          store.setSelectedByCode(item.product_code);
-          console.log(`Set ${item.id} to  ${item.product_code}`);
-          item.product_name = codifierCache.getByCode(item.product_code)?.name;
-        });
-
+        const cropStore = useCropsStore();
+        await cropStore.fetchByFilters();
       } catch (e: any) {
         emitter.emit('error', e.message);
         this.items = [];

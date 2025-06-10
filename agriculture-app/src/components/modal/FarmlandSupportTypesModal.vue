@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import { BButton, BFormGroup, BModal, BFormCheckbox, BSpinner } from 'bootstrap-vue-next'
+import { BButton, BFormGroup, BModal, BFormCheckbox, BSpinner, BFormInput } from 'bootstrap-vue-next'
 import { onMounted, ref, watch } from 'vue'
 import type { IFarmlandSupportTypesModalProps } from '@/props/IFarmlandSupportTypesModalProps.ts'
 import { useAgriculturalSupportCodifierStore } from '@/stores/codifier.ts'
@@ -12,6 +12,7 @@ const props = defineProps<IFarmlandSupportTypesModalProps>();
 const model = defineModel<boolean>();
 const codifierStore = useAgriculturalSupportCodifierStore();
 const supportTypes = ref<Record<string, boolean>>({});
+
 const adjustmentStore = useAdjustmentsStore();
 const farmland = ref<FarmlandModel|undefined>(undefined);
 watch(props, (newProps) => {
@@ -73,13 +74,26 @@ onMounted(async () => {
           <BSpinner v-if="true"/>
         </div>
         <div v-else class="col">
-          <BFormGroup label="Noslodze pa gadiem" class="individual-hours-container">
+          <BFormGroup label="Atbalsta veidi" class="individual-hours-container">
             <div class="d-flex flex-row" v-for="codifier in codifierStore.items" :key="codifier.code">
               <BFormCheckbox
                 switch
                 v-model="supportTypes[codifier.code]"
               />
               <span>{{ codifier.name }} - <b>{{ codifier.value }}</b> EUR/ha</span>
+            </div>
+            <div class="d-flex flex-row gap-2" v-for="codifier in codifierStore.items" :key="codifier.code">
+              <BFormInput
+                id="inputSearchBlockNr"
+                placeholder="00000-00000"
+                trim
+              />
+              <BFormInput
+                id="inputSearchBlockNr"
+                placeholder="00000-00000"
+                trim
+                class="w-25"
+              />
             </div>
           </BFormGroup>
         </div>
