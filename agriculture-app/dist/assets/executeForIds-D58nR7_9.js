@@ -1,1 +1,0 @@
-import{eT as r,gR as f,fl as c,gS as e}from"./index-Ch47bSDW.js";async function p(a,s,t){const n=r(a),{data:o}=await f(n,c.from(s),t);return o.count}async function u(a,s,t){const n=r(a),{data:o}=await e(n,c.from(s),t);return o.objectIds}export{u as a,p as s};
