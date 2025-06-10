@@ -82,19 +82,6 @@ onMounted(async () => {
               />
               <span>{{ codifier.name }} - <b>{{ codifier.value }}</b> EUR/ha</span>
             </div>
-            <div class="d-flex flex-row gap-2" v-for="codifier in codifierStore.items" :key="codifier.code">
-              <BFormInput
-                id="inputSearchBlockNr"
-                placeholder="00000-00000"
-                trim
-              />
-              <BFormInput
-                id="inputSearchBlockNr"
-                placeholder="00000-00000"
-                trim
-                class="w-25"
-              />
-            </div>
           </BFormGroup>
         </div>
       </div>
