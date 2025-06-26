@@ -6,7 +6,7 @@ public class UserFarmland
 {
     [Key]
     public string Id { get; set; }
-   
+    public string? Title { get; set; }
     public double Area { get; set; }
     
     public string? ProductCropTypeId { get; set; }

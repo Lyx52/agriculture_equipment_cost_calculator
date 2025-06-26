@@ -3,15 +3,11 @@ import { defineStore } from 'pinia'
 import type { IFarmlandStore } from '@/stores/interface/IFarmlandStore.ts';
 import type { IFarmland } from '@/stores/interface/IFarmland.ts'
 import { CollectionEvents } from '@/stores/enums/CollectionEvents.ts'
-import { fetchBackend, getBackendUri, sum, uniqueBy } from '@/utils.ts'
+import { fetchBackend, getBackendUri, sum } from '@/utils.ts'
 import type { IDropdownOption } from '@/stores/interface/IDropdownOption.ts'
 import emitter from '@/stores/emitter.ts'
 import { CollectionTypes } from '@/stores/enums/CollectionTypes.ts'
 import { FarmlandModel } from '@/stores/model/farmlandModel.ts'
-import {
-  useCodifierStore,
-  useCodifierStoreCache
-} from '@/stores/codifier.ts'
 import {useCropsStore} from "@/stores/crops.ts";
 export const useFarmlandStore = defineStore('farmland', {
   state(): IFarmlandStore {
@@ -45,6 +41,7 @@ export const useFarmlandStore = defineStore('farmland', {
     },
 
     async updateFarmlandAsync(item: IFarmland) {
+      console.log(item);
       this.isLoading = true;
       const cropsStore = useCropsStore();
       const cropByCode = cropsStore.getItemByCode(item.product_code ?? '');

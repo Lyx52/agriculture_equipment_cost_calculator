@@ -3,4 +3,5 @@ export interface IFarmland {
   area: number;
   product_code: string|undefined;
   product_name: string|undefined;
+  title: string|undefined;
 }

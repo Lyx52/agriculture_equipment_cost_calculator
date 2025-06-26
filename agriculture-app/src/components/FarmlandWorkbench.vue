@@ -10,7 +10,8 @@
     BButtonGroup,
     BButton,
     BTfoot,
-    BSpinner
+    BSpinner,
+    BFormInput
   } from 'bootstrap-vue-next'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue';
   import FarmlandSelectionMap from '@/components/FarmlandSelectionMap.vue';
@@ -42,9 +43,10 @@
     codifierStore.setSelectedByCode(item.product_code);
   });
   const addNewFarmland = async () => {
-    const farmland = {
+    const farmland: IFarmland = {
       id: uuid(),
       area: 1,
+      title: '',
       product_code: 'crop_111',
       product_name: undefined
     };
@@ -54,6 +56,7 @@
   const onMapFarmlandSelected = async (selectedFarmland: ISelectedMapField) => {
     await farmlandStore.addFarmlandAsync({
       id: uuid(),
+      title: '',
       area: selectedFarmland.area,
       product_code: `crop_${selectedFarmland.productCode}`,
       product_name: selectedFarmland.productDescription
@@ -82,6 +85,7 @@
     <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style flex-1">
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
+          <BTh>Nosaukums</BTh>
           <BTh>Ražas veids</BTh>
           <BTh>Zemes platība, ha</BTh>
           <BTh>&nbsp;</BTh>
@@ -96,6 +100,9 @@
       </BTbody>
       <BTbody v-else>
         <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
+          <BTd class="text-center align-middle">
+            <BFormInput @change="farmlandStore.updateFarmlandAsync(row)" v-model="row.title" />
+          </BTd>
           <BTd class="text-center align-middle">
             <SimpleDropdown
               :is-loading="false"

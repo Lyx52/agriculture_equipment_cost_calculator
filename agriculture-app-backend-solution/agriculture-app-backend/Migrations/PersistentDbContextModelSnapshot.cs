@@ -365,6 +365,9 @@ namespace AgricultureAppBackend.Migrations
                     b.Property<string>("ProductCropTypeId")
                         .HasColumnType("text");
 
+                    b.Property<string>("Title")
+                        .HasColumnType("text");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");

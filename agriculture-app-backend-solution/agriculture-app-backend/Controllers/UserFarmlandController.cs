@@ -44,7 +44,8 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             Id = f.Id,
             Area = f.Area,
             ProductCode = f.ProductCropType.Code,
-            ProductName = f.ProductCropType.Name
+            ProductName = f.ProductCropType.Name,
+            Title = f.Title,
         }).ToListAsync();
         return Json(result, new JsonSerializerOptions()
         {
@@ -73,6 +74,7 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
         
         await _db.UserFarmlands.AddAsync(new UserFarmland()
         {
+            Title = request.Title,
             UserId = userId,
             Id = string.IsNullOrEmpty(request.Id) ? Guid.NewGuid().ToString() : request.Id,
             ProductCropTypeId = userCropTypeId,
@@ -108,7 +110,7 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
     }
     
     [HttpPost("Update/{farmlandId}")]
-    public async Task<IActionResult> UpdateUserEquipment([FromRoute][Required] string farmlandId, [FromBody] UserFarmlandRequest request)
+    public async Task<IActionResult> UpdateUserFarmland([FromRoute][Required] string farmlandId, [FromBody] UserFarmlandRequest request)
     {
         var userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (string.IsNullOrEmpty(userId))
@@ -130,7 +132,8 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
         
         farmland.Area = request.Area;
         farmland.ProductCropTypeId = userCropTypeId;
-
+        farmland.Title = request.Title;
+        
         _db.UserFarmlands.Update(farmland);
         await _db.SaveChangesAsync();
         
