@@ -7,8 +7,6 @@
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       PGDATA: /var/lib/postgresql/data
-    volumes:
-      - ./data:/var/lib/postgresql/data
     ports:
       - 5432:5432
   pgadmin4:

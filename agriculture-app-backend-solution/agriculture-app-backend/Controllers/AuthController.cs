@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using System.Text.Json;
 using AgricultureAppBackend.Infrastructure.Constants;
+using AgricultureAppBackend.Infrastructure.Database;
 using AgricultureAppBackend.Infrastructure.Database.Model;
 using AgricultureAppBackend.Infrastructure.Models.Request;
 using AgricultureAppBackend.Infrastructure.Models.Response;
@@ -8,12 +9,13 @@ using AgricultureAppBackend.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AgricultureAppBackend.Controllers;
 
 [ApiController]
 [Route("Auth")]
-public class AuthController(UserManager<User> _userManager, SignInManager<User> _signInManager, IJwtTokenProvider _jwtTokenProvider) : Controller
+public class AuthController(UserManager<User> _userManager, SignInManager<User> _signInManager, IJwtTokenProvider _jwtTokenProvider, PersistentDbContext _db) : Controller
 {
     [HttpGet("GetFarmInfo")]
     [Authorize]
@@ -31,7 +33,11 @@ public class AuthController(UserManager<User> _userManager, SignInManager<User> 
             return Unauthorized();
         }
 
-        var result = UserFarmInfoResponse.FromUser(user);
+        var farmlandYears = await _db.UserFarmlands
+            .Select(f => f.Year)
+            .Distinct()
+            .ToArrayAsync();
+        var result = UserFarmInfoResponse.FromUser(user, farmlandYears);
         return Json(result, new JsonSerializerOptions()
         {
             WriteIndented = true,

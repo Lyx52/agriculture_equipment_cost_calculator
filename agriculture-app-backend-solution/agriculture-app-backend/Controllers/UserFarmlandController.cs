@@ -46,6 +46,7 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             ProductCode = f.ProductCropType.Code,
             ProductName = f.ProductCropType.Name,
             Title = f.Title,
+            Year = f.Year
         }).ToListAsync();
         return Json(result, new JsonSerializerOptions()
         {
@@ -80,7 +81,8 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
             ProductCropTypeId = userCropTypeId,
             Area = request.Area,
             Operations = new List<FarmlandOperation>(),
-            Created = DateTime.UtcNow
+            Created = DateTime.UtcNow,
+            Year = request.Year
         });
         await _db.SaveChangesAsync();
         
@@ -133,6 +135,7 @@ public class UserFarmlandController(PersistentDbContext _db, ILogger<UserEquipme
         farmland.Area = request.Area;
         farmland.ProductCropTypeId = userCropTypeId;
         farmland.Title = request.Title;
+        farmland.Year = request.Year;
         
         _db.UserFarmlands.Update(farmland);
         await _db.SaveChangesAsync();

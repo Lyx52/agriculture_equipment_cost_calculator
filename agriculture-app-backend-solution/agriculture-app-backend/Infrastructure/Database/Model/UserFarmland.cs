@@ -8,7 +8,7 @@ public class UserFarmland
     public string Id { get; set; }
     public string? Title { get; set; }
     public double Area { get; set; }
-    
+    public int Year { get; set; }
     public string? ProductCropTypeId { get; set; }
     public UserCropType? ProductCropType { get; set; }
     public List<UserAdjustment> Adjustments { get; set; } = new List<UserAdjustment>();

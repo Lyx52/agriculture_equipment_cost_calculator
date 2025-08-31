@@ -9,8 +9,9 @@ public class UserFarmInfoResponse
     public double OtherExpensesPercentage { get; set; }
     public double LubricationCostsPercentage { get; set; }
     public double FuelCostPerLiter { get; set; }
+    public int[] FarmlandYears { get; set; } = [];
 
-    public static UserFarmInfoResponse FromUser(User user)
+    public static UserFarmInfoResponse FromUser(User user, int[] farmlandYears)
     {
         return new UserFarmInfoResponse()
         {
@@ -18,7 +19,8 @@ public class UserFarmInfoResponse
             FarmName = user.FarmName,
             LubricationCostsPercentage = user.LubricationCostsPercentage,
             OtherExpensesPercentage = user.OtherExpensesPercentage,
-            FuelCostPerLiter = user.FuelCostPerLiter
+            FuelCostPerLiter = user.FuelCostPerLiter,
+            FarmlandYears = farmlandYears
         };
     }
 }

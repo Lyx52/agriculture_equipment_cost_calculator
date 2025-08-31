@@ -9,6 +9,8 @@ public class UserFarmlandRequest
     public double Area { get; set; }
     [Required]
     public string ProductCode { get; set; }
+    [Required]
+    public int Year { get; set; }
     public string? ProductName { get; set; }
     public string? Title { get; set; }
 }
