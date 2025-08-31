@@ -1,36 +1,51 @@
 <script setup lang="ts">
-  import { BTableSimple, BTbody, BTd, BTh, BThead, BTr, BFormSelect, BInputGroup } from 'bootstrap-vue-next'
-  import { ref } from 'vue'
+import {BTableSimple, BTbody, BTd, BTh, BThead, BTr, BFormSelect, BInputGroup, BFormGroup} from 'bootstrap-vue-next'
+import {ref, watch} from 'vue'
   import { useOperationStore } from '@/stores/operation.ts'
   import { useOperationTypeCodifierStore } from '@/stores/codifier.ts'
   import { DisplayNumber } from '@/utils.ts'
   import CollapsableTr from '@/components/table/CollapsableTr.vue'
   import SumTd from '@/components/table/SumTd.vue'
   import type { OperationModel } from '@/stores/model/operationModel.ts'
+  import {useFarmInformationStore} from "@/stores/farmInformation.ts";
+import {useFarmlandStore} from "@/stores/farmland.ts";
 
   const operationStore = useOperationStore();
   const codifierStore = useOperationTypeCodifierStore();
+  const farmlandInfoStore = useFarmInformationStore();
+  const farmlandStore = useFarmlandStore();
   const selectedCalculatePer = ref<string>('kopā');
   const calculatePerOptions = [
     { value: 'kopā', text: 'kopā' },
     { value: 'h', text: 'stundā' },
     { value: 'ha', text: 'hektārā' },
+    { value: 'gads', text: 'gadā' },
   ];
+
+  watch(selectedCalculatePer, () => {
+    farmlandStore.yearFilter = undefined;
+  });
 </script>
 
 <template>
   <div class="container-fluid">
     <div class="row">
-      <BInputGroup prepend="Aprēķināt" class="w-fit-content">
-        <BFormSelect :options="calculatePerOptions" v-model="selectedCalculatePer" />
-      </BInputGroup>
+      <div class="col d-flex flex-row gap-2">
+        <BInputGroup prepend="Aprēķināt" class="w-fit-content">
+          <BFormSelect :options="calculatePerOptions" v-model="selectedCalculatePer" />
+        </BInputGroup>
+        <BInputGroup v-if="selectedCalculatePer === 'gads'" prepend="Filtrēt pēc gada" class="w-fit-content">
+          <BFormSelect :options="farmlandInfoStore.farmlandYearOptions" v-model="farmlandStore.yearFilter" />
+        </BInputGroup>
+      </div>
     </div>
     <div class="row">
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
         <BThead class="position-sticky top-0 bg-primary in-front">
           <BTr>
             <BTh colspan="7">
-              <h5 class="text-center fw-bold text-black">Patstāvīgo izmaksu novērtējums</h5>
+              <h5 v-if="farmlandStore.yearFilter" class="text-center fw-bold text-black">Patstāvīgo izmaksu novērtējums - {{ farmlandStore.yearFilter }} gadam</h5>
+              <h5 v-else class="text-center fw-bold text-black">Patstāvīgo izmaksu novērtējums</h5>
             </BTh>
           </BTr>
           <BTr>
@@ -77,11 +92,11 @@
           </CollapsableTr>
           <BTr>
             <BTd colspan="2" class="fw-bold text-end align-middle whitespace-nowrap">Kopā</BTd>
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.farmland?.landArea ?? 0" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.operationWorkHours" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.capitalRecoveryValue(selectedCalculatePer)" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.taxesAndInsuranceCosts(selectedCalculatePer)" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.totalOwnershipCosts(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.farmland?.landArea ?? 0" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.operationWorkHours" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.capitalRecoveryValue(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.taxesAndInsuranceCosts(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.totalOwnershipCosts(selectedCalculatePer)" />
           </BTr>
         </BTbody>
       </BTableSimple>
@@ -91,7 +106,8 @@
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
             <BTh colspan="10">
-              <h5 class="text-center fw-bold text-black">Eksplautācijas izmaksu novērtējums</h5>
+              <h5 v-if="farmlandStore.yearFilter" class="text-center fw-bold text-black">Eksplautācijas izmaksu novērtējums - {{ farmlandStore.yearFilter }} gadam</h5>
+              <h5 v-else class="text-center fw-bold text-black">Eksplautācijas izmaksu novērtējums</h5>
             </BTh>
           </BTr>
           <BTr>
@@ -153,14 +169,14 @@
           </CollapsableTr>
           <BTr>
             <BTd colspan="2" class="fw-bold text-end align-middle">Kopā</BTd>
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.farmland?.landArea ?? 0" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.operationWorkHours" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.depreciationValue(selectedCalculatePer)" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.totalFuelCosts(selectedCalculatePer)" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.lubricationCosts(selectedCalculatePer)" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.accumulatedRepairCosts(selectedCalculatePer)" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.equipmentOperatorWageCosts(selectedCalculatePer)" />
-            <SumTd class="fw-bold" :items="operationStore.items" :get-prop="(item: OperationModel) => item.totalOperatingCosts(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.farmland?.landArea ?? 0" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.operationWorkHours" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.depreciationValue(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.totalFuelCosts(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.lubricationCosts(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.accumulatedRepairCosts(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.equipmentOperatorWageCosts(selectedCalculatePer)" />
+            <SumTd class="fw-bold" :items="operationStore.filteredItems" :get-prop="(item: OperationModel) => item.totalOperatingCosts(selectedCalculatePer)" />
           </BTr>
         </BTbody>
       </BTableSimple>

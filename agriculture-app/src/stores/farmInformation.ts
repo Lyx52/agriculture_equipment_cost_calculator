@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 import type { IFarmInformationStore } from '@/stores/interface/IFarmInformationStore.ts'
 import { fetchBackend, getBackendUri } from '@/utils.ts'
 import emitter from '@/stores/emitter.ts'
+import type {IDropdownOption} from "@/stores/interface/IDropdownOption.ts";
+import type {IOption} from "@/stores/interface/IOption.ts";
 
 export const useFarmInformationStore = defineStore('farmInformation', {
   state(): IFarmInformationStore {
@@ -13,6 +15,7 @@ export const useFarmInformationStore = defineStore('farmInformation', {
         fuel_cost_per_liter: 0.8,
         farm_name: '',
         isLoading: false,
+        farmland_years: []
       }
   },
   actions: {
@@ -60,6 +63,11 @@ export const useFarmInformationStore = defineStore('farmInformation', {
     },
   },
   getters: {
-
+    farmlandYearOptions(state: IFarmInformationStore): IOption<number> {
+      return state.farmland_years.map(y => ({
+        value: y,
+        text: y.toString()
+      } as IOption<number>))
+    }
   }
 });

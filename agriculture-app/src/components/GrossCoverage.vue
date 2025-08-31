@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BButton, BTableSimple, BTbody, BTd, BTh, BThead, BTr } from 'bootstrap-vue-next'
+import {BButton, BFormSelect, BInputGroup, BTableSimple, BTbody, BTd, BTh, BThead, BTr} from 'bootstrap-vue-next'
 import { useFarmlandStore } from '@/stores/farmland.ts'
 import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
 import { computed, ref } from 'vue'
@@ -11,7 +11,9 @@ import IconSpreadsheet from '@/components/icons/IconSpreadsheet.vue'
 import IconPDF from '@/components/icons/IconPDF.vue'
 import { buildXlsxReport } from '@/exports/xlsx.ts'
 import { buildPdfReport } from '@/exports/pdf.ts'
+import {useFarmInformationStore} from "@/stores/farmInformation.ts";
 const farmlandStore = useFarmlandStore();
+const farmlandInfoStore = useFarmInformationStore();
 const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
 const hasSelectedFilter = computed(() => !!selectedFarmland.value);
 const isBuildingPdf = ref(false);
@@ -245,6 +247,11 @@ const downloadAsPDF = async () => {
       </BTableSimple>
     </div>
     <div class="row" v-else>
+      <div class="col d-flex flex-row gap-2">
+        <BInputGroup prepend="Filtrēt pēc gada" class="w-fit-content">
+          <BFormSelect :options="farmlandInfoStore.farmlandYearOptions" v-model="farmlandStore.yearFilter" />
+        </BInputGroup>
+      </div>
       <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style">
         <BThead class="position-sticky top-0 bg-primary in-front" >
           <BTr>
@@ -265,14 +272,14 @@ const downloadAsPDF = async () => {
           </BTr>
         </BThead>
         <BTbody>
-          <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
+          <BTr v-for="row in farmlandStore.filteredItems" v-bind:key="row.id">
             <BTd>
               <BButton @click="() => selectedFarmland = row"  variant="outline-secondary" class="cursor-pointer btn-row">
                 Detalizēti <IconArrowDownRightSquare />
               </BButton>
             </BTd>
             <BTd class="text-start align-middle">
-              {{ `${row?.product_name ?? 'Lauks'} (${(row?.area ?? 0).toFixed(2)} ha)` }}
+              {{ row.displayName }}
             </BTd>
             <BTd class="text-start align-middle">
               {{ DisplayNumber(row.landArea) }}
@@ -298,13 +305,13 @@ const downloadAsPDF = async () => {
           </BTr>
           <BTr class="fw-bold">
             <BTd class="text-end user-select-none vertical-align-middle" colspan="2">Kopā</BTd>
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.landArea" />
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.earningsPerHectare" />
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.totalAgriculturalSupportAdjustmentsPerHectare" />
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.materialCostsPerHectare" />
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.totalOperatingCostsPerHectare" />
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.grossCoveragePerHectare" />
-            <SumTd class="fw-bold" :items="farmlandStore.items" :get-prop="(item: FarmlandModel) => item.grossCoverage" />
+            <SumTd class="fw-bold" :items="farmlandStore.filteredItems" :get-prop="(item: FarmlandModel) => item.landArea" />
+            <SumTd class="fw-bold" :items="farmlandStore.filteredItems" :get-prop="(item: FarmlandModel) => item.earningsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.filteredItems" :get-prop="(item: FarmlandModel) => item.totalAgriculturalSupportAdjustmentsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.filteredItems" :get-prop="(item: FarmlandModel) => item.materialCostsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.filteredItems" :get-prop="(item: FarmlandModel) => item.totalOperatingCostsPerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.filteredItems" :get-prop="(item: FarmlandModel) => item.grossCoveragePerHectare" />
+            <SumTd class="fw-bold" :items="farmlandStore.filteredItems" :get-prop="(item: FarmlandModel) => item.grossCoverage" />
           </BTr>
         </BTbody>
       </BTableSimple>

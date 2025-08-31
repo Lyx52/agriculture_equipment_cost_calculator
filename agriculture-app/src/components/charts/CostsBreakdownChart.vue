@@ -1,43 +1,3 @@
-<template>
-  <div class="d-flex flex-column max-h-75vh">
-    <div class="d-flex flex-row graph-header mb-3">
-      <BButton class="ms-3" v-if="selectedGraphType !== 'total'" @click="prevGraph">
-        <IconArrowLeft /> Atpakaļ
-      </BButton>
-      <BInputGroup prepend="Aprēķināt" class="w-50 ms-auto">
-        <BFormSelect :options="calculatePerOptions" v-model="selectedCalculatePer" />
-      </BInputGroup>
-    </div>
-    <div class="d-flex">
-      <h5 class="ms-4 text-center w-fit-content">{{ graphTitle }}</h5>
-      <BPopover placement="left">
-        <template #default>Uzspiežot uz stabiņa redz detalizētu informāciju</template>
-        <template #target>
-          <BBadge class="ms-auto my-auto p-1">
-            <IconInfo />
-          </BBadge>
-        </template>
-      </BPopover>
-    </div>
-    <Bar
-      :options="options"
-      :data="data"
-    />
-  </div>
-</template>
-
-<style lang="scss">
-.graph-header {
-  height: 50px;
-}
-.max-h-75vh {
-  max-height: 75vh;
-}
-.w-fit-content {
-  width: fit-content;
-}
-</style>
-
 <script setup lang="ts">
 import { Bar } from 'vue-chartjs'
 import {
@@ -63,7 +23,12 @@ import { BFormSelect, BInputGroup, BButton, BBadge, BPopover } from 'bootstrap-v
 import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import IconInfo from '@/components/icons/IconInfo.vue'
 import { ChartConstants } from '@/constants/ChartConstants.ts'
+import {useFarmlandStore} from "@/stores/farmland.ts";
+import {useFarmInformationStore} from "@/stores/farmInformation.ts";
 Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+
+const operationStore = useOperationStore();
+const prefetchStore = usePrefetchStore();
 
 const selectedCalculatePer = ref<string>('ha');
 const selectedCostType = ref<number>(-1);
@@ -76,8 +41,8 @@ const calculatePerOptions = [
   { value: 'ha', text: 'hektārā' },
 ];
 
-const operationStore = useOperationStore();
-const prefetchStore = usePrefetchStore();
+
+
 const labels = [
   "Amortizācija, EUR/ha",
   "Darbaspēka izmaksas, EUR/ha",
@@ -276,3 +241,44 @@ const options: ChartOptions<'bar'> = {
 
 
 </script>
+
+
+<template>
+  <div class="d-flex flex-column max-h-75vh">
+    <div class="d-flex flex-row graph-header mb-3">
+      <BButton class="ms-3" v-if="selectedGraphType !== 'total'" @click="prevGraph">
+        <IconArrowLeft /> Atpakaļ
+      </BButton>
+      <BInputGroup prepend="Aprēķināt" class="w-50 ms-auto">
+        <BFormSelect :options="calculatePerOptions" v-model="selectedCalculatePer" />
+      </BInputGroup>
+    </div>
+    <div class="d-flex">
+      <h5 class="ms-4 text-center w-fit-content">{{ graphTitle }}</h5>
+      <BPopover placement="left">
+        <template #default>Uzspiežot uz stabiņa redz detalizētu informāciju</template>
+        <template #target>
+          <BBadge class="ms-auto my-auto p-1">
+            <IconInfo />
+          </BBadge>
+        </template>
+      </BPopover>
+    </div>
+    <Bar
+      :options="options"
+      :data="data"
+    />
+  </div>
+</template>
+
+<style lang="scss">
+.graph-header {
+  height: 50px;
+}
+.max-h-75vh {
+  max-height: 75vh;
+}
+.w-fit-content {
+  width: fit-content;
+}
+</style>

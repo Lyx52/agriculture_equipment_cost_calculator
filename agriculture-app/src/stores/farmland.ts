@@ -14,7 +14,8 @@ export const useFarmlandStore = defineStore('farmland', {
       return {
         items: [] as FarmlandModel[],
         showMapModal: false,
-        isLoading: false
+        isLoading: false,
+        yearFilter: undefined,
       }
   },
   actions: {
@@ -41,7 +42,6 @@ export const useFarmlandStore = defineStore('farmland', {
     },
 
     async updateFarmlandAsync(item: IFarmland) {
-      console.log(item);
       this.isLoading = true;
       const cropsStore = useCropsStore();
       const cropByCode = cropsStore.getItemByCode(item.product_code ?? '');
@@ -89,6 +89,7 @@ export const useFarmlandStore = defineStore('farmland', {
         const response = await fetchBackend('GET', `${getBackendUri()}/UserFarmland/Get`)
         const items = await response.json() as IFarmland[];
         this.items = items.map((i: IFarmland) => new FarmlandModel(i));
+        this.yearFilter = undefined;
         const cropStore = useCropsStore();
         await cropStore.fetchByFilters();
       } catch (e: any) {
@@ -123,5 +124,14 @@ export const useFarmlandStore = defineStore('farmland', {
     totalFarmlandArea(state: IFarmlandStore) {
       return sum(state.items.map(l => l.area));
     },
+    filteredItems(state: IFarmlandStore): FarmlandModel[] {
+      let items = state.items;
+
+      if (state.yearFilter) {
+        items = items.filter(f => f.year === state.yearFilter);
+      }
+
+      return items;
+    }
   }
 })

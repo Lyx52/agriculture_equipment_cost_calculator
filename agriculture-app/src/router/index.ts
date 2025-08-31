@@ -47,6 +47,7 @@ const router = createRouter({
       meta: {
         authorized: true,
         prefetch: [
+          Prefetch.UserFarmInfo,
           Prefetch.FetchAllIndicators,
           Prefetch.UserFarmlands,
           Prefetch.UserOperations,

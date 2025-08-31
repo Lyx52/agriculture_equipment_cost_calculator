@@ -127,11 +127,26 @@ export const useOperationStore = defineStore('operation', {
       if (state.filteredFarmlandOperationCode) {
         filteredItems = filteredItems.filter(o => o?.operation_code == state.filteredFarmlandOperationCode);
       }
+      const farmlandStore = useFarmlandStore();
+
+      if (farmlandStore.yearFilter) {
+        filteredItems = filteredItems.filter(o => o.farmland?.year === farmlandStore.yearFilter)
+      }
+
       return filteredItems;
     },
+
     groupedByOperationCode(state: IOperationStore): Record<string, OperationModel[]> {
-      return groupedBy(state.items, (item) => item?.operation_code)
+      let items = state.items;
+      const farmlandStore = useFarmlandStore();
+
+      if (farmlandStore.yearFilter) {
+        items = items.filter(o => o.farmland?.year === farmlandStore.yearFilter)
+      }
+
+      return groupedBy(items, (item) => item?.operation_code)
     },
+
     filteredFarmland(state: IOperationStore): FarmlandModel|undefined {
       if (!state.filteredFarmlandId) return undefined;
       const farmlandStore = useFarmlandStore();

@@ -11,7 +11,9 @@
     BButton,
     BTfoot,
     BSpinner,
-    BFormInput
+    BFormInput,
+    BFormGroup,
+    BFormSelect
   } from 'bootstrap-vue-next'
   import BNumericFormInput from '@/components/elements/BNumericFormInput.vue';
   import FarmlandSelectionMap from '@/components/FarmlandSelectionMap.vue';
@@ -32,23 +34,30 @@
   import type { FarmlandModel } from '@/stores/model/farmlandModel.ts'
   import CostIcon from '@/components/icons/CostIcon.vue'
   import { useAdjustmentsStore } from '@/stores/adjustments.ts'
+  import IconX from "@/components/icons/IconX.vue";
+  import {useFarmInformationStore} from "@/stores/farmInformation.ts";
   const farmlandStore = useFarmlandStore();
   const operationStore = useOperationStore();
   const cropStore = useCropsStore();
   const adjustmentStore = useAdjustmentsStore();
+  const farmlandInfoStore = useFarmInformationStore();
+
   const selectedFarmland = ref<FarmlandModel|undefined>(undefined);
   const showFarmlandSupportTypesModal = ref<boolean>(false);
+
   emitter.on(farmlandStore.getEmitterEvent(CollectionEvents.ItemAdded), (item: IFarmland) => {
     const codifierStore = useCodifierStore(item.id);
     codifierStore.setSelectedByCode(item.product_code);
   });
+
   const addNewFarmland = async () => {
     const farmland: IFarmland = {
       id: uuid(),
       area: 1,
       title: '',
       product_code: 'crop_111',
-      product_name: undefined
+      product_name: undefined,
+      year: (new Date()).getFullYear()
     };
     await farmlandStore.addFarmlandAsync(farmland);
   }
@@ -59,7 +68,8 @@
       title: '',
       area: selectedFarmland.area,
       product_code: `crop_${selectedFarmland.productCode}`,
-      product_name: selectedFarmland.productDescription
+      product_name: selectedFarmland.productDescription,
+      year: (new Date()).getFullYear()
     });
   }
 
@@ -72,19 +82,38 @@
     showFarmlandOperations.value = true;
     await operationStore.fetchByFilters();
   }
+
   const onOpenFarmlandSupportTypes = async (farmland: FarmlandModel) => {
     await adjustmentStore.fetchByFilters();
     selectedFarmland.value = farmland;
     showFarmlandSupportTypesModal.value = true;
   }
+
+  const hasFilters = (): boolean => {
+    return !!farmlandStore.yearFilter;
+  }
+
+  const resetFilters = () => {
+    farmlandStore.yearFilter = undefined;
+  }
+
 </script>
 
 <template>
   <div class="d-flex flex-column flex-1">
     <h4 class="card-title">Saimiecības lauki - zemes platības (Kopējā platība {{ farmlandStore.totalFarmlandArea.toFixed(2) }} ha)</h4>
+    <div class="d-flex flex-row gap-3">
+      <BFormGroup label="Filtrēt pēc gada">
+        <BFormSelect :options="farmlandInfoStore.farmlandYearOptions" v-model="farmlandStore.yearFilter" />
+      </BFormGroup>
+      <BButton variant="danger" class="mt-auto ms-auto" v-if="hasFilters()" @click="resetFilters()">
+        Atiestatīt filtrus <IconX />
+      </BButton>
+    </div>
     <BTableSimple hover no-border-collapse outlined responsive caption-top class="w-100 mb-0 overflow-y-auto common-table-style flex-1">
       <BThead head-variant="dark" class="position-sticky top-0 in-front">
         <BTr>
+          <BTh>Gads</BTh>
           <BTh>Nosaukums</BTh>
           <BTh>Ražas veids</BTh>
           <BTh>Zemes platība, ha</BTh>
@@ -99,7 +128,10 @@
         </BTr>
       </BTbody>
       <BTbody v-else>
-        <BTr v-for="row in farmlandStore.items" v-bind:key="row.id">
+        <BTr v-for="row in farmlandStore.filteredItems" v-bind:key="row.id">
+          <BTd class="text-center align-middle">
+            <BNumericFormInput :min="1900" :max="2100" :decimal-places="0" @change="farmlandStore.updateFarmlandAsync(row)" v-model="row.year" />
+          </BTd>
           <BTd class="text-center align-middle">
             <BFormInput @change="farmlandStore.updateFarmlandAsync(row)" v-model="row.title" />
           </BTd>

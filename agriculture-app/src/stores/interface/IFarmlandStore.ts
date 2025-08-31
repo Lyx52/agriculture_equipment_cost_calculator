@@ -4,4 +4,5 @@ export interface IFarmlandStore {
   items: FarmlandModel[];
   showMapModal: boolean;
   isLoading: boolean;
+  yearFilter: number|undefined;
 }

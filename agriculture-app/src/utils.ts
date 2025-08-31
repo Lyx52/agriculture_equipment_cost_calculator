@@ -108,8 +108,8 @@ export const dateToString = (date: Date) => date.toISOString().slice(0, 10);
 export const currentYear = () => new Date().getFullYear();
 
 export const getBackendUri = () => {
-  return import.meta.env.DEV ? '' : 'https://backend.ikarslab.id.lv';
-  //return import.meta.env.DEV ? 'http://localhost:6969' : 'https://backend.ikarslab.id.lv';
+  //return import.meta.env.DEV ? '' : 'https://backend.ikarslab.id.lv';
+  return import.meta.env.DEV ? 'http://localhost:6969' : 'https://backend.ikarslab.id.lv';
 }
 export type FetchMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 export const fetchBackend = async (method: FetchMethod, url: string, body: any|undefined = undefined) => {

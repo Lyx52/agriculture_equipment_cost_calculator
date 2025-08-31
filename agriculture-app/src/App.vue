@@ -38,7 +38,6 @@ router.beforeEach((to, from, next) => {
     if (to.meta?.prefetch) {
       const prefetch = to.meta?.prefetch ?? [];
       prefetchStore.executePrefetch(prefetch as Prefetch[]);
-      console.log(to.meta?.prefetch)
     }
 
     next();

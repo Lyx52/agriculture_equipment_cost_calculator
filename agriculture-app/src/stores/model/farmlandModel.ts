@@ -14,12 +14,16 @@ export class FarmlandModel implements IFarmland {
   product_code: string|undefined;
   product_name: string|undefined;
   title: string|undefined;
+  year: number|undefined;
+
   constructor(farmland: IFarmland) {
     this.id = farmland.id;
     this.area = farmland.area;
     this.product_code = farmland.product_code;
     this.product_name = farmland.product_name;
     this.title = farmland.title ?? '';
+    this.year = farmland.year;
+
     if (!this.product_code) {
       console.log(`Getting product type ${this.product_code}`);
       const codifierCache = useCodifierStoreCache();
@@ -27,7 +31,7 @@ export class FarmlandModel implements IFarmland {
     }
   }
   get displayName(): string {
-    return `${this.title?.length ? this.title + ' ' : ''}${this.product_name ?? 'Lauks'} (${(this.area ?? 0).toFixed(2)} ha)`;
+    return `${this.title?.length ? this.title + ' ' : ''}${this.product_name ?? 'Lauks'} (${(this.area ?? 0).toFixed(2)} ha, ${this.year})`;
   }
 
   get landArea(): number {

@@ -5,4 +5,5 @@ export interface IFarmInformationStore {
   lubrication_costs_percentage: number;
   other_expenses_percentage: number;
   isLoading: boolean;
+  farmland_years: number[];
 }

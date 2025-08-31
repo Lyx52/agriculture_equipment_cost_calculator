@@ -7,14 +7,20 @@ import EquipmentExpensesByField from '@/components/EquipmentExpensesByField.vue'
 import GrossCoverage from '@/components/GrossCoverage.vue'
 import CardContainer from '@/components/elements/CardContainer.vue'
 import { usePrefetchStore } from '@/stores/prefetch.ts'
+import {useFarmlandStore} from "@/stores/farmland.ts";
 const prefetchStore = usePrefetchStore();
+
+const farmlandStore = useFarmlandStore();
+const onTabChange = () => {
+  farmlandStore.yearFilter = undefined;
+}
 
 </script>
 
 <template>
   <CardContainer>
     <BSpinner v-if="prefetchStore.isLoading" class="m-auto" />
-    <BTabs v-else content-class="mt-3" fill>
+    <BTabs v-else content-class="mt-3" fill @activate-tab="onTabChange">
       <BTab title="Izmaksas aprēķins pēc apstrādes operācijām" active>
         <EquipmentExpensesByOperation />
       </BTab>

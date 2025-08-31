@@ -4,4 +4,5 @@ export interface IFarmland {
   product_code: string|undefined;
   product_name: string|undefined;
   title: string|undefined;
+  year: number|undefined;
 }
