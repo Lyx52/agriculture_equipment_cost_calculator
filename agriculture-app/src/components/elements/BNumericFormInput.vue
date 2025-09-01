@@ -14,12 +14,12 @@
       return Number(0).toFixed(getDecimalPlaces())
     }
 
-    const clampTo = (value: number|undefined, min: number|undefined, max: number|undefined) => {
-      return Math.min(Math.max(value, min ?? Number.MIN_SAFE_INTEGER), max ?? Number.MAX_SAFE_INTEGER);
+    const clampTo = (value: number|undefined, min: number|undefined, max: number|undefined): number|undefined => {
+      return value ? Math.min(Math.max(value, min ?? Number.MIN_SAFE_INTEGER), max ?? Number.MAX_SAFE_INTEGER) : undefined;
     }
 
-    const roundTo = (value: number|undefined, decimalPlaces: number|undefined): number => {
-      return Math.fround(value * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces)
+    const roundTo = (value: number|undefined, decimalPlaces: number): number|undefined => {
+      return value ? Math.fround(value * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces) : undefined;
     }
 
     const inputValue = ref<string>(model.value?.toFixed(getDecimalPlaces()) ?? props.defaultValue?.toString() ?? getDefaultInputValue());
@@ -32,7 +32,7 @@
     const onValueChange = () => {
         const value = clampTo(Number(inputValue.value), props.min, props.max);
         inputValue.value = value?.toFixed(getDecimalPlaces()) ?? props.defaultValue?.toString() ?? getDefaultInputValue();
-        model.value = isNaN(value) ? 0 : roundTo(value, getDecimalPlaces());
+        model.value = isNaN(value ?? Number.NaN) ? 0 : roundTo(value, getDecimalPlaces());
         emits("changed", model.value);
     }
 </script>
@@ -42,7 +42,7 @@
         type="number"
         v-model="inputValue"
         :min="props.min ?? getDefaultInputValue()"
-        :max="props.max ?? null"
+        :max="props.max ?? Number.MAX_SAFE_INTEGER"
         @change="onValueChange"
     >
     </BFormInput>

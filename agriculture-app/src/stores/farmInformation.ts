@@ -63,7 +63,7 @@ export const useFarmInformationStore = defineStore('farmInformation', {
     },
   },
   getters: {
-    farmlandYearOptions(state: IFarmInformationStore): IOption<number> {
+    farmlandYearOptions(state: IFarmInformationStore): unknown[] {
       return state.farmland_years.map(y => ({
         value: y,
         text: y.toString()
